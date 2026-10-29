@@ -1,0 +1,126 @@
+{
+ "params": {
+  "lug_t": 1.4,
+  "overlap": 0.6,
+  "material": "paht-cf",
+  "sf": 2.0,
+  "wall_bearing": false,
+  "h": 0.8,
+  "h_adapter": 0.55,
+  "prox": "bridge",
+  "out": "/tmp/p14/B1.4_O0.6"
+ },
+ "geometry": {
+  "lug": [
+   26.8,
+   28.2
+  ],
+  "slot": [
+   26.5,
+   28.5
+  ],
+  "tip": 25.9,
+  "overlap": 0.6,
+  "lug_t": 1.4,
+  "stroke_needed_mm": 3.0,
+  "prox": "bridge"
+ },
+ "rows": [
+  {
+   "part": "adapter",
+   "case": "adapter",
+   "dir": "XZ45",
+   "PLA_fail_N": 3.76,
+   "fail_N": 5.7,
+   "rating_N": 2.85
+  },
+  {
+   "part": "adapter",
+   "case": "adapter",
+   "dir": "XZ90",
+   "PLA_fail_N": 2.8,
+   "fail_N": 4.25,
+   "rating_N": 2.12
+  },
+  {
+   "part": "adapter",
+   "case": "adapter",
+   "dir": "YZ45",
+   "PLA_fail_N": 4.87,
+   "fail_N": 7.39,
+   "rating_N": 3.7
+  },
+  {
+   "part": "adapter",
+   "case": "adapter",
+   "dir": "YZ90",
+   "PLA_fail_N": 4.07,
+   "fail_N": 6.18,
+   "rating_N": 3.09
+  },
+  {
+   "part": "adapter",
+   "case": "adapter",
+   "dir": "Z",
+   "PLA_fail_N": 22.21,
+   "fail_N": 33.68,
+   "rating_N": 16.84
+  },
+  {
+   "part": "receiver",
+   "case": "centered",
+   "dir": "XZ45",
+   "PLA_fail_N": 22.46,
+   "fail_N": 34.05,
+   "rating_N": 17.03
+  },
+  {
+   "part": "receiver",
+   "case": "centered",
+   "dir": "XZ90",
+   "PLA_fail_N": 20.58,
+   "fail_N": 31.2,
+   "rating_N": 15.6
+  },
+  {
+   "part": "receiver",
+   "case": "centered",
+   "dir": "YZ45",
+   "PLA_fail_N": 23.33,
+   "fail_N": 35.37,
+   "rating_N": 17.69
+  },
+  {
+   "part": "receiver",
+   "case": "centered",
+   "dir": "YZ90",
+   "PLA_fail_N": 19.74,
+   "fail_N": 29.93,
+   "rating_N": 14.97
+  },
+  {
+   "part": "receiver",
+   "case": "centered",
+   "dir": "Z",
+   "PLA_fail_N": 39.03,
+   "fail_N": 59.17,
+   "rating_N": 29.59
+  },
+  {
+   "part": "receiver",
+   "case": "distal_ineffective",
+   "dir": "Z",
+   "PLA_fail_N": 24.22,
+   "fail_N": 36.73,
+   "rating_N": 18.36
+  }
+ ],
+ "rating_distal_engaged": {
+  "XZ45": 2.85,
+  "XZ90": 2.12,
+  "YZ45": 3.7,
+  "YZ90": 3.09,
+  "Z": 16.84
+ },
+ "rating_straight_distal_lost": 16.84
+}

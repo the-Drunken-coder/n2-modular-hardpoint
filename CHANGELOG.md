@@ -1,5 +1,11 @@
 # Changelog
 
+## P14 — 2026-10-29
+- **Proximal roof bridged** on both sides of the keeper channel (to X 31.7); keeper link moved past it; keeper underside flat at Z 7.2; stem slot ±1.0 so the armature button bears. Lug 1.4 / overlap 0.6 / 3 mm stroke unchanged.
+- PAHT-CF straight pull, worst credible engagement (distal lost): **33.68 N, adapter governs** (receiver 36.73 N, keeper ≥ 57.4 N). 1.89× the 17.8 N requirement; rating 16.8 N at SF 2 (was 9.1 N). Losing the distal overlap no longer reduces capacity (R5d).
+- **No supports** on any printed part in the supplied orientations (`tools/overhang.py`, new). Receiver base to bed, keeper flat, adapter flange down, clamp top down.
+- R5c back-drive passes on analysis; R5e needs return-spring preload ≥ 0.26 N (measure it). See [docs/p14.md](docs/p14.md).
+
 ## Requirements: R1 → 1 lb — 2026-10-29
 - R1 changed to 0.454 kg (1 lb, provisional). Design load 8.9 N, SF 2 minimum failure 17.8 N, proof test 17.8 N. P13 PAHT-CF (18.33 N, distal-lost governing case) now passes R4 marginally (+3%, inside mesh scatter); the proof test decides.
 

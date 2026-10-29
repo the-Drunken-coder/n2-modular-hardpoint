@@ -12,7 +12,26 @@ Set by Lane, 2026-10-29. Priorities, in order: **reliability (no accidental drop
 | R6 | Simple: **one moving part and one actuator** if possible. | Design review / BOM |
 | R7 | Manufacture: printed parts must print on a common FDM printer in a common engineering material (for example PAHT-CF), with **no critical supports on load-bearing or sliding faces**. Hardware must be **off-the-shelf** only. | Slicer review / BOM |
 
-## Compliance: current P13 design (PAHT-CF, SF 2)
+## Compliance: P14 design (PAHT-CF, SF 2)
+
+Details and assumptions: [p14.md](p14.md).
+
+| # | Status | Basis |
+|---|---|---|
+| R1–R3 | n/a | Inputs. |
+| R4 | **PASS (paper)** | Worst credible engagement (distal roof lost) **33.68 N**, adapter governs: 1.89× the required 17.8 N. Receiver distal-lost 36.73 N, keeper ≥ 57.4 N. Linear FEA screen, ~7% mesh scatter. Proof test and Z coupon test not done. |
+| R5a | **Likely PASS, untested** | Spring-returned keeper; the solenoid only unlocks while energised. Spring force not measured. |
+| R5b | **Likely PASS, untested** | Same basis. |
+| R5c | **PASS (analysis)**, untested | Contact tilt under 8.9 N ≤ 4.5° (conservative) vs friction angle 11.3° at μ 0.2. Back-drive test still required. |
+| R5d | **PASS (analysis)** | The bridged proximal roof makes the distal-lost receiver (36.73 N) stronger than the adapter (33.68 N), so losing the 0.6 mm overlap does not reduce capacity. |
+| R5e | **CONDITIONAL** | Needs return-spring preload ≥ 0.26 N (target 0.52 N, SF 2) for 2 g on ≤ 13.1 g moving mass. Preload unmeasured; vibration test required. |
+| R6 | **PASS** | One moving printed part (keeper), one actuator (Adafruit 2776). |
+| R7 | **PASS (geometry)**; hardware PASS | `tools/overhang.py`: zero support area on all four printed parts in their supplied orientations; receiver roofs are ~3 mm bridges, keeper prints flat. Slicer check and PAHT-CF print of the 1.4 mm lug outstanding. |
+
+**Gaps to close:** proof test, Z coupon test, back-drive test, spring preload measurement, vibration test, slicer review.
+
+## Previous: P13 compliance
+
 
 | # | Status | Basis |
 |---|---|---|
