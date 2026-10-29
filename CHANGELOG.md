@@ -1,5 +1,8 @@
 # Changelog
 
+## Print requirements — 2026-10-29
+- Added [docs/print-requirements.md](docs/print-requirements.md): dried PLA Basic, 100% solid, supplied orientations. The rating assumes these. Receiver roof and adapter floor tension crosses the layers (open issue). Test plan now requires a print record and has an optional Z coupon test.
+
 ## P13 expanded sims — 2026-10-29
 - Re-ran all 12 archived cases on P13 geometry (receiver, adapter, keeper). Governing case unchanged: receiver distal_ineffective, **12.09 N → 4.0 N rating holds** for straight pull.
 - Off-axis 15/30/45/90° in XZ and YZ: **adapter floor governs off-axis** (pessimistic model: 8.0 / 4.6 / 3.4 / 2.6 N failure). Rating not valid for angled/side loads.
