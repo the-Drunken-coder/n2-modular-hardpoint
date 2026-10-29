@@ -1,0 +1,171 @@
+{
+  "id": "N2_adapter",
+  "variant": "N2",
+  "case": "distal_ineffective__YZ-30",
+  "h_mm": 0.55,
+  "elements": 8479,
+  "dofs": 44742,
+  "quadratic_nodes": 14914,
+  "element": "P2 displacement tetrahedra; faceted linear boundary geometry",
+  "elapsed_s": 210.2800223827362,
+  "material": {
+    "name": "Common effective solid printed PLA",
+    "elastic_model": "isotropic linear elastic",
+    "E_MPa": 2200.0,
+    "nu": 0.35,
+    "density_g_cm3": 1.24,
+    "tension_MPa": 25.0,
+    "compression_MPa": 40.0,
+    "max_shear_MPa": 15.0,
+    "nominal_temperature_C": 22,
+    "infill_assumption": "100 percent / solid-equivalent, no sparse infill",
+    "interpretation": "Effective common comparison assumptions, not measured allowables or a validated fracture law. No directional strength credit; layer adhesion and defects are homogenized. Short-duration static loading only.",
+    "reference": "Bambu PLA Basic TDS V3.0 gives typical XY/Z E 2580/2060 MPa and tensile strength 35/31 MPa for 100 percent infill, annealed/dried coupons. The chosen 25 MPa tension threshold is an analyst assumption, not a supplier rating.",
+    "reference_url": "https://cdn.shopify.com/s/files/1/0645/5876/0155/files/Bambu_PLA_Basic_Technical_Data_Sheet.pdf"
+  },
+  "applied_force_N": [
+    0.0,
+    0.5,
+    -0.8660254037844384
+  ],
+  "applied_moment_Nmm": [
+    -12.110254037844383,
+    23.81569860407206,
+    13.749999999999991
+  ],
+  "reaction_force_N": [
+    -1.2232716358959173e-11,
+    -0.5000000000089939,
+    0.8660254037787386
+  ],
+  "reaction_moment_Nmm": [
+    12.110254037969561,
+    -23.815698604163323,
+    -13.750000000101473
+  ],
+  "force_balance_error_N": 1.621780845313846e-11,
+  "moment_balance_error_Nmm": 1.8519400521765426e-10,
+  "gauge_reaction_norm_N": 0.0,
+  "relative_free_residual": 7.644056514464518e-10,
+  "max_displacement_mm": 0.00900325082338778,
+  "compliance_Nmm": 0.005210227252014511,
+  "strain_energy_Nmm": 0.002605113626006085,
+  "cad_volume_mm3": 519.5371368408537,
+  "mesh_volume_mm3": 520.1324115209704,
+  "relative_volume_error": 0.001145778882596149,
+  "raw_peak_tensile_MPa": 3.6942141726858546,
+  "raw_peak_compressive_MPa": 2.344242242804703,
+  "raw_peak_max_shear_MPa": 1.5596887227904168,
+  "raw_peak_vm_MPa": 2.9214056480884567,
+  "raw_peak_failure_index": 0.14776856690743417,
+  "raw_strength_threshold_N": 6.767339096050274,
+  "raw_peak_element_centroid_mm": [
+    27.082664402872556,
+    7.639515321444924,
+    7.038038265611798
+  ],
+  "regularized": {
+    "0.4": {
+      "radius_mm": 0.4,
+      "maximum_index": 0.0494841312628834,
+      "estimated_strength_threshold_N": 20.20849865358899,
+      "location_mm": [
+        27.74207906202201,
+        7.620768261787214,
+        7.1908406130129245
+      ],
+      "tensile_MPa": 1.237103281572085,
+      "compressive_MPa": 0.0,
+      "max_shear_MPa": 0.5826799462990387,
+      "interpretation": "Volume-weighted tensor average within centroid radius; explicit uncalibrated regularization sensitivity, not demonstrated fracture capacity"
+    },
+    "0.8": {
+      "radius_mm": 0.8,
+      "maximum_index": 0.032135995198561494,
+      "estimated_strength_threshold_N": 31.11775421365395,
+      "location_mm": [
+        27.244587055809635,
+        7.6358038668463,
+        7.432783971541366
+      ],
+      "tensile_MPa": 0.8033998799640374,
+      "compressive_MPa": 0.0,
+      "max_shear_MPa": 0.39006841399272146,
+      "interpretation": "Volume-weighted tensor average within centroid radius; explicit uncalibrated regularization sensitivity, not demonstrated fracture capacity"
+    }
+  },
+  "boundary_audit": [
+    {
+      "label": "Keeper underside: downward on adapter floor",
+      "selector": {
+        "normal_axis": 2,
+        "z": 6.9,
+        "x_range": [
+          26.8,
+          28.2
+        ],
+        "y_range": [
+          8.5,
+          11.5
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 4.200000000000019,
+      "geometric_centroid_mm": [
+        27.499999999999975,
+        9.999999999999984,
+        6.899999999999999
+      ],
+      "force_N": [
+        0.0,
+        0.5,
+        -0.8660254037844384
+      ],
+      "moment_Nmm": [
+        -12.110254037844383,
+        23.81569860407206,
+        13.749999999999991
+      ],
+      "target_force_N": [
+        0.0,
+        0.49999999999999994,
+        -0.8660254037844387
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 0.23809523809523703,
+      "maximum_density": 0.23809523809523703,
+      "facets": 52,
+      "kind": "traction"
+    },
+    {
+      "label": "Ideal rigid payload attachment face",
+      "kind": "fixture",
+      "selector": {
+        "normal_axis": 2,
+        "z": 19.0,
+        "x_range": [
+          24.0,
+          37.0
+        ],
+        "y_range": [
+          5.0,
+          17.0
+        ]
+      },
+      "components": [
+        0,
+        1,
+        2
+      ],
+      "area_mm2": 140.17832988800268,
+      "dofs": 1839
+    }
+  ],
+  "solver": {
+    "method": "CG with smoothed aggregation AMG",
+    "iterations": 108
+  },
+  "step_sha256": "82ef84825dca2f31dbfefaf87261225d03337afdd507ad0804315b075d53a782",
+  "driver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+  "configuration_sha256": "131f68e3d945c14c7bb1786aac6b47f6a002603f7ab55f946b623dbb2dc4db47"
+}
