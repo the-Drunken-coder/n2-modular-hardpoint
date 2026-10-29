@@ -2,6 +2,8 @@
 
 > **PROVISIONAL. UNTESTED. Paper number only.** Not a qualified payload capacity. Valid for static, short-duration +Z extraction at room temperature, solid (100%) PLA, until the physical proof test in [test-plan.md](test-plan.md) passes.
 
+> **Off-axis warning (P13 expanded sims):** the rating is for straight +Z pull only. Angled pull drops the adapter-floor screen to ~4.6 N at 30° and ~3.4 N at 45° (pessimistic model). See [p13-expanded-sims.md](p13-expanded-sims.md).
+
 ## Current design: P12 (roof +2.0 mm)
 
 P12 raises the top of both receiver guide roofs from Z 12.7 to Z 14.7 (roof 2.2 mm → 4.2 mm thick). Nothing else changed. The table below is the original P11 rating, kept for traceability; **the P12 rating is in the section after it.**

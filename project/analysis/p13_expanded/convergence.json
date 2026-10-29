@@ -1,0 +1,26 @@
+[
+ {
+  "run": "conv_global",
+  "h_mm": 0.8,
+  "dofs": 140304,
+  "raw_failure_N": 11.939156353425187
+ },
+ {
+  "run": "conv_global",
+  "h_mm": 1.2,
+  "dofs": 82110,
+  "raw_failure_N": 12.046018813503533
+ },
+ {
+  "run": "conv_local0.4",
+  "h_mm": 0.55,
+  "dofs": 308652,
+  "raw_failure_N": 12.307422780844197
+ },
+ {
+  "run": "base",
+  "h_mm": 0.55,
+  "dofs": 291258,
+  "raw_failure_N": 12.0894436139379
+ }
+]

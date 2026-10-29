@@ -1,0 +1,4329 @@
+{
+ "id": "N2_receiver",
+ "variant": "N2",
+ "component": "receiver",
+ "step_path": "/tmp/p13x/geo/N2_receiver.step",
+ "expected_step_sha256": "b244feff4fbc89b1f2ec7e0cbaf376bb95de33740e1b28b284d88579187b534c",
+ "load_normalization_N": 1.0,
+ "model_scope": "Prescribed seated, finite, normal contact tractions on actual unchanged STEP geometry; not an assembled contact solve or a load rating.",
+ "far_size_factor": 3.0,
+ "max_dofs": 420000,
+ "averaging_radii_mm": [
+  0.4,
+  0.8
+ ],
+ "cases": {
+  "centered_bonded": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      0.5357142857142856
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      0.4642857142857144
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded"
+  },
+  "distal_ineffective_bonded": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      1.3333333333333333
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.3333333333333333
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded"
+  },
+  "low_y_half_contact_bonded": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       10.0
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      0.5357142857142856
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       10.0
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      0.4642857142857144
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "low_y_half_contact",
+   "fixture": "bonded"
+  },
+  "centered_washers": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      0.5357142857142856
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      0.4642857142857144
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "washers"
+  },
+  "distal_ineffective_washers": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      1.3333333333333333
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.3333333333333333
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers"
+  },
+  "low_y_half_contact_washers": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       10.0
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      0.5357142857142856
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       10.0
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      0.4642857142857144
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "low_y_half_contact",
+   "fixture": "washers"
+  },
+  "distal_ineffective_bonded__XZ+15": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.25881904510252074,
+      0.0,
+      1.2879011017187576
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.3219752754296894
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ+15",
+    "angle_deg": 15,
+    "plane": "XZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_bonded__XZ+30": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.4999999999999999,
+      0.0,
+      1.1547005383792515
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.28867513459481287
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ+30",
+    "angle_deg": 30,
+    "plane": "XZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_bonded__XZ+45": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.7071067811865475,
+      0.0,
+      0.9428090415820634
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.23570226039551584
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ+45",
+    "angle_deg": 45,
+    "plane": "XZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_bonded__XZ+90": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      1.0,
+      0.0,
+      8.164311994315688e-17
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -2.041077998578922e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ+90",
+    "angle_deg": 90,
+    "plane": "XZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_bonded__XZ-15": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.25881904510252074,
+      0.0,
+      1.2879011017187576
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.3219752754296894
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ-15",
+    "angle_deg": 15,
+    "plane": "XZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_bonded__XZ-30": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.4999999999999999,
+      0.0,
+      1.1547005383792515
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.28867513459481287
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ-30",
+    "angle_deg": 30,
+    "plane": "XZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_bonded__XZ-45": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.7071067811865475,
+      0.0,
+      0.9428090415820634
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.23570226039551584
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ-45",
+    "angle_deg": 45,
+    "plane": "XZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_bonded__XZ-90": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -1.0,
+      0.0,
+      8.164311994315688e-17
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -2.041077998578922e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ-90",
+    "angle_deg": 90,
+    "plane": "XZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_bonded__YZ+15": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.25881904510252074,
+      1.2879011017187576
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.3219752754296894
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ+15",
+    "angle_deg": 15,
+    "plane": "YZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_bonded__YZ+30": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.4999999999999999,
+      1.1547005383792515
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.28867513459481287
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ+30",
+    "angle_deg": 30,
+    "plane": "YZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_bonded__YZ+45": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.7071067811865475,
+      0.9428090415820634
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.23570226039551584
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ+45",
+    "angle_deg": 45,
+    "plane": "YZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_bonded__YZ+90": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      1.0,
+      8.164311994315688e-17
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -2.041077998578922e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ+90",
+    "angle_deg": 90,
+    "plane": "YZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_bonded__YZ-15": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.25881904510252074,
+      1.2879011017187576
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.3219752754296894
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ-15",
+    "angle_deg": 15,
+    "plane": "YZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_bonded__YZ-30": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.4999999999999999,
+      1.1547005383792515
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.28867513459481287
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ-30",
+    "angle_deg": 30,
+    "plane": "YZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_bonded__YZ-45": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.7071067811865475,
+      0.9428090415820634
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.23570226039551584
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ-45",
+    "angle_deg": 45,
+    "plane": "YZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_bonded__YZ-90": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -1.0,
+      8.164311994315688e-17
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -2.041077998578922e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ-90",
+    "angle_deg": 90,
+    "plane": "YZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_washers__XZ+15": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.25881904510252074,
+      0.0,
+      1.2879011017187576
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.3219752754296894
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "XZ+15",
+    "angle_deg": 15,
+    "plane": "XZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_washers__XZ+30": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.4999999999999999,
+      0.0,
+      1.1547005383792515
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.28867513459481287
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "XZ+30",
+    "angle_deg": 30,
+    "plane": "XZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_washers__XZ+45": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.7071067811865475,
+      0.0,
+      0.9428090415820634
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.23570226039551584
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "XZ+45",
+    "angle_deg": 45,
+    "plane": "XZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_washers__XZ+90": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      1.0,
+      0.0,
+      8.164311994315688e-17
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -2.041077998578922e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "XZ+90",
+    "angle_deg": 90,
+    "plane": "XZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_washers__XZ-15": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.25881904510252074,
+      0.0,
+      1.2879011017187576
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.3219752754296894
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "XZ-15",
+    "angle_deg": 15,
+    "plane": "XZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_washers__XZ-30": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.4999999999999999,
+      0.0,
+      1.1547005383792515
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.28867513459481287
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "XZ-30",
+    "angle_deg": 30,
+    "plane": "XZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_washers__XZ-45": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.7071067811865475,
+      0.0,
+      0.9428090415820634
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.23570226039551584
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "XZ-45",
+    "angle_deg": 45,
+    "plane": "XZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_washers__XZ-90": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -1.0,
+      0.0,
+      8.164311994315688e-17
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -2.041077998578922e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "XZ-90",
+    "angle_deg": 90,
+    "plane": "XZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_washers__YZ+15": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.25881904510252074,
+      1.2879011017187576
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.3219752754296894
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "YZ+15",
+    "angle_deg": 15,
+    "plane": "YZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_washers__YZ+30": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.4999999999999999,
+      1.1547005383792515
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.28867513459481287
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "YZ+30",
+    "angle_deg": 30,
+    "plane": "YZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_washers__YZ+45": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.7071067811865475,
+      0.9428090415820634
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.23570226039551584
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "YZ+45",
+    "angle_deg": 45,
+    "plane": "YZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_washers__YZ+90": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      1.0,
+      8.164311994315688e-17
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -2.041077998578922e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "YZ+90",
+    "angle_deg": 90,
+    "plane": "YZ",
+    "sign": 1
+   }
+  },
+  "distal_ineffective_washers__YZ-15": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.25881904510252074,
+      1.2879011017187576
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.3219752754296894
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "YZ-15",
+    "angle_deg": 15,
+    "plane": "YZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_washers__YZ-30": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.4999999999999999,
+      1.1547005383792515
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.28867513459481287
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "YZ-30",
+    "angle_deg": 30,
+    "plane": "YZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_washers__YZ-45": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.7071067811865475,
+      0.9428090415820634
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.23570226039551584
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "YZ-45",
+    "angle_deg": 45,
+    "plane": "YZ",
+    "sign": -1
+   }
+  },
+  "distal_ineffective_washers__YZ-90": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -1.0,
+      8.164311994315688e-17
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -2.041077998578922e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Rigid host washer annulus 1",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       5.0,
+       14.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "label": "Rigid host washer annulus 2",
+     "selector": {
+      "normal_axis": 2,
+      "z": 3.2,
+      "annulus_xy": [
+       35.0,
+       -10.0,
+       1.6,
+       3.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "washers",
+   "direction": {
+    "tag": "YZ-90",
+    "angle_deg": 90,
+    "plane": "YZ",
+    "sign": -1
+   }
+  },
+  "centered_bonded__XZ+15": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.13865305987635038,
+      0.0,
+      0.5174602640834294
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.12016598522617038,
+      0.0,
+      0.448465562205639
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ+15",
+    "angle_deg": 15,
+    "plane": "XZ",
+    "sign": 1
+   }
+  },
+  "centered_bonded__XZ+30": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.26785714285714274,
+      0.0,
+      0.4639421805988063
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.23214285714285718,
+      0.0,
+      0.4020832231856324
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ+30",
+    "angle_deg": 30,
+    "plane": "XZ",
+    "sign": 1
+   }
+  },
+  "centered_bonded__XZ+45": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.3788072042070789,
+      0.0,
+      0.378807204207079
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.32829957697946854,
+      0.0,
+      0.3282995769794686
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ+45",
+    "angle_deg": 45,
+    "plane": "XZ",
+    "sign": 1
+   }
+  },
+  "centered_bonded__XZ+90": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.5357142857142856,
+      0.0,
+      3.2803039262875526e-17
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.4642857142857144,
+      0.0,
+      2.8429300694492135e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ+90",
+    "angle_deg": 90,
+    "plane": "XZ",
+    "sign": 1
+   }
+  },
+  "centered_bonded__XZ-15": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.13865305987635038,
+      0.0,
+      0.5174602640834294
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.12016598522617038,
+      0.0,
+      0.448465562205639
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ-15",
+    "angle_deg": 15,
+    "plane": "XZ",
+    "sign": -1
+   }
+  },
+  "centered_bonded__XZ-30": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.26785714285714274,
+      0.0,
+      0.4639421805988063
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.23214285714285718,
+      0.0,
+      0.4020832231856324
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ-30",
+    "angle_deg": 30,
+    "plane": "XZ",
+    "sign": -1
+   }
+  },
+  "centered_bonded__XZ-45": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.3788072042070789,
+      0.0,
+      0.378807204207079
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.32829957697946854,
+      0.0,
+      0.3282995769794686
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ-45",
+    "angle_deg": 45,
+    "plane": "XZ",
+    "sign": -1
+   }
+  },
+  "centered_bonded__XZ-90": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.5357142857142856,
+      0.0,
+      3.2803039262875526e-17
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.4642857142857144,
+      0.0,
+      2.8429300694492135e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "XZ-90",
+    "angle_deg": 90,
+    "plane": "XZ",
+    "sign": -1
+   }
+  },
+  "centered_bonded__YZ+15": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.13865305987635038,
+      0.5174602640834294
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.12016598522617038,
+      0.448465562205639
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ+15",
+    "angle_deg": 15,
+    "plane": "YZ",
+    "sign": 1
+   }
+  },
+  "centered_bonded__YZ+30": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.26785714285714274,
+      0.4639421805988063
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.23214285714285718,
+      0.4020832231856324
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ+30",
+    "angle_deg": 30,
+    "plane": "YZ",
+    "sign": 1
+   }
+  },
+  "centered_bonded__YZ+45": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.3788072042070789,
+      0.378807204207079
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.32829957697946854,
+      0.3282995769794686
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ+45",
+    "angle_deg": 45,
+    "plane": "YZ",
+    "sign": 1
+   }
+  },
+  "centered_bonded__YZ+90": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.5357142857142856,
+      3.2803039262875526e-17
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.4642857142857144,
+      2.8429300694492135e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ+90",
+    "angle_deg": 90,
+    "plane": "YZ",
+    "sign": 1
+   }
+  },
+  "centered_bonded__YZ-15": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.13865305987635038,
+      0.5174602640834294
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.12016598522617038,
+      0.448465562205639
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ-15",
+    "angle_deg": 15,
+    "plane": "YZ",
+    "sign": -1
+   }
+  },
+  "centered_bonded__YZ-30": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.26785714285714274,
+      0.4639421805988063
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.23214285714285718,
+      0.4020832231856324
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ-30",
+    "angle_deg": 30,
+    "plane": "YZ",
+    "sign": -1
+   }
+  },
+  "centered_bonded__YZ-45": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.3788072042070789,
+      0.378807204207079
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.32829957697946854,
+      0.3282995769794686
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ-45",
+    "angle_deg": 45,
+    "plane": "YZ",
+    "sign": -1
+   }
+  },
+  "centered_bonded__YZ-90": {
+   "loads": [
+    {
+     "label": "Distal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.5357142857142856,
+      3.2803039262875526e-17
+     ]
+    },
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.4642857142857144,
+      2.8429300694492135e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "bonded",
+   "direction": {
+    "tag": "YZ-90",
+    "angle_deg": 90,
+    "plane": "YZ",
+    "sign": -1
+   }
+  }
+ },
+ "refine_boxes": [
+  {
+   "bounds": [
+    [
+     22.7,
+     4.5,
+     -0.1
+    ],
+    [
+     37.6,
+     15.5,
+     13.0
+    ]
+   ],
+   "factor": 1.0
+  },
+  {
+   "bounds": [
+    [
+     1.8,
+     10.8,
+     -0.1
+    ],
+    [
+     8.2,
+     17.1,
+     3.4
+    ]
+   ],
+   "factor": 1.0
+  },
+  {
+   "bounds": [
+    [
+     31.8,
+     -13.1,
+     -0.1
+    ],
+    [
+     38.1,
+     -6.8,
+     3.4
+    ]
+   ],
+   "factor": 1.0
+  }
+ ],
+ "imprint_step_files": []
+}
