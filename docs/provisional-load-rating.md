@@ -2,7 +2,11 @@
 
 > **PROVISIONAL. UNTESTED. Paper number only.** Not a qualified payload capacity. Valid for static, short-duration +Z extraction at room temperature, solid (100%) PLA, until the physical proof test in [test-plan.md](test-plan.md) passes.
 
-## Inputs (from the repo)
+## Current design: P12 (roof +2.0 mm)
+
+P12 raises the top of both receiver guide roofs from Z 12.7 to Z 14.7 (roof 2.2 mm → 4.2 mm thick). Nothing else changed. The table below is the original P11 rating, kept for traceability; **the P12 rating is in the section after it.**
+
+## P11 baseline inputs (from the repo)
 
 - Governing case: receiver `distal_ineffective`, 0.55 mm mesh ([fea-review.md](fea-review.md)).
 - Stress per unit load: σ1 = 3.341 MPa/N (tension governs).
@@ -44,6 +48,33 @@ Mass includes payload + removable adapter + its fasteners.
 **N2 hardpoint: 2.4 N static +Z extraction (≈ 240 g payload at 1 g), PROVISIONAL, untested.**
 
 For context: the withdrawn 10–15 lb requirement is ~20–30× this. If both roofs are proven to seat reliably by test, the centered case (21.5 N bonded, ~11.3 N two-hole) could support a higher rating, but **only after test**.
+
+## P12 sweep (rerun with the repo's own solver, receiver, 0.55 mm mesh)
+
+Solver: frozen `inputs/drivers/solver_6d9b…py` via `reproduce.py --prepare-only`, then STEP + hash swapped in the receiver config; loads, supports, material, mesh recipe unchanged. Baseline replay reproduced the archive exactly (21.497 N / 7.483 N). Raw results: `project/analysis/p12_roof_sweep/`.
+
+| Variant | Roof top Z | distal_ineff. bonded, N | distal_ineff. washers, N | centered bonded, N | Fit / release check |
+|---|---:|---:|---:|---:|---|
+| Baseline (P11) | 12.7 | 7.483 | 7.527 (archive) | 21.497 | OK |
+| Roof +0.5 | 13.2 | 7.675 | 7.718 | 22.044 | OK |
+| Roof +1.0 | 13.7 | 8.518 | 8.587 | 24.469 | OK |
+| **Roof +2.0 (chosen)** | **14.7** | **10.297** | — (not run) | **29.573** | OK, 1.3 mm under adapter flange (Z 16) |
+| Overlap 1.2 mm (roof +0) | 12.7 | n/a: receiver unchanged | | | Lug clears open keeper by only 0.1 mm. Rejected |
+| Overlap 2.0 mm | — | — | — | — | Infeasible: 3 mm stroke can't clear the lug |
+
+Fit/release check = boolean intersection of the regenerated receiver with all 12 other assembly parts, keeper retained and +3 mm open, and the adapter swept +Z 0–22 mm with the keeper open: zero overlap volume for every variant. Overlap changes only the keeper, so it doesn't change the governing (distal-lost) case; it only makes losing distal contact less likely. Keeping 0.6 mm preserves the 0.7 mm release margin.
+
+Peak location is unchanged: receiver roof underside at the +Y edge of the keeper channel, near the proximal patch (≈ X 28.8–29.2, Y 11.8, Z 10.6). It's a sharp internal corner, so thickening helps only gradually. A fillet there is the next lever. Only the 0.55 mm mesh was run for P12; no convergence study yet.
+
+## P12 provisional rating (current)
+
+```
+P_cross  = 10.297 N   (receiver, distal_ineffective_bonded, roof +2.0)
+P_rated  = 10.297 / 3.0 = 3.43 N   -> round DOWN to 3.4 N
+Mass 1 g = 3.4 / 9.80665 = 0.347 kg -> 0.34 kg (≈ 0.75 lb)
+```
+
+**N2 P12 hardpoint: 3.4 N static +Z extraction (≈ 340 g at 1 g). PROVISIONAL, untested.** Up 42% from 2.4 N. Same SF 3 method and caveats as above.
 
 ## What would change this number
 

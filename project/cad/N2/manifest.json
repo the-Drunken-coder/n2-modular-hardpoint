@@ -34,7 +34,7 @@
       "print_note": "Base to bed. Both guide roofs require accessible local support and careful running-face cleanup. Preserve the distal roof; do not split it from the print.",
       "valid": true,
       "solids": 1,
-      "volume_mm3": 5191.811338324733,
+      "volume_mm3": 5393.411338324731,
       "bbox": {
         "min": [
           -2.0,
@@ -44,17 +44,17 @@
         "max": [
           38.0,
           17.0,
-          12.7
+          14.700000000000003
         ],
         "size": [
           40.0,
           30.0,
-          12.7
+          14.700000000000003
         ]
       },
       "step": "N2_receiver.step",
       "stl": "N2_receiver.stl",
-      "step_sha256": "75ab803d24868cc4bf55335c6f5efd343688ff3f107a22b682b85ce0224a777d",
+      "step_sha256": "25cb8554f47fe02f976ae2fb5007bdb41647a0d109bc3b3ac3b14802c1888471",
       "color": "#dfb667",
       "print_stl": "N2_receiver_print.stl",
       "print_bbox": {
@@ -66,14 +66,15 @@
         "max": [
           38.00050775990137,
           17.000507759901364,
-          12.701611293533906
+          14.701611293533906
         ],
         "size": [
           40.00213897558101,
           30.001015519802728,
-          12.700716308346404
+          14.700716308346404
         ]
-      }
+      },
+      "p12_change": "Receiver guide roofs raised +2.0 mm (top Z 12.7 -> 14.7). See CHANGELOG.md."
     },
     {
       "id": "N2_adapter",

@@ -4,7 +4,7 @@ Creates an independent export tree; never overwrites the issued CAD.
 Run: python cad/build_n2.py --output /absolute/new-directory
 """
 from pathlib import Path
-import argparse, json
+import argparse, json, os
 import cadquery as cq
 import common
 from common import box, cyl, export_variant
@@ -44,6 +44,14 @@ def _common_metadata():
         'evidence':'CAD concept and sampled rigid-motion checks only. No physical print, load, release, fatigue, wear or aircraft test performed.'
     }
 
+# Design parameters (P12). Baseline P6-01 values: overlap 0.6 mm, roof +0.0 mm.
+# DISTAL_OVERLAP moves the retained keeper tip -X; with the fixed 3 mm stroke
+# the lug clears only if tip + 3 > 28.2, so overlap must stay < 1.3 mm.
+# ROOF_EXTRA raises the top of both receiver guide roofs (nominal Z 12.7).
+# P12 issue: +2.0 mm (roof top Z 14.7; adapter flange underside stays at Z 16).
+DISTAL_OVERLAP=float(os.environ.get('N2_DISTAL_OVERLAP',0.6))
+ROOF_EXTRA=float(os.environ.get('N2_ROOF_EXTRA',2.0))
+
 def design_n2():
     vid='N2'
     base,cap,hardware=clamp_base(vid,38,17)
@@ -51,15 +59,15 @@ def design_n2():
     # The same body, fork, tab and test hole keep the actuator coupling simple.
     keeper=(box(22,34,-4,4,6.5,10.9)
             .union(box(30.5,34,2.5,11.5,7.2,10.2))
-            .union(box(25.9,34,8.5,11.5,7.2,10.2)))
+            .union(box(26.5-DISTAL_OVERLAP,34,8.5,11.5,7.2,10.2)))
     keeper=keeper.cut(box(23.35,24.05,-2.2,2.2,6.4,11.1))
     keeper=keeper.cut(box(21.8,23.35,-1.5,1.5,6.4,11.1))
     keeper=keeper.union(box(*TAB)).cut(cyl(1,4.7,(29,0,6.4))).clean()
     # Two load-bearing roof regions straddle the adapter. The distal roof is
     # integral with the receiver, so there is no extra print or fastener.
-    distal=(box(23.4,26.5,5.8,14.2,3.1,12.7)
+    distal=(box(23.4,26.5,5.8,14.2,3.1,12.7+ROOF_EXTRA)
             .cut(box(23.3,26.6,8.2,11.8,6.9,10.5)))
-    proximal=(box(28.5,37.4,5.8,14.2,3.1,12.7)
+    proximal=(box(28.5,37.4,5.8,14.2,3.1,12.7+ROOF_EXTRA)
               .cut(box(28.4,37.6,2,11.8,6.9,10.5)))
     wall=box(23,38,-6,-4.3,3.1,12.7)
     for x in INDEX_CENTRES:
