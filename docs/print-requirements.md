@@ -2,10 +2,12 @@
 
 Two rated configurations. A part printed any other way is untested and unrated.
 
-| Config | Material | Rating (straight +Z pull, SF 3) |
+| Config | Material | Rating (straight +Z pull, SF 2) |
 |---|---|---|
-| **Recommended** | Bambu PAHT-CF, dried | **6.1 N**, provisional, untested |
-| Baseline | Bambu PLA Basic, dried | 4.0 N, provisional, untested |
+| **Recommended** | Bambu PAHT-CF, dried | **9.1 N** (≈ 0.92 kg at 1 g), provisional, untested |
+| Baseline | Bambu PLA Basic, dried | 6.0 N (≈ 0.61 kg), provisional, untested |
+
+SF 2 is Lane's choice and holds only if the Z coupon test in [test-plan.md](test-plan.md) confirms the TDS Z strength (47 MPa PAHT-CF, 31 MPa PLA Basic). Off-axis ratings at SF 2: see [provisional-load-rating.md](provisional-load-rating.md).
 
 Both assume:
 
@@ -47,6 +49,6 @@ Stress directions are from the P13 FEA fields (`project/analysis/p13_expanded`).
 
 Contact and overhang areas are from the STL geometry, not a slicer. **Check supports, bridges and the keeper slide fit in the slicer and with a test print before relying on the new orientation.** The supplied `*_print.stl` files are still in the old orientation; rotate them in the slicer.
 
-**The 6.1 N rating does not depend on the new orientation.** It uses the Z (layer) strength, so it holds even if a part has to stay in the old orientation. The new orientation is extra margin, not counted.
+**The 9.1 N rating does not depend on the new orientation.** It uses the Z (layer) strength, so it holds even if a part has to stay in the old orientation. The new orientation is extra margin, not counted.
 
-Confirm the filament reaches the TDS Z value with the coupon test in [test-plan.md](test-plan.md), printed in the same material and settings.
+**Required for SF 2:** confirm the filament reaches the TDS Z value with the coupon test in [test-plan.md](test-plan.md), printed in the same material and settings.
