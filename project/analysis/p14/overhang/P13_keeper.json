@@ -1,0 +1,28 @@
+{
+ "step": "project/cad/N2/N2_keeper.step",
+ "up": "+Z",
+ "angle": 45,
+ "bed_mm2": 85.73,
+ "totals": {
+  "SUPPORT": 40.05,
+  "bridge": 0,
+  "small-curve": 0,
+  "sliver": 0
+ },
+ "faces": [
+  {
+   "kind": "SUPPORT",
+   "area_mm2": 40.05,
+   "height_mm": 0.7,
+   "span_mm": [
+    7.5,
+    8.1
+   ],
+   "centre": [
+    30.85,
+    8.53,
+    7.2
+   ]
+  }
+ ]
+}

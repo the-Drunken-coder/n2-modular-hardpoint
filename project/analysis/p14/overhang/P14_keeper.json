@@ -1,0 +1,13 @@
+{
+ "step": "/tmp/p14/build/cad/N2/N2_keeper.step",
+ "up": "+Z",
+ "angle": 45,
+ "bed_mm2": 120.38,
+ "totals": {
+  "SUPPORT": 0,
+  "bridge": 0,
+  "small-curve": 0,
+  "sliver": 0
+ },
+ "faces": []
+}

@@ -56,24 +56,39 @@ ROOF_EXTRA=float(os.environ.get('N2_ROOF_EXTRA',2.0))
 # The keeper's 3 x 3 arm corner sits 0.3 mm from that corner in Y and Z, so a
 # quarter-round must stay below ~1.45 mm. 0 = sharp corner (P12).
 ROOF_FILLET=float(os.environ.get('N2_ROOF_FILLET',0.3))
+# P14 (R5d, R7). PROX_BRIDGE_END: the proximal roof becomes a short bridge from the
+# slot edge to this X, anchored on both sides of the keeper channel (Y 8.2-11.8),
+# and is open above the channel beyond it. The keeper link to the arm moves to
+# X >= KEEPER_LINK_X0 (0.3 mm past the bridge) and the keeper body underside is
+# raised to the arm plane (Z 7.2) so the keeper prints flat. 0 = P13 cantilever roof.
+PROX_BRIDGE_END=float(os.environ.get('N2_PROX_BRIDGE_END',31.7))
+KEEPER_LINK_X0=PROX_BRIDGE_END+0.3 if PROX_BRIDGE_END else 30.5
 
 def design_n2():
     vid='N2'
     base,cap,hardware=clamp_base(vid,38,17)
     base=base.cut(cyl(3.75,2.3,(-2.2,0,8.7),(1,0,0)))
     # The same body, fork, tab and test hole keep the actuator coupling simple.
-    keeper=(box(22,34,-4,4,6.5,10.9)
-            .union(box(30.5,34,2.5,11.5,7.2,10.2))
+    keeper=(box(22,34,-4,4,7.2 if PROX_BRIDGE_END else 6.5,10.9)
+            .union(box(KEEPER_LINK_X0,34,2.5,11.5,7.2,10.2))
             .union(box(26.5-DISTAL_OVERLAP,34,8.5,11.5,7.2,10.2)))
     keeper=keeper.cut(box(23.35,24.05,-2.2,2.2,6.4,11.1))
-    keeper=keeper.cut(box(21.8,23.35,-1.5,1.5,6.4,11.1))
+    # Stem slot: P14 narrows it to the 1.6 mm stem + 0.2 mm per side so the 3 mm
+    # button bears on a 0.5 mm annulus when the spring returns the keeper (it was tangent).
+    sw=1.0 if PROX_BRIDGE_END else 1.5
+    keeper=keeper.cut(box(21.8,23.35,-sw,sw,6.4,11.1))
     keeper=keeper.union(box(*TAB)).cut(cyl(1,4.7,(29,0,6.4))).clean()
     # Two load-bearing roof regions straddle the adapter. The distal roof is
     # integral with the receiver, so there is no extra print or fastener.
     distal=(box(23.4,26.5,5.8,14.2,3.1,12.7+ROOF_EXTRA)
             .cut(box(23.3,26.6,8.2,11.8,6.9,10.5)))
-    proximal=(box(28.5,37.4,5.8,14.2,3.1,12.7+ROOF_EXTRA)
-              .cut(box(28.4,37.6,2,11.8,6.9,10.5)))
+    if PROX_BRIDGE_END:
+        e=PROX_BRIDGE_END
+        proximal=(box(28.5,e,5.8,14.2,3.1,12.7+ROOF_EXTRA).cut(box(28.4,e+.1,8.2,11.8,6.9,10.5))
+                  .union(box(e,37.4,5.8,14.2,3.1,6.9)).union(box(e,37.4,11.8,14.2,3.1,12.7+ROOF_EXTRA)))
+    else:
+        proximal=(box(28.5,37.4,5.8,14.2,3.1,12.7+ROOF_EXTRA)
+                  .cut(box(28.4,37.6,2,11.8,6.9,10.5)))
     wall=box(23,38,-6,-4.3,3.1,12.7)
     for x in INDEX_CENTRES:
         wall=wall.cut(box(x-.3,x+.3,-6.01,-4.29,12.35,12.71))
@@ -94,13 +109,13 @@ def design_n2():
     move=[{'u':0},{'u':.5,'translation':[3,0,0]},{'u':1,'translation':[3,0,0]}]
     parts=[
       part(vid,'receiver','Receiver with proximal and distal keeper supports','printed',base,explode=[0,0,-9],
-           print_note='Base to bed. Both guide roofs require accessible local support and careful running-face cleanup. Preserve the distal roof; do not split it from the print.'),
+           print_note='Base to bed, no supports: both keeper-channel roofs are ~3 mm bridges across the channel (tools/overhang.py, P14). Preserve the distal roof; do not split it from the print.'),
       part(vid,'adapter','Thin cross-hole payload lug','payload',adapter,explode=[0,0,15],
            keyframes=[{'u':0},{'u':.5},{'u':1,'translation':[0,0,22]}],
            print_shape=adapter.rotate((0,0,0),(1,0,0),180),
            print_note='Flange to bed using supplied inverted print STL. The 1.4 mm lug thickness is a deliberate unqualified tradeoff. Inspect the hole bridge and 1.3 mm side webs; reject incomplete walls.'),
       part(vid,'keeper','Bridge-supported cross-bolt with inspection tab','moving',keeper,explode=[13,0,4],keyframes=move,
-           print_note='Main body underside to bed. Retaining arm is raised 0.7 mm and needs local support. Clean sliding faces without reducing retained tip engagement.'),
+           print_note='Underside to bed, no supports: body and arm share one flat underside (P14).'),
       part(vid,'clamp','Two-screw solenoid clamp','printed',cap,explode=[0,0,12],
            print_shape=cap.rotate((0,0,0),(1,0,0),180),print_note='Top bridge to bed, legs upward.')
     ]+act_parts(vid)+hardware
@@ -109,12 +124,12 @@ def design_n2():
       'concept_summary':'Supported cross-bolt: a receiver bridge supports the keeper on both sides of the adapter while retained.',
       'description':'Integral distal keeper bearing trades a thinner lug and tighter stroke budget for a shorter supported retaining span.',
       'why_consider':'Four prints and the same purchased hardware as N1, with an additional retained-state support rather than a larger actuator.',
-      'main_risk':'Only 0.6 mm nominal distal engagement is available. That support is lost early during withdrawal; loaded release again becomes overhung before the lug clears. The lug is thinner than N1.',
-      'load_path':'Adapter cross-hole floor → 3 × 3 mm keeper → receiver roofs on both sides of the lug when retained → host mount. During withdrawal the distal support disengages before the adapter does, leaving the proximal guide to react the load.',
+      'main_risk':'The 1.4 mm lug is thin and the adapter governs straight pull. Strength is screened by linear FEA only; spring preload and PAHT-CF Z strength are unmeasured.',
+      'load_path':'Adapter cross-hole floor → 3 × 3 mm keeper → receiver roofs on both sides of the lug when retained → host mount. The proximal roof is a bridge anchored on both sides of the keeper channel to X 31.7, so losing the 0.6 mm distal engagement leaves the receiver stronger than the adapter (P14 FEA): straight-pull capacity does not drop.',
       'actuator':{'name':'Mini push-pull solenoid','mpn':'Adafruit 2776','url':'https://www.adafruit.com/product/2776','nominal_stroke_mm':3,
                   'fidelity':'Drawing-based 20.5 × 12 × 11 mm frame, Ø4 armature and rear Ø1.6 stem / Ø3 button. Internal coil, spring, button thickness and wire routing include assumptions; measure purchased hardware.'},
       'dimensions':{'nominal_stroke_mm':3,'retained_keeper_tip_x_mm':25.9,'distal_support_x_mm':[23.4,26.5],
-                    'proximal_support_x_mm':[28.5,37.4],'lug_x_mm':[26.8,28.2],
+                    'proximal_support_x_mm':[28.5,PROX_BRIDGE_END or 37.4],'lug_x_mm':[26.8,28.2],
                     'lug_thickness_mm':1.4,'nominal_distal_engagement_mm':.6,
                     'open_tip_clearance_mm':.7,'retaining_bar_yz_mm':[3,3],
                     'distal_support_disengages_after_nominal_stroke_mm':.6,
@@ -124,7 +139,7 @@ def design_n2():
       'notes':[
         'Unrated concept; no manufactured or tested specimen.',
         'Four printed parts, one Adafruit 2776, two M2 × 16 screws and two M2 nuts; host fasteners are installation-specific.',
-        'The distal support improves the retained load path only while engaged. It does not guarantee lower peak release force.',
+        'Losing the distal engagement does not reduce straight-pull capacity: the adapter governs either way (P14). It does not guarantee lower peak release force.',
         'The 3 mm stroke budget forces the cross-hole lug to 1.4 mm thickness. This is a new geometry; P5 adapter FEA does not apply.',
         'Feed the keeper from +X before lowering the complete actuator. Never force it through the roof from above.',
         'The tab is a ground inspection and manual reset feature; shield it against accidental actuation. Remove the force-test hook before operation.',

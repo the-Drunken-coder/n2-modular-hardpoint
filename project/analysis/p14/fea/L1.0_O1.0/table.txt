@@ -1,0 +1,14 @@
+part     case                dir     PLA fail  paht-cf failrating SF2.0
+adapter  adapter             XZ45        2.01          3.05        1.53
+adapter  adapter             XZ90        1.46          2.21        1.11
+adapter  adapter             YZ45        3.61          5.47        2.74
+adapter  adapter             YZ90        2.82          4.27        2.14
+adapter  adapter             Z          16.92         25.65       12.82
+receiver centered            XZ45       24.84         37.67       18.83
+receiver centered            XZ90       23.28         35.29       17.64
+receiver centered            YZ45       24.80         37.61       18.80
+receiver centered            YZ90       26.09         39.56       19.78
+receiver centered            Z          32.72         49.62       24.81
+receiver distal_ineffective  Z          12.82         19.43        9.72
+governing rating, distal engaged: {'XZ45': 1.53, 'XZ90': 1.11, 'YZ45': 2.74, 'YZ90': 2.14, 'Z': 12.82} | straight, distal lost: 9.72 | stroke needed 3.0 mm
+summary: /tmp/p14/L1.0_O1.0/summary.json

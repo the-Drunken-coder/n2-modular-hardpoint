@@ -65,10 +65,11 @@ def main():
     ap.add_argument('--lug-t',type=float,default=1.4);ap.add_argument('--overlap',type=float,default=0.6)
     ap.add_argument('--material',choices=MAT,default='paht-cf');ap.add_argument('--sf',type=float,default=2.0)
     ap.add_argument('--wall-bearing',action='store_true');ap.add_argument('--h',type=float,default=0.8,help='receiver mesh size');ap.add_argument('--h-adapter',type=float,default=0.55)
+    ap.add_argument('--prox',choices=['p13','bridge'],default='p13',help='proximal roof style (bridge = P14)')
     ap.add_argument('--out',default=None)
     a=ap.parse_args()
     out=Path(a.out or f'/tmp/n2fea/t{a.lug_t}_o{a.overlap}{"_wall" if a.wall_bearing else ""}_h{a.h}-{a.h_adapter}').resolve();out.mkdir(parents=True,exist_ok=True)
-    subprocess.run([PY,str(R/'tools/n2variant.py'),str(out),str(a.lug_t),str(a.overlap)],check=True,capture_output=True)
+    subprocess.run([PY,str(R/'tools/n2variant.py'),str(out),str(a.lug_t),str(a.overlap),a.prox],check=True,capture_output=True)
     g=json.load(open(out/'geom.json'));configs(g,out,a.wall_bearing)
     import shutil;eng=out/'engine';eng.mkdir(exist_ok=True);shutil.copy(SOLVER,eng/'solver.py');shutil.copy(A/'material.json',eng/'material.json')
     ps=[subprocess.Popen([PY,str(eng/'solver.py'),'--config',str(out/n/f'{n}.json'),'--sizes',str(a.h if n=='N2_receiver' else a.h_adapter)],stdout=open(out/f'{n}.log','w'),stderr=subprocess.STDOUT) for n in ('N2_receiver','N2_adapter')]
