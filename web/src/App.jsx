@@ -1,268 +1,225 @@
-import { useEffect, useMemo, useState } from 'react';
-import { marked } from 'marked';
-import {
-  Alignment, AnchorButton, Button, Callout, Card, Checkbox, Classes, Divider, Elevation, H3, H4, H5, HTMLSelect,
-  HTMLTable, Intent, Menu, MenuItem, Navbar, NonIdealState, Radio, RadioGroup, Spinner, Tab, Tabs, Tag, Slider,
-} from '@blueprintjs/core';
-import Viewer3D from './Viewer3D.jsx';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Button, ButtonGroup, Checkbox, HTMLSelect, Slider, Switch, Tag } from '@blueprintjs/core';
+import * as T from 'three';
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-const D = 'data/';
-const partUrl = (rev, p) => `${D}revs/${rev}/${p.stl}`;
-const short = id => id.replace(/^N2_/, '');
-const fmt = (n, d = 2) => (n == null ? '—' : Number(n).toFixed(d));
+const short = id => id.replace(/^N2_/, '').replace(/_/g, ' ');
+const STROKE = 3, DROP = 22;            // keeper stroke (mm, manifest actuator), adapter travel shown
+const MOVERS = ['N2_keeper', 'N2_armature']; // pulled +X by the solenoid
+const GROUPS = {                       // FEA load case -> case id per part
+  Z: { label: 'Straight pull (R3)', parts: { N2_adapter: 'Z', N2_receiver: 'Z', N2_keeper: 'Z' } },
+  Z_distal_lost: { label: 'Straight pull, distal roof lost', parts: { N2_adapter: 'Z', N2_receiver: 'Z_distal_lost', N2_keeper: 'Z_distal_lost' } },
+  XZ90: { label: 'Side pull 90° (outside R3)', parts: { N2_adapter: 'XZ90', N2_receiver: 'XZ90' } },
+};
 
-function useHash() {
-  const [h, setH] = useState(location.hash.slice(2) || 'viewer');
-  useEffect(() => { const f = () => setH(location.hash.slice(2) || 'viewer'); addEventListener('hashchange', f); return () => removeEventListener('hashchange', f); }, []);
-  return [h, v => { location.hash = '/' + v; }];
+// turbo-like colormap, u in [0,1]; above 1 = magenta
+function cmap(u, c) {
+  if (u > 1) return c.setRGB(0.85, 0.1, 0.85);
+  const s = [[0.19, 0.07, 0.23], [0.16, 0.47, 0.93], [0.1, 0.84, 0.66], [0.64, 0.99, 0.24], [0.98, 0.73, 0.22], [0.86, 0.22, 0.05]];
+  const x = Math.max(0, u) * (s.length - 1), i = Math.min(Math.floor(x), s.length - 2), f = x - i;
+  return c.setRGB(...s[i].map((a, k) => a + (s[i + 1][k] - a) * f));
 }
+const GRAD = `linear-gradient(90deg, ${[0, .2, .4, .6, .8, 1].map(u => '#' + cmap(u, new T.Color()).getHexString()).join(',')})`;
 
-function RatingCard({ rating, compact }) {
-  if (!rating) return <Callout intent={Intent.NONE} title="No rating at this revision">The FEA review hadn't been done yet.</Callout>;
-  const [head, rest] = rating.text.split(': ');
-  return (
-    <Card elevation={Elevation.TWO} className="rating">
-      <div className={Classes.TEXT_MUTED}>{head} · provisional load rating</div>
-      <div className="big">{rest.split('. PROVISIONAL')[0]}</div>
-      {!compact && <Tag intent={Intent.WARNING} large minimal icon="warning-sign">PROVISIONAL, untested: paper number (FEA screen ÷ SF 2)</Tag>}
-    </Card>
-  );
-}
-
-function ViewerTab({ idx }) {
-  const revs = idx.revisions;
-  const [rid, setRid] = useState(revs[revs.length - 1].id);
-  const rev = revs.find(r => r.id === rid);
-  const [hidden, setHidden] = useState({});
-  const [pick, setPick] = useState('N2_receiver');
-  const [isolate, setIsolate] = useState(false);
-  const part = rev.parts.find(p => p.id === pick) || rev.parts[0];
-  const layers = useMemo(() => rev.parts.map(p => ({
-    key: `${rid}/${p.id}`, url: partUrl(rid, p), color: p.id === pick && !isolate ? '#4c90f0' : p.color,
-    visible: isolate ? p.id === pick : !hidden[p.id],
-  })), [rev, hidden, pick, isolate]);
-  return (
-    <div className="split">
-      <Card className="side" elevation={Elevation.ONE}>
-        <H5>Revision</H5>
-        <HTMLSelect fill value={rid} onChange={e => setRid(e.target.value)} options={revs.map(r => ({ value: r.id, label: `${r.label} · ${r.commit}` }))} />
-        <p className={Classes.TEXT_MUTED + ' small'}>{rev.subject}</p>
-        <RatingCard rating={rev.rating} compact />
-        <Divider />
-        <H5>Parts</H5>
-        <div className="row"><Button small text="All" onClick={() => setHidden({})} /><Button small text="None" onClick={() => setHidden(Object.fromEntries(rev.parts.map(p => [p.id, true])))} /></div>
-        {rev.parts.map(p => (
-          <Checkbox key={p.id} checked={!hidden[p.id]} onChange={() => setHidden(h => ({ ...h, [p.id]: !h[p.id] }))}
-            labelElement={<span><span className="swatch" style={{ background: p.color }} />{short(p.id)}</span>} />
-        ))}
-        <Divider />
-        <H5>Part picker</H5>
-        <HTMLSelect fill value={pick} onChange={e => setPick(e.target.value)} options={rev.parts.map(p => ({ value: p.id, label: short(p.id) }))} />
-        <Checkbox checked={isolate} onChange={() => setIsolate(!isolate)} label="Show only this part" />
-        <p className="small">{part.name}</p>
-        <div className="row">
-          <AnchorButton icon="download" small text="STL" href={partUrl(rid, part)} download={`${rid}_${part.stl}`} />
-          {part.print_stl && <AnchorButton icon="print" small intent={Intent.PRIMARY} text="Print STL" href={`${D}revs/${rid}/${part.print_stl}`} download={`${rid}_${part.print_stl}`} />}
-        </div>
-      </Card>
-      <div className="main">
-        <Viewer3D left={layers} fitKey={rid + isolate + (isolate ? pick : '')} />
-        <div className="hint">Drag to orbit · scroll to zoom · right-drag to pan · picked part highlighted blue</div>
-      </div>
-    </div>
-  );
-}
-
-const MODES = { side: 'Side by side', overlay: 'Overlay', diff: 'Geometric diff' };
-
-function CompareTab({ idx, init = [] }) {
-  const revs = idx.revisions;
-  const ok = id => revs.some(r => r.id === id);
-  const [a, setA] = useState(ok(init[0]) ? init[0] : revs[0].id), [b, setB] = useState(ok(init[1]) ? init[1] : revs[revs.length - 1].id);
-  const [mode, setMode] = useState(MODES[init[2]] ? init[2] : 'side');
-  useEffect(() => { history.replaceState(null, '', `#/compare/${a}/${b}/${mode}`); }, [a, b, mode]);
-  const [opacity, setOpacity] = useState(0.35);
-  const [onlyChanged, setOnlyChanged] = useState(false);
-  const order = id => revs.findIndex(r => r.id === id);
-  const [A, B] = [revs.find(r => r.id === a), revs.find(r => r.id === b)];
-  const [lo, hi] = order(a) <= order(b) ? [A, B] : [B, A];
-  const diff = idx.diffs[`${lo.id}__${hi.id}`] || {};
-  const shaA = Object.fromEntries(A.parts.map(p => [p.id, p.sha]));
-  const changed = new Set(B.parts.filter(p => shaA[p.id] !== p.sha).map(p => p.id));
-  A.parts.forEach(p => { if (!B.parts.find(q => q.id === p.id)) changed.add(p.id); });
-  const show = p => !onlyChanged || changed.has(p.id);
-  const col = p => (changed.has(p.id) ? '#ff9f43' : '#6b7785');
-
-  const { left, right } = useMemo(() => {
-    if (a === b) return { left: B.parts.map(p => ({ key: `${b}/${p.id}`, url: partUrl(b, p), color: p.color })) };
-    if (mode === 'side') return {
-      left: A.parts.filter(show).map(p => ({ key: `${a}/${p.id}`, url: partUrl(a, p), color: col(p) })),
-      right: B.parts.filter(show).map(p => ({ key: `${b}/${p.id}`, url: partUrl(b, p), color: col(p) })),
+function useScene(el) {
+  const st = useRef(null);
+  if (!st.current) {
+    const scene = new T.Scene();
+    scene.add(new T.HemisphereLight(0xffffff, 0x334455, 2.2));
+    const d = new T.DirectionalLight(0xffffff, 1.6); d.position.set(60, -40, 90); scene.add(d);
+    const d2 = new T.DirectionalLight(0xffffff, 0.6); d2.position.set(-50, 60, -30); scene.add(d2);
+    const cam = new T.PerspectiveCamera(35, 1, 0.1, 3000); cam.up.set(0, 0, 1);
+    st.current = { scene, cam, parts: new Map(), fea: new Map(), markers: new T.Group() };
+    scene.add(st.current.markers);
+  }
+  useEffect(() => {
+    const s = st.current, r = new T.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+    r.setPixelRatio(devicePixelRatio); r.setClearColor(0x15191e); el.current.appendChild(r.domElement);
+    const oc = new OrbitControls(s.cam, r.domElement);
+    Object.assign(oc, { enableDamping: true, dampingFactor: 0.12, rotateSpeed: 0.9, zoomToCursor: true, screenSpacePanning: true });
+    oc.mouseButtons = { LEFT: T.MOUSE.ROTATE, MIDDLE: T.MOUSE.PAN, RIGHT: T.MOUSE.PAN };
+    s.oc = oc; s.r = r; let alive = true;
+    // double-click a surface to orbit around that point
+    const ray = new T.Raycaster();
+    r.domElement.addEventListener('dblclick', e => {
+      const b = r.domElement.getBoundingClientRect();
+      ray.setFromCamera(new T.Vector2((e.clientX - b.left) / b.width * 2 - 1, -(e.clientY - b.top) / b.height * 2 + 1), s.cam);
+      const hit = ray.intersectObjects([...s.parts.values(), ...s.fea.values()].filter(m => m.visible))[0];
+      if (hit) { const d = hit.point.clone().sub(oc.target); oc.target.add(d); s.cam.position.add(d); }
+    });
+    const loop = () => {
+      if (!alive) return; requestAnimationFrame(loop); s.tick?.(); oc.update();
+      const w = el.current.clientWidth, h = el.current.clientHeight;
+      if (r.domElement.width !== Math.floor(w * r.getPixelRatio()) || r.domElement.height !== Math.floor(h * r.getPixelRatio())) r.setSize(w, h);
+      s.cam.aspect = w / h; s.cam.updateProjectionMatrix(); r.render(s.scene, s.cam);
     };
-    if (mode === 'overlay') return {
-      left: [
-        ...A.parts.filter(show).map(p => ({ key: `A/${a}/${p.id}`, url: partUrl(a, p), color: '#4c90f0', opacity, order: 1 })),
-        ...B.parts.filter(show).map(p => ({ key: `B/${b}/${p.id}`, url: partUrl(b, p), color: '#f0b726', opacity, order: 2 })),
-      ],
-    };
-    const fwd = order(a) <= order(b); // diff files are lo->hi; swap meaning if A is newer
-    const extra = [];
-    for (const [pid, e] of Object.entries(diff)) {
-      if (e.error) continue;
-      const add = `${D}diffs/${lo.id}__${hi.id}/${pid}_added.stl`, rem = `${D}diffs/${lo.id}__${hi.id}/${pid}_removed.stl`;
-      if (e.added) extra.push({ key: `d/${lo.id}${hi.id}/${pid}/a`, url: add, color: fwd ? '#32a467' : '#e76a6e', order: 3, offset: true });
-      if (e.removed) extra.push({ key: `d/${lo.id}${hi.id}/${pid}/r`, url: rem, color: fwd ? '#e76a6e' : '#32a467', order: 3, offset: true });
-    }
-    return { left: [...B.parts.filter(show).map(p => ({ key: `g/${b}/${p.id}`, url: partUrl(b, p), color: '#8f99a8', opacity, order: 1 })), ...extra] };
-  }, [a, b, mode, opacity, onlyChanged]);
-
-  const pkeys = [...new Set([...Object.keys(A.params), ...Object.keys(B.params)])];
-  const pv = v => (typeof v === 'string' ? v.replace(' (implicit)', '') : String(v));
-  const prow = pkeys.filter(k => pv(A.params[k]) !== pv(B.params[k]));
-  const ra = A.rating?.N, rb = B.rating?.N;
-  const clA = new Set(A.changelog.map(c => c.title));
-  const clDelta = B.changelog.filter(c => !clA.has(c.title));
-  const clDeltaRev = A.changelog.filter(c => !new Set(B.changelog.map(x => x.title)).has(c.title));
-
-  return (
-    <div className="split">
-      <Card className="side" elevation={Elevation.ONE}>
-        <H5>Compare</H5>
-        <label className={Classes.LABEL}>A (left / blue)<HTMLSelect fill value={a} onChange={e => setA(e.target.value)} options={revs.map(r => ({ value: r.id, label: r.label }))} /></label>
-        <label className={Classes.LABEL}>B (right / gold)<HTMLSelect fill value={b} onChange={e => setB(e.target.value)} options={revs.map(r => ({ value: r.id, label: r.label }))} /></label>
-        <Button small icon="swap-horizontal" text="Swap" onClick={() => { setA(b); setB(a); }} />
-        <Divider />
-        <RadioGroup label="Mode" selectedValue={mode} onChange={e => setMode(e.currentTarget.value)}>
-          {Object.entries(MODES).map(([k, v]) => <Radio key={k} value={k} label={v} />)}
-        </RadioGroup>
-        {mode !== 'side' && <><label className={Classes.LABEL}>Ghost opacity</label><Slider min={0.05} max={1} stepSize={0.05} labelStepSize={0.5} value={opacity} onChange={setOpacity} /></>}
-        <Checkbox checked={onlyChanged} onChange={() => setOnlyChanged(!onlyChanged)} label="Only changed parts" />
-        <Divider />
-        <div className="legend small">
-          {mode === 'side' && <><span className="swatch" style={{ background: '#ff9f43' }} />changed part <span className="swatch" style={{ background: '#6b7785' }} />unchanged</>}
-          {mode === 'overlay' && <><span className="swatch" style={{ background: '#4c90f0' }} />A {A.label} <span className="swatch" style={{ background: '#f0b726' }} />B {B.label}</>}
-          {mode === 'diff' && <><span className="swatch" style={{ background: '#32a467' }} />added A→B <span className="swatch" style={{ background: '#e76a6e' }} />removed A→B <span className="swatch" style={{ background: '#8f99a8' }} />B ghost</>}
-        </div>
-        <Divider />
-        <H5>Changed parts</H5>
-        {changed.size === 0 ? <p className="small">None: identical STLs.</p> :
-          <HTMLTable compact className="full small">
-            <thead><tr><th>Part</th><th>+mm³</th><th>−mm³</th></tr></thead>
-            <tbody>{[...changed].map(id => { const e = diff[id] || {}; const [ad, rm] = order(a) <= order(b) ? [e.added_mm3, e.removed_mm3] : [e.removed_mm3, e.added_mm3];
-              return <tr key={id}><td>{short(id)}</td><td>{fmt(ad)}</td><td>{fmt(rm)}</td></tr>; })}</tbody>
-          </HTMLTable>}
-      </Card>
-      <div className="main">
-        {a === b ? <Callout intent={Intent.PRIMARY} icon="info-sign">Pick two different revisions.</Callout> : null}
-        <div className="cmp-head">{mode === 'side' && right ? <><Tag large minimal>{A.label}</Tag><Tag large minimal>{B.label}</Tag></> : <Tag large minimal>{MODES[mode]}: {A.label} → {B.label}</Tag>}</div>
-        <Viewer3D left={left} right={right} fitKey={mode + a + b} />
-        {right && <div className="hint">Cameras are synced.</div>}
-        <div className="grid2">
-          <Card>
-            <H5>Rating</H5>
-            <HTMLTable compact className="full">
-              <tbody>
-                <tr><td>{A.label}</td><td>{A.rating ? `${fmt(ra, 1)} N` : '—'}</td></tr>
-                <tr><td>{B.label}</td><td>{B.rating ? `${fmt(rb, 1)} N` : '—'}</td></tr>
-                <tr><td><b>Δ</b></td><td>{ra != null && rb != null ? <Tag intent={rb >= ra ? Intent.SUCCESS : Intent.DANGER}>{rb - ra >= 0 ? '+' : ''}{fmt(rb - ra, 1)} N ({fmt((rb / ra - 1) * 100, 0)}%)</Tag> : '—'}</td></tr>
-              </tbody>
-            </HTMLTable>
-          </Card>
-          <Card>
-            <H5>Changed parameters (build_n2.py)</H5>
-            {prow.length === 0 ? <p className="small">No parameter changes.</p> :
-              <HTMLTable compact striped className="full">
-                <thead><tr><th>Parameter</th><th>{A.id}</th><th>{B.id}</th></tr></thead>
-                <tbody>{prow.map(k => <tr key={k}><td><code>{k}</code></td><td>{String(A.params[k] ?? '—')}</td><td>{String(B.params[k] ?? '—')}</td></tr>)}</tbody>
-              </HTMLTable>}
-          </Card>
-        </div>
-        <Card>
-          <H5>Changelog delta</H5>
-          {clDelta.length + clDeltaRev.length === 0 && <p className="small">No changelog entries between these revisions.</p>}
-          {clDelta.map(c => <div key={c.title}><H4>{c.title} <Tag minimal intent={Intent.SUCCESS}>in B</Tag></H4><Md text={c.body} /></div>)}
-          {clDeltaRev.map(c => <div key={c.title}><H4>{c.title} <Tag minimal intent={Intent.DANGER}>only in A</Tag></H4><Md text={c.body} /></div>)}
-        </Card>
-      </div>
-    </div>
-  );
+    loop();
+    return () => { alive = false; r.dispose(); r.domElement.remove(); };
+  }, []);
+  return st.current;
 }
 
-const Md = ({ text }) => <div className={Classes.RUNNING_TEXT + ' md'} dangerouslySetInnerHTML={{ __html: marked.parse(text.replace(/\]\((?:\.\.\/)?(?:docs\/)?([\w-]+)\.md\)/g, '](#/docs/$1)')) }} />;
-
-function StatusTab({ idx }) {
-  const cur = idx.revisions[idx.revisions.length - 1];
-  return (
-    <div className="status">
-      <RatingCard rating={idx.rating} />
-      <Card>
-        <H4>Status</H4>
-        <p>Design + analysis only; nothing printed or tested. Next: print the current receiver ({cur.label}) and run the <a href="#/docs/test-plan">proof-load test</a>.</p>
-      </Card>
-      <Card><H4>Latest change</H4>{cur.changelog[0] && <><H5>{cur.changelog[0].title}</H5><Md text={cur.changelog[0].body} /></>}</Card>
-      <Card>
-        <H4>Revisions</H4>
-        <HTMLTable compact striped className="full">
-          <thead><tr><th>Revision</th><th>Commit</th><th>Date</th><th>Rating</th><th>Summary</th></tr></thead>
-          <tbody>{[...idx.revisions].reverse().map(r => <tr key={r.id}><td><Tag minimal>{r.label}</Tag></td><td><a href={`https://github.com/${idx.repo}/commit/${r.commit}`}>{r.commit}</a></td><td>{r.date.slice(0, 10)}</td><td>{r.rating ? `${fmt(r.rating.N, 1)} N` : '—'}</td><td className="small">{r.subject}</td></tr>)}</tbody>
-        </HTMLTable>
-      </Card>
-      <Card>
-        <H4>Recent commits</H4>
-        <HTMLTable compact striped className="full mono">
-          <tbody>{idx.commits.map(c => <tr key={c.hash}><td>{c.date}</td><td><a href={`https://github.com/${idx.repo}/commit/${c.hash}`}>{c.hash}</a></td><td>{c.subject}</td></tr>)}</tbody>
-        </HTMLTable>
-      </Card>
-    </div>
-  );
-}
-
-function DocsTab({ docs, name }) {
-  const names = Object.keys(docs);
-  const cur = docs[name] ? name : 'provisional-load-rating';
-  return (
-    <div className="split">
-      <Card className="side" elevation={Elevation.ONE}>
-        <Menu>{names.map(n => <MenuItem key={n} icon="document" text={n} active={n === cur} href={`#/docs/${n}`} />)}</Menu>
-      </Card>
-      <Card className="main doc"><Md text={docs[cur]} /></Card>
-    </div>
-  );
+function setView(s, bounds, dir) {
+  const c = new T.Vector3(...bounds.min).add(new T.Vector3(...bounds.max)).multiplyScalar(0.5);
+  const d = new T.Vector3(...bounds.size).length() * 2.1;
+  const v = { iso: [0.75, -1, 0.65], front: [0, -1, 0.0001], top: [0.0001, -0.0001, 1], side: [1, 0, 0.0001] }[dir];
+  s.oc.target.copy(c); s.cam.position.copy(c).add(new T.Vector3(...v).normalize().multiplyScalar(d)); s.oc.update();
 }
 
 export default function App() {
-  const [idx, setIdx] = useState(null), [docs, setDocs] = useState(null), [err, setErr] = useState(null);
-  const [route, go] = useHash();
+  const el = useRef();
+  const s = useScene(el);
+  const [man, setMan] = useState(null), [fea, setFea] = useState(null);
+  const [mode, setMode] = useState(new URLSearchParams(location.search).get('mode') || 'model');
+  const [explode, setExplode] = useState(Number(new URLSearchParams(location.search).get('explode') || 0));
+  const [phase, setPhase] = useState(Number(new URLSearchParams(location.search).get('phase') || 0)); // release sequence 0..2
+  const [playing, setPlaying] = useState(false);
+  const [hidden, setHidden] = useState({});
+  const [group, setGroup] = useState('Z');
+  const [load, setLoad] = useState(17.8);
+  const [ghost, setGhost] = useState(true);
+
   useEffect(() => {
-    Promise.all([fetch(D + 'index.json').then(r => r.json()), fetch(D + 'docs.json').then(r => r.json())]).then(([i, d]) => { setIdx(i); setDocs(d); }).catch(setErr);
+    fetch('model/manifest.json').then(r => r.json()).then(setMan);
+    fetch('fea/index.json').then(r => r.json()).then(setFea);
   }, []);
-  const tab = route.split('/')[0];
+
+  // load assembly STLs
+  useEffect(() => {
+    if (!man) return; const L = new STLLoader();
+    man.parts.forEach(p => L.load(`model/${p.stl}`, g => {
+      g.computeVertexNormals();
+      const m = new T.Mesh(g, new T.MeshStandardMaterial({ color: p.color, metalness: 0.1, roughness: 0.6, side: T.DoubleSide }));
+      m.userData.p = p; s.parts.set(p.id, m); s.scene.add(m); s.dirty = true;
+    }));
+    setView(s, man.bounds, 'iso');
+  }, [man]);
+
+  // load FEA surfaces
+  useEffect(() => {
+    if (!fea) return;
+    fea.cases.forEach(c => fetch(`fea/${c.part}__${c.case}.json`).then(r => r.json()).then(d => {
+      const g = new T.BufferGeometry();
+      g.setAttribute('position', new T.Float32BufferAttribute(d.pos, 3)); g.setIndex(d.idx); g.computeVertexNormals();
+      g.setAttribute('color', new T.Float32BufferAttribute(new Float32Array(d.pos.length), 3));
+      const m = new T.Mesh(g, new T.MeshStandardMaterial({ vertexColors: true, metalness: 0, roughness: 0.75, side: T.DoubleSide }));
+      m.userData = { d, part: c.part }; m.visible = false; s.fea.set(`${c.part}__${c.case}`, m); s.scene.add(m); s.dirty = true;
+    }));
+  }, [fea]);
+
+  // animate the release sequence
+  useEffect(() => {
+    if (!playing) return; let t0 = performance.now(), p0 = phase >= 2 ? 0 : phase, raf;
+    const f = now => { const p = p0 + (now - t0) / 1600; setPhase(Math.min(p, 2)); if (p < 2) raf = requestAnimationFrame(f); else setPlaying(false); };
+    raf = requestAnimationFrame(f); return () => cancelAnimationFrame(raf);
+  }, [playing]);
+
+  const shown = mode === 'fea' && fea ? GROUPS[group].parts : {};
+  const k = fea ? 31 / fea.z_tds_MPa : 1;
+  const rows = fea ? Object.entries(shown).map(([p, c]) => fea.cases.find(x => x.part === p && x.case === c)).filter(Boolean) : [];
+  const gov = rows.reduce((a, b) => (!a || b.fail_N < a.fail_N ? b : a), null);
+
+  // per-frame placement + colouring
+  s.tick = () => {
+    if (!man) return;
+    const ease = x => x * x * (3 - 2 * x), ph = phase;
+    const retract = ease(Math.min(ph, 1)), drop = ease(Math.max(0, Math.min(ph - 1, 1)));
+    const place = (m, id) => {
+      const p = man.parts.find(q => q.id === id); const e = p?.explode || [0, 0, 0];
+      let x = e[0] * explode, y = e[1] * explode, z = e[2] * explode;
+      if (MOVERS.includes(id)) x += STROKE * retract;
+      if (id === 'N2_return_spring') { m.scale.x = 1 - 0.35 * retract; } // compressed by the armature collar
+      if (id === 'N2_adapter') z += DROP * drop;
+      m.position.set(x, y, z);
+    };
+    for (const [id, m] of s.parts) {
+      place(m, id);
+      const inFea = mode === 'fea' && shown[id];
+      m.visible = !hidden[id] && !inFea && (mode === 'model' || ghost);
+      m.material.transparent = mode === 'fea'; m.material.opacity = mode === 'fea' ? 0.12 : 1; m.material.depthWrite = mode !== 'fea';
+    }
+    s.markers.clear();
+    for (const [key, m] of s.fea) {
+      const on = shown[m.userData.part] && key === `${m.userData.part}__${shown[m.userData.part]}` && !hidden[m.userData.part];
+      m.visible = !!on; if (!on) continue; place(m, m.userData.part);
+      const ck = `${load}|${k}`;
+      if (m.userData.ck !== ck) {
+        const col = m.geometry.attributes.color, c = new T.Color(), fi = m.userData.d.fi;
+        for (let i = 0; i < fi.length; i++) { cmap(fi[i] * load * k, c); col.setXYZ(i, c.r, c.g, c.b); }
+        col.needsUpdate = true; m.userData.ck = ck;
+      }
+      const d = m.userData.d, isGov = gov && d.part === gov.part;
+      const mk = new T.Mesh(new T.SphereGeometry(isGov ? 0.9 : 0.6, 20, 14), new T.MeshBasicMaterial({ color: isGov ? 0xffffff : 0xabb3bf, depthTest: false, transparent: true, opacity: 0.95 }));
+      mk.position.set(...d.peak_mm).add(m.position); mk.renderOrder = 10; s.markers.add(mk);
+      if (isGov) { const ring = new T.Mesh(new T.TorusGeometry(1.6, 0.18, 8, 32), mk.material); ring.position.copy(mk.position); ring.quaternion.copy(s.cam.quaternion); ring.renderOrder = 10; s.markers.add(ring); }
+    }
+  };
+
+  const ids = man?.parts.map(p => p.id) || [];
+  const status = fea && (() => { const z = fea.cases.filter(c => c.in_scope && c.case === 'Z'); const g = z.reduce((a, b) => (b.fail_N < a.fail_N ? b : a)); return g; })();
+
   return (
-    <>
-      <Navbar fixedToTop>
-        <Navbar.Group align={Alignment.LEFT}>
-          <Navbar.Heading><b>N2 modular hardpoint</b></Navbar.Heading>
-          <Navbar.Divider />
-          <Tabs id="nav" selectedTabId={tab} onChange={t => go(t)} large>
-            <Tab id="viewer" title="Viewer" icon="cube" />
-            <Tab id="compare" title="Compare" icon="comparison" />
-            <Tab id="status" title="Status" icon="dashboard" />
-            <Tab id="docs" title="Docs" icon="manual" />
-          </Tabs>
-        </Navbar.Group>
-        <Navbar.Group align={Alignment.RIGHT}>
-          {idx?.rating && <Tag large intent={Intent.WARNING} minimal>{idx.rating.text.split(':')[0]} · {fmt(idx.rating.N, 1)} N provisional</Tag>}
-          <Navbar.Divider />
-          {idx && <AnchorButton minimal icon="git-repo" href={`https://github.com/${idx.repo}`} text={idx.head} />}
-        </Navbar.Group>
-      </Navbar>
-      <div className="page">
-        {err ? <NonIdealState icon="error" title="Couldn't load site data" description={String(err)} /> :
-          !idx ? <Spinner /> :
-            tab === 'compare' ? <CompareTab idx={idx} init={route.split('/').slice(1)} /> :
-              tab === 'status' ? <StatusTab idx={idx} /> :
-                tab === 'docs' ? <DocsTab docs={docs} name={route.split('/')[1]} /> : <ViewerTab idx={idx} />}
+    <div className="app">
+      <div className="panel">
+        <div className="status">
+          <b>N2 hardpoint · {fea?.revision || ''}</b><br />
+          {status && <>Straight-pull rating <b>{(Math.floor(status.rating_sf2_N * 10) / 10).toFixed(1)} N</b> (SF 2, {short(status.part)} governs, fails {status.fail_N} N; R1 needs ≥ {fea.required_fail_N} N). Paper number, not yet tested.</>}
+        </div>
+        <ButtonGroup fill>
+          <Button intent={mode === 'model' ? 'primary' : 'none'} icon="cube" text="Model" onClick={() => setMode('model')} />
+          <Button intent={mode === 'fea' ? 'primary' : 'none'} icon="heat-grid" text="FEA" onClick={() => setMode('fea')} />
+        </ButtonGroup>
+
+        <h6>Explode</h6>
+        <Slider min={0} max={1} stepSize={0.01} labelRenderer={false} value={explode} onChange={setExplode} />
+
+        <h6>Release sequence</h6>
+        <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+          <Button small icon={playing ? 'pause' : 'play'} onClick={() => setPlaying(!playing)} />
+          <Button small icon="reset" onClick={() => { setPlaying(false); setPhase(0); }} />
+          <div style={{ flex: 1, paddingTop: 4 }}><Slider min={0} max={2} stepSize={0.01} labelRenderer={false} value={phase} onChange={v => { setPlaying(false); setPhase(v); }} /></div>
+        </div>
+        <div className="status">{phase < 0.02 ? 'Latched: keeper crosses the adapter lug.' : phase <= 1 ? `Solenoid pulls keeper +X ${(STROKE * phase).toFixed(1)} / ${STROKE} mm.` : 'Keeper open; adapter leaves +Z under its own load.'}</div>
+
+        {mode === 'fea' && fea && <>
+          <h6>Load case</h6>
+          <HTMLSelect fill value={group} onChange={e => setGroup(e.target.value)} options={Object.entries(GROUPS).map(([v, g]) => ({ value: v, label: g.label }))} />
+          <h6>Applied load: {load.toFixed(1)} N</h6>
+          <Slider min={1} max={60} stepSize={0.1} labelRenderer={false} value={load} onChange={setLoad} />
+          <div className="row" style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+            <Button small text={`Design ${fea.design_N} N`} onClick={() => setLoad(fea.design_N)} />
+            <Button small text={`SF 2: ${fea.required_fail_N} N`} onClick={() => setLoad(fea.required_fail_N)} />
+          </div>
+          <table className="fea"><tbody>
+            {rows.map(r => <tr key={r.part}><td>{gov === r && '● '}{short(r.part)}</td><td className="n">fails {r.fail_N} N</td><td className="n">{(r.fail_N / load).toFixed(2)}×</td></tr>)}
+          </tbody></table>
+          <Switch checked={ghost} label="Ghost other parts" onChange={() => setGhost(!ghost)} />
+          <div className="status">{fea.material.toUpperCase()}, {fea.note}</div>
+        </>}
+
+        <h6>Parts</h6>
+        <div className="parts">
+          {ids.map(id => <Checkbox key={id} checked={!hidden[id]} onChange={() => setHidden(h => ({ ...h, [id]: !h[id] }))}
+            labelElement={<span><span className="swatch" style={{ background: man.parts.find(p => p.id === id).color }} />{short(id)}</span>} />)}
+        </div>
+        <div style={{ display: 'flex', gap: 4 }}>
+          <Button small text="All" onClick={() => setHidden({})} />
+          <Button small text="Printed only" onClick={() => setHidden(Object.fromEntries(man.parts.filter(p => !['printed', 'payload', 'moving'].includes(p.kind)).map(p => [p.id, true])))} />
+        </div>
       </div>
-    </>
+      <div className="stage" ref={el}>
+        {man && <ButtonGroup className="views" minimal>
+          {['iso', 'front', 'side', 'top'].map(v => <Button key={v} small text={v} onClick={() => setView(s, man.bounds, v)} />)}
+        </ButtonGroup>}
+        {mode === 'fea' && fea && <div className="legend">
+          Utilisation at {load.toFixed(1)} N (1.0 = predicted failure)
+          <div className="bar" style={{ background: GRAD }} />
+          <div className="ticks"><span>0</span><span>0.5</span><span>1.0</span><span style={{ color: '#d91ad9' }}>&gt;1</span></div>
+          {gov && <div style={{ marginTop: 4 }}>○ governing peak: {short(gov.part)} at ({gov.peak_mm.join(', ')}) mm</div>}
+        </div>}
+        <div className="hint">Drag: orbit · scroll: zoom to cursor · right-drag: pan · double-click: orbit around point</div>
+      </div>
+    </div>
   );
 }
