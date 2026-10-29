@@ -42,3 +42,11 @@ Use `--up=-X` (with `=`) for negative axes. `--up` is the part axis that points 
 It works on the STEP; the `*_print.stl` files are the same solids rotated. It is a geometry check, not a slicer: confirm bridges in the slicer.
 
 Print orientations used (P14): receiver `+Z`, keeper `+Z`, adapter `-Z` (flange down), clamp `-Z`.
+
+## export_fea_web.py: FEA fields to the web viewer
+
+```
+/workspace/n2env/bin/python tools/export_fea_web.py --run <n2fea.py out dir> --keeper <keeper solve dir> [--material paht-cf]
+```
+
+Reads the solver `*_fields.npz`, keeps the outer surface of each tet mesh and writes the failure index per 1 N at every surface vertex (max over touching elements) to `web/public/fea/`. The viewer multiplies it by the chosen load and 31 / Z_TDS to get utilisation. The case list is `CASES` at the top. Re-run it after any new FEA run you want on the site (the npz files are not committed).

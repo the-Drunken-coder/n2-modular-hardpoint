@@ -3,14 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build"
+    "dev": "node copy-model.mjs && vite",
+    "build": "node copy-model.mjs && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@blueprintjs/core": "^6.21.0",
     "@blueprintjs/icons": "^6.14.1",
     "@vitejs/plugin-react": "^4.7.0",
-    "marked": "^18.1.2",
     "normalize.css": "^8.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
