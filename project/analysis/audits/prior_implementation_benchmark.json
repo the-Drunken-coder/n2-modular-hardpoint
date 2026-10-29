@@ -1,0 +1,20 @@
+{
+  "status": "ARCHIVED_IMPLEMENTATION_VERIFICATION_ONLY",
+  "source_archive_path": "p8_fea/verification/BENCHMARK_RESULT.json",
+  "source_sha256": "54f45e6508ec77857ae8610468bf4cf32c26e056de732682126e3f03b16e99de",
+  "record": {
+    "checks": {
+      "uniform_uniaxial_tensile_stress": true,
+      "uniaxial_strength_scaling": true,
+      "cantilever_deflection_within_2percent_timoshenko": true,
+      "equilibrium": true,
+      "free_residual": true
+    },
+    "pass": true,
+    "timoshenko_tip_mm": 0.05865909090909091,
+    "FEA_max_tip_mm": 0.05819546716616413,
+    "relative_difference": 0.007903698058418507,
+    "scope": "Implementation verification only. Beam root sharp-edge raw stress is singular; this does not validate PLA fracture or contact pressure assumptions."
+  },
+  "note": "Reference to the prior generic bar/beam numerical implementation benchmark. It is not an N2 test, was not rerun, and does not validate contact or printed PLA fracture. Benchmark geometry/source remains in the prior P8 archive rather than this N2-only design package."
+}

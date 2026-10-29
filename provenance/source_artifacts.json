@@ -1,0 +1,63 @@
+{
+  "schema": "engineering_source_artifacts_v1",
+  "as_of": "2026-10-29",
+  "project": "N2 Modular Hardpoint",
+  "sources": [
+    {
+      "filename": "N2_Selected_Hardpoint_Project.zip",
+      "bytes": 181844720,
+      "sha256": "757ef6a4fd6e74e8db6c20262298813dc0fc24d3fdce087c54abfdfe1772d65b",
+      "library_file_id": "libfile_145a3e612f4881918827a6076504b265",
+      "url": "(removed)",
+      "role": "active_p11_complete_package",
+      "member_count": 475,
+      "expanded_bytes": 212823735,
+      "inventory": "provenance/n2_archive_inventory.json"
+    },
+    {
+      "filename": "Six_Hardpoints_PLA_FEA.pdf",
+      "bytes": 2200567,
+      "sha256": "97def9dc0e98658f179848d4082985ceb4bb03b2dbd272272fbed83c4215f56b",
+      "library_file_id": "libfile_0cdf3b1d44408191870f1170d4e6d8b3",
+      "url": "(removed)",
+      "role": "historical_p8_normal_load_fea",
+      "repository_path": "history/comparison_reports/Six_Hardpoints_PLA_FEA.pdf"
+    },
+    {
+      "filename": "N4_Extraction_Direction_FEA.pdf",
+      "bytes": 1149409,
+      "sha256": "fa56d223542bcff7c29ecf8ba241d50f6762cc8e3c9ee511beeb4606ed922dcf",
+      "library_file_id": "libfile_03984f35047081919339aae5e5c670da",
+      "url": "(removed)",
+      "role": "historical_p9_n4_extraction_correction",
+      "repository_path": "history/comparison_reports/N4_Extraction_Direction_FEA.pdf"
+    },
+    {
+      "filename": "Six_Hardpoint_Load_Calculations.pdf",
+      "bytes": 1957184,
+      "sha256": "47c5ff31301d816bc2ea6dfa2a0803383e1d0a5f9cfa1aca9299c5640c378689",
+      "library_file_id": "libfile_63fd382ff5ac81919e4b5917b3056a8f",
+      "url": "(removed)",
+      "role": "historical_p6_c1_analytical_comparison_standalone_pdf",
+      "repository_path": "history/comparison_reports/Six_Hardpoint_Load_Calculations.pdf"
+    },
+    {
+      "filename": "Six_Hardpoint_Load_Calculations.zip",
+      "bytes": 5940691,
+      "sha256": "5d1c272ed285904dca88228ded43b2fb57bef2c6b66b251db590275e9f397043",
+      "library_file_id": "libfile_11240a29363c8191881db5a803977f1c",
+      "url": "(removed)",
+      "role": "historical_p6_c1_comparison_complete_package",
+      "member_count": 158,
+      "expanded_bytes": 21675305,
+      "inventory": "provenance/comparison_archive_inventory.json",
+      "embedded_pdf": {
+        "member": "Six_Hardpoint_Load_Calculations/Six_Hardpoint_Load_Calculations.pdf",
+        "bytes": 1932219,
+        "sha256": "907a422cee82b9f37b8697ea6b213d745117c00605670328433ed0d96e0f86f6"
+      },
+      "standalone_pdf_is_identical": false
+    }
+  ],
+  "note": "Original downloads are account-scoped Library artifacts. No archive bytes are modified. Historical comparison archive and standalone PDF are separate issued artifacts with different PDF hashes; neither is substituted for the other."
+}

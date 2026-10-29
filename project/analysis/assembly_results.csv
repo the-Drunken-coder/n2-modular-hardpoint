@@ -1,0 +1,7 @@
+fixture,scenario,h_mm,raw_crossing_N,mass_equivalent_1g_kg,mass_equivalent_1g_lb,controlling_model,controlling_case,criterion
+full_backing,centered,0.55,21.497452601968757,2.192130095595209,4.832819598784718,N2_receiver,centered_bonded,tension
+full_backing,distal_ineffective,0.55,7.482995648440563,0.7630531984358128,1.682244342945656,N2_receiver,distal_ineffective_bonded,tension
+full_backing,low_y_half_contact,0.55,17.817461460831847,1.8168754325719638,4.005524679729431,N2_receiver,low_y_half_contact_bonded,tension
+two_hole_fixture,centered,0.55,11.26378958180135,1.1485868856134716,2.5322006311822913,N2_receiver,centered_washers,compression
+two_hole_fixture,distal_ineffective,0.55,7.527303066729821,0.7675712977142879,1.6922050468227405,N2_receiver,distal_ineffective_washers,tension
+two_hole_fixture,low_y_half_contact,0.55,11.577902508302742,1.1806174899994129,2.6028160262030267,N2_receiver,low_y_half_contact_washers,compression

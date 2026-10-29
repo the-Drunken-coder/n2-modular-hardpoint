@@ -1,0 +1,393 @@
+{
+  "variant": "N2",
+  "revision": "P6-01",
+  "status": "PASS",
+  "method": "Issued STEP readback, OpenCASCADE intersections at sampled rigid poses, binary print STL topology checks.",
+  "tolerance_mm3": 1e-05,
+  "bounds_mm": [
+    43.1,
+    30.0,
+    19.0
+  ],
+  "cad_instances": 13,
+  "printed_parts": 4,
+  "checked_pair_poses": 4529,
+  "maximum_external_overlap_mm3": 0.0,
+  "failures": [],
+  "retention_attempts": [
+    {
+      "keeper_y_mm": -0.3,
+      "adapter_y_mm": -0.3,
+      "dz_mm": 0.5,
+      "intersection_mm3": 0.8399999999999999
+    },
+    {
+      "keeper_y_mm": -0.3,
+      "adapter_y_mm": -0.3,
+      "dz_mm": 1,
+      "intersection_mm3": 2.939999999999998
+    },
+    {
+      "keeper_y_mm": -0.3,
+      "adapter_y_mm": -0.3,
+      "dz_mm": 2,
+      "intersection_mm3": 7.1399999999999935
+    },
+    {
+      "keeper_y_mm": -0.3,
+      "adapter_y_mm": 0,
+      "dz_mm": 0.5,
+      "intersection_mm3": 0.8399999999999999
+    },
+    {
+      "keeper_y_mm": -0.3,
+      "adapter_y_mm": 0,
+      "dz_mm": 1,
+      "intersection_mm3": 2.939999999999998
+    },
+    {
+      "keeper_y_mm": -0.3,
+      "adapter_y_mm": 0,
+      "dz_mm": 2,
+      "intersection_mm3": 7.1399999999999935
+    },
+    {
+      "keeper_y_mm": -0.3,
+      "adapter_y_mm": 0.3,
+      "dz_mm": 0.5,
+      "intersection_mm3": 0.8399999999999999
+    },
+    {
+      "keeper_y_mm": -0.3,
+      "adapter_y_mm": 0.3,
+      "dz_mm": 1,
+      "intersection_mm3": 2.939999999999998
+    },
+    {
+      "keeper_y_mm": -0.3,
+      "adapter_y_mm": 0.3,
+      "dz_mm": 2,
+      "intersection_mm3": 7.1399999999999935
+    },
+    {
+      "keeper_y_mm": 0,
+      "adapter_y_mm": -0.3,
+      "dz_mm": 0.5,
+      "intersection_mm3": 0.8400000000000001
+    },
+    {
+      "keeper_y_mm": 0,
+      "adapter_y_mm": -0.3,
+      "dz_mm": 1,
+      "intersection_mm3": 2.9399999999999977
+    },
+    {
+      "keeper_y_mm": 0,
+      "adapter_y_mm": -0.3,
+      "dz_mm": 2,
+      "intersection_mm3": 7.1399999999999935
+    },
+    {
+      "keeper_y_mm": 0,
+      "adapter_y_mm": 0,
+      "dz_mm": 0.5,
+      "intersection_mm3": 0.8400000000000001
+    },
+    {
+      "keeper_y_mm": 0,
+      "adapter_y_mm": 0,
+      "dz_mm": 1,
+      "intersection_mm3": 2.9399999999999977
+    },
+    {
+      "keeper_y_mm": 0,
+      "adapter_y_mm": 0,
+      "dz_mm": 2,
+      "intersection_mm3": 7.1399999999999935
+    },
+    {
+      "keeper_y_mm": 0,
+      "adapter_y_mm": 0.3,
+      "dz_mm": 0.5,
+      "intersection_mm3": 0.8400000000000001
+    },
+    {
+      "keeper_y_mm": 0,
+      "adapter_y_mm": 0.3,
+      "dz_mm": 1,
+      "intersection_mm3": 2.9399999999999977
+    },
+    {
+      "keeper_y_mm": 0,
+      "adapter_y_mm": 0.3,
+      "dz_mm": 2,
+      "intersection_mm3": 7.1399999999999935
+    },
+    {
+      "keeper_y_mm": 0.3,
+      "adapter_y_mm": -0.3,
+      "dz_mm": 0.5,
+      "intersection_mm3": 0.8399999999999999
+    },
+    {
+      "keeper_y_mm": 0.3,
+      "adapter_y_mm": -0.3,
+      "dz_mm": 1,
+      "intersection_mm3": 2.9399999999999977
+    },
+    {
+      "keeper_y_mm": 0.3,
+      "adapter_y_mm": -0.3,
+      "dz_mm": 2,
+      "intersection_mm3": 7.1399999999999935
+    },
+    {
+      "keeper_y_mm": 0.3,
+      "adapter_y_mm": 0,
+      "dz_mm": 0.5,
+      "intersection_mm3": 0.8399999999999999
+    },
+    {
+      "keeper_y_mm": 0.3,
+      "adapter_y_mm": 0,
+      "dz_mm": 1,
+      "intersection_mm3": 2.9399999999999977
+    },
+    {
+      "keeper_y_mm": 0.3,
+      "adapter_y_mm": 0,
+      "dz_mm": 2,
+      "intersection_mm3": 7.1399999999999935
+    },
+    {
+      "keeper_y_mm": 0.3,
+      "adapter_y_mm": 0.3,
+      "dz_mm": 0.5,
+      "intersection_mm3": 0.8399999999999999
+    },
+    {
+      "keeper_y_mm": 0.3,
+      "adapter_y_mm": 0.3,
+      "dz_mm": 1,
+      "intersection_mm3": 2.9399999999999977
+    },
+    {
+      "keeper_y_mm": 0.3,
+      "adapter_y_mm": 0.3,
+      "dz_mm": 2,
+      "intersection_mm3": 7.1399999999999935
+    }
+  ],
+  "insertion_stages": [
+    {
+      "stage": "nuts from underside",
+      "axis": "Z",
+      "offset_mm": [
+        -8,
+        0
+      ],
+      "checks": 34,
+      "max_intersection_mm3": 0.0
+    },
+    {
+      "stage": "keeper from open +X end",
+      "axis": "X",
+      "offset_mm": [
+        25,
+        0
+      ],
+      "checks": 153,
+      "max_intersection_mm3": 0.0
+    },
+    {
+      "stage": "complete actuator lowered",
+      "axis": "Z",
+      "offset_mm": [
+        20,
+        0
+      ],
+      "checks": 820,
+      "max_intersection_mm3": 0.0
+    },
+    {
+      "stage": "clamp lowered",
+      "axis": "Z",
+      "offset_mm": [
+        20,
+        0
+      ],
+      "checks": 369,
+      "max_intersection_mm3": 0.0
+    },
+    {
+      "stage": "screws lowered",
+      "axis": "Z",
+      "offset_mm": [
+        20,
+        0
+      ],
+      "checks": 820,
+      "max_intersection_mm3": 0.0
+    }
+  ],
+  "geometry": [
+    {
+      "part": "N2_receiver",
+      "valid": true,
+      "solids": 1,
+      "hash_matches": true
+    },
+    {
+      "part": "N2_adapter",
+      "valid": true,
+      "solids": 1,
+      "hash_matches": true
+    },
+    {
+      "part": "N2_keeper",
+      "valid": true,
+      "solids": 1,
+      "hash_matches": true
+    },
+    {
+      "part": "N2_clamp",
+      "valid": true,
+      "solids": 1,
+      "hash_matches": true
+    },
+    {
+      "part": "N2_solenoid_body",
+      "valid": true,
+      "solids": 2,
+      "hash_matches": true
+    },
+    {
+      "part": "N2_armature",
+      "valid": true,
+      "solids": 1,
+      "hash_matches": true
+    },
+    {
+      "part": "N2_return_spring",
+      "valid": true,
+      "solids": 1,
+      "hash_matches": true
+    },
+    {
+      "part": "N2_wire_1",
+      "valid": true,
+      "solids": 1,
+      "hash_matches": true
+    },
+    {
+      "part": "N2_wire_2",
+      "valid": true,
+      "solids": 1,
+      "hash_matches": true
+    },
+    {
+      "part": "N2_clamp_screw_1",
+      "valid": true,
+      "solids": 1,
+      "hash_matches": true
+    },
+    {
+      "part": "N2_clamp_nut_1",
+      "valid": true,
+      "solids": 1,
+      "hash_matches": true
+    },
+    {
+      "part": "N2_clamp_screw_2",
+      "valid": true,
+      "solids": 1,
+      "hash_matches": true
+    },
+    {
+      "part": "N2_clamp_nut_2",
+      "valid": true,
+      "solids": 1,
+      "hash_matches": true
+    }
+  ],
+  "print_meshes": [
+    {
+      "part": "N2_receiver",
+      "file": "cad/N2/N2_receiver_print.stl",
+      "sha256": "860ccfa1816056a35aa2d5e658ef5cae1e9ac47b62c09beb31e928baf11f4568",
+      "facets": 3072,
+      "checks": {
+        "finite": true,
+        "closed_edges": true,
+        "oriented": true,
+        "positive_volume": true,
+        "above_bed": true,
+        "fits_256_mm_cube": true,
+        "bounds_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "part": "N2_adapter",
+      "file": "cad/N2/N2_adapter_print.stl",
+      "sha256": "6b49e15c73a7cfe85bd1709268bdab0f1e573311f38b7820772affca50d8ac2b",
+      "facets": 896,
+      "checks": {
+        "finite": true,
+        "closed_edges": true,
+        "oriented": true,
+        "positive_volume": true,
+        "above_bed": true,
+        "fits_256_mm_cube": true,
+        "bounds_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "part": "N2_keeper",
+      "file": "cad/N2/N2_keeper_print.stl",
+      "sha256": "661389d09cfbb6000f74f232383af7d4251d1dac24091403f82817c82beb6d29",
+      "facets": 508,
+      "checks": {
+        "finite": true,
+        "closed_edges": true,
+        "oriented": true,
+        "positive_volume": true,
+        "above_bed": true,
+        "fits_256_mm_cube": true,
+        "bounds_match": true
+      },
+      "status": "PASS"
+    },
+    {
+      "part": "N2_clamp",
+      "file": "cad/N2/N2_clamp_print.stl",
+      "sha256": "aea948f8fddce042c7b637b1987ae428d462848e8a874d24b7fcacb8cb48fc4b",
+      "facets": 896,
+      "checks": {
+        "finite": true,
+        "closed_edges": true,
+        "oriented": true,
+        "positive_volume": true,
+        "above_bed": true,
+        "fits_256_mm_cube": true,
+        "bounds_match": true
+      },
+      "status": "PASS"
+    }
+  ],
+  "excluded_pairs": "Only pairs wholly inside purchased actuator (body, captive armature, inferred retained-shape spring, two lead stubs).",
+  "limits": [
+    "Sampled translations and nominal geometry, not a continuous swept-volume proof.",
+    "Lateral positions do not include additional printer/supplier error, angular misalignment, elastic deflection or wear.",
+    "No force, contact, strength, creep, temperature or physical-release simulation.",
+    "Spring deformation and actuator internals are not manufacturing geometry.",
+    "Host hardware, full harness and aircraft integration are installation-specific."
+  ],
+  "source_sha256": {
+    "cad/build_n1_n2.py": "db753fb27f4af74d8c900eae746253ab8f42671b21b34a08cc3ae0a2751bf747",
+    "cad/common.py": "a0b8a556eadbc2d77c955cd0bff4c1a0660804066ef391529b658c5f40c5e308",
+    "cad/solenoid_parts.py": "b838ebd964727a76fbdf063538289d48356644fd16178cf15ef440b1caf09035",
+    "analysis/n1_n2_geometry.py": "9929307126d844f88f47534e3a4171a6000e1eef6ea230249cd4457191559562"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "build": "success",
+  "date": "2026-10-27T03:39:37.680Z",
+  "revision": "P11",
+  "active_variants": [
+    "N2"
+  ],
+  "blueprint": "6.21.0",
+  "three": "0.180.0",
+  "download_files": 125,
+  "app_sha256": "7152834761cbe5150616267ae364db4bc6e9cd3cc6c1a3972ffc613c796d806b",
+  "source_root": "/workspace/scratch/00a02706cb44/n2_focus_p11",
+  "geometry_sha256": "001914a1f75be1c06b2342781c5f631f2d6a1e63c6870b0bd109bcd1a7f16671"
+}

@@ -1,0 +1,421 @@
+{
+  "N2": {
+    "centered": {
+      "contact_mode": "two_roofs",
+      "normal_resultant_N": 1.0,
+      "load_centroid_mm": [
+        27.5,
+        10.0,
+        7.2
+      ],
+      "reactions": {
+        "distal_down_on_keeper_N": 0.5357142857142856,
+        "proximal_down_on_keeper_N": 0.4642857142857144
+      },
+      "keeper": [
+        {
+          "label": "Adapter floor: upward on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              26.8,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "label": "Distal roof: downward on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.2,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -0.5357142857142856
+          ]
+        },
+        {
+          "label": "Proximal roof: downward on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.2,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -0.4642857142857144
+          ]
+        }
+      ],
+      "receiver": [
+        {
+          "label": "Distal roof underside: upward on receiver",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            0.5357142857142856
+          ]
+        },
+        {
+          "label": "Proximal roof underside: upward on receiver",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            0.4642857142857144
+          ]
+        }
+      ],
+      "adapter": [
+        {
+          "label": "Keeper underside: downward on adapter floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              26.8,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    "distal_ineffective": {
+      "contact_mode": "opposed",
+      "normal_resultant_N": 1.0,
+      "load_centroid_mm": [
+        27.5,
+        10.0,
+        7.2
+      ],
+      "reactions": {
+        "proximal_down_on_keeper_N": 1.3333333333333333,
+        "far_floor_up_on_keeper_N": 0.3333333333333333
+      },
+      "keeper": [
+        {
+          "label": "Adapter floor: upward on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              26.8,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "label": "Proximal roof: downward on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.2,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -1.3333333333333333
+          ]
+        },
+        {
+          "label": "Far floor: upward on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              33.0,
+              34.0
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            0.3333333333333333
+          ]
+        }
+      ],
+      "receiver": [
+        {
+          "label": "Proximal roof underside: upward on receiver",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            1.3333333333333333
+          ]
+        },
+        {
+          "label": "Far floor top: downward on receiver",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              33.0,
+              34.0
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -0.3333333333333333
+          ]
+        }
+      ],
+      "adapter": [
+        {
+          "label": "Keeper underside: downward on adapter floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              26.8,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    "low_y_half_contact": {
+      "contact_mode": "two_roofs",
+      "normal_resultant_N": 1.0,
+      "load_centroid_mm": [
+        27.5,
+        9.25,
+        7.2
+      ],
+      "reactions": {
+        "distal_down_on_keeper_N": 0.5357142857142856,
+        "proximal_down_on_keeper_N": 0.4642857142857144
+      },
+      "keeper": [
+        {
+          "label": "Adapter floor: upward on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              26.8,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              10.0
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "label": "Distal roof: downward on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.2,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              10.0
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -0.5357142857142856
+          ]
+        },
+        {
+          "label": "Proximal roof: downward on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.2,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              10.0
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -0.4642857142857144
+          ]
+        }
+      ],
+      "receiver": [
+        {
+          "label": "Distal roof underside: upward on receiver",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              10.0
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            0.5357142857142856
+          ]
+        },
+        {
+          "label": "Proximal roof underside: upward on receiver",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              10.0
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            0.4642857142857144
+          ]
+        }
+      ],
+      "adapter": [
+        {
+          "label": "Keeper underside: downward on adapter floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              26.8,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              10.0
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "project": "N2 Supported Cross-bolt Hardpoint",
+  "active_variant": "N2",
+  "revision": "P11",
+  "date": "2026-10-27",
+  "decision": "User selected N2 as the sole active design. Other mechanisms are retired from the active interface and package.",
+  "geometry_status": "Unchanged P6 N2 geometry; selection and documentation consolidation only.",
+  "material_basis": "PLA for current structural analysis and fit-print guidance",
+  "scope": "Compact mechanical retention and mini-solenoid release; four custom printed parts; local actuator controls; no payload power/data interface.",
+  "next_priorities": [
+    "Measure and secure distal support engagement across the real printed tolerances.",
+    "Verify the supported-to-overhung transition and actuator withdrawal force through the complete 3 mm stroke.",
+    "Resolve guide-root stress and qualify the actual mounting/backing arrangement before assigning a load rating."
+  ],
+  "archive": {
+    "previous_site_commit": "3cbe57b63a0ef94f39b5a84ba6dde5f707548907",
+    "previous_pla_report_url": "(removed)",
+    "status": "Historical comparison retained in previous delivered packages and source history; no other design is active."
+  }
+}

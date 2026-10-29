@@ -1,0 +1,1058 @@
+{
+  "id": "N2",
+  "name": "Supported cross-bolt",
+  "nominal": {
+    "full_backing": {
+      "variant": "N2",
+      "fixture": "full_backing",
+      "scenario": "centered",
+      "h_mm": 0.55,
+      "raw_crossing_N": 21.497452601968757,
+      "mass_equivalent_1g_kg": 2.192130095595209,
+      "mass_equivalent_1g_lb": 4.832819598784718,
+      "controlling_model": "N2_receiver",
+      "controlling_case": "centered_bonded",
+      "criterion": "tension",
+      "components": [
+        {
+          "model": "N2_adapter",
+          "case": "centered",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 23.582233510665688,
+          "criterion": "tension",
+          "result_path": "results/N2_adapter/h0.55/centered.json",
+          "max_displacement_at_model_unit_mm": 0.0018276032076957982,
+          "compliance_at_model_unit_Nmm": 0.0017189356342770501
+        },
+        {
+          "model": "N2_keeper",
+          "case": "centered",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 80.68545285230945,
+          "criterion": "maximum_shear",
+          "result_path": "results/N2_keeper/h0.55/centered.json",
+          "max_displacement_at_model_unit_mm": 0.0003231200066314971,
+          "compliance_at_model_unit_Nmm": 0.00026143058395471075
+        },
+        {
+          "model": "N2_receiver",
+          "case": "centered_bonded",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 21.497452601968757,
+          "criterion": "tension",
+          "result_path": "results/N2_receiver/h0.55/centered_bonded.json",
+          "max_displacement_at_model_unit_mm": 0.0041590528529567945,
+          "compliance_at_model_unit_Nmm": 0.0012021381079654106
+        }
+      ]
+    },
+    "two_hole_fixture": {
+      "variant": "N2",
+      "fixture": "two_hole_fixture",
+      "scenario": "centered",
+      "h_mm": 0.55,
+      "raw_crossing_N": 11.26378958180135,
+      "mass_equivalent_1g_kg": 1.1485868856134716,
+      "mass_equivalent_1g_lb": 2.5322006311822913,
+      "controlling_model": "N2_receiver",
+      "controlling_case": "centered_washers",
+      "criterion": "compression",
+      "components": [
+        {
+          "model": "N2_adapter",
+          "case": "centered",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 23.582233510665688,
+          "criterion": "tension",
+          "result_path": "results/N2_adapter/h0.55/centered.json",
+          "max_displacement_at_model_unit_mm": 0.0018276032076957982,
+          "compliance_at_model_unit_Nmm": 0.0017189356342770501
+        },
+        {
+          "model": "N2_keeper",
+          "case": "centered",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 80.68545285230945,
+          "criterion": "maximum_shear",
+          "result_path": "results/N2_keeper/h0.55/centered.json",
+          "max_displacement_at_model_unit_mm": 0.0003231200066314971,
+          "compliance_at_model_unit_Nmm": 0.00026143058395471075
+        },
+        {
+          "model": "N2_receiver",
+          "case": "centered_washers",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 11.26378958180135,
+          "criterion": "compression",
+          "result_path": "results/N2_receiver/h0.55/centered_washers.json",
+          "max_displacement_at_model_unit_mm": 0.012874174749417188,
+          "compliance_at_model_unit_Nmm": 0.008114769432667562
+        }
+      ]
+    }
+  },
+  "lowest_selected_case": {
+    "full_backing": {
+      "variant": "N2",
+      "fixture": "full_backing",
+      "scenario": "distal_ineffective",
+      "h_mm": 0.55,
+      "raw_crossing_N": 7.482995648440563,
+      "mass_equivalent_1g_kg": 0.7630531984358128,
+      "mass_equivalent_1g_lb": 1.682244342945656,
+      "controlling_model": "N2_receiver",
+      "controlling_case": "distal_ineffective_bonded",
+      "criterion": "tension",
+      "components": [
+        {
+          "model": "N2_adapter",
+          "case": "distal_ineffective",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 23.582233510665688,
+          "criterion": "tension",
+          "result_path": "results/N2_adapter/h0.55/distal_ineffective.json",
+          "max_displacement_at_model_unit_mm": 0.0018276032076957982,
+          "compliance_at_model_unit_Nmm": 0.0017189356342770501
+        },
+        {
+          "model": "N2_keeper",
+          "case": "distal_ineffective",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 41.760894428297405,
+          "criterion": "tension",
+          "result_path": "results/N2_keeper/h0.55/distal_ineffective.json",
+          "max_displacement_at_model_unit_mm": 0.0012662276987058876,
+          "compliance_at_model_unit_Nmm": 0.0007720674134115502
+        },
+        {
+          "model": "N2_receiver",
+          "case": "distal_ineffective_bonded",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 7.482995648440563,
+          "criterion": "tension",
+          "result_path": "results/N2_receiver/h0.55/distal_ineffective_bonded.json",
+          "max_displacement_at_model_unit_mm": 0.011915731386034132,
+          "compliance_at_model_unit_Nmm": 0.006961770764927608
+        }
+      ]
+    },
+    "two_hole_fixture": {
+      "variant": "N2",
+      "fixture": "two_hole_fixture",
+      "scenario": "distal_ineffective",
+      "h_mm": 0.55,
+      "raw_crossing_N": 7.527303066729821,
+      "mass_equivalent_1g_kg": 0.7675712977142879,
+      "mass_equivalent_1g_lb": 1.6922050468227405,
+      "controlling_model": "N2_receiver",
+      "controlling_case": "distal_ineffective_washers",
+      "criterion": "tension",
+      "components": [
+        {
+          "model": "N2_adapter",
+          "case": "distal_ineffective",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 23.582233510665688,
+          "criterion": "tension",
+          "result_path": "results/N2_adapter/h0.55/distal_ineffective.json",
+          "max_displacement_at_model_unit_mm": 0.0018276032076957982,
+          "compliance_at_model_unit_Nmm": 0.0017189356342770501
+        },
+        {
+          "model": "N2_keeper",
+          "case": "distal_ineffective",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 41.760894428297405,
+          "criterion": "tension",
+          "result_path": "results/N2_keeper/h0.55/distal_ineffective.json",
+          "max_displacement_at_model_unit_mm": 0.0012662276987058876,
+          "compliance_at_model_unit_Nmm": 0.0007720674134115502
+        },
+        {
+          "model": "N2_receiver",
+          "case": "distal_ineffective_washers",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 7.527303066729821,
+          "criterion": "tension",
+          "result_path": "results/N2_receiver/h0.55/distal_ineffective_washers.json",
+          "max_displacement_at_model_unit_mm": 0.016547752362110695,
+          "compliance_at_model_unit_Nmm": 0.01400415686618875
+        }
+      ]
+    }
+  },
+  "cases": [
+    {
+      "variant": "N2",
+      "fixture": "full_backing",
+      "scenario": "centered",
+      "h_mm": 0.55,
+      "raw_crossing_N": 21.497452601968757,
+      "mass_equivalent_1g_kg": 2.192130095595209,
+      "mass_equivalent_1g_lb": 4.832819598784718,
+      "controlling_model": "N2_receiver",
+      "controlling_case": "centered_bonded",
+      "criterion": "tension",
+      "components": [
+        {
+          "model": "N2_adapter",
+          "case": "centered",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 23.582233510665688,
+          "criterion": "tension",
+          "result_path": "results/N2_adapter/h0.55/centered.json",
+          "max_displacement_at_model_unit_mm": 0.0018276032076957982,
+          "compliance_at_model_unit_Nmm": 0.0017189356342770501
+        },
+        {
+          "model": "N2_keeper",
+          "case": "centered",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 80.68545285230945,
+          "criterion": "maximum_shear",
+          "result_path": "results/N2_keeper/h0.55/centered.json",
+          "max_displacement_at_model_unit_mm": 0.0003231200066314971,
+          "compliance_at_model_unit_Nmm": 0.00026143058395471075
+        },
+        {
+          "model": "N2_receiver",
+          "case": "centered_bonded",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 21.497452601968757,
+          "criterion": "tension",
+          "result_path": "results/N2_receiver/h0.55/centered_bonded.json",
+          "max_displacement_at_model_unit_mm": 0.0041590528529567945,
+          "compliance_at_model_unit_Nmm": 0.0012021381079654106
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "fixture": "full_backing",
+      "scenario": "distal_ineffective",
+      "h_mm": 0.55,
+      "raw_crossing_N": 7.482995648440563,
+      "mass_equivalent_1g_kg": 0.7630531984358128,
+      "mass_equivalent_1g_lb": 1.682244342945656,
+      "controlling_model": "N2_receiver",
+      "controlling_case": "distal_ineffective_bonded",
+      "criterion": "tension",
+      "components": [
+        {
+          "model": "N2_adapter",
+          "case": "distal_ineffective",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 23.582233510665688,
+          "criterion": "tension",
+          "result_path": "results/N2_adapter/h0.55/distal_ineffective.json",
+          "max_displacement_at_model_unit_mm": 0.0018276032076957982,
+          "compliance_at_model_unit_Nmm": 0.0017189356342770501
+        },
+        {
+          "model": "N2_keeper",
+          "case": "distal_ineffective",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 41.760894428297405,
+          "criterion": "tension",
+          "result_path": "results/N2_keeper/h0.55/distal_ineffective.json",
+          "max_displacement_at_model_unit_mm": 0.0012662276987058876,
+          "compliance_at_model_unit_Nmm": 0.0007720674134115502
+        },
+        {
+          "model": "N2_receiver",
+          "case": "distal_ineffective_bonded",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 7.482995648440563,
+          "criterion": "tension",
+          "result_path": "results/N2_receiver/h0.55/distal_ineffective_bonded.json",
+          "max_displacement_at_model_unit_mm": 0.011915731386034132,
+          "compliance_at_model_unit_Nmm": 0.006961770764927608
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "fixture": "full_backing",
+      "scenario": "low_y_half_contact",
+      "h_mm": 0.55,
+      "raw_crossing_N": 17.817461460831847,
+      "mass_equivalent_1g_kg": 1.8168754325719638,
+      "mass_equivalent_1g_lb": 4.005524679729431,
+      "controlling_model": "N2_receiver",
+      "controlling_case": "low_y_half_contact_bonded",
+      "criterion": "tension",
+      "components": [
+        {
+          "model": "N2_adapter",
+          "case": "low_y_half_contact",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 20.608823125309097,
+          "criterion": "tension",
+          "result_path": "results/N2_adapter/h0.55/low_y_half_contact.json",
+          "max_displacement_at_model_unit_mm": 0.0020624751739262382,
+          "compliance_at_model_unit_Nmm": 0.0019307727209022735
+        },
+        {
+          "model": "N2_keeper",
+          "case": "low_y_half_contact",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 41.20228443800658,
+          "criterion": "maximum_shear",
+          "result_path": "results/N2_keeper/h0.55/low_y_half_contact.json",
+          "max_displacement_at_model_unit_mm": 0.0005410403399896792,
+          "compliance_at_model_unit_Nmm": 0.00045631102509001534
+        },
+        {
+          "model": "N2_receiver",
+          "case": "low_y_half_contact_bonded",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 17.817461460831847,
+          "criterion": "tension",
+          "result_path": "results/N2_receiver/h0.55/low_y_half_contact_bonded.json",
+          "max_displacement_at_model_unit_mm": 0.005388754560974469,
+          "compliance_at_model_unit_Nmm": 0.0017452015570097144
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "fixture": "two_hole_fixture",
+      "scenario": "centered",
+      "h_mm": 0.55,
+      "raw_crossing_N": 11.26378958180135,
+      "mass_equivalent_1g_kg": 1.1485868856134716,
+      "mass_equivalent_1g_lb": 2.5322006311822913,
+      "controlling_model": "N2_receiver",
+      "controlling_case": "centered_washers",
+      "criterion": "compression",
+      "components": [
+        {
+          "model": "N2_adapter",
+          "case": "centered",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 23.582233510665688,
+          "criterion": "tension",
+          "result_path": "results/N2_adapter/h0.55/centered.json",
+          "max_displacement_at_model_unit_mm": 0.0018276032076957982,
+          "compliance_at_model_unit_Nmm": 0.0017189356342770501
+        },
+        {
+          "model": "N2_keeper",
+          "case": "centered",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 80.68545285230945,
+          "criterion": "maximum_shear",
+          "result_path": "results/N2_keeper/h0.55/centered.json",
+          "max_displacement_at_model_unit_mm": 0.0003231200066314971,
+          "compliance_at_model_unit_Nmm": 0.00026143058395471075
+        },
+        {
+          "model": "N2_receiver",
+          "case": "centered_washers",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 11.26378958180135,
+          "criterion": "compression",
+          "result_path": "results/N2_receiver/h0.55/centered_washers.json",
+          "max_displacement_at_model_unit_mm": 0.012874174749417188,
+          "compliance_at_model_unit_Nmm": 0.008114769432667562
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "fixture": "two_hole_fixture",
+      "scenario": "distal_ineffective",
+      "h_mm": 0.55,
+      "raw_crossing_N": 7.527303066729821,
+      "mass_equivalent_1g_kg": 0.7675712977142879,
+      "mass_equivalent_1g_lb": 1.6922050468227405,
+      "controlling_model": "N2_receiver",
+      "controlling_case": "distal_ineffective_washers",
+      "criterion": "tension",
+      "components": [
+        {
+          "model": "N2_adapter",
+          "case": "distal_ineffective",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 23.582233510665688,
+          "criterion": "tension",
+          "result_path": "results/N2_adapter/h0.55/distal_ineffective.json",
+          "max_displacement_at_model_unit_mm": 0.0018276032076957982,
+          "compliance_at_model_unit_Nmm": 0.0017189356342770501
+        },
+        {
+          "model": "N2_keeper",
+          "case": "distal_ineffective",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 41.760894428297405,
+          "criterion": "tension",
+          "result_path": "results/N2_keeper/h0.55/distal_ineffective.json",
+          "max_displacement_at_model_unit_mm": 0.0012662276987058876,
+          "compliance_at_model_unit_Nmm": 0.0007720674134115502
+        },
+        {
+          "model": "N2_receiver",
+          "case": "distal_ineffective_washers",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 7.527303066729821,
+          "criterion": "tension",
+          "result_path": "results/N2_receiver/h0.55/distal_ineffective_washers.json",
+          "max_displacement_at_model_unit_mm": 0.016547752362110695,
+          "compliance_at_model_unit_Nmm": 0.01400415686618875
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "fixture": "two_hole_fixture",
+      "scenario": "low_y_half_contact",
+      "h_mm": 0.55,
+      "raw_crossing_N": 11.577902508302742,
+      "mass_equivalent_1g_kg": 1.1806174899994129,
+      "mass_equivalent_1g_lb": 2.6028160262030267,
+      "controlling_model": "N2_receiver",
+      "controlling_case": "low_y_half_contact_washers",
+      "criterion": "compression",
+      "components": [
+        {
+          "model": "N2_adapter",
+          "case": "low_y_half_contact",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 20.608823125309097,
+          "criterion": "tension",
+          "result_path": "results/N2_adapter/h0.55/low_y_half_contact.json",
+          "max_displacement_at_model_unit_mm": 0.0020624751739262382,
+          "compliance_at_model_unit_Nmm": 0.0019307727209022735
+        },
+        {
+          "model": "N2_keeper",
+          "case": "low_y_half_contact",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 41.20228443800658,
+          "criterion": "maximum_shear",
+          "result_path": "results/N2_keeper/h0.55/low_y_half_contact.json",
+          "max_displacement_at_model_unit_mm": 0.0005410403399896792,
+          "compliance_at_model_unit_Nmm": 0.00045631102509001534
+        },
+        {
+          "model": "N2_receiver",
+          "case": "low_y_half_contact_washers",
+          "unit_load_per_total_P": 1,
+          "raw_crossing_total_N": 11.577902508302742,
+          "criterion": "compression",
+          "result_path": "results/N2_receiver/h0.55/low_y_half_contact_washers.json",
+          "max_displacement_at_model_unit_mm": 0.012095935236710298,
+          "compliance_at_model_unit_Nmm": 0.008006144802325584
+        }
+      ]
+    }
+  ],
+  "note": "Both supports must engage. Losing the distal support reduces the normal-load screen substantially; washer fixture edges govern the nominal mounted case.",
+  "hotspot": "Receiver roof root / ideal washer edge",
+  "nominal_contact_established": true,
+  "display_status": "Conditional nominal contact scenario",
+  "schema": "N2_FOCUSED_ANALYSIS_V1",
+  "revision": "P11 scope consolidation; P8 numerical results unchanged",
+  "status": "ARCHIVED_PLA_STRESS_SCREEN_NOT_WORKING_LOAD_RATING",
+  "numerical_results_changed": false,
+  "new_FEA_performed": false,
+  "geometry_changed": false,
+  "material": {
+    "name": "Common effective solid printed PLA",
+    "elastic_model": "isotropic linear elastic",
+    "E_MPa": 2200.0,
+    "nu": 0.35,
+    "density_g_cm3": 1.24,
+    "tension_MPa": 25.0,
+    "compression_MPa": 40.0,
+    "max_shear_MPa": 15.0,
+    "nominal_temperature_C": 22,
+    "infill_assumption": "100 percent / solid-equivalent, no sparse infill",
+    "interpretation": "Effective common comparison assumptions, not measured allowables or a validated fracture law. No directional strength credit; layer adhesion and defects are homogenized. Short-duration static loading only.",
+    "reference": "Bambu PLA Basic TDS V3.0 gives typical XY/Z E 2580/2060 MPa and tensile strength 35/31 MPa for 100 percent infill, annealed/dried coupons. The chosen 25 MPa tension threshold is an analyst assumption, not a supplier rating.",
+    "reference_url": "https://cdn.shopify.com/s/files/1/0645/5876/0155/files/Bambu_PLA_Basic_Technical_Data_Sheet.pdf"
+  },
+  "load_axis": "+Z",
+  "axis_note": "The retained payload adapter pulls out in +Z; keeper actuation is +X. Holding FEA loads the actual extraction direction, not the actuator direction.",
+  "baseline_h_mm": 0.55,
+  "gravity_m_s2": 9.80665,
+  "load_normalization_N": 1,
+  "method": "Actual-STEP quadratic-tetrahedron component load paths, prescribed seated contacts, two ideal receiver fixtures; no assembled nonlinear contact/fracture solve.",
+  "criterion": {
+    "expression": "I=max(max(sigma1,0)/25, max(-sigma3,0)/40, (sigma1-sigma3)/(2*15)); P_cross=1/max(I) N for the 1 N cases",
+    "meaning": "First crossing of assumed local stress thresholds in this linear model; no fracture, contact redistribution, safety factor, creep, or statistical print allowance is solved.",
+    "mass_conversion": "m=P/(n*9.80665). Any shown 1g equivalent includes the removable payload, adapter, and removable fasteners; it is not a payload or flight rating."
+  },
+  "local_refinement": [
+    {
+      "id": "N2_receiver",
+      "case": "centered_washers",
+      "h_mm": 0.4,
+      "raw_crossing_N": 12.55570516266748,
+      "result_path": "results/N2_receiver/h0.4/centered_washers.json"
+    },
+    {
+      "id": "N2_receiver",
+      "case": "distal_ineffective_washers",
+      "h_mm": 0.4,
+      "raw_crossing_N": 7.6391021410195625,
+      "result_path": "results/N2_receiver/h0.4/distal_ineffective_washers.json"
+    },
+    {
+      "id": "N2_receiver",
+      "case": "low_y_half_contact_washers",
+      "h_mm": 0.4,
+      "raw_crossing_N": 12.953715103782054,
+      "result_path": "results/N2_receiver/h0.4/low_y_half_contact_washers.json"
+    }
+  ],
+  "local_refinement_note": "h0.4 is a separate local receiver refinement: h0.55 bulk sizing retained, sharp roof/wall root and second-washer hotspot refined to 0.4 mm. It is not a uniform 0.4 mm mesh or a revised design. The common 0.55 mm assembly screen is retained.",
+  "convergence": [
+    {
+      "key": "N2_adapter/centered",
+      "sequence": [
+        {
+          "h_mm": 1.2,
+          "elements": 2910,
+          "dofs": 16329,
+          "raw_strength_threshold_N": 27.665783941045024,
+          "raw_peak_failure_index": 0.03614573156976035,
+          "compliance_Nmm": 0.0017075945849955123,
+          "max_displacement_mm": 0.0018180215171554335,
+          "result_path": "results/N2_adapter/h1.2/centered.json"
+        },
+        {
+          "h_mm": 0.8,
+          "elements": 4209,
+          "dofs": 23232,
+          "raw_strength_threshold_N": 24.114419737072282,
+          "raw_peak_failure_index": 0.04146896383588492,
+          "compliance_Nmm": 0.0017128417108682814,
+          "max_displacement_mm": 0.0018227856602013432,
+          "result_path": "results/N2_adapter/h0.8/centered.json"
+        },
+        {
+          "h_mm": 0.55,
+          "elements": 8488,
+          "dofs": 44775,
+          "raw_strength_threshold_N": 23.582233510665688,
+          "raw_peak_failure_index": 0.042404804428203276,
+          "compliance_Nmm": 0.0017189356342770501,
+          "max_displacement_mm": 0.0018276032076957982,
+          "result_path": "results/N2_adapter/h0.55/centered.json"
+        }
+      ],
+      "last_relative_compliance_change": 0.003557785503530031,
+      "last_relative_raw_crossing_change": 0.02206921137681117,
+      "last_relative_raw_index_change": 0.02256725285015504
+    },
+    {
+      "key": "N2_adapter/distal_ineffective",
+      "sequence": [
+        {
+          "h_mm": 1.2,
+          "elements": 2910,
+          "dofs": 16329,
+          "raw_strength_threshold_N": 27.665783941045024,
+          "raw_peak_failure_index": 0.03614573156976035,
+          "compliance_Nmm": 0.0017075945849955123,
+          "max_displacement_mm": 0.0018180215171554335,
+          "result_path": "results/N2_adapter/h1.2/distal_ineffective.json"
+        },
+        {
+          "h_mm": 0.8,
+          "elements": 4209,
+          "dofs": 23232,
+          "raw_strength_threshold_N": 24.114419737072282,
+          "raw_peak_failure_index": 0.04146896383588492,
+          "compliance_Nmm": 0.0017128417108682814,
+          "max_displacement_mm": 0.0018227856602013432,
+          "result_path": "results/N2_adapter/h0.8/distal_ineffective.json"
+        },
+        {
+          "h_mm": 0.55,
+          "elements": 8488,
+          "dofs": 44775,
+          "raw_strength_threshold_N": 23.582233510665688,
+          "raw_peak_failure_index": 0.042404804428203276,
+          "compliance_Nmm": 0.0017189356342770501,
+          "max_displacement_mm": 0.0018276032076957982,
+          "result_path": "results/N2_adapter/h0.55/distal_ineffective.json"
+        }
+      ],
+      "last_relative_compliance_change": 0.003557785503530031,
+      "last_relative_raw_crossing_change": 0.02206921137681117,
+      "last_relative_raw_index_change": 0.02256725285015504
+    },
+    {
+      "key": "N2_adapter/low_y_half_contact",
+      "sequence": [
+        {
+          "h_mm": 1.2,
+          "elements": 2910,
+          "dofs": 16329,
+          "raw_strength_threshold_N": 26.36792647691938,
+          "raw_peak_failure_index": 0.03792486302915511,
+          "compliance_Nmm": 0.0019164561129483737,
+          "max_displacement_mm": 0.002049540147813214,
+          "result_path": "results/N2_adapter/h1.2/low_y_half_contact.json"
+        },
+        {
+          "h_mm": 0.8,
+          "elements": 4209,
+          "dofs": 23232,
+          "raw_strength_threshold_N": 21.05860439970527,
+          "raw_peak_failure_index": 0.047486527645393045,
+          "compliance_Nmm": 0.0019218618135087933,
+          "max_displacement_mm": 0.0020561059012249804,
+          "result_path": "results/N2_adapter/h0.8/low_y_half_contact.json"
+        },
+        {
+          "h_mm": 0.55,
+          "elements": 8488,
+          "dofs": 44775,
+          "raw_strength_threshold_N": 20.608823125309097,
+          "raw_peak_failure_index": 0.0485229066172114,
+          "compliance_Nmm": 0.0019307727209022735,
+          "max_displacement_mm": 0.0020624751739262382,
+          "result_path": "results/N2_adapter/h0.55/low_y_half_contact.json"
+        }
+      ],
+      "last_relative_compliance_change": 0.0046366015136183325,
+      "last_relative_raw_crossing_change": 0.021358550920994035,
+      "last_relative_raw_index_change": 0.02182469477569593
+    },
+    {
+      "key": "N2_keeper/centered",
+      "sequence": [
+        {
+          "h_mm": 1.2,
+          "elements": 2565,
+          "dofs": 14367,
+          "raw_strength_threshold_N": 77.97552569551199,
+          "raw_peak_failure_index": 0.01282453681562748,
+          "compliance_Nmm": 0.0002564115026931591,
+          "max_displacement_mm": 0.00032313274878057943,
+          "result_path": "results/N2_keeper/h1.2/centered.json"
+        },
+        {
+          "h_mm": 0.8,
+          "elements": 4446,
+          "dofs": 24144,
+          "raw_strength_threshold_N": 74.88209309995638,
+          "raw_peak_failure_index": 0.013354327564871213,
+          "compliance_Nmm": 0.0002596621897816337,
+          "max_displacement_mm": 0.00032223210374617147,
+          "result_path": "results/N2_keeper/h0.8/centered.json"
+        },
+        {
+          "h_mm": 0.55,
+          "elements": 7538,
+          "dofs": 39606,
+          "raw_strength_threshold_N": 80.68545285230945,
+          "raw_peak_failure_index": 0.01239380786311565,
+          "compliance_Nmm": 0.00026143058395471075,
+          "max_displacement_mm": 0.0003231200066314971,
+          "result_path": "results/N2_keeper/h0.55/centered.json"
+        }
+      ],
+      "last_relative_compliance_change": 0.0068103645531305546,
+      "last_relative_raw_crossing_change": 0.07749996710971274,
+      "last_relative_raw_index_change": 0.07192572573120248
+    },
+    {
+      "key": "N2_keeper/distal_ineffective",
+      "sequence": [
+        {
+          "h_mm": 1.2,
+          "elements": 2565,
+          "dofs": 14367,
+          "raw_strength_threshold_N": 49.0554544190781,
+          "raw_peak_failure_index": 0.020385092990007878,
+          "compliance_Nmm": 0.0007575224444509344,
+          "max_displacement_mm": 0.0012584512238318175,
+          "result_path": "results/N2_keeper/h1.2/distal_ineffective.json"
+        },
+        {
+          "h_mm": 0.8,
+          "elements": 4446,
+          "dofs": 24144,
+          "raw_strength_threshold_N": 46.539681875091794,
+          "raw_peak_failure_index": 0.021487039870274737,
+          "compliance_Nmm": 0.0007677597569582012,
+          "max_displacement_mm": 0.0012630575041412341,
+          "result_path": "results/N2_keeper/h0.8/distal_ineffective.json"
+        },
+        {
+          "h_mm": 0.55,
+          "elements": 7538,
+          "dofs": 39606,
+          "raw_strength_threshold_N": 41.760894428297405,
+          "raw_peak_failure_index": 0.023945847273864774,
+          "compliance_Nmm": 0.0007720674134115502,
+          "max_displacement_mm": 0.0012662276987058876,
+          "result_path": "results/N2_keeper/h0.55/distal_ineffective.json"
+        }
+      ],
+      "last_relative_compliance_change": 0.005610682787563048,
+      "last_relative_raw_crossing_change": 0.10268199640083941,
+      "last_relative_raw_index_change": 0.11443211435520073
+    },
+    {
+      "key": "N2_keeper/low_y_half_contact",
+      "sequence": [
+        {
+          "h_mm": 1.2,
+          "elements": 2565,
+          "dofs": 14367,
+          "raw_strength_threshold_N": 37.85296407824306,
+          "raw_peak_failure_index": 0.026418010434611512,
+          "compliance_Nmm": 0.0004456912344601209,
+          "max_displacement_mm": 0.000544787980188267,
+          "result_path": "results/N2_keeper/h1.2/low_y_half_contact.json"
+        },
+        {
+          "h_mm": 0.8,
+          "elements": 4446,
+          "dofs": 24144,
+          "raw_strength_threshold_N": 37.88341088309744,
+          "raw_peak_failure_index": 0.026396778344110854,
+          "compliance_Nmm": 0.00045118120050334905,
+          "max_displacement_mm": 0.0005429045235482339,
+          "result_path": "results/N2_keeper/h0.8/low_y_half_contact.json"
+        },
+        {
+          "h_mm": 0.55,
+          "elements": 7538,
+          "dofs": 39606,
+          "raw_strength_threshold_N": 41.20228443800658,
+          "raw_peak_failure_index": 0.02427049892111228,
+          "compliance_Nmm": 0.00045631102509001534,
+          "max_displacement_mm": 0.0005410403399896792,
+          "result_path": "results/N2_keeper/h0.55/low_y_half_contact.json"
+        }
+      ],
+      "last_relative_compliance_change": 0.011369765807935472,
+      "last_relative_raw_crossing_change": 0.08760756958106786,
+      "last_relative_raw_index_change": 0.08055071703373029
+    },
+    {
+      "key": "N2_receiver/centered_bonded",
+      "sequence": [
+        {
+          "h_mm": 1.2,
+          "elements": 14267,
+          "dofs": 77358,
+          "raw_strength_threshold_N": 23.097511207972484,
+          "raw_peak_failure_index": 0.04329470785817104,
+          "compliance_Nmm": 0.0011732629049719782,
+          "max_displacement_mm": 0.004062941037925303,
+          "result_path": "results/N2_receiver/h1.2/centered_bonded.json"
+        },
+        {
+          "h_mm": 0.8,
+          "elements": 26272,
+          "dofs": 135963,
+          "raw_strength_threshold_N": 22.167409116723295,
+          "raw_peak_failure_index": 0.04511127099853952,
+          "compliance_Nmm": 0.0011883884318115434,
+          "max_displacement_mm": 0.0041107326157557005,
+          "result_path": "results/N2_receiver/h0.8/centered_bonded.json"
+        },
+        {
+          "h_mm": 0.55,
+          "elements": 56500,
+          "dofs": 276558,
+          "raw_strength_threshold_N": 21.497452601968757,
+          "raw_peak_failure_index": 0.046517139426483445,
+          "compliance_Nmm": 0.0012021381079654106,
+          "max_displacement_mm": 0.0041590528529567945,
+          "result_path": "results/N2_receiver/h0.55/centered_bonded.json"
+        }
+      ],
+      "last_relative_compliance_change": 0.011570018510620894,
+      "last_relative_raw_crossing_change": 0.03022258989432902,
+      "last_relative_raw_index_change": 0.031164460606517563
+    },
+    {
+      "key": "N2_receiver/centered_washers",
+      "sequence": [
+        {
+          "h_mm": 1.2,
+          "elements": 14267,
+          "dofs": 77358,
+          "raw_strength_threshold_N": 22.87834628485692,
+          "raw_peak_failure_index": 0.04370945292763121,
+          "compliance_Nmm": 0.007839303453382018,
+          "max_displacement_mm": 0.012433850495801493,
+          "result_path": "results/N2_receiver/h1.2/centered_washers.json"
+        },
+        {
+          "h_mm": 0.8,
+          "elements": 26272,
+          "dofs": 135963,
+          "raw_strength_threshold_N": 16.5681361209575,
+          "raw_peak_failure_index": 0.06035681942129096,
+          "compliance_Nmm": 0.008011738713298206,
+          "max_displacement_mm": 0.012715439646266185,
+          "result_path": "results/N2_receiver/h0.8/centered_washers.json"
+        },
+        {
+          "h_mm": 0.55,
+          "elements": 56500,
+          "dofs": 276558,
+          "raw_strength_threshold_N": 11.26378958180135,
+          "raw_peak_failure_index": 0.08878006755521049,
+          "compliance_Nmm": 0.008114769432667562,
+          "max_displacement_mm": 0.012874174749417188,
+          "result_path": "results/N2_receiver/h0.55/centered_washers.json"
+        },
+        {
+          "h_mm": 0.4,
+          "elements": 58216,
+          "dofs": 284421,
+          "raw_strength_threshold_N": 12.55570516266748,
+          "raw_peak_failure_index": 0.07964506867948375,
+          "compliance_Nmm": 0.008129613847963952,
+          "max_displacement_mm": 0.012904428204659538,
+          "result_path": "results/N2_receiver/h0.4/centered_washers.json"
+        }
+      ],
+      "last_relative_compliance_change": 0.001829308327188084,
+      "last_relative_raw_crossing_change": 0.11469635254492405,
+      "last_relative_raw_index_change": 0.10289470516617794
+    },
+    {
+      "key": "N2_receiver/distal_ineffective_bonded",
+      "sequence": [
+        {
+          "h_mm": 1.2,
+          "elements": 14267,
+          "dofs": 77358,
+          "raw_strength_threshold_N": 8.040678092528912,
+          "raw_peak_failure_index": 0.12436762030420809,
+          "compliance_Nmm": 0.006788711831430068,
+          "max_displacement_mm": 0.011638458431479566,
+          "result_path": "results/N2_receiver/h1.2/distal_ineffective_bonded.json"
+        },
+        {
+          "h_mm": 0.8,
+          "elements": 26272,
+          "dofs": 135963,
+          "raw_strength_threshold_N": 7.719492219829744,
+          "raw_peak_failure_index": 0.1295421993471554,
+          "compliance_Nmm": 0.006875309627443193,
+          "max_displacement_mm": 0.01177628924822617,
+          "result_path": "results/N2_receiver/h0.8/distal_ineffective_bonded.json"
+        },
+        {
+          "h_mm": 0.55,
+          "elements": 56500,
+          "dofs": 276558,
+          "raw_strength_threshold_N": 7.482995648440563,
+          "raw_peak_failure_index": 0.13363631986187208,
+          "compliance_Nmm": 0.006961770764927608,
+          "max_displacement_mm": 0.011915731386034132,
+          "result_path": "results/N2_receiver/h0.55/distal_ineffective_bonded.json"
+        }
+      ],
+      "last_relative_compliance_change": 0.012575599088555878,
+      "last_relative_raw_crossing_change": 0.030636285995816026,
+      "last_relative_raw_index_change": 0.03160453146040054
+    },
+    {
+      "key": "N2_receiver/distal_ineffective_washers",
+      "sequence": [
+        {
+          "h_mm": 1.2,
+          "elements": 14267,
+          "dofs": 77358,
+          "raw_strength_threshold_N": 8.086186508681172,
+          "raw_peak_failure_index": 0.12366768920385642,
+          "compliance_Nmm": 0.013578051220730324,
+          "max_displacement_mm": 0.016074697186744348,
+          "result_path": "results/N2_receiver/h1.2/distal_ineffective_washers.json"
+        },
+        {
+          "h_mm": 0.8,
+          "elements": 26272,
+          "dofs": 135963,
+          "raw_strength_threshold_N": 7.745360372335179,
+          "raw_peak_failure_index": 0.12910955099930438,
+          "compliance_Nmm": 0.013826447450784263,
+          "max_displacement_mm": 0.01633961061498467,
+          "result_path": "results/N2_receiver/h0.8/distal_ineffective_washers.json"
+        },
+        {
+          "h_mm": 0.55,
+          "elements": 56500,
+          "dofs": 276558,
+          "raw_strength_threshold_N": 7.527303066729821,
+          "raw_peak_failure_index": 0.13284970608131,
+          "compliance_Nmm": 0.01400415686618875,
+          "max_displacement_mm": 0.016547752362110695,
+          "result_path": "results/N2_receiver/h0.55/distal_ineffective_washers.json"
+        },
+        {
+          "h_mm": 0.4,
+          "elements": 58216,
+          "dofs": 284421,
+          "raw_strength_threshold_N": 7.6391021410195625,
+          "raw_peak_failure_index": 0.13090543646881173,
+          "compliance_Nmm": 0.014017299016771312,
+          "max_displacement_mm": 0.016557958447617926,
+          "result_path": "results/N2_receiver/h0.4/distal_ineffective_washers.json"
+        }
+      ],
+      "last_relative_compliance_change": 0.0009384463990325109,
+      "last_relative_raw_crossing_change": 0.014852474159554818,
+      "last_relative_raw_index_change": 0.01463510661670786
+    },
+    {
+      "key": "N2_receiver/low_y_half_contact_bonded",
+      "sequence": [
+        {
+          "h_mm": 1.2,
+          "elements": 14267,
+          "dofs": 77358,
+          "raw_strength_threshold_N": 21.451086778566857,
+          "raw_peak_failure_index": 0.046617684703936,
+          "compliance_Nmm": 0.001703436767344995,
+          "max_displacement_mm": 0.0052685247078396915,
+          "result_path": "results/N2_receiver/h1.2/low_y_half_contact_bonded.json"
+        },
+        {
+          "h_mm": 0.8,
+          "elements": 26272,
+          "dofs": 135963,
+          "raw_strength_threshold_N": 20.86798366883997,
+          "raw_peak_failure_index": 0.04792029818832942,
+          "compliance_Nmm": 0.0017249709034274055,
+          "max_displacement_mm": 0.005328961472570424,
+          "result_path": "results/N2_receiver/h0.8/low_y_half_contact_bonded.json"
+        },
+        {
+          "h_mm": 0.55,
+          "elements": 56500,
+          "dofs": 276558,
+          "raw_strength_threshold_N": 17.817461460831847,
+          "raw_peak_failure_index": 0.05612471800196125,
+          "compliance_Nmm": 0.0017452015570097144,
+          "max_displacement_mm": 0.005388754560974469,
+          "result_path": "results/N2_receiver/h0.55/low_y_half_contact_bonded.json"
+        }
+      ],
+      "last_relative_compliance_change": 0.011728112945042612,
+      "last_relative_raw_crossing_change": 0.14618193383787026,
+      "last_relative_raw_index_change": 0.17120969868317593
+    },
+    {
+      "key": "N2_receiver/low_y_half_contact_washers",
+      "sequence": [
+        {
+          "h_mm": 1.2,
+          "elements": 14267,
+          "dofs": 77358,
+          "raw_strength_threshold_N": 21.0422780798655,
+          "raw_peak_failure_index": 0.047523371576239135,
+          "compliance_Nmm": 0.007738333329284035,
+          "max_displacement_mm": 0.011679063063992997,
+          "result_path": "results/N2_receiver/h1.2/low_y_half_contact_washers.json"
+        },
+        {
+          "h_mm": 0.8,
+          "elements": 26272,
+          "dofs": 135963,
+          "raw_strength_threshold_N": 17.13625427744337,
+          "raw_peak_failure_index": 0.05835581007433523,
+          "compliance_Nmm": 0.007904053949377536,
+          "max_displacement_mm": 0.011945689015614174,
+          "result_path": "results/N2_receiver/h0.8/low_y_half_contact_washers.json"
+        },
+        {
+          "h_mm": 0.55,
+          "elements": 56500,
+          "dofs": 276558,
+          "raw_strength_threshold_N": 11.577902508302742,
+          "raw_peak_failure_index": 0.08637143034179812,
+          "compliance_Nmm": 0.008006144802325584,
+          "max_displacement_mm": 0.012095935236710298,
+          "result_path": "results/N2_receiver/h0.55/low_y_half_contact_washers.json"
+        },
+        {
+          "h_mm": 0.4,
+          "elements": 58216,
+          "dofs": 284421,
+          "raw_strength_threshold_N": 12.953715103782054,
+          "raw_peak_failure_index": 0.07719793063134708,
+          "compliance_Nmm": 0.008020347500113996,
+          "max_displacement_mm": 0.012125475594314813,
+          "result_path": "results/N2_receiver/h0.4/low_y_half_contact_washers.json"
+        }
+      ],
+      "last_relative_compliance_change": 0.0017739746331200124,
+      "last_relative_raw_crossing_change": 0.11883090175380984,
+      "last_relative_raw_index_change": 0.10620988530754549
+    }
+  ],
+  "numerical_audit": {
+    "force_balance_error_N": 5.5369137062850325e-11,
+    "moment_balance_error_Nmm": 1.2878179045542767e-09,
+    "relative_free_residual": 9.87867153668639e-10,
+    "gauge_reaction_norm_N": 6.734499764144634e-13,
+    "relative_volume_error": 0.001145778882596149,
+    "case_solves": 39,
+    "unique_meshes": 10,
+    "max_dofs": 284421
+  },
+  "provenance": {
+    "source_revision": "P8 PLA FEA / unchanged P6 geometry",
+    "source_date": "2026-10-26",
+    "source_manifest": {
+      "path": "p8_fea/input_manifest.json",
+      "sha256": "d86e675ede723d8bd850d0527c0d87510d121896dcfd23651a65e3ed3f9d7b27",
+      "original_frozen_utc": "2026-10-27T02:38:02.269265+00:00",
+      "subset_date": "2026-10-27"
+    },
+    "frozen_solver": {
+      "path": "inputs/drivers/solver_6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c.py",
+      "sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c"
+    },
+    "driver_history": {
+      "recorded_file_hash_counts": {
+        "6d71978731b6bf856921f1e1d2e5eb383682f4f9ba6bc65ebfdaede7187789b9": 34,
+        "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c": 5
+      },
+      "historical_hash_limitation": "Historical result hashes were taken from the solver file at serialization. A running Python process may already have imported earlier bytes while that file changed. Older executing source snapshots were not preserved. These hashes therefore do not prove historical executing-byte identity.",
+      "known_changes": [
+        "A cylinder-surface normal-alignment selector was added; default minimum alignment0.9. It affects cylindrical pressure selection only.",
+        "Mesher algorithm/optimizer became configurable; unchanged defaults are algorithm1 and Netgen."
+      ],
+      "replay_policy": "The frozen current solver is the authoritative current replay implementation. Original result hash fields are retained. The P8 archive contains a representative non-N2 portability check; no new N2 FE solve or bit-identical historical replay was performed for this focused package."
+    },
+    "archived_output_manifest": "archive_manifest.json",
+    "verification_scope": "Input and byte-copy verification plus prepare-only path remapping; no new FE solve in P11."
+  },
+  "limitations": [
+    "Printed PLA thresholds and elastic constants are analyst assumptions, not measured allowables for these parts.",
+    "Finite seated contact pressures are prescribed component loads; the actual assembled fit and pressure distribution are not solved.",
+    "Local raw peaks remain mesh sensitive, particularly at sharp roof and ideal washer constraints; displacement/compliance convergence is not strength convergence.",
+    "Distal support must seat to justify the nominal two-support case. Its retained axial overlap is only 0.6 mm.",
+    "The distal overlap disappears after 0.6 mm keeper withdrawal, while the payload lug remains engaged until 2.3 mm. Holding strength does not prove loaded release.",
+    "Actuator force, zero-load friction, skew, incomplete retraction, and load redistribution throughout withdrawal require measurement and testing.",
+    "The two fixtures are ideal rigid boundaries. Actual airframe, host fasteners, payload fasteners, clamp screws, and pod wall are not qualified.",
+    "No off-axis force or payload CG moment, shock, vibration, fatigue, layer fracture, creep, thermal exposure, or complete payload departure is validated.",
+    "Historical driver hashes reflect file contents at result serialization; older executing-byte snapshots are unavailable. The frozen final driver defines current replay."
+  ],
+  "figures": {
+    "stress": "figures/N2_receiver.png",
+    "convergence": "figures/N2_convergence.png"
+  },
+  "historical_release": {
+    "path": "historical_release/README.md",
+    "status": "P7_PETG_ERA_FRICTION_ASSUMPTIONS_NOT_PLA_QUALIFICATION",
+    "retained_distal_overlap_mm": 0.6,
+    "keeper_withdrawal_for_nominal_lug_clearance_mm": 2.3,
+    "note": "Historical contact/friction statics retained for diagnosis. No legacy material-strength values are used in the PLA FE screen."
+  }
+}

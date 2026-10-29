@@ -1,0 +1,1606 @@
+{
+  "artifact": {
+    "filename": "Six_Hardpoint_Load_Calculations.zip",
+    "bytes": 5940691,
+    "sha256": "5d1c272ed285904dca88228ded43b2fb57bef2c6b66b251db590275e9f397043",
+    "library_file_id": "libfile_11240a29363c8191881db5a803977f1c",
+    "url": "(removed)",
+    "role": "historical_p6_c1_comparison_complete_package",
+    "member_count": 158,
+    "expanded_bytes": 21675305,
+    "inventory": "provenance/comparison_archive_inventory.json"
+  },
+  "archive_prefix": "Six_Hardpoint_Load_Calculations/",
+  "crc_check": "passed_all_members",
+  "original_manifest": "FILES_SHA256.json",
+  "manifest_entries_verified": 157,
+  "manifest_coverage": "all files except manifest itself",
+  "counts_by_reason": {
+    "historical_comparison_package_retained_as_download": 158
+  },
+  "bytes_by_reason": {
+    "historical_comparison_package_retained_as_download": 21675305
+  },
+  "entries": [
+    {
+      "member": "Six_Hardpoint_Load_Calculations/FILES_SHA256.json",
+      "relative_path": "FILES_SHA256.json",
+      "bytes": 25988,
+      "compressed_bytes": 8092,
+      "crc32": "3ac6dcca",
+      "sha256": "27af81430d306774d58854f791a5de614bb830d542ccc4c921d596fa8b6562be",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/INPUTS_MANIFEST.json",
+      "relative_path": "INPUTS_MANIFEST.json",
+      "bytes": 17151,
+      "compressed_bytes": 5350,
+      "crc32": "086d40ce",
+      "sha256": "9869de26f40dae2a8d5ff2b9247db20d979c4f2ee7814329932072017063fd45",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/METHOD.md",
+      "relative_path": "METHOD.md",
+      "bytes": 6187,
+      "compressed_bytes": 2925,
+      "crc32": "8fe5e481",
+      "sha256": "b9782fac1e9a6ad0ddf85423afbffa568f0f6ab0e32819e3f6d87389c0717270",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/README.md",
+      "relative_path": "README.md",
+      "bytes": 3777,
+      "compressed_bytes": 1885,
+      "crc32": "ae4d4ac3",
+      "sha256": "8f7d628f3c946b97df4d1a33c50f6f1c6761e248685ac0657ba5a4603893d3ec",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/REPRODUCE.md",
+      "relative_path": "REPRODUCE.md",
+      "bytes": 4791,
+      "compressed_bytes": 2207,
+      "crc32": "973714ba",
+      "sha256": "a89fb6930774346d0afb48b0f557f41f84470817babc1f75fb0d898b21ea7fab",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/REPRODUCIBILITY_VERIFICATION.json",
+      "relative_path": "REPRODUCIBILITY_VERIFICATION.json",
+      "bytes": 1641,
+      "compressed_bytes": 703,
+      "crc32": "e788ff79",
+      "sha256": "ac82a082824a23ec40bde2f6aeca8cc45c0e85f055e648740a31350608a1145c",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/Six_Hardpoint_Load_Calculations.pdf",
+      "relative_path": "Six_Hardpoint_Load_Calculations.pdf",
+      "bytes": 1932219,
+      "compressed_bytes": 1557883,
+      "crc32": "7cbc810f",
+      "sha256": "907a422cee82b9f37b8697ea6b213d745117c00605670328433ed0d96e0f86f6",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/aggregate.py",
+      "relative_path": "aggregate.py",
+      "bytes": 9910,
+      "compressed_bytes": 4307,
+      "crc32": "39ac8efa",
+      "sha256": "095e9a861f9ab145c64b12be9fdeadd9c951f8bc94f34848ea7ad0ed11b06723",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/assumptions.json",
+      "relative_path": "assumptions.json",
+      "bytes": 1931,
+      "compressed_bytes": 989,
+      "crc32": "840262c8",
+      "sha256": "1a541fdbfa109a09b79bb1c9080348a0afbda97b94dd680541eafdfc5abceb76",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/build_report.py",
+      "relative_path": "build_report.py",
+      "bytes": 16583,
+      "compressed_bytes": 7124,
+      "crc32": "2571f528",
+      "sha256": "660dde77a8e67b979e19e919ee5ded30e21e61f5cd74af3930111c9ad8c09609",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/comparison.csv",
+      "relative_path": "comparison.csv",
+      "bytes": 890,
+      "compressed_bytes": 448,
+      "crc32": "4f547abe",
+      "sha256": "54f5cd41e844d231fd508300c03d13331b82b03b2d2b5bbc240d1f4c0290f0ec",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/figures/N1_assembled.png",
+      "relative_path": "figures/N1_assembled.png",
+      "bytes": 201514,
+      "compressed_bytes": 196701,
+      "crc32": "f6a2a10c",
+      "sha256": "15f0c729300f1d8cb4e1da3a5dd7ec69b589798e8e85be95b5e770a420c93be1",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/figures/N2_assembled.png",
+      "relative_path": "figures/N2_assembled.png",
+      "bytes": 203456,
+      "compressed_bytes": 198688,
+      "crc32": "8f2d80bf",
+      "sha256": "733589cf396fbf67e8caae94470bdeac12d3397253719c565fd7aa2e1f261bc9",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/figures/N3_assembled.png",
+      "relative_path": "figures/N3_assembled.png",
+      "bytes": 197401,
+      "compressed_bytes": 192266,
+      "crc32": "f7526b99",
+      "sha256": "998210dd15832be2b0ce7e271cdcdbf669425ca31de2aac293540b00b6d61e99",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/figures/N4_assembled.png",
+      "relative_path": "figures/N4_assembled.png",
+      "bytes": 195959,
+      "compressed_bytes": 191134,
+      "crc32": "c84bcdce",
+      "sha256": "0a74befb28cea76f86c13c4d6e04e469205e295597bb0b7f4cf555e811edeaba",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/figures/N5_assembled.png",
+      "relative_path": "figures/N5_assembled.png",
+      "bytes": 210999,
+      "compressed_bytes": 205682,
+      "crc32": "bb6b75bc",
+      "sha256": "82e58846a6b0ff7d4c90ca71582111f2365b3bfe370467c79cb5c1e4818b8c7b",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/figures/N6_assembled.png",
+      "relative_path": "figures/N6_assembled.png",
+      "bytes": 240329,
+      "compressed_bytes": 234986,
+      "crc32": "3e89977f",
+      "sha256": "6b03fe8c604cda41012b58a9f883d2769b6a0fd5a27931c39df926d98c7ea3aa",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/figures/comparison_figure_manifest.json",
+      "relative_path": "figures/comparison_figure_manifest.json",
+      "bytes": 13205,
+      "compressed_bytes": 4405,
+      "crc32": "7c648c1b",
+      "sha256": "17158f73294d054b00bda93642998163e619aec406a24f1a8e5cff0d7d167c6c",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/figures/comparison_visual_review.json",
+      "relative_path": "figures/comparison_visual_review.json",
+      "bytes": 620,
+      "compressed_bytes": 381,
+      "crc32": "e21c1eea",
+      "sha256": "00a82367af99fc208bc18b896da790e76a91725ef8d9aee149a5f16ff818a8e5",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/figures/release_comparison.png",
+      "relative_path": "figures/release_comparison.png",
+      "bytes": 182577,
+      "compressed_bytes": 168158,
+      "crc32": "34e7fb47",
+      "sha256": "2ef9521c9af80176a03e073d0606a22e24c0a826bdcd88a113b4036181629366",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/figures/release_comparison.svg",
+      "relative_path": "figures/release_comparison.svg",
+      "bytes": 18359,
+      "compressed_bytes": 2944,
+      "crc32": "739d399e",
+      "sha256": "59fb3d19d663a31f2df723d91a90a78743558315cb03f23cb2882c92a4a6ffa0",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/figures/release_vs_friction.png",
+      "relative_path": "figures/release_vs_friction.png",
+      "bytes": 374464,
+      "compressed_bytes": 353529,
+      "crc32": "5592b1ed",
+      "sha256": "865ff41d7d5c91f08274f1e531ae55919f89103067ec1f17e4459af59ecf8dde",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/figures/release_vs_friction.svg",
+      "relative_path": "figures/release_vs_friction.svg",
+      "bytes": 52288,
+      "compressed_bytes": 10354,
+      "crc32": "331fe3a3",
+      "sha256": "8935608f5253d53fc8dc622880db1d3d5fa0db3b4ba1eb91c713e68bfff5a02c",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/N1_adapter.step",
+      "relative_path": "geometry/cad/N1/N1_adapter.step",
+      "bytes": 51405,
+      "compressed_bytes": 9541,
+      "crc32": "71703119",
+      "sha256": "3e1de2cd24d611f2f40c34c74d3c7ea6a385319cc0095901bc57cf08396f8842",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/N1_armature.step",
+      "relative_path": "geometry/cad/N1/N1_armature.step",
+      "bytes": 21236,
+      "compressed_bytes": 4426,
+      "crc32": "7bff0d1a",
+      "sha256": "3e86959816f25183e96642020e006fa94d8527fe5bed4d98a9b5f0dd83e0fdc5",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/N1_clamp.step",
+      "relative_path": "geometry/cad/N1/N1_clamp.step",
+      "bytes": 51304,
+      "compressed_bytes": 9387,
+      "crc32": "6f00923b",
+      "sha256": "643c690ae138dae2fb7e0bc93e7e7c9961ba2d318b99f09b559d5df46f799ff2",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/N1_clamp_nut_1.step",
+      "relative_path": "geometry/cad/N1/N1_clamp_nut_1.step",
+      "bytes": 26930,
+      "compressed_bytes": 5386,
+      "crc32": "b83ba24a",
+      "sha256": "eb4a597a33715a14725bd38c503835a447086183665d2e678385a76d2209269e",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/N1_clamp_nut_2.step",
+      "relative_path": "geometry/cad/N1/N1_clamp_nut_2.step",
+      "bytes": 26886,
+      "compressed_bytes": 5382,
+      "crc32": "c628865b",
+      "sha256": "84cb050522e1adb36ce1f65dd910f48fce414cadda015c1338e2b528ad082425",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/N1_clamp_screw_1.step",
+      "relative_path": "geometry/cad/N1/N1_clamp_screw_1.step",
+      "bytes": 32396,
+      "compressed_bytes": 6276,
+      "crc32": "6a23216b",
+      "sha256": "38471d300c3c0f83f8340ba6e0d733588419472868aec4fa49ccba105c77bfbc",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/N1_clamp_screw_2.step",
+      "relative_path": "geometry/cad/N1/N1_clamp_screw_2.step",
+      "bytes": 32342,
+      "compressed_bytes": 6272,
+      "crc32": "74646417",
+      "sha256": "ed45ab8985197e73edaf28eb75e21cac90234893766ac4dbeac73f82f1770398",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/N1_keeper.step",
+      "relative_path": "geometry/cad/N1/N1_keeper.step",
+      "bytes": 84484,
+      "compressed_bytes": 14714,
+      "crc32": "d2b06bcb",
+      "sha256": "6bae4b3a308e58b6503605534ce3df7c8cd8b1d05ca4626751fa720ec1aa3e5f",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/N1_receiver.step",
+      "relative_path": "geometry/cad/N1/N1_receiver.step",
+      "bytes": 294049,
+      "compressed_bytes": 48572,
+      "crc32": "cdd8377d",
+      "sha256": "2d9a886d09a5109f79047601664dc6e7cfa2b89c44dc348d12b1f4082542f5b6",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/N1_return_spring.step",
+      "relative_path": "geometry/cad/N1/N1_return_spring.step",
+      "bytes": 42438,
+      "compressed_bytes": 9004,
+      "crc32": "4d76dc48",
+      "sha256": "d715a745d5eae04f4d639c3213d92cecafba3e7de16d9a45b5adc1f76fb6c56e",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/N1_solenoid_body.step",
+      "relative_path": "geometry/cad/N1/N1_solenoid_body.step",
+      "bytes": 55651,
+      "compressed_bytes": 10830,
+      "crc32": "5820fa4a",
+      "sha256": "9b9938e16ee69f1709864b1528a8c9c62b82a44e704373212f92594c4c2c2804",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/N1_wire_1.step",
+      "relative_path": "geometry/cad/N1/N1_wire_1.step",
+      "bytes": 5648,
+      "compressed_bytes": 1706,
+      "crc32": "86394911",
+      "sha256": "237ebfc1a5855678e21fcc7dffcd539224768013eb74dbef396e6416c44a138c",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/N1_wire_2.step",
+      "relative_path": "geometry/cad/N1/N1_wire_2.step",
+      "bytes": 5648,
+      "compressed_bytes": 1705,
+      "crc32": "83dd91ae",
+      "sha256": "33f4a48a4803367492a261204a3f86b2381691d483e187a576b96abaa994c955",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/assembly.step",
+      "relative_path": "geometry/cad/N1/assembly.step",
+      "bytes": 763311,
+      "compressed_bytes": 127735,
+      "crc32": "357a683f",
+      "sha256": "a84d9a314e21a79c791818d5a446154ea24b3d3201fb95e79376daa6a094eaf7",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N1/manifest.json",
+      "relative_path": "geometry/cad/N1/manifest.json",
+      "bytes": 20774,
+      "compressed_bytes": 5778,
+      "crc32": "07400237",
+      "sha256": "7b939b6c6e4f50b17b7112ee8ee2f1a559016aa48408bd10e75cac2a98724bb1",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/N2_adapter.step",
+      "relative_path": "geometry/cad/N2/N2_adapter.step",
+      "bytes": 51405,
+      "compressed_bytes": 9542,
+      "crc32": "70b6547d",
+      "sha256": "06fb0220b7c0cb94ed453cca4de5fbe115497101730e6bcb82289e553e829944",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/N2_armature.step",
+      "relative_path": "geometry/cad/N2/N2_armature.step",
+      "bytes": 21236,
+      "compressed_bytes": 4426,
+      "crc32": "c2c8ad3d",
+      "sha256": "3183da4ffac8b3698fab2effc7ecf90967b8529417fc81f8bd7ace4eaebdd7d3",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/N2_clamp.step",
+      "relative_path": "geometry/cad/N2/N2_clamp.step",
+      "bytes": 51304,
+      "compressed_bytes": 9387,
+      "crc32": "080cd7e2",
+      "sha256": "7e4a325f73abf815ea9b7ae714e627717d954603b2c89dcba6fd23c01ac4eeaf",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/N2_clamp_nut_1.step",
+      "relative_path": "geometry/cad/N2/N2_clamp_nut_1.step",
+      "bytes": 26930,
+      "compressed_bytes": 5386,
+      "crc32": "47c770f0",
+      "sha256": "62dbd04e1df398a5dd6e4169bae1adb1ff216b27e561233c60ba8b155392dfc9",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/N2_clamp_nut_2.step",
+      "relative_path": "geometry/cad/N2/N2_clamp_nut_2.step",
+      "bytes": 26886,
+      "compressed_bytes": 5382,
+      "crc32": "69378137",
+      "sha256": "8b1a12c8a034826e8614c8d6e4dc4ff59999a9894c97d9edb1a4d8e594a4919f",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/N2_clamp_screw_1.step",
+      "relative_path": "geometry/cad/N2/N2_clamp_screw_1.step",
+      "bytes": 32396,
+      "compressed_bytes": 6276,
+      "crc32": "c6ce3d21",
+      "sha256": "2e9e51796cf287f8098bb7e23c8ce9190d1c84ccfa3dbeca53515cf71f668415",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/N2_clamp_screw_2.step",
+      "relative_path": "geometry/cad/N2/N2_clamp_screw_2.step",
+      "bytes": 32342,
+      "compressed_bytes": 6272,
+      "crc32": "869e30e9",
+      "sha256": "5ba4100b33cbeb3a6e495ffd40ef14cd16bb3aa58db8f2bd8ded6ab180584159",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/N2_keeper.step",
+      "relative_path": "geometry/cad/N2/N2_keeper.step",
+      "bytes": 84497,
+      "compressed_bytes": 14721,
+      "crc32": "6c5f212c",
+      "sha256": "6bf0237bdb03c33f2bd48522ccbad733c17a834ed17b45322ba89b3f03171b82",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/N2_receiver.step",
+      "relative_path": "geometry/cad/N2/N2_receiver.step",
+      "bytes": 322938,
+      "compressed_bytes": 53062,
+      "crc32": "50bfdf27",
+      "sha256": "75ab803d24868cc4bf55335c6f5efd343688ff3f107a22b682b85ce0224a777d",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/N2_return_spring.step",
+      "relative_path": "geometry/cad/N2/N2_return_spring.step",
+      "bytes": 42438,
+      "compressed_bytes": 9004,
+      "crc32": "96092637",
+      "sha256": "f35e71970815afdab21d35c01b3307771c9e69b6728af0dc8b69d0067ccd584b",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/N2_solenoid_body.step",
+      "relative_path": "geometry/cad/N2/N2_solenoid_body.step",
+      "bytes": 55651,
+      "compressed_bytes": 10829,
+      "crc32": "0de37be3",
+      "sha256": "598a62260d25d670cb22fc5ca149675f7ba884d3249436ff767b29b600eb0477",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/N2_wire_1.step",
+      "relative_path": "geometry/cad/N2/N2_wire_1.step",
+      "bytes": 5648,
+      "compressed_bytes": 1706,
+      "crc32": "12f2d2ef",
+      "sha256": "4dc8bd1dbf5ed170c29c4b20bcb98d28ae314f16cb42c2f48927800a8af1d593",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/N2_wire_2.step",
+      "relative_path": "geometry/cad/N2/N2_wire_2.step",
+      "bytes": 5648,
+      "compressed_bytes": 1705,
+      "crc32": "17160a50",
+      "sha256": "f10cfe72dc4feb38c31fc911fcddc16b226352056947c9196b21a872a98ab258",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/assembly.step",
+      "relative_path": "geometry/cad/N2/assembly.step",
+      "bytes": 793506,
+      "compressed_bytes": 132138,
+      "crc32": "45d5f666",
+      "sha256": "ff5051631ea029b4894ce2b4d94836ceaa166cc18d304dcccbe7f4f378b96b5a",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N2/manifest.json",
+      "relative_path": "geometry/cad/N2/manifest.json",
+      "bytes": 19180,
+      "compressed_bytes": 5208,
+      "crc32": "3a4fe0f5",
+      "sha256": "65395fc55d84d63b4c1d26ea7d06d75028ff155f58fb2ea3777022d037a8a07a",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_adapter.step",
+      "relative_path": "geometry/cad/N3/N3_adapter.step",
+      "bytes": 35366,
+      "compressed_bytes": 6985,
+      "crc32": "38bee4fb",
+      "sha256": "c20aaa63a9589e94d80f5e05552f66830103247aaabd123ecb696e5efd986e02",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_armature.step",
+      "relative_path": "geometry/cad/N3/N3_armature.step",
+      "bytes": 21236,
+      "compressed_bytes": 4426,
+      "crc32": "26ca0289",
+      "sha256": "0a7f192e814e123c5676f6b8ce6477f71be7defc6575b297b7221983fdeabe8a",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_clamp.step",
+      "relative_path": "geometry/cad/N3/N3_clamp.step",
+      "bytes": 51304,
+      "compressed_bytes": 9388,
+      "crc32": "e5cf94a6",
+      "sha256": "53a40501d3d86ea46a6947667f3988d716a1f2fa133de132edb239117c457a2e",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_clamp_nut_1.step",
+      "relative_path": "geometry/cad/N3/N3_clamp_nut_1.step",
+      "bytes": 26930,
+      "compressed_bytes": 5386,
+      "crc32": "94737370",
+      "sha256": "5e2fe6a1fb86886e5735a5170f98ef120bae74e59246458d3b8fa8d518eb6086",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_clamp_nut_2.step",
+      "relative_path": "geometry/cad/N3/N3_clamp_nut_2.step",
+      "bytes": 26886,
+      "compressed_bytes": 5382,
+      "crc32": "dc864e07",
+      "sha256": "8b3ac24538a271d6ab3eb70d395e535f729031aac0cd483797939258c13331b4",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_clamp_screw_1.step",
+      "relative_path": "geometry/cad/N3/N3_clamp_screw_1.step",
+      "bytes": 32396,
+      "compressed_bytes": 6279,
+      "crc32": "4bb9e18f",
+      "sha256": "502dc7a8675e5facbc91c78cd0f5c6a22ccf286f1c2696f3dcd941b0bb9e7833",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_clamp_screw_2.step",
+      "relative_path": "geometry/cad/N3/N3_clamp_screw_2.step",
+      "bytes": 32342,
+      "compressed_bytes": 6272,
+      "crc32": "cd213ad1",
+      "sha256": "ab448e2cbc881517e48a8533d0580ffb4f8ba800d33b21a2d03effce88af1848",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_gate.step",
+      "relative_path": "geometry/cad/N3/N3_gate.step",
+      "bytes": 79450,
+      "compressed_bytes": 13844,
+      "crc32": "5b3e9841",
+      "sha256": "47ac2dcda62af491219b6ed262cc7173c102fa532a42cecd236233e345d80e16",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_host_head_reference.step",
+      "relative_path": "geometry/cad/N3/N3_host_head_reference.step",
+      "bytes": 22959,
+      "compressed_bytes": 4809,
+      "crc32": "9462f220",
+      "sha256": "e00178c83f7f0ccb9189c7770139323bca83c36d4e8ec9bee1f2904e37fc5f29",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_receiver.step",
+      "relative_path": "geometry/cad/N3/N3_receiver.step",
+      "bytes": 268103,
+      "compressed_bytes": 45517,
+      "crc32": "30f3829e",
+      "sha256": "adbd62940186ceddaaa7ab71a6b924e63a813cf3882f01c4958bf4a921c67be4",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_return_spring.step",
+      "relative_path": "geometry/cad/N3/N3_return_spring.step",
+      "bytes": 42438,
+      "compressed_bytes": 9004,
+      "crc32": "6c32ac53",
+      "sha256": "36e8883ca725d1aa54f9db084dc4409ee7c6332cfeff748c1122ee9531cf688a",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_solenoid_body.step",
+      "relative_path": "geometry/cad/N3/N3_solenoid_body.step",
+      "bytes": 55651,
+      "compressed_bytes": 10830,
+      "crc32": "2dab3382",
+      "sha256": "d5c0182f1acab6bfa9edaa5a5b6e87a0aa94e34b4b5c873bd890f3e3161866ab",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_wire_1.step",
+      "relative_path": "geometry/cad/N3/N3_wire_1.step",
+      "bytes": 5648,
+      "compressed_bytes": 1706,
+      "crc32": "d4d9291c",
+      "sha256": "54d9b5fb854e2ddc299ff008c81e8dcdc16363e0919ff6a60f9df25e982e0650",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/N3_wire_2.step",
+      "relative_path": "geometry/cad/N3/N3_wire_2.step",
+      "bytes": 5648,
+      "compressed_bytes": 1705,
+      "crc32": "d13df1a3",
+      "sha256": "152ff6d1088d7d4ec79e09cb7f3c6d880360c626ff6c8c6a3cd72b7b97431b37",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/assembly.step",
+      "relative_path": "geometry/cad/N3/assembly.step",
+      "bytes": 713898,
+      "compressed_bytes": 121302,
+      "crc32": "aa5ca81e",
+      "sha256": "82e713e0bfdfff5a18eb8a49a04db0bab5f77a56b9d39adba88e6afeabe5a688",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N3/manifest.json",
+      "relative_path": "geometry/cad/N3/manifest.json",
+      "bytes": 19220,
+      "compressed_bytes": 5195,
+      "crc32": "f6af73c1",
+      "sha256": "ad8f7437718e7517020698acd5c9f3d1879d9192f3c5037228da3f24500ea0cf",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/N4_adapter.step",
+      "relative_path": "geometry/cad/N4/N4_adapter.step",
+      "bytes": 65878,
+      "compressed_bytes": 11765,
+      "crc32": "cb5a1dc8",
+      "sha256": "aa9aeba4fe7f7add7a0a81e92af2cc9449f3cf9aebe18a81f339d1db8b7654c5",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/N4_armature.step",
+      "relative_path": "geometry/cad/N4/N4_armature.step",
+      "bytes": 21236,
+      "compressed_bytes": 4426,
+      "crc32": "63c7e061",
+      "sha256": "2f0badf31c6772d868ff0c24ad6a918cc1bfeea5bf86f9ef6cdf53ee6ee8e002",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/N4_clamp.step",
+      "relative_path": "geometry/cad/N4/N4_clamp.step",
+      "bytes": 51304,
+      "compressed_bytes": 9388,
+      "crc32": "53b978da",
+      "sha256": "282fe8a9ce892cf18e8f272e9a5b8d6c949559610d7c0a5861a5fd263a631291",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/N4_clamp_nut_1.step",
+      "relative_path": "geometry/cad/N4/N4_clamp_nut_1.step",
+      "bytes": 26930,
+      "compressed_bytes": 5386,
+      "crc32": "af31fd0b",
+      "sha256": "4f8b2634e17bbfbb791f342c50f2c208828c09727b8ef92beb10e9f07a77a52d",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/N4_clamp_nut_2.step",
+      "relative_path": "geometry/cad/N4/N4_clamp_nut_2.step",
+      "bytes": 26886,
+      "compressed_bytes": 5382,
+      "crc32": "579358b2",
+      "sha256": "2c9ee0c54e9bb5b6f65ba5421f8ea04f70cf7961c88dedd07a91ffe0d7629395",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/N4_clamp_screw_1.step",
+      "relative_path": "geometry/cad/N4/N4_clamp_screw_1.step",
+      "bytes": 32396,
+      "compressed_bytes": 6276,
+      "crc32": "c24c1645",
+      "sha256": "0e80efdf1d3ac235477f151089713709c1d901b32933db053f250de19f7fc6af",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/N4_clamp_screw_2.step",
+      "relative_path": "geometry/cad/N4/N4_clamp_screw_2.step",
+      "bytes": 32342,
+      "compressed_bytes": 6272,
+      "crc32": "d716e2c9",
+      "sha256": "0ade53b09642bf05813eadd1d91f71d71da3bfa1c7eb811e5b979579f37ef0f7",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/N4_keeper.step",
+      "relative_path": "geometry/cad/N4/N4_keeper.step",
+      "bytes": 87903,
+      "compressed_bytes": 15465,
+      "crc32": "e2c60275",
+      "sha256": "5069d45aea04d63cc7d5a4bcea6c2a3d0b2ee68ad88fa6f51a48cfd75a16ea29",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/N4_receiver.step",
+      "relative_path": "geometry/cad/N4/N4_receiver.step",
+      "bytes": 308252,
+      "compressed_bytes": 51142,
+      "crc32": "fa8ac257",
+      "sha256": "bbd84eeb8f891004304867a0c49a146fdc32071384ab5254c52f1eacfdc2a2c7",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/N4_return_spring.step",
+      "relative_path": "geometry/cad/N4/N4_return_spring.step",
+      "bytes": 42438,
+      "compressed_bytes": 9004,
+      "crc32": "1662215a",
+      "sha256": "5eb7f8d7267a75d5468392d6dbe6183c952265528301c5e958a4c0423e698ae5",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/N4_solenoid_body.step",
+      "relative_path": "geometry/cad/N4/N4_solenoid_body.step",
+      "bytes": 55651,
+      "compressed_bytes": 10830,
+      "crc32": "c4cc1388",
+      "sha256": "a7f7547612bfdbb27d8d6c3beb19d38e3a3d2e76feb193208a145b8627927f78",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/N4_wire_1.step",
+      "relative_path": "geometry/cad/N4/N4_wire_1.step",
+      "bytes": 5648,
+      "compressed_bytes": 1706,
+      "crc32": "b42a60b0",
+      "sha256": "a86f265f40b9e53767d403dc8fdae499f1be2e98145b66f37ac2ff5c528d77a5",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/N4_wire_2.step",
+      "relative_path": "geometry/cad/N4/N4_wire_2.step",
+      "bytes": 5648,
+      "compressed_bytes": 1705,
+      "crc32": "b1ceb80f",
+      "sha256": "2d7c8296242d67525e0577161858023940668e30b458cc3461e2d869ef83fb77",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/assembly.step",
+      "relative_path": "geometry/cad/N4/assembly.step",
+      "bytes": 797036,
+      "compressed_bytes": 133162,
+      "crc32": "d8cf2b71",
+      "sha256": "2ecccb8e4a9d9484e73807abe8a46dd9c027d7dee284eb02ecae68120e8e0b2d",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N4/manifest.json",
+      "relative_path": "geometry/cad/N4/manifest.json",
+      "bytes": 18553,
+      "compressed_bytes": 4938,
+      "crc32": "b54b6fdd",
+      "sha256": "cbede08da7a86ea7a9ac3ad6c4ef88b7927d295754b1c6fe671396aa9ec0273b",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_adapter.step",
+      "relative_path": "geometry/cad/N5/N5_adapter.step",
+      "bytes": 55361,
+      "compressed_bytes": 10206,
+      "crc32": "8a540a1e",
+      "sha256": "68e15136d2b8bdce4caf00c2d8046fefbcdb8faed7e0a86904920d2503b40f5f",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_armature.step",
+      "relative_path": "geometry/cad/N5/N5_armature.step",
+      "bytes": 21236,
+      "compressed_bytes": 4424,
+      "crc32": "d2363f7d",
+      "sha256": "9c22e4de9003d58277c7450c96db16969ce91ed162ce617eb78d11a151fc3aa0",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_clamp.step",
+      "relative_path": "geometry/cad/N5/N5_clamp.step",
+      "bytes": 51304,
+      "compressed_bytes": 9387,
+      "crc32": "b4ed7ec8",
+      "sha256": "b0e4ce747b2deff27c6210b2bb3da6a56d00fdd76ce1568a10bd303b138655d5",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_clamp_nut_1.step",
+      "relative_path": "geometry/cad/N5/N5_clamp_nut_1.step",
+      "bytes": 26930,
+      "compressed_bytes": 5386,
+      "crc32": "81effdcb",
+      "sha256": "d535148b6e565bc3b0d97fdd3e2fce1764c1312bcb67200c09b7a9bb89baad1f",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_clamp_nut_2.step",
+      "relative_path": "geometry/cad/N5/N5_clamp_nut_2.step",
+      "bytes": 26886,
+      "compressed_bytes": 5382,
+      "crc32": "5f8a6aea",
+      "sha256": "6056e4447c34f8ca597ee3fcb073d5ab121a00845e5667a067f0313a79e9a593",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_clamp_screw_1.step",
+      "relative_path": "geometry/cad/N5/N5_clamp_screw_1.step",
+      "bytes": 32396,
+      "compressed_bytes": 6276,
+      "crc32": "b6b73464",
+      "sha256": "2fc19036b6af1fa7b5141e6ba56e7735dbd72a7103bd26bab4d3a78c094d160c",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_clamp_screw_2.step",
+      "relative_path": "geometry/cad/N5/N5_clamp_screw_2.step",
+      "bytes": 32342,
+      "compressed_bytes": 6272,
+      "crc32": "fc7e46d9",
+      "sha256": "19d4f649646163fd67b20d858209e8b748f12094afeea525df0752ea52d01e62",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_hook.step",
+      "relative_path": "geometry/cad/N5/N5_hook.step",
+      "bytes": 57973,
+      "compressed_bytes": 10679,
+      "crc32": "9d9db3d1",
+      "sha256": "3ce62a6fbe2226d7d30cbd6284cd32532b9b2011bc98d4f165c27dcd2f0623f8",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_hook_pivot_nut.step",
+      "relative_path": "geometry/cad/N5/N5_hook_pivot_nut.step",
+      "bytes": 27792,
+      "compressed_bytes": 5540,
+      "crc32": "550e5ecd",
+      "sha256": "f6f73d8d7aef18204f715b4b0969885cb0ca57e7004e6eea1154601e6160314f",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_hook_pivot_screw.step",
+      "relative_path": "geometry/cad/N5/N5_hook_pivot_screw.step",
+      "bytes": 35768,
+      "compressed_bytes": 6974,
+      "crc32": "035f22dd",
+      "sha256": "a41d27c2332736bd43381cf83be2b1d20a3f86c873a564d99a3fab153d69bf94",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_receiver.step",
+      "relative_path": "geometry/cad/N5/N5_receiver.step",
+      "bytes": 345127,
+      "compressed_bytes": 58145,
+      "crc32": "629a8f85",
+      "sha256": "d6d894ae060bec072ce42b00b9ab79e68dc3b3827022201dd1730b7587df4577",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_return_spring.step",
+      "relative_path": "geometry/cad/N5/N5_return_spring.step",
+      "bytes": 42438,
+      "compressed_bytes": 9003,
+      "crc32": "d5fc3e15",
+      "sha256": "5bc750fc56324adcd44daab4adb2d794573598a102ff8919ee8ae9cf71ed6112",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_sear.step",
+      "relative_path": "geometry/cad/N5/N5_sear.step",
+      "bytes": 65221,
+      "compressed_bytes": 11735,
+      "crc32": "a38200cf",
+      "sha256": "ff19bf696cedb7a345fd6ba24440cae299a43bcb1498aaab4a483e4018e5a969",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_solenoid_body.step",
+      "relative_path": "geometry/cad/N5/N5_solenoid_body.step",
+      "bytes": 55651,
+      "compressed_bytes": 10829,
+      "crc32": "60742448",
+      "sha256": "7de5d55ba9c324df9f961b1a115dad74baecb55db32e28521c3da1686a8ca2ce",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_wire_1.step",
+      "relative_path": "geometry/cad/N5/N5_wire_1.step",
+      "bytes": 5648,
+      "compressed_bytes": 1706,
+      "crc32": "cd145aab",
+      "sha256": "f739b69121792c3543c6bcade67a7ecd3a935ec67b71f033ee242d1103519922",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/N5_wire_2.step",
+      "relative_path": "geometry/cad/N5/N5_wire_2.step",
+      "bytes": 5650,
+      "compressed_bytes": 1705,
+      "crc32": "a3a5eb13",
+      "sha256": "e2b786a9fd40d09230d3461cb3810f3e18bf418058c322f9674375dc907b0500",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/assembly.step",
+      "relative_path": "geometry/cad/N5/assembly.step",
+      "bytes": 934921,
+      "compressed_bytes": 156534,
+      "crc32": "6b333046",
+      "sha256": "86dcb7d1714ab74d461fd4d7b6e22c483879b1e3646337ded98f4ed11e8b290b",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N5/manifest.json",
+      "relative_path": "geometry/cad/N5/manifest.json",
+      "bytes": 20796,
+      "compressed_bytes": 5239,
+      "crc32": "becea8d0",
+      "sha256": "c6ca175fac659ee58bf5e9e36e56a2788be541fb3ad5de2a1e2ef0a149fa3530",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_adapter.step",
+      "relative_path": "geometry/cad/N6/N6_adapter.step",
+      "bytes": 51771,
+      "compressed_bytes": 9602,
+      "crc32": "bc009f3b",
+      "sha256": "1d31e7987e636a68fcf108901601af0367e1e3aa1641bc10228a82981f49f86c",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_armature.step",
+      "relative_path": "geometry/cad/N6/N6_armature.step",
+      "bytes": 21236,
+      "compressed_bytes": 4426,
+      "crc32": "cf70ee79",
+      "sha256": "a02cb7378156faee713cc6edef75e00eb44962e10e57f6ba4438b04c3a82be1b",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_clamp.step",
+      "relative_path": "geometry/cad/N6/N6_clamp.step",
+      "bytes": 51304,
+      "compressed_bytes": 9388,
+      "crc32": "4b8bf9bc",
+      "sha256": "f79b7ef96d063d52aea4272d60bf15d87486bd9f54c13d5f33335a6b08208a74",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_clamp_nut_1.step",
+      "relative_path": "geometry/cad/N6/N6_clamp_nut_1.step",
+      "bytes": 26930,
+      "compressed_bytes": 5386,
+      "crc32": "323f8bf0",
+      "sha256": "efd18682536b74e94b5050f685efe46b7261b08f99f9afdc56bd1ace0b359f03",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_clamp_nut_2.step",
+      "relative_path": "geometry/cad/N6/N6_clamp_nut_2.step",
+      "bytes": 26886,
+      "compressed_bytes": 5382,
+      "crc32": "f2a6871e",
+      "sha256": "70e6ec831e820dd1669f412626faa884a663bb8a70de23ed5772c29b773ebc1f",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_clamp_screw_1.step",
+      "relative_path": "geometry/cad/N6/N6_clamp_screw_1.step",
+      "bytes": 32396,
+      "compressed_bytes": 6276,
+      "crc32": "e2afbb75",
+      "sha256": "f25e3b8dee16bcc1470b49042ad80ed969f6e51b3ac09299fcbb1a547efcf49e",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_clamp_screw_2.step",
+      "relative_path": "geometry/cad/N6/N6_clamp_screw_2.step",
+      "bytes": 32342,
+      "compressed_bytes": 6272,
+      "crc32": "f5765a12",
+      "sha256": "362f6fcf5f8fd2fa1655727eebd3ad7766ac96333684bbdc91fdb97d416dd8ee",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_left_jaw.step",
+      "relative_path": "geometry/cad/N6/N6_left_jaw.step",
+      "bytes": 40502,
+      "compressed_bytes": 7705,
+      "crc32": "80a30262",
+      "sha256": "cd19a45be233ae601a5c2b507a28d5c07e704061e74f3977b6cd0dd000d91e9d",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_left_pivot_nut.step",
+      "relative_path": "geometry/cad/N6/N6_left_pivot_nut.step",
+      "bytes": 27881,
+      "compressed_bytes": 5520,
+      "crc32": "fd95cfd2",
+      "sha256": "12aea34034c0ad639604126dc3a688a1ce8a68f318592494469a5ae1026e684d",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_left_pivot_screw.step",
+      "relative_path": "geometry/cad/N6/N6_left_pivot_screw.step",
+      "bytes": 36082,
+      "compressed_bytes": 6998,
+      "crc32": "58501ab5",
+      "sha256": "2d9216625d586a1d2948efb62b450c822b6589f450ead8b7797a804194cc6e4e",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_receiver.step",
+      "relative_path": "geometry/cad/N6/N6_receiver.step",
+      "bytes": 576988,
+      "compressed_bytes": 93920,
+      "crc32": "728a3dc7",
+      "sha256": "3003e84027bb8607c0ec54f09c239d3a72077e9f61cb3648366c3e579b49f2e7",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_return_spring.step",
+      "relative_path": "geometry/cad/N6/N6_return_spring.step",
+      "bytes": 42438,
+      "compressed_bytes": 9004,
+      "crc32": "0b1af1ff",
+      "sha256": "ee45b85ce2d3eaac39017abbc5aaec69c91ad8d4ac3659636f8155b7a526fecf",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_right_jaw.step",
+      "relative_path": "geometry/cad/N6/N6_right_jaw.step",
+      "bytes": 40424,
+      "compressed_bytes": 7704,
+      "crc32": "50bcdb47",
+      "sha256": "16bfa2f0f5b452a0c2ce64d7e1a33e997da93c8a4e9447b33754ea9a4b59de92",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_right_pivot_nut.step",
+      "relative_path": "geometry/cad/N6/N6_right_pivot_nut.step",
+      "bytes": 27837,
+      "compressed_bytes": 5519,
+      "crc32": "fa81fe5d",
+      "sha256": "3985ed9a53a00bdb8dd8f235d904b09a5b83a43033dc4f2b35337a194b5efe7d",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_right_pivot_screw.step",
+      "relative_path": "geometry/cad/N6/N6_right_pivot_screw.step",
+      "bytes": 36023,
+      "compressed_bytes": 6997,
+      "crc32": "d66c4f4b",
+      "sha256": "21d8db913f4e8512cbe0ea9bc7ff0d6f7f5b5686593c5623470b58da3fce12fd",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_sear.step",
+      "relative_path": "geometry/cad/N6/N6_sear.step",
+      "bytes": 115509,
+      "compressed_bytes": 19742,
+      "crc32": "b313f30e",
+      "sha256": "dd9484f0a93117de5e461be65b16b38c2a9421927b97c28bdd820ac6f17c40c1",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_solenoid_body.step",
+      "relative_path": "geometry/cad/N6/N6_solenoid_body.step",
+      "bytes": 55651,
+      "compressed_bytes": 10829,
+      "crc32": "a43c3cca",
+      "sha256": "3288b4461a282925110f040053bb01d837abcb640517c0f458312660d8450dc0",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_wire_1.step",
+      "relative_path": "geometry/cad/N6/N6_wire_1.step",
+      "bytes": 5650,
+      "compressed_bytes": 1706,
+      "crc32": "120d7050",
+      "sha256": "9c25308b043c059e126f63d2bc8ada7c35b1fb19f00d72469bef67bc2ba8e738",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/N6_wire_2.step",
+      "relative_path": "geometry/cad/N6/N6_wire_2.step",
+      "bytes": 5650,
+      "compressed_bytes": 1705,
+      "crc32": "4c78a2da",
+      "sha256": "b5eb71fe54e7cd2bfb7e50936dc4dff72f24d689962b6189cebe8e0296cfacc4",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/assembly.step",
+      "relative_path": "geometry/cad/N6/assembly.step",
+      "bytes": 1319455,
+      "compressed_bytes": 215507,
+      "crc32": "b5134ad4",
+      "sha256": "252eb90760fb1e48f2fbb602f72ba4fb92f6e3f3ad16bc454d6017219e49b6a6",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/N6/manifest.json",
+      "relative_path": "geometry/cad/N6/manifest.json",
+      "bytes": 24061,
+      "compressed_bytes": 5465,
+      "crc32": "097bb48c",
+      "sha256": "03fbc46060beebceb3a41322b5c565bfd37400bb43d7d7eeb66c9ca335e75949",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/build_n1_n2.py",
+      "relative_path": "geometry/cad/build_n1_n2.py",
+      "bytes": 17127,
+      "compressed_bytes": 6137,
+      "crc32": "6a6ce3d4",
+      "sha256": "db753fb27f4af74d8c900eae746253ab8f42671b21b34a08cc3ae0a2751bf747",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/build_n3_n4.py",
+      "relative_path": "geometry/cad/build_n3_n4.py",
+      "bytes": 23814,
+      "compressed_bytes": 8889,
+      "crc32": "11cf0485",
+      "sha256": "58ae8803bf5a527d2d3c770f7cb23026889e5c70936f2422fb16d6ea67a5fe0f",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/build_n5_n6.py",
+      "relative_path": "geometry/cad/build_n5_n6.py",
+      "bytes": 18283,
+      "compressed_bytes": 7058,
+      "crc32": "22ea716e",
+      "sha256": "0023a113727513c42d3fc5539171355b3c7899ab3b09f249393b87abbd32d75b",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/common.py",
+      "relative_path": "geometry/cad/common.py",
+      "bytes": 5087,
+      "compressed_bytes": 2208,
+      "crc32": "51454010",
+      "sha256": "a0b8a556eadbc2d77c955cd0bff4c1a0660804066ef391529b658c5f40c5e308",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/geometry/cad/solenoid_parts.py",
+      "relative_path": "geometry/cad/solenoid_parts.py",
+      "bytes": 5597,
+      "compressed_bytes": 2464,
+      "crc32": "5ab17eae",
+      "sha256": "b838ebd964727a76fbdf063538289d48356644fd16178cf15ef440b1caf09035",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/independent_n3_n4_review.md",
+      "relative_path": "independent_n3_n4_review.md",
+      "bytes": 7234,
+      "compressed_bytes": 3398,
+      "crc32": "4f7d5656",
+      "sha256": "1e33922ce7988702b4ba8eeda7e2e1db5d7558fae4bead1cea17c580ea44d248",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n1_n2/README.md",
+      "relative_path": "n1_n2/README.md",
+      "bytes": 12839,
+      "compressed_bytes": 5552,
+      "crc32": "2f0434da",
+      "sha256": "004d6f1c5ad8341f274e089d07f80e069564eb6e4bc84c70cead74d8a4991118",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n1_n2/audit_geometry.py",
+      "relative_path": "n1_n2/audit_geometry.py",
+      "bytes": 3471,
+      "compressed_bytes": 1650,
+      "crc32": "f112001b",
+      "sha256": "22380e2a0ac36ce3bc24b073cd9bb5e5d440c74a76c3abe556abbc1d2fd18952",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n1_n2/calculate.py",
+      "relative_path": "n1_n2/calculate.py",
+      "bytes": 12410,
+      "compressed_bytes": 4821,
+      "crc32": "9220b582",
+      "sha256": "be603f855fc7c466f73c8f4107e254747a6ff470113dea9ea2f4064834d0cac2",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n1_n2/equilibrium_verification.json",
+      "relative_path": "n1_n2/equilibrium_verification.json",
+      "bytes": 472,
+      "compressed_bytes": 303,
+      "crc32": "a7843cca",
+      "sha256": "25dd2030a6c3be05c736de69002d9a2ffbd0657c1cc7abb33f7d4389302ac855",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n1_n2/full_stroke_mu0p2.json",
+      "relative_path": "n1_n2/full_stroke_mu0p2.json",
+      "bytes": 6341130,
+      "compressed_bytes": 549569,
+      "crc32": "53ead335",
+      "sha256": "854e477f9826b3e87865b57a61f05496b205bc4c34885db10f8e1ba2ccbbb86e",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n1_n2/geometry_audit.json",
+      "relative_path": "n1_n2/geometry_audit.json",
+      "bytes": 7016,
+      "compressed_bytes": 1098,
+      "crc32": "67886459",
+      "sha256": "0fc1d9f6e365cf65453bb5ff88bbea2ca04870ae5836ba3f7ece78c547247b2e",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n1_n2/release_summary.csv",
+      "relative_path": "n1_n2/release_summary.csv",
+      "bytes": 4589,
+      "compressed_bytes": 1609,
+      "crc32": "62e83cb3",
+      "sha256": "f3cab907cb125d73050dde4fc2cc54528e5abe1414ffbce48abca3dcd98eab17",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n1_n2/results.json",
+      "relative_path": "n1_n2/results.json",
+      "bytes": 155528,
+      "compressed_bytes": 10729,
+      "crc32": "940ee072",
+      "sha256": "6fb9dad6e91b4deb5b0bdfb105679447489f1ea88f3d86f99f69cb9d62c261a4",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n1_n2/verify_equilibrium.py",
+      "relative_path": "n1_n2/verify_equilibrium.py",
+      "bytes": 2355,
+      "compressed_bytes": 1128,
+      "crc32": "f1a7a29a",
+      "sha256": "00277bd598963ecd0b79ec38d5a2c07a6db46ad6cc48126b7a8ce71e8b5f3db9",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n3_n4/DERIVATION.md",
+      "relative_path": "n3_n4/DERIVATION.md",
+      "bytes": 16078,
+      "compressed_bytes": 6983,
+      "crc32": "33919ec3",
+      "sha256": "79853c9c17b9480e36b92ecc8341e511fb14df262d8fa556a66c11682a652e8a",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n3_n4/N3_contact_through_stroke.csv",
+      "relative_path": "n3_n4/N3_contact_through_stroke.csv",
+      "bytes": 14019,
+      "compressed_bytes": 6761,
+      "crc32": "24946619",
+      "sha256": "d552d802da4349f3843e74d51b1ffbbe78b01a12379bfc1917fbd0bb15fe4395",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n3_n4/analyze.py",
+      "relative_path": "n3_n4/analyze.py",
+      "bytes": 15584,
+      "compressed_bytes": 6240,
+      "crc32": "73aa313e",
+      "sha256": "72077ac6061e3523b46dc1d577fcab36fbbdcb5ccd92a4a692d824faf5ebb57a",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n3_n4/results.json",
+      "relative_path": "n3_n4/results.json",
+      "bytes": 24323,
+      "compressed_bytes": 6452,
+      "crc32": "612b2277",
+      "sha256": "eb5e41ea9c852d930fd855785e4406209d3f94cc7664d159af61d87dfa083f0c",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n5_n6/README.md",
+      "relative_path": "n5_n6/README.md",
+      "bytes": 16168,
+      "compressed_bytes": 7067,
+      "crc32": "51067974",
+      "sha256": "2f4c43ae60a98a2594e6ca21a0e6215b57501d508c042607660a08ed801f8977",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n5_n6/calculations.py",
+      "relative_path": "n5_n6/calculations.py",
+      "bytes": 14387,
+      "compressed_bytes": 5516,
+      "crc32": "bd6584c6",
+      "sha256": "2d6b46cfb1879e5e31f08393fd51dc7a63430bd55e1b045e6fdbac1ca6822914",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n5_n6/check_contact_patches.py",
+      "relative_path": "n5_n6/check_contact_patches.py",
+      "bytes": 3584,
+      "compressed_bytes": 1689,
+      "crc32": "9338435e",
+      "sha256": "5c755b61acf66dab8e923690b904fb1d081a4cf55c0cba4872d1d45853d71d02",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n5_n6/check_sections.py",
+      "relative_path": "n5_n6/check_sections.py",
+      "bytes": 2597,
+      "compressed_bytes": 1336,
+      "crc32": "2dde2976",
+      "sha256": "b77a1d829f9b36ea1198b83c32e94adc2b039faddfd02b1fbca0970fbd1fea9c",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n5_n6/contact_patches.json",
+      "relative_path": "n5_n6/contact_patches.json",
+      "bytes": 106712,
+      "compressed_bytes": 3861,
+      "crc32": "cd63d735",
+      "sha256": "994a964900a651b30debc46973d05b7ff3729ea856c15a3f6ab38c985724f568",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n5_n6/geometry_sections.json",
+      "relative_path": "n5_n6/geometry_sections.json",
+      "bytes": 5257,
+      "compressed_bytes": 1249,
+      "crc32": "bcbde6a9",
+      "sha256": "1c91b1cc02d627fc3084ca23db6ef1437d3bda2b42f5f2ca88fcca1c2d38422e",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n5_n6/release_curves.csv",
+      "relative_path": "n5_n6/release_curves.csv",
+      "bytes": 18812,
+      "compressed_bytes": 6359,
+      "crc32": "41cb7997",
+      "sha256": "90af4d45ced2e89607d4e91fdb84cb0853506d89010ec6f6dd87c6a4d10fd7d9",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/n5_n6/results.json",
+      "relative_path": "n5_n6/results.json",
+      "bytes": 293909,
+      "compressed_bytes": 32802,
+      "crc32": "fe4fba9c",
+      "sha256": "6247345adc0b642d51363edd4afd33483d3903c6ed9eb7d477a50d69aea6725d",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/plot_comparison.py",
+      "relative_path": "plot_comparison.py",
+      "bytes": 8944,
+      "compressed_bytes": 3692,
+      "crc32": "b1f27e59",
+      "sha256": "c216eb840583367cb4a1db78590cc34dbe7395eeb5f5fdac2fe9c173b0402f75",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/report_manifest.json",
+      "relative_path": "report_manifest.json",
+      "bytes": 301,
+      "compressed_bytes": 224,
+      "crc32": "e8d2d6ad",
+      "sha256": "047a6d37a0fb1280067e07d37d72d9a0a461f41e646e9b1183cdcba5f914d33b",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/report_visual_review.json",
+      "relative_path": "report_visual_review.json",
+      "bytes": 558,
+      "compressed_bytes": 367,
+      "crc32": "645134a1",
+      "sha256": "43b5bc99d7dd76395b8369544a742a3f90f6b00707e68f98176aeab211c58844",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/reproduce.py",
+      "relative_path": "reproduce.py",
+      "bytes": 4918,
+      "compressed_bytes": 1896,
+      "crc32": "39d1dac7",
+      "sha256": "8024bf58624c27097708578c55ee7604d09d703bc4200a23c4f91049ba20d60c",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/requirements.txt",
+      "relative_path": "requirements.txt",
+      "bytes": 280,
+      "compressed_bytes": 210,
+      "crc32": "ebcebc91",
+      "sha256": "233fd18c3528f11f99da41468fc7173222b8a6bfeeeed95e9e6a1acbe583c7dd",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/requirements_render.txt",
+      "relative_path": "requirements_render.txt",
+      "bytes": 144,
+      "compressed_bytes": 118,
+      "crc32": "d4fe3310",
+      "sha256": "149463b796c06d988e86e465c687250461e62e2b9545fc113561dddd002c04dc",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/sources.json",
+      "relative_path": "sources.json",
+      "bytes": 860,
+      "compressed_bytes": 500,
+      "crc32": "31f8fef5",
+      "sha256": "5f8536be4895fddd4b4187923bb6ee6cf5fa2985fd2558a8e2f6d5fd24e160fd",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    },
+    {
+      "member": "Six_Hardpoint_Load_Calculations/summary.json",
+      "relative_path": "summary.json",
+      "bytes": 54140,
+      "compressed_bytes": 11113,
+      "crc32": "7f5387a1",
+      "sha256": "f1ad1ca99aeac0e44a1ca5e823752ba28cc3eb8d9490f52b6cf02a00c525f686",
+      "disposition": "archive_only",
+      "reason": "historical_comparison_package_retained_as_download"
+    }
+  ]
+}

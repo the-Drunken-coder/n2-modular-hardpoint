@@ -1,0 +1,445 @@
+{
+  "schema": "N2_P11_FROZEN_P8_SUBSET_V1",
+  "frozen_utc": "2026-10-27T02:38:02.269265+00:00",
+  "status": "N2-only copy of archived P8 input inventory; no new FEA or geometry revision",
+  "geometry_count": 3,
+  "configuration_count": 4,
+  "imprint_count": 0,
+  "archived_result_count": 39,
+  "files": [
+    {
+      "path": "geometry/N2/N2_adapter.step",
+      "sha256": "06fb0220b7c0cb94ed453cca4de5fbe115497101730e6bcb82289e553e829944",
+      "bytes": 51405,
+      "role": "frozen_STEP",
+      "source_workspace_path": "solenoid_p6/cad/N2/N2_adapter.step"
+    },
+    {
+      "path": "geometry/N2/N2_keeper.step",
+      "sha256": "6bf0237bdb03c33f2bd48522ccbad733c17a834ed17b45322ba89b3f03171b82",
+      "bytes": 84497,
+      "role": "frozen_STEP",
+      "source_workspace_path": "solenoid_p6/cad/N2/N2_keeper.step"
+    },
+    {
+      "path": "geometry/N2/N2_receiver.step",
+      "sha256": "75ab803d24868cc4bf55335c6f5efd343688ff3f107a22b682b85ce0224a777d",
+      "bytes": 322938,
+      "role": "frozen_STEP",
+      "source_workspace_path": "solenoid_p6/cad/N2/N2_receiver.step"
+    },
+    {
+      "path": "inputs/configs/N2_adapter.json",
+      "sha256": "51575036a639dd869b58bc233b727b1c043663feee167ce0a5396c01b51d97e0",
+      "bytes": 3822,
+      "role": "issued_configuration",
+      "source_package_path": "n1_n2/N2_adapter.json",
+      "model": "N2_adapter"
+    },
+    {
+      "path": "inputs/configs/N2_keeper.json",
+      "sha256": "3718fa548030bcadc53e969ed007f52c68e8128bd304e8ab03f994fe6e7dea6d",
+      "bytes": 6603,
+      "role": "issued_configuration",
+      "source_package_path": "n1_n2/N2_keeper.json",
+      "model": "N2_keeper"
+    },
+    {
+      "path": "inputs/configs/N2_receiver.json",
+      "sha256": "277bb13420323becfb901a28de47030b1af976362684bb4a86c28864c02a6b12",
+      "bytes": 10655,
+      "role": "issued_configuration",
+      "source_package_path": "n1_n2/N2_receiver.json",
+      "model": "N2_receiver"
+    },
+    {
+      "path": "inputs/configs/refine_N2_receiver.json",
+      "sha256": "866e09c7828335a1a287ebc550b5cb87c5fc2e32248c0e426f438ef8ff579c0d",
+      "bytes": 11313,
+      "role": "issued_configuration",
+      "source_package_path": "n1_n2/refine_N2_receiver.json",
+      "model": "N2_receiver"
+    },
+    {
+      "path": "inputs/drivers/solver_6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c.py",
+      "sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+      "bytes": 19035,
+      "role": "authoritative_replay_solver"
+    },
+    {
+      "path": "inputs/material.json",
+      "sha256": "ac3df6f1f1154c9db3b9c092fd2213b7681eb49baae6a66f8c4832cab389bd0d",
+      "bytes": 926,
+      "role": "frozen_material"
+    },
+    {
+      "path": "reproduce.py",
+      "sha256": "806283aa17301ef48337fcaa7955aa235d5f4ac05f6b8ab2d0e1cb34b0614b96",
+      "bytes": 8724,
+      "role": "reproduction_runner"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "7d6007342709ff0ae64a63d35b8458699c97d6675a68a8ac0db97273d1c37e42",
+      "bytes": 105,
+      "role": "dependency_pins"
+    }
+  ],
+  "geometry_remap": {
+    "solenoid_p6/cad/N2/N2_adapter.step": {
+      "source_path": "solenoid_p6/cad/N2/N2_adapter.step",
+      "package_path": "geometry/N2/N2_adapter.step",
+      "sha256": "06fb0220b7c0cb94ed453cca4de5fbe115497101730e6bcb82289e553e829944"
+    },
+    "solenoid_p6/cad/N2/N2_keeper.step": {
+      "source_path": "solenoid_p6/cad/N2/N2_keeper.step",
+      "package_path": "geometry/N2/N2_keeper.step",
+      "sha256": "6bf0237bdb03c33f2bd48522ccbad733c17a834ed17b45322ba89b3f03171b82"
+    },
+    "solenoid_p6/cad/N2/N2_receiver.step": {
+      "source_path": "solenoid_p6/cad/N2/N2_receiver.step",
+      "package_path": "geometry/N2/N2_receiver.step",
+      "sha256": "75ab803d24868cc4bf55335c6f5efd343688ff3f107a22b682b85ce0224a777d"
+    }
+  },
+  "imprint_remap": {},
+  "configurations": [
+    {
+      "model": "N2_adapter",
+      "variant": "N2",
+      "issued_path": "n1_n2/N2_adapter.json",
+      "frozen_path": "inputs/configs/N2_adapter.json",
+      "sha256": "51575036a639dd869b58bc233b727b1c043663feee167ce0a5396c01b51d97e0",
+      "cases": [
+        "centered",
+        "distal_ineffective",
+        "low_y_half_contact"
+      ],
+      "step_source_path": "solenoid_p6/cad/N2/N2_adapter.step"
+    },
+    {
+      "model": "N2_keeper",
+      "variant": "N2",
+      "issued_path": "n1_n2/N2_keeper.json",
+      "frozen_path": "inputs/configs/N2_keeper.json",
+      "sha256": "3718fa548030bcadc53e969ed007f52c68e8128bd304e8ab03f994fe6e7dea6d",
+      "cases": [
+        "centered",
+        "distal_ineffective",
+        "low_y_half_contact"
+      ],
+      "step_source_path": "solenoid_p6/cad/N2/N2_keeper.step"
+    },
+    {
+      "model": "N2_receiver",
+      "variant": "N2",
+      "issued_path": "n1_n2/N2_receiver.json",
+      "frozen_path": "inputs/configs/N2_receiver.json",
+      "sha256": "277bb13420323becfb901a28de47030b1af976362684bb4a86c28864c02a6b12",
+      "cases": [
+        "centered_bonded",
+        "distal_ineffective_bonded",
+        "low_y_half_contact_bonded",
+        "centered_washers",
+        "distal_ineffective_washers",
+        "low_y_half_contact_washers"
+      ],
+      "step_source_path": "solenoid_p6/cad/N2/N2_receiver.step"
+    },
+    {
+      "model": "N2_receiver",
+      "variant": "N2",
+      "issued_path": "n1_n2/refine_N2_receiver.json",
+      "frozen_path": "inputs/configs/refine_N2_receiver.json",
+      "sha256": "866e09c7828335a1a287ebc550b5cb87c5fc2e32248c0e426f438ef8ff579c0d",
+      "cases": [
+        "centered_bonded",
+        "distal_ineffective_bonded",
+        "low_y_half_contact_bonded",
+        "centered_washers",
+        "distal_ineffective_washers",
+        "low_y_half_contact_washers"
+      ],
+      "step_source_path": "solenoid_p6/cad/N2/N2_receiver.step"
+    }
+  ],
+  "issued_runs": [
+    {
+      "model": "N2_adapter",
+      "configuration_sha256": "51575036a639dd869b58bc233b727b1c043663feee167ce0a5396c01b51d97e0",
+      "frozen_configuration": "inputs/configs/N2_adapter.json",
+      "issued_configuration": "n1_n2/N2_adapter.json",
+      "h_mm": 1.2,
+      "cases": [
+        "centered",
+        "distal_ineffective",
+        "low_y_half_contact"
+      ],
+      "reference_results": [
+        "results/N2_adapter/h1.2/centered.json",
+        "results/N2_adapter/h1.2/distal_ineffective.json",
+        "results/N2_adapter/h1.2/low_y_half_contact.json"
+      ],
+      "historical_driver_hashes": [
+        "6d71978731b6bf856921f1e1d2e5eb383682f4f9ba6bc65ebfdaede7187789b9"
+      ]
+    },
+    {
+      "model": "N2_adapter",
+      "configuration_sha256": "51575036a639dd869b58bc233b727b1c043663feee167ce0a5396c01b51d97e0",
+      "frozen_configuration": "inputs/configs/N2_adapter.json",
+      "issued_configuration": "n1_n2/N2_adapter.json",
+      "h_mm": 0.8,
+      "cases": [
+        "centered",
+        "distal_ineffective",
+        "low_y_half_contact"
+      ],
+      "reference_results": [
+        "results/N2_adapter/h0.8/centered.json",
+        "results/N2_adapter/h0.8/distal_ineffective.json",
+        "results/N2_adapter/h0.8/low_y_half_contact.json"
+      ],
+      "historical_driver_hashes": [
+        "6d71978731b6bf856921f1e1d2e5eb383682f4f9ba6bc65ebfdaede7187789b9"
+      ]
+    },
+    {
+      "model": "N2_adapter",
+      "configuration_sha256": "51575036a639dd869b58bc233b727b1c043663feee167ce0a5396c01b51d97e0",
+      "frozen_configuration": "inputs/configs/N2_adapter.json",
+      "issued_configuration": "n1_n2/N2_adapter.json",
+      "h_mm": 0.55,
+      "cases": [
+        "centered",
+        "distal_ineffective",
+        "low_y_half_contact"
+      ],
+      "reference_results": [
+        "results/N2_adapter/h0.55/centered.json",
+        "results/N2_adapter/h0.55/distal_ineffective.json",
+        "results/N2_adapter/h0.55/low_y_half_contact.json"
+      ],
+      "historical_driver_hashes": [
+        "6d71978731b6bf856921f1e1d2e5eb383682f4f9ba6bc65ebfdaede7187789b9"
+      ]
+    },
+    {
+      "model": "N2_keeper",
+      "configuration_sha256": "3718fa548030bcadc53e969ed007f52c68e8128bd304e8ab03f994fe6e7dea6d",
+      "frozen_configuration": "inputs/configs/N2_keeper.json",
+      "issued_configuration": "n1_n2/N2_keeper.json",
+      "h_mm": 1.2,
+      "cases": [
+        "centered",
+        "distal_ineffective",
+        "low_y_half_contact"
+      ],
+      "reference_results": [
+        "results/N2_keeper/h1.2/centered.json",
+        "results/N2_keeper/h1.2/distal_ineffective.json",
+        "results/N2_keeper/h1.2/low_y_half_contact.json"
+      ],
+      "historical_driver_hashes": [
+        "6d71978731b6bf856921f1e1d2e5eb383682f4f9ba6bc65ebfdaede7187789b9"
+      ]
+    },
+    {
+      "model": "N2_keeper",
+      "configuration_sha256": "3718fa548030bcadc53e969ed007f52c68e8128bd304e8ab03f994fe6e7dea6d",
+      "frozen_configuration": "inputs/configs/N2_keeper.json",
+      "issued_configuration": "n1_n2/N2_keeper.json",
+      "h_mm": 0.8,
+      "cases": [
+        "centered",
+        "distal_ineffective",
+        "low_y_half_contact"
+      ],
+      "reference_results": [
+        "results/N2_keeper/h0.8/centered.json",
+        "results/N2_keeper/h0.8/distal_ineffective.json",
+        "results/N2_keeper/h0.8/low_y_half_contact.json"
+      ],
+      "historical_driver_hashes": [
+        "6d71978731b6bf856921f1e1d2e5eb383682f4f9ba6bc65ebfdaede7187789b9"
+      ]
+    },
+    {
+      "model": "N2_keeper",
+      "configuration_sha256": "3718fa548030bcadc53e969ed007f52c68e8128bd304e8ab03f994fe6e7dea6d",
+      "frozen_configuration": "inputs/configs/N2_keeper.json",
+      "issued_configuration": "n1_n2/N2_keeper.json",
+      "h_mm": 0.55,
+      "cases": [
+        "centered",
+        "distal_ineffective",
+        "low_y_half_contact"
+      ],
+      "reference_results": [
+        "results/N2_keeper/h0.55/centered.json",
+        "results/N2_keeper/h0.55/distal_ineffective.json",
+        "results/N2_keeper/h0.55/low_y_half_contact.json"
+      ],
+      "historical_driver_hashes": [
+        "6d71978731b6bf856921f1e1d2e5eb383682f4f9ba6bc65ebfdaede7187789b9"
+      ]
+    },
+    {
+      "model": "N2_receiver",
+      "configuration_sha256": "277bb13420323becfb901a28de47030b1af976362684bb4a86c28864c02a6b12",
+      "frozen_configuration": "inputs/configs/N2_receiver.json",
+      "issued_configuration": "n1_n2/N2_receiver.json",
+      "h_mm": 1.2,
+      "cases": [
+        "centered_bonded",
+        "centered_washers",
+        "distal_ineffective_bonded",
+        "distal_ineffective_washers",
+        "low_y_half_contact_bonded",
+        "low_y_half_contact_washers"
+      ],
+      "reference_results": [
+        "results/N2_receiver/h1.2/centered_bonded.json",
+        "results/N2_receiver/h1.2/centered_washers.json",
+        "results/N2_receiver/h1.2/distal_ineffective_bonded.json",
+        "results/N2_receiver/h1.2/distal_ineffective_washers.json",
+        "results/N2_receiver/h1.2/low_y_half_contact_bonded.json",
+        "results/N2_receiver/h1.2/low_y_half_contact_washers.json"
+      ],
+      "historical_driver_hashes": [
+        "6d71978731b6bf856921f1e1d2e5eb383682f4f9ba6bc65ebfdaede7187789b9"
+      ]
+    },
+    {
+      "model": "N2_receiver",
+      "configuration_sha256": "277bb13420323becfb901a28de47030b1af976362684bb4a86c28864c02a6b12",
+      "frozen_configuration": "inputs/configs/N2_receiver.json",
+      "issued_configuration": "n1_n2/N2_receiver.json",
+      "h_mm": 0.8,
+      "cases": [
+        "centered_bonded",
+        "centered_washers",
+        "distal_ineffective_bonded",
+        "distal_ineffective_washers",
+        "low_y_half_contact_bonded",
+        "low_y_half_contact_washers"
+      ],
+      "reference_results": [
+        "results/N2_receiver/h0.8/centered_bonded.json",
+        "results/N2_receiver/h0.8/centered_washers.json",
+        "results/N2_receiver/h0.8/distal_ineffective_bonded.json",
+        "results/N2_receiver/h0.8/distal_ineffective_washers.json",
+        "results/N2_receiver/h0.8/low_y_half_contact_bonded.json",
+        "results/N2_receiver/h0.8/low_y_half_contact_washers.json"
+      ],
+      "historical_driver_hashes": [
+        "6d71978731b6bf856921f1e1d2e5eb383682f4f9ba6bc65ebfdaede7187789b9"
+      ]
+    },
+    {
+      "model": "N2_receiver",
+      "configuration_sha256": "277bb13420323becfb901a28de47030b1af976362684bb4a86c28864c02a6b12",
+      "frozen_configuration": "inputs/configs/N2_receiver.json",
+      "issued_configuration": "n1_n2/N2_receiver.json",
+      "h_mm": 0.55,
+      "cases": [
+        "centered_bonded",
+        "centered_washers",
+        "distal_ineffective_bonded",
+        "distal_ineffective_washers",
+        "low_y_half_contact_bonded",
+        "low_y_half_contact_washers"
+      ],
+      "reference_results": [
+        "results/N2_receiver/h0.55/centered_bonded.json",
+        "results/N2_receiver/h0.55/centered_washers.json",
+        "results/N2_receiver/h0.55/distal_ineffective_bonded.json",
+        "results/N2_receiver/h0.55/distal_ineffective_washers.json",
+        "results/N2_receiver/h0.55/low_y_half_contact_bonded.json",
+        "results/N2_receiver/h0.55/low_y_half_contact_washers.json"
+      ],
+      "historical_driver_hashes": [
+        "6d71978731b6bf856921f1e1d2e5eb383682f4f9ba6bc65ebfdaede7187789b9",
+        "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c"
+      ]
+    },
+    {
+      "model": "N2_receiver",
+      "configuration_sha256": "866e09c7828335a1a287ebc550b5cb87c5fc2e32248c0e426f438ef8ff579c0d",
+      "frozen_configuration": "inputs/configs/refine_N2_receiver.json",
+      "issued_configuration": "n1_n2/refine_N2_receiver.json",
+      "h_mm": 0.4,
+      "cases": [
+        "centered_washers",
+        "distal_ineffective_washers",
+        "low_y_half_contact_washers"
+      ],
+      "reference_results": [
+        "results/N2_receiver/h0.4/centered_washers.json",
+        "results/N2_receiver/h0.4/distal_ineffective_washers.json",
+        "results/N2_receiver/h0.4/low_y_half_contact_washers.json"
+      ],
+      "historical_driver_hashes": [
+        "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c"
+      ]
+    }
+  ],
+  "configurations_without_archived_runs": [],
+  "partial_archived_run_sets": [],
+  "replay_solver": {
+    "path": "inputs/drivers/solver_6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c.py",
+    "sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c"
+  },
+  "material": {
+    "path": "inputs/material.json",
+    "sha256": "ac3df6f1f1154c9db3b9c092fd2213b7681eb49baae6a66f8c4832cab389bd0d"
+  },
+  "environment": {
+    "tested_python": "3.12.14",
+    "tested_platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "python_major_minor": [
+      3,
+      12
+    ],
+    "pinned_packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "gmsh": "4.15.2",
+      "scikit-fem": "12.0.2",
+      "pyamg": "5.3.0",
+      "meshio": "5.3.5",
+      "matplotlib": "3.10.8"
+    },
+    "system_libraries_not_bundled": [
+      "libXft.so.2",
+      "libGLU.so.1",
+      "libGL.so.1",
+      "libXrender.so.1",
+      "libXcursor.so.1",
+      "libXfixes.so.3",
+      "libXext.so.6",
+      "libfontconfig.so.1",
+      "libXinerama.so.1",
+      "libX11.so.6"
+    ]
+  },
+  "driver_history": {
+    "recorded_file_hash_counts": {
+      "6d71978731b6bf856921f1e1d2e5eb383682f4f9ba6bc65ebfdaede7187789b9": 34,
+      "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c": 5
+    },
+    "historical_hash_limitation": "Historical result hashes were taken from the solver file at serialization. A running Python process may already have imported earlier bytes while that file changed. Older executing source snapshots were not preserved. These hashes therefore do not prove historical executing-byte identity.",
+    "known_changes": [
+      "A cylinder-surface normal-alignment selector was added; default minimum alignment0.9. It affects cylindrical pressure selection only.",
+      "Mesher algorithm/optimizer became configurable; unchanged defaults are algorithm1 and Netgen."
+    ],
+    "replay_policy": "The frozen current solver is the authoritative current replay implementation. Original result hash fields are retained. The P8 archive contains a representative non-N2 portability check; no new N2 FE solve or bit-identical historical replay was performed for this focused package."
+  },
+  "normalization_note": "All N2 component/case dictionaries and metadata are unchanged except portable path remapping. Every archived case is normalized to 1 N total retained payload extraction force in +Z; there is no multi-jaw load sharing multiplier. Historical result path fields are provenance only; reproduce.py uses the frozen mapping.",
+  "source_archive": {
+    "path": "p8_fea/input_manifest.json",
+    "sha256": "d86e675ede723d8bd850d0527c0d87510d121896dcfd23651a65e3ed3f9d7b27",
+    "original_frozen_utc": "2026-10-27T02:38:02.269265+00:00",
+    "subset_date": "2026-10-27"
+  }
+}

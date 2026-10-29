@@ -1,0 +1,232 @@
+{
+  "id": "N2_receiver",
+  "variant": "N2",
+  "case": "low_y_half_contact_washers",
+  "h_mm": 0.4,
+  "elements": 58216,
+  "dofs": 284421,
+  "quadratic_nodes": 94807,
+  "element": "P2 displacement tetrahedra; faceted linear boundary geometry",
+  "elapsed_s": 163.12148189544678,
+  "material": {
+    "name": "Common effective solid printed PLA",
+    "elastic_model": "isotropic linear elastic",
+    "E_MPa": 2200.0,
+    "nu": 0.35,
+    "density_g_cm3": 1.24,
+    "tension_MPa": 25.0,
+    "compression_MPa": 40.0,
+    "max_shear_MPa": 15.0,
+    "nominal_temperature_C": 22,
+    "infill_assumption": "100 percent / solid-equivalent, no sparse infill",
+    "interpretation": "Effective common comparison assumptions, not measured allowables or a validated fracture law. No directional strength credit; layer adhesion and defects are homogenized. Short-duration static loading only.",
+    "reference": "Bambu PLA Basic TDS V3.0 gives typical XY/Z E 2580/2060 MPa and tensile strength 35/31 MPa for 100 percent infill, annealed/dried coupons. The chosen 25 MPa tension threshold is an analyst assumption, not a supplier rating.",
+    "reference_url": "https://cdn.shopify.com/s/files/1/0645/5876/0155/files/Bambu_PLA_Basic_Technical_Data_Sheet.pdf"
+  },
+  "applied_force_N": [
+    0.0,
+    0.0,
+    0.9999999999999999
+  ],
+  "applied_moment_Nmm": [
+    9.250000000000002,
+    -27.500000000000004,
+    0.0
+  ],
+  "reaction_force_N": [
+    4.64490005160946e-12,
+    3.5063571512429503e-12,
+    -0.9999999999870507
+  ],
+  "reaction_moment_Nmm": [
+    -9.249999999957272,
+    27.499999999827317,
+    -7.993163422814753e-11
+  ],
+  "force_balance_error_N": 1.4196878068764102e-11,
+  "moment_balance_error_Nmm": 1.9502732250981231e-10,
+  "gauge_reaction_norm_N": 0.0,
+  "relative_free_residual": 8.808873583365155e-10,
+  "max_displacement_mm": 0.012125475594314813,
+  "compliance_Nmm": 0.008020347500113996,
+  "strain_energy_Nmm": 0.004010173750053392,
+  "cad_volume_mm3": 5191.811338324779,
+  "mesh_volume_mm3": 5192.136603337589,
+  "relative_volume_error": 6.264962103075256e-05,
+  "raw_peak_tensile_MPa": 1.3518493679855772,
+  "raw_peak_compressive_MPa": 3.0879172252538836,
+  "raw_peak_max_shear_MPa": 1.03811465745299,
+  "raw_peak_vm_MPa": 1.8700885109040561,
+  "raw_peak_failure_index": 0.07719793063134708,
+  "raw_strength_threshold_N": 12.953715103782054,
+  "raw_peak_element_centroid_mm": [
+    35.262638849751355,
+    -6.941634177597685,
+    3.094690954016704
+  ],
+  "regularized": {
+    "0.4": {
+      "radius_mm": 0.4,
+      "maximum_index": 0.018185144463470148,
+      "estimated_strength_threshold_N": 54.98993983846399,
+      "location_mm": [
+        26.442398615616938,
+        9.290195077077039,
+        10.675613801568247
+      ],
+      "tensile_MPa": 0.0001991850283645533,
+      "compressive_MPa": 0.5453551488757399,
+      "max_shear_MPa": 0.27277716695205223,
+      "interpretation": "Volume-weighted tensor average within centroid radius; explicit uncalibrated regularization sensitivity, not demonstrated fracture capacity"
+    },
+    "0.8": {
+      "radius_mm": 0.8,
+      "maximum_index": 0.013227671109232923,
+      "estimated_strength_threshold_N": 75.59909765990473,
+      "location_mm": [
+        26.442398615616938,
+        9.290195077077039,
+        10.675613801568247
+      ],
+      "tensile_MPa": 0.00950240008062915,
+      "compressive_MPa": 0.38732773319635855,
+      "max_shear_MPa": 0.19841506663849384,
+      "interpretation": "Volume-weighted tensor average within centroid radius; explicit uncalibrated regularization sensitivity, not demonstrated fracture capacity"
+    }
+  },
+  "boundary_audit": [
+    {
+      "label": "Distal roof underside: upward on receiver",
+      "selector": {
+        "normal_axis": 2,
+        "z": 10.5,
+        "x_range": [
+          25.9,
+          26.5
+        ],
+        "y_range": [
+          8.5,
+          10.0
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 0.9000000000000049,
+      "geometric_centroid_mm": [
+        26.199999999999992,
+        9.249999999999998,
+        10.5
+      ],
+      "force_N": [
+        0.0,
+        0.0,
+        0.5357142857142856
+      ],
+      "moment_Nmm": [
+        4.955357142857141,
+        -14.035714285714278,
+        0.0
+      ],
+      "target_force_N": [
+        0.0,
+        0.0,
+        0.5357142857142856
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 1.111111111111105,
+      "maximum_density": 1.111111111111105,
+      "facets": 14,
+      "kind": "traction"
+    },
+    {
+      "label": "Proximal roof underside: upward on receiver",
+      "selector": {
+        "normal_axis": 2,
+        "z": 10.5,
+        "x_range": [
+          28.5,
+          29.5
+        ],
+        "y_range": [
+          8.5,
+          10.0
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 1.5000000000000029,
+      "geometric_centroid_mm": [
+        29.000000000000007,
+        9.250000000000002,
+        10.500000000000002
+      ],
+      "force_N": [
+        0.0,
+        0.0,
+        0.46428571428571447
+      ],
+      "moment_Nmm": [
+        4.294642857142857,
+        -13.464285714285715,
+        0.0
+      ],
+      "target_force_N": [
+        0.0,
+        0.0,
+        0.4642857142857144
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 0.6666666666666653,
+      "maximum_density": 0.6666666666666653,
+      "facets": 18,
+      "kind": "traction"
+    },
+    {
+      "label": "Rigid host washer annulus 1",
+      "kind": "fixture",
+      "selector": {
+        "normal_axis": 2,
+        "z": 3.2,
+        "annulus_xy": [
+          5.0,
+          14.0,
+          1.6,
+          3.0
+        ]
+      },
+      "components": [
+        0,
+        1,
+        2
+      ],
+      "area_mm2": 20.211755563738997,
+      "dofs": 1203
+    },
+    {
+      "label": "Rigid host washer annulus 2",
+      "kind": "fixture",
+      "selector": {
+        "normal_axis": 2,
+        "z": 3.2,
+        "annulus_xy": [
+          35.0,
+          -10.0,
+          1.6,
+          3.0
+        ]
+      },
+      "components": [
+        0,
+        1,
+        2
+      ],
+      "area_mm2": 20.22923221204122,
+      "dofs": 2082
+    }
+  ],
+  "solver": {
+    "method": "CG with smoothed aggregation AMG",
+    "iterations": 156
+  },
+  "step_sha256": "75ab803d24868cc4bf55335c6f5efd343688ff3f107a22b682b85ce0224a777d",
+  "driver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+  "configuration_sha256": "866e09c7828335a1a287ebc550b5cb87c5fc2e32248c0e426f438ef8ff579c0d"
+}

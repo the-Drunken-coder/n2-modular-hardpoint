@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "Arithmetic force/moment balance of equal-mu assumed contact model; no physical validation",
+  "checked_states": 13848,
+  "max_force_residual_N": 4.718447854656915e-16,
+  "max_moment_residual_Nmm": 1.4210854715202004e-14,
+  "assumptions": [
+    "P/friction centroid Y=10 mm",
+    "Equal friction coefficients",
+    "Actuator and both side-contact friction heights Z=8.7 mm",
+    "Adapter and guide floor Z=7.2; guide roof Z=10.2 mm"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "N2",
+  "name": "Supported cross-bolt",
+  "project_revision": "P11 selection",
+  "geometry_revision": "P6-01 unchanged",
+  "selection_status": "Sole active mechanical hardpoint design, selected by the user. Other designs are historical.",
+  "description": "Compact printed supported cross-bolt hardpoint with a mini solenoid and a removable payload lug.",
+  "why_consider": "Four printed parts and one purchased mini solenoid. An integral receiver bridge supports the keeper on both sides of the retained payload lug.",
+  "main_risk": "Only 0.6 mm nominal distal engagement. Distal support is lost before the lug clears during withdrawal. The 1.4 mm lug and supported-to-overhung transition need physical verification.",
+  "manufacturing": {
+    "printed_parts": 4,
+    "material": "PLA for the current comparison and initial controlled bench prototypes. 100% infill/solid equivalent is required to match the FEA model; use the current manufacturing instructions for orientation, support cleanup and inspection.",
+    "qualification": "No measured working-load rating, coupon strength, loaded release reliability, creep or thermal duty established."
+  },
+  "local_control": "Off-board local 5 V pulse driver and two-button controller. No payload power/data transfer and no direct RC requirement.",
+  "evidence": "Unchanged issued CAD, sampled rigid geometry checks, and common-PLA component FEA with stated contacts and fixtures. No physical part or complete loaded release has been tested.",
+  "notes": [
+    "Selected N2 prototype, with no geometry revision in this consolidation.",
+    "Four printed parts, one Adafruit 2776, two M2 x 16 screws and two M2 nuts; host and payload mounting hardware remain installation-specific.",
+    "Distal support improves retention only while actually engaged; it disengages after about 0.6 mm of keeper travel, before nominal lug clearance at about 2.3 mm.",
+    "The 1.4 mm lug thickness and 0.6 mm support engagement are critical print/fit features.",
+    "Feed the keeper from +X before lowering the complete actuator; do not force it through the roof.",
+    "The integral tab is for ground inspection and manual reset. Remove the force-test hook before operation and protect against unintended tab movement.",
+    "The actuator moves the keeper +X. The adapter needs an external +Z force to depart; there is no ejector or payload-clear sensor.",
+    "Supplier-exterior actuator, fastener and spring models include explanatory simplifications. Measure purchased hardware and print fits.",
+    "Original manifest/viewer metadata is frozen for traceability. This file supplies the current PLA and N2-only project wording."
+  ]
+}
