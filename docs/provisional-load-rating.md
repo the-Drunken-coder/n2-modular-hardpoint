@@ -117,6 +117,26 @@ Mass 1 g = 4.0 / 9.80665 = 0.408 kg -> 0.40 kg (≈ 0.88 lb)
 
 **N2 P13 hardpoint: 4.0 N static +Z extraction (≈ 400 g at 1 g). PROVISIONAL, untested.** Up from 3.4 N (P12). Same SF 3 method and caveats as above.
 
+## P13 in Bambu PAHT-CF (current recommended)
+
+Same P13 geometry, mesh and load cases. Only the material screen changes. See [print-requirements.md](print-requirements.md) for orientation and print settings.
+
+The solver is linear and load-controlled, with the same Poisson ratio, so the stress fields don't change with material. The failure load scales with the strength screen. The PLA screen (tension 25 MPa) is 25/31 of PLA Basic's TDS Z tensile strength. The PAHT-CF screen keeps that same knockdown on the PAHT-CF TDS Z value (47 MPa, dry): tension 37.9 MPa. Compression and shear are scaled by the same 47/31 factor. No credit is taken for the tension running along the layers in the recommended orientation, and the model is still isotropic (PAHT-CF X-Y/Z modulus 3860/2180 MPa).
+
+| Case | PLA Basic failure (N) | PAHT-CF failure (N) | PAHT-CF rated, SF 3 (N) |
+|---|---|---|---|
+| Straight +Z, receiver distal_ineffective_bonded (governs) | 12.09 | 18.33 | **6.1** |
+| 45° off-axis, adapter floor (XZ) | 3.40 | 5.15 | 1.7 |
+| 90° off-axis, adapter floor (XZ) | 2.55 | 3.87 | 1.29 |
+
+```
+P_cross  = 12.089 x 47/31 = 18.33 N
+P_rated  = 18.33 / 3.0 = 6.11 N   -> round DOWN to 6.1 N
+Mass 1 g = 6.1 / 9.80665 = 0.622 kg -> 0.62 kg
+```
+
+**N2 P13 hardpoint (PAHT-CF): 6.1 N static +Z extraction (≈ 620 g at 1 g). PROVISIONAL, untested.** Up from 4.0 N in PLA Basic. Straight pull only; the off-axis warning above still applies. Dry-state TDS values; no creep data. Wet and long-hold strength are unknown.
+
 ## What would change this number
 
 - Proof test (test-plan.md) passes → keep or raise using the measured failure load / SF.
