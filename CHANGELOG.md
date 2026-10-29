@@ -8,7 +8,8 @@
 - Fillets over 0.3 mm cut into the archived load patch and can't be screened like-for-like; 1.0 mm leaves 0.01 mm keeper clearance and ≥ 1.2 mm hits the keeper.
 - Keeper clearance and release unchanged (0.3 mm open gap, no overlap).
 - Regenerated receiver STEP/STL/print STL, assembly STEP, viewer data.
-- GitHub Pages site removed (private Pages isn't on this plan). `STATUS.md` in the repo root replaces it and is regenerated on every push.
+- `STATUS.md` in the repo root, regenerated on every push.
+- GitHub Pages site back (public, by choice): 3D assembly viewer with part toggles, print-part viewer and STL downloads; rating read from the docs.
 
 ## P12 — 2026-10-29
 - **Receiver guide roofs raised +2.0 mm** (top Z 12.7 → 14.7). Only the receiver changed; keeper overlap stays 0.6 mm.
