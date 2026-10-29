@@ -1,6 +1,7 @@
 # Changelog
 
 ## Print requirements — 2026-10-29
+- Material study: recommended Bambu PAHT-CF (TDS Z tensile 47 MPa vs PLA 31) with receiver on its −X end and adapter on its −Y side. **Provisional rating 6.1 N in PAHT-CF** (4.0 N in PLA Basic), straight pull, SF 3, untested. See docs/print-requirements.md.
 - Added [docs/print-requirements.md](docs/print-requirements.md): dried PLA Basic, 100% solid, supplied orientations. The rating assumes these. Receiver roof and adapter floor tension crosses the layers (open issue). Test plan now requires a print record and has an optional Z coupon test.
 
 ## P13 expanded sims — 2026-10-29
