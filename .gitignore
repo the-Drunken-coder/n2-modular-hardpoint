@@ -11,3 +11,4 @@ node_modules/
 # Raw fields/meshes are recoverable from the original indexed archive.
 /project/analysis/results/**/*.npz
 /project/analysis/results/**/*.msh
+_site/
