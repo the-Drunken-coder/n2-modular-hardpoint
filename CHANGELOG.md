@@ -9,7 +9,7 @@
 - Keeper clearance and release unchanged (0.3 mm open gap, no overlap).
 - Regenerated receiver STEP/STL/print STL, assembly STEP, viewer data.
 - `STATUS.md` in the repo root, regenerated on every push.
-- GitHub Pages site back (public, by choice): 3D assembly viewer with part toggles, print-part viewer and STL downloads; rating read from the docs.
+- GitHub Pages site rebuilt with Blueprint (dark): viewer for every CAD revision in git history (P11 import, P12, P13), compare mode (side by side with synced cameras, overlay, added/removed-material diff), rating/parameter/changelog deltas, status and docs. Built in the Pages workflow (`site/build_data.py` + `web/`).
 
 ## P12 — 2026-10-29
 - **Receiver guide roofs raised +2.0 mm** (top Z 12.7 → 14.7). Only the receiver changed; keeper overlap stays 0.6 mm.

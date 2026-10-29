@@ -1,0 +1,65 @@
+<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>test-plan</title>
+<style>body{font:15px/1.55 system-ui,sans-serif;max-width:960px;margin:0 auto;padding:24px;color:#1d2125}
+h1{margin-bottom:0}nav a{margin-right:14px}table{border-collapse:collapse;margin:12px 0}td,th{border:1px solid #ccd;padding:4px 8px}
+code,pre{background:#f3f4f6;border-radius:4px}pre{padding:10px;overflow:auto}.card{border:1px solid #dde;border-radius:8px;padding:14px 18px;margin:16px 0}
+.big{font-size:28px;font-weight:700}.warn{color:#a15c00;font-weight:600}#viewer{width:100%;height:420px;background:#f6f7f9;border-radius:8px}
+ul.log{font-family:monospace;font-size:13px}</style><nav><a href="../index.html">Home</a><a href="../docs/provisional-load-rating.html">Rating</a><a href="../docs/fea-review.html">FEA review</a><a href="../docs/test-plan.html">Test plan</a><a href="../docs/changelog.html">Changelog</a></nav><h1>N2 physical proof-load test plan (one page)</h1>
+<p>Goal: check the <a href="provisional-load-rating.html">provisional rating</a> for the <strong>P13 receiver (roof +2.0 mm, 0.3 mm corner fillet)</strong>: 4.0 N static +Z, SF 3 and that the keeper releases under load. Print the P13 receiver (roof top Z 14.7, filleted inside corners). Use parts printed exactly like flight parts (same printer, filament lot, orientation, 100% infill). Record print settings.</p>
+<h2>Setup</h2>
+<ul>
+<li>Receiver mounted the <strong>real way</strong> (two screws into a representative airframe coupon), not glued to the bench.</li>
+<li>Load hung on the adapter in <strong>+Z extraction</strong>, straight, through a hook on the adapter's payload face. Dead weights (calibrated or weighed on a kitchen scale) or a luggage/force gauge.</li>
+<li>Before loading: measure keeper/roof engagement with feeler gauge or calipers. <strong>Note whether both roofs seat</strong> (distal overlap nominal 0.6 mm).</li>
+<li>Room temp, note °C. Phone camera on the keeper/roof area.</li>
+</ul>
+<h2>Steps (part A: proof, 3 specimens)</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th style="text-align: right;">Load, N (≈ g)</th>
+<th style="text-align: right;">Hold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align: right;">2.0 (205 g) — 0.5× rating</td>
+<td style="text-align: right;">1 min</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">4.0 (410 g) — 1.0× rating</td>
+<td style="text-align: right;">10 min (creep check)</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">6.0 (610 g) — 1.5× rating</td>
+<td style="text-align: right;">1 min</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align: right;">8.0 (815 g) — 2.0× rating</td>
+<td style="text-align: right;">1 min</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align: right;">12.0 (1225 g) — 3.0× rating = rating × SF</td>
+<td style="text-align: right;">1 min</td>
+</tr>
+</tbody>
+</table>
+<p>Unload fully between steps 2 and 3 and check for permanent set.</p>
+<h2>Release under load</h2>
+<p>At 1.0× rating (4.0 N), fire the solenoid release 10 times. Record: released yes/no, payload dropped clear yes/no, any hang-up. Then once at 2× rating.</p>
+<h2>Part B (optional, 1 sacrificial specimen)</h2>
+<p>Keep stepping +1 N/min past 12.0 N until failure. Record failure load and location. Predicted screen crossing: ~12.1 N at the receiver roof underside fillet, +Y channel edge near the proximal contact patch.</p>
+<h2>Pass / fail</h2>
+<ul>
+<li><strong>Pass:</strong> all 3 specimens hold step 5 for 1 min with no crack, no whitening, no visible permanent deformation, keeper still seated; creep at step 2 &lt; 0.2 mm over 10 min; 10/10 releases at rating with payload clearing.</li>
+<li><strong>Fail:</strong> any crack/whitening/delamination, keeper slips or pops, a missed or sticky release, or failure below 12.0 N. Then don't fly it; fix the design (distal overlap, roof thickness) or lower the rating.</li>
+</ul>
+<h2>Record</h2>
+<p>Print settings and orientation, filament brand/lot, mass and dims of each part, roof engagement measured, temperature, each load step and hold, displacement (dial or caliper on adapter), photos/video, release results, failure load and location.</p>
+<h2>Safety</h2>
+<p>Safety glasses (PLA shatters). Keep hands and feet out from under the load; use a catch box/soft landing under the weights. Solenoid wiring off and disconnected while loading; arm only for the release test. One person loads, one watches/records.</p>
