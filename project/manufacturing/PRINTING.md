@@ -4,7 +4,7 @@
 
 The governing [print requirements](../../docs/print-requirements.md) and [P14 test plan](../../docs/test-plan.md) supersede the earlier PLA/P11 and P13 instructions. Current provisional targets are 8.9 N design force and 17.8 N sacrificial qualification load; the analytical 16.84 N estimate is not permission to load a print to that value.
 
-## Initial X1 Carbon setup
+## Initial print setup
 
 Import these four files in millimeters and preserve their supplied orientation:
 
@@ -13,7 +13,7 @@ Import these four files in millimeters and preserve their supplied orientation:
 - `../cad/N2/N2_keeper_print.stl`
 - `../cad/N2/N2_clamp_print.stl`
 
-The current receiver is about **40 × 30 × 14.7 mm**. Each part fits the X1C's nominal 256 × 256 × 256 mm build volume. This envelope check does not establish successful printing or strength. Dimensions come from the [current manifest](../cad/N2/manifest.json); the printer envelope comes from [Bambu's X1 Carbon specification](https://public-cdn.bambulab.com/store/bambulab-X1-carbon-tech-specs.pdf).
+The current receiver is about **40 × 30 × 14.7 mm**. Dimensions come from the [current manifest](../cad/N2/manifest.json).
 
 For the first small-feature PAHT-CF trial, use a hardened 0.4 mm nozzle, 0.16 mm layers, five requested walls and six top/bottom layers as project starting settings. Request 100% infill / solid-equivalent toolpaths throughout. These are starting settings, not a validated production recipe. Use the material preparation and temperature guidance in [print requirements](../../docs/print-requirements.md); record the actual profile rather than copying a single FEA material label.
 
