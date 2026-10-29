@@ -41,3 +41,8 @@ Print settings and orientation, filament brand/lot, mass and dims of each part, 
 ## Safety
 
 Safety glasses (PLA shatters). Keep hands and feet out from under the load; use a catch box/soft landing under the weights. Solenoid wiring off and disconnected while loading; arm only for the release test. One person loads, one watches/records.
+
+## Print record and layer-strength coupon
+
+- **Before testing:** for each tested part, record the slicer profile (export the 3MF), layer height, walls, top/bottom layers, infill, nozzle and bed temperatures, filament lot, dry time, and orientation. Test only parts printed exactly to [print-requirements.md](print-requirements.md). Flight parts must use the same settings.
+- **Optional Z coupon pull test:** print 3 or more vertical (Z-built) tensile coupons (ISO 527-2 1BA or similar) in the same filament and settings. Pull to failure and record peak load and cross-section to get layer tensile strength. Under 25 MPa means the FEA screen is unconservative for the receiver and adapter, so the rating must drop.

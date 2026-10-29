@@ -47,3 +47,7 @@ The archived PLA FEA gives finite-mesh local stress-threshold crossings, includi
 The 29 October 2026 import checked both source ZIPs for CRC errors, verified their complete original file-hash manifests, and compared every imported original against its source bytes. Python files were parsed for syntax and structured JSON was checked; this import did not rerun a solver, regenerate CAD, flash a controller, exercise hardware, or deploy the website. See the [import validation](provenance/import_validation.json), [original-file hashes](provenance/imported_originals.sha256), and [source artifact manifest](provenance/source_artifacts.json).
 
 The recorded documentation site is [compact-modular-hardpoint-r1.drunken.chatgpt.site](https://compact-modular-hardpoint-r1.drunken.chatgpt.site). This import preserves its editable source; site deployment state is not validated by repository integrity checks.
+
+## Print requirements
+
+Bambu PLA Basic (dried), 100% solid, supplied print orientations. The FEA rating assumes all of it: [docs/print-requirements.md](docs/print-requirements.md).
