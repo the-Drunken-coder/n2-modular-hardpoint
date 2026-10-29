@@ -1,0 +1,36 @@
+name: Verify current baseline
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 20
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify current metadata and generated status
+        run: |
+          python site/build_status.py
+          python tools/check_current_baseline.py
+          python -m py_compile project/cad/build_n2.py project/cad/common.py project/manufacturing/build_bom.py site/build_data.py site/build_status.py tools/export_fea_web.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Build the current Blueprint viewer
+        working-directory: web
+        run: |
+          npm ci --legacy-peer-deps --no-audit --no-fund
+          npm run build

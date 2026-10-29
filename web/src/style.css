@@ -15,5 +15,6 @@ html,body,#root{height:100%;margin:0;background:#111418;overflow:hidden}
 .parts .bp6-control{margin-bottom:2px;font-size:12px}
 table.fea{width:100%;font-size:12px;border-collapse:collapse}
 table.fea td{padding:2px 4px;border-bottom:1px solid #2f343c}
+table.fea th{padding:2px 4px;text-align:left;font-weight:500;color:#abb3bf}
 table.fea td.n{text-align:right;font-family:ui-monospace,monospace}
 h6{margin:4px 0 0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8f99a8}

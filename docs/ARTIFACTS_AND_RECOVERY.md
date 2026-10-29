@@ -1,5 +1,7 @@
 # Artifacts and recovery
 
+**Historical import inventory:** this page identifies the complete P11 source package and the files checked at initial import. P12–P14 changes mean the current working tree no longer matches every imported-original hash. Use a verified P11 extraction or the original import commit for historical integrity checks; use the current [README](../README.md) for P14 fabrication and testing.
+
 All five recovered source artifacts are indexed below. The checked-in source tree and PDFs are available through this private GitHub repository; GitHub permissions do not grant access to the external archives.
 
 ## Original downloads
@@ -22,7 +24,7 @@ Source references are carried forward from the project context; the import check
 | [Historical calculation archive](../provenance/comparison_archive_inventory.json) | Every one of 158 files, including the comparison's source, geometry, results, figures and embedded PDF |
 | [Source artifacts](../provenance/source_artifacts.json) | Original archive/PDF download URLs, exact sizes, hashes, roles and inventory links |
 | [Imported originals](../provenance/imported_originals.json) | The 230 selected P11 files and 3 separately delivered PDFs, mapped back to original artifact/member paths |
-| [Imported-original SHA-256 list](../provenance/imported_originals.sha256) | Checksum file usable from the repository root |
+| [Imported-original SHA-256 list](../provenance/imported_originals.sha256) | Historical import checksum file; run against the import commit or recovered original files |
 | [Context sources](../provenance/context_sources.json) | Prior briefing and work-thread provenance, separate from issued package evidence |
 | [Import validation](../provenance/import_validation.json) | Checks actually performed for this import, distinct from historical engineering verification |
 

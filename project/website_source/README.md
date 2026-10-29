@@ -1,4 +1,6 @@
-# N2 Supported Cross-bolt Hardpoint — P11 website
+# N2 Supported Cross-bolt Hardpoint — historical P11 website
+
+This preserved application describes P11/P6 geometry and its PLA evidence. The current P14 viewer is built from [`../../web/`](../../web/) by the Pages workflow; use that source for current documentation changes. Rebuilding this directory does not create the current P14 website.
 
 N2 is the sole active design in this Palantir Blueprint / React / Three.js documentation application. It includes the interactive retained assembly, orbit and zoom, individual part visibility, exploded inspection, prescribed release sequence, PLA analysis, manufacturing instructions, electronics and N2-only downloads.
 

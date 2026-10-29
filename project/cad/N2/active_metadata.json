@@ -1,28 +1,57 @@
 {
   "id": "N2",
   "name": "Supported cross-bolt",
-  "project_revision": "P11 selection",
-  "geometry_revision": "P6-01 unchanged",
+  "project_revision": "P14",
+  "geometry_revision": "P14",
+  "prototype_material": "Bambu PAHT-CF",
   "selection_status": "Sole active mechanical hardpoint design, selected by the user. Other designs are historical.",
   "description": "Compact printed supported cross-bolt hardpoint with a mini solenoid and a removable payload lug.",
+  "load_path": "Adapter cross-hole floor → 3 × 3 mm keeper → receiver roofs on both sides of the lug when retained → host mount. P14 anchors the proximal roof on both sides of the keeper channel. The adapter governs the two analyzed straight-pull support states (distal engaged and distal ineffective); this does not establish capacity throughout withdrawal or for the actual aircraft mounting.",
   "why_consider": "Four printed parts and one purchased mini solenoid. An integral receiver bridge supports the keeper on both sides of the retained payload lug.",
-  "main_risk": "Only 0.6 mm nominal distal engagement. Distal support is lost before the lug clears during withdrawal. The 1.4 mm lug and supported-to-overhung transition need physical verification.",
+  "main_risk": "The 1.4 mm lug, 0.6 mm distal engagement, actual actuator force, print quality and loaded release remain unverified. Two idealized support states do not establish performance throughout withdrawal.",
   "manufacturing": {
     "printed_parts": 4,
-    "material": "PLA for the current comparison and initial controlled bench prototypes. 100% infill/solid equivalent is required to match the FEA model; use the current manufacturing instructions for orientation, support cleanup and inspection.",
+    "material": "Bambu PAHT-CF is the planned P14 bench-prototype material. Use the supplied P14 print orientations, nominal 100% infill/solid equivalent, and docs/print-requirements.md. PLA remains the analysis baseline; a PLA fit print does not validate PAHT-CF strength. Slicer paths and actual print quality remain unverified.",
     "qualification": "No measured working-load rating, coupon strength, loaded release reliability, creep or thermal duty established."
   },
   "local_control": "Off-board local 5 V pulse driver and two-button controller. No payload power/data transfer and no direct RC requirement.",
-  "evidence": "Unchanged issued CAD, sampled rigid geometry checks, and common-PLA component FEA with stated contacts and fixtures. No physical part or complete loaded release has been tested.",
+  "evidence": "P14 CAD and sampled rigid-motion checks, plus linear isotropic component stress screens. The PAHT-CF estimate scales PLA strength thresholds by 47/31; it is not a direct anisotropic PAHT-CF analysis. The receiver uses ideal continuous full backing. No physical part, coupon or complete loaded release has been tested; no working-load rating is assigned.",
+  "current_requirements": {
+    "payload_mass_kg": 0.454,
+    "load_factor_g": 2,
+    "safety_factor": 2,
+    "design_load_N": 8.9,
+    "qualification_load_N": 17.8,
+    "source": "docs/requirements.md",
+    "load_direction": "+Z straight pull",
+    "mass_scope": "Payload, removable adapter and all hardware carried away with it; excludes the aircraft-side receiver and actuator."
+  },
+  "current_analysis": {
+    "source": "project/analysis/p14/fea/B1.4_O0.6/summary.json",
+    "material_scaling": {
+      "baseline": "PLA",
+      "target": "PAHT-CF",
+      "numerator": 47,
+      "denominator": 31
+    },
+    "governing_part": "adapter_straight",
+    "stress_screen_N": 33.68,
+    "sf2_allowance_N": 16.84,
+    "working_load_rating_N": null,
+    "physical_tests_performed": false,
+    "fixture": "Ideal continuous full receiver backing; installation fasteners and airframe compliance are not represented by this screen.",
+    "method": "Linear isotropic component stress screens; PAHT-CF estimate scales PLA thresholds by 47/31. The divided value is an arithmetic comparison only, not a validated working-load limit."
+  },
   "notes": [
-    "Selected N2 prototype, with no geometry revision in this consolidation.",
+    "Selected N2 P14 prototype: bridged proximal roof, relocated keeper linkage, flat keeper underside and narrower armature stem slot.",
     "Four printed parts, one Adafruit 2776, two M2 x 16 screws and two M2 nuts; host and payload mounting hardware remain installation-specific.",
-    "Distal support improves retention only while actually engaged; it disengages after about 0.6 mm of keeper travel, before nominal lug clearance at about 2.3 mm.",
+    "Distal support disengages after about 0.6 mm of keeper travel, before nominal lug clearance at about 2.3 mm. The adapter governs the two analyzed straight-pull support states; intermediate contacts and loaded withdrawal are unverified.",
     "The 1.4 mm lug thickness and 0.6 mm support engagement are critical print/fit features.",
     "Feed the keeper from +X before lowering the complete actuator; do not force it through the roof.",
     "The integral tab is for ground inspection and manual reset. Remove the force-test hook before operation and protect against unintended tab movement.",
     "The actuator moves the keeper +X. The adapter needs an external +Z force to depart; there is no ejector or payload-clear sensor.",
     "Supplier-exterior actuator, fastener and spring models include explanatory simplifications. Measure purchased hardware and print fits.",
-    "Original manifest/viewer metadata is frozen for traceability. This file supplies the current PLA and N2-only project wording."
+    "The current manifest/viewer describes P14. Earlier P6/P11 metadata and geometry remain traceable in Git history and the archived import package.",
+    "33.68 N is the current material-scaled stress screen and 16.84 N is that value divided by SF 2. Neither is a measured breaking load or working-load rating; the provisional requirement is 8.9 N design load with a 17.8 N sacrificial qualification test target."
   ]
 }

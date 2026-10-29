@@ -1,20 +1,23 @@
 {
   "project": "N2 Supported Cross-bolt Hardpoint",
   "active_variant": "N2",
-  "revision": "P11",
-  "date": "2026-10-27",
+  "revision": "P14",
+  "date": "2026-10-29",
   "decision": "User selected N2 as the sole active design. Other mechanisms are retired from the active interface and package.",
-  "geometry_status": "Unchanged P6 N2 geometry; selection and documentation consolidation only.",
-  "material_basis": "PLA for current structural analysis and fit-print guidance",
+  "geometry_status": "Current P14: bridged proximal roof, relocated keeper link, flat keeper underside and narrower armature-button slot.",
+  "material_basis": "Bambu PAHT-CF candidate for the bench prototype. The current structural estimate scales PLA stress thresholds by 47/31; no direct anisotropic PAHT-CF model or physical qualification.",
   "scope": "Compact mechanical retention and mini-solenoid release; four custom printed parts; local actuator controls; no payload power/data interface.",
   "next_priorities": [
-    "Measure and secure distal support engagement across the real printed tolerances.",
-    "Verify the supported-to-overhung transition and actuator withdrawal force through the complete 3 mm stroke.",
-    "Resolve guide-root stress and qualify the actual mounting/backing arrangement before assigning a load rating."
+    "Slice and inspect the supplied P14 print files and measure actual fit/stroke/return with the purchased solenoid.",
+    "Measure full-stroke available pull versus mechanism demand; distinguish unlocking from adapter clearance.",
+    "Run the staged 8.9 N design /17.8 N sacrificial qualification bench campaign with installation-selected host hardware. Resolve material, partial-engagement, vibration and aircraft-specific qualification before assigning a working-load rating."
   ],
   "archive": {
     "previous_site_commit": "3cbe57b63a0ef94f39b5a84ba6dde5f707548907",
     "previous_pla_report_url": "(removed)",
     "status": "Historical comparison retained in previous delivered packages and source history; no other design is active."
-  }
+  },
+  "current_metadata": "cad/N2/active_metadata.json",
+  "requirements": "../docs/requirements.md",
+  "test_plan": "../docs/test-plan.md"
 }

@@ -1,5 +1,6 @@
 {
   "variant": "N2",
+  "geometry_revision": "P14",
   "bounds_mm": [
     43.1,
     30.0,
@@ -13,7 +14,7 @@
       "step": "N2_receiver.step",
       "stl": "N2_receiver.stl",
       "print_stl": "N2_receiver_print.stl",
-      "volume_mm3": 5191.811338324733,
+      "volume_mm3": 5277.662696807436,
       "bbox": {
         "min": [
           -2.0,
@@ -23,15 +24,15 @@
         "max": [
           38.0,
           17.0,
-          12.7
+          14.700000000000003
         ],
         "size": [
           40.0,
           30.0,
-          12.7
+          14.700000000000003
         ]
       },
-      "print_note": "Base to bed. Both guide roofs require accessible local support and careful running-face cleanup. Preserve the distal roof; do not split it from the print."
+      "print_note": "Base to bed. Both keeper-channel roofs are designed as ~3 mm bridges across the channel (tools/overhang.py, P14); verify the planned support-free paths in the slicer and on the first print. Preserve the integral distal roof."
     },
     {
       "id": "N2_adapter",
@@ -67,12 +68,12 @@
       "step": "N2_keeper.step",
       "stl": "N2_keeper.stl",
       "print_stl": "N2_keeper_print.stl",
-      "volume_mm3": 524.7949923242048,
+      "volume_mm3": 449.5301071817177,
       "bbox": {
         "min": [
           22.0,
           -4.0,
-          6.499999999999999
+          7.199999999999999
         ],
         "max": [
           34.0,
@@ -82,10 +83,10 @@
         "size": [
           12.0,
           15.5,
-          7.2
+          6.5
         ]
       },
-      "print_note": "Main body underside to bed. Retaining arm is raised 0.7 mm and needs local support. Clean sliding faces without reducing retained tip engagement."
+      "print_note": "Underside to bed: body and arm share one flat underside (P14). Verify the planned support-free paths in the slicer."
     },
     {
       "id": "N2_clamp",

@@ -164,7 +164,11 @@ export default function App() {
       <div className="panel">
         <div className="status">
           <b>N2 hardpoint · {fea?.revision || ''}</b><br />
-          {status && <>Straight-pull rating <b>{(Math.floor(status.rating_sf2_N * 10) / 10).toFixed(1)} N</b> (SF 2, {short(status.part)} governs, fails {status.fail_N} N; R1 needs ≥ {fea.required_fail_N} N). Paper number, not yet tested.</>}
+          {status && <>
+            Straight-pull stress screen <b>{status.fail_N.toFixed(2)} N</b> ({short(status.part)} governs). Dividing by SF 2 gives {status.rating_sf2_N.toFixed(2)} N for comparison only.<br />
+            <b>No working-load rating assigned.</b> No printed or loaded-release tests recorded.<br />
+            Design load: {fea.design_N} N. Sacrificial bench target: {fea.required_fail_N} N.
+          </>}
         </div>
         <ButtonGroup fill>
           <Button intent={mode === 'model' ? 'primary' : 'none'} icon="cube" text="Model" onClick={() => setMode('model')} />
@@ -180,7 +184,7 @@ export default function App() {
           <Button small icon="reset" onClick={() => { setPlaying(false); setPhase(0); }} />
           <div style={{ flex: 1, paddingTop: 4 }}><Slider min={0} max={2} stepSize={0.01} labelRenderer={false} value={phase} onChange={v => { setPlaying(false); setPhase(v); }} /></div>
         </div>
-        <div className="status">{phase < 0.02 ? 'Latched: keeper crosses the adapter lug.' : phase <= 1 ? `Solenoid pulls keeper +X ${(STROKE * phase).toFixed(1)} / ${STROKE} mm.` : 'Keeper open; adapter leaves +Z under its own load.'}</div>
+        <div className="status">{phase < 0.02 ? 'Latched: keeper crosses the adapter lug.' : phase <= 1 ? `Solenoid pulls keeper +X ${(STROKE * phase * phase * (3 - 2 * phase)).toFixed(1)} / ${STROKE} mm.` : 'Keeper open; illustrated adapter travel is +Z. Actual clearance requires an external departure force.'} This is a prescribed motion illustration, not a tested release.</div>
 
         {mode === 'fea' && fea && <>
           <h6>Load case</h6>
@@ -189,10 +193,10 @@ export default function App() {
           <Slider min={1} max={60} stepSize={0.1} labelRenderer={false} value={load} onChange={setLoad} />
           <div className="row" style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
             <Button small text={`Design ${fea.design_N} N`} onClick={() => setLoad(fea.design_N)} />
-            <Button small text={`SF 2: ${fea.required_fail_N} N`} onClick={() => setLoad(fea.required_fail_N)} />
+            <Button small text={`Bench target ${fea.required_fail_N} N`} onClick={() => setLoad(fea.required_fail_N)} />
           </div>
-          <table className="fea"><tbody>
-            {rows.map(r => <tr key={r.part}><td>{gov === r && '● '}{short(r.part)}</td><td className="n">fails {r.fail_N} N</td><td className="n">{(r.fail_N / load).toFixed(2)}×</td></tr>)}
+          <table className="fea"><thead><tr><th>Part</th><th>Screen</th><th>Screen/load</th></tr></thead><tbody>
+            {rows.map(r => <tr key={r.part}><td>{gov === r && '● '}{short(r.part)}</td><td className="n">{r.fail_N} N</td><td className="n">{(r.fail_N / load).toFixed(2)}×</td></tr>)}
           </tbody></table>
           <Switch checked={ghost} label="Ghost other parts" onChange={() => setGhost(!ghost)} />
           <div className="status">{fea.material.toUpperCase()}, {fea.note}</div>
@@ -213,7 +217,7 @@ export default function App() {
           {['iso', 'front', 'side', 'top'].map(v => <Button key={v} small text={v} onClick={() => setView(s, man.bounds, v)} />)}
         </ButtonGroup>}
         {mode === 'fea' && fea && <div className="legend">
-          Utilisation at {load.toFixed(1)} N (1.0 = predicted failure)
+          Screen utilisation at {load.toFixed(1)} N (1.0 = assumed stress limit)
           <div className="bar" style={{ background: GRAD }} />
           <div className="ticks"><span>0</span><span>0.5</span><span>1.0</span><span style={{ color: '#d91ad9' }}>&gt;1</span></div>
           {gov && <div style={{ marginTop: 4 }}>○ governing peak: {short(gov.part)} at ({gov.peak_mm.join(', ')}) mm</div>}

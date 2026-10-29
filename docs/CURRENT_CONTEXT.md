@@ -1,71 +1,81 @@
 # Current N2 engineering context
 
-This guide reconciles the source material imported on 29 October 2026. The selected package is P11, dated 27 October. The original source files remain unchanged under `project/`; linked records provide the detailed dimensions, equations, source provenance, and procedures.
+**Current design: N2 P14.** This page distinguishes the current prototype from the P11/P6 material imported into the repository on 29 October 2026. The current [requirements](requirements.md), [P14 design record](p14.md), [print instructions](print-requirements.md) and [test plan](test-plan.md) take precedence over older selection/import notes.
 
 ## Decisions that govern further work
 
-**N2 is the sole active mechanism.** The selected supported cross-bolt uses an integral distal support without adding another printed part or separate bracket. The other five mechanisms belong to the comparison history. P11 did not change P6 N2 geometry, strengthen a component, improve the actuator, or add test evidence. [Selection](../project/docs/selection.md) · [Project record](../project/project.json)
+N2 remains the sole active mechanism. It uses four printed parts and a mini solenoid, with reliability against accidental release prioritized ahead of simplicity and ease of manufacture. Other mechanisms remain comparison history. P11 selected N2 without changing P6 geometry; P12–P14 subsequently changed the design. [P14](p14.md) · [Historical selection](../project/docs/selection.md)
 
-The earlier 10–15 lb carried-mass requirement was removed during simplification. No minimum load target or replacement load rating is established. Do not reinstate that withdrawn target, infer a capacity from an animation, or treat a calculated 1g mass equivalent as a permitted payload. [Prior project context](../provenance/PRIOR_CONTEXT_BRIEFING.txt) · [Context provenance](../provenance/context_sources.json) · [Current assumptions](../project/docs/assumptions.md)
+The provisional carried-mass target is now **0.454 kg (1 lb)**, including the departing adapter and its attachment hardware. The earlier 10–15 lb requirement was withdrawn; the later 4 lb working assumption was superseded. Current loads are straight +Z extraction under an assumed 2g flight load factor. That simplified requirement does not qualify real off-axis forces, moments, vibration or glider separation. [Requirements](requirements.md)
 
-The current system provides mechanical retention/release and local release-actuator control. Payload electrical contacts, payload data transfer, a shared aircraft bus, remote flight integration, an ejector, keeper/departure sensing, and a positive fixed-pod lock are outside the implemented configuration. Spring return is an actuator behavior, not proof of positive locking or fail-safe retention. [Overview](../project/docs/overview.md) · [Mechanism](../project/docs/mechanism.md)
+| Quantity | Current value | Meaning |
+|---|---:|---|
+| Carried mass | 0.454 kg, provisional | Payload plus departing adapter and attachment hardware |
+| Design extraction force | 8.9 N | 0.454 × 9.81 × 2, rounded |
+| Sacrificial qualification target | 17.8 N | SF 2 times design force; a planned test, not a passed result |
+| Governing P14 stress-screen crossing | 33.68 N | Scaled linear-model estimate; adapter governs the evaluated straight-pull support cases |
+| Crossing divided by SF 2 | 16.84 N | Arithmetic screening estimate, not a working-load rating |
+
+Sources: [requirements](requirements.md), [P14 analysis](p14.md), [P14 result summary](../project/analysis/p14/fea/B1.4_O0.6/summary.json). **No physical working-load rating has been established.**
+
+The implemented scope is mechanical retention/release plus local bench actuation. Payload power/data, an aircraft-wide bus, direct RC integration, an ejector, departure sensing and a positive non-releasable pod lock remain outside this design.
 
 ## Physical configuration and motion
 
-| Item | Current source definition | Engineering implication |
+| Item | Current nominal definition | What remains to verify |
 |---|---|---|
-| Retained envelope | Approximately 43.1 × 30 × 19 mm | Excludes full wiring, remote controls, host mounting hardware, backing, and departure clearance |
-| Custom printed pieces | Receiver, payload adapter, keeper, solenoid clamp | Purchased actuator components shown in CAD are references, not additional print parts |
-| Actuator | One complete Adafruit 2776 mini solenoid, with captive armature, return spring and leads | Supplier geometry and actual hardware still require fit and travel measurement |
-| Clamp fasteners | Two M2 × 16 screws and two M2 nuts | They retain the actuator clamp; host and payload mounting remain installation-specific |
-| Keeper / adapter lug | 3 × 3 mm keeper; 1.4 mm lug | Retention depends on engagement, contact, guide roots and print quality |
-| Unlocking motion | Keeper withdraws in +X, nominal 3 mm stroke | Actual net travel and linkage lost motion must be measured |
-| Departure motion | Adapter departs in +Z under an external force | Coil energization alone establishes neither unlocking nor complete separation |
+| Retained envelope | Approximately 43.1 × 30 × 19 mm | Wiring, mounting/backing and departure space are additional |
+| Printed pieces | Receiver, adapter, keeper, solenoid clamp | Slicing, print fit, strength and repeatability |
+| Actuator | One complete Adafruit 2776, including armature, return spring and leads | Purchased geometry, usable stroke, pull curve and spring preload |
+| Clamp hardware | Two M2 × 16 screws and two M2 nuts | Fit and non-distorting clamp setting; these are not the aircraft mounting screws |
+| Retention | 3 × 3 mm keeper through a 1.4 mm adapter lug | Actual overlap, contact, bearing faces and print quality |
+| Unlocking | Keeper withdraws in +X through nominal 3 mm | Lost motion, binding and loaded travel |
+| Departure | Adapter moves +Z under an external force | Complete clearance before keeper return |
 
-Sources: [mechanism dimensions](../project/docs/mechanism.md), [assembly instructions](../project/docs/assembly_installation.md), [CAD manifest](../project/cad/N2/manifest.json), [BOM](../project/manufacturing/BOM.md).
+Sources: [current manifest](../project/cad/N2/manifest.json), [CAD generator](../project/cad/build_n2.py), [assembly instructions](../project/docs/assembly_installation.md).
 
-The nominal distal overlap is **0.6 mm**. The keeper clears the lug at approximately **2.3 mm** travel, leaving a nominal **0.7 mm** open margin within the 3 mm stroke. Distal support is therefore lost during about **1.7 mm** of continued loaded withdrawal. The retained two-support condition cannot be used as a full-stroke release condition. Actual tolerances, contact seating, guide reactions and actuator pull can alter the behavior. These dimensions are preserved from the issued geometry; this import makes no mechanical improvement. [Mechanism](../project/docs/mechanism.md) · [Historical full-stroke calculation](../project/analysis/historical_release/README.md)
+P14 bridges the proximal roof on both sides of the channel from X 28.5 to 31.7. The keeper linkage begins at X 32.0, beyond the bridge. Keeper body and arm now share the Z 7.2 underside for flat printing. The stem slot narrows from ±1.5 to ±1.0 mm, leaving nominal button bearing during spring return. [P14 changes](p14.md)
 
-## Material, mass and manufacturing
+The nominal distal overlap remains **0.6 mm**; lug clearance occurs at approximately **2.3 mm** travel, leaving a nominal **0.7 mm** open margin in the 3 mm stroke. Distal support therefore disappears during about 1.7 mm of continued loaded withdrawal. The current two-support and distal-lost screens both predict the adapter as governing, but they do not solve every intermediate contact state, friction or motion. Actual unlocking and payload departure must be observed separately.
 
-Use the active **PLA** print guidance. Original CAD manifests retain historical PETG descriptions so their bytes remain traceable; [active metadata](../project/cad/N2/active_metadata.json) and [printing instructions](../project/manufacturing/PRINTING.md) govern the current trial material. The analysis assumes solid-equivalent prints. A slicer label, nominal infill setting, or filament datasheet does not establish the actual strength of the small retaining surfaces.
+## Manufacturing and mass accounting
 
-The source BOM calculates **9.429 g** of ideal solid printed PLA and uses **12.6 g** as the supplier-listed solenoid mass, giving a **22.029 g partial subtotal**. This excludes fasteners, wiring, remote controls, mounting hardware and other installation items. The **0.644 g adapter** is departing mass and belongs in carried-side mass accounting. These are model and catalog values, not weighed assembly results. [BOM and mass basis](../project/manufacturing/BOM.md)
+**PAHT-CF is the candidate for the current P14 prototype.** PLA remains the historical comparison material and optional fit-trial material. Use the four supplied print meshes: receiver base to bed, adapter flange to bed, keeper flat underside to bed, clamp top bridge to bed. The overhang classifier finds no support-required area for these orientations, but the slicer and a physical bridge print have not confirmed the process. [Print requirements](print-requirements.md) · [Fabrication and inspection](../project/manufacturing/PRINTING.md)
 
-The four `_print.stl` files are the intended print exports. The remaining STL/STEP objects include reference actuator components and hardware. Keep the selected orientation, guide/contact geometry and inspection plan associated with the parts. [CAD instructions](../project/cad/README.md) · [Inspection record](../project/manufacturing/inspection_record.csv)
+Record filament lot, conditioning, nozzle, layers, orientation, slicer paths, dimensions and actual mass. A wall-count request, nominal 100% infill or a supplier coupon value does not establish the strength of these thin retaining sections.
 
-## Structural evidence and its limits
+The imported P11 BOM's 9.429 g ideal PLA print mass and 22.029 g partial subtotal belong to its original geometry/material basis. They are not measured P14 PAHT-CF masses. Current CAD volumes are in the [manifest](../project/cad/N2/manifest.json); weigh the fabricated parts. Count the adapter and all departing attachment hardware within the 0.454 kg target. Receiver-side hardware, wiring and controls contribute to the carrier's installed mass. [Historical BOM](../project/manufacturing/BOM.md) · [Current procurement record](../project/manufacturing/ORDER_LIST.md)
 
-The retained study uses homogeneous isotropic PLA: E = 2,200 MPa, ν = 0.35, density 1.24 g/cm³, and assigned tension/compression/maximum-shear thresholds of 25/40/15 MPa. It assumes 22°C, solid-equivalent material and short static loading. These inputs are comparison assumptions, not qualified print allowables. [Material record](../project/analysis/material.json) · [Method](../project/analysis/METHOD.md)
+## Structural evidence and limits
 
-There are **39 archived case solutions across 10 meshes**: nine adapter cases, nine keeper cases and 21 receiver cases. All scalar case JSON records are committed. The 39 field arrays and 20 mesh files remain in the fully indexed original ZIP. The baseline h = 0.55 mm assembly values are:
+P14 uses the frozen linear solver with component contact-load idealizations. The underlying PLA assumptions are E = 2,200 MPa, ν = 0.35 and tension/compression/maximum-shear thresholds of 25/40/15 MPa. The PAHT-CF screen multiplies crossing loads by the supplier Z-tensile ratio **47/31**; it does not substitute measured anisotropic PAHT-CF stiffness or failure properties. [P14](p14.md) · [Tool implementation](../tools/n2fea.py)
 
-| Contact scenario | Full rigid backing, N | Ideal two-hole fixture, N |
+The P14 receiver cases use ideal continuous backing. The actual two-screw installation, backing flexibility, preload and local bearing/pull-through are not validated by that condition. Mesh/contact sensitivities in earlier work remain relevant limitations; they are not a completed independent P14 convergence or full-stroke contact study.
+
+The 33.68 N result is a stress-threshold crossing, not measured ultimate strength. The model does not establish layer fracture, creep, warm/wet material behavior, wear, back-drive immunity, vibration retention or loaded release. A supplier Z coupon mean is not a mechanism allowable or a complete safety-factor validation. [Evidence register](EVIDENCE_AND_READINESS.md)
+
+### Preserved P8/P11 history
+
+The original common-PLA study retains 39 scalar case solutions across 10 meshes; raw arrays and meshes are indexed in the original archive. Its baseline h = 0.55 mm assembly results were:
+
+| Historical contact case | Full backing, N | Ideal two-hole fixture, N |
 |---|---:|---:|
 | Centered | 21.49745 | 11.26379 |
 | Distal support ineffective | 7.48300 | 7.52730 |
 | Low-Y half contact | 17.81746 | 11.57790 |
 
-These are **raw local stress-threshold crossings** from the specified linear models. They are not measured ultimate loads, safe working loads, proof loads, or release limits. See the [full-precision assembly CSV](../project/analysis/assembly_results.csv), [case summary](../project/analysis/summary.json), and [method](../project/analysis/METHOD.md).
+These are historical local stress screens for earlier geometry, not current P14 capacities. The separate local-refinement results and fixture differences should remain in the audit trail. [Historical analysis README](../project/analysis/README.md) · [Assembly CSV](../project/analysis/assembly_results.csv) · [Archive recovery](ARTIFACTS_AND_RECOVERY.md)
 
-The h = 0.4 mm local receiver refinement is a separate recipe from the baseline mesh. Its centered, distal-ineffective and low-Y two-hole crossings are approximately 12.56, 7.64 and 12.95 N. The original results retain those sensitivities; the higher numbers must not be selected as a new load rating. Sharp roots, finite pressure patches and ideal fixture edges remain influential. Real joint preload, backing flexibility, nonlinear contact take-up, layer fracture, creep and loaded sliding are not resolved. [Refinement records](../project/analysis/results/N2_receiver/h0.4/) · [Analysis README](../project/analysis/README.md)
+The historical withdrawal model's approximately 0.650 P nominal and 0.784 P adverse demand coefficients used assumed μ = 0.20 and selected contact branches. They are not measured friction, current P14 pull curves or a coupled release simulation. [Historical release model](../project/analysis/historical_release/README.md)
 
-Historical N2 withdrawal arithmetic gives peak demand of approximately **0.650 P** for the selected nominal μ = 0.20 branch and **0.784 P** for the adverse support/contact branch. Those are analytical friction coefficients multiplying retained force P, not measured pull curves or a coupled FEA release solution. A hypothetical actuator force allocation cannot establish an operating mass. [Historical release model](../project/analysis/historical_release/README.md)
+## Controls and existing records
 
-## Controller and electrical context
+The local bench setup uses a Pico H / SC0917, Adafruit 5648 MOSFET driver, ARM/FIRE buttons and a regulated 5 V supply. Wiring and pin mapping are in [wiring.md](../project/electronics/wiring.md). The initial 250 ms pulse and 10 s minimum off interval are development settings, not validated thermal/duty limits.
 
-The bench setup uses a Raspberry Pi Pico H / SC0917 (Adafruit 5525 listing), Adafruit 5648 MOSFET driver, ARM/FIRE buttons from Adafruit 367, and a regulated 5 V supply. The actuator, local controller, and remote controls are separate from the compact retained envelope. The complete original pin mapping, supply arrangement, limits, checkout and timing procedure are preserved in [wiring.md](../project/electronics/wiring.md). [Electronics source records](../project/electronics/sources.json)
+The 27 October firmware transcript records 16 passing host logic tests. It does not demonstrate hardware flashing, GPIO/current, actuator stroke, temperatures or mechanical release. No bespoke PCB exists, so there is no PCBWay fabrication quote. [Controller verification](../project/electronics/verification.json) · [Order list](../project/manufacturing/ORDER_LIST.md)
 
-The source firmware's initial **250 ms pulse** and **10 s minimum off interval** are development settings. They are not qualified thermal or duty-cycle ratings. The source includes 16 passing host logic tests recorded on 27 October, plus the transcript. No Pico, GPIO, current, stroke, temperature or loaded release was physically exercised for that package, and none was exercised during this import. [Controller verification](../project/electronics/verification.json) · [Transcript](../project/electronics/host_test_output.txt)
+The P8/N4 direction correction and earlier competing-design studies remain decision history; N2 selection is not a claim of universal superiority across all fixtures. The old CAD regeneration/import reports apply to their original file hashes. [Comparison history](../history/README.md) · [Evidence and reproducibility boundaries](EVIDENCE_AND_READINESS.md)
 
-No bespoke PCB exists. There is no corresponding PCB fabrication quote or order to import. Historical 26 October cost records show a $5.99 consumed mechanism subtotal, and known subsets of $15.19 with prorated buttons or $17.44 with the whole button pack. Unpriced wiring/equipment/installation items and tax/shipping are excluded. Those figures are retained project records, not refreshed shopping quotes. [BOM](../project/manufacturing/BOM.md) · [Electronics sources](../project/electronics/sources.json)
+## Next work
 
-## What the historical comparisons establish
-
-The common-PLA P8 report compared normal loads. Its N4 +Z load does not represent that design's +Y extraction path. The P9 correction audits actual departure directions and reports a reference N4 extraction screen of about 2.47 N; the original normal-load value must not be reused as an extraction-lock capacity. N2 is also not universally strongest across modeled fixtures: N3 exceeds it in the cited two-hole comparison. Selection remains a user decision to develop N2, not a proof that it wins every numerical comparison. [Paired historical reports and explanation](../history/README.md)
-
-The P6-C1 analytical comparison uses a different material/screening and friction basis and recommends other concepts for particular tests. It is historical decision evidence and does not override the later P11 active-design selection. Its standalone PDF and the PDF embedded in its source ZIP differ in bytes; the recovery inventory preserves both identities explicitly. [Artifact inventory](ARTIFACTS_AND_RECOVERY.md)
-
-## Practical continuation
-
-The next decisions depend on physical evidence: measured support engagement and open margin, full-stroke actuator pull versus mechanism demand, mounting/backing behavior, and complete separation under controlled conditions. The detailed existing plan keeps these gates separate from numerical screening. Record the actual service force/moment conditions before selecting qualification values. Do not silently change geometry while describing the original analysis as validation of the new part. [Evidence and readiness](EVIDENCE_AND_READINESS.md) · [Original verification plan](../project/docs/verification.md)
+Use the [P14 test plan](test-plan.md): inspect the slicer and prints, measure actual overlap and open margin, measure full-stroke actuator pull and demand, test retention and release on the actual mounting fixture, then address conditioning, wear, vibration and installation-specific departure. No physical test has been completed. The current analytical estimate must remain separate from any future demonstrated operating envelope.

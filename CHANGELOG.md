@@ -1,5 +1,16 @@
 # Changelog
 
+## P14 documentation and metadata correction — 2026-10-29
+
+- Made P14 and candidate Bambu PAHT-CF consistent across current instructions, project/CAD metadata, catalog, viewer and generated status. Requirements remain 0.454 kg (1 lb, including departing adapter/hardware), 2 g and SF 2: 8.9 N design and 17.8 N sacrificial qualification targets.
+- Corrected analysis language: 33.68 N is a PLA-threshold screen scaled by 47/31, and 16.84 N is division by SF 2. Neither is a measured failure load or working-load rating. Ideal full receiver backing, prescribed contact and unresolved P14 convergence/partial engagement are explicit.
+- Replaced the superseded P13/9.1 N test procedure with P14 identification, host-mount records, fit/clearance gates, a staged 17.8 N sacrificial test and separately recorded unlock/clearance outcomes. Corrected P14 print orientations and marked slicing, material and hardware validation open.
+- Fixed generators so current metadata drives exports/status; nondefault geometry studies do not inherit P14 strength/print claims. Added a consistency check and PR build verification.
+- Labeled original P11 drawings, masses, manifests and imported-byte checks as historical. Guarded the historical PLA BOM generator against P14 input.
+- No mechanical geometry, STEP/STL file, archived numerical result or controller behavior was changed; no CAD or FEA solve or physical test was performed for these corrections.
+
+**History below:** records the conclusions and terminology used at each earlier step. Superseded “rating”, “PASS”, support-free and partial-engagement claims below are corrected by the current P14 documentation above.
+
 ## P14 — 2026-10-29
 - **Proximal roof bridged** on both sides of the keeper channel (to X 31.7); keeper link moved past it; keeper underside flat at Z 7.2; stem slot ±1.0 so the armature button bears. Lug 1.4 / overlap 0.6 / 3 mm stroke unchanged.
 - PAHT-CF straight pull, worst credible engagement (distal lost): **33.68 N, adapter governs** (receiver 36.73 N, keeper ≥ 57.4 N). 1.89× the 17.8 N requirement; rating 16.8 N at SF 2 (was 9.1 N). Losing the distal overlap no longer reduces capacity (R5d).

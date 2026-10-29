@@ -28,11 +28,27 @@ def params(src):
     return out
 
 def rating(c):
+    # Current/recent revisions carry an explicit analysis record. Keep the
+    # original prose parser only for commits predating that record.
+    active_text = show_text(c, f'{CAD}/active_metadata.json')
+    active = json.loads(active_text) if active_text else {}
+    screen = active.get('current_analysis')
+    if screen:
+        return {
+            'text': (f"N2 {active['geometry_revision']}: {screen['stress_screen_N']:.2f} N "
+                     f"unvalidated stress screen; / SF 2 = {screen['sf2_allowance_N']:.2f} N "
+                     "for comparison only. No working-load rating assigned."),
+            'N': None,
+            'stress_screen_N': screen['stress_screen_N'],
+            'sf2_allowance_N': screen['sf2_allowance_N'],
+            'working_load_rating_N': None,
+            'evidence': screen,
+        }
     t = show_text(c, 'docs/provisional-load-rating.md')
     r = re.findall(r'\*\*(N2 (?:P\d+ )?hardpoint: [^*]+)\*\*', t or '')
     if not r: return None
     txt = r[-1]; n = re.search(r':\s*([\d.]+)\s*N', txt)
-    return {'text': txt, 'N': float(n.group(1)) if n else None}
+    return {'text': txt, 'N': float(n.group(1)) if n else None, 'historical': True}
 
 def changelog(c):
     t = show_text(c, 'CHANGELOG.md') or ''
@@ -52,7 +68,8 @@ def write_manifold(man, path):
 
 def main():
     shutil.rmtree(OUT, ignore_errors=True); OUT.mkdir(parents=True)
-    commits = git('log', '--reverse', '--format=%H', '--', f'{CAD}/manifest.json', f'{CAD}/*.stl').decode().split()
+    # Metadata corrections do not create a new physical geometry revision.
+    commits = git('log', '--reverse', '--format=%H', '--', f'{CAD}/*.stl').decode().split()
     head = git('rev-parse', 'HEAD').decode().strip()
     revs = []
     for i, c in enumerate(commits):

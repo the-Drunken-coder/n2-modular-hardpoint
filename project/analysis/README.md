@@ -1,4 +1,12 @@
-# N2 — retained PLA analysis
+# N2 analysis: current P14 and historical PLA evidence
+
+## Current P14
+
+Start with [P14 design and limitations](../../docs/p14.md), [current screen interpretation](../../docs/provisional-load-rating.md), [stored summary](p14/fea/B1.4_O0.6/summary.json) and [analysis tools](../../tools/README.md). The 33.68 N straight-pull screen uses PLA component thresholds scaled by 47/31 for a PAHT-CF estimate. Receiver backing is idealized; full-stroke contact, P14 mesh convergence and actual mounting are not established. Dividing by SF 2 gives 16.84 N for comparison only. No working-load rating is assigned. The physical-test targets are 8.9 N design and 17.8 N sacrificial qualification.
+
+## Historical P11 / P8 archive
+
+The rest of this page and the root `summary.json`, `material.json`, `results/`, `geometry/` and original manifests describe the preserved P11/P8 analysis, not a new solve of P14. Whole-archive hash checks require the complete historical ZIP. Their source records are retained without numerical edits.
 
 This is the N2-only extraction of the existing P8 analysis. **No geometry was improved and no new finite-element solve was performed for P11.** The archive contains the actual three N2 STEP solids, frozen configurations, final replay solver, 39 case/mesh solutions on 10 meshes, field arrays, and numerical audits.
 

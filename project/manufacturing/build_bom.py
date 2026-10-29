@@ -8,6 +8,23 @@ import json
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = json.loads((ROOT / "cad/N2/manifest.json").read_text())
+# Geometry fingerprints from the preserved P11 import. The original manifest
+# predates geometry_revision, so a metadata label alone is not a valid guard.
+P11_PRINT_STEP_SHA256 = {
+    "N2_receiver": "75ab803d24868cc4bf55335c6f5efd343688ff3f107a22b682b85ce0224a777d",
+    "N2_adapter": "06fb0220b7c0cb94ed453cca4de5fbe115497101730e6bcb82289e553e829944",
+    "N2_keeper": "6bf0237bdb03c33f2bd48522ccbad733c17a834ed17b45322ba89b3f03171b82",
+    "N2_clamp": "7e4a325f73abf815ea9b7ae714e627717d954603b2c89dcba6fd23c01ac4eeaf",
+}
+actual_print_hashes = {
+    p["id"]: p.get("step_sha256") for p in MANIFEST["parts"] if "print_stl" in p
+}
+if actual_print_hashes != P11_PRINT_STEP_SHA256:
+    raise SystemExit(
+        "Historical P11/PLA BOM generator: use a verified complete P11 archive. "
+        "Current geometry/material must not be labeled as P11. "
+        "For P14 procurement see manufacturing/ORDER_LIST.md and docs/print-requirements.md."
+    )
 DENSITY = 1.24  # g/cm^3; shared PLA analysis assumption, not measured print density.
 FILAMENT_USD_KG = 25.0  # Budget allowance, not a catalog observation.
 

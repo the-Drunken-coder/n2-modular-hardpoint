@@ -5,7 +5,7 @@
  "sf": 2.0,
  "design_N": 8.9,
  "required_fail_N": 17.8,
- "note": "Linear isotropic, 100% solid, prescribed contact tractions; PLA screen allowables scaled by Z TDS/31. Paper numbers, not tested.",
+ "note": "Linear isotropic component screens, solid-equivalent material and prescribed contact tractions. Receiver assumes ideal continuous full backing. PLA stress thresholds are scaled by Z TDS/31; this is not direct anisotropic PAHT-CF FEA. Selected support states only; full-stroke release, printing and mounting are untested. No working-load rating assigned.",
  "cases": [
   {
    "part": "N2_adapter",
@@ -154,5 +154,10 @@
    ],
    "source": "N2_receiver/h0.8/centered__XZ+90_fields.npz"
   }
- ]
+ ],
+ "field_semantics": {
+  "fail_N": "Calculated stress-screen crossing, not demonstrated failure",
+  "rating_sf2_N": "Stress screen divided by 2, not an assigned working-load rating",
+  "required_fail_N": "Sacrificial qualification target from current requirements"
+ }
 }

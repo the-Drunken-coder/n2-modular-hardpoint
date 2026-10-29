@@ -1,4 +1,6 @@
-# N2 bill of materials and cost basis
+# Historical P11 bill of materials and cost basis
+
+**Historical record:** the quantities, PLA masses and cost arithmetic below describe P11, not the current P14 PAHT-CF prototype. Use the [current order list](ORDER_LIST.md), [P14 print requirements](../../docs/print-requirements.md) and current CAD part volumes. P14 printed masses and total installed mass remain unmeasured.
 
 Four custom printed pieces and one complete purchased solenoid form the mechanism, held by two screws and two nuts. The actuator's frame/coil, armature, return spring and wire models are components of **one Adafruit 2776 purchase**, not separate procurement lines. Purchased metal hardware and electrical components are modeled for fit and explanation; they are not intended to be printed.
 
@@ -35,7 +37,7 @@ ISO standard designations are not manufacturer part numbers. Fit and material se
 
 At an assumed PLA material budget of $25/kg, ideal print material is **$0.236**. The mechanism's consumed-material/parts subtotal is therefore **$5.99** before exclusions. Adding the three priced remote-control lines gives a **$15.19 known priced subset** using two prorated switches, or **$17.44** using the full example switch pack. Both omit every unpriced line, shipping, tax, other pack minimums, supports/purge, printer time and labor. They are not the cost to produce and qualify a complete installation.
 
-Recompute all quantities and cost arithmetic from the frozen N2 CAD manifest with:
+To reproduce the historical quantities, run this command only in a verified extraction of the complete P11 archive. The generator refuses current P14 input to avoid mixing P14 volumes with P11/PLA labels:
 
 ```bash
 python manufacturing/build_bom.py

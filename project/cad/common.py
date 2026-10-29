@@ -1,4 +1,5 @@
-"""P6 concept assembly export. Units mm. All COTS models are external geometry.
+"""Shared concept assembly exporter (P6 revision fallback). Units mm.
+All COTS models are external geometry.
 
 Each physical instance is a part, including each fastener. Each part is placed
 in the retained assembly at u=0. Optional keyframes contain u (0..1),
@@ -29,7 +30,8 @@ def stats(obj):
 
 def export_variant(vid,title,family,parts,metadata,checks=None):
     out=ROOT/'cad'/vid;out.mkdir(parents=True,exist_ok=True)
-    asm=cq.Assembly(name='P6_'+vid); records=[]; meshes=[]
+    revision=metadata.get('geometry_revision','P6-01')
+    asm=cq.Assembly(name=revision+'_'+vid); records=[]; meshes=[]
     for p in parts:
         s=shape_of(p['shape']);record={k:v for k,v in p.items() if k not in ('shape','print_shape')}
         record.update(stats(s))
@@ -57,9 +59,12 @@ def export_variant(vid,title,family,parts,metadata,checks=None):
     asm.save(str(out/'assembly.step'))
     bounds={'min':[min(p['bbox']['min'][i] for p in records) for i in range(3)],'max':[max(p['bbox']['max'][i] for p in records) for i in range(3)]}
     bounds['size']=[bounds['max'][i]-bounds['min'][i] for i in range(3)]
-    result=dict(id=vid,name=title,family=family,revision='P6-01',units='mm',bounds=bounds,parts=records,**metadata)
+    result=dict(id=vid,name=title,family=family,revision=revision,units='mm',bounds=bounds,parts=records,**metadata)
     (out/'manifest.json').write_text(json.dumps(result,indent=2)+'\n')
-    (out/'viewer.json').write_text(json.dumps(dict(variant=vid,name=title,family=family,units='mm',bounds=bounds,parts=meshes,notes=metadata.get('notes',[])),separators=(',',':')))
+    viewer=dict(variant=vid,name=title,family=family,revision=revision,units='mm',bounds=bounds,parts=meshes,notes=metadata.get('notes',[]))
+    for key in ('project_revision','geometry_revision','prototype_material','manufacturing','evidence','current_requirements','current_analysis'):
+        if key in metadata: viewer[key]=metadata[key]
+    (out/'viewer.json').write_text(json.dumps(viewer,separators=(',',':')))
     if checks is not None:(out/'validation.json').write_text(json.dumps(checks,indent=2)+'\n')
     print(json.dumps({'id':vid,'parts':len(records),'printed':sum('print_stl'in r for r in records),'bounds':bounds,'all_valid':all(r['valid']for r in records)}),flush=True)
     return result
