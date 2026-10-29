@@ -1,0 +1,724 @@
+{
+ "id": "N2_receiver",
+ "variant": "N2",
+ "component": "receiver",
+ "step_path": "/tmp/n2fea/t3.4_o2.0_h0.8-0.55/N2_receiver.step",
+ "expected_step_sha256": "1be10c45c6c6500b561c1efe0d2c0bff086e1be9f4e06bd4687c2c98a054f776",
+ "load_normalization_N": 1.0,
+ "model_scope": "Prescribed seated, finite, normal contact tractions on actual unchanged STEP geometry; not an assembled contact solve or a load rating.",
+ "far_size_factor": 3.0,
+ "max_dofs": 420000,
+ "averaging_radii_mm": [
+  0.4,
+  0.8
+ ],
+ "cases": {
+  "centered__Z": {
+   "loads": [
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       23.5,
+       25.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0,
+      0,
+      0.4545454545454546
+     ]
+    },
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       29.5,
+       30.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0,
+      0,
+      0.5454545454545454
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "centered__XZ+45": {
+   "loads": [
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       23.5,
+       25.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.32141217326661253,
+      0.0,
+      0.3214121732666126
+     ]
+    },
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       29.5,
+       30.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.38569460791993493,
+      0.0,
+      0.385694607919935
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "centered__XZ+90": {
+   "loads": [
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       23.5,
+       25.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.45454545454545464,
+      0.0,
+      2.783288179880349e-17
+     ]
+    },
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       29.5,
+       30.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.5454545454545454,
+      0.0,
+      3.3399458158564173e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "centered__XZ-45": {
+   "loads": [
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       23.5,
+       25.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.32141217326661253,
+      0.0,
+      0.3214121732666126
+     ]
+    },
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       29.5,
+       30.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.38569460791993493,
+      0.0,
+      0.385694607919935
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "centered__XZ-90": {
+   "loads": [
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       23.5,
+       25.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.45454545454545464,
+      0.0,
+      2.783288179880349e-17
+     ]
+    },
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       29.5,
+       30.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.5454545454545454,
+      0.0,
+      3.3399458158564173e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "centered__YZ+45": {
+   "loads": [
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       23.5,
+       25.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.32141217326661253,
+      0.3214121732666126
+     ]
+    },
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       29.5,
+       30.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.38569460791993493,
+      0.385694607919935
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "centered__YZ+90": {
+   "loads": [
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       23.5,
+       25.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.45454545454545464,
+      2.783288179880349e-17
+     ]
+    },
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       29.5,
+       30.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.5454545454545454,
+      3.3399458158564173e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "centered__YZ-45": {
+   "loads": [
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       23.5,
+       25.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.32141217326661253,
+      0.3214121732666126
+     ]
+    },
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       29.5,
+       30.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.38569460791993493,
+      0.385694607919935
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "centered__YZ-90": {
+   "loads": [
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       23.5,
+       25.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.45454545454545464,
+      2.783288179880349e-17
+     ]
+    },
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       29.5,
+       30.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      -0.5454545454545454,
+      3.3399458158564173e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "distal_ineffective__Z": {
+   "loads": [
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       29.5,
+       30.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0,
+      0,
+      1.7142857142857142
+     ]
+    },
+    {
+     "label": "patch",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33,
+       34
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0,
+      0,
+      -0.7142857142857142
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  }
+ },
+ "refine_boxes": [
+  {
+   "bounds": [
+    [
+     22.7,
+     4.5,
+     -0.1
+    ],
+    [
+     37.6,
+     15.5,
+     13.0
+    ]
+   ],
+   "factor": 1.0
+  },
+  {
+   "bounds": [
+    [
+     1.8,
+     10.8,
+     -0.1
+    ],
+    [
+     8.2,
+     17.1,
+     3.4
+    ]
+   ],
+   "factor": 1.0
+  },
+  {
+   "bounds": [
+    [
+     31.8,
+     -13.1,
+     -0.1
+    ],
+    [
+     38.1,
+     -6.8,
+     3.4
+    ]
+   ],
+   "factor": 1.0
+  }
+ ]
+}
