@@ -1,0 +1,15 @@
+{
+  "name": "Common effective solid printed PLA",
+  "elastic_model": "isotropic linear elastic",
+  "E_MPa": 2200.0,
+  "nu": 0.35,
+  "density_g_cm3": 1.24,
+  "tension_MPa": 25.0,
+  "compression_MPa": 40.0,
+  "max_shear_MPa": 15.0,
+  "nominal_temperature_C": 22,
+  "infill_assumption": "100 percent / solid-equivalent, no sparse infill",
+  "interpretation": "Effective common comparison assumptions, not measured allowables or a validated fracture law. No directional strength credit; layer adhesion and defects are homogenized. Short-duration static loading only.",
+  "reference": "Bambu PLA Basic TDS V3.0 gives typical XY/Z E 2580/2060 MPa and tensile strength 35/31 MPa for 100 percent infill, annealed/dried coupons. The chosen 25 MPa tension threshold is an analyst assumption, not a supplier rating.",
+  "reference_url": "https://cdn.shopify.com/s/files/1/0645/5876/0155/files/Bambu_PLA_Basic_Technical_Data_Sheet.pdf"
+}

@@ -1,0 +1,412 @@
+{
+  "status": "PASS",
+  "scope": "N2 subset of original P8 CAD contact audit; finite prescribed contact patches, not nonlinear contact solution.",
+  "variants": {
+    "N2": {
+      "STEP_sha256": {
+        "receiver": "75ab803d24868cc4bf55335c6f5efd343688ff3f107a22b682b85ce0224a777d",
+        "keeper": "6bf0237bdb03c33f2bd48522ccbad733c17a834ed17b45322ba89b3f03171b82",
+        "adapter": "06fb0220b7c0cb94ed453cca4de5fbe115497101730e6bcb82289e553e829944"
+      },
+      "cases": [
+        {
+          "case": "centered",
+          "part": "receiver",
+          "patches": [
+            {
+              "label": "Distal roof underside: upward on receiver",
+              "area_mm2": 1.8000000000000043,
+              "expected_area_mm2": 1.8000000000000043,
+              "centroid_mm": [
+                26.2,
+                10.0,
+                10.499999999999998
+              ],
+              "passed": true
+            },
+            {
+              "label": "Proximal roof underside: upward on receiver",
+              "area_mm2": 3.0,
+              "expected_area_mm2": 3.0,
+              "centroid_mm": [
+                29.0,
+                10.0,
+                10.5
+              ],
+              "passed": true
+            }
+          ],
+          "net_force_N": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "net_moment_origin_Nmm": [
+            10.0,
+            -27.5,
+            0.0
+          ],
+          "free_body_balanced": null
+        },
+        {
+          "case": "centered",
+          "part": "keeper",
+          "patches": [
+            {
+              "label": "Adapter floor: upward on keeper",
+              "area_mm2": 4.199999999999996,
+              "expected_area_mm2": 4.199999999999996,
+              "centroid_mm": [
+                27.5,
+                10.0,
+                7.199999999999999
+              ],
+              "passed": true
+            },
+            {
+              "label": "Distal roof: downward on keeper",
+              "area_mm2": 1.8000000000000043,
+              "expected_area_mm2": 1.8000000000000043,
+              "centroid_mm": [
+                26.2,
+                10.0,
+                10.2
+              ],
+              "passed": true
+            },
+            {
+              "label": "Proximal roof: downward on keeper",
+              "area_mm2": 3.0,
+              "expected_area_mm2": 3.0,
+              "centroid_mm": [
+                29.0,
+                10.0,
+                10.2
+              ],
+              "passed": true
+            }
+          ],
+          "net_force_N": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "net_moment_origin_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "free_body_balanced": true
+        },
+        {
+          "case": "centered",
+          "part": "adapter",
+          "patches": [
+            {
+              "label": "Keeper underside: downward on adapter floor",
+              "area_mm2": 4.199999999999996,
+              "expected_area_mm2": 4.199999999999996,
+              "centroid_mm": [
+                27.5,
+                10.0,
+                6.900000000000001
+              ],
+              "passed": true
+            }
+          ],
+          "net_force_N": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "net_moment_origin_Nmm": [
+            -10.0,
+            27.5,
+            0.0
+          ],
+          "free_body_balanced": null
+        },
+        {
+          "case": "distal_ineffective",
+          "part": "receiver",
+          "patches": [
+            {
+              "label": "Proximal roof underside: upward on receiver",
+              "area_mm2": 3.0,
+              "expected_area_mm2": 3.0,
+              "centroid_mm": [
+                29.0,
+                10.0,
+                10.5
+              ],
+              "passed": true
+            },
+            {
+              "label": "Far floor top: downward on receiver",
+              "area_mm2": 3.0,
+              "expected_area_mm2": 3.0,
+              "centroid_mm": [
+                33.5,
+                10.0,
+                6.900000000000001
+              ],
+              "passed": true
+            }
+          ],
+          "net_force_N": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "net_moment_origin_Nmm": [
+            10.0,
+            -27.5,
+            0.0
+          ],
+          "free_body_balanced": null
+        },
+        {
+          "case": "distal_ineffective",
+          "part": "keeper",
+          "patches": [
+            {
+              "label": "Adapter floor: upward on keeper",
+              "area_mm2": 4.199999999999996,
+              "expected_area_mm2": 4.199999999999996,
+              "centroid_mm": [
+                27.5,
+                10.0,
+                7.199999999999999
+              ],
+              "passed": true
+            },
+            {
+              "label": "Proximal roof: downward on keeper",
+              "area_mm2": 3.0,
+              "expected_area_mm2": 3.0,
+              "centroid_mm": [
+                29.0,
+                10.0,
+                10.2
+              ],
+              "passed": true
+            },
+            {
+              "label": "Far floor: upward on keeper",
+              "area_mm2": 3.0,
+              "expected_area_mm2": 3.0,
+              "centroid_mm": [
+                33.5,
+                10.0,
+                7.2
+              ],
+              "passed": true
+            }
+          ],
+          "net_force_N": [
+            0.0,
+            0.0,
+            5.551115123125783e-17
+          ],
+          "net_moment_origin_Nmm": [
+            8.881784197001252e-16,
+            -1.7763568394002505e-15,
+            0.0
+          ],
+          "free_body_balanced": true
+        },
+        {
+          "case": "distal_ineffective",
+          "part": "adapter",
+          "patches": [
+            {
+              "label": "Keeper underside: downward on adapter floor",
+              "area_mm2": 4.199999999999996,
+              "expected_area_mm2": 4.199999999999996,
+              "centroid_mm": [
+                27.5,
+                10.0,
+                6.900000000000001
+              ],
+              "passed": true
+            }
+          ],
+          "net_force_N": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "net_moment_origin_Nmm": [
+            -10.0,
+            27.5,
+            0.0
+          ],
+          "free_body_balanced": null
+        },
+        {
+          "case": "low_y_half_contact",
+          "part": "receiver",
+          "patches": [
+            {
+              "label": "Distal roof underside: upward on receiver",
+              "area_mm2": 0.9000000000000021,
+              "expected_area_mm2": 0.9000000000000021,
+              "centroid_mm": [
+                26.2,
+                9.250000000000002,
+                10.5
+              ],
+              "passed": true
+            },
+            {
+              "label": "Proximal roof underside: upward on receiver",
+              "area_mm2": 1.5,
+              "expected_area_mm2": 1.5,
+              "centroid_mm": [
+                29.0,
+                9.25,
+                10.5
+              ],
+              "passed": true
+            }
+          ],
+          "net_force_N": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "net_moment_origin_Nmm": [
+            9.25,
+            -27.5,
+            0.0
+          ],
+          "free_body_balanced": null
+        },
+        {
+          "case": "low_y_half_contact",
+          "part": "keeper",
+          "patches": [
+            {
+              "label": "Adapter floor: upward on keeper",
+              "area_mm2": 2.099999999999998,
+              "expected_area_mm2": 2.099999999999998,
+              "centroid_mm": [
+                27.5,
+                9.25,
+                7.199999999999999
+              ],
+              "passed": true
+            },
+            {
+              "label": "Distal roof: downward on keeper",
+              "area_mm2": 0.9000000000000021,
+              "expected_area_mm2": 0.9000000000000021,
+              "centroid_mm": [
+                26.2,
+                9.250000000000002,
+                10.2
+              ],
+              "passed": true
+            },
+            {
+              "label": "Proximal roof: downward on keeper",
+              "area_mm2": 1.5,
+              "expected_area_mm2": 1.5,
+              "centroid_mm": [
+                29.0,
+                9.25,
+                10.2
+              ],
+              "passed": true
+            }
+          ],
+          "net_force_N": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "net_moment_origin_Nmm": [
+            -8.881784197001252e-16,
+            0.0,
+            0.0
+          ],
+          "free_body_balanced": true
+        },
+        {
+          "case": "low_y_half_contact",
+          "part": "adapter",
+          "patches": [
+            {
+              "label": "Keeper underside: downward on adapter floor",
+              "area_mm2": 2.099999999999998,
+              "expected_area_mm2": 2.099999999999998,
+              "centroid_mm": [
+                27.5,
+                9.25,
+                6.9
+              ],
+              "passed": true
+            }
+          ],
+          "net_force_N": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "net_moment_origin_Nmm": [
+            -9.25,
+            27.5,
+            0.0
+          ],
+          "free_body_balanced": null
+        }
+      ],
+      "gauge_anchors": [
+        {
+          "point_mm": [
+            22.0,
+            -4.0,
+            6.5
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ],
+          "nearest_CAD_vertex_distance_mm": 0.0,
+          "passed": true
+        },
+        {
+          "point_mm": [
+            34.0,
+            -4.0,
+            6.5
+          ],
+          "components": [
+            1,
+            2
+          ],
+          "nearest_CAD_vertex_distance_mm": 0.0,
+          "passed": true
+        },
+        {
+          "point_mm": [
+            34.0,
+            4.0,
+            6.5
+          ],
+          "components": [
+            2
+          ],
+          "nearest_CAD_vertex_distance_mm": 0.0,
+          "passed": true
+        }
+      ],
+      "volumes_mm3": {
+        "receiver": 5191.811338324779,
+        "keeper": 524.7949923242036,
+        "adapter": 519.5371368408537
+      }
+    }
+  }
+}

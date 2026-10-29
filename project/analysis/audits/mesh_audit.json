@@ -1,0 +1,164 @@
+{
+  "scope": "N2 subset of original P8 element quality audit; 10 issued meshes.",
+  "meshes": [
+    {
+      "model": "N2_adapter",
+      "mesh": "h0.55",
+      "elements": 8488,
+      "minimum_element_volume_mm3": 0.00392424057695571,
+      "minimum_mean_ratio_quality": 0.4898474684305985,
+      "P01_mean_ratio_quality": 0.5909589473219787,
+      "mean_ratio_definition": "12 (3 V)^(2/3) / sum of six squared edge lengths; regular tetrahedron = 1",
+      "positive_absolute_volumes": true,
+      "raw_peak_element_quality": {
+        "distal_ineffective": 0.915465278564617,
+        "low_y_half_contact": 0.915465278564617,
+        "centered": 0.915465278564617
+      }
+    },
+    {
+      "model": "N2_adapter",
+      "mesh": "h0.8",
+      "elements": 4209,
+      "minimum_element_volume_mm3": 0.004188600462334428,
+      "minimum_mean_ratio_quality": 0.43054265583917106,
+      "P01_mean_ratio_quality": 0.5148333379929483,
+      "mean_ratio_definition": "12 (3 V)^(2/3) / sum of six squared edge lengths; regular tetrahedron = 1",
+      "positive_absolute_volumes": true,
+      "raw_peak_element_quality": {
+        "distal_ineffective": 0.8711626203450231,
+        "low_y_half_contact": 0.8711626203450231,
+        "centered": 0.8711626203450231
+      }
+    },
+    {
+      "model": "N2_adapter",
+      "mesh": "h1.2",
+      "elements": 2910,
+      "minimum_element_volume_mm3": 0.0034269577149072697,
+      "minimum_mean_ratio_quality": 0.30336588156222183,
+      "P01_mean_ratio_quality": 0.4398016295708635,
+      "mean_ratio_definition": "12 (3 V)^(2/3) / sum of six squared edge lengths; regular tetrahedron = 1",
+      "positive_absolute_volumes": true,
+      "raw_peak_element_quality": {
+        "distal_ineffective": 0.8329334360599334,
+        "low_y_half_contact": 0.8733872130820418,
+        "centered": 0.8329334360599334
+      }
+    },
+    {
+      "model": "N2_keeper",
+      "mesh": "h0.55",
+      "elements": 7538,
+      "minimum_element_volume_mm3": 0.0011989963336852592,
+      "minimum_mean_ratio_quality": 0.3011929342612115,
+      "P01_mean_ratio_quality": 0.5283792227716357,
+      "mean_ratio_definition": "12 (3 V)^(2/3) / sum of six squared edge lengths; regular tetrahedron = 1",
+      "positive_absolute_volumes": true,
+      "raw_peak_element_quality": {
+        "distal_ineffective": 0.8859714821485433,
+        "low_y_half_contact": 0.6842990335614743,
+        "centered": 0.904599627639965
+      }
+    },
+    {
+      "model": "N2_keeper",
+      "mesh": "h0.8",
+      "elements": 4446,
+      "minimum_element_volume_mm3": 0.0011008075557619066,
+      "minimum_mean_ratio_quality": 0.4113297885882178,
+      "P01_mean_ratio_quality": 0.4929521507781191,
+      "mean_ratio_definition": "12 (3 V)^(2/3) / sum of six squared edge lengths; regular tetrahedron = 1",
+      "positive_absolute_volumes": true,
+      "raw_peak_element_quality": {
+        "distal_ineffective": 0.7221626323768713,
+        "low_y_half_contact": 0.9061945075277518,
+        "centered": 0.9038631692012851
+      }
+    },
+    {
+      "model": "N2_keeper",
+      "mesh": "h1.2",
+      "elements": 2565,
+      "minimum_element_volume_mm3": 0.0012690521243519713,
+      "minimum_mean_ratio_quality": 0.3322297781493608,
+      "P01_mean_ratio_quality": 0.4303307729650648,
+      "mean_ratio_definition": "12 (3 V)^(2/3) / sum of six squared edge lengths; regular tetrahedron = 1",
+      "positive_absolute_volumes": true,
+      "raw_peak_element_quality": {
+        "distal_ineffective": 0.8497037907962218,
+        "low_y_half_contact": 0.9316436154202503,
+        "centered": 0.8417598575343178
+      }
+    },
+    {
+      "model": "N2_receiver",
+      "mesh": "h0.4",
+      "elements": 58216,
+      "minimum_element_volume_mm3": 0.00018033232474664663,
+      "minimum_mean_ratio_quality": 0.17419470243639046,
+      "P01_mean_ratio_quality": 0.5680342886329026,
+      "mean_ratio_definition": "12 (3 V)^(2/3) / sum of six squared edge lengths; regular tetrahedron = 1",
+      "positive_absolute_volumes": true,
+      "raw_peak_element_quality": {
+        "low_y_half_contact_washers": 0.8412066193165776,
+        "centered_washers": 0.8412066193165776,
+        "distal_ineffective_washers": 0.7896331955730906
+      }
+    },
+    {
+      "model": "N2_receiver",
+      "mesh": "h0.55",
+      "elements": 56500,
+      "minimum_element_volume_mm3": 0.0007006070388151632,
+      "minimum_mean_ratio_quality": 0.21019353403178756,
+      "P01_mean_ratio_quality": 0.577080741914447,
+      "mean_ratio_definition": "12 (3 V)^(2/3) / sum of six squared edge lengths; regular tetrahedron = 1",
+      "positive_absolute_volumes": true,
+      "raw_peak_element_quality": {
+        "low_y_half_contact_washers": 0.7286866996209923,
+        "distal_ineffective_bonded": 0.6421325927944952,
+        "centered_washers": 0.7286866996209923,
+        "distal_ineffective_washers": 0.6421325927944952,
+        "low_y_half_contact_bonded": 0.6801440311063138,
+        "centered_bonded": 0.6421325927944952
+      }
+    },
+    {
+      "model": "N2_receiver",
+      "mesh": "h0.8",
+      "elements": 26272,
+      "minimum_element_volume_mm3": 0.0008764108840515501,
+      "minimum_mean_ratio_quality": 0.18606687545116568,
+      "P01_mean_ratio_quality": 0.5119751682905787,
+      "mean_ratio_definition": "12 (3 V)^(2/3) / sum of six squared edge lengths; regular tetrahedron = 1",
+      "positive_absolute_volumes": true,
+      "raw_peak_element_quality": {
+        "low_y_half_contact_washers": 0.7957145464756498,
+        "distal_ineffective_bonded": 0.8393707034197347,
+        "centered_washers": 0.7957145464756498,
+        "distal_ineffective_washers": 0.8393707034197347,
+        "low_y_half_contact_bonded": 0.8393707034197347,
+        "centered_bonded": 0.8393707034197347
+      }
+    },
+    {
+      "model": "N2_receiver",
+      "mesh": "h1.2",
+      "elements": 14267,
+      "minimum_element_volume_mm3": 0.0007936292627733799,
+      "minimum_mean_ratio_quality": 0.15009427070467482,
+      "P01_mean_ratio_quality": 0.43510156427522184,
+      "mean_ratio_definition": "12 (3 V)^(2/3) / sum of six squared edge lengths; regular tetrahedron = 1",
+      "positive_absolute_volumes": true,
+      "raw_peak_element_quality": {
+        "low_y_half_contact_washers": 0.5569698441486559,
+        "distal_ineffective_bonded": 0.5251964808078543,
+        "centered_washers": 0.6737927219989319,
+        "distal_ineffective_washers": 0.5251964808078543,
+        "low_y_half_contact_bonded": 0.5569698441486559,
+        "centered_bonded": 0.5251964808078543
+      }
+    }
+  ]
+}

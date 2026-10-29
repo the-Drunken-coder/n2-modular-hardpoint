@@ -1,0 +1,178 @@
+{
+  "id": "N2_adapter",
+  "variant": "N2",
+  "component": "adapter",
+  "step_path": "solenoid_p6/cad/N2/N2_adapter.step",
+  "expected_step_sha256": "06fb0220b7c0cb94ed453cca4de5fbe115497101730e6bcb82289e553e829944",
+  "load_normalization_N": 1.0,
+  "model_scope": "Prescribed seated, finite, normal contact tractions on actual unchanged STEP geometry; not an assembled contact solve or a load rating.",
+  "far_size_factor": 2.5,
+  "max_dofs": 420000,
+  "averaging_radii_mm": [
+    0.4,
+    0.8
+  ],
+  "cases": {
+    "centered": {
+      "loads": [
+        {
+          "label": "Keeper underside: downward on adapter floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              26.8,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ],
+      "contact_scenario": "centered",
+      "fixture": "rigid full payload flange; payload screw joint excluded",
+      "supports": [
+        {
+          "label": "Ideal rigid payload attachment face",
+          "selector": {
+            "normal_axis": 2,
+            "z": 19.0,
+            "x_range": [
+              24.0,
+              37.0
+            ],
+            "y_range": [
+              5.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "distal_ineffective": {
+      "loads": [
+        {
+          "label": "Keeper underside: downward on adapter floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              26.8,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ],
+      "contact_scenario": "distal_ineffective",
+      "fixture": "rigid full payload flange; payload screw joint excluded",
+      "supports": [
+        {
+          "label": "Ideal rigid payload attachment face",
+          "selector": {
+            "normal_axis": 2,
+            "z": 19.0,
+            "x_range": [
+              24.0,
+              37.0
+            ],
+            "y_range": [
+              5.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "low_y_half_contact": {
+      "loads": [
+        {
+          "label": "Keeper underside: downward on adapter floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              26.8,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              10.0
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ],
+      "contact_scenario": "low_y_half_contact",
+      "fixture": "rigid full payload flange; payload screw joint excluded",
+      "supports": [
+        {
+          "label": "Ideal rigid payload attachment face",
+          "selector": {
+            "normal_axis": 2,
+            "z": 19.0,
+            "x_range": [
+              24.0,
+              37.0
+            ],
+            "y_range": [
+              5.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  },
+  "refine_boxes": [
+    {
+      "bounds": [
+        [
+          25.4,
+          6.2,
+          3.6
+        ],
+        [
+          29.0,
+          13.8,
+          17.0
+        ]
+      ],
+      "factor": 1.0
+    }
+  ]
+}

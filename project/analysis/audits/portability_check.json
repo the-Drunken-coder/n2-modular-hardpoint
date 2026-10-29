@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "date": "2026-10-27",
+  "scope": "Frozen input integrity, archived output copy integrity, relocated prepare-only FE replay and historical N2 arithmetic only. No new FE solve or physical test.",
+  "input_verification": {
+    "files_checked": 11,
+    "geometry_files": 3,
+    "all_hashes_match": true
+  },
+  "archived_outputs": {
+    "file_count": 105,
+    "all_hashes_match": true,
+    "case_results": 39,
+    "all_cases_N2_same_PLA": true,
+    "field_arrays": 39,
+    "meshes": 10
+  },
+  "issued_run_steps": 10,
+  "case_solves_available": 39,
+  "relocated_configs": [
+    {
+      "configuration": "inputs/configs/N2_adapter.json",
+      "cases_unchanged": true,
+      "numeric_and_mesh_fields_unchanged": true,
+      "geometry_sha256": "06fb0220b7c0cb94ed453cca4de5fbe115497101730e6bcb82289e553e829944",
+      "relocated_step_is_inside_new_output": true
+    },
+    {
+      "configuration": "inputs/configs/N2_keeper.json",
+      "cases_unchanged": true,
+      "numeric_and_mesh_fields_unchanged": true,
+      "geometry_sha256": "6bf0237bdb03c33f2bd48522ccbad733c17a834ed17b45322ba89b3f03171b82",
+      "relocated_step_is_inside_new_output": true
+    },
+    {
+      "configuration": "inputs/configs/N2_receiver.json",
+      "cases_unchanged": true,
+      "numeric_and_mesh_fields_unchanged": true,
+      "geometry_sha256": "75ab803d24868cc4bf55335c6f5efd343688ff3f107a22b682b85ce0224a777d",
+      "relocated_step_is_inside_new_output": true
+    },
+    {
+      "configuration": "inputs/configs/refine_N2_receiver.json",
+      "cases_unchanged": true,
+      "numeric_and_mesh_fields_unchanged": true,
+      "geometry_sha256": "75ab803d24868cc4bf55335c6f5efd343688ff3f107a22b682b85ce0224a777d",
+      "relocated_step_is_inside_new_output": true
+    }
+  ],
+  "new_FEA_performed": false,
+  "historical_release": {
+    "status": "HISTORICAL_ARITHMETIC_REPRODUCED_NOT_PHYSICAL_VALIDATION",
+    "checks": {
+      "release_matches_archived_N2": true,
+      "stroke_matches_archived_N2": true,
+      "yaw_sensitivity_matches_archived_N2": true
+    },
+    "full_stroke_rows": 3462
+  },
+  "historical_equilibrium": {
+    "status": "PASS",
+    "scope": "Arithmetic force/moment balance of equal-mu assumed contact model; no physical validation",
+    "checked_states": 13848,
+    "max_force_residual_N": 4.718447854656915e-16,
+    "max_moment_residual_Nmm": 1.4210854715202004e-14,
+    "assumptions": [
+      "P/friction centroid Y=10 mm",
+      "Equal friction coefficients",
+      "Actuator and both side-contact friction heights Z=8.7 mm",
+      "Adapter and guide floor Z=7.2; guide roof Z=10.2 mm"
+    ]
+  },
+  "historical_driver_limitation": "Historical result hashes were taken from the solver file at serialization. A running Python process may already have imported earlier bytes while that file changed. Older executing source snapshots were not preserved. These hashes therefore do not prove historical executing-byte identity."
+}

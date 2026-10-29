@@ -1,0 +1,234 @@
+{
+  "status": "PASS",
+  "method": "Independent STEP re-import, per-part Boolean symmetric differences, volume/bounds/solid counts and assembly-frame checks. Viewer motion compared separately.",
+  "tolerance": {
+    "volume_mm3": 1e-06,
+    "position_mm": 1e-06
+  },
+  "cadquery": "2.7.0",
+  "parts": [
+    {
+      "id": "N2_receiver",
+      "volume_difference_mm3": 0.0,
+      "max_bbox_difference_mm": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "original_step_sha256": "75ab803d24868cc4bf55335c6f5efd343688ff3f107a22b682b85ce0224a777d",
+      "rebuilt_step_sha256": "c763a4f1032228f5164d6a7fbb4ca84d432811cb9a41dc5558ce390eaf7c242c",
+      "checks": {
+        "valid": true,
+        "same_solid_count": true,
+        "volume": true,
+        "bounds": true,
+        "symmetric_difference": true
+      },
+      "passed": true
+    },
+    {
+      "id": "N2_adapter",
+      "volume_difference_mm3": 0.0,
+      "max_bbox_difference_mm": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "original_step_sha256": "06fb0220b7c0cb94ed453cca4de5fbe115497101730e6bcb82289e553e829944",
+      "rebuilt_step_sha256": "522396aa6f9934b7d12ae1e4535bad28caad7204bde44e054aa08481a0e08881",
+      "checks": {
+        "valid": true,
+        "same_solid_count": true,
+        "volume": true,
+        "bounds": true,
+        "symmetric_difference": true
+      },
+      "passed": true
+    },
+    {
+      "id": "N2_keeper",
+      "volume_difference_mm3": 0.0,
+      "max_bbox_difference_mm": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "original_step_sha256": "6bf0237bdb03c33f2bd48522ccbad733c17a834ed17b45322ba89b3f03171b82",
+      "rebuilt_step_sha256": "f3ed654b2beec0bb1333da3e8049d4d04ba233cfa3dab5587d6305f3bcc399a0",
+      "checks": {
+        "valid": true,
+        "same_solid_count": true,
+        "volume": true,
+        "bounds": true,
+        "symmetric_difference": true
+      },
+      "passed": true
+    },
+    {
+      "id": "N2_clamp",
+      "volume_difference_mm3": 0.0,
+      "max_bbox_difference_mm": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "original_step_sha256": "7e4a325f73abf815ea9b7ae714e627717d954603b2c89dcba6fd23c01ac4eeaf",
+      "rebuilt_step_sha256": "5249d48711d3eb2fc1c031183ccfd7606e6df31d360b454ceb338ecb1d049272",
+      "checks": {
+        "valid": true,
+        "same_solid_count": true,
+        "volume": true,
+        "bounds": true,
+        "symmetric_difference": true
+      },
+      "passed": true
+    },
+    {
+      "id": "N2_solenoid_body",
+      "volume_difference_mm3": 0.0,
+      "max_bbox_difference_mm": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "original_step_sha256": "598a62260d25d670cb22fc5ca149675f7ba884d3249436ff767b29b600eb0477",
+      "rebuilt_step_sha256": "dabf3cb960de84c6eafdbac548c275db2e21a99a9bfb65e86b53e0a4db9fc369",
+      "checks": {
+        "valid": true,
+        "same_solid_count": true,
+        "volume": true,
+        "bounds": true,
+        "symmetric_difference": true
+      },
+      "passed": true
+    },
+    {
+      "id": "N2_armature",
+      "volume_difference_mm3": 0.0,
+      "max_bbox_difference_mm": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "original_step_sha256": "3183da4ffac8b3698fab2effc7ecf90967b8529417fc81f8bd7ace4eaebdd7d3",
+      "rebuilt_step_sha256": "e6cbd4740be235b515b39a22f60b79e39132bb0491f39e4e1639ec53c0af624e",
+      "checks": {
+        "valid": true,
+        "same_solid_count": true,
+        "volume": true,
+        "bounds": true,
+        "symmetric_difference": true
+      },
+      "passed": true
+    },
+    {
+      "id": "N2_return_spring",
+      "volume_difference_mm3": 0.0,
+      "max_bbox_difference_mm": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "original_step_sha256": "f35e71970815afdab21d35c01b3307771c9e69b6728af0dc8b69d0067ccd584b",
+      "rebuilt_step_sha256": "0929a29a75aaf734ca9c72fe50d15eed27c411661709aa84aedf70931ce91c36",
+      "checks": {
+        "valid": true,
+        "same_solid_count": true,
+        "volume": true,
+        "bounds": true,
+        "symmetric_difference": true
+      },
+      "passed": true
+    },
+    {
+      "id": "N2_wire_1",
+      "volume_difference_mm3": 0.0,
+      "max_bbox_difference_mm": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "original_step_sha256": "4dc8bd1dbf5ed170c29c4b20bcb98d28ae314f16cb42c2f48927800a8af1d593",
+      "rebuilt_step_sha256": "fcd767190d6e3c3ab7ea517a3f23e771aeb7d6f3e38ac797ab108cc6397d835b",
+      "checks": {
+        "valid": true,
+        "same_solid_count": true,
+        "volume": true,
+        "bounds": true,
+        "symmetric_difference": true
+      },
+      "passed": true
+    },
+    {
+      "id": "N2_wire_2",
+      "volume_difference_mm3": 0.0,
+      "max_bbox_difference_mm": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "original_step_sha256": "f10cfe72dc4feb38c31fc911fcddc16b226352056947c9196b21a872a98ab258",
+      "rebuilt_step_sha256": "50455f0fb063d646412c98478f3b317db94b41c823a049a39a47324cddaea203",
+      "checks": {
+        "valid": true,
+        "same_solid_count": true,
+        "volume": true,
+        "bounds": true,
+        "symmetric_difference": true
+      },
+      "passed": true
+    },
+    {
+      "id": "N2_clamp_screw_1",
+      "volume_difference_mm3": 0.0,
+      "max_bbox_difference_mm": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "original_step_sha256": "2e9e51796cf287f8098bb7e23c8ce9190d1c84ccfa3dbeca53515cf71f668415",
+      "rebuilt_step_sha256": "5aba80b71a975511b2600fd2417f22e492bc06d047b7f963f82cb9884a8ac81c",
+      "checks": {
+        "valid": true,
+        "same_solid_count": true,
+        "volume": true,
+        "bounds": true,
+        "symmetric_difference": true
+      },
+      "passed": true
+    },
+    {
+      "id": "N2_clamp_nut_1",
+      "volume_difference_mm3": 0.0,
+      "max_bbox_difference_mm": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "original_step_sha256": "62dbd04e1df398a5dd6e4169bae1adb1ff216b27e561233c60ba8b155392dfc9",
+      "rebuilt_step_sha256": "23a706d1112e0a6594f6f7076fca78a9f0e65c14667dc0ab902630dc85394bb7",
+      "checks": {
+        "valid": true,
+        "same_solid_count": true,
+        "volume": true,
+        "bounds": true,
+        "symmetric_difference": true
+      },
+      "passed": true
+    },
+    {
+      "id": "N2_clamp_screw_2",
+      "volume_difference_mm3": 0.0,
+      "max_bbox_difference_mm": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "original_step_sha256": "5ba4100b33cbeb3a6e495ffd40ef14cd16bb3aa58db8f2bd8ded6ab180584159",
+      "rebuilt_step_sha256": "1c9b20b4fc8e206f39d6bf11c1614ceb5d0ee8c328050c0ca4a253616ffbe3be",
+      "checks": {
+        "valid": true,
+        "same_solid_count": true,
+        "volume": true,
+        "bounds": true,
+        "symmetric_difference": true
+      },
+      "passed": true
+    },
+    {
+      "id": "N2_clamp_nut_2",
+      "volume_difference_mm3": 0.0,
+      "max_bbox_difference_mm": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "original_step_sha256": "8b1a12c8a034826e8614c8d6e4dc4ff59999a9894c97d9edb1a4d8e594a4919f",
+      "rebuilt_step_sha256": "f9f7bdf8924bb6cc4fe3735e313d991342a60efcd665079e75fb2cc6560608b5",
+      "checks": {
+        "valid": true,
+        "same_solid_count": true,
+        "volume": true,
+        "bounds": true,
+        "symmetric_difference": true
+      },
+      "passed": true
+    }
+  ],
+  "assembly": {
+    "original_solids": 14,
+    "rebuilt_solids": 14,
+    "volume_difference_mm3": 0.0,
+    "max_bbox_difference_mm": 0.0,
+    "passed": true
+  },
+  "viewer": {
+    "source_frozen_sha256": "001914a1f75be1c06b2342781c5f631f2d6a1e63c6870b0bd109bcd1a7f16671",
+    "rebuilt_sha256": "1e037c17c0471fb66195539862660708dad020fae8e6d57663c36bf644f8a82e",
+    "part_count": 13,
+    "mesh_arrays_identical": true,
+    "motion_and_explode_identical": true
+  },
+  "qualification": "A successful rebuild verifies geometry/source continuity only, not physical strength, printing fit or loaded release. STEP hashes can differ because of export metadata; unchanged issued STEP/STL/viewer copies remain authoritative."
+}

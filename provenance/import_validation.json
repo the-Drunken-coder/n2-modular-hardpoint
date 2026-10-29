@@ -1,0 +1,92 @@
+{
+  "schema": "engineering_repository_import_validation_v1",
+  "as_of": "2026-10-29",
+  "repo": "the-Drunken-coder/n2-modular-hardpoint",
+  "base_commit": "a381dd2415c052f65e41be8a779db01599e7829b",
+  "base_tree": "24b1ebbd8817cd458bb47da4581114cdc0eff02d",
+  "source_archives": [
+    {
+      "filename": "N2_Selected_Hardpoint_Project.zip",
+      "crc": "passed",
+      "members_verified": 475,
+      "original_manifest_entries_verified": 474,
+      "sha256": "757ef6a4fd6e74e8db6c20262298813dc0fc24d3fdce087c54abfdfe1772d65b",
+      "counts_by_reason": {
+        "editable_source_or_compact_issued_evidence": 230,
+        "raw_fea_field_or_mesh": 59,
+        "generated_website_build_and_duplicate_downloads": 186
+      },
+      "bytes_by_reason": {
+        "editable_source_or_compact_issued_evidence": 19094350,
+        "raw_fea_field_or_mesh": 171367075,
+        "generated_website_build_and_duplicate_downloads": 22362310
+      }
+    },
+    {
+      "filename": "Six_Hardpoint_Load_Calculations.zip",
+      "crc": "passed",
+      "members_verified": 158,
+      "original_manifest_entries_verified": 157,
+      "sha256": "5d1c272ed285904dca88228ded43b2fb57bef2c6b66b251db590275e9f397043",
+      "counts_by_reason": {
+        "historical_comparison_package_retained_as_download": 158
+      },
+      "bytes_by_reason": {
+        "historical_comparison_package_retained_as_download": 21675305
+      }
+    }
+  ],
+  "original_bytes_verified": {
+    "files": 233,
+    "bytes": 24401510,
+    "passed": true,
+    "manifest": "provenance/imported_originals.json"
+  },
+  "source_artifacts": {
+    "files": 5,
+    "sha256_verified": true,
+    "manifest": "provenance/source_artifacts.json"
+  },
+  "python_syntax": {
+    "method": "ast.parse; no project code imported or executed",
+    "files": 16,
+    "passed": true
+  },
+  "json_parse": {
+    "files": 93,
+    "passed": true
+  },
+  "local_markdown_links": {
+    "links": 168,
+    "broken": 0,
+    "passed": true,
+    "scope": "Relative Markdown file/directory targets, excluding remote URLs and anchors"
+  },
+  "credential_marker_scan": {
+    "matches": [],
+    "scope": "Common private-key/GitHub-token/AWS-access-key markers in text source files; not a comprehensive secret audit"
+  },
+  "repo_state": {
+    "visibility": "private",
+    "default_branch": "main",
+    "push_permission": true,
+    "existing_paths": [
+      "README.md"
+    ],
+    "instructions_found": []
+  },
+  "historical_reports": {
+    "standalone_calculation_pdf_differs_from_zip_pdf": true,
+    "explained_in": "history/README.md"
+  },
+  "not_performed": [
+    "FEA solve or numerical replay",
+    "CAD regeneration",
+    "Functional host controller test rerun",
+    "Firmware flashing, GPIO or actuator operation",
+    "Physical manufacturing, load, release or thermal tests",
+    "Dependency installation or website build/deploy",
+    "Remote writes by the preparation agent"
+  ],
+  "note": "The original package verification scripts require archive-only raw outputs and were not run against the deliberately partial Git tree. Original source bytes and full archive manifests were checked independently. Historical test reports retain their original dates and scope."
+}

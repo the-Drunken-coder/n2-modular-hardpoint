@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+node_modules/
+
+# Recreated website output and package snapshots.
+/project/website_source/data/
+/project/website_source/dist/
+/project/website_source/project/
+
+# Raw fields/meshes are recoverable from the original indexed archive.
+/project/analysis/results/**/*.npz
+/project/analysis/results/**/*.msh

@@ -1,0 +1,16 @@
+{
+  "schema": "context_sources_v1",
+  "sources": [
+    {
+      "path": "provenance/PRIOR_CONTEXT_BRIEFING.txt",
+      "original_name": "05_N2_Modular_Hardpoint.txt",
+      "bytes": 8232,
+      "sha256": "554c777758135559622cef5f912cfcc9d8483073877af6aea51c1ae0f61380ed",
+      "role": "Previously compiled project briefing; narrative context, not an original P11 engineering artifact",
+      "stated_as_of": "2026-10-28 Eastern",
+      "superseded_statement": "The last sentence says no separate GitHub repository was verified; the user subsequently supplied this private repository on 2026-10-29.",
+      "work_conversation": "https://chatgpt.com/c/6add8c81-7efc-83e9-a5f7-e0811548ed0b"
+    }
+  ],
+  "scope_note": "The withdrawn 10\u201315 lb requirement is carried forward from earlier project context. Current P11 selection and verification documents establish no load rating. Old project branches and recommendations do not override P11 N2-only scope."
+}

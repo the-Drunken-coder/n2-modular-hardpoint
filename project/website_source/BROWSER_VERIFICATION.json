@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-27T03:39:25.063587+00:00",
+  "revision": "P11",
+  "scope": "Focused N2 consolidation UI checks in managed Chrome against built local preview.",
+  "url": "http://terminal.local:4173/",
+  "checks": [
+    "Default route shows sole active N2 assembly, 13 modeled objects, 4 printed parts and PLA/no-rating status.",
+    "Separated button moves release slider to 100 percent and visibly separates the adapter in prescribed +Z motion.",
+    "Retained reset and explode slider at 70 percent switch to exploded inspection.",
+    "Top camera preset changes view; dragging the canvas changes the camera to Custom.",
+    "PLA analysis displays 21.50/11.26 N centered, 7.48/7.53 N ineffective distal and 17.82/11.58 N uneven contact.",
+    "Analysis explicitly identifies stress-screen limits, unchanged geometry, existing39 solves/10 meshes and no working-load rating.",
+    "Print/assemble page shows PLA100percent basis,4print links, exploded and dimension images, installation/BOM/print records.",
+    "Downloads category Print STLs returns exactly4N2parts and no other model selector.",
+    "Final rebuilt Development page exposes N2 assumptions, selection, sources and physical acceptance gates as expandable records."
+  ],
+  "limitations": [
+    "Browser animation is prescribed geometry, not physical release evidence.",
+    "Full model physics unchanged; no newFEA or actual hardware testing.",
+    "Hardware WebGL and other browsers/mobile devices not separately exercised in this consolidation."
+  ],
+  "result": "PASS for the listed focused checks"
+}

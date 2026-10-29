@@ -1,0 +1,641 @@
+{
+  "schema": "N2_ARCHIVED_OUTPUTS_V1",
+  "status": "Byte-identical extraction, not new numerical results",
+  "files": [
+    {
+      "path": "results/N2_adapter/configuration.json",
+      "bytes": 3822,
+      "sha256": "51575036a639dd869b58bc233b727b1c043663feee167ce0a5396c01b51d97e0",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/configuration.json"
+    },
+    {
+      "path": "results/N2_adapter/h0.55/centered.json",
+      "bytes": 5230,
+      "sha256": "79109445cc06d14bac1cc0f24310122bb9cfe6685804e262eea85e7ace280dc8",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.55/centered.json"
+    },
+    {
+      "path": "results/N2_adapter/h0.55/centered_fields.npz",
+      "bytes": 1578440,
+      "sha256": "d173561e078b2e5b5538d0d7ee60b58c5934c9477e08a437dc9e270a0f0f2686",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.55/centered_fields.npz"
+    },
+    {
+      "path": "results/N2_adapter/h0.55/distal_ineffective.json",
+      "bytes": 5241,
+      "sha256": "a52d8bd826940d71607121debdac74ed5495e9f8af969c75f4aad7786c9ebb46",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.55/distal_ineffective.json"
+    },
+    {
+      "path": "results/N2_adapter/h0.55/distal_ineffective_fields.npz",
+      "bytes": 1578440,
+      "sha256": "d173561e078b2e5b5538d0d7ee60b58c5934c9477e08a437dc9e270a0f0f2686",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.55/distal_ineffective_fields.npz"
+    },
+    {
+      "path": "results/N2_adapter/h0.55/low_y_half_contact.json",
+      "bytes": 5240,
+      "sha256": "d5d8b00e9dbfe1d33acd144512b570ec9f1ba8bf6ee26e68d5447e7d71ab6c87",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.55/low_y_half_contact.json"
+    },
+    {
+      "path": "results/N2_adapter/h0.55/low_y_half_contact_fields.npz",
+      "bytes": 1578357,
+      "sha256": "6be0afff16fab77ff5949d80b93976cc004e39283e17ee351a876414dd3e27cf",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.55/low_y_half_contact_fields.npz"
+    },
+    {
+      "path": "results/N2_adapter/h0.55/mesh.msh",
+      "bytes": 402177,
+      "sha256": "d2dc5a0746bc66682cc4041defcaae81ec7f4695ceca5ad21048fc98c6731b00",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.55/mesh.msh"
+    },
+    {
+      "path": "results/N2_adapter/h0.55/mesh.npz",
+      "bytes": 90608,
+      "sha256": "afababb490f69489f61b3064b31b569d05cda3408c1e38557a828bd15a69a642",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.55/mesh.npz"
+    },
+    {
+      "path": "results/N2_adapter/h0.8/centered.json",
+      "bytes": 5229,
+      "sha256": "b78da462c2c8c90c43d5b09fbd402244e5167ac345d36add6ddb824a9d2f7fae",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.8/centered.json"
+    },
+    {
+      "path": "results/N2_adapter/h0.8/centered_fields.npz",
+      "bytes": 797524,
+      "sha256": "0a32a183e87b952c42309789984948bdfd2763266fbda6d8f5baeab487a1c452",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.8/centered_fields.npz"
+    },
+    {
+      "path": "results/N2_adapter/h0.8/distal_ineffective.json",
+      "bytes": 5238,
+      "sha256": "e756d19afa7a5f0fe9e8652d25925661f266d62812404503873acc260d4e88c9",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.8/distal_ineffective.json"
+    },
+    {
+      "path": "results/N2_adapter/h0.8/distal_ineffective_fields.npz",
+      "bytes": 797524,
+      "sha256": "0a32a183e87b952c42309789984948bdfd2763266fbda6d8f5baeab487a1c452",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.8/distal_ineffective_fields.npz"
+    },
+    {
+      "path": "results/N2_adapter/h0.8/low_y_half_contact.json",
+      "bytes": 5255,
+      "sha256": "5955651153f510f9db187d76eae24dc13b2e72168b48cb58a770828d9fed146e",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.8/low_y_half_contact.json"
+    },
+    {
+      "path": "results/N2_adapter/h0.8/low_y_half_contact_fields.npz",
+      "bytes": 797457,
+      "sha256": "542d2ee6210e24726800928970a4b1515b06bf3b2d63853e28cfc0f1f9aaa8af",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.8/low_y_half_contact_fields.npz"
+    },
+    {
+      "path": "results/N2_adapter/h0.8/mesh.msh",
+      "bytes": 203464,
+      "sha256": "87aa4a706321f88f1007ba13afb9df3e2b9c2b3301d15d2de84e9ce43052b0b5",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.8/mesh.msh"
+    },
+    {
+      "path": "results/N2_adapter/h0.8/mesh.npz",
+      "bytes": 45849,
+      "sha256": "ecefca0e724b6c200142342200a6a0603710284e2932678fc4002b61ec556e7f",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h0.8/mesh.npz"
+    },
+    {
+      "path": "results/N2_adapter/h1.2/centered.json",
+      "bytes": 5236,
+      "sha256": "f541a9afdaf4e86564da596b96749e7e236711f2daff41a022b52693ac679893",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h1.2/centered.json"
+    },
+    {
+      "path": "results/N2_adapter/h1.2/centered_fields.npz",
+      "bytes": 555235,
+      "sha256": "313c659ce0c782f7bfd18051bd707b9ec309ffaada1adda3123dcbdc41ca5cc7",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h1.2/centered_fields.npz"
+    },
+    {
+      "path": "results/N2_adapter/h1.2/distal_ineffective.json",
+      "bytes": 5246,
+      "sha256": "bab38f30711adbb882bcc61c62cbb4404f6efd16f08456852a46b8e45c200f6e",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h1.2/distal_ineffective.json"
+    },
+    {
+      "path": "results/N2_adapter/h1.2/distal_ineffective_fields.npz",
+      "bytes": 555235,
+      "sha256": "313c659ce0c782f7bfd18051bd707b9ec309ffaada1adda3123dcbdc41ca5cc7",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h1.2/distal_ineffective_fields.npz"
+    },
+    {
+      "path": "results/N2_adapter/h1.2/low_y_half_contact.json",
+      "bytes": 5200,
+      "sha256": "6b8ecc171aea833b19944cb5641f8dd28e03144da89ea41dd94d56919e86b929",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h1.2/low_y_half_contact.json"
+    },
+    {
+      "path": "results/N2_adapter/h1.2/low_y_half_contact_fields.npz",
+      "bytes": 555227,
+      "sha256": "84b1dc1f9d5716585007f597fa1c82975e3234f34447aa2cc4927e1f966abefa",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h1.2/low_y_half_contact_fields.npz"
+    },
+    {
+      "path": "results/N2_adapter/h1.2/mesh.msh",
+      "bytes": 140361,
+      "sha256": "5aaf6beb0a71a761446359d9a10270c3372ad0bf1690ea40024d89a0e12e222a",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h1.2/mesh.msh"
+    },
+    {
+      "path": "results/N2_adapter/h1.2/mesh.npz",
+      "bytes": 31845,
+      "sha256": "7b5cabe837119b5ceccee2976c41d52da767581a3f1b63f3c158251dce3251dc",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/h1.2/mesh.npz"
+    },
+    {
+      "path": "results/N2_adapter/run_summary.json",
+      "bytes": 53441,
+      "sha256": "a32f51d82d678b7bb476d668eb5a1b684d4053f7a0f1edae4f1d20a3d497488b",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_adapter/run_summary.json"
+    },
+    {
+      "path": "results/N2_keeper/configuration.json",
+      "bytes": 6603,
+      "sha256": "3718fa548030bcadc53e969ed007f52c68e8128bd304e8ab03f994fe6e7dea6d",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/configuration.json"
+    },
+    {
+      "path": "results/N2_keeper/h0.55/centered.json",
+      "bytes": 7764,
+      "sha256": "f1ad28453d1e70da8ede6bb6ed09c5229b6e2c8090cfa426741e41989cf8a480",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.55/centered.json"
+    },
+    {
+      "path": "results/N2_keeper/h0.55/centered_fields.npz",
+      "bytes": 1438762,
+      "sha256": "69ad15f883137f9878a93c437e89e10cc672d1e98e31d4bd0307f4fa3b55a9b5",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.55/centered_fields.npz"
+    },
+    {
+      "path": "results/N2_keeper/h0.55/distal_ineffective.json",
+      "bytes": 7774,
+      "sha256": "a699e8881297da55fb211022d7678bd85a0141aad7591d415d75b8e334288f72",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.55/distal_ineffective.json"
+    },
+    {
+      "path": "results/N2_keeper/h0.55/distal_ineffective_fields.npz",
+      "bytes": 1435444,
+      "sha256": "67a201fcb560c4db445077b3a88100ca06241062861bef1a787abc06a587d92e",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.55/distal_ineffective_fields.npz"
+    },
+    {
+      "path": "results/N2_keeper/h0.55/low_y_half_contact.json",
+      "bytes": 7796,
+      "sha256": "32f9ed0a044af143a48092e7f17c6f24bec42eb0b484e0f3ce54653399ed6b2c",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.55/low_y_half_contact.json"
+    },
+    {
+      "path": "results/N2_keeper/h0.55/low_y_half_contact_fields.npz",
+      "bytes": 1437696,
+      "sha256": "177a7629fb03cbdd80080f82d8f99ae1c556d06209b172a99e214695b2612c5a",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.55/low_y_half_contact_fields.npz"
+    },
+    {
+      "path": "results/N2_keeper/h0.55/mesh.msh",
+      "bytes": 362445,
+      "sha256": "7900136bf74a2544ab1771523e7290fe63e853ac08657100cbe6d1e477f4bc43",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.55/mesh.msh"
+    },
+    {
+      "path": "results/N2_keeper/h0.55/mesh.npz",
+      "bytes": 84608,
+      "sha256": "db3a47cd2da3634fda317f09bf770804807b440245b4847d4c94100f3abe90c5",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.55/mesh.npz"
+    },
+    {
+      "path": "results/N2_keeper/h0.8/centered.json",
+      "bytes": 7786,
+      "sha256": "d6b5ac16ef1b09f2049e1ef5e4ffa1429beb4bf2f665988fc035e49ecf7f22bc",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.8/centered.json"
+    },
+    {
+      "path": "results/N2_keeper/h0.8/centered_fields.npz",
+      "bytes": 857544,
+      "sha256": "5b31825246826f3c6174f83042e2aa311634f7b0e35217cfcd130f7c58bc2ef1",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.8/centered_fields.npz"
+    },
+    {
+      "path": "results/N2_keeper/h0.8/distal_ineffective.json",
+      "bytes": 7727,
+      "sha256": "43a5387be79029b35027d65d24967082701557eb31a7285c16881ffdfbc2d4da",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.8/distal_ineffective.json"
+    },
+    {
+      "path": "results/N2_keeper/h0.8/distal_ineffective_fields.npz",
+      "bytes": 855565,
+      "sha256": "e8cf1848a0c579ae6ecb0fe9e19d936303f6002b4d64451a6a577a85d478efbe",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.8/distal_ineffective_fields.npz"
+    },
+    {
+      "path": "results/N2_keeper/h0.8/low_y_half_contact.json",
+      "bytes": 7778,
+      "sha256": "85acc4292417e879259ccea05e00392074a6cc4cf6cf28b0b17fe6fd1c1f5b5e",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.8/low_y_half_contact.json"
+    },
+    {
+      "path": "results/N2_keeper/h0.8/low_y_half_contact_fields.npz",
+      "bytes": 856956,
+      "sha256": "97ccf37194dae4a2f9324b3e85f84a77a01096516d5085b8a78dd7975705f75f",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.8/low_y_half_contact_fields.npz"
+    },
+    {
+      "path": "results/N2_keeper/h0.8/mesh.msh",
+      "bytes": 220285,
+      "sha256": "99d1ce8f5e7253a1e86d3cc3269b823a2c7b8ff58dba3d42966558919ce11153",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.8/mesh.msh"
+    },
+    {
+      "path": "results/N2_keeper/h0.8/mesh.npz",
+      "bytes": 49903,
+      "sha256": "c275bfde8fc9f4aaa3fe634481a792d7aa5761cb4c04920053ae306644b16cbb",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h0.8/mesh.npz"
+    },
+    {
+      "path": "results/N2_keeper/h1.2/centered.json",
+      "bytes": 7753,
+      "sha256": "3bace5c23f2da66f496b9df6304df4fb9e780ef93527841424e9a643a5699bd8",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h1.2/centered.json"
+    },
+    {
+      "path": "results/N2_keeper/h1.2/centered_fields.npz",
+      "bytes": 500981,
+      "sha256": "1af7810008a56380ae9bed85c2f29a263e205add1bf5d2475985a73f8b63b4f0",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h1.2/centered_fields.npz"
+    },
+    {
+      "path": "results/N2_keeper/h1.2/distal_ineffective.json",
+      "bytes": 7737,
+      "sha256": "c4794126ece4d91e2a605d92788a32a31589cb8efe278c089c810dfec7d014cf",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h1.2/distal_ineffective.json"
+    },
+    {
+      "path": "results/N2_keeper/h1.2/distal_ineffective_fields.npz",
+      "bytes": 499826,
+      "sha256": "3e621157393dbc31e7561674ae257ce2be664f1b426781fb1f1747fb4f824883",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h1.2/distal_ineffective_fields.npz"
+    },
+    {
+      "path": "results/N2_keeper/h1.2/low_y_half_contact.json",
+      "bytes": 7749,
+      "sha256": "39f2da851057a5c9b88507823137f77e065eb17ace92576c3a368ea5dd162337",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h1.2/low_y_half_contact.json"
+    },
+    {
+      "path": "results/N2_keeper/h1.2/low_y_half_contact_fields.npz",
+      "bytes": 500524,
+      "sha256": "3155d763caec2809340eb88948bdcc2e0e1e072733d29ebdfa7d41e04fbf8ee5",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h1.2/low_y_half_contact_fields.npz"
+    },
+    {
+      "path": "results/N2_keeper/h1.2/mesh.msh",
+      "bytes": 132843,
+      "sha256": "101fd74cd8b465dc27c8dced2ce58591efbacb227d315b455019777c6c117ab9",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h1.2/mesh.msh"
+    },
+    {
+      "path": "results/N2_keeper/h1.2/mesh.npz",
+      "bytes": 29185,
+      "sha256": "b91a6fd90dfd51083e6971c7ba83ba0c281c640f0616ce129575d13793dc0d20",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/h1.2/mesh.npz"
+    },
+    {
+      "path": "results/N2_keeper/run_summary.json",
+      "bytes": 80869,
+      "sha256": "4a2f1dcca359352c26d9c1e8a88f907c5998b743fa68dd44bab3c548710faec0",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_keeper/run_summary.json"
+    },
+    {
+      "path": "results/N2_receiver/configuration.json",
+      "bytes": 11313,
+      "sha256": "866e09c7828335a1a287ebc550b5cb87c5fc2e32248c0e426f438ef8ff579c0d",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/configuration.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.4/centered_washers.json",
+      "bytes": 6525,
+      "sha256": "a8e3e7572819c1835493f0ac37a5665e5ed7d6fb136f690e77dc5feca475edb0",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.4/centered_washers.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.4/centered_washers_fields.npz",
+      "bytes": 10900876,
+      "sha256": "100805e61554bccd65e77cf96c4bd73c34dcd3ebae0ce87a3a9c431cf593ba7b",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.4/centered_washers_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.4/configuration.json",
+      "bytes": 11313,
+      "sha256": "866e09c7828335a1a287ebc550b5cb87c5fc2e32248c0e426f438ef8ff579c0d",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.4/configuration.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.4/distal_ineffective_washers.json",
+      "bytes": 6528,
+      "sha256": "8720dda18ac9b632798635e86950491ab4409b2309090b886aca5f8a60ec7560",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.4/distal_ineffective_washers.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.4/distal_ineffective_washers_fields.npz",
+      "bytes": 10904811,
+      "sha256": "d74244bdf23bfab746bf4451471f6291ea6addcd4375bc3d1607e8a63e70b76b",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.4/distal_ineffective_washers_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.4/low_y_half_contact_washers.json",
+      "bytes": 6579,
+      "sha256": "20c6745b852722955dd2ab66d969905efc8517386f80e5b948e8dd9ef77eff36",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.4/low_y_half_contact_washers.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.4/low_y_half_contact_washers_fields.npz",
+      "bytes": 10900164,
+      "sha256": "8c9825ba804300f140bd9df502ca72bd8690b7b1875a31807c294bb97875beaa",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.4/low_y_half_contact_washers_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.4/mesh.msh",
+      "bytes": 2799830,
+      "sha256": "6119013c0403831a94487d5c2c14813cc41a4752c6f15ad993ea5aa35198537e",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.4/mesh.msh"
+    },
+    {
+      "path": "results/N2_receiver/h0.4/mesh.npz",
+      "bytes": 748925,
+      "sha256": "e135ece568b2ae25c0d758e6444fa9e864ff21572bb2bfbc27c63feccd452e9e",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.4/mesh.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/centered_bonded.json",
+      "bytes": 6157,
+      "sha256": "3a1db2b0c3451599c21d7ac1805cd1583041a3e3fcc0ac25c4c2e2f5837e611d",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/centered_bonded.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/centered_bonded_fields.npz",
+      "bytes": 10648575,
+      "sha256": "b7cc6b0c3f2eeddf3e5a555c45f20b9567388145ba885d6a4a9008ea82a2d420",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/centered_bonded_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/centered_washers.json",
+      "bytes": 6491,
+      "sha256": "f12ef97fa6fb039933a028df79851ef59cc2ce24c2a7b08bdc93388c724218c3",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/centered_washers.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/centered_washers_fields.npz",
+      "bytes": 10577095,
+      "sha256": "7d7aa0e2eb74138a8beb500fcfa562d7b3286dd133d375ff7a6e011c785bfc88",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/centered_washers_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/distal_ineffective_bonded.json",
+      "bytes": 6174,
+      "sha256": "da4f49ddfe5ab0275adb6173730e629af575e8cb04d938efeea8e062b923d783",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/distal_ineffective_bonded.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/distal_ineffective_bonded_fields.npz",
+      "bytes": 10671287,
+      "sha256": "8d611bd873dd08c6aef166e62c2086398ae9849904d0fdd5198bee7930e0fc11",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/distal_ineffective_bonded_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/distal_ineffective_washers.json",
+      "bytes": 6504,
+      "sha256": "b51e20555415c19e8e1e7200efe03cff22ac1b009c0cad5580bf6592766636a6",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/distal_ineffective_washers.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/distal_ineffective_washers_fields.npz",
+      "bytes": 10580319,
+      "sha256": "b09c86ceab10fce663fb16493e5652011adb9926e826994bf66328634f12ca7f",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/distal_ineffective_washers_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/low_y_half_contact_bonded.json",
+      "bytes": 6234,
+      "sha256": "8aa8e685cee0564db10f58978137401f5c0e01e8ae412ab7999ff6357846fac0",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/low_y_half_contact_bonded.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/low_y_half_contact_bonded_fields.npz",
+      "bytes": 10649247,
+      "sha256": "b7fca29b56e5da1ac89bfee42cd4981c9e1821b29fd08c9100c520f4f2955e64",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/low_y_half_contact_bonded_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/low_y_half_contact_washers.json",
+      "bytes": 6570,
+      "sha256": "ea13309f9c9407dd3c6a4ca5a874508f223415a0caeee2ae76af43ea8cdf4dae",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/low_y_half_contact_washers.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/low_y_half_contact_washers_fields.npz",
+      "bytes": 10576199,
+      "sha256": "68bf21b2259f4184cef64bbb9a6420b7260720def68dbbacdb99becd78d463b6",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/low_y_half_contact_washers_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/mesh.msh",
+      "bytes": 2714938,
+      "sha256": "02f690527c38d05c99f0332f6077f24b0dde9b38edf75fa44221d8f4a2c6be08",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/mesh.msh"
+    },
+    {
+      "path": "results/N2_receiver/h0.55/mesh.npz",
+      "bytes": 726077,
+      "sha256": "f62cefd42759d41a28e60a5458c8a78d7e4525a67546da407ad2ef3a2a29a4e0",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.55/mesh.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/centered_bonded.json",
+      "bytes": 6187,
+      "sha256": "7ad1d9bd128e7c03dfca16facdf06aead9663e896888a484ef2bc924046fde24",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/centered_bonded.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/centered_bonded_fields.npz",
+      "bytes": 5014106,
+      "sha256": "a16a9fa240f5bb33571b88fc9ae5855c451c545255ab1b452b8658d5644b3aef",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/centered_bonded_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/centered_washers.json",
+      "bytes": 6514,
+      "sha256": "2212166401eb9644fa6d5196dc1ae7129e062d4ba53021b6d625d96d0c69a678",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/centered_washers.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/centered_washers_fields.npz",
+      "bytes": 4972877,
+      "sha256": "a91f4afd4c0a0056a3d4d00470b6d1caeea2687ebbf5455b3975f322fb53c759",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/centered_washers_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/distal_ineffective_bonded.json",
+      "bytes": 6177,
+      "sha256": "13a4b7b5d368aa930d23838d9b83109867b2d0b013de764aae7c93d11f6e2860",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/distal_ineffective_bonded.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/distal_ineffective_bonded_fields.npz",
+      "bytes": 5020864,
+      "sha256": "25e01a79e13d1a16a8f8cc227ec4bc0d0331190876c406b7faa35de2d2950503",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/distal_ineffective_bonded_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/distal_ineffective_washers.json",
+      "bytes": 6507,
+      "sha256": "68748d53a8b2e3817ad9dfb03478500789b6be8ea3dff16b9a31fa3969676c97",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/distal_ineffective_washers.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/distal_ineffective_washers_fields.npz",
+      "bytes": 4974254,
+      "sha256": "9575ee8f599e51e300a74487c7fd7c44f4199ea1080902f75ba0aa7087b43570",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/distal_ineffective_washers_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/low_y_half_contact_bonded.json",
+      "bytes": 6207,
+      "sha256": "0437ef8061748fee0bb2a5bb223cc446dfc72da636ddf30c057cb5b8344b659e",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/low_y_half_contact_bonded.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/low_y_half_contact_bonded_fields.npz",
+      "bytes": 5014197,
+      "sha256": "d895ef4e6fd5945aa51b9abe39bca43c6aaa9b1ffcb951557a64c579f772faf9",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/low_y_half_contact_bonded_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/low_y_half_contact_washers.json",
+      "bytes": 6545,
+      "sha256": "1f4436b60f86a94ca8640601638a8f544d115fef30c9cbe9dd55ae66b1b9992c",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/low_y_half_contact_washers.json"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/low_y_half_contact_washers_fields.npz",
+      "bytes": 4972673,
+      "sha256": "990968a43d1cec644112530cf77a9985ae46e83cba41cc7aa8aef1e927fccc7d",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/low_y_half_contact_washers_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/mesh.msh",
+      "bytes": 1313721,
+      "sha256": "a006f61ed3d72d3c9b2f25950bd6737e3eabd57060fb46ae1578533dd685fe38",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/mesh.msh"
+    },
+    {
+      "path": "results/N2_receiver/h0.8/mesh.npz",
+      "bytes": 316086,
+      "sha256": "903a5a54c4190799ca732708fbf9e6878d2ed81636ce15820f652a9095588d20",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h0.8/mesh.npz"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/centered_bonded.json",
+      "bytes": 6200,
+      "sha256": "46184dae7b75d81bd98d8fb283f3c5fb2fd27658a25321707f12a11f8fabb551",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/centered_bonded.json"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/centered_bonded_fields.npz",
+      "bytes": 2756429,
+      "sha256": "b80f04105f177338f60172d6fbd721763581ee5c7b13c3da56af81d411e6c3ce",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/centered_bonded_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/centered_washers.json",
+      "bytes": 6534,
+      "sha256": "bf1950c9fde5e6b2d412adf3a049b5347c04686d7938eeb815d1131e85603868",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/centered_washers.json"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/centered_washers_fields.npz",
+      "bytes": 2732710,
+      "sha256": "cd756e444dbdaca17a3262eecba6cc7f4e585b5d29dc348c60b955fad0b6a918",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/centered_washers_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/distal_ineffective_bonded.json",
+      "bytes": 6214,
+      "sha256": "821fe923be735784846517d3b389eab52a56181194be1f045a1322b695b45cb3",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/distal_ineffective_bonded.json"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/distal_ineffective_bonded_fields.npz",
+      "bytes": 2758152,
+      "sha256": "35d72cd8e25b369f4aad26ba346235ca8964da2928f4f70bdee211e9c826369d",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/distal_ineffective_bonded_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/distal_ineffective_washers.json",
+      "bytes": 6548,
+      "sha256": "e7627b7ee6fad0b8967c4c67d8726181f48e46e3867fbde880ed7304f6e386bd",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/distal_ineffective_washers.json"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/distal_ineffective_washers_fields.npz",
+      "bytes": 2732988,
+      "sha256": "aea274881b25239ef3955804933e7b3ff2b1aec1bee46ff903ab3181f4c8d159",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/distal_ineffective_washers_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/low_y_half_contact_bonded.json",
+      "bytes": 6178,
+      "sha256": "a4934c0603e8bb63c2d549d5be18c8cdd53e1eeb5e4f84c416c0cae41deb3377",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/low_y_half_contact_bonded.json"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/low_y_half_contact_bonded_fields.npz",
+      "bytes": 2756378,
+      "sha256": "179720b6dec91a24ea419bb9a6de854ba45e8b497e70a48be618d87a2320c01c",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/low_y_half_contact_bonded_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/low_y_half_contact_washers.json",
+      "bytes": 6512,
+      "sha256": "6317df574abb5e413b54b3098b3758f87b8ca6857d0b099c15d354de1d8c5771",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/low_y_half_contact_washers.json"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/low_y_half_contact_washers_fields.npz",
+      "bytes": 2732568,
+      "sha256": "ab5adf0f69197d8ed1dc04d7f4c175e0acba00d78c329145964f117234803fa1",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/low_y_half_contact_washers_fields.npz"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/mesh.msh",
+      "bytes": 764110,
+      "sha256": "61dbdaf5c11ae29375eb96fe25d3fcdc35a8207f7a1c3b6ab358af04fed1913b",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/mesh.msh"
+    },
+    {
+      "path": "results/N2_receiver/h1.2/mesh.npz",
+      "bytes": 166309,
+      "sha256": "d3d28338acb31ff6d510f87077f6bc1af000403ef510fbbb7387fa31cf3bfa5f",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/h1.2/mesh.npz"
+    },
+    {
+      "path": "results/N2_receiver/run_summary.json",
+      "bytes": 22581,
+      "sha256": "10a79089acbbefe5c18aca333ebf94523e96b500cd144291491617c7f82cea01",
+      "source_archive_path": "p8_fea/n1_n2/results/N2_receiver/run_summary.json"
+    }
+  ],
+  "file_count": 105,
+  "bytes": 171808081,
+  "case_results": 39,
+  "field_arrays": 39,
+  "meshes": 10
+}

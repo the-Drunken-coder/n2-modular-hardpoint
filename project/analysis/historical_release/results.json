@@ -1,0 +1,716 @@
+{
+  "status": "HISTORICAL_P7_FRICTION_ASSUMPTIONS_NOT_PLA_RELEASE_QUALIFICATION",
+  "parameters": {
+    "normal_load_N": 1.0,
+    "mu_values": [
+      0.1,
+      0.2,
+      0.3,
+      0.4
+    ],
+    "available_friction_budgets_N": [
+      0.35,
+      0.784532
+    ],
+    "actuator_status": "80 gram-force converts to .784532 N, but supplier point does not establish minimum net pull over stroke, temperature or voltage. .35 N is an illustrative available friction budget, not a measured reserve."
+  },
+  "geometry": {
+    "N2": {
+      "tip": 25.9,
+      "lug0": 26.8,
+      "lug1": 28.2,
+      "near": 28.5,
+      "end": 34.0,
+      "lug_t": 1.4
+    }
+  },
+  "source_sha256": {
+    "cad/N2/manifest.json": "65395fc55d84d63b4c1d26ea7d06d75028ff155f58fb2ea3777022d037a8a07a",
+    "cad/N2/N2_receiver.step": "75ab803d24868cc4bf55335c6f5efd343688ff3f107a22b682b85ce0224a777d",
+    "cad/N2/N2_adapter.step": "06fb0220b7c0cb94ed453cca4de5fbe115497101730e6bcb82289e553e829944",
+    "cad/N2/N2_keeper.step": "6bf0237bdb03c33f2bd48522ccbad733c17a834ed17b45322ba89b3f03171b82"
+  },
+  "release": [
+    {
+      "variant": "N2",
+      "contact_case": "nominal",
+      "mu": 0.1,
+      "peak": {
+        "variant": "N2",
+        "stroke_mm": 0.6,
+        "mu": 0.1,
+        "guide_inset_mm": 0.0,
+        "distal_enabled": true,
+        "phase": "overhung",
+        "overlap_mm": 1.3999999999999986,
+        "contact_x_mm": 27.5,
+        "support_x_mm": [
+          28.5,
+          34.6
+        ],
+        "support_coefficients": [
+          1.1639344262295082,
+          0.16393442622950816
+        ],
+        "proximal_roof_reaction_per_P": 1.1639344262295082,
+        "floor_reaction_per_P": 0.16393442622950816,
+        "keeper_moment_Nmm_per_N": 1.0,
+        "keeper_bending_MPa_per_N": 0.2222222222222222,
+        "adapter_bearing_MPa_per_N": 0.23809523809523833,
+        "remaining_distal_overlap_mm": 0.0,
+        "vertical_only_drag_N_per_N": 0.2327868852459016,
+        "yaw_side_contact_x_mm": [
+          23.0,
+          34.6
+        ],
+        "yaw_span_mm": 11.600000000000001,
+        "drag_centroid_y_mm": 10.0,
+        "yaw_denominator_mm": 10.850000000000001,
+        "side_reaction_N_per_N": 0.21455012465060053,
+        "total_release_drag_N_per_N": 0.2756969101760217,
+        "effective_retainer_mass_per_N_kg": 0.10197162129779283
+      },
+      "capacity_scenarios": [
+        {
+          "available_friction_budget_N": 0.35,
+          "P_limit_N": 1.2695100564476354,
+          "kg_at_1g": 0.12945399870981789,
+          "kg_at_3g": 0.043151332903272624
+        },
+        {
+          "available_friction_budget_N": 0.784532,
+          "P_limit_N": 2.845632181728504,
+          "kg_at_1g": 0.29017372718803097,
+          "kg_at_3g": 0.09672457572934366
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "contact_case": "nominal",
+      "mu": 0.2,
+      "peak": {
+        "variant": "N2",
+        "stroke_mm": 0.6,
+        "mu": 0.2,
+        "guide_inset_mm": 0.0,
+        "distal_enabled": true,
+        "phase": "overhung",
+        "overlap_mm": 1.3999999999999986,
+        "contact_x_mm": 27.5,
+        "support_x_mm": [
+          28.5,
+          34.6
+        ],
+        "support_coefficients": [
+          1.1639344262295082,
+          0.16393442622950816
+        ],
+        "proximal_roof_reaction_per_P": 1.1639344262295082,
+        "floor_reaction_per_P": 0.16393442622950816,
+        "keeper_moment_Nmm_per_N": 1.0,
+        "keeper_bending_MPa_per_N": 0.2222222222222222,
+        "adapter_bearing_MPa_per_N": 0.23809523809523833,
+        "remaining_distal_overlap_mm": 0.0,
+        "vertical_only_drag_N_per_N": 0.4655737704918032,
+        "yaw_side_contact_x_mm": [
+          23.0,
+          34.6
+        ],
+        "yaw_span_mm": 11.600000000000001,
+        "drag_centroid_y_mm": 10.0,
+        "yaw_denominator_mm": 10.100000000000001,
+        "side_reaction_N_per_N": 0.46096412919980506,
+        "total_release_drag_N_per_N": 0.6499594221717253,
+        "effective_retainer_mass_per_N_kg": 0.10197162129779283
+      },
+      "capacity_scenarios": [
+        {
+          "available_friction_budget_N": 0.35,
+          "P_limit_N": 0.5384951553291379,
+          "kg_at_1g": 0.05491122404991898,
+          "kg_at_3g": 0.018303741349972993
+        },
+        {
+          "available_friction_budget_N": 0.784532,
+          "P_limit_N": 1.2070476605733693,
+          "kg_at_1g": 0.1230846069323744,
+          "kg_at_3g": 0.04102820231079146
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "contact_case": "nominal",
+      "mu": 0.3,
+      "peak": {
+        "variant": "N2",
+        "stroke_mm": 0.6,
+        "mu": 0.3,
+        "guide_inset_mm": 0.0,
+        "distal_enabled": true,
+        "phase": "overhung",
+        "overlap_mm": 1.3999999999999986,
+        "contact_x_mm": 27.5,
+        "support_x_mm": [
+          28.5,
+          34.6
+        ],
+        "support_coefficients": [
+          1.1639344262295082,
+          0.16393442622950816
+        ],
+        "proximal_roof_reaction_per_P": 1.1639344262295082,
+        "floor_reaction_per_P": 0.16393442622950816,
+        "keeper_moment_Nmm_per_N": 1.0,
+        "keeper_bending_MPa_per_N": 0.2222222222222222,
+        "adapter_bearing_MPa_per_N": 0.23809523809523833,
+        "remaining_distal_overlap_mm": 0.0,
+        "vertical_only_drag_N_per_N": 0.6983606557377048,
+        "yaw_side_contact_x_mm": [
+          23.0,
+          34.6
+        ],
+        "yaw_span_mm": 11.600000000000001,
+        "drag_centroid_y_mm": 10.0,
+        "yaw_denominator_mm": 9.350000000000001,
+        "side_reaction_N_per_N": 0.7469097922328392,
+        "total_release_drag_N_per_N": 1.1465065310774083,
+        "effective_retainer_mass_per_N_kg": 0.10197162129779283
+      },
+      "capacity_scenarios": [
+        {
+          "available_friction_budget_N": 0.35,
+          "P_limit_N": 0.30527519077548904,
+          "kg_at_1g": 0.031129406145369628,
+          "kg_at_3g": 0.010376468715123209
+        },
+        {
+          "available_friction_budget_N": 0.784532,
+          "P_limit_N": 0.6842804456270742,
+          "kg_at_1g": 0.06977718646296893,
+          "kg_at_3g": 0.023259062154322975
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "contact_case": "nominal",
+      "mu": 0.4,
+      "peak": {
+        "variant": "N2",
+        "stroke_mm": 0.6,
+        "mu": 0.4,
+        "guide_inset_mm": 0.0,
+        "distal_enabled": true,
+        "phase": "overhung",
+        "overlap_mm": 1.3999999999999986,
+        "contact_x_mm": 27.5,
+        "support_x_mm": [
+          28.5,
+          34.6
+        ],
+        "support_coefficients": [
+          1.1639344262295082,
+          0.16393442622950816
+        ],
+        "proximal_roof_reaction_per_P": 1.1639344262295082,
+        "floor_reaction_per_P": 0.16393442622950816,
+        "keeper_moment_Nmm_per_N": 1.0,
+        "keeper_bending_MPa_per_N": 0.2222222222222222,
+        "adapter_bearing_MPa_per_N": 0.23809523809523833,
+        "remaining_distal_overlap_mm": 0.0,
+        "vertical_only_drag_N_per_N": 0.9311475409836064,
+        "yaw_side_contact_x_mm": [
+          23.0,
+          34.6
+        ],
+        "yaw_span_mm": 11.600000000000001,
+        "drag_centroid_y_mm": 10.0,
+        "yaw_denominator_mm": 8.600000000000001,
+        "side_reaction_N_per_N": 1.0827296988181467,
+        "total_release_drag_N_per_N": 1.797331300038124,
+        "effective_retainer_mass_per_N_kg": 0.10197162129779283
+      },
+      "capacity_scenarios": [
+        {
+          "available_friction_budget_N": 0.35,
+          "P_limit_N": 0.1947331579840489,
+          "kg_at_1g": 0.019857255840072696,
+          "kg_at_3g": 0.0066190852800242315
+        },
+        {
+          "available_friction_budget_N": 0.784532,
+          "P_limit_N": 0.4364982682844053,
+          "kg_at_1g": 0.044510436110639755,
+          "kg_at_3g": 0.014836812036879917
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "contact_case": "guide_inset_0.5",
+      "mu": 0.1,
+      "peak": {
+        "variant": "N2",
+        "stroke_mm": 0.6,
+        "mu": 0.1,
+        "guide_inset_mm": 0.5,
+        "distal_enabled": true,
+        "phase": "overhung",
+        "overlap_mm": 1.3999999999999986,
+        "contact_x_mm": 27.5,
+        "support_x_mm": [
+          29.0,
+          34.1
+        ],
+        "support_coefficients": [
+          1.2941176470588234,
+          0.29411764705882343
+        ],
+        "proximal_roof_reaction_per_P": 1.2941176470588234,
+        "floor_reaction_per_P": 0.29411764705882343,
+        "keeper_moment_Nmm_per_N": 1.5,
+        "keeper_bending_MPa_per_N": 0.3333333333333333,
+        "adapter_bearing_MPa_per_N": 0.23809523809523833,
+        "remaining_distal_overlap_mm": 0.0,
+        "vertical_only_drag_N_per_N": 0.2588235294117647,
+        "yaw_side_contact_x_mm": [
+          23.5,
+          34.1
+        ],
+        "yaw_span_mm": 10.600000000000001,
+        "drag_centroid_y_mm": 10.0,
+        "yaw_denominator_mm": 9.850000000000001,
+        "side_reaction_N_per_N": 0.26276500447894885,
+        "total_release_drag_N_per_N": 0.31137653030755447,
+        "effective_retainer_mass_per_N_kg": 0.10197162129779283
+      },
+      "capacity_scenarios": [
+        {
+          "available_friction_budget_N": 0.35,
+          "P_limit_N": 1.124041043344841,
+          "kg_at_1g": 0.11462028759513605,
+          "kg_at_3g": 0.03820676253171201
+        },
+        {
+          "available_friction_budget_N": 0.784532,
+          "P_limit_N": 2.519560479478328,
+          "kg_at_1g": 0.2569236670502494,
+          "kg_at_3g": 0.08564122235008312
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "contact_case": "guide_inset_0.5",
+      "mu": 0.2,
+      "peak": {
+        "variant": "N2",
+        "stroke_mm": 0.6,
+        "mu": 0.2,
+        "guide_inset_mm": 0.5,
+        "distal_enabled": true,
+        "phase": "overhung",
+        "overlap_mm": 1.3999999999999986,
+        "contact_x_mm": 27.5,
+        "support_x_mm": [
+          29.0,
+          34.1
+        ],
+        "support_coefficients": [
+          1.2941176470588234,
+          0.29411764705882343
+        ],
+        "proximal_roof_reaction_per_P": 1.2941176470588234,
+        "floor_reaction_per_P": 0.29411764705882343,
+        "keeper_moment_Nmm_per_N": 1.5,
+        "keeper_bending_MPa_per_N": 0.3333333333333333,
+        "adapter_bearing_MPa_per_N": 0.23809523809523833,
+        "remaining_distal_overlap_mm": 0.0,
+        "vertical_only_drag_N_per_N": 0.5176470588235293,
+        "yaw_side_contact_x_mm": [
+          23.5,
+          34.1
+        ],
+        "yaw_span_mm": 10.600000000000001,
+        "drag_centroid_y_mm": 10.0,
+        "yaw_denominator_mm": 9.100000000000001,
+        "side_reaction_N_per_N": 0.5688429217840981,
+        "total_release_drag_N_per_N": 0.7451842275371686,
+        "effective_retainer_mass_per_N_kg": 0.10197162129779283
+      },
+      "capacity_scenarios": [
+        {
+          "available_friction_budget_N": 0.35,
+          "P_limit_N": 0.46968251214434426,
+          "kg_at_1g": 0.047894287258579055,
+          "kg_at_3g": 0.01596476241952635
+        },
+        {
+          "available_friction_budget_N": 0.784532,
+          "P_limit_N": 1.0528027446217905,
+          "kg_at_1g": 0.10735600277585011,
+          "kg_at_3g": 0.0357853342586167
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "contact_case": "guide_inset_0.5",
+      "mu": 0.3,
+      "peak": {
+        "variant": "N2",
+        "stroke_mm": 0.6,
+        "mu": 0.3,
+        "guide_inset_mm": 0.5,
+        "distal_enabled": true,
+        "phase": "overhung",
+        "overlap_mm": 1.3999999999999986,
+        "contact_x_mm": 27.5,
+        "support_x_mm": [
+          29.0,
+          34.1
+        ],
+        "support_coefficients": [
+          1.2941176470588234,
+          0.29411764705882343
+        ],
+        "proximal_roof_reaction_per_P": 1.2941176470588234,
+        "floor_reaction_per_P": 0.29411764705882343,
+        "keeper_moment_Nmm_per_N": 1.5,
+        "keeper_bending_MPa_per_N": 0.3333333333333333,
+        "adapter_bearing_MPa_per_N": 0.23809523809523833,
+        "remaining_distal_overlap_mm": 0.0,
+        "vertical_only_drag_N_per_N": 0.776470588235294,
+        "yaw_side_contact_x_mm": [
+          23.5,
+          34.1
+        ],
+        "yaw_span_mm": 10.600000000000001,
+        "drag_centroid_y_mm": 10.0,
+        "yaw_denominator_mm": 8.350000000000001,
+        "side_reaction_N_per_N": 0.9299048960901724,
+        "total_release_drag_N_per_N": 1.3344135258893974,
+        "effective_retainer_mass_per_N_kg": 0.10197162129779283
+      },
+      "capacity_scenarios": [
+        {
+          "available_friction_budget_N": 0.35,
+          "P_limit_N": 0.2622875092387288,
+          "kg_at_1g": 0.02674588256323299,
+          "kg_at_3g": 0.00891529418774433
+        },
+        {
+          "available_friction_budget_N": 0.784532,
+          "P_limit_N": 0.5879226977087953,
+          "kg_at_1g": 0.05995143068313801,
+          "kg_at_3g": 0.01998381022771267
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "contact_case": "guide_inset_0.5",
+      "mu": 0.4,
+      "peak": {
+        "variant": "N2",
+        "stroke_mm": 0.6,
+        "mu": 0.4,
+        "guide_inset_mm": 0.5,
+        "distal_enabled": true,
+        "phase": "overhung",
+        "overlap_mm": 1.3999999999999986,
+        "contact_x_mm": 27.5,
+        "support_x_mm": [
+          29.0,
+          34.1
+        ],
+        "support_coefficients": [
+          1.2941176470588234,
+          0.29411764705882343
+        ],
+        "proximal_roof_reaction_per_P": 1.2941176470588234,
+        "floor_reaction_per_P": 0.29411764705882343,
+        "keeper_moment_Nmm_per_N": 1.5,
+        "keeper_bending_MPa_per_N": 0.3333333333333333,
+        "adapter_bearing_MPa_per_N": 0.23809523809523833,
+        "remaining_distal_overlap_mm": 0.0,
+        "vertical_only_drag_N_per_N": 1.0352941176470587,
+        "yaw_side_contact_x_mm": [
+          23.5,
+          34.1
+        ],
+        "yaw_span_mm": 10.600000000000001,
+        "drag_centroid_y_mm": 10.0,
+        "yaw_denominator_mm": 7.600000000000001,
+        "side_reaction_N_per_N": 1.3622291021671822,
+        "total_release_drag_N_per_N": 2.1250773993808045,
+        "effective_retainer_mass_per_N_kg": 0.10197162129779283
+      },
+      "capacity_scenarios": [
+        {
+          "available_friction_budget_N": 0.35,
+          "P_limit_N": 0.16469988344988348,
+          "kg_at_1g": 0.016794714142942136,
+          "kg_at_3g": 0.005598238047647378
+        },
+        {
+          "available_friction_budget_N": 0.784532,
+          "P_limit_N": 0.36917808275058284,
+          "kg_at_1g": 0.03764568764568765,
+          "kg_at_3g": 0.012548562548562552
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "contact_case": "distal_ineffective_and_inset",
+      "mu": 0.1,
+      "peak": {
+        "variant": "N2",
+        "stroke_mm": 0.0,
+        "mu": 0.1,
+        "guide_inset_mm": 0.5,
+        "distal_enabled": false,
+        "phase": "overhung",
+        "overlap_mm": 1.3999999999999986,
+        "contact_x_mm": 27.5,
+        "support_x_mm": [
+          29.0,
+          33.5
+        ],
+        "support_coefficients": [
+          1.3333333333333333,
+          0.3333333333333333
+        ],
+        "proximal_roof_reaction_per_P": 1.3333333333333333,
+        "floor_reaction_per_P": 0.3333333333333333,
+        "keeper_moment_Nmm_per_N": 1.5,
+        "keeper_bending_MPa_per_N": 0.3333333333333333,
+        "adapter_bearing_MPa_per_N": 0.23809523809523833,
+        "remaining_distal_overlap_mm": 0.6000000000000014,
+        "vertical_only_drag_N_per_N": 0.26666666666666666,
+        "yaw_side_contact_x_mm": [
+          23.5,
+          33.5
+        ],
+        "yaw_span_mm": 10.0,
+        "drag_centroid_y_mm": 10.0,
+        "yaw_denominator_mm": 9.25,
+        "side_reaction_N_per_N": 0.2882882882882883,
+        "total_release_drag_N_per_N": 0.32432432432432434,
+        "effective_retainer_mass_per_N_kg": 0.10197162129779283
+      },
+      "capacity_scenarios": [
+        {
+          "available_friction_budget_N": 0.35,
+          "P_limit_N": 1.0791666666666666,
+          "kg_at_1g": 0.11004437465053475,
+          "kg_at_3g": 0.03668145821684492
+        },
+        {
+          "available_friction_budget_N": 0.784532,
+          "P_limit_N": 2.4189736666666666,
+          "kg_at_1g": 0.24666666666666667,
+          "kg_at_3g": 0.08222222222222222
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "contact_case": "distal_ineffective_and_inset",
+      "mu": 0.2,
+      "peak": {
+        "variant": "N2",
+        "stroke_mm": 0.0,
+        "mu": 0.2,
+        "guide_inset_mm": 0.5,
+        "distal_enabled": false,
+        "phase": "overhung",
+        "overlap_mm": 1.3999999999999986,
+        "contact_x_mm": 27.5,
+        "support_x_mm": [
+          29.0,
+          33.5
+        ],
+        "support_coefficients": [
+          1.3333333333333333,
+          0.3333333333333333
+        ],
+        "proximal_roof_reaction_per_P": 1.3333333333333333,
+        "floor_reaction_per_P": 0.3333333333333333,
+        "keeper_moment_Nmm_per_N": 1.5,
+        "keeper_bending_MPa_per_N": 0.3333333333333333,
+        "adapter_bearing_MPa_per_N": 0.23809523809523833,
+        "remaining_distal_overlap_mm": 0.6000000000000014,
+        "vertical_only_drag_N_per_N": 0.5333333333333333,
+        "yaw_side_contact_x_mm": [
+          23.5,
+          33.5
+        ],
+        "yaw_span_mm": 10.0,
+        "drag_centroid_y_mm": 10.0,
+        "yaw_denominator_mm": 8.5,
+        "side_reaction_N_per_N": 0.6274509803921569,
+        "total_release_drag_N_per_N": 0.7843137254901961,
+        "effective_retainer_mass_per_N_kg": 0.10197162129779283
+      },
+      "capacity_scenarios": [
+        {
+          "available_friction_budget_N": 0.35,
+          "P_limit_N": 0.44625,
+          "kg_at_1g": 0.04550483600414005,
+          "kg_at_3g": 0.015168278668046683
+        },
+        {
+          "available_friction_budget_N": 0.784532,
+          "P_limit_N": 1.0002783,
+          "kg_at_1g": 0.10200000000000001,
+          "kg_at_3g": 0.033999999999999996
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "contact_case": "distal_ineffective_and_inset",
+      "mu": 0.3,
+      "peak": {
+        "variant": "N2",
+        "stroke_mm": 0.0,
+        "mu": 0.3,
+        "guide_inset_mm": 0.5,
+        "distal_enabled": false,
+        "phase": "overhung",
+        "overlap_mm": 1.3999999999999986,
+        "contact_x_mm": 27.5,
+        "support_x_mm": [
+          29.0,
+          33.5
+        ],
+        "support_coefficients": [
+          1.3333333333333333,
+          0.3333333333333333
+        ],
+        "proximal_roof_reaction_per_P": 1.3333333333333333,
+        "floor_reaction_per_P": 0.3333333333333333,
+        "keeper_moment_Nmm_per_N": 1.5,
+        "keeper_bending_MPa_per_N": 0.3333333333333333,
+        "adapter_bearing_MPa_per_N": 0.23809523809523833,
+        "remaining_distal_overlap_mm": 0.6000000000000014,
+        "vertical_only_drag_N_per_N": 0.7999999999999999,
+        "yaw_side_contact_x_mm": [
+          23.5,
+          33.5
+        ],
+        "yaw_span_mm": 10.0,
+        "drag_centroid_y_mm": 10.0,
+        "yaw_denominator_mm": 7.75,
+        "side_reaction_N_per_N": 1.032258064516129,
+        "total_release_drag_N_per_N": 1.4193548387096773,
+        "effective_retainer_mass_per_N_kg": 0.10197162129779283
+      },
+      "capacity_scenarios": [
+        {
+          "available_friction_budget_N": 0.35,
+          "P_limit_N": 0.2465909090909091,
+          "kg_at_1g": 0.025145274797296644,
+          "kg_at_3g": 0.008381758265765548
+        },
+        {
+          "available_friction_budget_N": 0.784532,
+          "P_limit_N": 0.5527384545454546,
+          "kg_at_1g": 0.056363636363636366,
+          "kg_at_3g": 0.018787878787878787
+        }
+      ]
+    },
+    {
+      "variant": "N2",
+      "contact_case": "distal_ineffective_and_inset",
+      "mu": 0.4,
+      "peak": {
+        "variant": "N2",
+        "stroke_mm": 0.0,
+        "mu": 0.4,
+        "guide_inset_mm": 0.5,
+        "distal_enabled": false,
+        "phase": "overhung",
+        "overlap_mm": 1.3999999999999986,
+        "contact_x_mm": 27.5,
+        "support_x_mm": [
+          29.0,
+          33.5
+        ],
+        "support_coefficients": [
+          1.3333333333333333,
+          0.3333333333333333
+        ],
+        "proximal_roof_reaction_per_P": 1.3333333333333333,
+        "floor_reaction_per_P": 0.3333333333333333,
+        "keeper_moment_Nmm_per_N": 1.5,
+        "keeper_bending_MPa_per_N": 0.3333333333333333,
+        "adapter_bearing_MPa_per_N": 0.23809523809523833,
+        "remaining_distal_overlap_mm": 0.6000000000000014,
+        "vertical_only_drag_N_per_N": 1.0666666666666667,
+        "yaw_side_contact_x_mm": [
+          23.5,
+          33.5
+        ],
+        "yaw_span_mm": 10.0,
+        "drag_centroid_y_mm": 10.0,
+        "yaw_denominator_mm": 7.0,
+        "side_reaction_N_per_N": 1.5238095238095237,
+        "total_release_drag_N_per_N": 2.2857142857142856,
+        "effective_retainer_mass_per_N_kg": 0.10197162129779283
+      },
+      "capacity_scenarios": [
+        {
+          "available_friction_budget_N": 0.35,
+          "P_limit_N": 0.153125,
+          "kg_at_1g": 0.015614404511224528,
+          "kg_at_3g": 0.005204801503741509
+        },
+        {
+          "available_friction_budget_N": 0.784532,
+          "P_limit_N": 0.34323275000000003,
+          "kg_at_1g": 0.035,
+          "kg_at_3g": 0.011666666666666667
+        }
+      ]
+    }
+  ],
+  "drag_centroid_sensitivity": [
+    {
+      "variant": "N2",
+      "assumed_drag_centroid_y_mm": 8.65,
+      "max_total_drag_N_per_N": 0.7504313725490196
+    },
+    {
+      "variant": "N2",
+      "assumed_drag_centroid_y_mm": 10.0,
+      "max_total_drag_N_per_N": 0.7843137254901961
+    },
+    {
+      "variant": "N2",
+      "assumed_drag_centroid_y_mm": 11.5,
+      "max_total_drag_N_per_N": 0.8219607843137255
+    }
+  ],
+  "equations": {
+    "vertical_overhang": "Rb/P=a/L; Ra/P=1+a/L; D=mu*(P+Ra+Rb)",
+    "yaw": "Nside*Ly=D*yD+mu*Nside*(yminus+yplus); Nside=D*yD/[Ly-mu*(yminus+yplus)]",
+    "total_drag": "F=D+2*mu*Nside; yminus=-4, yplus=11.5 mm",
+    "mass": "m=P/(n*g), g=9.80665 m/s^2; carried mass includes payload, its adapter and removable fasteners",
+    "terminal_bearing": "p=P/[3*remaining axial overlap]; diverges as overlap tends to zero at constant P, so a finite loaded-release contact strength has NOT been established."
+  },
+  "exclusions": [
+    "No measured actuator minimum force curve or zero-load friction.",
+    "No orthotropic failure/creep/fatigue/temperature allowance.",
+    "No nonlinear contact, wedge angle or skew solver.",
+    "No aircraft support, bolt-head pull-through or flange-prying model.",
+    "No external moment, drag, shock or unequal contact caused by payload CG offsets.",
+    "No guaranteed complete departure or force to unseat a lifting attachment."
+  ],
+  "interpretation": "This is a filtered P7 contact/friction study from the PETG-era design process. Its friction coefficients and actuator force budgets are assumptions. Legacy material-strength inputs and structural capacities are deliberately not used here or in the P8 PLA FE screen. P_limit_N is an algebraic conditional force-budget crossing, not a tested release or load rating."
+}
