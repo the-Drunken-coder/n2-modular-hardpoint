@@ -1,5 +1,11 @@
 # Changelog
 
+## P13 expanded sims — 2026-10-29
+- Re-ran all 12 archived cases on P13 geometry (receiver, adapter, keeper). Governing case unchanged: receiver distal_ineffective, **12.09 N → 4.0 N rating holds** for straight pull.
+- Off-axis 15/30/45/90° in XZ and YZ: **adapter floor governs off-axis** (pessimistic model: 8.0 / 4.6 / 3.4 / 2.6 N failure). Rating not valid for angled/side loads.
+- Interlayer strength at 50%: governing case 7.37 N (2.5 N rated).
+- Mesh check 11.94–12.31 N. Results in `project/analysis/p13_expanded/`, write-up in `docs/p13-expanded-sims.md`.
+
 ## P13 — 2026-10-29
 - **0.3 mm fillet** at the inside corners where the keeper-channel walls meet the roof underside (the governing stress spot). `build_n2.py` parameter `ROOF_FILLET` (env `N2_ROOF_FILLET`).
 - Governing FEA screen (distal roof lost, 0.55 mm mesh): 10.30 N → **12.09 N**. Two-screw case 12.21 N, both roofs loaded 34.71 N.

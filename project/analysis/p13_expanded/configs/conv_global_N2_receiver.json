@@ -1,0 +1,133 @@
+{
+ "id": "N2_receiver",
+ "variant": "N2",
+ "component": "receiver",
+ "step_path": "/tmp/p13x/geo/N2_receiver.step",
+ "expected_step_sha256": "b244feff4fbc89b1f2ec7e0cbaf376bb95de33740e1b28b284d88579187b534c",
+ "load_normalization_N": 1.0,
+ "model_scope": "Prescribed seated, finite, normal contact tractions on actual unchanged STEP geometry; not an assembled contact solve or a load rating.",
+ "far_size_factor": 3.0,
+ "max_dofs": 420000,
+ "averaging_radii_mm": [
+  0.4,
+  0.8
+ ],
+ "cases": {
+  "distal_ineffective_bonded": {
+   "loads": [
+    {
+     "label": "Proximal roof underside: upward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.5,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      1.3333333333333333
+     ]
+    },
+    {
+     "label": "Far floor top: downward on receiver",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.3333333333333333
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid bonded host backing",
+     "selector": {
+      "normal_axis": 2,
+      "z": 0.0,
+      "x_range": [
+       -2.0,
+       38.0
+      ],
+      "y_range": [
+       -13.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "bonded"
+  }
+ },
+ "refine_boxes": [
+  {
+   "bounds": [
+    [
+     22.7,
+     4.5,
+     -0.1
+    ],
+    [
+     37.6,
+     15.5,
+     13.0
+    ]
+   ],
+   "factor": 1.0
+  },
+  {
+   "bounds": [
+    [
+     1.8,
+     10.8,
+     -0.1
+    ],
+    [
+     8.2,
+     17.1,
+     3.4
+    ]
+   ],
+   "factor": 1.0
+  },
+  {
+   "bounds": [
+    [
+     31.8,
+     -13.1,
+     -0.1
+    ],
+    [
+     38.1,
+     -6.8,
+     3.4
+    ]
+   ],
+   "factor": 1.0
+  }
+ ],
+ "imprint_step_files": []
+}
