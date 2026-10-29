@@ -1,4 +1,4 @@
-"""N2 supported cross-bolt only, unchanged P6 geometry. Units mm.
+"""N2 P14 supported cross-bolt. Units mm.
 
 Creates an independent export tree; never overwrites the issued CAD.
 Run: python cad/build_n2.py --output /absolute/new-directory
@@ -109,13 +109,13 @@ def design_n2():
     move=[{'u':0},{'u':.5,'translation':[3,0,0]},{'u':1,'translation':[3,0,0]}]
     parts=[
       part(vid,'receiver','Receiver with proximal and distal keeper supports','printed',base,explode=[0,0,-9],
-           print_note='Base to bed, no supports: both keeper-channel roofs are ~3 mm bridges across the channel (tools/overhang.py, P14). Preserve the distal roof; do not split it from the print.'),
+           print_note='Base to bed. Both keeper-channel roofs are designed as ~3 mm bridges across the channel (tools/overhang.py, P14); verify the planned support-free paths in the slicer and on the first print. Preserve the integral distal roof.'),
       part(vid,'adapter','Thin cross-hole payload lug','payload',adapter,explode=[0,0,15],
            keyframes=[{'u':0},{'u':.5},{'u':1,'translation':[0,0,22]}],
            print_shape=adapter.rotate((0,0,0),(1,0,0),180),
            print_note='Flange to bed using supplied inverted print STL. The 1.4 mm lug thickness is a deliberate unqualified tradeoff. Inspect the hole bridge and 1.3 mm side webs; reject incomplete walls.'),
       part(vid,'keeper','Bridge-supported cross-bolt with inspection tab','moving',keeper,explode=[13,0,4],keyframes=move,
-           print_note='Underside to bed, no supports: body and arm share one flat underside (P14).'),
+           print_note='Underside to bed: body and arm share one flat underside (P14). Verify the planned support-free paths in the slicer.'),
       part(vid,'clamp','Two-screw solenoid clamp','printed',cap,explode=[0,0,12],
            print_shape=cap.rotate((0,0,0),(1,0,0),180),print_note='Top bridge to bed, legs upward.')
     ]+act_parts(vid)+hardware
@@ -125,7 +125,7 @@ def design_n2():
       'description':'Integral distal keeper bearing trades a thinner lug and tighter stroke budget for a shorter supported retaining span.',
       'why_consider':'Four prints and the same purchased hardware as N1, with an additional retained-state support rather than a larger actuator.',
       'main_risk':'The 1.4 mm lug is thin and the adapter governs straight pull. Strength is screened by linear FEA only; spring preload and PAHT-CF Z strength are unmeasured.',
-      'load_path':'Adapter cross-hole floor → 3 × 3 mm keeper → receiver roofs on both sides of the lug when retained → host mount. The proximal roof is a bridge anchored on both sides of the keeper channel to X 31.7, so losing the 0.6 mm distal engagement leaves the receiver stronger than the adapter (P14 FEA): straight-pull capacity does not drop.',
+      'load_path':'Adapter cross-hole floor → 3 × 3 mm keeper → receiver roofs on both sides of the lug when retained → host mount. P14 anchors the proximal roof on both sides of the keeper channel. The adapter governs the two analyzed straight-pull support states (distal engaged and distal ineffective); this does not establish capacity throughout withdrawal or for the actual aircraft mounting.',
       'actuator':{'name':'Mini push-pull solenoid','mpn':'Adafruit 2776','url':'https://www.adafruit.com/product/2776','nominal_stroke_mm':3,
                   'fidelity':'Drawing-based 20.5 × 12 × 11 mm frame, Ø4 armature and rear Ø1.6 stem / Ø3 button. Internal coil, spring, button thickness and wire routing include assumptions; measure purchased hardware.'},
       'dimensions':{'nominal_stroke_mm':3,'retained_keeper_tip_x_mm':25.9,'distal_support_x_mm':[23.4,26.5],
@@ -134,12 +134,12 @@ def design_n2():
                     'open_tip_clearance_mm':.7,'retaining_bar_yz_mm':[3,3],
                     'distal_support_disengages_after_nominal_stroke_mm':.6,
                     'lug_clears_after_nominal_stroke_mm':2.3},
-      'manufacturing':{'printed_parts':4,'material':'Unfilled PETG fit prototype, 0.4 mm nozzle, 0.16 mm layer, 5 walls; inspect slicer paths through the 1.4 mm lug.',
+      'manufacturing':{'printed_parts':4,'material':'Planned P14 material: Bambu PAHT-CF; see active_metadata.json and docs/print-requirements.md. Inspect slicer paths through the 1.4 mm lug.',
                        'qualification':'No proven strength, creep, loaded release or thermal duty. First print is for fit and force measurement.'},
       'notes':[
         'Unrated concept; no manufactured or tested specimen.',
         'Four printed parts, one Adafruit 2776, two M2 × 16 screws and two M2 nuts; host fasteners are installation-specific.',
-        'Losing the distal engagement does not reduce straight-pull capacity: the adapter governs either way (P14). It does not guarantee lower peak release force.',
+        'The adapter governs the two analyzed P14 straight-pull support states. Intermediate contact positions, loaded withdrawal and peak release force remain unverified.',
         'The 3 mm stroke budget forces the cross-hole lug to 1.4 mm thickness. This is a new geometry; P5 adapter FEA does not apply.',
         'Feed the keeper from +X before lowering the complete actuator. Never force it through the roof from above.',
         'The tab is a ground inspection and manual reset feature; shield it against accidental actuation. Remove the force-test hook before operation.',
@@ -160,6 +160,51 @@ def main():
     parts,metadata=design_n2()
     active=json.loads((Path(__file__).resolve().parent/'N2/active_metadata.json').read_text())
     metadata.update({k:v for k,v in active.items() if k not in ('id','name','revision')})
-    export_variant('N2','Supported cross-bolt','Mini solenoid',parts,metadata)
+    parameters={'distal_overlap_mm':DISTAL_OVERLAP,'roof_extra_mm':ROOF_EXTRA,
+                'roof_fillet_mm':ROOF_FILLET,'prox_bridge_end_mm':PROX_BRIDGE_END}
+    metadata['geometry_parameters']=parameters
+    if (DISTAL_OVERLAP,ROOF_EXTRA,ROOF_FILLET,PROX_BRIDGE_END)!=(0.6,2.0,0.3,31.7):
+        # The published P14 screen applies only to the default geometry.
+        metadata['geometry_revision']='P14-parameter-study'
+        metadata.pop('current_analysis',None)
+        metadata['evidence']='Parameter-modified geometry; default P14 analysis numbers do not apply. Print orientation, dimensions and contacts require review for this study.'
+        metadata['selection_status']='Unselected parameter study derived from P14; not the current prototype baseline.'
+        metadata['prototype_material']='Material and process unqualified for this parameter study'
+        metadata['description']='Parameter-modified N2 geometry for study; inspect actual fit, supports and stroke clearance before fabrication.'
+        metadata['concept_summary']='Study export with the recorded geometry parameters; default P14 strength and print recommendations do not transfer.'
+        metadata['why_consider']='Compare the recorded parameter changes; selection requires a separate geometry, process and analysis review.'
+        metadata['main_risk']='Modified support geometry, engagement, clearances, material and print orientation have not been qualified. Default P14 fit, strength and release conclusions do not apply.'
+        metadata['manufacturing']={
+            'printed_parts':4,
+            'material':'Material and print process must be selected and reviewed for this study; the default P14 process is not a recommendation for modified geometry.',
+            'qualification':'Supplied print orientations are inherited placements only. Inspect geometry-dependent bridges, supports, layer directions and sliding faces before selecting a print process; no physical performance is established.'}
+        metadata['load_path']='Parameter-modified geometry: inspect the actual keeper/receiver contacts before assigning load paths or applying the default P14 analysis.'
+        metadata['release_sequence']=[
+            'Study animation retains the nominal 3 mm keeper command; it does not prove engagement or clearance for the modified parameters.',
+            'Check actual keeper support, stroke and lug clearance before any retention or release test.',
+            'Adapter departure still requires an external +Z force; displayed motion is prescribed, not verified release.']
+        metadata['reset']='Define and verify a study-specific attachment/reset procedure after reviewing the generated fit and engagement. Do not apply the default P14 procedure as a qualified instruction.'
+        metadata['assembly_order']=['Review the generated assembly and access before fabrication; default P14 fit and assembly instructions are unqualified for this parameter study.']
+        metadata['notes']=[metadata['evidence'],'The current project requirements remain a target; no load rating is assigned to this parameter study.']
+        for p in parts:
+            if p.get('kind') in ('printed','payload','moving'):
+                p['print_note']='Parameter study: the supplied placement is an unqualified starting orientation. Review actual overhangs, supports, layer directions, thin walls and sliding faces; default P14 print recommendations do not transfer.'
+        metadata['dimensions'].update(retained_keeper_tip_x_mm=26.5-DISTAL_OVERLAP,
+            nominal_distal_engagement_mm=DISTAL_OVERLAP,
+            open_tip_clearance_mm=1.3-DISTAL_OVERLAP,
+            distal_support_disengages_after_nominal_stroke_mm=DISTAL_OVERLAP,
+            lug_clears_after_nominal_stroke_mm=1.7+DISTAL_OVERLAP)
+    result=export_variant('N2','Supported cross-bolt','Mini solenoid',parts,metadata)
+    keys=('id','name','kind','step','stl','print_stl','volume_mm3','bbox','print_note')
+    catalog={'variant':'N2','geometry_revision':metadata['geometry_revision'],
+             'bounds_mm':result['bounds']['size'],
+             'parts':[{k:p[k] for k in keys if k in p} for p in result['parts']],
+             'assembly_step':'N2/assembly.step','active_metadata':'N2/active_metadata.json'}
+    (target/'cad/parts_catalog.json').write_text(json.dumps(catalog,indent=2)+'\n')
+    # Preserve the compact active schema. Derived dimensions belong in the
+    # manifest, otherwise a later rebuild could overlay stale dimensions.
+    exported_active={k:metadata.get(k,v) for k,v in active.items()
+                     if k!='current_analysis' or k in metadata}
+    (target/'cad/N2/active_metadata.json').write_text(json.dumps(exported_active,indent=2)+'\n')
 
 if __name__=='__main__':main()

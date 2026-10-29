@@ -21,7 +21,7 @@ The solenoid housing and its clamp are not intended to carry this transverse ret
 | Temperature | 22°C | Nominal short-duration room-temperature condition |
 | Fill | 100% / effective solid | No sparse-infill model |
 
-The frozen material record is [material.json](material.json). Its supplier context is [Bambu PLA Basic technical data sheet](https://cdn.shopify.com/s/files/1/0645/5876/0155/files/Bambu_PLA_Basic_Technical_Data_Sheet.pdf), which the P8 record cites for typical coupon values. Coupon data are not part allowables. In particular, these assumed thresholds do not establish properties of a chosen print orientation, moisture state, layer adhesion, seam, defect distribution, or actual X1C process.
+The frozen material record is [material.json](material.json). Its supplier context is [Bambu PLA Basic technical data sheet](https://cdn.shopify.com/s/files/1/0645/5876/0155/files/Bambu_PLA_Basic_Technical_Data_Sheet.pdf), which the P8 record cites for typical coupon values. Coupon data are not part allowables. In particular, these assumed thresholds do not establish properties of a chosen print orientation, moisture state, layer adhesion, seam, defect distribution, or actual print process.
 
 The model does not give favorable directional-strength credit. It also does not explicitly solve weak-layer fracture, creep, temperature softening, fatigue, shock, damage, or plasticity. Purchased metal hardware remains metal; the comparison assumption applies to the three custom printed structural parts. No hardware is assigned PLA simply to make the model uniform.
 

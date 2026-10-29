@@ -1,48 +1,37 @@
-# N2 requirements
+# N2 requirements — current P14 baseline
 
-Set by Lane, 2026-10-29. Priorities, in order: **reliability (no accidental drops) > simplicity > ease of manufacture.** Every requirement has a pass/fail check.
+Set by Lane, 2026-10-29. Priorities, in order: **reliability (no accidental drops) > simplicity > ease of manufacture.** The 1 lb payload is a provisional design input, not a demonstrated capacity.
 
 | # | Requirement | Verification |
 |---|---|---|
-| R1 | Payload, including the adapter: **≤ 0.454 kg (1 lb)**. Provisional: Lane is unsure and this may change (was 4 lb). | Design input. |
-| R2 | Load factor **2 g** (gentle RC drone/plane flight; assumed value). Design load = 0.454 × 9.81 × 2 = **8.9 N**. | Design input. |
-| R3 | Load direction: **straight hanging pull (+Z) only**. Off-axis capacity is not required. | Design input. |
-| R4 | Safety factor **2**: minimum predicted failure **≥ 17.8 N**. Verified by (a) analysis, (b) a proof test of spare parts to 17.8 N (2× design load) without failure, and (c) the Z coupon test in [test-plan.md](test-plan.md) meeting the assumed layer strength. | FEA + proof test + coupon test |
-| R5 | Fail-safe. (a) Stays latched with power removed. (b) Releases only on command. (c) The load cannot back-drive the latch open. (d) No partial-engagement state with reduced capacity. (e) Vibration does not open it. | Power-off hold test. Back-drive test (hold the design load with the actuator disconnected and try to open it). Engagement tolerance stack-up. Vibration test (method TBD). |
-| R6 | Simple: **one moving part and one actuator** if possible. | Design review / BOM |
-| R7 | Manufacture: printed parts must print on a common FDM printer in a common engineering material (for example PAHT-CF), with **no critical supports on load-bearing or sliding faces**. Hardware must be **off-the-shelf** only. | Slicer review / BOM |
+| R1 | Carried mass **≤ 0.454 kg (1 lb)**, including the payload, removable adapter and its attached hardware. Provisional; the former 4 lb input is superseded. | Weigh the complete carried assembly. The aircraft-side receiver is not part of carried mass, but its mass and mounting loads remain aircraft integration inputs. |
+| R2 | Design load factor **2 g**, assumed for gentle RC flight. Design load = 0.454 × 9.81 × 2 = **8.9 N**. | Design input; verify the actual aircraft's maneuver, shock and release loads before use. This does not specify a vibration spectrum. |
+| R3 | Required load direction: **straight hanging pull (+Z extraction) only**. Off-axis capacity is not required by this baseline. | Fixture and installation alignment review. Off-axis use requires a separate assessment. |
+| R4 | Design safety factor **2**: the minimum analysis stress-screen crossing must be **≥ 17.8 N** (2 × 8.9 N), with its assumptions justified. Complete sacrificial assembly proof tests to **17.8 N** without failure and material checks per [test-plan.md](test-plan.md). | Analysis, material evidence and physical proof are separate gates. A screen crossing is not a measured breaking load; passing a small proof-test sample does not establish a working-load rating. |
+| R5 | (a) Stays latched with power removed. (b) Releases only on command. (c) Payload load cannot back-drive the latch open. (d) No partial-engagement state with reduced capacity. (e) Vibration does not open it. | Power-off and control tests; measured return force; tolerance/engagement checks; loaded-release tests; aircraft-specific vibration test. Record unlocking and payload clearance separately. |
+| R6 | Simple: **one moving printed part and one actuator** if possible. | Design review / BOM. |
+| R7 | Printed parts must be manufacturable on a common FDM printer in a common engineering material, with **no critical supports on load-bearing or sliding faces**. Hardware must be off the shelf. | Slicer review, printed-part inspection and BOM. Current prototype material: dried Bambu PAHT-CF. PLA remains a comparison baseline. |
 
-## Compliance: P14 design (PAHT-CF, SF 2)
+## Current evidence: P14 in PAHT-CF, SF 2
 
-Details and assumptions: [p14.md](p14.md).
+Geometry and analysis: [p14.md](p14.md). Manufacturing: [print-requirements.md](print-requirements.md). **No physical qualification is complete.**
 
-| # | Status | Basis |
+| # | Status | Basis and remaining work |
 |---|---|---|
-| R1–R3 | n/a | Inputs. |
-| R4 | **PASS (paper)** | Worst credible engagement (distal roof lost) **33.68 N**, adapter governs: 1.89× the required 17.8 N. Receiver distal-lost 36.73 N, keeper ≥ 57.4 N. Linear FEA screen, ~7% mesh scatter. Proof test and Z coupon test not done. |
-| R5a | **Likely PASS, untested** | Spring-returned keeper; the solenoid only unlocks while energised. Spring force not measured. |
-| R5b | **Likely PASS, untested** | Same basis. |
-| R5c | **PASS (analysis)**, untested | Contact tilt under 8.9 N ≤ 4.5° (conservative) vs friction angle 11.3° at μ 0.2. Back-drive test still required. |
-| R5d | **PASS (analysis)** | The bridged proximal roof makes the distal-lost receiver (36.73 N) stronger than the adapter (33.68 N), so losing the 0.6 mm overlap does not reduce capacity. |
-| R5e | **CONDITIONAL** | Needs return-spring preload ≥ 0.26 N (target 0.52 N, SF 2) for 2 g on ≤ 13.1 g moving mass. Preload unmeasured; vibration test required. |
-| R6 | **PASS** | One moving printed part (keeper), one actuator (Adafruit 2776). |
-| R7 | **PASS (geometry)**; hardware PASS | `tools/overhang.py`: zero support area on all four printed parts in their supplied orientations; receiver roofs are ~3 mm bridges, keeper prints flat. Slicer check and PAHT-CF print of the 1.4 mm lug outstanding. |
+| R1–R3 | Provisional inputs | 0.454 kg, 2 g and straight +Z define this iteration. They do not establish a flight envelope. |
+| R4 | Analysis screen exceeds target; physical checks open | The adapter's **33.68 N** scaled screen is 1.89× the required 17.8 N. Receiver screens are 59.17 N with both roofs and 36.73 N with the distal roof ineffective; keeper checks are ≥57.4 N. These are separate linear component models, with ideal receiver backing and PLA results scaled by 47/31, not a validated anisotropic PAHT-CF assembly model. Actual mounting, material and proof tests remain open. |
+| R5a | Open | Spring return is intended to retain the keeper without power. Actual preload, seating and power-off retention are unmeasured. |
+| R5b | Open | Local control is intended to energize only for release. Startup, reset, power interruption and unintended-command behavior require hardware tests. |
+| R5c | Open; preliminary analytical check only | The friction/deflection calculation in p14.md is a sensitivity check. Friction, contact tilt, wear and return force have not been measured. |
+| R5d | Open; two modeled support states improved | Both modeled straight-pull support states are adapter-governed at 33.68 N. This does **not** cover every partial keeper position, tolerance combination or worn contact. Define and verify the acceptable latched engagement before claiming compliance. |
+| R5e | Open | A 2 g moving-mass calculation gives 0.26 N and an illustrative 2× preload target of 0.52 N. It is not a vibration qualification. Measure the spring/actuator force curves and define the installation's vibration exposure. |
+| R6 | Design check satisfied | One moving printed keeper and one Adafruit 2776 solenoid. No extra moving printed parts added by P14. |
+| R7 | CAD screening only; print verification open | The overhang classifier reports no support-required area on the four P14 print orientations. Bridge quality, sliding clearances and the 1.4 mm lug still require slicer review and a PAHT-CF print. |
 
-**Gaps to close:** proof test, Z coupon test, back-drive test, spring preload measurement, vibration test, slicer review.
+**Next gate:** print and inspect P14 specimens, measure the mechanism and actuator, and run the [P14 bench test plan](test-plan.md). The **8.9 N requirement**, **17.8 N sacrificial proof target**, **33.68 N analysis screen**, and **16.84 N screen divided by SF 2** are different quantities.
 
-## Previous: P13 compliance
+## Superseded P13 comparison
 
+P13's distal-ineffective receiver screen was 12.089 N in PLA, scaled to 18.33 N for PAHT-CF. Its 9.1 N value was that screen divided by SF 2 and rounded down, not a physical rating. The margin above 17.8 N was only about 3%, within the numerical variation discussed in the older studies. P13 also retained a weaker one-sided proximal roof and print-support concerns.
 
-| # | Status | Basis |
-|---|---|---|
-| R1–R3 | n/a | Inputs. |
-| R4 | **MARGINAL PASS (paper)** | Predicted straight-pull failure is **18.33 N** vs the required ≥ 17.8 N, +3%. That number is already the governing **distal-lost** case (receiver `distal_ineffective_bonded`: 12.09 N PLA × 47/31; [provisional-load-rating.md](provisional-load-rating.md)), so the design meets R4 even with the distal roof lost. The +3% margin is inside the ~7% mesh scatter, so the proof test to 17.8 N decides. With the distal roof engaged, failure is about 34–37 N, roughly 2× margin. No proof test or Z coupon test has been done. |
-| R5a | **Likely PASS, untested** | The keeper is spring-returned to the latched position, and the solenoid only unlocks while energised ([build_n2.py](../project/cad/build_n2.py) release sequence). Spring force is not measured. |
-| R5b | **Likely PASS, untested** | Same basis. No inadvertent-actuation analysis. |
-| R5c | **Unknown** | The load acts in Z, normal to the keeper's X travel, so there is no designed ramp. Back-drive then depends on contact tilt or friction under deflection, which is not analysed or tested. |
-| R5d | **FAIL** | The 0.6 mm distal overlap is a known fragile state: it is lost to tolerance or wear, and capacity drops 1.86×. At 1 lb that state still meets R4 on paper, but it is a reliability hazard the requirement excludes. The repo also notes the support disengages first during withdrawal. |
-| R5e | **Unknown** | No vibration analysis or test. Spring preload is unknown. |
-| R6 | **PASS** | One moving printed part (keeper) and one actuator (Adafruit 2776 solenoid). |
-| R7 | **FAIL (supports)**; hardware PASS | The print notes say both receiver guide roofs need local support with running-face cleanup, and the keeper retaining arm needs local support on a sliding part. Hardware is off-the-shelf (Adafruit 2776, M2 screws and nuts). PAHT-CF printability of the thin 1.4 mm lug is unverified. |
-
-**Gaps to close:** R4 is marginal (needs the proof test and the Z coupon test; any coupon shortfall below 47 MPa fails it). R5c, R5d and R5e are open, and so are the R7 supports. R5d is no longer a strength problem (the distal-lost case still meets R4), but the fragile engagement state still violates the reliability priority. If R1 goes back up, re-check R4 first: the 4 lb case needs ≥ 71.2 N (see [improvement-study.md](improvement-study.md)).
+P14 replaces the current geometry and test instructions. P11–P13 calculations remain in [provisional-load-rating.md](provisional-load-rating.md) as historical comparisons; they must not supply the current print or test loads. The old 4 lb case required 71.2 N and is outside the current baseline.

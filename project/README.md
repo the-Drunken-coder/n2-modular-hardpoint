@@ -1,56 +1,47 @@
-# N2 Supported Cross-bolt Hardpoint — selected design
+# N2 P14 supported cross-bolt hardpoint
 
-**N2 is the sole active design.** This P11 package consolidates its editable CAD, issued models, drawings, manufacturing instructions, local release electronics, archived PLA finite-element results and documentation website. Other mechanisms are removed from the active model selector and downloads. Earlier comparison deliveries and source history retain the decision trail.
+**N2 P14 is the sole active design.** The four printed pieces use one purchased mini solenoid to retract a supported cross-bolt. Current development focuses on a compact mechanical retention/release mechanism, with PAHT-CF as the candidate material for the next prototype.
 
-This is a consolidation of the original N2 geometry, not a new mechanical revision or a newly qualified product. No new FEA or physical manufacturing/release test was performed for this selection. The previous analytical crossing loads are not established working-load ratings.
+This directory began as the P11 package import and still contains historical drawings, BOM/analysis records and website source. The current geometry is P14; the original P11/P6 provenance and test transcripts do not validate later revisions. The repository-level [current context](../docs/CURRENT_CONTEXT.md), [P14 record](../docs/p14.md), [requirements](../docs/requirements.md) and [test plan](../docs/test-plan.md) govern further work.
 
 ## Start here
 
-| Task | File or directory |
+| Task | Current entry point |
 |---|---|
-| Understand the mechanism and scope | `docs/overview.md`, `docs/mechanism.md` |
-| Open the complete retained assembly | `cad/N2/assembly.step` |
-| Edit and regenerate the design | `cad/build_n2.py`, `cad/README.md` |
-| Print the four custom parts | `cad/N2/*_print.stl`, `manufacturing/PRINTING.md` |
-| Inspect assembled, exploded and release views | `drawings/` |
-| Assemble and install | `docs/assembly_installation.md` |
-| Procure and account for mass/cost | `manufacturing/BOM.md`, `manufacturing/bom.json` |
-| Wire and program the bench release | `electronics/wiring.md`, `electronics/README.md` |
-| Read the actual PLA cases and limitations | `analysis/README.md`, `analysis/summary.json` |
-| Reproduce and audit the analyses | `analysis/reproduce.py`, `analysis/verify_package.py`, analysis instructions |
-| Plan physical inspection and release tests | `docs/verification.md`, `manufacturing/inspection_record.csv` |
-| Open the interactive website locally | `website_source/README.md` and its `dist/` directory |
+| Understand the selected design and load targets | [Current context](../docs/CURRENT_CONTEXT.md), [requirements](../docs/requirements.md), [P14](../docs/p14.md) |
+| Open the complete retained assembly | [cad/N2/assembly.step](cad/N2/assembly.step) |
+| Edit and regenerate the design | [cad/build_n2.py](cad/build_n2.py), [CAD instructions](cad/README.md) |
+| Print the four custom parts | `cad/N2/*_print.stl`, [printing](manufacturing/PRINTING.md), [print requirements](../docs/print-requirements.md) |
+| Assemble and inspect release motion | [Assembly](docs/assembly_installation.md), [mechanism](docs/mechanism.md), current CAD viewer |
+| Procure components | [Order list](manufacturing/ORDER_LIST.md); older BOM records retain their original cost/material basis |
+| Wire and program the local bench release | [Wiring](electronics/wiring.md), [electronics](electronics/README.md) |
+| Read the current structural estimate | [P14 evidence](../docs/p14.md), [load-estimate interpretation](../docs/provisional-load-rating.md) |
+| Reproduce current analyses | [Tools](../tools/README.md), `analysis/p14/`; the original PLA archive has separate reproduction instructions |
+| Plan physical inspection and tests | [Current test plan](../docs/test-plan.md), [inspection form](manufacturing/inspection_record.csv) |
+| Build the current website | Repository [README](../README.md) and [web/](../web/) |
 
-## Compact assembly
+## Compact assembly and operation
 
-The modeled retained envelope is approximately **43.1 × 30 × 19 mm**. It excludes full wiring, remote controls, installation-specific attachment hardware and payload departure clearance. Four custom pieces are printed: receiver, payload adapter, keeper and solenoid clamp. One purchased Adafruit 2776 mini solenoid drives the keeper, and two M2 × 16 screws with two M2 nuts retain its clamp. The 13 modeled objects include purchased actuator components and simplified hardware; those purchased pieces are not intended to be printed.
+The current retained envelope is approximately **43.1 × 30 × 19 mm**, excluding full wiring, controls, installation hardware/backing and the departure corridor. Four custom pieces are printed: receiver, payload adapter, keeper and solenoid clamp. One purchased Adafruit 2776 mini solenoid drives the keeper; two M2 × 16 screws and two M2 nuts retain its clamp. The 13 modeled objects include simplified purchased actuator components and hardware; those reference pieces are not intended to be printed. [Manifest](cad/N2/manifest.json)
 
-The keeper carries the retained adapter load through the receiver supports. The solenoid retracts the keeper in +X. After clearance, an external force must move the adapter away in +Z. Energizing the coil does not itself prove unlocking or complete separation. There is no ejector, position sensor or implemented positive fixed-pod lock.
+The keeper carries adapter load through receiver supports. The solenoid retracts it in +X; after the keeper clears, an external force must move the adapter away in +Z. Commanding the coil establishes neither unlocking nor complete separation. There is no ejector, position sensor or implemented positive fixed-pod lock.
+
+P14 bridges the proximal roof on both sides, moves the keeper linkage past it, makes the keeper underside flat and narrows the stem slot to give the return button a bearing surface. It preserves the 3 mm stroke, 0.6 mm distal overlap and 1.4 mm lug. Losing distal support still occurs before lug clearance; two modeled support states having the same governing adapter screen does not prove the intervening loaded motion. [P14 changes](../docs/p14.md)
 
 The local COTS bench controller and firmware are included. Payload power/data transfer and aircraft-wide electrical integration remain outside the current mechanical scope. There is no bespoke PCB and therefore no PCB fabrication quote.
 
 ## Current engineering basis
 
-Use the active **PLA** manufacturing instructions for common-material comparison and first fit specimens. The retained original CAD manifests contain historical PETG wording; `cad/N2/active_metadata.json` and the current manufacturing instructions supersede that material guidance. Original files remain byte-identical evidence.
+The provisional carried-mass target is **0.454 kg (1 lb), including the departing adapter and its attachment hardware**. At the assumed 2g load factor this is **8.9 N**; SF 2 sets a **17.8 N sacrificial qualification target**. These are development requirements, not demonstrated performance. The old 10–15 lb target and later superseded 4 lb requirement do not apply. [Requirements](../docs/requirements.md)
 
-The archived PLA models use a homogeneous isotropic approximation, room-temperature short static loading, solid-equivalent prints and stated assumed strength thresholds. Full backing and two-hole receiver fixtures give different results. Raw peak stress is mesh-sensitive and does not determine a certified capacity. The N2 subset contains the existing 39 case solutions and 10 meshes, including local receiver refinement; every raw field is retained in this complete package.
+The current P14 estimate has a governing **33.68 N scaled local stress-screen crossing**. Dividing by SF 2 gives **16.84 N as an analytical estimate**, not an established working-load rating. The calculation scales a homogeneous isotropic PLA model by the supplier Z-tensile ratio 47/31; it is not a measured or anisotropic PAHT-CF solution. P14 receiver cases use ideal full backing, so actual mounting remains a separate qualification issue. [Analysis interpretation](../docs/provisional-load-rating.md)
 
-The first development priority is **distal keeper support engagement during withdrawal**. The nominal retained engagement is only 0.6 mm. That support is lost after approximately 0.6 mm of the 3 mm stroke, while the keeper does not clear the 1.4 mm adapter lug until approximately 2.3 mm of travel. The resulting loaded withdrawal interval requires improvement and measured verification. No change to those dimensions is silently included here; changing them requires renewed fit, structural and actuation evaluation.
+No part has been printed or physically tested. Immediate work is slicer/bridge inspection, measured print/actuator fit, actual spring return and full-stroke pull, retained-load tests on the real mounting fixture, and complete loaded release. Matching coupons, moisture/temperature, wear and retention duration also require evidence.
 
-Subsequent work must verify printed fit, mounting/backing, keeper return, full loaded stroke, actual adapter clearance, actuator temperature and installation-specific aircraft loads. The test plan gives measurable acceptance gates without claiming those gates have been passed.
+## Reproduction and historical records
 
-## Reproducibility and package contents
+Use the current commands in [cad/README.md](cad/README.md) for geometry and [../tools/README.md](../tools/README.md) for P14 structural studies. The original [analysis/README.md](analysis/README.md) covers the P8/P11 common-PLA archive; it is valuable history but is not the P14 result set.
 
-The CAD generator is N2-only. From the package root:
+The original `PACKAGE_MANIFEST.json`, CAD provenance/regeneration reports, drawings, historical BOM figures and `website_source/` describe the imported snapshot. They must not be presented as fresh P14 verification. Large raw historical arrays/meshes were retained in the indexed original archive, not all in this Git checkout. See the [artifact recovery guide](../docs/ARTIFACTS_AND_RECOVERY.md).
 
-```sh
-python -m pip install -r cad/requirements.txt
-python cad/build_n2.py --output /absolute/new-export-directory
-python cad/verify_regeneration.py --regenerated /absolute/new-export-directory --report /absolute/rebuild-check.json
-python manufacturing/build_bom.py
-python analysis/verify_package.py
-```
-
-Use the exact analysis environment and replay commands in `analysis/README.md` and its linked reproduction instructions. A regeneration check has already confirmed identical solids, bounds, volumes and prescribed viewer motions. Electronic host tests cover software logic only; no controller was physically flashed or exercised for this consolidation.
-
-`PACKAGE_MANIFEST.json` records issued file hashes. `website_source/` contains the editable application, lockfile, dependency licenses and an issued static build. Serve its `dist/` directory over local HTTP to rotate, explode and inspect the release sequence; the browser animation is prescribed motion, not a dynamics simulation. This ZIP is a snapshot and cannot contain a download link to itself before it is saved; the published website provides the current complete-package link.
+The original controller host-test transcript covers software logic only. No controller was physically flashed or exercised for this documentation correction, and no new FEA or physical test is implied by it.

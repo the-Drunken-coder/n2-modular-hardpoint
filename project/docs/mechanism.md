@@ -1,4 +1,6 @@
-# N2 retention and release
+# N2 P14 retention and release
+
+The current prototype candidate uses PAHT-CF. The [P14 design record](../../docs/p14.md) and [bench-test plan](../../docs/test-plan.md) govern the 8.9 N design-load and 17.8 N sacrificial qualification targets. Neither is a demonstrated capacity.
 
 ## What carries the load
 
@@ -15,13 +17,14 @@ Dimensions below are nominal CAD values, in millimeters. They must be measured o
 | Retained keeper tip | 25.9 |
 | Distal roof region | 23.4–26.5 |
 | Adapter lug | 26.8–28.2 |
-| Proximal guide region | 28.5–37.4 |
+| Proximal bridged roof region | 28.5–31.7 |
+| Proximal floor and outer wall | Continue to 37.4; open above beyond 31.7 |
 | Retained distal overlap | 26.5 − 25.9 = **0.6** |
 | Travel until the tip clears the lug | 28.2 − 25.9 = **2.3** |
 | Full-open keeper tip | 25.9 + 3.0 = **28.9** |
 | Full-open axial clearance | 28.9 − 28.2 = **0.7** |
 
-The distal support disengages after about 0.6 mm, before the adapter is unlocked at about 2.3 mm. Over roughly 1.7 mm of withdrawal, the keeper is still retaining the lug while supported only by the proximal guide. That transition can control withdrawal force and binding. A strong retained state does not establish easy release.
+The distal support disengages after about 0.6 mm, before the adapter is unlocked at about 2.3 mm. Over roughly 1.7 mm of withdrawal, the keeper is still retaining the lug while supported only by the proximal guide. P14 anchors the proximal roof on both sides of the keeper channel and moves the link behind it. The two analyzed support states do not resolve contact migration or friction throughout this interval. That transition can control withdrawal force and binding. A strong retained state does not establish easy release.
 
 ## Release sequence
 
@@ -45,7 +48,7 @@ Support the payload before recovery. Disable upstream coil power while leaving t
 
 ## Release-force evidence
 
-The existing full-stroke hand model includes the disappearing distal support and yaw-related sliding friction. At an assumed coefficient μ = 0.20, its nominal peak withdrawal demand is about **0.650 P**, increasing to about **0.784 P** in an assumed ineffective-support/inset-contact case. Here P is retained internal normal force and the available actuator budget is net of the return spring.
+The historical P7 full-stroke hand model includes the disappearing distal support and yaw-related sliding friction. At an assumed coefficient μ = 0.20, its nominal peak withdrawal demand is about **0.650 P**, increasing to about **0.784 P** in an assumed ineffective-support/inset-contact case. Here P is retained internal normal force and the available actuator budget is net of the return spring.
 
 Those coefficients are historical contact assumptions, not measured PLA friction or a release rating. They exclude unresolved local edge-pressure transitions and actual print/actuator behavior. Measure available pull and mechanism demand throughout the full stroke; do not infer a releasable payload from the structural FEA alone.
 

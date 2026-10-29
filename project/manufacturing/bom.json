@@ -316,5 +316,6 @@
     "cad/N2/manifest.json",
     "electronics/sources.json",
     "Historical project P6 manufacturing BOM, N2 entry"
-  ]
+  ],
+  "record_scope": "Historical P11 geometry / PLA mass and cost record; not current P14 procurement or measured mass. See ORDER_LIST.md and ../../docs/print-requirements.md."
 }

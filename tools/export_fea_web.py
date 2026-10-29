@@ -8,8 +8,10 @@ Writes web/public/fea/index.json and one <part>__<case>.json per case:
   pos  flat xyz (mm, CAD assembly frame), idx flat triangles (outer tet faces),
   fi   per-vertex failure index per 1 N applied (max over touching elements; raw P1 vertex
        metric from the frozen solver, PLA screen allowables in project/analysis/material.json).
-The viewer shows utilisation = fi x load x 31 / Z_TDS(material); 1.0 = predicted failure.
-Failure load = 1 / max(fi) x Z_TDS / 31, same scaling as tools/n2fea.py.
+The viewer shows utilisation = fi x load x 31 / Z_TDS(material); 1.0 = an assumed stress-limit crossing.
+Stress screen = 1 / max(fi) x Z_TDS / 31, same scaling as tools/n2fea.py.
+Legacy JSON keys fail_N and rating_sf2_N retain their numeric meaning for compatibility:
+the stress screen and that screen / 2, not demonstrated failure or a working-load rating.
 """
 import argparse, glob, json
 from pathlib import Path
@@ -57,8 +59,14 @@ def main():
         if not hits: print('missing', pat); continue
         worst = max(hits, key=lambda h: np.load(h)['raw_element_metrics'][:, 4].max())  # worst sign
         m = export(worst, part, cid, label, scope, k); cases.append(m)
-        print(f"{part:12}{cid:15}fail {m['fail_N']:7.2f} N  rating {m['rating_sf2_N']:6.2f} N  peak {m['peak_mm']}")
-    json.dump(dict(revision=a.revision, material=a.material, z_tds_MPa=MAT[a.material], sf=2.0, design_N=8.9, required_fail_N=17.8,
-                   note='Linear isotropic, 100% solid, prescribed contact tractions; PLA screen allowables scaled by Z TDS/31. Paper numbers, not tested.',
+        print(f"{part:12}{cid:15}screen {m['fail_N']:7.2f} N  screen/SF2 {m['rating_sf2_N']:6.2f} N  peak {m['peak_mm']}")
+    active = json.loads((R / 'project/cad/N2/active_metadata.json').read_text())
+    req = active['current_requirements']
+    json.dump(dict(revision=a.revision, material=a.material, z_tds_MPa=MAT[a.material], sf=2.0,
+                   design_N=req['design_load_N'], required_fail_N=req['qualification_load_N'],
+                   note='Linear isotropic component screens, solid-equivalent material and prescribed contact tractions. Receiver assumes ideal continuous full backing. PLA stress thresholds are scaled by Z TDS/31; this is not direct anisotropic PAHT-CF FEA. Selected support states only; full-stroke release, printing and mounting are untested. No working-load rating assigned.',
+                   field_semantics={'fail_N': 'Calculated stress-screen crossing, not demonstrated failure',
+                                    'rating_sf2_N': 'Stress screen divided by 2, not an assigned working-load rating',
+                                    'required_fail_N': 'Sacrificial qualification target from current requirements'},
                    cases=cases), open(OUT / 'index.json', 'w'), indent=1)
 if __name__ == '__main__': main()

@@ -53,7 +53,7 @@ function Operation(){return <>
  </>;}
 
 function Build(){return <>
- <PageHeading eyebrow="BAMBU X1C / PLA PROTOTYPE" title="Print four parts. Assemble one mechanism.">The supplied print STLs set each part's intended orientation. The actuator, spring and metal fasteners are purchased hardware.</PageHeading>
+ <PageHeading eyebrow="PLA PROTOTYPE" title="Print four parts. Assemble one mechanism.">The supplied print STLs set each part's intended orientation. The actuator, spring and metal fasteners are purchased hardware.</PageHeading>
  <Table heads={['Printed part','Print-oriented STL','Orientation and inspection']} rows={v.parts.filter(p=>p.print_stl).map(p=>[p.name,<FileLink path={'cad/N2/'+p.print_stl}>{p.print_stl}</FileLink>,p.print_note])}/>
  <Callout intent="primary" title="Current material basis: PLA, solid equivalent">Use the current PLA print instructions with 100% infill to match the structural model's solid-equivalent assumption. Thin-wall toolpaths, support removal and layer adhesion still require inspection and coupon evidence.</Callout>
  <img className="full-figure" src={asset('drawings/N2_exploded.png')} alt="Labeled N2 exploded view showing four printed parts, mini solenoid and clamp fasteners"/>

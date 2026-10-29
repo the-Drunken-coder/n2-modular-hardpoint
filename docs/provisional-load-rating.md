@@ -1,149 +1,99 @@
-# N2 provisional load rating
+# N2 analysis load estimates — current P14 and superseded studies
 
-> **PROVISIONAL. UNTESTED. Paper number only.** Not a qualified payload capacity. Valid for static, short-duration +Z extraction at room temperature, solid (100%) PAHT-CF (or PLA Basic baseline) printed per [print-requirements.md](print-requirements.md), until the physical proof test in [test-plan.md](test-plan.md) passes.
+**No working-load rating has been demonstrated.** This page keeps the historical "provisional load rating" filename for existing links. The values are stress-screen calculations, not measured breaking loads, qualified payload capacities or successful release loads.
 
-> **Off-axis warning (P13 expanded sims):** the rating is for straight +Z pull only. Angled pull drops the adapter-floor failure screen to ~4.6 N at 30° and ~3.4 N at 45° in PLA (pessimistic model); in PAHT-CF at SF 2 the 45° and 90° ratings are 2.5 N and 1.9 N. See [p13-expanded-sims.md](p13-expanded-sims.md).
+## Current baseline: P14, PAHT-CF material scaling, SF 2
 
-## Current design: P12 (roof +2.0 mm)
+The current design is the bridged receiver roof and flat-print keeper described in [p14.md](p14.md), with lug 1.4 mm, distal overlap 0.6 mm and nominal 3 mm actuator stroke. Use the current [print instructions](print-requirements.md) and [P14 test plan](test-plan.md).
 
-P12 raises the top of both receiver guide roofs from Z 12.7 to Z 14.7 (roof 2.2 mm → 4.2 mm thick). Nothing else changed. The table below is the original P11 rating, kept for traceability; **the P12 rating is in the section after it.**
+| Quantity | Value | Meaning |
+|---|---:|---|
+| Provisional carried mass | **0.454 kg (1 lb)** | Includes payload, removable adapter and attached hardware. |
+| Assumed flight load factor | **2 g** | Design input; not a vibration specification. |
+| Design load | **8.9 N** | 0.454 × 9.81 × 2, rounded. |
+| Design SF | **2** | Chosen requirement, not evidence that uncertainties are covered. |
+| Sacrificial proof target | **17.8 N** | 2 × 8.9 N; physical tests not performed. |
+| Governing analysis screen | **33.68 N** | Adapter, selected straight +Z case, after material scaling. |
+| Screen divided by SF 2 | **16.84 N** | Arithmetic estimate; 16.8 N rounded down. **Not a working-load rating.** |
 
-## P11 baseline inputs (from the repo)
+Requirements source: [requirements.md](requirements.md). Analysis source: [P14 selected summary](../project/analysis/p14/fea/B1.4_O0.6/summary.json). Legacy JSON keys such as `fail_N` and `rating_N` retain their original names; those labels do not establish physical failure or rating evidence.
 
-- Governing case: receiver `distal_ineffective`, 0.55 mm mesh ([fea-review.md](fea-review.md)).
-- Stress per unit load: σ1 = 3.341 MPa/N (tension governs).
-- FEA crossing at the model's 25 MPa tension threshold: P_cross = 25 / 3.341 = **7.48 N**.
-- Why use the distal-ineffective case and not the centered one (21.5 N)? The distal roof overlap is only 0.6 mm. Print tolerance, wear or a slightly retracted keeper can remove it. Rate the hardware for the state it can easily get into.
+### Reproducible interpretation
 
-## PLA allowable
-
-Source: Bambu Lab PLA Basic TDS V3.0 (linked in `project/analysis/material.json`): tensile strength **35 MPa XY / 31 MPa Z**, 100% infill, dried/annealed coupons.
-
-The 25 MPa threshold the FEA used is already 81% of the Z (layer) value. That leaves some margin for layer adhesion but nothing for the rest. I don't add extra knockdowns to the stress; I put them in the safety factor so the math stays in one place.
-
-## Safety factor: 3.0 (minimum for printed PLA)
-
-| Concern | Why it matters here |
-|---|---|
-| Layer adhesion / Z weakness | Governing stress is tension in a thin roof. If layers run the wrong way, real strength can be well below coupon Z values. |
-| Print variability | Under-extrusion, voids, wall count, wet filament. Nothing has been measured. |
-| Creep | PLA creeps under sustained load; a held payload is a sustained load. |
-| Temperature | PLA softens fast approaching its glass transition (roughly 55–60 °C). A hot car or sun-baked airframe can get there. |
-| Contact / stress concentration | Peak is at a contact patch edge with a sharp-ish geometry; FE screen, not fracture analysis. |
-| Dynamic loads | Rating is 1 g static. Flight loads/shock must be divided out separately. |
-
-3.0 is the floor. Use **≥4 if the part will sit hot (>40 °C) or hold load for hours**.
-
-## Math
+The frozen model uses effective isotropic PLA properties: E = 2200 MPa, ν = 0.35, and tension/compression/max-shear screen thresholds of 25/40/15 MPa. See [material.json](../project/analysis/material.json). The P14 tool multiplies the resulting load thresholds by **47/31**, using the PAHT-CF/PLA TDS Z tensile-strength ratio, and then divides by the selected SF:
 
 ```
-P_cross    = 25 MPa / 3.341 MPa/N         = 7.48 N
-P_rated    = P_cross / SF = 7.48 / 3.0    = 2.49 N   -> round DOWN to 2.4 N
-Mass at 1 g = 2.4 / 9.80665               = 0.245 kg  -> call it 0.24 kg (≈ 0.53 lb)
-Mass at n g = 2.4 / (n · 9.80665)         e.g. 2 g -> 0.12 kg
+Material scale = 47 / 31 ≈ 1.516
+Adapter PLA screen ≈ 22.21 N
+Scaled PAHT-CF screen ≈ 33.68 N
+Arithmetic SF-2 allowance = 33.68 / 2 = 16.84 N
+Requirement comparison = 33.68 / 17.8 ≈ 1.89
 ```
 
-Mass includes payload + removable adapter + its fasteners.
+Small differences from multiplying displayed rounded inputs are expected; the saved summary is the recorded result. Material sources and process assumptions are linked in [print-requirements.md](print-requirements.md).
 
-## Provisional rating
+| Selected P14 straight-pull component state | Scaled stress-screen crossing |
+|---|---:|
+| Adapter, keeper-floor loading | **33.68 N** |
+| Receiver, both roofs effective | 59.17 N |
+| Receiver, distal roof ineffective | 36.73 N |
+| Keeper, both roofs effective | 114.9 N |
+| Keeper, distal roof ineffective | 71.6 N |
+| Keeper, half-width contact | 57.4 N |
 
-**N2 hardpoint: 2.4 N static +Z extraction (≈ 240 g payload at 1 g), PROVISIONAL, untested.**
+The adapter governs these component checks. Both modeled receiver support states give the same assembly minimum; that does **not** cover every partial-engagement position.
 
-For context: the withdrawn 10–15 lb requirement is ~20–30× this. If both roofs are proven to seat reliably by test, the centered case (21.5 N bonded, ~11.3 N two-hole) could support a higher rating, but **only after test**.
+### What the model does not establish
 
-## P12 sweep (rerun with the repo's own solver, receiver, 0.55 mm mesh)
+The receiver uses ideal continuous backing, not a validated two-screw mounting. Prescribed component loads do not reproduce a nonlinear frictional release path. The 47/31 factor is a surrogate material comparison, including unsupported extrapolation of the same ratio to compression and shear thresholds; it is not an anisotropic PAHT-CF simulation. Actual printed stiffness, directional failure, contact, temperature, moisture, creep and wear remain unverified.
 
-Solver: frozen `inputs/drivers/solver_6d9b…py` via `reproduce.py --prepare-only`, then STEP + hash swapped in the receiver config; loads, supports, material, mesh recipe unchanged. Baseline replay reproduced the archive exactly (21.497 N / 7.483 N). Raw results: `project/analysis/p12_roof_sweep/`.
+The selected P14 mesh sizes are 0.8 mm for the receiver and 0.55 mm for the adapter. Earlier mesh variation cannot be assigned as a P14 convergence bound. A dedicated P14 mesh study and actual mounting evaluation remain open.
 
-| Variant | Roof top Z | distal_ineff. bonded, N | distal_ineff. washers, N | centered bonded, N | Fit / release check |
-|---|---:|---:|---:|---:|---|
-| Baseline (P11) | 12.7 | 7.483 | 7.527 (archive) | 21.497 | OK |
-| Roof +0.5 | 13.2 | 7.675 | 7.718 | 22.044 | OK |
-| Roof +1.0 | 13.7 | 8.518 | 8.587 | 24.469 | OK |
-| **Roof +2.0 (chosen)** | **14.7** | **10.297** | — (not run) | **29.573** | OK, 1.3 mm under adapter flange (Z 16) |
-| Overlap 1.2 mm (roof +0) | 12.7 | n/a: receiver unchanged | | | Lug clears open keeper by only 0.1 mm. Rejected |
-| Overlap 2.0 mm | — | — | — | — | Infeasible: 3 mm stroke can't clear the lug |
+Straight +Z extraction is the only required load direction. For context, P14's XZ90 adapter screen is 4.25 N after material scaling, or 2.12 N divided by SF 2; socket-wall bearing is absent in that baseline. This is an off-axis model result, not a qualified capacity.
 
-Fit/release check = boolean intersection of the regenerated receiver with all 12 other assembly parts, keeper retained and +3 mm open, and the adapter swept +Z 0–22 mm with the keeper open: zero overlap volume for every variant. Overlap changes only the keeper, so it doesn't change the governing (distal-lost) case; it only makes losing distal contact less likely. Keeping 0.6 mm preserves the 0.7 mm release margin.
+Passing a three-specimen proof test or obtaining a coupon mean of 47 MPa does not automatically validate the material model, release reliability or flight installation. No increase in claimed capacity follows automatically from a successful test.
 
-Peak location is unchanged: receiver roof underside at the +Y edge of the keeper channel, near the proximal patch (≈ X 28.8–29.2, Y 11.8, Z 10.6). It's a sharp internal corner, so thickening helps only gradually. A fillet there is the next lever. Only the 0.55 mm mesh was run for P12; no convergence study yet.
+## Superseded P11–P13 calculation record
 
-## P12 provisional rating (superseded by P13)
+**Historical comparisons only.** These values must not drive the current print files, test loads or operating instructions. The former 4 lb requirement and P11–P13 "ratings" are superseded by the P14 baseline above. None was physically qualified.
 
-```
-P_cross  = 10.297 N   (receiver, distal_ineffective_bonded, roof +2.0)
-P_rated  = 10.297 / 3.0 = 3.43 N   -> round DOWN to 3.4 N
-Mass 1 g = 3.4 / 9.80665 = 0.347 kg -> 0.34 kg (≈ 0.75 lb)
-```
+### P11 and P12 roof study
 
-**N2 P12 hardpoint: 3.4 N static +Z extraction (≈ 340 g at 1 g). PROVISIONAL, untested.** Up 42% from 2.4 N. Same SF 3 method and caveats as above.
+P11 used a 0.6 mm distal overlap; the distal-ineffective receiver state was treated as a credible reduced-support case. At the recorded 0.55 mm mesh, tensile stress per unit load was 3.341 MPa/N, giving 25 / 3.341 = **7.48 N**. The old SF-3 calculation was 7.48 / 3 = 2.49 N, rounded down to **2.4 N**. SF 3 was an analyst choice, not an established minimum that could qualify arbitrary prints.
 
-## P13 inside-corner fillet sweep
+P12 raised both guide roofs from Z 12.7 to Z 14.7, increasing roof thickness from 2.2 to 4.2 mm. Loads, material and baseline solver were held fixed. Recorded results: [P12 roof sweep](../project/analysis/p12_roof_sweep/).
 
-Quarter-round fillet (`ROOF_FILLET` in `build_n2.py`) on the X-parallel inside corners where the keeper-channel walls (Y 8.2, Y 11.8) meet the roof underside (Z 10.5), both roofs. Roof stays +2.0 mm, overlap 0.6 mm. Receiver only, 0.55 mm mesh, thresholds in N.
+| Roof increase | Distal-ineffective, ideal backing | Distal-ineffective, washer support | Both roofs, ideal backing |
+|---|---:|---:|---:|
+| P11 baseline | 7.483 N | 7.527 N | 21.497 N |
+| +0.5 mm | 7.675 N | 7.718 N | 22.044 N |
+| +1.0 mm | 8.518 N | 8.587 N | 24.469 N |
+| **P12: +2.0 mm** | **10.297 N** | Not run | **29.573 N** |
 
-| Fillet r (mm) | distal_ineffective_bonded | distal_ineffective_washers | centered_bonded | Keeper gap, open | Fit/release |
-|---|---|---|---|---|---|
-| 0 (P12) | 10.297 | — | 29.573 | 0.30 | OK |
-| 0.25 | 11.430 | 11.540 | 32.823 | 0.30 | OK |
-| **0.3 (chosen)** | **12.089** | **12.213** | **34.713** | **0.30** | **OK** |
-| 0.5 | not solvable | | | 0.22 | OK |
-| 0.75 | not solvable | | | 0.11 | OK |
-| 1.0 | not solvable | | | 0.01 | Too tight to print |
-| ≥ 1.2 | — | | | — | Interferes with keeper |
+The P12 SF-3 arithmetic was 10.297 / 3 = 3.43 N, rounded down to **3.4 N**. Only one global mesh size was run for that sweep.
 
-"Not solvable": the archived load patches are Y 8.5–11.5 on the flat roof underside. A fillet over 0.3 mm eats into that patch (flat ends at Y 11.8 − r), the patch imprint lands on the curved face and the mesher segfaults. Moving the patch would change the load case, so 0.3 mm is the largest fillet that keeps the screen like-for-like. It also keeps the full 0.3 mm keeper clearance.
+A 1.2 mm distal overlap left only 0.1 mm nominal open lug clearance; 2.0 mm overlap could not clear with the 3 mm stroke. Increasing overlap alone did not improve the modeled distal-ineffective receiver. The selected nominal overlap remained 0.6 mm, preserving 0.7 mm geometric open margin. Recorded rigid CAD checks found no interference; these were not physical release tests.
 
-Fit/release check (same as P12): zero overlap volume against all 12 parts, keeper retained and +3 mm open, adapter swept +Z with keeper open.
+### P13 fillet study
 
-Mesh check (extra local box X 24.5–37.6, Y 7–13, Z 9–11.5 at 0.4 mm, global 0.55 mm):
+P13 retained the +2.0 mm roofs and added a 0.3 mm inside fillet at the channel wall/roof junction. Recorded results: [P13 fillet sweep](../project/analysis/p13_fillet_sweep/).
 
-| Geometry | distal_ineffective_bonded 0.55 → local 0.4 | centered_bonded 0.55 → local 0.4 |
-|---|---|---|
-| Fillet 0.3 | 12.089 → 12.167 (+0.6%) | 34.713 → 34.933 (+0.6%) |
-| Sharp (P12) | 10.297 → 10.927 (+6%) | 29.573 → 31.376 (+6%) |
+| Fillet radius | Distal-ineffective, ideal backing | Distal-ineffective, washer support | Both roofs, ideal backing |
+|---|---:|---:|---:|
+| 0 (P12) | 10.297 N | Not run | 29.573 N |
+| 0.25 mm | 11.430 N | 11.540 N | 32.823 N |
+| **0.3 mm (P13)** | **12.089 N** | **12.213 N** | **34.713 N** |
 
-The filleted number is mesh-stable. The sharp-corner number moved with the mesh because it sits on a singularity. Peak is still at the fillet (≈ X 28.7, Y 11.8, Z 10.4). The rating uses the lower 0.55 mm value.
+Fillets above 0.3 mm affected the archived flat load patches and were not solved with that unchanged load definition. A 1.0 mm fillet left only 0.01 mm geometric keeper clearance; ≥1.2 mm interfered. These rejected variants are not strength evidence.
 
-Results: `project/analysis/p13_fillet_sweep/`.
+Local refinement to 0.4 mm changed P13's distal-ineffective result from 12.089 to 12.167 N (+0.6%) and its centered result from 34.713 to 34.933 N (+0.6%). The corresponding sharp P12 results moved by about 6%. This is evidence for those particular P12/P13 meshes, not a P14 convergence study.
 
-## P13 provisional rating (current)
+| Historical calculation | Arithmetic | Former rounded value |
+|---|---|---:|
+| P13 PLA, SF 3 | 12.089 / 3 | 4.0 N |
+| P13 PLA, SF 2 | 12.089 / 2 | 6.0 N |
+| P13 PAHT-CF scaling, SF 2 | (12.089 × 47/31) / 2 | **9.1 N** |
 
-```
-P_cross  = 12.089 N   (receiver, distal_ineffective_bonded, roof +2.0, fillet 0.3)
-P_rated  = 12.089 / 3.0 = 4.03 N   -> round DOWN to 4.0 N
-Mass 1 g = 4.0 / 9.80665 = 0.408 kg -> 0.40 kg (≈ 0.88 lb)
-```
+The historical PAHT-CF crossing was **18.33 N**, only about 3% above the current 17.8 N requirement. Older off-axis values belong to the [P13 expanded study](p13-expanded-sims.md), not P14.
 
-**N2 P13 hardpoint: 4.0 N static +Z extraction (≈ 400 g at 1 g). PROVISIONAL, untested.** Up from 3.4 N (P12). Same SF 3 method and caveats as above.
-
-## P13 in Bambu PAHT-CF at SF 2 (current recommended)
-
-Same P13 geometry, mesh and load cases. Only the material screen and the safety factor change. See [print-requirements.md](print-requirements.md) for orientation and print settings.
-
-**Safety factor 2.0 is Lane's choice** (earlier sections use SF 3). It is only valid if the Z coupon test in [test-plan.md](test-plan.md) confirms the assumed layer strength: Z coupons in the flight filament and settings must reach the PAHT-CF TDS Z value (47 MPa). If they come in lower, scale the rating down by (coupon mean / 47) or return to SF 3. Below 37.9 MPa the screen itself is unconservative.
-
-The solver is linear and load-controlled, with the same Poisson ratio, so the stress fields don't change with material. The failure load scales with the strength screen. The PLA screen (tension 25 MPa) is 25/31 of PLA Basic's TDS Z tensile strength. The PAHT-CF screen keeps that same knockdown on the PAHT-CF TDS Z value (47 MPa, dry): tension 37.9 MPa. Compression and shear are scaled by the same 47/31 factor. No credit is taken for the tension running along the layers in the recommended orientation, and the model is still isotropic (PAHT-CF X-Y/Z modulus 3860/2180 MPa).
-
-Ratings round down to 0.1 N.
-
-| Case | PLA Basic failure (N) | PLA rated, SF 2 (N) | PAHT-CF failure (N) | PAHT-CF rated, SF 2 (N) |
-|---|---|---|---|---|
-| Straight +Z, receiver distal_ineffective_bonded (governs) | 12.09 | 6.0 | 18.33 | **9.1** |
-| 45° off-axis, adapter floor (XZ) | 3.40 | 1.7 | 5.15 | 2.5 |
-| 90° off-axis, adapter floor (XZ) | 2.55 | 1.2 | 3.87 | 1.9 |
-
-```
-P_cross  = 12.089 x 47/31 = 18.328 N
-P_rated  = 18.328 / 2.0 = 9.16 N   -> round DOWN to 9.1 N
-Mass 1 g = 9.1 / 9.80665 = 0.928 kg -> 0.92 kg
-PLA Basic baseline at SF 2: 12.089 / 2.0 = 6.04 -> 6.0 N (≈ 0.61 kg)
-```
-
-**N2 P13 hardpoint: 9.1 N static +Z extraction in PAHT-CF at SF 2 (≈ 920 g at 1 g). PROVISIONAL, untested.** Straight pull only; off-axis values are in the table above. SF 2 depends on the Z coupon test. Dry-state TDS values; no creep data. Wet and long-hold strength are unknown.
-
-## What would change this number
-
-- Proof test (test-plan.md) passes → keep or raise using the measured failure load / SF.
-- Increase distal roof overlap beyond 0.6 mm or thicken the receiver roof at the proximal patch edge → biggest design lever.
-- Different material (PETG/PA-CF) → redo with that material's data.
+The former instruction to accept SF 2 solely from a three-coupon mean, automatically scale a rating after a shortfall, or raise capacity following a proof test is withdrawn. Use the current P14 evidence limits and verification plan.
