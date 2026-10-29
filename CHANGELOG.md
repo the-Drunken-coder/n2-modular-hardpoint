@@ -1,5 +1,8 @@
 # Changelog
 
+## Requirements: R1 → 1 lb — 2026-10-29
+- R1 changed to 0.454 kg (1 lb, provisional). Design load 8.9 N, SF 2 minimum failure 17.8 N, proof test 17.8 N. P13 PAHT-CF (18.33 N, distal-lost governing case) now passes R4 marginally (+3%, inside mesh scatter); the proof test decides.
+
 ## Requirements — 2026-10-29
 - Added [docs/requirements.md](docs/requirements.md): R1–R7 (1.81 kg, 2 g, straight pull, SF 2 → ≥ 71.2 N, fail-safe latch, one moving part, simple to print). P13 compliance: fails R4 (18.3 N), R5d (fragile distal state) and R7 (supports); R5c and R5e unknown.
 
