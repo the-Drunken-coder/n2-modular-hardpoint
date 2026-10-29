@@ -1,0 +1,45 @@
+{
+  "revision": "N2-focus-P11",
+  "date": "2026-10-27",
+  "files": [
+    {
+      "file": "controller_core.py",
+      "source_path": "solenoid_p6/electronics/controller_core.py",
+      "source_sha256": "c803de24aa2aa6bfd291240512aa0bbba54437038fac09f4390cab8e33f7fc1f",
+      "issued_sha256": "c803de24aa2aa6bfd291240512aa0bbba54437038fac09f4390cab8e33f7fc1f",
+      "functional_changes": false
+    },
+    {
+      "file": "config.py",
+      "source_path": "solenoid_p6/electronics/config.py",
+      "source_sha256": "b30a4ba45d59a812f84cb1a8e15611b1ee5c7604f455d6d8186d28034c6f9949",
+      "issued_sha256": "b30a4ba45d59a812f84cb1a8e15611b1ee5c7604f455d6d8186d28034c6f9949",
+      "functional_changes": false
+    },
+    {
+      "file": "main.py",
+      "source_path": "solenoid_p6/electronics/main.py",
+      "source_sha256": "bf3f77010eeb180f5a935a066084b3749e1500b4e9a31363aabc77aa0ae0bd69",
+      "issued_sha256": "bf3f77010eeb180f5a935a066084b3749e1500b4e9a31363aabc77aa0ae0bd69",
+      "functional_changes": false
+    },
+    {
+      "file": "test_controller.py",
+      "source_path": "solenoid_p6/electronics/test_controller.py",
+      "source_sha256": "275d2360e40ce0eef506aac50dbc6ff2aaa40f81951e3ba7b0bf088a0e32784f",
+      "issued_sha256": "275d2360e40ce0eef506aac50dbc6ff2aaa40f81951e3ba7b0bf088a0e32784f",
+      "functional_changes": false
+    },
+    {
+      "file": "release_timing_record.csv",
+      "source_path": "solenoid_p6/electronics/release_timing_record.csv",
+      "source_sha256": "9c1fee3e3d2edbe92f78db4b1fe229cea1fce8183335f2ee069b9487c9ecaabd",
+      "issued_sha256": "9c1fee3e3d2edbe92f78db4b1fe229cea1fce8183335f2ee069b9487c9ecaabd",
+      "functional_changes": false
+    }
+  ],
+  "notes": [
+    "Firmware is copied byte-for-byte from the existing local bench controller. Legacy P5 text in source comments identifies provenance, not an active mechanical alternative.",
+    "Only wiring documentation headings and historical-source labels have been updated. No new control function or hardware qualification is claimed."
+  ]
+}

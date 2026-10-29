@@ -1,0 +1,727 @@
+{
+  "id": "N2",
+  "name": "Supported cross-bolt",
+  "family": "Mini solenoid",
+  "revision": "P6-01",
+  "units": "mm",
+  "bounds": {
+    "min": [
+      -5.1,
+      -13.0,
+      0.0
+    ],
+    "max": [
+      38.0,
+      17.0,
+      19.0
+    ],
+    "size": [
+      43.1,
+      30.0,
+      19.0
+    ]
+  },
+  "parts": [
+    {
+      "id": "N2_receiver",
+      "name": "Receiver with proximal and distal keeper supports",
+      "kind": "printed",
+      "explode": [
+        0,
+        0,
+        -9
+      ],
+      "print_note": "Base to bed. Both guide roofs require accessible local support and careful running-face cleanup. Preserve the distal roof; do not split it from the print.",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 5191.811338324733,
+      "bbox": {
+        "min": [
+          -2.0,
+          -13.0,
+          0.0
+        ],
+        "max": [
+          38.0,
+          17.0,
+          12.7
+        ],
+        "size": [
+          40.0,
+          30.0,
+          12.7
+        ]
+      },
+      "step": "N2_receiver.step",
+      "stl": "N2_receiver.stl",
+      "step_sha256": "75ab803d24868cc4bf55335c6f5efd343688ff3f107a22b682b85ce0224a777d",
+      "color": "#dfb667",
+      "print_stl": "N2_receiver_print.stl",
+      "print_bbox": {
+        "min": [
+          -2.0016312156796414,
+          -13.000507759901366,
+          0.0008949851875022302
+        ],
+        "max": [
+          38.00050775990137,
+          17.000507759901364,
+          12.701611293533906
+        ],
+        "size": [
+          40.00213897558101,
+          30.001015519802728,
+          12.700716308346404
+        ]
+      }
+    },
+    {
+      "id": "N2_adapter",
+      "name": "Thin cross-hole payload lug",
+      "kind": "payload",
+      "explode": [
+        0,
+        0,
+        15
+      ],
+      "keyframes": [
+        {
+          "u": 0
+        },
+        {
+          "u": 0.5
+        },
+        {
+          "u": 1,
+          "translation": [
+            0,
+            0,
+            22
+          ]
+        }
+      ],
+      "print_note": "Flange to bed using supplied inverted print STL. The 1.4 mm lug thickness is a deliberate unqualified tradeoff. Inspect the hole bridge and 1.3 mm side webs; reject incomplete walls.",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 519.5371368408606,
+      "bbox": {
+        "min": [
+          24.0,
+          5.0,
+          3.8000000000000007
+        ],
+        "max": [
+          37.0,
+          17.0,
+          19.0
+        ],
+        "size": [
+          13.0,
+          12.0,
+          15.2
+        ]
+      },
+      "step": "N2_adapter.step",
+      "stl": "N2_adapter.stl",
+      "step_sha256": "06fb0220b7c0cb94ed453cca4de5fbe115497101730e6bcb82289e553e829944",
+      "color": "#22a99b",
+      "print_stl": "N2_adapter_print.stl",
+      "print_bbox": {
+        "min": [
+          23.99999989999999,
+          -17.000000100000012,
+          -0.0007162083463995291
+        ],
+        "max": [
+          37.00000010000001,
+          -4.999999899999994,
+          15.200000100000006
+        ],
+        "size": [
+          13.000000200000017,
+          12.000000200000017,
+          15.200716308346406
+        ]
+      }
+    },
+    {
+      "id": "N2_keeper",
+      "name": "Bridge-supported cross-bolt with inspection tab",
+      "kind": "moving",
+      "explode": [
+        13,
+        0,
+        4
+      ],
+      "keyframes": [
+        {
+          "u": 0
+        },
+        {
+          "u": 0.5,
+          "translation": [
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "u": 1,
+          "translation": [
+            3,
+            0,
+            0
+          ]
+        }
+      ],
+      "print_note": "Main body underside to bed. Retaining arm is raised 0.7 mm and needs local support. Clean sliding faces without reducing retained tip engagement.",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 524.7949923242048,
+      "bbox": {
+        "min": [
+          22.0,
+          -4.0,
+          6.499999999999999
+        ],
+        "max": [
+          34.0,
+          11.5,
+          13.7
+        ],
+        "size": [
+          12.0,
+          15.5,
+          7.2
+        ]
+      },
+      "step": "N2_keeper.step",
+      "stl": "N2_keeper.stl",
+      "step_sha256": "6bf0237bdb03c33f2bd48522ccbad733c17a834ed17b45322ba89b3f03171b82",
+      "color": "#e78b59",
+      "print_stl": "N2_keeper_print.stl",
+      "print_bbox": {
+        "min": [
+          21.999999899999995,
+          -4.000000100000004,
+          0.0005593657421867518
+        ],
+        "max": [
+          34.0000001,
+          11.500000100000003,
+          7.201007133458688
+        ],
+        "size": [
+          12.000000200000006,
+          15.500000200000006,
+          7.2004477677165015
+        ]
+      }
+    },
+    {
+      "id": "N2_clamp",
+      "name": "Two-screw solenoid clamp",
+      "kind": "printed",
+      "explode": [
+        0,
+        0,
+        12
+      ],
+      "print_note": "Top bridge to bed, legs upward.",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1367.9705818537968,
+      "bbox": {
+        "min": [
+          4.0,
+          -12.0,
+          6.800000000000001
+        ],
+        "max": [
+          16.0,
+          12.0,
+          16.2
+        ],
+        "size": [
+          12.0,
+          24.0,
+          9.399999999999999
+        ]
+      },
+      "step": "N2_clamp.step",
+      "stl": "N2_clamp.stl",
+      "step_sha256": "7e4a325f73abf815ea9b7ae714e627717d954603b2c89dcba6fd23c01ac4eeaf",
+      "color": "#dfb667",
+      "print_stl": "N2_clamp_print.stl",
+      "print_bbox": {
+        "min": [
+          3.999999899999994,
+          -12.000000100000008,
+          -0.0005148028739700868
+        ],
+        "max": [
+          16.000000100000005,
+          12.000000100000005,
+          9.400514802873976
+        ],
+        "size": [
+          12.000000200000011,
+          24.000000200000013,
+          9.401029605747947
+        ]
+      }
+    },
+    {
+      "id": "N2_solenoid_body",
+      "name": "Adafruit 2776 frame and coil",
+      "kind": "actuator",
+      "mpn": "Adafruit 2776",
+      "explode": [
+        0,
+        -12,
+        0
+      ],
+      "fidelity": "Drawing-based outer 20.5 x 12 x 11 mm; coil/window/wall details inferred.",
+      "valid": true,
+      "solids": 2,
+      "volume_mm3": 1731.5217273478074,
+      "bbox": {
+        "min": [
+          0.0,
+          -6.0,
+          3.1999999999999993
+        ],
+        "max": [
+          20.5,
+          6.0,
+          14.2
+        ],
+        "size": [
+          20.5,
+          12.0,
+          11.0
+        ]
+      },
+      "step": "N2_solenoid_body.step",
+      "stl": "N2_solenoid_body.stl",
+      "step_sha256": "598a62260d25d670cb22fc5ca149675f7ba884d3249436ff767b29b600eb0477",
+      "color": "#536b85"
+    },
+    {
+      "id": "N2_armature",
+      "name": "Captive armature and rear button",
+      "kind": "hardware",
+      "mpn": "Included with Adafruit 2776",
+      "explode": [
+        -13,
+        0,
+        0
+      ],
+      "keyframes": [
+        {
+          "u": 0
+        },
+        {
+          "u": 0.5,
+          "translation": [
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "u": 1,
+          "translation": [
+            3,
+            0,
+            0
+          ]
+        }
+      ],
+      "fidelity": "4 mm main armature; 1.6 mm rear stem and 3 mm button from drawing; internal length inferred.",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 300.89310498103305,
+      "bbox": {
+        "min": [
+          -5.1,
+          -3.35,
+          5.35
+        ],
+        "max": [
+          24.0,
+          3.35,
+          12.049999999999999
+        ],
+        "size": [
+          29.1,
+          6.7,
+          6.699999999999999
+        ]
+      },
+      "step": "N2_armature.step",
+      "stl": "N2_armature.stl",
+      "step_sha256": "3183da4ffac8b3698fab2effc7ecf90967b8529417fc81f8bd7ace4eaebdd7d3",
+      "color": "#a2abb5"
+    },
+    {
+      "id": "N2_return_spring",
+      "name": "Included return spring (retained shape)",
+      "kind": "hardware",
+      "mpn": "Included with Adafruit 2776",
+      "explode": [
+        -6,
+        0,
+        7
+      ],
+      "fidelity": "Illustrative coil/wire/turn count. Compression is omitted in animation; shown retained only.",
+      "visibleWhen": "retained",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 0.3110182405750682,
+      "bbox": {
+        "min": [
+          -3.0500001,
+          -2.7000154117035273,
+          5.999999899999997
+        ],
+        "max": [
+          1.3500008393866572,
+          2.70001541173408,
+          11.399997228058623
+        ],
+        "size": [
+          4.400000939386658,
+          5.400030823437607,
+          5.399997328058626
+        ]
+      },
+      "step": "N2_return_spring.step",
+      "stl": "N2_return_spring.stl",
+      "step_sha256": "f35e71970815afdab21d35c01b3307771c9e69b6728af0dc8b69d0067ccd584b",
+      "color": "#a2abb5"
+    },
+    {
+      "id": "N2_wire_1",
+      "name": "Positive lead stub",
+      "kind": "reference",
+      "color": "#c95853",
+      "explode": [
+        0,
+        -12,
+        0
+      ],
+      "fidelity": "Routing illustration only. Full supplied lead not modeled.",
+      "mpn": "Included 26 AWG lead",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.9810262106289853,
+      "bbox": {
+        "min": [
+          0.52,
+          -11.5,
+          4.720000000000001
+        ],
+        "max": [
+          1.48,
+          -6.0,
+          5.68
+        ],
+        "size": [
+          0.96,
+          5.5,
+          0.9599999999999991
+        ]
+      },
+      "step": "N2_wire_1.step",
+      "stl": "N2_wire_1.stl",
+      "step_sha256": "4dc8bd1dbf5ed170c29c4b20bcb98d28ae314f16cb42c2f48927800a8af1d593"
+    },
+    {
+      "id": "N2_wire_2",
+      "name": "Return lead stub",
+      "kind": "reference",
+      "color": "#343b46",
+      "explode": [
+        0,
+        -12,
+        0
+      ],
+      "fidelity": "Routing illustration only. Full supplied lead not modeled.",
+      "mpn": "Included 26 AWG lead",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.9810262106289853,
+      "bbox": {
+        "min": [
+          0.52,
+          -11.5,
+          6.02
+        ],
+        "max": [
+          1.48,
+          -6.0,
+          6.98
+        ],
+        "size": [
+          0.96,
+          5.5,
+          0.9600000000000009
+        ]
+      },
+      "step": "N2_wire_2.step",
+      "stl": "N2_wire_2.stl",
+      "step_sha256": "f10cfe72dc4feb38c31fc911fcddc16b226352056947c9196b21a872a98ab258"
+    },
+    {
+      "id": "N2_clamp_screw_1",
+      "name": "M2 x 16 socket screw 1",
+      "kind": "hardware",
+      "standard": "ISO 4762 M2 x 16",
+      "explode": [
+        0,
+        0,
+        12
+      ],
+      "fidelity": "Nominal standard envelope and hex drive; threads simplified to major diameter.",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 71.38893568954299,
+      "bbox": {
+        "min": [
+          8.1,
+          -10.9,
+          0.1999999999999993
+        ],
+        "max": [
+          11.9,
+          -7.1,
+          18.2
+        ],
+        "size": [
+          3.8000000000000007,
+          3.8000000000000007,
+          18.0
+        ]
+      },
+      "step": "N2_clamp_screw_1.step",
+      "stl": "N2_clamp_screw_1.stl",
+      "step_sha256": "2e9e51796cf287f8098bb7e23c8ce9190d1c84ccfa3dbeca53515cf71f668415",
+      "color": "#a2abb5"
+    },
+    {
+      "id": "N2_clamp_nut_1",
+      "name": "M2 hex nut 1",
+      "kind": "hardware",
+      "standard": "ISO 4032 M2",
+      "explode": [
+        0,
+        0,
+        -7
+      ],
+      "fidelity": "Nominal hex/nut thickness, unthreaded bore.",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 17.14370209113796,
+      "bbox": {
+        "min": [
+          7.690598923241497,
+          -11.000000000000002,
+          1.0
+        ],
+        "max": [
+          12.309401076758505,
+          -7.0,
+          2.6
+        ],
+        "size": [
+          4.618802153517008,
+          4.000000000000002,
+          1.6
+        ]
+      },
+      "step": "N2_clamp_nut_1.step",
+      "stl": "N2_clamp_nut_1.stl",
+      "step_sha256": "62dbd04e1df398a5dd6e4169bae1adb1ff216b27e561233c60ba8b155392dfc9",
+      "color": "#a2abb5"
+    },
+    {
+      "id": "N2_clamp_screw_2",
+      "name": "M2 x 16 socket screw 2",
+      "kind": "hardware",
+      "standard": "ISO 4762 M2 x 16",
+      "explode": [
+        0,
+        0,
+        12
+      ],
+      "fidelity": "Nominal standard envelope and hex drive; threads simplified to major diameter.",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 71.38893568954299,
+      "bbox": {
+        "min": [
+          8.1,
+          7.1,
+          0.1999999999999993
+        ],
+        "max": [
+          11.9,
+          10.9,
+          18.2
+        ],
+        "size": [
+          3.8000000000000007,
+          3.8000000000000007,
+          18.0
+        ]
+      },
+      "step": "N2_clamp_screw_2.step",
+      "stl": "N2_clamp_screw_2.stl",
+      "step_sha256": "5ba4100b33cbeb3a6e495ffd40ef14cd16bb3aa58db8f2bd8ded6ab180584159",
+      "color": "#a2abb5"
+    },
+    {
+      "id": "N2_clamp_nut_2",
+      "name": "M2 hex nut 2",
+      "kind": "hardware",
+      "standard": "ISO 4032 M2",
+      "explode": [
+        0,
+        0,
+        -7
+      ],
+      "fidelity": "Nominal hex/nut thickness, unthreaded bore.",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 17.14370209113796,
+      "bbox": {
+        "min": [
+          7.690598923241497,
+          6.999999999999999,
+          1.0
+        ],
+        "max": [
+          12.309401076758505,
+          11.0,
+          2.6
+        ],
+        "size": [
+          4.618802153517008,
+          4.000000000000001,
+          1.6
+        ]
+      },
+      "step": "N2_clamp_nut_2.step",
+      "stl": "N2_clamp_nut_2.stl",
+      "step_sha256": "8b1a12c8a034826e8614c8d6e4dc4ff59999a9894c97d9edb1a4d8e594a4919f",
+      "color": "#a2abb5"
+    }
+  ],
+  "departure_direction": "+Z, externally driven; orient +Z downward for a gravity bench test",
+  "load_path": "Adapter cross-hole floor \u2192 3 \u00d7 3 mm keeper \u2192 receiver roofs on both sides of the lug when retained \u2192 host mount. During withdrawal the distal support disengages before the adapter does, leaving the proximal guide to react the load.",
+  "release_sequence": [
+    "Retained: spring-return keeper crosses the seated adapter lug.",
+    "Unlock: energize the coil; its rear button pulls the open-top fork and keeper +X through nominal 3 mm.",
+    "Clear: gravity or another external force moves the adapter +Z while the keeper stays open. Unlocking alone does not supply that force."
+  ],
+  "reset": "Support the adapter, hold the tab open, insert the lug in \u2212Z, then release the tab and inspect actual keeper engagement. Do not force the lug against a closed keeper.",
+  "assembly_order": [
+    "Insert both M2 nuts from the underside.",
+    "With the actuator and adapter absent, feed the keeper from the +X end through the open guide.",
+    "Lower the complete solenoid from +Z so the rear button enters the open keeper fork.",
+    "Lower the clamp and install the two M2 \u00d7 16 screws.",
+    "Check unloaded manual travel, then attach the supported adapter with the keeper held open."
+  ],
+  "bill_of_materials": [
+    {
+      "item": "Printed receiver",
+      "quantity": 1
+    },
+    {
+      "item": "Printed adapter",
+      "quantity": 1
+    },
+    {
+      "item": "Printed keeper",
+      "quantity": 1
+    },
+    {
+      "item": "Printed clamp",
+      "quantity": 1
+    },
+    {
+      "item": "Adafruit 2776 mini solenoid including captive armature, spring and leads",
+      "quantity": 1,
+      "mpn": "2776"
+    },
+    {
+      "item": "ISO 4762 M2 \u00d7 16 socket screw",
+      "quantity": 2
+    },
+    {
+      "item": "ISO 4032 M2 nut",
+      "quantity": 2
+    }
+  ],
+  "part_count": {
+    "printed": 4,
+    "purchased_solenoid_units": 1,
+    "separate_screws": 2,
+    "separate_nuts": 2,
+    "cad_objects": 13
+  },
+  "local_control": "P6 shared off-board 5 V pulse driver and two-button controller. No payload power or data interface. No direct RC requirement.",
+  "evidence": "CAD concept and sampled rigid-motion checks only. No physical print, load, release, fatigue, wear or aircraft test performed.",
+  "concept_summary": "Supported cross-bolt: a receiver bridge supports the keeper on both sides of the adapter while retained.",
+  "description": "Integral distal keeper bearing trades a thinner lug and tighter stroke budget for a shorter supported retaining span.",
+  "why_consider": "Four prints and the same purchased hardware as N1, with an additional retained-state support rather than a larger actuator.",
+  "main_risk": "Only 0.6 mm nominal distal engagement is available. That support is lost early during withdrawal; loaded release again becomes overhung before the lug clears. The lug is thinner than N1.",
+  "actuator": {
+    "name": "Mini push-pull solenoid",
+    "mpn": "Adafruit 2776",
+    "url": "https://www.adafruit.com/product/2776",
+    "nominal_stroke_mm": 3,
+    "fidelity": "Drawing-based 20.5 \u00d7 12 \u00d7 11 mm frame, \u00d84 armature and rear \u00d81.6 stem / \u00d83 button. Internal coil, spring, button thickness and wire routing include assumptions; measure purchased hardware."
+  },
+  "dimensions": {
+    "nominal_stroke_mm": 3,
+    "retained_keeper_tip_x_mm": 25.9,
+    "distal_support_x_mm": [
+      23.4,
+      26.5
+    ],
+    "proximal_support_x_mm": [
+      28.5,
+      37.4
+    ],
+    "lug_x_mm": [
+      26.8,
+      28.2
+    ],
+    "lug_thickness_mm": 1.4,
+    "nominal_distal_engagement_mm": 0.6,
+    "open_tip_clearance_mm": 0.7,
+    "retaining_bar_yz_mm": [
+      3,
+      3
+    ],
+    "distal_support_disengages_after_nominal_stroke_mm": 0.6,
+    "lug_clears_after_nominal_stroke_mm": 2.3
+  },
+  "manufacturing": {
+    "printed_parts": 4,
+    "material": "Unfilled PETG fit prototype, 0.4 mm nozzle, 0.16 mm layer, 5 walls; inspect slicer paths through the 1.4 mm lug.",
+    "qualification": "No proven strength, creep, loaded release or thermal duty. First print is for fit and force measurement."
+  },
+  "notes": [
+    "Unrated concept; no manufactured or tested specimen.",
+    "Four printed parts, one Adafruit 2776, two M2 \u00d7 16 screws and two M2 nuts; host fasteners are installation-specific.",
+    "The distal support improves the retained load path only while engaged. It does not guarantee lower peak release force.",
+    "The 3 mm stroke budget forces the cross-hole lug to 1.4 mm thickness. This is a new geometry; P5 adapter FEA does not apply.",
+    "Feed the keeper from +X before lowering the complete actuator. Never force it through the roof from above.",
+    "The tab is a ground inspection and manual reset feature; shield it against accidental actuation. Remove the force-test hook before operation.",
+    "No ejector or departure sensor. The adapter needs an external +Z force to clear.",
+    "The included spring is shown only in its retained shape; full lead length and off-board controls are outside the assembly envelope."
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "id": "N2_receiver",
+  "variant": "N2",
+  "case": "low_y_half_contact_bonded",
+  "h_mm": 1.2,
+  "elements": 14267,
+  "dofs": 77358,
+  "quadratic_nodes": 25786,
+  "element": "P2 displacement tetrahedra; faceted linear boundary geometry",
+  "elapsed_s": 32.43587946891785,
+  "material": {
+    "name": "Common effective solid printed PLA",
+    "elastic_model": "isotropic linear elastic",
+    "E_MPa": 2200.0,
+    "nu": 0.35,
+    "density_g_cm3": 1.24,
+    "tension_MPa": 25.0,
+    "compression_MPa": 40.0,
+    "max_shear_MPa": 15.0,
+    "nominal_temperature_C": 22,
+    "infill_assumption": "100 percent / solid-equivalent, no sparse infill",
+    "interpretation": "Effective common comparison assumptions, not measured allowables or a validated fracture law. No directional strength credit; layer adhesion and defects are homogenized. Short-duration static loading only.",
+    "reference": "Bambu PLA Basic TDS V3.0 gives typical XY/Z E 2580/2060 MPa and tensile strength 35/31 MPa for 100 percent infill, annealed/dried coupons. The chosen 25 MPa tension threshold is an analyst assumption, not a supplier rating.",
+    "reference_url": "https://cdn.shopify.com/s/files/1/0645/5876/0155/files/Bambu_PLA_Basic_Technical_Data_Sheet.pdf"
+  },
+  "applied_force_N": [
+    0.0,
+    0.0,
+    1.0
+  ],
+  "applied_moment_Nmm": [
+    9.250000000000002,
+    -27.5,
+    0.0
+  ],
+  "reaction_force_N": [
+    -1.4280445324315488e-11,
+    -2.8267520499358247e-12,
+    -0.9999999999831104
+  ],
+  "reaction_moment_Nmm": [
+    -9.24999999991999,
+    27.49999999996154,
+    -1.3891079649400173e-10
+  ],
+  "force_balance_error_N": 2.229753937043574e-11,
+  "moment_balance_error_Nmm": 1.6485600023276498e-10,
+  "gauge_reaction_norm_N": 0.0,
+  "relative_free_residual": 7.751805270684216e-10,
+  "max_displacement_mm": 0.0052685247078396915,
+  "compliance_Nmm": 0.001703436767344995,
+  "strain_energy_Nmm": 0.0008517183836723795,
+  "cad_volume_mm3": 5191.811338324779,
+  "mesh_volume_mm3": 5192.152036141274,
+  "relative_volume_error": 6.562214885974527e-05,
+  "raw_peak_tensile_MPa": 1.1654421175984,
+  "raw_peak_compressive_MPa": 0.8741226893116321,
+  "raw_peak_max_shear_MPa": 0.44448201041065183,
+  "raw_peak_vm_MPa": 0.8113618182032075,
+  "raw_peak_failure_index": 0.046617684703936,
+  "raw_strength_threshold_N": 21.451086778566857,
+  "raw_peak_element_centroid_mm": [
+    26.063781398281108,
+    8.170676647592352,
+    10.581843038019725
+  ],
+  "regularized": {
+    "0.4": {
+      "radius_mm": 0.4,
+      "maximum_index": 0.018492942769746588,
+      "estimated_strength_threshold_N": 54.074682026050695,
+      "location_mm": [
+        26.391719058287286,
+        9.379512725862899,
+        10.763085131032948
+      ],
+      "tensile_MPa": 0.0,
+      "compressive_MPa": 0.5611050806363233,
+      "max_shear_MPa": 0.2773941415461988,
+      "interpretation": "Volume-weighted tensor average within centroid radius; explicit uncalibrated regularization sensitivity, not demonstrated fracture capacity"
+    },
+    "0.8": {
+      "radius_mm": 0.8,
+      "maximum_index": 0.011307605463092273,
+      "estimated_strength_threshold_N": 88.43605335046166,
+      "location_mm": [
+        26.428957652038598,
+        9.195756848694817,
+        10.8431429678243
+      ],
+      "tensile_MPa": 0.004388002753449995,
+      "compressive_MPa": 0.3348401611393182,
+      "max_shear_MPa": 0.16961408194638408,
+      "interpretation": "Volume-weighted tensor average within centroid radius; explicit uncalibrated regularization sensitivity, not demonstrated fracture capacity"
+    }
+  },
+  "boundary_audit": [
+    {
+      "label": "Distal roof underside: upward on receiver",
+      "selector": {
+        "normal_axis": 2,
+        "z": 10.5,
+        "x_range": [
+          25.9,
+          26.5
+        ],
+        "y_range": [
+          8.5,
+          10.0
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 0.9000000000000052,
+      "geometric_centroid_mm": [
+        26.200000000000003,
+        9.25,
+        10.499999999999995
+      ],
+      "force_N": [
+        0.0,
+        0.0,
+        0.5357142857142856
+      ],
+      "moment_Nmm": [
+        4.955357142857142,
+        -14.035714285714283,
+        0.0
+      ],
+      "target_force_N": [
+        0.0,
+        0.0,
+        0.5357142857142856
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 1.1111111111111047,
+      "maximum_density": 1.1111111111111047,
+      "facets": 8,
+      "kind": "traction"
+    },
+    {
+      "label": "Proximal roof underside: upward on receiver",
+      "selector": {
+        "normal_axis": 2,
+        "z": 10.5,
+        "x_range": [
+          28.5,
+          29.5
+        ],
+        "y_range": [
+          8.5,
+          10.0
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 1.500000000000003,
+      "geometric_centroid_mm": [
+        29.00000000000001,
+        9.25,
+        10.500000000000002
+      ],
+      "force_N": [
+        0.0,
+        0.0,
+        0.4642857142857144
+      ],
+      "moment_Nmm": [
+        4.294642857142858,
+        -13.464285714285717,
+        0.0
+      ],
+      "target_force_N": [
+        0.0,
+        0.0,
+        0.4642857142857144
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 0.6666666666666653,
+      "maximum_density": 0.6666666666666653,
+      "facets": 8,
+      "kind": "traction"
+    },
+    {
+      "label": "Ideal rigid bonded host backing",
+      "kind": "fixture",
+      "selector": {
+        "normal_axis": 2,
+        "z": 0.0,
+        "x_range": [
+          -2.0,
+          38.0
+        ],
+        "y_range": [
+          -13.0,
+          17.0
+        ]
+      },
+      "components": [
+        0,
+        1,
+        2
+      ],
+      "area_mm2": 1152.3147983614954,
+      "dofs": 5118
+    }
+  ],
+  "solver": {
+    "method": "CG with smoothed aggregation AMG",
+    "iterations": 132
+  },
+  "step_sha256": "75ab803d24868cc4bf55335c6f5efd343688ff3f107a22b682b85ce0224a777d",
+  "driver_sha256": "6d71978731b6bf856921f1e1d2e5eb383682f4f9ba6bc65ebfdaede7187789b9",
+  "configuration_sha256": "277bb13420323becfb901a28de47030b1af976362684bb4a86c28864c02a6b12"
+}

@@ -1,0 +1,32 @@
+{
+  "source": "P7 historical arithmetic model, restricted to N2",
+  "source_files": [
+    {
+      "path": "p7_math/n1_n2/calculate.py",
+      "sha256": "be603f855fc7c466f73c8f4107e254747a6ff470113dea9ea2f4064834d0cac2"
+    },
+    {
+      "path": "p7_math/n1_n2/results.json",
+      "sha256": "6fb9dad6e91b4deb5b0bdfb105679447489f1ea88f3d86f99f69cb9d62c261a4"
+    },
+    {
+      "path": "p7_math/n1_n2/full_stroke_mu0p2.json",
+      "sha256": "854e477f9826b3e87865b57a61f05496b205bc4c34885db10f8e1ba2ccbbb86e"
+    },
+    {
+      "path": "p7_math/n1_n2/release_summary.csv",
+      "sha256": "f3cab907cb125d73050dde4fc2cc54528e5abe1414ffbce48abca3dcd98eab17"
+    },
+    {
+      "path": "p7_math/n1_n2/geometry_audit.json",
+      "sha256": "0fc1d9f6e365cf65453bb5ff88bbea2ca04870ae5836ba3f7ece78c547247b2e"
+    },
+    {
+      "path": "p7_math/n1_n2/verify_equilibrium.py",
+      "sha256": "00277bd598963ecd0b79ec38d5a2c07a6db46ad6cc48126b7a8ce71e8b5f3db9"
+    }
+  ],
+  "no_new_FEA": true,
+  "geometry": "The three N2 STEP hashes match the frozen P8 geometry. Source manifest hash refers to the prior P6 design manifest, not this P11 package manifest.",
+  "model_difference": "P7 uses a proximal roof point at near+inset (X28.5 at zero inset). P8 distributes a finite roof patch X28.5\u201329.5 with centroid X29.0. The two studies have different contact assumptions; they must not be combined as one validated contact solution."
+}

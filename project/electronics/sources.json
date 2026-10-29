@@ -1,0 +1,105 @@
+{
+  "revision": "N2 focus P11",
+  "custom_pcb_required": false,
+  "pcbway_quote": "Not applicable: purchased driver and controller only",
+  "items": [
+    {
+      "id": "E01",
+      "manufacturer": "Adafruit",
+      "part": "2776 Mini Push-Pull Solenoid - 5V",
+      "url": "https://www.adafruit.com/product/2776",
+      "locator": "Description / Technical Details",
+      "use": "Actuator; supplier ratings, not a qualified release or duty-cycle rating",
+      "observed_price_usd": 4.95
+    },
+    {
+      "id": "E02",
+      "manufacturer": "Adafruit",
+      "part": "5648 MOSFET Driver",
+      "url": "https://www.adafruit.com/product/5648",
+      "locator": "Description / Technical Details",
+      "design_source": "https://github.com/adafruit/Adafruit-MOSFET-Driver-STEMMA-PCB",
+      "use": "Remote low-side driver with built-in flyback; purchased board",
+      "observed_price_usd": 3.95
+    },
+    {
+      "id": "E03",
+      "manufacturer": "Adafruit",
+      "part": "5648 pinouts",
+      "url": "https://learn.adafruit.com/adafruit-mosfet-driver/pinouts",
+      "use": "V+, GND, In, Out and indicator meanings"
+    },
+    {
+      "id": "E04",
+      "manufacturer": "Raspberry Pi",
+      "part": "Pico / Pico H (RP2040)",
+      "url": "https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html",
+      "pinout_url": "https://pip-assets.raspberrypi.com/categories/610-raspberry-pi-pico/documents/RP-008309-DS-1-Pico-R3-A4-Pinout.pdf",
+      "use": "USB-powered timer board; GPIO numbering and physical pin assignment"
+    },
+    {
+      "id": "E05",
+      "manufacturer": "Raspberry Pi",
+      "mpn": "SC0917",
+      "vendor": "Adafruit",
+      "vendor_part": "5525",
+      "part": "Pico H with presoldered headers",
+      "url": "https://www.adafruit.com/product/5525",
+      "manufacturer_portal": "https://pip.raspberrypi.com/categories/610-raspberry-pi-pico",
+      "identity_crosscheck": "https://www.digikey.com/en/products/detail/raspberry-pi/SC0917/16608257",
+      "use": "Procurement identity/price only; technical design uses official Pico documentation",
+      "observed_price_usd": 5.0,
+      "observed_vendor_availability": "out of stock"
+    },
+    {
+      "id": "E06",
+      "manufacturer": "Adafruit",
+      "part": "367 Tactile Button switch (6mm) 20-pack",
+      "url": "https://www.adafruit.com/product/367",
+      "use": "Two normally-open signal buttons; part listing does not guarantee a specific underlying switch manufacturer",
+      "observed_pack_price_usd": 2.5,
+      "pack_quantity": 20,
+      "used_quantity": 2
+    },
+    {
+      "id": "E07",
+      "manufacturer": "MicroPython",
+      "part": "RP2 API v1.25.0",
+      "url": "https://docs.micropython.org/en/v1.25.0/rp2/quickref.html",
+      "use": "Pin/time API target; this version has not been flashed or tested on hardware for this project"
+    },
+    {
+      "id": "E08",
+      "manufacturer": "MicroPython",
+      "part": "WDT API v1.25.0",
+      "url": "https://docs.micropython.org/en/v1.25.0/library/machine.WDT.html",
+      "use": "Backup hardware watchdog reset; not the development pulse timer"
+    },
+    {
+      "id": "E09",
+      "manufacturer": "Raspberry Pi",
+      "part": "MicroPython installation",
+      "url": "https://www.raspberrypi.com/documentation/microcontrollers/micropython.html",
+      "firmware_download": "https://micropython.org/download/RPI_PICO/",
+      "use": "UF2 installation and board filesystem workflow"
+    }
+  ],
+  "engineering_choices_not_supplier_ratings": {
+    "supply_voltage_v": 5.0,
+    "minimum_supply_capability_a": 2.0,
+    "starting_current_limit_a": 1.3,
+    "pulse_ms": 250,
+    "minimum_command_off_cooldown_ms": 10000,
+    "startup_lockout_ms": 10000,
+    "external_operator_temperature_gate_degC_above_ambient": 2,
+    "driver_input_pulldown_ohm": 10000,
+    "nominal_poll_ms": 5,
+    "active_poll_gap_fault_ms": 50,
+    "watchdog_ms": 1000,
+    "initial_command_pulse_checkout_tolerance_ms": 10,
+    "thermal_sensor_installed": false,
+    "departure_sensor_installed": false
+  },
+  "source_record_date": "2026-10-26",
+  "record_handling": "Historical source record carried forward; no current price or availability verification claimed."
+}

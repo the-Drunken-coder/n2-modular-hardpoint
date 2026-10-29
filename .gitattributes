@@ -1,0 +1,9 @@
+# Preserve the issued source bytes, including original line endings.
+project/** -text
+history/comparison_reports/*.pdf -text
+
+# New repository documentation uses LF.
+README.md text eol=lf
+docs/** text eol=lf
+history/README.md text eol=lf
+provenance/** text eol=lf

@@ -1,0 +1,91 @@
+{
+  "variant": "N2",
+  "geometry_revision": "P6-01",
+  "files": [
+    {
+      "file": "N2_assembled.png",
+      "source": "P6 drawings/N2_assembled.png",
+      "sha256": "733589cf396fbf67e8caae94470bdeac12d3397253719c565fd7aa2e1f261bc9",
+      "view": "assembled",
+      "format": "png"
+    },
+    {
+      "file": "N2_assembled.svg",
+      "source": "P6 drawings/N2_assembled.svg",
+      "sha256": "1202f8cc2eed06d5af731a09294f0e0bcfb1a1615dad1a36f6f5df404da745cc",
+      "view": "assembled",
+      "format": "svg"
+    },
+    {
+      "file": "N2_dimensions.png",
+      "source": "P6 drawings/N2_dimensions.png",
+      "sha256": "3b70cc77018157c06a350504da7716c6f2f6821823c51ca8a1cde930d28811c4",
+      "view": "dimensions",
+      "format": "png"
+    },
+    {
+      "file": "N2_dimensions.svg",
+      "source": "P6 drawings/N2_dimensions.svg",
+      "sha256": "22ff3be737160ce037b7c27b9eda8fae03f791e0e94b303c8765fef6bad35af4",
+      "view": "dimensions",
+      "format": "svg"
+    },
+    {
+      "file": "N2_exploded.png",
+      "source": "P6 drawings/N2_exploded.png",
+      "sha256": "2ea8ea7b59ba0bedcce31239bae6ef179484c70d96e6d9c804424c2239b279ad",
+      "view": "exploded",
+      "format": "png"
+    },
+    {
+      "file": "N2_exploded.svg",
+      "source": "P6 drawings/N2_exploded.svg",
+      "sha256": "7fd7775871ebb7408be6264e47a7fff25a50a3203013506e9fe4da58df636e26",
+      "view": "exploded",
+      "format": "svg"
+    },
+    {
+      "file": "N2_separated.png",
+      "source": "P6 drawings/N2_separated.png",
+      "sha256": "9148220d29a7e69717dbe50e6519f2346b9bccc4d64b747aeedc88cb47983d53",
+      "view": "separated",
+      "format": "png"
+    },
+    {
+      "file": "N2_separated.svg",
+      "source": "P6 drawings/N2_separated.svg",
+      "sha256": "c6b64f9ac6d1ce8b55925211129eea7209c11367341d523906358084c6a17cad",
+      "view": "separated",
+      "format": "svg"
+    },
+    {
+      "file": "N2_sequence.png",
+      "source": "P6 drawings/N2_sequence.png",
+      "sha256": "4fc56bc4a982a8d999c03c9b5930e15db3d7cabe676bf33b279ff23a9585baa1",
+      "view": "sequence",
+      "format": "png"
+    },
+    {
+      "file": "N2_sequence.svg",
+      "source": "P6 drawings/N2_sequence.svg",
+      "sha256": "18fb7c3a68b9a1438bb640a896d1de2ef14517d453b3a06b8c6f51569fccaa86",
+      "view": "sequence",
+      "format": "svg"
+    },
+    {
+      "file": "N2_unlocked.png",
+      "source": "P6 drawings/N2_unlocked.png",
+      "sha256": "c76e2e50c422a590dca2a50c6d9a663731418d69bbc29c24ccf11aea4aac0e01",
+      "view": "unlocked",
+      "format": "png"
+    },
+    {
+      "file": "N2_unlocked.svg",
+      "source": "P6 drawings/N2_unlocked.svg",
+      "sha256": "7fca31b5936200ff71d063a3cd48a9aa0edc9d791687e4d2a0bd04871dd1f9c5",
+      "view": "unlocked",
+      "format": "svg"
+    }
+  ],
+  "fidelity": "Original N2 CAD illustration exports, copied unchanged. Dimensions are nominal; no new toleranced manufacturing drawing is implied."
+}

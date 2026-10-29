@@ -1,0 +1,21 @@
+test_active_loop_stall_turns_off_and_latches_fault (test_controller.BenchScenarios.test_active_loop_stall_turns_off_and_latches_fault) ... ok
+test_arm_aborts_a_pulse (test_controller.BenchScenarios.test_arm_aborts_a_pulse) ... ok
+test_arm_again_cancels_armed_state (test_controller.BenchScenarios.test_arm_again_cancels_armed_state) ... ok
+test_arming_expires_without_a_pulse (test_controller.BenchScenarios.test_arming_expires_without_a_pulse) ... ok
+test_backwards_time_faults (test_controller.BenchScenarios.test_backwards_time_faults) ... ok
+test_boot_and_held_fire_never_energize (test_controller.BenchScenarios.test_boot_and_held_fire_never_energize) ... ok
+test_both_buttons_latch_fault_and_no_button_recovers (test_controller.BenchScenarios.test_both_buttons_latch_fault_and_no_button_recovers) ... ok
+test_cooldown_starts_when_pulse_turns_off (test_controller.BenchScenarios.test_cooldown_starts_when_pulse_turns_off) ... ok
+test_early_fire_during_arm_cycle_faults (test_controller.BenchScenarios.test_early_fire_during_arm_cycle_faults) ... ok
+test_fire_bounce_does_not_extend_or_queue_pulse (test_controller.BenchScenarios.test_fire_bounce_does_not_extend_or_queue_pulse) ... ok
+test_fresh_arm_release_then_one_pulse (test_controller.BenchScenarios.test_fresh_arm_release_then_one_pulse) ... ok
+test_held_arm_at_boot_does_not_arm (test_controller.BenchScenarios.test_held_arm_at_boot_does_not_arm) ... ok
+test_held_fire_cannot_restart_after_cooldown (test_controller.BenchScenarios.test_held_fire_cannot_restart_after_cooldown) ... ok
+test_invalid_development_limits_rejected (test_controller.BenchScenarios.test_invalid_development_limits_rejected) ... ok
+test_restart_has_new_lockout_and_no_remembered_arming (test_controller.BenchScenarios.test_restart_has_new_lockout_and_no_remembered_arming) ... ok
+test_short_button_chatter_does_not_create_stable_press (test_controller.BenchScenarios.test_short_button_chatter_does_not_create_stable_press) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.003s
+
+OK

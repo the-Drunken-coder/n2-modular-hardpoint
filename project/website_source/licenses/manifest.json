@@ -1,0 +1,222 @@
+[
+  {
+    "package": "@babel/runtime",
+    "version": "7.29.10",
+    "path": "@babel/runtime/7.29.10/LICENSE"
+  },
+  {
+    "package": "@blueprintjs/colors",
+    "version": "5.1.16",
+    "path": "@blueprintjs/colors/5.1.16/LICENSE"
+  },
+  {
+    "package": "@blueprintjs/core",
+    "version": "6.21.0",
+    "path": "@blueprintjs/core/6.21.0/LICENSE"
+  },
+  {
+    "package": "@blueprintjs/icons",
+    "version": "6.14.1",
+    "path": "@blueprintjs/icons/6.14.1/LICENSE"
+  },
+  {
+    "package": "@floating-ui/core",
+    "version": "1.8.0",
+    "path": "@floating-ui/core/1.8.0/LICENSE"
+  },
+  {
+    "package": "@floating-ui/dom",
+    "version": "1.8.0",
+    "path": "@floating-ui/dom/1.8.0/LICENSE"
+  },
+  {
+    "package": "@floating-ui/react",
+    "version": "0.27.20",
+    "path": "@floating-ui/react/0.27.20/LICENSE"
+  },
+  {
+    "package": "@floating-ui/react-dom",
+    "version": "2.1.9",
+    "path": "@floating-ui/react-dom/2.1.9/LICENSE"
+  },
+  {
+    "package": "@floating-ui/utils",
+    "version": "0.2.12",
+    "path": "@floating-ui/utils/0.2.12/LICENSE"
+  },
+  {
+    "package": "@popperjs/core",
+    "version": "2.11.8",
+    "path": "@popperjs/core/2.11.8/LICENSE.md"
+  },
+  {
+    "package": "camel-case",
+    "version": "4.1.2",
+    "path": "camel-case/4.1.2/LICENSE"
+  },
+  {
+    "package": "capital-case",
+    "version": "1.0.4",
+    "path": "capital-case/1.0.4/LICENSE"
+  },
+  {
+    "package": "change-case",
+    "version": "4.1.2",
+    "path": "change-case/4.1.2/LICENSE"
+  },
+  {
+    "package": "classnames",
+    "version": "2.5.1",
+    "path": "classnames/2.5.1/LICENSE"
+  },
+  {
+    "package": "constant-case",
+    "version": "3.0.4",
+    "path": "constant-case/3.0.4/LICENSE"
+  },
+  {
+    "package": "csstype",
+    "version": "3.2.3",
+    "path": "csstype/3.2.3/LICENSE"
+  },
+  {
+    "package": "dom-helpers",
+    "version": "5.2.1",
+    "path": "dom-helpers/5.2.1/LICENSE"
+  },
+  {
+    "package": "dot-case",
+    "version": "3.0.4",
+    "path": "dot-case/3.0.4/LICENSE"
+  },
+  {
+    "package": "esbuild",
+    "version": "0.25.12",
+    "path": "esbuild/0.25.12/LICENSE.md"
+  },
+  {
+    "package": "header-case",
+    "version": "2.0.4",
+    "path": "header-case/2.0.4/LICENSE"
+  },
+  {
+    "package": "js-tokens",
+    "version": "4.0.0",
+    "path": "js-tokens/4.0.0/LICENSE"
+  },
+  {
+    "package": "loose-envify",
+    "version": "1.4.0",
+    "path": "loose-envify/1.4.0/LICENSE"
+  },
+  {
+    "package": "lower-case",
+    "version": "2.0.2",
+    "path": "lower-case/2.0.2/LICENSE"
+  },
+  {
+    "package": "no-case",
+    "version": "3.0.4",
+    "path": "no-case/3.0.4/LICENSE"
+  },
+  {
+    "package": "normalize.css",
+    "version": "8.0.1",
+    "path": "normalize.css/8.0.1/LICENSE.md"
+  },
+  {
+    "package": "object-assign",
+    "version": "4.1.1",
+    "path": "object-assign/4.1.1/license"
+  },
+  {
+    "package": "param-case",
+    "version": "3.0.4",
+    "path": "param-case/3.0.4/LICENSE"
+  },
+  {
+    "package": "pascal-case",
+    "version": "3.1.2",
+    "path": "pascal-case/3.1.2/LICENSE"
+  },
+  {
+    "package": "path-case",
+    "version": "3.0.4",
+    "path": "path-case/3.0.4/LICENSE"
+  },
+  {
+    "package": "prop-types",
+    "version": "15.8.1",
+    "path": "prop-types/15.8.1/LICENSE"
+  },
+  {
+    "package": "react",
+    "version": "18.3.1",
+    "path": "react/18.3.1/LICENSE"
+  },
+  {
+    "package": "react-dom",
+    "version": "18.3.1",
+    "path": "react-dom/18.3.1/LICENSE"
+  },
+  {
+    "package": "react-fast-compare",
+    "version": "3.2.2",
+    "path": "react-fast-compare/3.2.2/LICENSE"
+  },
+  {
+    "package": "react-is",
+    "version": "16.13.1",
+    "path": "react-is/16.13.1/LICENSE"
+  },
+  {
+    "package": "react-popper",
+    "version": "2.3.0",
+    "path": "react-popper/2.3.0/LICENSE"
+  },
+  {
+    "package": "react-transition-group",
+    "version": "4.4.5",
+    "path": "react-transition-group/4.4.5/LICENSE"
+  },
+  {
+    "package": "scheduler",
+    "version": "0.23.2",
+    "path": "scheduler/0.23.2/LICENSE"
+  },
+  {
+    "package": "sentence-case",
+    "version": "3.0.4",
+    "path": "sentence-case/3.0.4/LICENSE"
+  },
+  {
+    "package": "snake-case",
+    "version": "3.0.4",
+    "path": "snake-case/3.0.4/LICENSE"
+  },
+  {
+    "package": "tabbable",
+    "version": "6.5.1",
+    "path": "tabbable/6.5.1/LICENSE"
+  },
+  {
+    "package": "three",
+    "version": "0.180.0",
+    "path": "three/0.180.0/LICENSE"
+  },
+  {
+    "package": "tslib",
+    "version": "2.6.3",
+    "path": "tslib/2.6.3/LICENSE.txt"
+  },
+  {
+    "package": "upper-case-first",
+    "version": "2.0.2",
+    "path": "upper-case-first/2.0.2/LICENSE"
+  },
+  {
+    "package": "warning",
+    "version": "4.0.3",
+    "path": "warning/4.0.3/LICENSE.md"
+  }
+]
