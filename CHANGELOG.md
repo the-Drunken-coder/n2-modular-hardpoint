@@ -1,5 +1,8 @@
 # Changelog
 
+## Requirements — 2026-10-29
+- Added [docs/requirements.md](docs/requirements.md): R1–R7 (1.81 kg, 2 g, straight pull, SF 2 → ≥ 71.2 N, fail-safe latch, one moving part, simple to print). P13 compliance: fails R4 (18.3 N), R5d (fragile distal state) and R7 (supports); R5c and R5e unknown.
+
 ## Improvement study — 2026-10-29
 - Added [docs/improvement-study.md](docs/improvement-study.md): first-principles breakdown and 10 ideas, FEA or hand-calc each. Best: socket-wall bearing (90° 2.1 → 10.7 N) and a longer-stroke keeper with 3.4 mm lug and 2 mm overlap (≈21 N straight, ≥15.5 N any angle, PAHT-CF SF 2). Paper only; the current rating is unchanged.
 - Added `tools/n2fea.py` (one-command variant build + FEA + rating) and `tools/n2variant.py`. Data in `project/analysis/improvements/`.
