@@ -1,0 +1,77 @@
+<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>EVIDENCE_AND_READINESS</title>
+<style>body{font:15px/1.55 system-ui,sans-serif;max-width:960px;margin:0 auto;padding:24px;color:#1d2125}
+h1{margin-bottom:0}nav a{margin-right:14px}table{border-collapse:collapse;margin:12px 0}td,th{border:1px solid #ccd;padding:4px 8px}
+code,pre{background:#f3f4f6;border-radius:4px}pre{padding:10px;overflow:auto}.card{border:1px solid #dde;border-radius:8px;padding:14px 18px;margin:16px 0}
+.big{font-size:28px;font-weight:700}.warn{color:#a15c00;font-weight:600}#viewer{width:100%;height:420px;background:#f6f7f9;border-radius:8px}
+ul.log{font-family:monospace;font-size:13px}</style><nav><a href="../index.html">Home</a><a href="../docs/provisional-load-rating.html">Rating</a><a href="../docs/fea-review.html">FEA review</a><a href="../docs/test-plan.html">Test plan</a><a href="../docs/changelog.html">Changelog</a></nav><h1>Evidence and readiness</h1>
+<p>This is a record of the current evidence, not a new qualification result. The selected N2 package and this repository import retain unchanged geometry and existing analytical/software records. <a href="../project/docs/selection.html">Selection record</a></p>
+<h2>Evidence register</h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Available evidence</th>
+<th>What it establishes</th>
+<th>What remains open</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CAD</td>
+<td>Editable N2 generator, issued STEP/STL, source provenance, frozen-file and regeneration reports</td>
+<td>Nominal geometry and reported digital continuity</td>
+<td>Actual printing, shrinkage, surface quality, assembly fit and tolerances</td>
+</tr>
+<tr>
+<td>Motion</td>
+<td>Prescribed viewer motions and sampled rigid interference checks</td>
+<td>The documented nominal sequence and sampled clearances</td>
+<td>Loaded motion, elastic deformation, friction, actuator travel and actual departure</td>
+</tr>
+<tr>
+<td>Structure</td>
+<td>39 PLA case records, frozen inputs, 10 meshes in the original archive, convergence/contact/mounting sensitivities</td>
+<td>Conditional linear-elastic stress screens</td>
+<td>Material allowables, nonlinear failure, creep, fatigue, installation and load qualification</td>
+</tr>
+<tr>
+<td>Withdrawal</td>
+<td>Historical full-stroke analytical friction model and equilibrium audit</td>
+<td>Arithmetic for selected assumed contact/friction branches</td>
+<td>Measured demand, actual contact transitions and net available actuator force</td>
+</tr>
+<tr>
+<td>Controls</td>
+<td>Original controller source, 16-test host transcript and verification record</td>
+<td>Recorded software logic behavior</td>
+<td>Physical flashing, pulse/current measurement, coil temperature, hardware faults and mechanical release</td>
+</tr>
+<tr>
+<td>Manufacturing and cost</td>
+<td>Print instructions, model-derived mass, historical supplier records, blank inspection/timing forms</td>
+<td>Reproducible assumptions and planned records</td>
+<td>Weighed parts, current quotes, complete procurement and manufactured test evidence</td>
+</tr>
+<tr>
+<td>Repository import</td>
+<td>Full archive CRC/hash audit, imported byte comparisons, syntax and JSON checks</td>
+<td>Source preservation and recoverability</td>
+<td>New CAD/FEA/software execution or any physical validation</td>
+</tr>
+</tbody>
+</table>
+<p>Source records: <a href="../project/cad/SOURCE_PROVENANCE.json">CAD provenance</a>, <a href="../project/cad/REGENERATION_VERIFICATION.json">regeneration report</a>, <a href="../project/analysis/METHOD.html">analysis method</a>, <a href="../project/analysis/historical_release/README.html">historical friction model</a>, <a href="../project/electronics/verification.json">controller verification</a>, <a href="../project/manufacturing/BOM.html">BOM</a>, <a href="../provenance/import_validation.json">import validation</a>.</p>
+<h2>Prioritized continuation already defined by the project</h2>
+<ol>
+<li><strong>Measure real support and open clearance.</strong> Record actual parts, actuator travel, fork lost motion and retained play. Positive distal overlap must remain observable across measured variation; the issued plan uses a provisional full-open clearance target of at least 0.20 mm after variation. Binding, lost retained support or inadequate open margin stops loaded testing.</li>
+<li><strong>Measure the complete force budget.</strong> Compare net actuator pull and mechanism demand at every relevant stroke position and condition, including the transitions near 0.6 and 2.3 mm. Count spring force once. The existing provisional development gate is at least 2:1 minimum measured available pull to maximum measured demand, including uncertainty. That ratio has not been passed or qualified.</li>
+<li><strong>Characterize actual mounting and retained-load behavior.</strong> The existing plan calls for matching material specimens and representative assemblies, actual backing and fixtures, and separately recorded first damage, permanent set, slip and ultimate separation. Service wrench, proof factor and permitted set must be defined before qualification; no service value is supplied by the archived FEA.</li>
+<li><strong>Measure complete release and faults.</strong> Distinguish command-on, keeper withdrawn, adapter clear and command-off. The timing forms are blank. Demonstrate the actual departure path, including incomplete insertion, obstructed return and relevant installation conditions, before treating an energized coil as successful release.</li>
+<li><strong>Establish thermal, wear and installation behavior.</strong> The initial pulse/off settings remain unqualified. Coil and printed-contact temperatures, repeatability, retained duration, wear and installation-specific separation remain open.</li>
+</ol>
+<p>These are summarized from the <a href="../project/docs/verification.html">original verification plan</a>. That source contains the complete procedures and provisional acceptance language. This import adds no operating envelope, test completion, reliability claim, or flight qualification.</p>
+<h2>Reproducibility boundary</h2>
+<p>The final frozen analysis driver is identified by SHA-256 <code>6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c</code>. It is the implementation supplied for future replay. Historical <code>driver_sha256</code> fields were sampled when results were serialized and cannot prove which code bytes had already been imported into each running process. Older executing snapshots were not retained. Successful archive/hash verification therefore does not prove bit-identical replay of every historical solve. <a href="../project/analysis/REPRODUCE.html">Reproduction instructions</a> · <a href="../project/analysis/input_manifest.json">Frozen input manifest</a></p>
+<p>The original manifests include 11 frozen inputs and 105 archived analysis outputs. This checkout retains all frozen inputs and compact scalar outputs; raw arrays and mesh files are in the complete package. The original whole-package verification commands need those files. Preserve this distinction when reviewing a future change or reporting test results. <a href="ARTIFACTS_AND_RECOVERY.html">Recovery instructions</a></p>
+<h2>Import-specific checks</h2>
+<p>The repository import validates content identity and basic readability. It does not rerun FEA, regenerate CAD, install dependencies, build/deploy the website, flash hardware, or invoke actuator firmware. Historical test transcripts and browser/build reports are labeled by their original dates and remain evidence of their original runs. <a href="../provenance/import_validation.json">Machine-readable import validation</a></p>

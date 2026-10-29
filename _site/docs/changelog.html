@@ -1,0 +1,31 @@
+<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>changelog</title>
+<style>body{font:15px/1.55 system-ui,sans-serif;max-width:960px;margin:0 auto;padding:24px;color:#1d2125}
+h1{margin-bottom:0}nav a{margin-right:14px}table{border-collapse:collapse;margin:12px 0}td,th{border:1px solid #ccd;padding:4px 8px}
+code,pre{background:#f3f4f6;border-radius:4px}pre{padding:10px;overflow:auto}.card{border:1px solid #dde;border-radius:8px;padding:14px 18px;margin:16px 0}
+.big{font-size:28px;font-weight:700}.warn{color:#a15c00;font-weight:600}#viewer{width:100%;height:420px;background:#f6f7f9;border-radius:8px}
+ul.log{font-family:monospace;font-size:13px}</style><nav><a href="../index.html">Home</a><a href="../docs/provisional-load-rating.html">Rating</a><a href="../docs/fea-review.html">FEA review</a><a href="../docs/test-plan.html">Test plan</a><a href="../docs/changelog.html">Changelog</a></nav><h1>Changelog</h1>
+<h2>P13 — 2026-10-29</h2>
+<ul>
+<li><strong>0.3 mm fillet</strong> at the inside corners where the keeper-channel walls meet the roof underside (the governing stress spot). <code>build_n2.py</code> parameter <code>ROOF_FILLET</code> (env <code>N2_ROOF_FILLET</code>).</li>
+<li>Governing FEA screen (distal roof lost, 0.55 mm mesh): 10.30 N → <strong>12.09 N</strong>. Two-screw case 12.21 N, both roofs loaded 34.71 N.</li>
+<li>Mesh check at local 0.4 mm: 12.17 N (+0.6%), so the fillet result is mesh-stable.</li>
+<li><strong>Provisional rating 3.4 N → 4.0 N</strong> (≈ 400 g at 1 g, SF 3). Untested.</li>
+<li>Fillets over 0.3 mm cut into the archived load patch and can't be screened like-for-like; 1.0 mm leaves 0.01 mm keeper clearance and ≥ 1.2 mm hits the keeper.</li>
+<li>Keeper clearance and release unchanged (0.3 mm open gap, no overlap).</li>
+<li>Regenerated receiver STEP/STL/print STL, assembly STEP, viewer data.</li>
+<li><code>STATUS.md</code> in the repo root, regenerated on every push.</li>
+<li>GitHub Pages site back (public, by choice): 3D assembly viewer with part toggles, print-part viewer and STL downloads; rating read from the docs.</li>
+</ul>
+<h2>P12 — 2026-10-29</h2>
+<ul>
+<li><strong>Receiver guide roofs raised +2.0 mm</strong> (top Z 12.7 → 14.7). Only the receiver changed; keeper overlap stays 0.6 mm.</li>
+<li>Governing FEA screen (receiver, distal roof lost, 0.55 mm mesh): 7.48 N → <strong>10.30 N</strong>.</li>
+<li><strong>Provisional rating 2.4 N → 3.4 N</strong> (≈ 340 g at 1 g, SF 3). Untested.</li>
+<li><code>build_n2.py</code> now has <code>DISTAL_OVERLAP</code> and <code>ROOF_EXTRA</code> parameters (env <code>N2_DISTAL_OVERLAP</code>, <code>N2_ROOF_EXTRA</code>).</li>
+<li>Regenerated receiver STEP/STL/print STL, assembly STEP, viewer data.</li>
+<li>Sweep results: <code>project/analysis/p12_roof_sweep/</code>. Test plan load steps updated.</li>
+</ul>
+<h2>P11 review — 2026-10-29</h2>
+<ul>
+<li>FEA review of the 39 archived cases, first provisional rating (2.4 N), proof-test plan.</li>
+</ul>
