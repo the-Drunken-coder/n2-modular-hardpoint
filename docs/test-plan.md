@@ -1,6 +1,6 @@
 # N2 physical proof-load test plan (one page)
 
-Goal: check the [provisional rating](provisional-load-rating.md) for the **P12 receiver (roof +2.0 mm)**: 3.4 N static +Z, SF 3 and that the keeper releases under load. Print the P12 receiver (roof top Z 14.7). Use parts printed exactly like flight parts (same printer, filament lot, orientation, 100% infill). Record print settings.
+Goal: check the [provisional rating](provisional-load-rating.md) for the **P13 receiver (roof +2.0 mm, 0.3 mm corner fillet)**: 4.0 N static +Z, SF 3 and that the keeper releases under load. Print the P13 receiver (roof top Z 14.7, filleted inside corners). Use parts printed exactly like flight parts (same printer, filament lot, orientation, 100% infill). Record print settings.
 
 ## Setup
 
@@ -13,26 +13,26 @@ Goal: check the [provisional rating](provisional-load-rating.md) for the **P12 r
 
 | Step | Load, N (≈ g) | Hold |
 |---|---:|---:|
-| 1 | 1.7 (175 g) — 0.5× rating | 1 min |
-| 2 | 3.4 (345 g) — 1.0× rating | 10 min (creep check) |
-| 3 | 5.1 (520 g) — 1.5× rating | 1 min |
-| 4 | 6.8 (695 g) — 2.0× rating | 1 min |
-| 5 | 10.2 (1040 g) — 3.0× rating = rating × SF | 1 min |
+| 1 | 2.0 (205 g) — 0.5× rating | 1 min |
+| 2 | 4.0 (410 g) — 1.0× rating | 10 min (creep check) |
+| 3 | 6.0 (610 g) — 1.5× rating | 1 min |
+| 4 | 8.0 (815 g) — 2.0× rating | 1 min |
+| 5 | 12.0 (1225 g) — 3.0× rating = rating × SF | 1 min |
 
 Unload fully between steps 2 and 3 and check for permanent set.
 
 ## Release under load
 
-At 1.0× rating (3.4 N), fire the solenoid release 10 times. Record: released yes/no, payload dropped clear yes/no, any hang-up. Then once at 2× rating.
+At 1.0× rating (4.0 N), fire the solenoid release 10 times. Record: released yes/no, payload dropped clear yes/no, any hang-up. Then once at 2× rating.
 
 ## Part B (optional, 1 sacrificial specimen)
 
-Keep stepping +1 N/min past 10.2 N until failure. Record failure load and location. Predicted screen crossing: ~10.3 N at the receiver roof underside near the proximal contact patch edge.
+Keep stepping +1 N/min past 12.0 N until failure. Record failure load and location. Predicted screen crossing: ~12.1 N at the receiver roof underside fillet, +Y channel edge near the proximal contact patch.
 
 ## Pass / fail
 
 - **Pass:** all 3 specimens hold step 5 for 1 min with no crack, no whitening, no visible permanent deformation, keeper still seated; creep at step 2 < 0.2 mm over 10 min; 10/10 releases at rating with payload clearing.
-- **Fail:** any crack/whitening/delamination, keeper slips or pops, a missed or sticky release, or failure below 10.2 N. Then don't fly it; fix the design (distal overlap, roof thickness) or lower the rating.
+- **Fail:** any crack/whitening/delamination, keeper slips or pops, a missed or sticky release, or failure below 12.0 N. Then don't fly it; fix the design (distal overlap, roof thickness) or lower the rating.
 
 ## Record
 
