@@ -30,11 +30,12 @@ body = f"""<h1>N2 modular hardpoint</h1><p>PLA, mechanical-only payload release 
 <div class=card><div>Provisional rating (current design)</div><div class=big>{html.escape(rating.split(': ',1)[1].split('. PROVISIONAL')[0])}</div>
 <div class=warn>PROVISIONAL. Untested, paper number only. See <a href="docs/provisional-load-rating.html">rating</a>.</div>
 <p>Status: design + analysis only. Next: print the current receiver and run the <a href="docs/test-plan.html">proof-load test</a>. ({html.escape(rating.split(':')[0])})</p></div>
+<div class=card><h2>3D assembly</h2><p>Drag to orbit, scroll to zoom, right-drag to pan. Toggle parts:</p><div id=tog>{''.join(f'<label style="margin-right:10px"><input type=checkbox checked data-i="{i}"> {html.escape(q["id"].replace("N2_",""))}</label>' for i,q in enumerate(asm))}</div><div id=viewer></div>
+<h3>Print parts (STL)</h3><select id=pick>{opts}</select> <a id=dl href="#">download</a> <button id=showp>view print part</button> <button id=showa>back to assembly</button></div>
 <div class=card><h2>Latest change</h2>{md('## ' + cl)}</div>
 <div class=card><h2>Recent commits</h2><ul class=log>{''.join('<li>'+html.escape(l)+'</li>' for l in log)}</ul></div>
 <div class=card><h2>Docs</h2><ul>{links}</ul></div>
-<div class=card><h2>3D assembly</h2><p>Drag to orbit, scroll to zoom, right-drag to pan. Toggle parts:</p><div id=tog>{''.join(f'<label style="margin-right:10px"><input type=checkbox checked data-i="{i}"> {html.escape(q["id"].replace("N2_",""))}</label>' for i,q in enumerate(asm))}</div><div id=viewer></div>
-<h3>Print parts (STL)</h3><select id=pick>{opts}</select> <a id=dl href="#">download</a> <button id=showp>view print part</button> <button id=showa>back to assembly</button></div>
+
 <script type=importmap>{{"imports":{{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}}}</script>
 <script type=module>
 import * as T from 'three';import {{STLLoader}} from 'three/addons/loaders/STLLoader.js';import {{OrbitControls}} from 'three/addons/controls/OrbitControls.js';
