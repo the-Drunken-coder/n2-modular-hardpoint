@@ -24,7 +24,7 @@ function RatingCard({ rating, compact }) {
     <Card elevation={Elevation.TWO} className="rating">
       <div className={Classes.TEXT_MUTED}>{head} · provisional load rating</div>
       <div className="big">{rest.split('. PROVISIONAL')[0]}</div>
-      {!compact && <Tag intent={Intent.WARNING} large minimal icon="warning-sign">PROVISIONAL, untested: paper number (FEA screen ÷ SF 3)</Tag>}
+      {!compact && <Tag intent={Intent.WARNING} large minimal icon="warning-sign">PROVISIONAL, untested: paper number (FEA screen ÷ SF 2)</Tag>}
     </Card>
   );
 }

@@ -1,5 +1,10 @@
 # Changelog
 
+## Safety factor 2 — 2026-10-29
+- **Safety factor changed from 3 to 2 (Lane's choice).** PAHT-CF rating **9.1 N** (≈ 0.92 kg at 1 g; 18.33 N / 2, rounded down), straight +Z only, untested. Off-axis at SF 2: 2.5 N at 45°, 1.9 N at 90°. PLA Basic baseline at SF 2: 6.0 N straight, 1.7 N at 45°, 1.2 N at 90°.
+- SF 2 depends on the Z coupon test confirming TDS Z strength (47 MPa PAHT-CF); coupon test is now required.
+- Test plan re-stepped to 4.5 / 9.1 / 13.6 / 18.2 N. Top step (18.2 N) sits at the predicted failure (18.3 N): spare parts only.
+
 ## Print requirements — 2026-10-29
 - Material study: recommended Bambu PAHT-CF (TDS Z tensile 47 MPa vs PLA 31) with receiver on its −X end and adapter on its −Y side. **Provisional rating 6.1 N in PAHT-CF** (4.0 N in PLA Basic), straight pull, SF 3, untested. See docs/print-requirements.md.
 - Added [docs/print-requirements.md](docs/print-requirements.md): dried PLA Basic, 100% solid, supplied orientations. The rating assumes these. Receiver roof and adapter floor tension crosses the layers (open issue). Test plan now requires a print record and has an optional Z coupon test.

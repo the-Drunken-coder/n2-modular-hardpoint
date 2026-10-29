@@ -1,8 +1,8 @@
 # N2 provisional load rating
 
-> **PROVISIONAL. UNTESTED. Paper number only.** Not a qualified payload capacity. Valid for static, short-duration +Z extraction at room temperature, solid (100%) PLA, until the physical proof test in [test-plan.md](test-plan.md) passes.
+> **PROVISIONAL. UNTESTED. Paper number only.** Not a qualified payload capacity. Valid for static, short-duration +Z extraction at room temperature, solid (100%) PAHT-CF (or PLA Basic baseline) printed per [print-requirements.md](print-requirements.md), until the physical proof test in [test-plan.md](test-plan.md) passes.
 
-> **Off-axis warning (P13 expanded sims):** the rating is for straight +Z pull only. Angled pull drops the adapter-floor screen to ~4.6 N at 30° and ~3.4 N at 45° (pessimistic model). See [p13-expanded-sims.md](p13-expanded-sims.md).
+> **Off-axis warning (P13 expanded sims):** the rating is for straight +Z pull only. Angled pull drops the adapter-floor failure screen to ~4.6 N at 30° and ~3.4 N at 45° in PLA (pessimistic model); in PAHT-CF at SF 2 the 45° and 90° ratings are 2.5 N and 1.9 N. See [p13-expanded-sims.md](p13-expanded-sims.md).
 
 ## Current design: P12 (roof +2.0 mm)
 
@@ -117,25 +117,30 @@ Mass 1 g = 4.0 / 9.80665 = 0.408 kg -> 0.40 kg (≈ 0.88 lb)
 
 **N2 P13 hardpoint: 4.0 N static +Z extraction (≈ 400 g at 1 g). PROVISIONAL, untested.** Up from 3.4 N (P12). Same SF 3 method and caveats as above.
 
-## P13 in Bambu PAHT-CF (current recommended)
+## P13 in Bambu PAHT-CF at SF 2 (current recommended)
 
-Same P13 geometry, mesh and load cases. Only the material screen changes. See [print-requirements.md](print-requirements.md) for orientation and print settings.
+Same P13 geometry, mesh and load cases. Only the material screen and the safety factor change. See [print-requirements.md](print-requirements.md) for orientation and print settings.
+
+**Safety factor 2.0 is Lane's choice** (earlier sections use SF 3). It is only valid if the Z coupon test in [test-plan.md](test-plan.md) confirms the assumed layer strength: Z coupons in the flight filament and settings must reach the PAHT-CF TDS Z value (47 MPa). If they come in lower, scale the rating down by (coupon mean / 47) or return to SF 3. Below 37.9 MPa the screen itself is unconservative.
 
 The solver is linear and load-controlled, with the same Poisson ratio, so the stress fields don't change with material. The failure load scales with the strength screen. The PLA screen (tension 25 MPa) is 25/31 of PLA Basic's TDS Z tensile strength. The PAHT-CF screen keeps that same knockdown on the PAHT-CF TDS Z value (47 MPa, dry): tension 37.9 MPa. Compression and shear are scaled by the same 47/31 factor. No credit is taken for the tension running along the layers in the recommended orientation, and the model is still isotropic (PAHT-CF X-Y/Z modulus 3860/2180 MPa).
 
-| Case | PLA Basic failure (N) | PAHT-CF failure (N) | PAHT-CF rated, SF 3 (N) |
-|---|---|---|---|
-| Straight +Z, receiver distal_ineffective_bonded (governs) | 12.09 | 18.33 | **6.1** |
-| 45° off-axis, adapter floor (XZ) | 3.40 | 5.15 | 1.7 |
-| 90° off-axis, adapter floor (XZ) | 2.55 | 3.87 | 1.29 |
+Ratings round down to 0.1 N.
+
+| Case | PLA Basic failure (N) | PLA rated, SF 2 (N) | PAHT-CF failure (N) | PAHT-CF rated, SF 2 (N) |
+|---|---|---|---|---|
+| Straight +Z, receiver distal_ineffective_bonded (governs) | 12.09 | 6.0 | 18.33 | **9.1** |
+| 45° off-axis, adapter floor (XZ) | 3.40 | 1.7 | 5.15 | 2.5 |
+| 90° off-axis, adapter floor (XZ) | 2.55 | 1.2 | 3.87 | 1.9 |
 
 ```
-P_cross  = 12.089 x 47/31 = 18.33 N
-P_rated  = 18.33 / 3.0 = 6.11 N   -> round DOWN to 6.1 N
-Mass 1 g = 6.1 / 9.80665 = 0.622 kg -> 0.62 kg
+P_cross  = 12.089 x 47/31 = 18.328 N
+P_rated  = 18.328 / 2.0 = 9.16 N   -> round DOWN to 9.1 N
+Mass 1 g = 9.1 / 9.80665 = 0.928 kg -> 0.92 kg
+PLA Basic baseline at SF 2: 12.089 / 2.0 = 6.04 -> 6.0 N (≈ 0.61 kg)
 ```
 
-**N2 P13 hardpoint (PAHT-CF): 6.1 N static +Z extraction (≈ 620 g at 1 g). PROVISIONAL, untested.** Up from 4.0 N in PLA Basic. Straight pull only; the off-axis warning above still applies. Dry-state TDS values; no creep data. Wet and long-hold strength are unknown.
+**N2 P13 hardpoint: 9.1 N static +Z extraction in PAHT-CF at SF 2 (≈ 920 g at 1 g). PROVISIONAL, untested.** Straight pull only; off-axis values are in the table above. SF 2 depends on the Z coupon test. Dry-state TDS values; no creep data. Wet and long-hold strength are unknown.
 
 ## What would change this number
 

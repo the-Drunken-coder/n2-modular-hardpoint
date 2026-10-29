@@ -1,5 +1,7 @@
 # P13 expanded simulations (2026-10-29)
 
+> **Update:** the safety factor is now 2 (Lane's choice) and the recommended material is PAHT-CF: current rating 9.1 N. The SF 3 / PLA figures below are kept as analysis history. See [provisional-load-rating.md](provisional-load-rating.md).
+
 Same frozen solver (`6d9b172…`), P13 STEPs (OVERLAP 0.6, ROOF_EXTRA 2.0, ROOF_FILLET 0.3), PLA screen 25/40/15 MPa, P2 tets at h = 0.55 mm. "Failure" = raw linear-elastic crossing of the stress screen (total payload N). Rating = failure / 3. Margin = failure / 4.0 N (the current rating). Full data: `project/analysis/p13_expanded/results.csv` (113 cases).
 
 ## 1. Existing cases re-run on P13
