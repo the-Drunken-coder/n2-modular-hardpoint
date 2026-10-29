@@ -1,5 +1,9 @@
 # Changelog
 
+## Improvement study — 2026-10-29
+- Added [docs/improvement-study.md](docs/improvement-study.md): first-principles breakdown and 10 ideas, FEA or hand-calc each. Best: socket-wall bearing (90° 2.1 → 10.7 N) and a longer-stroke keeper with 3.4 mm lug and 2 mm overlap (≈21 N straight, ≥15.5 N any angle, PAHT-CF SF 2). Paper only; the current rating is unchanged.
+- Added `tools/n2fea.py` (one-command variant build + FEA + rating) and `tools/n2variant.py`. Data in `project/analysis/improvements/`.
+
 ## Safety factor 2 — 2026-10-29
 - **Safety factor changed from 3 to 2 (Lane's choice).** PAHT-CF rating **9.1 N** (≈ 0.92 kg at 1 g; 18.33 N / 2, rounded down), straight +Z only, untested. Off-axis at SF 2: 2.5 N at 45°, 1.9 N at 90°. PLA Basic baseline at SF 2: 6.0 N straight, 1.7 N at 45°, 1.2 N at 90°.
 - SF 2 depends on the Z coupon test confirming TDS Z strength (47 MPa PAHT-CF); coupon test is now required.

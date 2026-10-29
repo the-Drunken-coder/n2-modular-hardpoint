@@ -1,0 +1,448 @@
+{
+ "id": "N2_adapter",
+ "variant": "N2",
+ "component": "adapter",
+ "step_path": "/tmp/n2fea/t3.4_o2.0_h0.8-0.55/N2_adapter.step",
+ "expected_step_sha256": "6a2adf5e2664564b742f1fdefc3da4de577f5636088699401d136a355e8191dc",
+ "load_normalization_N": 1.0,
+ "model_scope": "Prescribed seated, finite, normal contact tractions on actual unchanged STEP geometry; not an assembled contact solve or a load rating.",
+ "far_size_factor": 2.5,
+ "max_dofs": 420000,
+ "averaging_radii_mm": [
+  0.4,
+  0.8
+ ],
+ "cases": {
+  "adapter__Z": {
+   "loads": [
+    {
+     "label": "keeper on floor",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       25.8,
+       29.2
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0,
+      0,
+      -1.0
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid payload attachment face",
+     "selector": {
+      "normal_axis": 2,
+      "z": 19.0,
+      "x_range": [
+       24.0,
+       37.0
+      ],
+      "y_range": [
+       5.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "adapter__XZ+45": {
+   "loads": [
+    {
+     "label": "keeper on floor",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       25.8,
+       29.2
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -0.7071067811865475,
+      0,
+      -0.7071067811865476
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid payload attachment face",
+     "selector": {
+      "normal_axis": 2,
+      "z": 19.0,
+      "x_range": [
+       24.0,
+       37.0
+      ],
+      "y_range": [
+       5.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "adapter__XZ+90": {
+   "loads": [
+    {
+     "label": "keeper on floor",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       25.8,
+       29.2
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      -1.0,
+      0,
+      -6.123233995736766e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid payload attachment face",
+     "selector": {
+      "normal_axis": 2,
+      "z": 19.0,
+      "x_range": [
+       24.0,
+       37.0
+      ],
+      "y_range": [
+       5.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "adapter__XZ-45": {
+   "loads": [
+    {
+     "label": "keeper on floor",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       25.8,
+       29.2
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.7071067811865475,
+      0,
+      -0.7071067811865476
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid payload attachment face",
+     "selector": {
+      "normal_axis": 2,
+      "z": 19.0,
+      "x_range": [
+       24.0,
+       37.0
+      ],
+      "y_range": [
+       5.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "adapter__XZ-90": {
+   "loads": [
+    {
+     "label": "keeper on floor",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       25.8,
+       29.2
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      1.0,
+      0,
+      -6.123233995736766e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid payload attachment face",
+     "selector": {
+      "normal_axis": 2,
+      "z": 19.0,
+      "x_range": [
+       24.0,
+       37.0
+      ],
+      "y_range": [
+       5.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "adapter__YZ+45": {
+   "loads": [
+    {
+     "label": "keeper on floor",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       25.8,
+       29.2
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0,
+      -0.7071067811865475,
+      -0.7071067811865476
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid payload attachment face",
+     "selector": {
+      "normal_axis": 2,
+      "z": 19.0,
+      "x_range": [
+       24.0,
+       37.0
+      ],
+      "y_range": [
+       5.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "adapter__YZ+90": {
+   "loads": [
+    {
+     "label": "keeper on floor",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       25.8,
+       29.2
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0,
+      -1.0,
+      -6.123233995736766e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid payload attachment face",
+     "selector": {
+      "normal_axis": 2,
+      "z": 19.0,
+      "x_range": [
+       24.0,
+       37.0
+      ],
+      "y_range": [
+       5.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "adapter__YZ-45": {
+   "loads": [
+    {
+     "label": "keeper on floor",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       25.8,
+       29.2
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0,
+      0.7071067811865475,
+      -0.7071067811865476
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid payload attachment face",
+     "selector": {
+      "normal_axis": 2,
+      "z": 19.0,
+      "x_range": [
+       24.0,
+       37.0
+      ],
+      "y_range": [
+       5.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  "adapter__YZ-90": {
+   "loads": [
+    {
+     "label": "keeper on floor",
+     "selector": {
+      "normal_axis": 2,
+      "z": 6.9,
+      "x_range": [
+       25.8,
+       29.2
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0,
+      1.0,
+      -6.123233995736766e-17
+     ]
+    }
+   ],
+   "supports": [
+    {
+     "label": "Ideal rigid payload attachment face",
+     "selector": {
+      "normal_axis": 2,
+      "z": 19.0,
+      "x_range": [
+       24.0,
+       37.0
+      ],
+      "y_range": [
+       5.0,
+       17.0
+      ]
+     },
+     "components": [
+      0,
+      1,
+      2
+     ]
+    }
+   ]
+  }
+ },
+ "refine_boxes": [
+  {
+   "bounds": [
+    [
+     25.4,
+     6.2,
+     3.6
+    ],
+    [
+     29.0,
+     13.8,
+     17.0
+    ]
+   ],
+   "factor": 1.0
+  }
+ ]
+}

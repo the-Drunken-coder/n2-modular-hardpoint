@@ -1,0 +1,124 @@
+{
+ "params": {
+  "lug_t": 1.4,
+  "overlap": 0.6,
+  "material": "paht-cf",
+  "sf": 2.0,
+  "wall_bearing": false,
+  "h": 0.8,
+  "h_adapter": 0.55,
+  "out": null
+ },
+ "geometry": {
+  "lug": [
+   26.8,
+   28.2
+  ],
+  "slot": [
+   26.5,
+   28.5
+  ],
+  "tip": 25.9,
+  "overlap": 0.6,
+  "lug_t": 1.4,
+  "stroke_needed_mm": 3.0
+ },
+ "rows": [
+  {
+   "part": "adapter",
+   "case": "adapter",
+   "dir": "XZ45",
+   "PLA_fail_N": 3.76,
+   "fail_N": 5.7,
+   "rating_N": 2.85
+  },
+  {
+   "part": "adapter",
+   "case": "adapter",
+   "dir": "XZ90",
+   "PLA_fail_N": 2.8,
+   "fail_N": 4.25,
+   "rating_N": 2.12
+  },
+  {
+   "part": "adapter",
+   "case": "adapter",
+   "dir": "YZ45",
+   "PLA_fail_N": 4.87,
+   "fail_N": 7.39,
+   "rating_N": 3.7
+  },
+  {
+   "part": "adapter",
+   "case": "adapter",
+   "dir": "YZ90",
+   "PLA_fail_N": 4.07,
+   "fail_N": 6.18,
+   "rating_N": 3.09
+  },
+  {
+   "part": "adapter",
+   "case": "adapter",
+   "dir": "Z",
+   "PLA_fail_N": 22.21,
+   "fail_N": 33.68,
+   "rating_N": 16.84
+  },
+  {
+   "part": "receiver",
+   "case": "centered",
+   "dir": "XZ45",
+   "PLA_fail_N": 23.11,
+   "fail_N": 35.04,
+   "rating_N": 17.52
+  },
+  {
+   "part": "receiver",
+   "case": "centered",
+   "dir": "XZ90",
+   "PLA_fail_N": 20.61,
+   "fail_N": 31.25,
+   "rating_N": 15.62
+  },
+  {
+   "part": "receiver",
+   "case": "centered",
+   "dir": "YZ45",
+   "PLA_fail_N": 23.44,
+   "fail_N": 35.54,
+   "rating_N": 17.77
+  },
+  {
+   "part": "receiver",
+   "case": "centered",
+   "dir": "YZ90",
+   "PLA_fail_N": 19.76,
+   "fail_N": 29.95,
+   "rating_N": 14.98
+  },
+  {
+   "part": "receiver",
+   "case": "centered",
+   "dir": "Z",
+   "PLA_fail_N": 34.28,
+   "fail_N": 51.98,
+   "rating_N": 25.99
+  },
+  {
+   "part": "receiver",
+   "case": "distal_ineffective",
+   "dir": "Z",
+   "PLA_fail_N": 11.94,
+   "fail_N": 18.1,
+   "rating_N": 9.05
+  }
+ ],
+ "rating_distal_engaged": {
+  "XZ45": 2.85,
+  "XZ90": 2.12,
+  "YZ45": 3.7,
+  "YZ90": 3.09,
+  "Z": 16.84
+ },
+ "rating_straight_distal_lost": 9.05
+}
