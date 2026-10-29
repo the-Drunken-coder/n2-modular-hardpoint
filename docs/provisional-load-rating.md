@@ -66,7 +66,7 @@ Fit/release check = boolean intersection of the regenerated receiver with all 12
 
 Peak location is unchanged: receiver roof underside at the +Y edge of the keeper channel, near the proximal patch (≈ X 28.8–29.2, Y 11.8, Z 10.6). It's a sharp internal corner, so thickening helps only gradually. A fillet there is the next lever. Only the 0.55 mm mesh was run for P12; no convergence study yet.
 
-## P12 provisional rating (current)
+## P12 provisional rating (superseded by P13)
 
 ```
 P_cross  = 10.297 N   (receiver, distal_ineffective_bonded, roof +2.0)
@@ -75,6 +75,45 @@ Mass 1 g = 3.4 / 9.80665 = 0.347 kg -> 0.34 kg (≈ 0.75 lb)
 ```
 
 **N2 P12 hardpoint: 3.4 N static +Z extraction (≈ 340 g at 1 g). PROVISIONAL, untested.** Up 42% from 2.4 N. Same SF 3 method and caveats as above.
+
+## P13 inside-corner fillet sweep
+
+Quarter-round fillet (`ROOF_FILLET` in `build_n2.py`) on the X-parallel inside corners where the keeper-channel walls (Y 8.2, Y 11.8) meet the roof underside (Z 10.5), both roofs. Roof stays +2.0 mm, overlap 0.6 mm. Receiver only, 0.55 mm mesh, thresholds in N.
+
+| Fillet r (mm) | distal_ineffective_bonded | distal_ineffective_washers | centered_bonded | Keeper gap, open | Fit/release |
+|---|---|---|---|---|---|
+| 0 (P12) | 10.297 | — | 29.573 | 0.30 | OK |
+| 0.25 | 11.430 | 11.540 | 32.823 | 0.30 | OK |
+| **0.3 (chosen)** | **12.089** | **12.213** | **34.713** | **0.30** | **OK** |
+| 0.5 | not solvable | | | 0.22 | OK |
+| 0.75 | not solvable | | | 0.11 | OK |
+| 1.0 | not solvable | | | 0.01 | Too tight to print |
+| ≥ 1.2 | — | | | — | Interferes with keeper |
+
+"Not solvable": the archived load patches are Y 8.5–11.5 on the flat roof underside. A fillet over 0.3 mm eats into that patch (flat ends at Y 11.8 − r), the patch imprint lands on the curved face and the mesher segfaults. Moving the patch would change the load case, so 0.3 mm is the largest fillet that keeps the screen like-for-like. It also keeps the full 0.3 mm keeper clearance.
+
+Fit/release check (same as P12): zero overlap volume against all 12 parts, keeper retained and +3 mm open, adapter swept +Z with keeper open.
+
+Mesh check (extra local box X 24.5–37.6, Y 7–13, Z 9–11.5 at 0.4 mm, global 0.55 mm):
+
+| Geometry | distal_ineffective_bonded 0.55 → local 0.4 | centered_bonded 0.55 → local 0.4 |
+|---|---|---|
+| Fillet 0.3 | 12.089 → 12.167 (+0.6%) | 34.713 → 34.933 (+0.6%) |
+| Sharp (P12) | 10.297 → 10.927 (+6%) | 29.573 → 31.376 (+6%) |
+
+The filleted number is mesh-stable. The sharp-corner number moved with the mesh because it sits on a singularity. Peak is still at the fillet (≈ X 28.7, Y 11.8, Z 10.4). The rating uses the lower 0.55 mm value.
+
+Results: `project/analysis/p13_fillet_sweep/`.
+
+## P13 provisional rating (current)
+
+```
+P_cross  = 12.089 N   (receiver, distal_ineffective_bonded, roof +2.0, fillet 0.3)
+P_rated  = 12.089 / 3.0 = 4.03 N   -> round DOWN to 4.0 N
+Mass 1 g = 4.0 / 9.80665 = 0.408 kg -> 0.40 kg (≈ 0.88 lb)
+```
+
+**N2 P13 hardpoint: 4.0 N static +Z extraction (≈ 400 g at 1 g). PROVISIONAL, untested.** Up from 3.4 N (P12). Same SF 3 method and caveats as above.
 
 ## What would change this number
 

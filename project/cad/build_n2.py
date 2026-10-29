@@ -51,6 +51,11 @@ def _common_metadata():
 # P12 issue: +2.0 mm (roof top Z 14.7; adapter flange underside stays at Z 16).
 DISTAL_OVERLAP=float(os.environ.get('N2_DISTAL_OVERLAP',0.6))
 ROOF_EXTRA=float(os.environ.get('N2_ROOF_EXTRA',2.0))
+# ROOF_FILLET rounds the inside corner where a keeper-channel side wall meets
+# the roof underside (Z 10.5), the P11/P12 governing stress location.
+# The keeper's 3 x 3 arm corner sits 0.3 mm from that corner in Y and Z, so a
+# quarter-round must stay below ~1.45 mm. 0 = sharp corner (P12).
+ROOF_FILLET=float(os.environ.get('N2_ROOF_FILLET',0.3))
 
 def design_n2():
     vid='N2'
@@ -76,6 +81,10 @@ def design_n2():
     # A lower pocket locates the payload laterally independently of the keeper.
     base=base.union(box(22.8,31,4.6,15.4,3.1,6.6))
     base=base.cut(box(26.5,28.5,6.1,13.9,3.2,16)).clean()
+    if ROOF_FILLET>0:
+        # X-parallel inside edges where the channel walls meet the roof underside.
+        for y in (8.2,11.8):
+            base=base.edges(cq.selectors.BoxSelector((23.3,y-.05,10.45),(37.5,y+.05,10.55))).edges('|X').fillet(ROOF_FILLET)
     # The lug is narrowed to fit distal engagement + release clearance within
     # the unchanged 3 mm stroke. This is an explicit strength/printing tradeoff.
     adapter=box(26.8,28.2,6.4,13.6,3.8,16).union(box(24,37,5,17,16,19))
