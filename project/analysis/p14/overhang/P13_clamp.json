@@ -1,0 +1,13 @@
+{
+ "step": "project/cad/N2/N2_clamp.step",
+ "up": "-Z",
+ "angle": 45,
+ "bed_mm2": 199.69,
+ "totals": {
+  "SUPPORT": 0,
+  "bridge": 0,
+  "small-curve": 0,
+  "sliver": 0
+ },
+ "faces": []
+}

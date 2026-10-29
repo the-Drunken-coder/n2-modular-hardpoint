@@ -4,7 +4,7 @@ Two rated configurations. A part printed any other way is untested and unrated.
 
 | Config | Material | Rating (straight +Z pull, SF 2) |
 |---|---|---|
-| **Recommended** | Bambu PAHT-CF, dried | **9.1 N** (≈ 0.92 kg at 1 g), provisional, untested |
+| **Recommended** | Bambu PAHT-CF, dried | **9.1 N** (≈ 0.92 kg at 1 g), provisional, untested (P13). P14 screen: 16.8 N, see [p14.md](p14.md) |
 | Baseline | Bambu PLA Basic, dried | 6.0 N (≈ 0.61 kg), provisional, untested |
 
 SF 2 is Lane's choice and holds only if the Z coupon test in [test-plan.md](test-plan.md) confirms the TDS Z strength (47 MPa PAHT-CF, 31 MPa PLA Basic). Off-axis ratings at SF 2: see [provisional-load-rating.md](provisional-load-rating.md).
@@ -41,14 +41,15 @@ None of these TDS give creep data. A sustained-load creep test is still needed b
 
 Stress directions are from the P13 FEA fields (`project/analysis/p13_expanded`). Layer plane = the plane parallel to the bed.
 
-| Part | Recommended orientation | Peak tension direction (|x|,|y|,|z|) | Effect |
-|---|---|---|---|
-| Keeper | Unchanged: main-body underside to bed | (0.98, 0.17, 0.07) | Along the layers. |
-| Receiver | **On its −X end face** (part's X axis up, ≈ 40 mm tall). Was base to bed. | (0.23, 0.55, 0.80) | Was mostly across layers; now only the 0.23 X component crosses them. Keeper channel and sliding faces become vertical walls (no support scars). Bed contact 136 mm² (was 1152), ≈ 290 mm² of >45° overhang to support (was ≈ 90). Use a brim. |
-| Adapter | **On its −Y side face** (part's Y axis up). Was flange to bed. | (0.22, 0.17, 0.96), worst off-axis case | Only the 0.17 Y component crosses layers. Bed contact 39 mm², ≈ 37 mm² overhang. Use a brim. |
+**P14: use the supplied `*_print.stl` orientations, no supports.** `tools/overhang.py` finds zero support area on every printed part ([p14.md](p14.md)).
 
-Contact and overhang areas are from the STL geometry, not a slicer. **Check supports, bridges and the keeper slide fit in the slicer and with a test print before relying on the new orientation.** The supplied `*_print.stl` files are still in the old orientation; rotate them in the slicer.
+| Part | Orientation (P14) | Overhangs |
+|---|---|---|
+| Receiver | Base to bed | Both keeper-channel roofs are ~3 mm bridges; two 4.2 mm base-pocket bridges. Keep the channel roofs as bridges: no support inside the channel. |
+| Keeper | Underside to bed (body and arm share it) | None. |
+| Adapter | Flange to bed (`N2_adapter_print.stl`) | Hole ceiling is a 1.4 × 4.6 mm bridge. |
+| Clamp | Top to bed (`N2_clamp_print.stl`) | None. |
 
-**The 9.1 N rating does not depend on the new orientation.** It uses the Z (layer) strength, so it holds even if a part has to stay in the old orientation. The new orientation is extra margin, not counted.
+The P13 study recommended the receiver on its −X end and the adapter on its −Y side, to put peak tension along the layers. That needs about 290 mm² (receiver) and 37 mm² (adapter) of support, so it is withdrawn for P14. **The rating does not depend on orientation**: it uses the Z (layer) strength. Overhang areas are from the solid, not a slicer; confirm bridges in the slicer.
 
 **Required for SF 2:** confirm the filament reaches the TDS Z value with the coupon test in [test-plan.md](test-plan.md), printed in the same material and settings.

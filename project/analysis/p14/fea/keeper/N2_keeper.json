@@ -1,0 +1,337 @@
+{
+ "id": "N2_keeper",
+ "variant": "N2",
+ "component": "keeper",
+ "step_path": "/tmp/p14/keeper/N2_keeper.step",
+ "expected_step_sha256": "9683af54458d9acfe967b39f20d3b9fa8578f720d266ab3bca79d203a362f050",
+ "load_normalization_N": 1.0,
+ "model_scope": "Prescribed seated, finite, normal contact tractions on actual unchanged STEP geometry; not an assembled contact solve or a load rating.",
+ "far_size_factor": 2.5,
+ "max_dofs": 420000,
+ "averaging_radii_mm": [
+  0.4,
+  0.8
+ ],
+ "cases": {
+  "centered": {
+   "loads": [
+    {
+     "label": "Adapter floor: upward on keeper",
+     "selector": {
+      "normal_axis": 2,
+      "z": 7.2,
+      "x_range": [
+       26.8,
+       28.2
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    {
+     "label": "Distal roof: downward on keeper",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.2,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.5357142857142856
+     ]
+    },
+    {
+     "label": "Proximal roof: downward on keeper",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.2,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.4642857142857144
+     ]
+    }
+   ],
+   "anchors": [
+    {
+     "point_mm": [
+      22.0,
+      -4.0,
+      7.2
+     ],
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "point_mm": [
+      34.0,
+      -4.0,
+      7.2
+     ],
+     "components": [
+      1,
+      2
+     ]
+    },
+    {
+     "point_mm": [
+      34.0,
+      4.0,
+      7.2
+     ],
+     "components": [
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "centered",
+   "fixture": "six rigid-mode gauge DOFs only"
+  },
+  "distal_ineffective": {
+   "loads": [
+    {
+     "label": "Adapter floor: upward on keeper",
+     "selector": {
+      "normal_axis": 2,
+      "z": 7.2,
+      "x_range": [
+       26.8,
+       28.2
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    {
+     "label": "Proximal roof: downward on keeper",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.2,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -1.3333333333333333
+     ]
+    },
+    {
+     "label": "Far floor: upward on keeper",
+     "selector": {
+      "normal_axis": 2,
+      "z": 7.2,
+      "x_range": [
+       33.0,
+       34.0
+      ],
+      "y_range": [
+       8.5,
+       11.5
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      0.3333333333333333
+     ]
+    }
+   ],
+   "anchors": [
+    {
+     "point_mm": [
+      22.0,
+      -4.0,
+      7.2
+     ],
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "point_mm": [
+      34.0,
+      -4.0,
+      7.2
+     ],
+     "components": [
+      1,
+      2
+     ]
+    },
+    {
+     "point_mm": [
+      34.0,
+      4.0,
+      7.2
+     ],
+     "components": [
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "distal_ineffective",
+   "fixture": "six rigid-mode gauge DOFs only"
+  },
+  "low_y_half_contact": {
+   "loads": [
+    {
+     "label": "Adapter floor: upward on keeper",
+     "selector": {
+      "normal_axis": 2,
+      "z": 7.2,
+      "x_range": [
+       26.8,
+       28.2
+      ],
+      "y_range": [
+       8.5,
+       10.0
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      1.0
+     ]
+    },
+    {
+     "label": "Distal roof: downward on keeper",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.2,
+      "x_range": [
+       25.9,
+       26.5
+      ],
+      "y_range": [
+       8.5,
+       10.0
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.5357142857142856
+     ]
+    },
+    {
+     "label": "Proximal roof: downward on keeper",
+     "selector": {
+      "normal_axis": 2,
+      "z": 10.2,
+      "x_range": [
+       28.5,
+       29.5
+      ],
+      "y_range": [
+       8.5,
+       10.0
+      ]
+     },
+     "force_N": [
+      0.0,
+      0.0,
+      -0.4642857142857144
+     ]
+    }
+   ],
+   "anchors": [
+    {
+     "point_mm": [
+      22.0,
+      -4.0,
+      7.2
+     ],
+     "components": [
+      0,
+      1,
+      2
+     ]
+    },
+    {
+     "point_mm": [
+      34.0,
+      -4.0,
+      7.2
+     ],
+     "components": [
+      1,
+      2
+     ]
+    },
+    {
+     "point_mm": [
+      34.0,
+      4.0,
+      7.2
+     ],
+     "components": [
+      2
+     ]
+    }
+   ],
+   "contact_scenario": "low_y_half_contact",
+   "fixture": "six rigid-mode gauge DOFs only"
+  }
+ },
+ "refine_boxes": [
+  {
+   "bounds": [
+    [
+     25.5,
+     5.3,
+     6.3
+    ],
+    [
+     34.1,
+     11.6,
+     10.5
+    ]
+   ],
+   "factor": 1.0
+  }
+ ]
+}

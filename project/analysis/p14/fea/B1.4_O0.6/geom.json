@@ -1,0 +1,15 @@
+{
+ "lug": [
+  26.8,
+  28.2
+ ],
+ "slot": [
+  26.5,
+  28.5
+ ],
+ "tip": 25.9,
+ "overlap": 0.6,
+ "lug_t": 1.4,
+ "stroke_needed_mm": 3.0,
+ "prox": "bridge"
+}

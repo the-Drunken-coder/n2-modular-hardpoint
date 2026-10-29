@@ -1,0 +1,28 @@
+{
+ "step": "/tmp/p14/build/cad/N2/N2_adapter.step",
+ "up": "-Z",
+ "angle": 45,
+ "bed_mm2": 139.92,
+ "totals": {
+  "SUPPORT": 0,
+  "bridge": 6.44,
+  "small-curve": 0,
+  "sliver": 0
+ },
+ "faces": [
+  {
+   "kind": "bridge",
+   "area_mm2": 6.44,
+   "height_mm": 12.1,
+   "span_mm": [
+    1.4,
+    4.6
+   ],
+   "centre": [
+    27.5,
+    10.0,
+    6.9
+   ]
+  }
+ ]
+}

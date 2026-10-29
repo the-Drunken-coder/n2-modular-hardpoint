@@ -31,10 +31,10 @@
         0,
         -9
       ],
-      "print_note": "Base to bed. Both guide roofs require accessible local support and careful running-face cleanup. Preserve the distal roof; do not split it from the print.",
+      "print_note": "Base to bed, no supports: both keeper-channel roofs are ~3 mm bridges across the channel (tools/overhang.py, P14). Preserve the distal roof; do not split it from the print.",
       "valid": true,
       "solids": 1,
-      "volume_mm3": 5393.702982220675,
+      "volume_mm3": 5277.662696807436,
       "bbox": {
         "min": [
           -2.0,
@@ -54,7 +54,7 @@
       },
       "step": "N2_receiver.step",
       "stl": "N2_receiver.stl",
-      "step_sha256": "bfecd2e93b650cdd31ecce043362eeab3205f49b6b2716341ab7e788c7a7e0f3",
+      "step_sha256": "a122d616ba1ced141df8f188050b7fb53599d528f7ce4b0a4251a1382bcbf852",
       "color": "#dfb667",
       "print_stl": "N2_receiver_print.stl",
       "print_bbox": {
@@ -66,16 +66,14 @@
         "max": [
           38.00050775990137,
           17.000507759901364,
-          14.701611293533906
+          14.70161129353391
         ],
         "size": [
           40.00213897558101,
           30.001015519802728,
-          14.700716308346404
+          14.700716308346408
         ]
-      },
-      "p12_change": "Receiver guide roofs raised +2.0 mm (top Z 12.7 -> 14.7). See CHANGELOG.md.",
-      "p13_change": "0.3 mm fillet at keeper-channel wall / roof underside inside corners (ROOF_FILLET)"
+      }
     },
     {
       "id": "N2_adapter",
@@ -125,7 +123,7 @@
       },
       "step": "N2_adapter.step",
       "stl": "N2_adapter.stl",
-      "step_sha256": "06fb0220b7c0cb94ed453cca4de5fbe115497101730e6bcb82289e553e829944",
+      "step_sha256": "fac0ae34b99824b56b1a253ca65d3f81ba6475433464a432675456c617904d27",
       "color": "#22a99b",
       "print_stl": "N2_adapter_print.stl",
       "print_bbox": {
@@ -176,15 +174,15 @@
           ]
         }
       ],
-      "print_note": "Main body underside to bed. Retaining arm is raised 0.7 mm and needs local support. Clean sliding faces without reducing retained tip engagement.",
+      "print_note": "Underside to bed, no supports: body and arm share one flat underside (P14).",
       "valid": true,
       "solids": 1,
-      "volume_mm3": 524.7949923242048,
+      "volume_mm3": 449.5301071817177,
       "bbox": {
         "min": [
           22.0,
           -4.0,
-          6.499999999999999
+          7.199999999999999
         ],
         "max": [
           34.0,
@@ -194,12 +192,12 @@
         "size": [
           12.0,
           15.5,
-          7.2
+          6.5
         ]
       },
       "step": "N2_keeper.step",
       "stl": "N2_keeper.stl",
-      "step_sha256": "6bf0237bdb03c33f2bd48522ccbad733c17a834ed17b45322ba89b3f03171b82",
+      "step_sha256": "6cfde36f7bbe933964989052fb2b48a09979c9adad714e853049a188a91edbde",
       "color": "#e78b59",
       "print_stl": "N2_keeper_print.stl",
       "print_bbox": {
@@ -210,13 +208,13 @@
         ],
         "max": [
           34.0000001,
-          11.500000100000003,
-          7.201007133458688
+          11.500000100000005,
+          6.501007133458686
         ],
         "size": [
           12.000000200000006,
-          15.500000200000006,
-          7.2004477677165015
+          15.50000020000001,
+          6.5004477677165
         ]
       }
     },
@@ -252,7 +250,7 @@
       },
       "step": "N2_clamp.step",
       "stl": "N2_clamp.stl",
-      "step_sha256": "7e4a325f73abf815ea9b7ae714e627717d954603b2c89dcba6fd23c01ac4eeaf",
+      "step_sha256": "7a5a78f512553510096989e413237fff86dc20f59af2571419e20c47c16c1d93",
       "color": "#dfb667",
       "print_stl": "N2_clamp_print.stl",
       "print_bbox": {
@@ -306,7 +304,7 @@
       },
       "step": "N2_solenoid_body.step",
       "stl": "N2_solenoid_body.stl",
-      "step_sha256": "598a62260d25d670cb22fc5ca149675f7ba884d3249436ff767b29b600eb0477",
+      "step_sha256": "fe64f2b0ac388bbafc6cffa34a124e84ffb92e10e937bba9804efcf5de7444af",
       "color": "#536b85"
     },
     {
@@ -363,7 +361,7 @@
       },
       "step": "N2_armature.step",
       "stl": "N2_armature.stl",
-      "step_sha256": "3183da4ffac8b3698fab2effc7ecf90967b8529417fc81f8bd7ace4eaebdd7d3",
+      "step_sha256": "5a76281113d68237c34da15cff73cee7f079e467cffed68cd7f7f5cca64c9e61",
       "color": "#a2abb5"
     },
     {
@@ -400,7 +398,7 @@
       },
       "step": "N2_return_spring.step",
       "stl": "N2_return_spring.stl",
-      "step_sha256": "f35e71970815afdab21d35c01b3307771c9e69b6728af0dc8b69d0067ccd584b",
+      "step_sha256": "cf92cfe2e7157de0f9d4ba616f4c66c881615299d170a2790c7e3281e909b095",
       "color": "#a2abb5"
     },
     {
@@ -437,7 +435,7 @@
       },
       "step": "N2_wire_1.step",
       "stl": "N2_wire_1.stl",
-      "step_sha256": "4dc8bd1dbf5ed170c29c4b20bcb98d28ae314f16cb42c2f48927800a8af1d593"
+      "step_sha256": "8a0c581b429a46dcc5d3d44c159411f9a30fd12afde4250102858aaa5dac847b"
     },
     {
       "id": "N2_wire_2",
@@ -473,7 +471,7 @@
       },
       "step": "N2_wire_2.step",
       "stl": "N2_wire_2.stl",
-      "step_sha256": "f10cfe72dc4feb38c31fc911fcddc16b226352056947c9196b21a872a98ab258"
+      "step_sha256": "d46718c86ae5fb80d3c86449e40e69fd12cbb777f147c6ac18061af2ad686cf2"
     },
     {
       "id": "N2_clamp_screw_1",
@@ -508,7 +506,7 @@
       },
       "step": "N2_clamp_screw_1.step",
       "stl": "N2_clamp_screw_1.stl",
-      "step_sha256": "2e9e51796cf287f8098bb7e23c8ce9190d1c84ccfa3dbeca53515cf71f668415",
+      "step_sha256": "125a5ae0439b8299c31fabc8218e45e9b0cbb151021472c30d87be54d8c8625f",
       "color": "#a2abb5"
     },
     {
@@ -544,7 +542,7 @@
       },
       "step": "N2_clamp_nut_1.step",
       "stl": "N2_clamp_nut_1.stl",
-      "step_sha256": "62dbd04e1df398a5dd6e4169bae1adb1ff216b27e561233c60ba8b155392dfc9",
+      "step_sha256": "12d6b2f05391c706bca19c8bcfc320b7c46805e8149ccde3b12b97efa325cc88",
       "color": "#a2abb5"
     },
     {
@@ -580,7 +578,7 @@
       },
       "step": "N2_clamp_screw_2.step",
       "stl": "N2_clamp_screw_2.stl",
-      "step_sha256": "5ba4100b33cbeb3a6e495ffd40ef14cd16bb3aa58db8f2bd8ded6ab180584159",
+      "step_sha256": "9c50b1f89bcb88153551060ac1a0f85ebc24402b572d2bd4a3258683002a234e",
       "color": "#a2abb5"
     },
     {
@@ -616,12 +614,12 @@
       },
       "step": "N2_clamp_nut_2.step",
       "stl": "N2_clamp_nut_2.stl",
-      "step_sha256": "8b1a12c8a034826e8614c8d6e4dc4ff59999a9894c97d9edb1a4d8e594a4919f",
+      "step_sha256": "47f7afb561129b297b81be6b98245c1f57c92476d290614fafb1c7a6696ca7d6",
       "color": "#a2abb5"
     }
   ],
   "departure_direction": "+Z, externally driven; orient +Z downward for a gravity bench test",
-  "load_path": "Adapter cross-hole floor \u2192 3 \u00d7 3 mm keeper \u2192 receiver roofs on both sides of the lug when retained \u2192 host mount. During withdrawal the distal support disengages before the adapter does, leaving the proximal guide to react the load.",
+  "load_path": "Adapter cross-hole floor \u2192 3 \u00d7 3 mm keeper \u2192 receiver roofs on both sides of the lug when retained \u2192 host mount. The proximal roof is a bridge anchored on both sides of the keeper channel to X 31.7, so losing the 0.6 mm distal engagement leaves the receiver stronger than the adapter (P14 FEA): straight-pull capacity does not drop.",
   "release_sequence": [
     "Retained: spring-return keeper crosses the seated adapter lug.",
     "Unlock: energize the coil; its rear button pulls the open-top fork and keeper +X through nominal 3 mm.",
@@ -673,12 +671,12 @@
     "separate_nuts": 2,
     "cad_objects": 13
   },
-  "local_control": "P6 shared off-board 5 V pulse driver and two-button controller. No payload power or data interface. No direct RC requirement.",
-  "evidence": "CAD concept and sampled rigid-motion checks only. No physical print, load, release, fatigue, wear or aircraft test performed.",
+  "local_control": "Off-board local 5 V pulse driver and two-button controller. No payload power/data transfer and no direct RC requirement.",
+  "evidence": "Unchanged issued CAD, sampled rigid geometry checks, and common-PLA component FEA with stated contacts and fixtures. No physical part or complete loaded release has been tested.",
   "concept_summary": "Supported cross-bolt: a receiver bridge supports the keeper on both sides of the adapter while retained.",
-  "description": "Integral distal keeper bearing trades a thinner lug and tighter stroke budget for a shorter supported retaining span.",
-  "why_consider": "Four prints and the same purchased hardware as N1, with an additional retained-state support rather than a larger actuator.",
-  "main_risk": "Only 0.6 mm nominal distal engagement is available. That support is lost early during withdrawal; loaded release again becomes overhung before the lug clears. The lug is thinner than N1.",
+  "description": "Compact printed supported cross-bolt hardpoint with a mini solenoid and a removable payload lug.",
+  "why_consider": "Four printed parts and one purchased mini solenoid. An integral receiver bridge supports the keeper on both sides of the retained payload lug.",
+  "main_risk": "Only 0.6 mm nominal distal engagement. Distal support is lost before the lug clears during withdrawal. The 1.4 mm lug and supported-to-overhung transition need physical verification.",
   "actuator": {
     "name": "Mini push-pull solenoid",
     "mpn": "Adafruit 2776",
@@ -695,7 +693,7 @@
     ],
     "proximal_support_x_mm": [
       28.5,
-      37.4
+      31.7
     ],
     "lug_x_mm": [
       26.8,
@@ -713,17 +711,21 @@
   },
   "manufacturing": {
     "printed_parts": 4,
-    "material": "Unfilled PETG fit prototype, 0.4 mm nozzle, 0.16 mm layer, 5 walls; inspect slicer paths through the 1.4 mm lug.",
-    "qualification": "No proven strength, creep, loaded release or thermal duty. First print is for fit and force measurement."
+    "material": "PLA for the current comparison and initial controlled bench prototypes. 100% infill/solid equivalent is required to match the FEA model; use the current manufacturing instructions for orientation, support cleanup and inspection.",
+    "qualification": "No measured working-load rating, coupon strength, loaded release reliability, creep or thermal duty established."
   },
   "notes": [
-    "Unrated concept; no manufactured or tested specimen.",
-    "Four printed parts, one Adafruit 2776, two M2 \u00d7 16 screws and two M2 nuts; host fasteners are installation-specific.",
-    "The distal support improves the retained load path only while engaged. It does not guarantee lower peak release force.",
-    "The 3 mm stroke budget forces the cross-hole lug to 1.4 mm thickness. This is a new geometry; P5 adapter FEA does not apply.",
-    "Feed the keeper from +X before lowering the complete actuator. Never force it through the roof from above.",
-    "The tab is a ground inspection and manual reset feature; shield it against accidental actuation. Remove the force-test hook before operation.",
-    "No ejector or departure sensor. The adapter needs an external +Z force to clear.",
-    "The included spring is shown only in its retained shape; full lead length and off-board controls are outside the assembly envelope."
-  ]
+    "Selected N2 prototype, with no geometry revision in this consolidation.",
+    "Four printed parts, one Adafruit 2776, two M2 x 16 screws and two M2 nuts; host and payload mounting hardware remain installation-specific.",
+    "Distal support improves retention only while actually engaged; it disengages after about 0.6 mm of keeper travel, before nominal lug clearance at about 2.3 mm.",
+    "The 1.4 mm lug thickness and 0.6 mm support engagement are critical print/fit features.",
+    "Feed the keeper from +X before lowering the complete actuator; do not force it through the roof.",
+    "The integral tab is for ground inspection and manual reset. Remove the force-test hook before operation and protect against unintended tab movement.",
+    "The actuator moves the keeper +X. The adapter needs an external +Z force to depart; there is no ejector or payload-clear sensor.",
+    "Supplier-exterior actuator, fastener and spring models include explanatory simplifications. Measure purchased hardware and print fits.",
+    "Original manifest/viewer metadata is frozen for traceability. This file supplies the current PLA and N2-only project wording."
+  ],
+  "project_revision": "P11 selection",
+  "geometry_revision": "P6-01 unchanged",
+  "selection_status": "Sole active mechanical hardpoint design, selected by the user. Other designs are historical."
 }

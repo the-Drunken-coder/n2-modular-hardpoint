@@ -6,6 +6,8 @@ The current scope is **mechanical retention and release with a local bench actua
 
 ## Start here
 
+**Requirements:** [docs/requirements.md](docs/requirements.md) (1.81 kg at 2 g, SF 2: failure ≥ 71.2 N, fail-safe latch).
+
 | Need | Repository material |
 |---|---|
 | Catch up on the current engineering state | [Current context](docs/CURRENT_CONTEXT.md) |
