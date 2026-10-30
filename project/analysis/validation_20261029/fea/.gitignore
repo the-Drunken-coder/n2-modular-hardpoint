@@ -1,0 +1,7 @@
+/reference_inputs/
+/generated_standard/
+/engine/
+/configs/results/**/*.npz
+/configs/results/**/*.msh
+/configs/results/**/run_summary.json
+/configs/results/**/configuration.json

@@ -1,0 +1,9 @@
+N2_keeper_partial_keeper: mesh h=0.55
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+7319 elements / 38871 DOF
+stroke_0p6mm: u=0.0012288; raw threshold=51.863 N; gauge=3.3e-13
+stroke_1p5mm: u=0.00097844; raw threshold=47.451 N; gauge=1.4e-13
+stroke_2p0mm: u=0.0010136; raw threshold=21.599 N; gauge=2.2e-13
+stroke_2p2mm: u=0.0012713; raw threshold=7.0555 N; gauge=1.9e-13
+reference_distal_lost_retained_pose: u=0.0013624; raw threshold=46.966 N; gauge=2.3e-13

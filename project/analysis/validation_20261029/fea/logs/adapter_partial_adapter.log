@@ -1,0 +1,18 @@
+N2_adapter_partial_adapter: mesh h=0.55
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+8599 elements / 45315 DOF
+stroke_0p6mm: u=0.0018277; raw threshold=21.189 N; gauge=0
+stroke_1p5mm: u=0.010713; raw threshold=15.279 N; gauge=0
+stroke_2p0mm: u=0.019282; raw threshold=11.11 N; gauge=0
+stroke_2p2mm: u=0.022722; raw threshold=6.5682 N; gauge=0
+reference_full_contact: u=0.0018277; raw threshold=21.189 N; gauge=0
+N2_adapter_partial_adapter: mesh h=0.4
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+15485 elements / 78819 DOF
+stroke_0p6mm: u=0.00183; raw threshold=22.066 N; gauge=0
+stroke_1p5mm: u=0.010758; raw threshold=12.342 N; gauge=0
+stroke_2p0mm: u=0.019368; raw threshold=8.9422 N; gauge=0
+stroke_2p2mm: u=0.022824; raw threshold=6.745 N; gauge=0
+reference_full_contact: u=0.00183; raw threshold=22.066 N; gauge=0

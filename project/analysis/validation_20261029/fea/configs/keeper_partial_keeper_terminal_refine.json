@@ -1,0 +1,540 @@
+{
+  "id": "N2_keeper_partial_keeper_terminal_refine",
+  "variant": "N2",
+  "component": "keeper",
+  "step_path": "reference_inputs/project/cad/N2/N2_keeper.step",
+  "expected_step_sha256": "6cfde36f7bbe933964989052fb2b48a09979c9adad714e853049a188a91edbde",
+  "load_normalization_N": 1.0,
+  "model_scope": "Prescribed seated, finite, normal contact tractions on actual unchanged STEP geometry; not an assembled contact solve or a load rating.",
+  "far_size_factor": 2.5,
+  "max_dofs": 420000,
+  "averaging_radii_mm": [
+    0.4,
+    0.8
+  ],
+  "cases": {
+    "stroke_0p6mm": {
+      "loads": [
+        {
+          "label": "Remaining adapter contact, keeper-local coordinates",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              26.2,
+              27.599999999999998
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "label": "Prescribed proximal roof contact, keeper-local coordinates",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.2,
+            "x_range": [
+              27.9,
+              28.9
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -1.3333333333333333
+          ]
+        },
+        {
+          "label": "Prescribed far-floor contact, keeper-local coordinates",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              32.4,
+              33.4
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.3333333333333333
+          ]
+        }
+      ],
+      "anchors": [
+        {
+          "point_mm": [
+            22.0,
+            -4.0,
+            7.2
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "point_mm": [
+            34.0,
+            -4.0,
+            7.2
+          ],
+          "components": [
+            1,
+            2
+          ]
+        },
+        {
+          "point_mm": [
+            34.0,
+            4.0,
+            7.2
+          ],
+          "components": [
+            2
+          ]
+        }
+      ],
+      "contact_scenario": "distal_ineffective",
+      "fixture": "six rigid-mode gauge DOFs only"
+    },
+    "stroke_1p5mm": {
+      "loads": [
+        {
+          "label": "Remaining adapter contact, keeper-local coordinates",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              25.9,
+              26.7
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "label": "Prescribed proximal roof contact, keeper-local coordinates",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.2,
+            "x_range": [
+              27.0,
+              28.0
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -1.2666666666666673
+          ]
+        },
+        {
+          "label": "Prescribed far-floor contact, keeper-local coordinates",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              31.5,
+              32.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.2666666666666673
+          ]
+        }
+      ],
+      "anchors": [
+        {
+          "point_mm": [
+            22.0,
+            -4.0,
+            7.2
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "point_mm": [
+            34.0,
+            -4.0,
+            7.2
+          ],
+          "components": [
+            1,
+            2
+          ]
+        },
+        {
+          "point_mm": [
+            34.0,
+            4.0,
+            7.2
+          ],
+          "components": [
+            2
+          ]
+        }
+      ],
+      "contact_scenario": "distal_ineffective",
+      "fixture": "six rigid-mode gauge DOFs only"
+    },
+    "stroke_2p0mm": {
+      "loads": [
+        {
+          "label": "Remaining adapter contact, keeper-local coordinates",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              25.9,
+              26.2
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "label": "Prescribed proximal roof contact, keeper-local coordinates",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.2,
+            "x_range": [
+              26.5,
+              27.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -1.2111111111111117
+          ]
+        },
+        {
+          "label": "Prescribed far-floor contact, keeper-local coordinates",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              31.0,
+              32.0
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.21111111111111175
+          ]
+        }
+      ],
+      "anchors": [
+        {
+          "point_mm": [
+            22.0,
+            -4.0,
+            7.2
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "point_mm": [
+            34.0,
+            -4.0,
+            7.2
+          ],
+          "components": [
+            1,
+            2
+          ]
+        },
+        {
+          "point_mm": [
+            34.0,
+            4.0,
+            7.2
+          ],
+          "components": [
+            2
+          ]
+        }
+      ],
+      "contact_scenario": "distal_ineffective",
+      "fixture": "six rigid-mode gauge DOFs only"
+    },
+    "stroke_2p2mm": {
+      "loads": [
+        {
+          "label": "Remaining adapter contact, keeper-local coordinates",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              25.9,
+              26.0
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "label": "Prescribed proximal roof contact, keeper-local coordinates",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.2,
+            "x_range": [
+              26.3,
+              27.3
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -1.188888888888889
+          ]
+        },
+        {
+          "label": "Prescribed far-floor contact, keeper-local coordinates",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              30.8,
+              31.8
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.18888888888888922
+          ]
+        }
+      ],
+      "anchors": [
+        {
+          "point_mm": [
+            22.0,
+            -4.0,
+            7.2
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "point_mm": [
+            34.0,
+            -4.0,
+            7.2
+          ],
+          "components": [
+            1,
+            2
+          ]
+        },
+        {
+          "point_mm": [
+            34.0,
+            4.0,
+            7.2
+          ],
+          "components": [
+            2
+          ]
+        }
+      ],
+      "contact_scenario": "distal_ineffective",
+      "fixture": "six rigid-mode gauge DOFs only"
+    },
+    "reference_distal_lost_retained_pose": {
+      "loads": [
+        {
+          "label": "Adapter floor: upward on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              26.8,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "label": "Proximal roof: downward on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.2,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -1.3333333333333333
+          ]
+        },
+        {
+          "label": "Far floor: upward on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.2,
+            "x_range": [
+              33.0,
+              34.0
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            0.3333333333333333
+          ]
+        }
+      ],
+      "anchors": [
+        {
+          "point_mm": [
+            22.0,
+            -4.0,
+            7.2
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "point_mm": [
+            34.0,
+            -4.0,
+            7.2
+          ],
+          "components": [
+            1,
+            2
+          ]
+        },
+        {
+          "point_mm": [
+            34.0,
+            4.0,
+            7.2
+          ],
+          "components": [
+            2
+          ]
+        }
+      ],
+      "contact_scenario": "distal_ineffective",
+      "fixture": "six rigid-mode gauge DOFs only"
+    }
+  },
+  "refine_boxes": [
+    {
+      "bounds": [
+        [
+          25.5,
+          5.3,
+          6.3
+        ],
+        [
+          34.1,
+          11.6,
+          10.5
+        ]
+      ],
+      "factor": 1.0
+    }
+  ],
+  "validation_scope": "Linear isotropic prescribed-traction sensitivity on current P14 STEP; not assembled nonlinear contact, physical test, failure prediction, or working-load rating."
+}

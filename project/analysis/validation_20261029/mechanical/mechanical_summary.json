@@ -1,0 +1,153 @@
+{
+  "generated_utc": "2026-10-30T01:14:50.006432+00:00",
+  "source_commit": "e1150701358f31e536c807ee21e29eae4e6c4985",
+  "scope": "Current STEP clearance replay plus illustrative one-dimensional design arithmetic",
+  "physical_test_performed": false,
+  "new_CAD_design_created": false,
+  "new_structural_solve_in_this_mechanical_substudy": false,
+  "current_p14_play": {
+    "method": "Rigid Boolean intersection of the three committed current STEP solids",
+    "software": {
+      "python": "3.12.14",
+      "cadquery": "2.7.0"
+    },
+    "intersection_tolerance_mm3": 1e-07,
+    "step_sha256": {
+      "receiver": "a122d616ba1ced141df8f188050b7fb53599d528f7ce4b0a4251a1382bcbf852",
+      "adapter": "fac0ae34b99824b56b1a253ca65d3f81ba6475433464a432675456c617904d27",
+      "keeper": "6cfde36f7bbe933964989052fb2b48a09979c9adad714e853049a188a91edbde"
+    },
+    "solid_volumes_mm3": {
+      "receiver": 5277.662696807487,
+      "adapter": 519.5371368408537,
+      "keeper": 449.5301071817165
+    },
+    "tested_source_commit": "e1150701358f31e536c807ee21e29eae4e6c4985",
+    "nominal_geometry_mm": {
+      "keeper_z": [
+        7.2,
+        10.2
+      ],
+      "keeper_channel_z": [
+        6.9,
+        10.5
+      ],
+      "adapter_cross_hole_z": [
+        6.9,
+        10.5
+      ],
+      "adapter_lug_x": [
+        26.8,
+        28.2
+      ],
+      "adapter_lug_y": [
+        6.4,
+        13.6
+      ],
+      "receiver_slot_x": [
+        26.5,
+        28.5
+      ],
+      "receiver_slot_y": [
+        6.1,
+        13.9
+      ],
+      "adapter_flange_underside_z": 16,
+      "receiver_roof_top_z": 14.7
+    },
+    "nominal_axial_motion_each_direction_mm": 0.6,
+    "nominal_axial_total_motion_mm": 1.2,
+    "analytical_yaw_first_side_contact_deg": 4.819724598261994,
+    "analytical_total_yaw_range_deg": 9.639449196523987,
+    "yaw_first_contact_equation": "0.7*cos(theta) + 3.6*sin(theta) = 1.0",
+    "sampled_yaw_no_interference_through_each_direction_deg": 4.75,
+    "sampled_yaw_interference_at_each_direction_deg": 5.0,
+    "nominal_flange_to_roof_gap_mm": 1.3,
+    "all_expected_geometry_checks_pass": true,
+    "limits": [
+      "This establishes nominal geometric clearance, not measured backlash on a printed specimen.",
+      "Loads, friction, preload, elasticity, wear, and dynamics are not solved.",
+      "This current-commit run checks receiver, adapter, and keeper only; it does not test purchased actuator internals.",
+      "The yaw analytic calculation is the rectangular lug/socket estimate and is bracketed by the STEP checks.",
+      "No working-load rating or flight readiness follows from these checks."
+    ]
+  },
+  "stroke_models": [
+    {
+      "name": "P14_reference",
+      "status": "current_nominal_geometry",
+      "stroke_mm": 3.0,
+      "lug_thickness_mm": 1.4,
+      "distal_engagement_mm": 0.6,
+      "lug_to_distal_edge_gap_mm": 0.3,
+      "contact_width_mm": 3.0,
+      "clear_stroke_mm": 2.3,
+      "full_lug_overlap_until_stroke_mm": 0.8999999999999999,
+      "nominal_open_margin_mm": 0.7000000000000002,
+      "proximal_only_loaded_travel_mm": 1.7,
+      "nominal_full_contact_area_mm2": 4.199999999999999,
+      "illustrative_travel_loss_mm": 0.25,
+      "illustrative_adverse_axial_stack_mm": 0.25,
+      "illustrative_adverse_engagement_loss_mm": 0.25,
+      "open_margin_after_illustrative_allowances_mm": 0.20000000000000018,
+      "distal_engagement_after_illustrative_allowance_mm": 0.35,
+      "working_load_rating_N": null,
+      "loaded_release_rating_N": null
+    },
+    {
+      "name": "longer_stroke_concept",
+      "status": "illustrative_only_not_CAD_or_strength_validated",
+      "stroke_mm": 6.0,
+      "lug_thickness_mm": 3.5,
+      "distal_engagement_mm": 1.0,
+      "lug_to_distal_edge_gap_mm": 0.3,
+      "contact_width_mm": 3.0,
+      "clear_stroke_mm": 4.8,
+      "full_lug_overlap_until_stroke_mm": 1.3,
+      "nominal_open_margin_mm": 1.2000000000000002,
+      "proximal_only_loaded_travel_mm": 3.8,
+      "nominal_full_contact_area_mm2": 10.5,
+      "illustrative_travel_loss_mm": 0.25,
+      "illustrative_adverse_axial_stack_mm": 0.25,
+      "illustrative_adverse_engagement_loss_mm": 0.25,
+      "open_margin_after_illustrative_allowances_mm": 0.7000000000000002,
+      "distal_engagement_after_illustrative_allowance_mm": 0.75,
+      "working_load_rating_N": null,
+      "loaded_release_rating_N": null
+    }
+  ],
+  "equations": {
+    "clear_stroke": "s_clear = e + g + t",
+    "lug_overlap": "ell(s) = min(t, max(0, e+g+t-s))",
+    "distal_overlap": "d(s) = max(0, e-s)",
+    "nominal_open_margin": "S-e-g-t",
+    "proximal_only_loaded_travel": "g+t",
+    "allowance_screen": "margin = S-travel_loss-e-g-t-adverse_axial_stack",
+    "conditional_planar_drag_floor": "F >= 2*mu*P for equal Coulomb coefficients and parallel opposing contacts",
+    "extra_normal_force_trade": "delta_F >= 2*mu*delta_N; delta_N is force actually transmitted through the sliding latch"
+  },
+  "critical_tradeoffs": [
+    "The illustrative 6 mm / 3.5 mm concept has 1.2 mm nominal opening margin, versus 0.7 mm for P14.",
+    "It increases the proximal-only loaded interval from 1.7 mm to 3.8 mm; this can worsen keeper/guide bending and release demand.",
+    "A thicker lug does not by itself establish assembly strength, loaded-release capability, or fit.",
+    "The 0.25 mm loss/stack examples are invented screening inputs, not measured fabrication tolerances.",
+    "Friction coefficients are assumptions; the 80 gf supplier point is not a force-versus-stroke curve or guaranteed net available pull.",
+    "Seating preload and ejector forces can increase release demand, but mapping them to latch load requires a joint/load-path model.",
+    "Existing and proposed printed load paths require physical fit, pull-force, structural, wear, and vibration tests."
+  ],
+  "source_sha256": {
+    "build_n2.py": "d349d7d64c1d527a1fbce4bc776ef4c1b49c1e80d2fc33fae6da2cf620e36d45",
+    "common.py": "343d326162086023a15a80a05a3c659b0cb34656cb8b90241a8fcd9bd5afa2eb",
+    "solenoid_parts.py": "b838ebd964727a76fbdf063538289d48356644fd16178cf15ef440b1caf09035",
+    "N2/active_metadata.json": "61383857db8462b1924d5d96c4de5620a0fcb449d0ae74b08c0cefbbe15b1d54"
+  },
+  "outputs": [
+    "current_p14_play.json",
+    "current_p14_clearance_checks.csv",
+    "stroke_comparison.csv",
+    "stroke_overlap_series.csv",
+    "illustrative_tolerance_sweep.csv",
+    "illustrative_force_sweep.csv",
+    "extra_normal_load_force_trade.csv"
+  ]
+}

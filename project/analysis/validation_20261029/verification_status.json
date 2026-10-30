@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "review_date_local": "2026-10-29",
+  "timezone": "America/New_York",
+  "overall_status": "CONCEPT_ONLY",
+  "baseline": {
+    "repository": "the-Drunken-coder/n2-modular-hardpoint",
+    "commit": "e1150701358f31e536c807ee21e29eae4e6c4985"
+  },
+  "scope": {
+    "included": [
+      "cross_bolt_retention",
+      "higher_force_longer_stroke_solenoid",
+      "preloaded_keyed_face",
+      "round_diamond_locators",
+      "thicker_axial_lug",
+      "structural_backing",
+      "seating_interlock",
+      "optional_camera_pod_positive_lock",
+      "existing_controller_host_replay"
+    ],
+    "excluded": [
+      "battery_power_interface",
+      "wing_aerodynamics",
+      "wing_asymmetry",
+      "load_isolated_sear",
+      "aircraft_qualification"
+    ],
+    "fallback_only": [
+      "servo_actuation"
+    ]
+  },
+  "illustrative_geometry": {
+    "manufacturing_release": false,
+    "actuator_selected": false,
+    "stroke_mm": 6.0,
+    "lug_axial_thickness_mm": 3.5,
+    "distal_overlap_mm": 1.0,
+    "support_lug_gap_mm": 0.3,
+    "nominal_clear_travel_mm": 4.8,
+    "nominal_open_margin_mm": 1.2,
+    "retaining_travel_without_distal_support_mm": 3.8
+  },
+  "provisional_legacy_targets": {
+    "axial_service_N": 8.9,
+    "axial_qualification_screen_N": 17.8,
+    "adopted_for_concept_qualification": false,
+    "working_load_rating": null
+  },
+  "checks": [
+    {
+      "id": "p14_clearance_replay",
+      "title": "Current P14 rigid STEP clearance replay",
+      "status": "PASS_COMPUTED",
+      "evidence_type": "executed_rigid_geometry_checks",
+      "result": {
+        "checks": 16,
+        "all_expected_checks_pass": true
+      },
+      "evidence_paths": [
+        "project/analysis/validation_20261029/mechanical/current_p14_play.json",
+        "project/analysis/validation_20261029/mechanical/current_p14_clearance_checks.csv"
+      ],
+      "limits": [
+        "Nominal CAD geometry only; no measured printed fit, friction, elasticity or dynamics."
+      ]
+    },
+    {
+      "id": "p14_fea_suite",
+      "title": "P14 baseline, mounting and reduced-overlap FEA",
+      "status": "PASS_COMPUTED",
+      "evidence_type": "executed_linear_elastic_stress_screens",
+      "result": {
+        "case_solves": 35,
+        "meshes": 12,
+        "numerical_audit_failures": 0
+      },
+      "evidence_paths": [
+        "project/analysis/validation_20261029/fea/FEA_REPORT.md",
+        "project/analysis/validation_20261029/fea/results_summary.json",
+        "project/analysis/validation_20261029/fea/artifact_inventory.json"
+      ],
+      "limits": [
+        "P14 baseline only; no new concept geometry solved.",
+        "Prescribed contacts and isotropic PLA thresholds; no calibrated fracture or release model.",
+        "No working-load rating, full convergence claim, or qualified PAHT-CF properties."
+      ]
+    },
+    {
+      "id": "concept_arithmetic",
+      "title": "Illustrative stroke, tolerance and force arithmetic",
+      "status": "PASS_COMPUTED",
+      "evidence_type": "one_dimensional_concept_calculations",
+      "evidence_paths": [
+        "project/analysis/validation_20261029/mechanical/mechanical_summary.json",
+        "project/analysis/validation_20261029/mechanical/stroke_comparison.csv"
+      ],
+      "limits": [
+        "Concept dimensions, friction coefficients and tolerance allowances are stated assumptions, not measurements.",
+        "New CAD, actuator selection and structural validation remain unperformed."
+      ]
+    },
+    {
+      "id": "controller_host_replay",
+      "title": "Existing bench-controller host replay",
+      "status": "PASS_COMPUTED",
+      "evidence_type": "executed_host_logic_tests",
+      "method": "Run the unchanged existing unittest suite and record exact input hashes.",
+      "command": "python project/analysis/validation_20261029/replay_controller.py",
+      "evidence_paths": [
+        "project/analysis/validation_20261029/controller_host_tests.json",
+        "project/analysis/validation_20261029/controller_host_tests.log"
+      ],
+      "limits": [
+        "Existing logic only; no proposed interlock, GPIO or physical mechanism exercised."
+      ],
+      "required_inputs": [],
+      "result": {
+        "tests_run": 16,
+        "returncode": 0
+      }
+    },
+    {
+      "id": "acceptance_inputs",
+      "title": "Define mechanical and environmental acceptance inputs",
+      "status": "NEEDS_INPUT",
+      "evidence_type": "requirements",
+      "method": "Freeze acceptance values before physical qualification.",
+      "evidence_paths": [
+        "docs/concept-verification-20261029.md"
+      ],
+      "required_inputs": [
+        "service and release wrench",
+        "CG offsets",
+        "installed mass/envelope",
+        "terminal voltage/driver",
+        "actuator/spring",
+        "preload/fit limits",
+        "print process/material",
+        "mount/backing/fasteners",
+        "permanent-set limit",
+        "retention duration/cycle life",
+        "temperature/moisture/vibration",
+        "release timing/clearance"
+      ]
+    },
+    {
+      "id": "H1_fit_specimens",
+      "title": "Specimen identity, instrumentation and actual fit",
+      "status": "NEEDS_HARDWARE",
+      "evidence_type": "physical_measurement",
+      "method": "Protocol H1",
+      "evidence_paths": [
+        "project/analysis/validation_20261029/physical_pending/specimens.csv",
+        "project/analysis/validation_20261029/physical_pending/instrumentation.csv",
+        "project/analysis/validation_20261029/physical_pending/interface_fit.csv"
+      ],
+      "limits": [
+        "Templates contain headers only, no measurements."
+      ],
+      "required_inputs": [
+        "dimension/fit limits",
+        "preload window",
+        "actual printed specimens",
+        "actual mounting"
+      ]
+    },
+    {
+      "id": "H2_force_stroke",
+      "title": "Actuator availability versus loaded latch demand",
+      "status": "NEEDS_HARDWARE",
+      "evidence_type": "physical_force_curve",
+      "method": "Protocol H2; count spring force once and compare matched positions/conditions.",
+      "evidence_paths": [
+        "project/analysis/validation_20261029/physical_pending/actuator_force_curve.csv",
+        "project/analysis/validation_20261029/physical_pending/latch_demand_curve.csv"
+      ],
+      "required_inputs": [
+        "selected actuator/winding/spring/driver",
+        "release wrench/preload",
+        "minimum voltage",
+        "temperature conditions",
+        "agreed force margin"
+      ]
+    },
+    {
+      "id": "H3_structural",
+      "title": "Physical retention, partial engagement and actual backing",
+      "status": "NEEDS_HARDWARE",
+      "evidence_type": "physical_structural_test",
+      "method": "Protocol H3; staged axial/transverse/moment cases including partially withdrawn bolt states.",
+      "evidence_paths": [
+        "project/analysis/validation_20261029/physical_pending/structural_trials.csv"
+      ],
+      "required_inputs": [
+        "accepted load envelope",
+        "ramp/dwell",
+        "permanent-set limit",
+        "actual installation",
+        "print process"
+      ]
+    },
+    {
+      "id": "H4_interlock_release",
+      "title": "Seating interlock, manual-lock modes and complete release",
+      "status": "NEEDS_HARDWARE",
+      "evidence_type": "physical_functional_test",
+      "method": "Protocol H4; separate command, actual unlock, clearance and return.",
+      "evidence_paths": [
+        "project/analysis/validation_20261029/physical_pending/interlock_release_trials.csv"
+      ],
+      "required_inputs": [
+        "physical interlock implementation",
+        "manual-lock configuration",
+        "release force/attitude",
+        "timing/clearance acceptance"
+      ]
+    },
+    {
+      "id": "H5_durability_environment",
+      "title": "Durability, vibration, creep and environmental exposure",
+      "status": "NEEDS_HARDWARE",
+      "evidence_type": "physical_durability_test",
+      "method": "Protocol H5; establish test levels first, measure performance before/after exposure.",
+      "evidence_paths": [
+        "project/analysis/validation_20261029/physical_pending/durability_environment.csv"
+      ],
+      "required_inputs": [
+        "cycles/duty/retention duration",
+        "temperature/moisture/contamination",
+        "vibration spectrum/axes",
+        "representative payload inertia"
+      ]
+    }
+  ],
+  "updated_at_utc": "2026-10-30T01:22:21.433197+00:00",
+  "counts": {
+    "cad_checks": 16,
+    "fea_cases": 35,
+    "fea_meshes": 12,
+    "controller_tests": 16,
+    "physical_tests": 0
+  }
+}

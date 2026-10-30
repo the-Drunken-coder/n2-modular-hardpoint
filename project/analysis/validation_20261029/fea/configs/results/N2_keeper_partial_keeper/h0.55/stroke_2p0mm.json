@@ -1,0 +1,301 @@
+{
+  "id": "N2_keeper_partial_keeper",
+  "variant": "N2",
+  "case": "stroke_2p0mm",
+  "h_mm": 0.55,
+  "elements": 7319,
+  "dofs": 38871,
+  "quadratic_nodes": 12957,
+  "element": "P2 displacement tetrahedra; faceted linear boundary geometry",
+  "elapsed_s": 12.90092420578003,
+  "material": {
+    "name": "Common effective solid printed PLA",
+    "elastic_model": "isotropic linear elastic",
+    "E_MPa": 2200.0,
+    "nu": 0.35,
+    "density_g_cm3": 1.24,
+    "tension_MPa": 25.0,
+    "compression_MPa": 40.0,
+    "max_shear_MPa": 15.0,
+    "nominal_temperature_C": 22,
+    "infill_assumption": "100 percent / solid-equivalent, no sparse infill",
+    "interpretation": "Effective common comparison assumptions, not measured allowables or a validated fracture law. No directional strength credit; layer adhesion and defects are homogenized. Short-duration static loading only.",
+    "reference": "Bambu PLA Basic TDS V3.0 gives typical XY/Z E 2580/2060 MPa and tensile strength 35/31 MPa for 100 percent infill, annealed/dried coupons. The chosen 25 MPa tension threshold is an analyst assumption, not a supplier rating.",
+    "reference_url": "https://cdn.shopify.com/s/files/1/0645/5876/0155/files/Bambu_PLA_Basic_Technical_Data_Sheet.pdf"
+  },
+  "applied_force_N": [
+    0.0,
+    0.0,
+    2.736526283353413e-16
+  ],
+  "applied_moment_Nmm": [
+    3.9621084191310274e-15,
+    -1.2101430968414206e-14,
+    0.0
+  ],
+  "reaction_force_N": [
+    5.385769078598651e-14,
+    1.2233084329950264e-13,
+    1.95174874479242e-13
+  ],
+  "reaction_moment_Nmm": [
+    -1.278103412196307e-13,
+    -6.4958086400372315e-12,
+    3.627355628094598e-12
+  ],
+  "force_balance_error_N": 2.367817831415411e-13,
+  "moment_balance_error_Nmm": 7.45157303726764e-12,
+  "gauge_reaction_norm_N": 2.2269262890017765e-13,
+  "relative_free_residual": 8.82636170901752e-10,
+  "max_displacement_mm": 0.0010136081601283145,
+  "compliance_Nmm": 0.0007811928300218493,
+  "strain_energy_Nmm": 0.0003905964150109239,
+  "cad_volume_mm3": 449.5301071817165,
+  "mesh_volume_mm3": 449.6731861859642,
+  "relative_volume_error": 0.000318285698692522,
+  "raw_peak_tensile_MPa": 1.0697076053132568,
+  "raw_peak_compressive_MPa": 1.6467317135521151,
+  "raw_peak_max_shear_MPa": 0.694480232658551,
+  "raw_peak_vm_MPa": 1.3276901833456443,
+  "raw_peak_failure_index": 0.04629868217723673,
+  "raw_strength_threshold_N": 21.59888690075203,
+  "raw_peak_element_centroid_mm": [
+    26.044803042086595,
+    10.312798304465607,
+    7.242536251493621
+  ],
+  "regularized": {
+    "0.4": {
+      "radius_mm": 0.4,
+      "maximum_index": 0.030618830992323248,
+      "estimated_strength_threshold_N": 32.65964008393136,
+      "location_mm": [
+        25.98348026009807,
+        11.188995581925202,
+        7.250009824041159
+      ],
+      "tensile_MPa": 0.06026824070597761,
+      "compressive_MPa": 0.8582966890637198,
+      "max_shear_MPa": 0.4592824648848487,
+      "interpretation": "Volume-weighted tensor average within centroid radius; explicit uncalibrated regularization sensitivity, not demonstrated fracture capacity"
+    },
+    "0.8": {
+      "radius_mm": 0.8,
+      "maximum_index": 0.020504433087662546,
+      "estimated_strength_threshold_N": 48.76994139387823,
+      "location_mm": [
+        25.957779989544456,
+        9.323829990424587,
+        7.2559189379159115
+      ],
+      "tensile_MPa": 0.09123201296359255,
+      "compressive_MPa": 0.5239009796662839,
+      "max_shear_MPa": 0.3075664963149382,
+      "interpretation": "Volume-weighted tensor average within centroid radius; explicit uncalibrated regularization sensitivity, not demonstrated fracture capacity"
+    }
+  },
+  "boundary_audit": [
+    {
+      "label": "Remaining adapter contact, keeper-local coordinates",
+      "selector": {
+        "normal_axis": 2,
+        "z": 7.2,
+        "x_range": [
+          25.9,
+          26.2
+        ],
+        "y_range": [
+          8.5,
+          11.5
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 0.9000000000000039,
+      "geometric_centroid_mm": [
+        26.050000000000004,
+        10.000000000000002,
+        7.199999999999988
+      ],
+      "force_N": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "moment_Nmm": [
+        10.000000000000002,
+        -26.050000000000015,
+        0.0
+      ],
+      "target_force_N": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 1.1111111111111065,
+      "maximum_density": 1.1111111111111065,
+      "facets": 24,
+      "kind": "traction"
+    },
+    {
+      "label": "Prescribed proximal roof contact, keeper-local coordinates",
+      "selector": {
+        "normal_axis": 2,
+        "z": 10.2,
+        "x_range": [
+          26.5,
+          27.5
+        ],
+        "y_range": [
+          8.5,
+          11.5
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 3.0000000000000058,
+      "geometric_centroid_mm": [
+        26.999999999999982,
+        9.999999999999995,
+        10.199999999999996
+      ],
+      "force_N": [
+        0.0,
+        0.0,
+        -1.211111111111112
+      ],
+      "moment_Nmm": [
+        -12.111111111111116,
+        32.7,
+        0.0
+      ],
+      "target_force_N": [
+        0.0,
+        0.0,
+        -1.2111111111111117
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 0.33333333333333265,
+      "maximum_density": 0.33333333333333265,
+      "facets": 60,
+      "kind": "traction"
+    },
+    {
+      "label": "Prescribed far-floor contact, keeper-local coordinates",
+      "selector": {
+        "normal_axis": 2,
+        "z": 7.2,
+        "x_range": [
+          31.0,
+          32.0
+        ],
+        "y_range": [
+          8.5,
+          11.5
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 3.0000000000000058,
+      "geometric_centroid_mm": [
+        31.500000000000007,
+        10.000000000000002,
+        7.199999999999999
+      ],
+      "force_N": [
+        0.0,
+        0.0,
+        0.2111111111111117
+      ],
+      "moment_Nmm": [
+        2.1111111111111174,
+        -6.65000000000002,
+        0.0
+      ],
+      "target_force_N": [
+        0.0,
+        0.0,
+        0.21111111111111175
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 0.33333333333333265,
+      "maximum_density": 0.33333333333333265,
+      "facets": 60,
+      "kind": "traction"
+    },
+    {
+      "label": "rigid-mode gauge",
+      "kind": "gauge",
+      "requested_point_mm": [
+        22.0,
+        -4.0,
+        7.2
+      ],
+      "actual_point_mm": [
+        22.0,
+        -4.0,
+        7.2
+      ],
+      "distance_mm": 0.0,
+      "components": [
+        0,
+        1,
+        2
+      ],
+      "dofs": [
+        162,
+        163,
+        164
+      ]
+    },
+    {
+      "label": "rigid-mode gauge",
+      "kind": "gauge",
+      "requested_point_mm": [
+        34.0,
+        -4.0,
+        7.2
+      ],
+      "actual_point_mm": [
+        34.0,
+        -4.0,
+        7.2
+      ],
+      "distance_mm": 0.0,
+      "components": [
+        1,
+        2
+      ],
+      "dofs": [
+        223,
+        224
+      ]
+    },
+    {
+      "label": "rigid-mode gauge",
+      "kind": "gauge",
+      "requested_point_mm": [
+        34.0,
+        4.0,
+        7.2
+      ],
+      "actual_point_mm": [
+        34.0,
+        3.828015740030742,
+        7.200000000000001
+      ],
+      "distance_mm": 0.1719842599692578,
+      "components": [
+        2
+      ],
+      "dofs": [
+        938
+      ]
+    }
+  ],
+  "solver": {
+    "method": "CG with smoothed aggregation AMG",
+    "iterations": 76
+  },
+  "step_sha256": "6cfde36f7bbe933964989052fb2b48a09979c9adad714e853049a188a91edbde",
+  "driver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+  "configuration_sha256": "6a641aef08d621a17b159ffbdc3f42e43a138e3c1e1ebb6e1bb00d6e51f5493d"
+}

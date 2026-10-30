@@ -1,0 +1,67 @@
+{
+  "method": "Rigid Boolean intersection of the three committed current STEP solids",
+  "software": {
+    "python": "3.12.14",
+    "cadquery": "2.7.0"
+  },
+  "intersection_tolerance_mm3": 1e-07,
+  "step_sha256": {
+    "receiver": "a122d616ba1ced141df8f188050b7fb53599d528f7ce4b0a4251a1382bcbf852",
+    "adapter": "fac0ae34b99824b56b1a253ca65d3f81ba6475433464a432675456c617904d27",
+    "keeper": "6cfde36f7bbe933964989052fb2b48a09979c9adad714e853049a188a91edbde"
+  },
+  "solid_volumes_mm3": {
+    "receiver": 5277.662696807487,
+    "adapter": 519.5371368408537,
+    "keeper": 449.5301071817165
+  },
+  "tested_source_commit": "e1150701358f31e536c807ee21e29eae4e6c4985",
+  "nominal_geometry_mm": {
+    "keeper_z": [
+      7.2,
+      10.2
+    ],
+    "keeper_channel_z": [
+      6.9,
+      10.5
+    ],
+    "adapter_cross_hole_z": [
+      6.9,
+      10.5
+    ],
+    "adapter_lug_x": [
+      26.8,
+      28.2
+    ],
+    "adapter_lug_y": [
+      6.4,
+      13.6
+    ],
+    "receiver_slot_x": [
+      26.5,
+      28.5
+    ],
+    "receiver_slot_y": [
+      6.1,
+      13.9
+    ],
+    "adapter_flange_underside_z": 16,
+    "receiver_roof_top_z": 14.7
+  },
+  "nominal_axial_motion_each_direction_mm": 0.6,
+  "nominal_axial_total_motion_mm": 1.2,
+  "analytical_yaw_first_side_contact_deg": 4.819724598261994,
+  "analytical_total_yaw_range_deg": 9.639449196523987,
+  "yaw_first_contact_equation": "0.7*cos(theta) + 3.6*sin(theta) = 1.0",
+  "sampled_yaw_no_interference_through_each_direction_deg": 4.75,
+  "sampled_yaw_interference_at_each_direction_deg": 5.0,
+  "nominal_flange_to_roof_gap_mm": 1.3,
+  "all_expected_geometry_checks_pass": true,
+  "limits": [
+    "This establishes nominal geometric clearance, not measured backlash on a printed specimen.",
+    "Loads, friction, preload, elasticity, wear, and dynamics are not solved.",
+    "This current-commit run checks receiver, adapter, and keeper only; it does not test purchased actuator internals.",
+    "The yaw analytic calculation is the rectangular lug/socket estimate and is bracketed by the STEP checks.",
+    "No working-load rating or flight readiness follows from these checks."
+  ]
+}

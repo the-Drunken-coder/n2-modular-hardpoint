@@ -1,0 +1,16 @@
+N2_receiver_fixture: mesh h=0.8
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+27121 elements / 140460 DOF
+centered__Z: u=0.0011646; raw threshold=38.49 N; gauge=0
+distal_ineffective__Z: u=0.0011904; raw threshold=24.225 N; gauge=0
+centered__Z_washers: u=0.013087; raw threshold=15.259 N; gauge=0
+distal_ineffective__Z_washers: u=0.012754; raw threshold=15.335 N; gauge=0
+N2_receiver_fixture: mesh h=0.55
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+57843 elements / 283290 DOF
+centered__Z: u=0.0011718; raw threshold=40.982 N; gauge=0
+distal_ineffective__Z: u=0.0011968; raw threshold=23.326 N; gauge=0
+centered__Z_washers: u=0.013253; raw threshold=12.986 N; gauge=0
+distal_ineffective__Z_washers: u=0.012917; raw threshold=12.936 N; gauge=0

@@ -1,0 +1,1 @@
+trial_id,timestamp_utc,specimen_id,instrument_ids,position_mm,direction,Fx_N,Fy_N,Fz_N,Mx_Nm,My_Nm,Mz_Nm,face_preload_N,seat_condition,ambient_C,conditioning,measured_latch_only_force_N,force_uncertainty_N,position_uncertainty_mm,actuator_spring_excluded,repeat_number,raw_trace_path,notes

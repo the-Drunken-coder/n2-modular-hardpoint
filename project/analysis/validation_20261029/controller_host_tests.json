@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "id": "controller_host_replay",
+  "title": "Existing local bench-controller host tests",
+  "status": "PASS_COMPUTED",
+  "evidence_type": "executed_host_logic_tests",
+  "source_revision": "e1150701358f31e536c807ee21e29eae4e6c4985",
+  "source_file_sha256": {
+    "project/electronics/controller_core.py": "c803de24aa2aa6bfd291240512aa0bbba54437038fac09f4390cab8e33f7fc1f",
+    "project/electronics/config.py": "b30a4ba45d59a812f84cb1a8e15611b1ee5c7604f455d6d8186d28034c6f9949",
+    "project/electronics/main.py": "bf3f77010eeb180f5a935a066084b3749e1500b4e9a31363aabc77aa0ae0bd69",
+    "project/electronics/test_controller.py": "275d2360e40ce0eef506aac50dbc6ff2aaa40f81951e3ba7b0bf088a0e32784f"
+  },
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_controller.py"
+  ],
+  "working_directory": "project/electronics",
+  "started_at_utc": "2026-10-30T01:11:08.809037+00:00",
+  "finished_at_utc": "2026-10-30T01:11:08.851942+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "returncode": 0,
+  "tests_run": 16,
+  "log_path": "project/analysis/validation_20261029/controller_host_tests.log",
+  "limits": [
+    "Existing bench state/button/timing logic only.",
+    "No GPIO, actuator, temperature, structural, vibration or release hardware exercised.",
+    "Proposed seating interlock and optional manual lock are not implemented by this controller.",
+    "A passing host suite does not establish a load rating or reliable payload departure."
+  ]
+}
