@@ -1,0 +1,1 @@
+specimen_id,component_or_assembly,cad_revision,cad_sha256,material_brand_grade,batch,conditioning,drying_record,printer,nozzle_mm,layer_mm,orientation,walls,infill_pct,slicer_profile_sha256,mass_g,mass_includes,actuator_model_winding_serial,spring_id,backing_material_geometry,host_fixture_id,fastener_stack,torque_Nm,notes

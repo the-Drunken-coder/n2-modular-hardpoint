@@ -1,0 +1,42 @@
+[
+  {
+    "case": "stroke_0p6mm",
+    "stroke_mm": 0.6,
+    "remaining_lug_overlap_mm": 1.3999999999999986,
+    "lug_centroid_host_x_mm": 27.5,
+    "proximal_roof_reaction_per_N": 1.3333333333333333,
+    "far_floor_reaction_per_N": 0.3333333333333333,
+    "average_bearing_MPa_at_8p90748N": 2.1208285714285733,
+    "scope": "Assumed uniform contact and fixed host roof/floor centroids; no coupled contact redistribution or dynamic departure."
+  },
+  {
+    "case": "stroke_1p5mm",
+    "stroke_mm": 1.5,
+    "remaining_lug_overlap_mm": 0.8000000000000007,
+    "lug_centroid_host_x_mm": 27.799999999999997,
+    "proximal_roof_reaction_per_N": 1.2666666666666673,
+    "far_floor_reaction_per_N": 0.2666666666666673,
+    "average_bearing_MPa_at_8p90748N": 3.7114499999999966,
+    "scope": "Assumed uniform contact and fixed host roof/floor centroids; no coupled contact redistribution or dynamic departure."
+  },
+  {
+    "case": "stroke_2p0mm",
+    "stroke_mm": 2.0,
+    "remaining_lug_overlap_mm": 0.3000000000000007,
+    "lug_centroid_host_x_mm": 28.049999999999997,
+    "proximal_roof_reaction_per_N": 1.2111111111111117,
+    "far_floor_reaction_per_N": 0.21111111111111175,
+    "average_bearing_MPa_at_8p90748N": 9.897199999999977,
+    "scope": "Assumed uniform contact and fixed host roof/floor centroids; no coupled contact redistribution or dynamic departure."
+  },
+  {
+    "case": "stroke_2p2mm",
+    "stroke_mm": 2.2,
+    "remaining_lug_overlap_mm": 0.10000000000000142,
+    "lug_centroid_host_x_mm": 28.15,
+    "proximal_roof_reaction_per_N": 1.188888888888889,
+    "far_floor_reaction_per_N": 0.18888888888888922,
+    "average_bearing_MPa_at_8p90748N": 29.69159999999958,
+    "scope": "Assumed uniform contact and fixed host roof/floor centroids; no coupled contact redistribution or dynamic departure."
+  }
+]

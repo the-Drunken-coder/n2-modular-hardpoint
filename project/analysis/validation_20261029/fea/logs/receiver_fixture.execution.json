@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/workspace/scratch/c3093d2e58b9/n2-fea-env/bin/python",
+    "/workspace/scratch/c3093d2e58b9/n2-validation/project/analysis/validation_20261029/fea/engine/solver.py",
+    "--config",
+    "/workspace/scratch/c3093d2e58b9/n2-validation/project/analysis/validation_20261029/fea/configs/receiver_fixture.json",
+    "--sizes",
+    "0.8",
+    "0.55",
+    "--cases",
+    "centered__Z",
+    "distal_ineffective__Z",
+    "centered__Z_washers",
+    "distal_ineffective__Z_washers"
+  ],
+  "group": "fixture",
+  "part": "receiver",
+  "returncode": 0,
+  "elapsed_s": 267.5850441455841,
+  "config_sha256": "32bef3bd14628758406ee2751dfc654e93b41f50758ded3d73f529dbeeda5a21",
+  "solver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+  "log": "logs/receiver_fixture.log"
+}

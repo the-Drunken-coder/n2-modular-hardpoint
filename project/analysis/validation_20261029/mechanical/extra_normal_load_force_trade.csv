@@ -1,0 +1,16 @@
+assumed_equal_contact_mu,assumed_additional_normal_force_through_latch_N,additional_ideal_planar_drag_N,label
+0.1,0,0.0,not_a_joint_preload_partition_model
+0.1,0.5,0.1,not_a_joint_preload_partition_model
+0.1,1,0.2,not_a_joint_preload_partition_model
+0.1,2,0.4,not_a_joint_preload_partition_model
+0.1,5,1.0,not_a_joint_preload_partition_model
+0.2,0,0.0,not_a_joint_preload_partition_model
+0.2,0.5,0.2,not_a_joint_preload_partition_model
+0.2,1,0.4,not_a_joint_preload_partition_model
+0.2,2,0.8,not_a_joint_preload_partition_model
+0.2,5,2.0,not_a_joint_preload_partition_model
+0.3,0,0.0,not_a_joint_preload_partition_model
+0.3,0.5,0.3,not_a_joint_preload_partition_model
+0.3,1,0.6,not_a_joint_preload_partition_model
+0.3,2,1.2,not_a_joint_preload_partition_model
+0.3,5,3.0,not_a_joint_preload_partition_model

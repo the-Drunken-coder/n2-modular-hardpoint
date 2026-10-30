@@ -1,0 +1,891 @@
+{
+  "id": "N2_receiver_fixture",
+  "variant": "N2",
+  "component": "receiver",
+  "step_path": "reference_inputs/project/cad/N2/N2_receiver.step",
+  "expected_step_sha256": "a122d616ba1ced141df8f188050b7fb53599d528f7ce4b0a4251a1382bcbf852",
+  "load_normalization_N": 1.0,
+  "model_scope": "Prescribed seated, finite, normal contact tractions on actual unchanged STEP geometry; not an assembled contact solve or a load rating.",
+  "far_size_factor": 3.0,
+  "max_dofs": 420000,
+  "averaging_radii_mm": [
+    0.4,
+    0.8
+  ],
+  "cases": {
+    "centered__Z": {
+      "loads": [
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.5357142857142856
+          ]
+        },
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.4642857142857144
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid bonded host backing",
+          "selector": {
+            "normal_axis": 2,
+            "z": 0.0,
+            "x_range": [
+              -2.0,
+              38.0
+            ],
+            "y_range": [
+              -13.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "centered__XZ+45": {
+      "loads": [
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.3788072042070789,
+            0.0,
+            0.378807204207079
+          ]
+        },
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.32829957697946854,
+            0.0,
+            0.3282995769794686
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid bonded host backing",
+          "selector": {
+            "normal_axis": 2,
+            "z": 0.0,
+            "x_range": [
+              -2.0,
+              38.0
+            ],
+            "y_range": [
+              -13.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "centered__XZ+90": {
+      "loads": [
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.5357142857142856,
+            0.0,
+            3.2803039262875526e-17
+          ]
+        },
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.4642857142857144,
+            0.0,
+            2.8429300694492135e-17
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid bonded host backing",
+          "selector": {
+            "normal_axis": 2,
+            "z": 0.0,
+            "x_range": [
+              -2.0,
+              38.0
+            ],
+            "y_range": [
+              -13.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "centered__XZ-45": {
+      "loads": [
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            -0.3788072042070789,
+            0.0,
+            0.378807204207079
+          ]
+        },
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            -0.32829957697946854,
+            0.0,
+            0.3282995769794686
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid bonded host backing",
+          "selector": {
+            "normal_axis": 2,
+            "z": 0.0,
+            "x_range": [
+              -2.0,
+              38.0
+            ],
+            "y_range": [
+              -13.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "centered__XZ-90": {
+      "loads": [
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            -0.5357142857142856,
+            0.0,
+            3.2803039262875526e-17
+          ]
+        },
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            -0.4642857142857144,
+            0.0,
+            2.8429300694492135e-17
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid bonded host backing",
+          "selector": {
+            "normal_axis": 2,
+            "z": 0.0,
+            "x_range": [
+              -2.0,
+              38.0
+            ],
+            "y_range": [
+              -13.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "centered__YZ+45": {
+      "loads": [
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.3788072042070789,
+            0.378807204207079
+          ]
+        },
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.32829957697946854,
+            0.3282995769794686
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid bonded host backing",
+          "selector": {
+            "normal_axis": 2,
+            "z": 0.0,
+            "x_range": [
+              -2.0,
+              38.0
+            ],
+            "y_range": [
+              -13.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "centered__YZ+90": {
+      "loads": [
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.5357142857142856,
+            3.2803039262875526e-17
+          ]
+        },
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.4642857142857144,
+            2.8429300694492135e-17
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid bonded host backing",
+          "selector": {
+            "normal_axis": 2,
+            "z": 0.0,
+            "x_range": [
+              -2.0,
+              38.0
+            ],
+            "y_range": [
+              -13.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "centered__YZ-45": {
+      "loads": [
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            -0.3788072042070789,
+            0.378807204207079
+          ]
+        },
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            -0.32829957697946854,
+            0.3282995769794686
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid bonded host backing",
+          "selector": {
+            "normal_axis": 2,
+            "z": 0.0,
+            "x_range": [
+              -2.0,
+              38.0
+            ],
+            "y_range": [
+              -13.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "centered__YZ-90": {
+      "loads": [
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            -0.5357142857142856,
+            3.2803039262875526e-17
+          ]
+        },
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            -0.4642857142857144,
+            2.8429300694492135e-17
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid bonded host backing",
+          "selector": {
+            "normal_axis": 2,
+            "z": 0.0,
+            "x_range": [
+              -2.0,
+              38.0
+            ],
+            "y_range": [
+              -13.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "distal_ineffective__Z": {
+      "loads": [
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            1.3333333333333333
+          ]
+        },
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              33,
+              34
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.33333333333333326
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid bonded host backing",
+          "selector": {
+            "normal_axis": 2,
+            "z": 0.0,
+            "x_range": [
+              -2.0,
+              38.0
+            ],
+            "y_range": [
+              -13.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "centered__Z_washers": {
+      "loads": [
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              25.9,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.5357142857142856
+          ]
+        },
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.4642857142857144
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Rigid host washer annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": 3.2,
+            "annulus_xy": [
+              5.0,
+              14.0,
+              1.6,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid host washer annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": 3.2,
+            "annulus_xy": [
+              35.0,
+              -10.0,
+              1.6,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "fixture": "Ideal rigid washer annuli; no bolt preload, slip, airframe flexibility or pull-through model."
+    },
+    "distal_ineffective__Z_washers": {
+      "loads": [
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.5,
+            "x_range": [
+              28.5,
+              29.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            1.3333333333333333
+          ]
+        },
+        {
+          "label": "patch",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              33,
+              34
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.33333333333333326
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Rigid host washer annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": 3.2,
+            "annulus_xy": [
+              5.0,
+              14.0,
+              1.6,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid host washer annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": 3.2,
+            "annulus_xy": [
+              35.0,
+              -10.0,
+              1.6,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "fixture": "Ideal rigid washer annuli; no bolt preload, slip, airframe flexibility or pull-through model."
+    }
+  },
+  "refine_boxes": [
+    {
+      "bounds": [
+        [
+          22.7,
+          4.5,
+          -0.1
+        ],
+        [
+          37.6,
+          15.5,
+          13.0
+        ]
+      ],
+      "factor": 1.0
+    },
+    {
+      "bounds": [
+        [
+          1.8,
+          10.8,
+          -0.1
+        ],
+        [
+          8.2,
+          17.1,
+          3.4
+        ]
+      ],
+      "factor": 1.0
+    },
+    {
+      "bounds": [
+        [
+          31.8,
+          -13.1,
+          -0.1
+        ],
+        [
+          38.1,
+          -6.8,
+          3.4
+        ]
+      ],
+      "factor": 1.0
+    }
+  ],
+  "validation_scope": "Linear isotropic prescribed-traction sensitivity on current P14 STEP; not assembled nonlinear contact, physical test, failure prediction, or working-load rating."
+}

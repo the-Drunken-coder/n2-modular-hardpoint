@@ -1,0 +1,12 @@
+N2_keeper_baseline: mesh h=0.55
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+6791 elements / 35859 DOF
+centered: u=0.00032201; raw threshold=75.815 N; gauge=3e-13
+distal_ineffective: u=0.0013613; raw threshold=47.203 N; gauge=2.3e-13
+N2_keeper_baseline: mesh h=0.4
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+12103 elements / 61617 DOF
+centered: u=0.0003219; raw threshold=72.766 N; gauge=8e-14
+distal_ineffective: u=0.0013631; raw threshold=47.642 N; gauge=1.8e-13

@@ -1,0 +1,110 @@
+{
+  "source_commit": "e1150701358f31e536c807ee21e29eae4e6c4985",
+  "solver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+  "planned_case_solves": 35,
+  "plans": [
+    {
+      "group": "baseline",
+      "part": "receiver",
+      "config": "configs/receiver_baseline.json",
+      "sizes_mm": [
+        0.8,
+        0.55
+      ],
+      "selected_cases": [
+        "centered__Z",
+        "distal_ineffective__Z"
+      ]
+    },
+    {
+      "group": "baseline",
+      "part": "adapter",
+      "config": "configs/adapter_baseline.json",
+      "sizes_mm": [
+        0.55,
+        0.4
+      ],
+      "selected_cases": [
+        "adapter__Z"
+      ]
+    },
+    {
+      "group": "baseline",
+      "part": "keeper",
+      "config": "configs/keeper_baseline.json",
+      "sizes_mm": [
+        0.55,
+        0.4
+      ],
+      "selected_cases": [
+        "centered",
+        "distal_ineffective"
+      ]
+    },
+    {
+      "group": "fixture",
+      "part": "receiver",
+      "config": "configs/receiver_fixture.json",
+      "sizes_mm": [
+        0.8,
+        0.55
+      ],
+      "selected_cases": [
+        "centered__Z",
+        "distal_ineffective__Z",
+        "centered__Z_washers",
+        "distal_ineffective__Z_washers"
+      ]
+    },
+    {
+      "group": "partial_adapter",
+      "part": "adapter",
+      "config": "configs/adapter_partial_adapter.json",
+      "sizes_mm": [
+        0.55,
+        0.4
+      ],
+      "selected_cases": [
+        "stroke_0p6mm",
+        "stroke_1p5mm",
+        "stroke_2p0mm",
+        "stroke_2p2mm",
+        "reference_full_contact"
+      ]
+    },
+    {
+      "group": "partial_keeper",
+      "part": "keeper",
+      "config": "configs/keeper_partial_keeper.json",
+      "sizes_mm": [
+        0.55
+      ],
+      "selected_cases": [
+        "stroke_0p6mm",
+        "stroke_1p5mm",
+        "stroke_2p0mm",
+        "stroke_2p2mm",
+        "reference_distal_lost_retained_pose"
+      ]
+    },
+    {
+      "group": "partial_keeper_terminal_refine",
+      "part": "keeper",
+      "config": "configs/keeper_partial_keeper_terminal_refine.json",
+      "sizes_mm": [
+        0.4
+      ],
+      "selected_cases": [
+        "stroke_2p2mm",
+        "reference_distal_lost_retained_pose"
+      ]
+    }
+  ],
+  "deliberately_excluded": [
+    "Unmodeled payload moments or sidewall contacts",
+    "Flight load rating",
+    "Physical tests",
+    "PAHT-CF constitutive model",
+    "New proposed concept geometry"
+  ]
+}

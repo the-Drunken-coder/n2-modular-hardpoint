@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/workspace/scratch/c3093d2e58b9/n2-fea-env/bin/python",
+    "/workspace/scratch/c3093d2e58b9/n2-validation/project/analysis/validation_20261029/fea/engine/solver.py",
+    "--config",
+    "/workspace/scratch/c3093d2e58b9/n2-validation/project/analysis/validation_20261029/fea/configs/receiver_baseline.json",
+    "--sizes",
+    "0.8",
+    "0.55",
+    "--cases",
+    "centered__Z",
+    "distal_ineffective__Z"
+  ],
+  "group": "baseline",
+  "part": "receiver",
+  "returncode": 0,
+  "elapsed_s": 116.88200759887695,
+  "config_sha256": "2dfb79b10b7ed15f50ba79b987f4fe76f2ad340b2dadf01d672cd8427d1d38a1",
+  "solver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+  "log": "logs/receiver_baseline.log"
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "name": "P14 nominal clearance regression",
+  "historical_baseline_revision": "e1150701358f31e536c807ee21e29eae4e6c4985",
+  "note": "These cases reproduce the known nominal P14 play; they do not assert that this play is acceptable. Review and update the expectation deliberately for a new geometry revision.",
+  "expected_assembly_part_count": 13,
+  "expected_clearance_case_count": 16,
+  "intersection_tolerance_mm3": 0.0000001,
+  "step_sha256": {
+    "receiver": "a122d616ba1ced141df8f188050b7fb53599d528f7ce4b0a4251a1382bcbf852",
+    "adapter": "fac0ae34b99824b56b1a253ca65d3f81ba6475433464a432675456c617904d27",
+    "keeper": "6cfde36f7bbe933964989052fb2b48a09979c9adad714e853049a188a91edbde"
+  },
+  "yaw_axis_start_mm": [27.5, 10.0, 0.0],
+  "yaw_axis_end_mm": [27.5, 10.0, 1.0],
+  "nominal_axial_total_play_mm": 1.2,
+  "nominal_flange_to_roof_gap_mm": 1.3,
+  "analytical_total_yaw_play_deg": 9.639449196523987,
+  "poses": [
+    {"id":"retained","adapter_dz_mm":0,"keeper_dz_mm":0,"yaw_deg":0,"expected_interference":false},
+    {"id":"adapter_up_clear","adapter_dz_mm":0.29,"keeper_dz_mm":0,"yaw_deg":0,"expected_interference":false},
+    {"id":"adapter_up_contact","adapter_dz_mm":0.31,"keeper_dz_mm":0,"yaw_deg":0,"expected_interference":true},
+    {"id":"combined_up_clear","adapter_dz_mm":0.59,"keeper_dz_mm":0.29,"yaw_deg":0,"expected_interference":false},
+    {"id":"combined_up_adapter_contact","adapter_dz_mm":0.61,"keeper_dz_mm":0.29,"yaw_deg":0,"expected_interference":true},
+    {"id":"combined_up_keeper_contact","adapter_dz_mm":0.59,"keeper_dz_mm":0.31,"yaw_deg":0,"expected_interference":true},
+    {"id":"combined_down_clear","adapter_dz_mm":-0.59,"keeper_dz_mm":-0.29,"yaw_deg":0,"expected_interference":false},
+    {"id":"combined_down_adapter_contact","adapter_dz_mm":-0.61,"keeper_dz_mm":-0.29,"yaw_deg":0,"expected_interference":true},
+    {"id":"combined_down_keeper_contact","adapter_dz_mm":-0.59,"keeper_dz_mm":-0.31,"yaw_deg":0,"expected_interference":true},
+    {"id":"yaw_negative_contact","adapter_dz_mm":0,"keeper_dz_mm":0,"yaw_deg":-5,"expected_interference":true},
+    {"id":"yaw_negative_limit_clear","adapter_dz_mm":0,"keeper_dz_mm":0,"yaw_deg":-4.75,"expected_interference":false},
+    {"id":"yaw_negative_clear","adapter_dz_mm":0,"keeper_dz_mm":0,"yaw_deg":-4.5,"expected_interference":false},
+    {"id":"yaw_zero","adapter_dz_mm":0,"keeper_dz_mm":0,"yaw_deg":0,"expected_interference":false},
+    {"id":"yaw_positive_clear","adapter_dz_mm":0,"keeper_dz_mm":0,"yaw_deg":4.5,"expected_interference":false},
+    {"id":"yaw_positive_limit_clear","adapter_dz_mm":0,"keeper_dz_mm":0,"yaw_deg":4.75,"expected_interference":false},
+    {"id":"yaw_positive_contact","adapter_dz_mm":0,"keeper_dz_mm":0,"yaw_deg":5,"expected_interference":true}
+  ]
+}

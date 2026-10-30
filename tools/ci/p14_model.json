@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "model_id": "n2-p14-prescribed-traction-20261029",
+  "reference_commit": "e1150701358f31e536c807ee21e29eae4e6c4985",
+  "scope": "Replay of the frozen P14 prescribed-traction model; not validation of newly changed geometry, physical performance, loaded release or a working-load rating.",
+  "source_inventory": {
+    "path": "project/analysis/validation_20261029/fea/source_git_blobs.json",
+    "sha256": "9463de0cf92dbc835da8be64ec0dfc3e3e02d3a9c546488519672b0478b9c446"
+  },
+  "run_plan": {
+    "path": "project/analysis/validation_20261029/fea/run_plan.json",
+    "sha256": "716cc70a4a96aa9af7ac21359d7b07a528248e66052bcee2dbb527f539d7bedc"
+  },
+  "reference_results": {
+    "path": "project/analysis/validation_20261029/fea/results_summary.json",
+    "sha256": "6b41e84587fbf1cbff99efc70921cdf58abcbca891299eaa6ac40411c76c66a0"
+  },
+  "requirements": {
+    "path": "project/analysis/requirements.txt",
+    "sha256": "7d6007342709ff0ae64a63d35b8458699c97d6675a68a8ac0db97273d1c37e42"
+  },
+  "configs": [
+    {
+      "path": "project/analysis/validation_20261029/fea/configs/receiver_baseline.json",
+      "sha256": "2dfb79b10b7ed15f50ba79b987f4fe76f2ad340b2dadf01d672cd8427d1d38a1"
+    },
+    {
+      "path": "project/analysis/validation_20261029/fea/configs/adapter_baseline.json",
+      "sha256": "82139dcbf9c124d1c1318243765af27195e60ff61bb0c4a172bfa89570df1df0"
+    },
+    {
+      "path": "project/analysis/validation_20261029/fea/configs/keeper_baseline.json",
+      "sha256": "c993a0b9b6eecc616c1e98b1f13d354333374a92a8682e307a4e01525bbf92c4"
+    },
+    {
+      "path": "project/analysis/validation_20261029/fea/configs/receiver_fixture.json",
+      "sha256": "32bef3bd14628758406ee2751dfc654e93b41f50758ded3d73f529dbeeda5a21"
+    },
+    {
+      "path": "project/analysis/validation_20261029/fea/configs/adapter_partial_adapter.json",
+      "sha256": "0df0c2b2827ea8dfaf48ebdf6832cb6ddef668811fab6f0fe92b39acc0d661e0"
+    },
+    {
+      "path": "project/analysis/validation_20261029/fea/configs/keeper_partial_keeper.json",
+      "sha256": "6a641aef08d621a17b159ffbdc3f42e43a138e3c1e1ebb6e1bb00d6e51f5493d"
+    },
+    {
+      "path": "project/analysis/validation_20261029/fea/configs/keeper_partial_keeper_terminal_refine.json",
+      "sha256": "e463712d954c51f31669f09b85da7a6681b659b3a7a199231edff89e27ec16c4"
+    }
+  ],
+  "solver_source": "project/analysis/inputs/drivers/solver_6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c.py",
+  "solver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+  "material_source": "project/analysis/material.json",
+  "expected_case_count": 35,
+  "expected_group_counts": {
+    "baseline": 10,
+    "fixture": 8,
+    "partial_adapter": 10,
+    "partial_keeper": 5,
+    "partial_keeper_terminal_refine": 2
+  },
+  "python": [
+    3,
+    12
+  ],
+  "required_packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "gmsh": "4.15.2",
+    "scikit-fem": "12.0.2",
+    "pyamg": "5.3.0",
+    "meshio": "5.3.5",
+    "matplotlib": "3.10.8"
+  },
+  "limits": {
+    "relative_free_residual": 1e-08,
+    "force_balance_error_N": 1e-06,
+    "moment_balance_error_Nmm": 1e-05,
+    "gauge_reaction_norm_N": 1e-06,
+    "absolute_mesh_volume_error": 0.005,
+    "applied_force_error_N": 1e-08
+  },
+  "replay_comparison": {
+    "relative_tolerance": 0.02,
+    "absolute_tolerance": 1e-08,
+    "metrics": [
+      "raw_strength_threshold_N",
+      "max_displacement_mm",
+      "compliance_Nmm"
+    ],
+    "purpose": "Numerical replay drift guard only; this 2% tolerance is not a mechanical safety factor, material allowable, or convergence criterion."
+  }
+}

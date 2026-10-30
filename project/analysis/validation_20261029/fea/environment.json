@@ -1,0 +1,17 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "executable": "/workspace/scratch/c3093d2e58b9/n2-fea-env/bin/python",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "gmsh": "4.15.2",
+    "scikit-fem": "12.0.2",
+    "pyamg": "5.3.0",
+    "meshio": "5.3.5",
+    "cadquery": "2.7.0"
+  },
+  "native_dependency": "Ubuntu libxft2 2.3.6-1build1 extracted into isolated scratch environment; gmsh initialized successfully.",
+  "source_commit": "e1150701358f31e536c807ee21e29eae4e6c4985",
+  "solver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c"
+}

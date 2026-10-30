@@ -1,0 +1,191 @@
+name: Engineering validation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      retain_meshes:
+        description: Keep native FEA meshes and field arrays as additional artifacts
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: engineering-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONUNBUFFERED: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  OMP_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+
+jobs:
+  controller:
+    name: Controller and CI failure checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - name: Check that CI rejects invalid and missing evidence
+        run: python -m unittest discover -s tests/ci -p 'test_*.py' -v
+      - name: Run current controller host tests
+        if: always()
+        run: python tools/ci/run_controller.py --output "$RUNNER_TEMP/n2-controller"
+      - name: Write controller summary
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/n2-controller/summary.md" ]; then
+            cat "$RUNNER_TEMP/n2-controller/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve controller evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: engineering-evidence-controller-${{ github.run_id }}
+          overwrite: true
+          path: ${{ runner.temp }}/n2-controller
+          retention-days: 14
+          if-no-files-found: error
+
+  cad:
+    name: CAD regeneration and P14 clearance
+    needs: controller
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: project/cad/requirements.txt
+      - name: Install CAD dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libgl1 libglu1-mesa libxft2 libxrender1
+          python -m pip install -r project/cad/requirements.txt
+      - name: Regenerate the current CAD and check P14 clearances
+        run: python tools/ci/run_cad.py --output "$RUNNER_TEMP/n2-cad"
+      - name: Write CAD summary
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/n2-cad/summary.md" ]; then
+            cat "$RUNNER_TEMP/n2-cad/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve CAD evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: engineering-evidence-cad-${{ github.run_id }}
+          overwrite: true
+          path: |
+            ${{ runner.temp }}/n2-cad
+            !${{ runner.temp }}/n2-cad/regenerated/**
+          retention-days: 14
+          if-no-files-found: error
+
+  fea:
+    name: P14 FEA / ${{ matrix.group }}
+    needs: controller
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        group: [baseline, fixture, partial_adapter, partial_keeper, partial_keeper_terminal_refine]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: project/analysis/requirements.txt
+      - name: Install numerical and native dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libgl1 libglu1-mesa libxft2 libxrender1
+          python -m pip install -r project/analysis/requirements.txt
+      - name: Run fresh solves and enforce numerical gates
+        env:
+          FEA_GROUP: ${{ matrix.group }}
+        run: python tools/ci/run_fea.py --group "$FEA_GROUP" --out "$RUNNER_TEMP/n2-fea-$FEA_GROUP"
+      - name: Write FEA summary
+        if: always()
+        env:
+          FEA_GROUP: ${{ matrix.group }}
+        run: |
+          if [ -f "$RUNNER_TEMP/n2-fea-$FEA_GROUP/summary.md" ]; then
+            cat "$RUNNER_TEMP/n2-fea-$FEA_GROUP/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve compact FEA evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: engineering-evidence-fea-${{ matrix.group }}-${{ github.run_id }}
+          overwrite: true
+          path: |
+            ${{ runner.temp }}/n2-fea-${{ matrix.group }}
+            !${{ runner.temp }}/n2-fea-${{ matrix.group }}/**/*.msh
+            !${{ runner.temp }}/n2-fea-${{ matrix.group }}/**/*.npz
+          retention-days: 14
+          if-no-files-found: error
+      - name: Preserve requested native meshes and field arrays
+        if: ${{ always() && github.event_name == 'workflow_dispatch' && inputs.retain_meshes }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: fea-fields-${{ matrix.group }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/n2-fea-${{ matrix.group }}/**/*.msh
+            ${{ runner.temp }}/n2-fea-${{ matrix.group }}/**/*.npz
+          retention-days: 14
+          if-no-files-found: warn
+          compression-level: 1
+
+  validation:
+    name: Engineering validation gate
+    needs: [controller, cad, fea]
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Collect this run's evidence
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: engineering-evidence-*-${{ github.run_id }}
+          path: ${{ runner.temp }}/n2-evidence
+      - name: Require all jobs and all seven fresh reports
+        if: always()
+        env:
+          N2_JOB_RESULTS: ${{ toJSON(needs) }}
+        run: |
+          python tools/ci/summarize_run.py \
+            --artifacts "$RUNNER_TEMP/n2-evidence" \
+            --output "$RUNNER_TEMP/n2-summary" \
+            --expected-sha "$GITHUB_SHA"
+      - name: Preserve complete run summary
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: engineering-summary-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/n2-summary
+          retention-days: 14
+          if-no-files-found: error

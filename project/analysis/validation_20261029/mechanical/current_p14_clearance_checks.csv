@@ -1,0 +1,17 @@
+check,adapter_dz_mm,keeper_dz_mm,yaw_deg,adapter_receiver_overlap_mm3,adapter_keeper_overlap_mm3,keeper_receiver_overlap_mm3,interference_found,expected_interference,check_pass
+axial_pose,0,0,0,0.0,0.0,0.0,False,False,True
+axial_pose,0.29,0,0,0.0,0.0,0.0,False,False,True
+axial_pose,0.31,0,0,0.0,0.04199999999999906,0.0,True,True,True
+axial_pose,0.59,0.29,0,0.0,0.0,0.0,False,False,True
+axial_pose,0.61,0.29,0,0.0,0.08400000000000186,0.0,True,True,True
+axial_pose,0.59,0.31,0,0.0,0.0,0.1139999999999976,True,True,True
+axial_pose,-0.59,-0.29,0,0.0,0.0,0.0,False,False,True
+axial_pose,-0.61,-0.29,0,0.10080000000000222,0.08399999999999813,0.0,True,True,True
+axial_pose,-0.59,-0.31,0,0.0,0.0,0.2369999999999921,True,True,True
+yaw_pose,0,0,-5,0.015459466581772052,0.0,0.0,True,True,True
+yaw_pose,0,0,-4.75,0.0,0.0,0.0,False,False,True
+yaw_pose,0,0,-4.5,0.0,0.0,0.0,False,False,True
+yaw_pose,0,0,0,0.0,0.0,0.0,False,False,True
+yaw_pose,0,0,4.5,0.0,0.0,0.0,False,False,True
+yaw_pose,0,0,4.75,0.0,0.0,0.0,False,False,True
+yaw_pose,0,0,5,0.01545946658165223,0.0,0.0,True,True,True

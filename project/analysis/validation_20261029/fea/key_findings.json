@@ -1,0 +1,155 @@
+{
+  "source_commit": "e1150701358f31e536c807ee21e29eae4e6c4985",
+  "case_solves": 35,
+  "meshes": 12,
+  "numeric_audit_failures": 0,
+  "interpretation": "Computed PLA stress screens only; no measured failure loads, qualified release loads or working-load ratings.",
+  "baseline_mesh_sensitivity": [
+    {
+      "part": "adapter",
+      "case": "adapter__Z",
+      "coarse_h_mm": 0.55,
+      "fine_h_mm": 0.4,
+      "coarse_PLA_screen_N": 22.213440234880597,
+      "fine_PLA_screen_N": 20.697236443297026,
+      "change_percent": -6.8256144728215284
+    },
+    {
+      "part": "receiver",
+      "case": "centered__Z",
+      "coarse_h_mm": 0.8,
+      "fine_h_mm": 0.55,
+      "coarse_PLA_screen_N": 39.03027450599891,
+      "fine_PLA_screen_N": 40.306540351940875,
+      "change_percent": 3.2699381751614354
+    },
+    {
+      "part": "receiver",
+      "case": "distal_ineffective__Z",
+      "coarse_h_mm": 0.8,
+      "fine_h_mm": 0.55,
+      "coarse_PLA_screen_N": 24.224094916811833,
+      "fine_PLA_screen_N": 23.729818685441607,
+      "change_percent": -2.040432193927677
+    },
+    {
+      "part": "keeper",
+      "case": "centered",
+      "coarse_h_mm": 0.55,
+      "fine_h_mm": 0.4,
+      "coarse_PLA_screen_N": 75.81509779444764,
+      "fine_PLA_screen_N": 72.76635512080739,
+      "change_percent": -4.02128700263119
+    },
+    {
+      "part": "keeper",
+      "case": "distal_ineffective",
+      "coarse_h_mm": 0.55,
+      "fine_h_mm": 0.4,
+      "coarse_PLA_screen_N": 47.20296868489533,
+      "fine_PLA_screen_N": 47.642004223032295,
+      "change_percent": 0.9301015388836209
+    }
+  ],
+  "same_mesh_fixture_pairs": [
+    {
+      "h_mm": 0.8,
+      "case": "centered__Z",
+      "full_backing_PLA_screen_N": 38.48993214686075,
+      "washer_PLA_screen_N": 15.259230380938014,
+      "change_percent": -60.35526817060768
+    },
+    {
+      "h_mm": 0.8,
+      "case": "distal_ineffective__Z",
+      "full_backing_PLA_screen_N": 24.224699018666485,
+      "washer_PLA_screen_N": 15.335295806948793,
+      "change_percent": -36.69561881808278
+    },
+    {
+      "h_mm": 0.55,
+      "case": "centered__Z",
+      "full_backing_PLA_screen_N": 40.981575316779534,
+      "washer_PLA_screen_N": 12.985760487989726,
+      "change_percent": -68.313173938258
+    },
+    {
+      "h_mm": 0.55,
+      "case": "distal_ineffective__Z",
+      "full_backing_PLA_screen_N": 23.32552128719972,
+      "washer_PLA_screen_N": 12.936207996930156,
+      "change_percent": -44.54054064794204
+    }
+  ],
+  "partial_contact_sensitivity": [
+    {
+      "case": "stroke_0p6mm",
+      "stroke_mm": 0.6,
+      "remaining_lug_overlap_mm": 1.3999999999999986,
+      "lug_centroid_host_x_mm": 27.5,
+      "proximal_roof_reaction_per_N": 1.3333333333333333,
+      "far_floor_reaction_per_N": 0.3333333333333333,
+      "average_bearing_MPa_at_8p90748N": 2.1208285714285733,
+      "scope": "Assumed uniform contact and fixed host roof/floor centroids; no coupled contact redistribution or dynamic departure.",
+      "adapter_h0p55_PLA_screen_N": 21.188936676937814,
+      "adapter_h0p4_PLA_screen_N": 22.065713758438044,
+      "adapter_mesh_change_percent": 4.137900333878108,
+      "keeper_h0p55_PLA_screen_N": 51.86307787007828,
+      "keeper_h0p4_PLA_screen_N": null
+    },
+    {
+      "case": "stroke_1p5mm",
+      "stroke_mm": 1.5,
+      "remaining_lug_overlap_mm": 0.8000000000000007,
+      "lug_centroid_host_x_mm": 27.799999999999997,
+      "proximal_roof_reaction_per_N": 1.2666666666666673,
+      "far_floor_reaction_per_N": 0.2666666666666673,
+      "average_bearing_MPa_at_8p90748N": 3.7114499999999966,
+      "scope": "Assumed uniform contact and fixed host roof/floor centroids; no coupled contact redistribution or dynamic departure.",
+      "adapter_h0p55_PLA_screen_N": 15.279235609641265,
+      "adapter_h0p4_PLA_screen_N": 12.34205121419941,
+      "adapter_mesh_change_percent": -19.223372624665068,
+      "keeper_h0p55_PLA_screen_N": 47.45116839806725,
+      "keeper_h0p4_PLA_screen_N": null
+    },
+    {
+      "case": "stroke_2p0mm",
+      "stroke_mm": 2.0,
+      "remaining_lug_overlap_mm": 0.3000000000000007,
+      "lug_centroid_host_x_mm": 28.049999999999997,
+      "proximal_roof_reaction_per_N": 1.2111111111111117,
+      "far_floor_reaction_per_N": 0.21111111111111175,
+      "average_bearing_MPa_at_8p90748N": 9.897199999999977,
+      "scope": "Assumed uniform contact and fixed host roof/floor centroids; no coupled contact redistribution or dynamic departure.",
+      "adapter_h0p55_PLA_screen_N": 11.109567719307442,
+      "adapter_h0p4_PLA_screen_N": 8.942232412935967,
+      "adapter_mesh_change_percent": -19.508727622271383,
+      "keeper_h0p55_PLA_screen_N": 21.59888690075203,
+      "keeper_h0p4_PLA_screen_N": null
+    },
+    {
+      "case": "stroke_2p2mm",
+      "stroke_mm": 2.2,
+      "remaining_lug_overlap_mm": 0.10000000000000142,
+      "lug_centroid_host_x_mm": 28.15,
+      "proximal_roof_reaction_per_N": 1.188888888888889,
+      "far_floor_reaction_per_N": 0.18888888888888922,
+      "average_bearing_MPa_at_8p90748N": 29.69159999999958,
+      "scope": "Assumed uniform contact and fixed host roof/floor centroids; no coupled contact redistribution or dynamic departure.",
+      "adapter_h0p55_PLA_screen_N": 6.568230293003818,
+      "adapter_h0p4_PLA_screen_N": 6.744995086822754,
+      "adapter_mesh_change_percent": 2.691208833027936,
+      "keeper_h0p55_PLA_screen_N": 7.0555318928188475,
+      "keeper_h0p4_PLA_screen_N": 6.573630146920568
+    }
+  ],
+  "numeric_audit_maxima": {
+    "relative_free_residual": 9.95501833941984e-10,
+    "force_balance_error_N": 5.25207705610624e-11,
+    "moment_balance_error_Nmm": 1.8016891629711416e-09,
+    "gauge_reaction_norm_N": 3.264223844906684e-13,
+    "relative_mesh_volume_error": 0.001145778882596149
+  },
+  "material_caution": "The baseline adapter is tension-governed; ideal washer cases are compression-governed; terminal adapter/keeper overlap is maximum-shear-governed. A tensile TDS ratio cannot validate those other material strengths.",
+  "physical_test_status": "Not performed: no fabricated or measured specimens, actuator pull curves, assembly load tests, coupon tests, creep, vibration, wear, fatigue or loaded release."
+}

@@ -1,0 +1,265 @@
+{
+  "id": "N2_adapter_partial_adapter",
+  "variant": "N2",
+  "component": "adapter",
+  "step_path": "reference_inputs/project/cad/N2/N2_adapter.step",
+  "expected_step_sha256": "fac0ae34b99824b56b1a253ca65d3f81ba6475433464a432675456c617904d27",
+  "load_normalization_N": 1.0,
+  "model_scope": "Prescribed seated, finite, normal contact tractions on actual unchanged STEP geometry; not an assembled contact solve or a load rating.",
+  "far_size_factor": 2.5,
+  "max_dofs": 420000,
+  "averaging_radii_mm": [
+    0.4,
+    0.8
+  ],
+  "cases": {
+    "stroke_0p6mm": {
+      "loads": [
+        {
+          "label": "Keeper on remaining lug floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              26.8,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid payload attachment face",
+          "selector": {
+            "normal_axis": 2,
+            "z": 19.0,
+            "x_range": [
+              24.0,
+              37.0
+            ],
+            "y_range": [
+              5.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "stroke_1p5mm": {
+      "loads": [
+        {
+          "label": "Keeper on remaining lug floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              27.4,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid payload attachment face",
+          "selector": {
+            "normal_axis": 2,
+            "z": 19.0,
+            "x_range": [
+              24.0,
+              37.0
+            ],
+            "y_range": [
+              5.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "stroke_2p0mm": {
+      "loads": [
+        {
+          "label": "Keeper on remaining lug floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              27.9,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid payload attachment face",
+          "selector": {
+            "normal_axis": 2,
+            "z": 19.0,
+            "x_range": [
+              24.0,
+              37.0
+            ],
+            "y_range": [
+              5.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "stroke_2p2mm": {
+      "loads": [
+        {
+          "label": "Keeper on remaining lug floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              28.099999999999998,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -1
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid payload attachment face",
+          "selector": {
+            "normal_axis": 2,
+            "z": 19.0,
+            "x_range": [
+              24.0,
+              37.0
+            ],
+            "y_range": [
+              5.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "reference_full_contact": {
+      "loads": [
+        {
+          "label": "keeper on floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 6.9,
+            "x_range": [
+              26.8,
+              28.2
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -1.0
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Ideal rigid payload attachment face",
+          "selector": {
+            "normal_axis": 2,
+            "z": 19.0,
+            "x_range": [
+              24.0,
+              37.0
+            ],
+            "y_range": [
+              5.0,
+              17.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  },
+  "refine_boxes": [
+    {
+      "bounds": [
+        [
+          25.4,
+          6.2,
+          3.6
+        ],
+        [
+          29.0,
+          13.8,
+          17.0
+        ]
+      ],
+      "factor": 1.0
+    }
+  ],
+  "validation_scope": "Linear isotropic prescribed-traction sensitivity on current P14 STEP; not assembled nonlinear contact, physical test, failure prediction, or working-load rating."
+}
