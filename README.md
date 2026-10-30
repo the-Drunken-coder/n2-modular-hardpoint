@@ -30,6 +30,7 @@ The receiver analysis assumes ideal continuous full backing. Prescribed contact 
 | Assemble, mount or buy components | [Assembly and installation](project/docs/assembly_installation.md), [manufacturing instructions](project/manufacturing/PRINTING.md), [order list](project/manufacturing/ORDER_LIST.md) |
 | Review local controls | [Electronics](project/electronics/README.md), [wiring](project/electronics/wiring.md), [controller](project/electronics/controller_core.py) |
 | Reproduce or examine the current calculations | [P14 result summary](project/analysis/p14/fea/B1.4_O0.6/summary.json), [tool instructions](tools/README.md), [analysis overview](project/analysis/README.md) |
+| Run automated FEA, CAD clearance and controller checks | [Engineering validation workflow](https://github.com/the-Drunken-coder/n2-modular-hardpoint/actions/workflows/engineering-validation.yml), [CI scope and local commands](docs/continuous-validation.md) |
 | Plan the first physical prototype | [P14 bench-test plan](docs/test-plan.md), [requirements and open gates](docs/requirements.md) |
 | Recover the original P11 package or comparison history | [Artifacts and recovery](docs/ARTIFACTS_AND_RECOVERY.md), [historical comparison guide](history/README.md), [import scope](project/IMPORT_NOTE.md) |
 
@@ -50,6 +51,12 @@ The complete P11 ZIP contains 475 files. Its 59 raw FEA field/mesh files and 186
 ```
 
 Use a verified P11 extraction for whole-archive integrity checks or historical replay. Current P14 metadata and instructions do not rewrite those historical results. The deployed application is built from `web/`; `project/website_source/` preserves the earlier P11 site.
+
+## Automated engineering checks
+
+The **Engineering validation** workflow runs on every pull request, push to `main`, and manual dispatch. It performs 35 fresh P14 FEA case solves, regenerates and compares all 13 CAD parts, checks 16 nominal clearance poses, and runs the current controller host tests. Each job records logs and results as Actions artifacts retained for 14 days. The final gate fails if a required job or result is missing or unsuccessful.
+
+These are computational regression checks, not a payload rating or physical qualification. The P14 contact model and clearance expectations are guarded against changes to their inputs; new geometry requires a reviewed model update. See [continuous validation](docs/continuous-validation.md) for commands, failure handling and the remaining design decisions.
 
 ## Check documentation consistency
 
