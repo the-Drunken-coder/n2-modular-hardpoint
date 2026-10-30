@@ -10,7 +10,7 @@
       "archived_path": "inputs/parts/receiver_core.step",
       "archived_sha256": "d65af770d14c729763cd99fbe649bc2f6f5882ddcbdb54d9d1c27c4a48446329",
       "manufacturing_path": "../../../manufacturing/parts/receiver_core.step",
-      "manufacturing_sha256": "5907b2104d9f29a4bdfe51b086fd2cb3e366403a367069ea040f922924b0a4a1"
+      "manufacturing_sha256": "3f7c171dd65fdfe9c8d32f1f55e885db959eb5baf4a94ca6349d5c9c6e25f5ac"
     },
     {
       "part": "keeper",
@@ -19,7 +19,7 @@
       "archived_path": "inputs/parts/keeper.step",
       "archived_sha256": "d1b0346cddde898fac0d5788125989dc7218f8bb478a0d7e5930de0f19b802fd",
       "manufacturing_path": "../../../manufacturing/parts/keeper.step",
-      "manufacturing_sha256": "6672210fc014a2119874aea65d942d87753e153bf163df34a0ac8acaeb29ff5c"
+      "manufacturing_sha256": "3af67ae3a8a2fad9e1debbdca5331db61fc3f5845d878e39c7eda3d903f2bb9e"
     },
     {
       "part": "payload_adapter",
@@ -28,7 +28,7 @@
       "archived_path": "inputs/parts/payload_adapter.step",
       "archived_sha256": "ad15a4814dc4a2c644e5e00ab44bccb6e7d90612882e87d8c5a21bca9de3fed1",
       "manufacturing_path": "../../../manufacturing/parts/payload_adapter.step",
-      "manufacturing_sha256": "84c940f528736dc909076b4568c1c944e730d86e3d6e584d33d04013c6108cd1"
+      "manufacturing_sha256": "7663e3330193d8ad9643469396ea4649d36134d0ac4a9faeb48d072ded39d3ec"
     }
   ]
 }

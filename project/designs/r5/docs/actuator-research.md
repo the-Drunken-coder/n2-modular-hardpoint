@@ -46,7 +46,15 @@ The final CAD parameters remain authoritative. For a 5.5 mm crank and a 15° ret
     s(105°) = 6.7361 mm
     s(100°) = 6.2677 mm
 
-The supplier says approximately 90°, not a guaranteed minimum of exactly 90°. Keep a calibration reserve: a 15° → 100° nominal operating range uses 85°, while 105° can remain the CAD clearance envelope. If the chosen geometry clears its lug at 4.8 mm, 6.2677 mm gives 1.4677 mm nominal additional withdrawal. Acceptance must use the **actual measured lug-clearance distance plus at least 0.5 mm**, including backlash and dimensional uncertainty. The allocated screening stack is 0.40 mm pin/slot backlash, 0.20 mm dimensional error, 0.20 mm angular/position error, and 0.50 mm post-clearance reserve: 1.30 mm total. Against 4.8 mm nominal lug-clearance travel, the required nominal stroke is 6.10 mm. The 6.2677 mm nominal stroke leaves 0.1677 mm beyond that conservative stack. This small residual margin makes the actual dimensional acceptance check necessary. The 7.3 mm mechanical travel limit is not a commanded endpoint. A unit that cannot meet measured travel inside approved pulse limits is rejected; do not silently command it farther.
+The supplier says approximately 90°, not a guaranteed minimum of exactly 90°. Keep a calibration reserve: a 15° → 100° nominal operating range uses 85°, while 105° remains the CAD clearance envelope. The **4.8 mm lug-clearance travel is nominal for a flat keeper**; it does not include the extra tip projection when the keeper rocks in its guide. The 6.2677 mm nominal stroke gives 1.4677 mm additional withdrawal before these allowances. Acceptance must use the **actual measured lug-clearance distance plus at least 0.5 mm**, including backlash, dimensional uncertainty and permitted keeper rocking.
+
+The rounded conservative screening stack is 0.40 mm pin/slot backlash, 0.20 mm dimensional error, 0.20 mm angular/position error, **0.10 mm tilted-tip projection**, and 0.50 mm post-clearance reserve: **1.40 mm total**. Adding that stack to 4.8 mm nominal flat-keeper clearance requires **6.20 mm nominal travel**, leaving **0.0677 mm** beyond the rounded allocation. Using the specified 2° release-angle shortfall instead of the rounded 0.20 mm angular allowance gives:
+
+    s(98°) = 5.5 * (cos(15°) - cos(98°)) = 6.078044 mm
+    allocated minimum gap = 6.078044 - 4.8 - 0.40 - 0.20 - 0.10
+                          = 0.578044 mm
+
+That **0.5780 mm allocated minimum gap** exceeds the 0.5 mm requirement by only 0.0780 mm. It is a dimensional budget, not a measured clearance or a prediction of print accuracy. The small residual margin makes actual dimensional and loaded endpoint acceptance necessary. The 7.3 mm mechanical travel limit is not a commanded endpoint. A unit that cannot meet measured travel inside approved pulse limits is rejected; do not silently command it farther.
 
 The follower reaches maximum height at 90°, requiring 5.5 mm above the shaft center. At the current shaft center Z = 9.5 mm, the follower center reaches Z = 15.0 mm. Sleeve radius, yoke wall, guide float and lid clearance are additional. Sweep the entire operating path; endpoint fits alone are insufficient. A 15° retained angle is not a dead-center latch, so power-off retention and power-loss behavior remain test gates.
 

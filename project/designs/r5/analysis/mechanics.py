@@ -126,8 +126,13 @@ def analyze(g):
     backlash=.4
     geometry_stack=.2
     angle_error_deg=2.
+    # The prescribed first-roof-contact rocking check reduces the horizontal
+    # lug gap by less than 0.10 mm. Reserve that loss separately from print
+    # error and slot play; it does not solve elastic contact or dynamics.
+    tilted_tip_projection_allowance=.10
     low_travel=r*(math.cos(t0)-math.cos(t1-math.radians(angle_error_deg)))
-    minimum_gap=low_travel-clear-backlash-geometry_stack
+    flat_gap=low_travel-clear-backlash-geometry_stack
+    minimum_gap=flat_gap-tilted_tip_projection_allowance
     return dict(revision='R5',payload_mass_kg=MASS_KG,payload_2g_N=PAYLOAD_N,
         proof_screen_N=2*PAYLOAD_N,units={'length':'mm','force':'N','torque':'N mm'},
         kinematics=dict(radius_mm=r,retained_angle_deg=a['retained_angle_deg'],
@@ -137,6 +142,8 @@ def analyze(g):
         tolerance=dict(role='Allocated maximum losses to be inspected, not measured tolerances',
             slot_diametral_backlash_mm=backlash,combined_lug_tip_error_mm=geometry_stack,
             release_angle_shortfall_deg=angle_error_deg,
+            tilted_tip_projection_allowance_mm=tilted_tip_projection_allowance,
+            flat_kinematic_minimum_gap_mm=flat_gap,
             allocated_minimum_open_gap_mm=minimum_gap,required_measured_gap_mm=.5,
             budget_passes=minimum_gap>=.5),
         catalogue_comparison=dict(actuator='TowerPro MG90D',stall_torque_Nmm=2.1*98.0665,

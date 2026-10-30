@@ -12,6 +12,7 @@ development acceptance choices, not supplier ratings.
 | Preload | Total installed pad force | 0.5–3.0 N; record force versus seating displacement |
 | Retained geometry | Keeper engagement and actual seating | Positive full engagement; do not rely on the servo command as an indicator |
 | Released geometry | Lug opening and mechanical-stop margin | At least 0.5 mm at both limits, with the lid fitted |
+| Lid clearance | Printed recess and keeper through guide float/tilt | Positive measured clearance, no lid rubbing, and free motion with the lid installed; nominal clearances exclude elastic deflection |
 | Guide separation | Keeper float before follower/slot interference | Structural guide reaches its intended support before follower takes vertical payload load |
 | Supply | Servo-terminal waveform during movement | 4.80–5.10 V with a nominal 5.00 V source |
 | Static retention screen | 17.8088764 N, 60 seconds, restrained fixture | No release, damage or more than 0.1 mm permanent set |

@@ -1,9 +1,9 @@
 {
   "revision": "R5",
   "status": "computational_checks_passed",
-  "recorded_utc": "2026-10-30T16:55:11.583052+00:00",
-  "cad_checks": 1549,
-  "cad_checks_passed": 1549,
+  "recorded_utc": "2026-10-30T17:19:03.524615+00:00",
+  "cad_checks": 1931,
+  "cad_checks_passed": 1931,
   "fea_solves": 18,
   "numerical_checks_passed": true,
   "physical_prints": 6,
@@ -21,9 +21,9 @@
     "generated_documents_compared": 11,
     "comparison": "Fresh viewer meshes, complete oriented STL bytes, every individual STEP, placed-solid multisets for both assemblies, and generated manufacturing documents; STEP timestamps/serialization order excluded"
   },
-  "source_identity": "File hashes in run.json identify the working source; its commit field is the local parent commit before the R5 publication.",
+  "source_identity": "File hashes in run.json identify the local source; its commit is the checked-out parent for uncommitted final changes. Fresh PR Actions identify the committed head.",
   "geometry_sha256": "19a8e7994db8ddc3452d123f0dad3299cffe504b9a0c3893873cb51246b3fd03",
-  "manufacturing_manifest_sha256": "c392548a242b3ed9127f182208072d77e3d572b34f3561d4501e5698638b0a04",
+  "manufacturing_manifest_sha256": "b209f29a958f2a1b77cef833447d9a38a7767503272fd80597468c4e45619ad5",
   "fea_summary_sha256": "cd2e8f421977acdb68bd0376a98d61b5e95a69dfaa38c4b553c941ff20aff63e",
   "analysis_input_equivalence": "local-run/geometry-equivalence.json",
   "tests": {
@@ -45,5 +45,145 @@
     "Terminal overlap raw stresses remain mesh-sensitive; no strength rating follows from numerical equilibrium.",
     "Receiver screens omit servo/clamp inertia and actuator mounting reactions.",
     "Real purchased-part fit, full-path loaded torque, wear and aircraft structure require physical work."
-  ]
+  ],
+  "prescribed_rocking": {
+    "basis": "Prescribed first-roof-contact rigid pose, not a coupled contact solve.",
+    "pivot_xz_mm": [
+      29.8,
+      7.4
+    ],
+    "roof_contact_xz_mm": [
+      50.5,
+      11.0
+    ],
+    "equation": "20.7*tan(alpha)+3/cos(alpha)=3.6",
+    "pitch_deg": 1.6568123463978008,
+    "maximum_required_axial_adjustment_mm": 0.004870886497706367,
+    "applied_axial_adjustment_mm": 0.01,
+    "nominal_total_slot_backlash_mm": 0.4,
+    "lid_relief_mm": {
+      "x": [
+        53,
+        74
+      ],
+      "y": [
+        36.5,
+        40.9
+      ],
+      "ceiling_z": 19.0,
+      "remaining_lid_thickness": 1.0
+    },
+    "rows": [
+      {
+        "nominal_drive_stroke_mm": 1.0,
+        "keeper_pretilt_translation_mm": 1.01,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.659651887368582,
+        "lid_minimum_distance_mm": 0.3403481126314176,
+        "sleeve_normal_clearance_mm": 0.06367119356672718,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 1.01,
+        "keeper_pretilt_translation_mm": 1.02,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.659941015375985,
+        "lid_minimum_distance_mm": 0.34005898462401873,
+        "sleeve_normal_clearance_mm": 0.06331118059777979,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 1.5,
+        "keeper_pretilt_translation_mm": 1.51,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.674108287738605,
+        "lid_minimum_distance_mm": 0.32589171226139513,
+        "sleeve_normal_clearance_mm": 0.04795881183885414,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 2.0,
+        "keeper_pretilt_translation_mm": 2.01,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.688564688108627,
+        "lid_minimum_distance_mm": 0.31143531189137263,
+        "sleeve_normal_clearance_mm": 0.03583881602000788,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 3.0,
+        "keeper_pretilt_translation_mm": 3.01,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.717477488848672,
+        "lid_minimum_distance_mm": 0.28252251115132765,
+        "sleeve_normal_clearance_mm": 0.018919189905322764,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 4.0,
+        "keeper_pretilt_translation_mm": 4.01,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.746390289588717,
+        "lid_minimum_distance_mm": 0.25360971041128266,
+        "sleeve_normal_clearance_mm": 0.009191903635387189,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 4.5,
+        "keeper_pretilt_translation_mm": 4.51,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.76084668995874,
+        "lid_minimum_distance_mm": 0.23915331004126017,
+        "sleeve_normal_clearance_mm": 0.006551169877764107,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 4.7,
+        "keeper_pretilt_translation_mm": 4.71,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.76662925010675,
+        "lid_minimum_distance_mm": 0.23337074989325046,
+        "sleeve_normal_clearance_mm": 0.005879083510404837,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 4.8,
+        "keeper_pretilt_translation_mm": 4.81,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.769520530180756,
+        "lid_minimum_distance_mm": 0.23047946981924738,
+        "sleeve_normal_clearance_mm": 0.005623570247753673,
+        "role": "conservative_post_release_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 6.2676570217579926,
+        "keeper_pretilt_translation_mm": 6.277657021757992,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.81195460520557,
+        "lid_minimum_distance_mm": 0.1880453947944325,
+        "sleeve_normal_clearance_mm": 0.007960890243883523,
+        "role": "conservative_post_release_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 6.736096792653741,
+        "keeper_pretilt_translation_mm": 6.7460967926537405,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.825498510960195,
+        "lid_minimum_distance_mm": 0.1745014890398089,
+        "sleeve_normal_clearance_mm": 0.01115933892123594,
+        "role": "conservative_post_release_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 7.3,
+        "keeper_pretilt_translation_mm": 7.31,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.84180253203087,
+        "lid_minimum_distance_mm": 0.15819746796913492,
+        "sleeve_normal_clearance_mm": 0.016721374208206907,
+        "role": "conservative_post_release_envelope"
+      }
+    ],
+    "limit": "Printed tolerance, wear, elastic deformation, actual reaction distribution and loaded actuation still require measurement. Mechanical-stop envelope is not a servo command."
+  },
+  "allocated_minimum_release_gap_mm": 0.5780440998702342
 }

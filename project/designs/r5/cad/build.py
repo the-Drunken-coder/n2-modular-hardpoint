@@ -186,6 +186,9 @@ def build_module():
         lid=lid.cut(cone(2.1,1.1,1,(x,y,20),(0,0,-1)))
     for x,y in MOUNTS:lid=lid.cut(cyl(1.8,3,(x,y,18)))
     lid=lid.cut(box(29,39,7,13,18,21))
+    # The keeper rocks between the proximal floor and far guide roof after
+    # distal support is lost. Preserve a1mm lid roof over that swept yoke.
+    lid=lid.cut(box(53,74,36.5,40.9,18.39,19.0))
     return {'receiver_core':core,'payload_adapter':adapter,'keeper':keeper,'servo':servo,
             'servo_clamp':clamp,'horn':horn,'sleeve':sleeve,'follower_bolt':follower_bolt,
             'follower_washer':follower_washer,'follower_nut':follower_nut,'horn_screw':horn_screw,
@@ -374,6 +377,53 @@ def verify(g,parts,w):
                 v=intersection(floating,g[fixed]);check(f'keeper_lateral_float:{angle}:{dy}:{fixed}',v<1e-5,interference_mm3=v)
             for pid in driven:
                 v=intersection(floating,rotate(g[pid],angle-A0));check(f'float_drive:{angle}:{dy}:{pid}',v<1e-5,interference_mm3=v)
+    # Prescribed rocking envelope after distal support loss. This is not a
+    # coupled contact/equilibrium solution. For a bar3mm high between a floor
+    # at(29.8,7.4) and a roof ending at(50.5,11), first roof contact satisfies:
+    #20.7*tan(alpha)+3/cos(alpha)=3.6. An axial adjustment within existing
+    # follower backlash permits the pitched slot to accommodate the fixed pin.
+    low,high=0.0,.15
+    for _ in range(60):
+        alpha=(low+high)/2
+        if 20.7*math.tan(alpha)+3/math.cos(alpha)>3.6:high=alpha
+        else:low=alpha
+    alpha=(low+high)/2;pitch_deg=math.degrees(alpha)
+    theta_peak=math.pi/2-alpha/2
+    peak_pin_x=PX-R*math.cos(theta_peak)
+    peak_pin_z=PZ+R*math.sin(theta_peak)
+    peak_projection=(math.cos(alpha)-1)*(peak_pin_x-29.8)+math.sin(alpha)*(peak_pin_z-7.4)
+    required_shift=max(0.0,peak_projection-(4.4-4.0)/2)
+    axial_adjustment=.01
+    check('pitched_slot_adjustment',required_shift<=axial_adjustment and axial_adjustment<=.4,
+          maximum_required_axial_adjustment_mm=required_shift,
+          applied_axial_adjustment_mm=axial_adjustment,nominal_total_backlash_mm=.4)
+    pitch_rows=[]
+    for stroke in [1.0,1.01,1.5,2.0,3.0,4.0,4.5,4.7,4.8,TRAVEL,RESERVE,7.3]:
+        #1mm is a nominal drive state; the0.01mm allowed shift also clears
+        # the last distal-floor corner before applying the roof-contact pose.
+        pitched=g['keeper'].translate((stroke+axial_adjustment,0,0)).rotate((29.8,0,7.4),(29.8,1,7.4),-pitch_deg)
+        theta=math.degrees(math.acos(math.cos(math.radians(A0))-stroke/R))
+        shifted_slot=PINX+stroke+axial_adjustment
+        projection=math.cos(alpha)*(PX-R*math.cos(math.radians(theta))-29.8)+math.sin(alpha)*(PZ+R*math.sin(math.radians(theta))-7.4)-(shifted_slot-29.8)
+        pitch_rows.append({'nominal_drive_stroke_mm':stroke,'keeper_pretilt_translation_mm':stroke+axial_adjustment,
+          'pitch_deg':pitch_deg,'top_z_mm':bounds(pitched)['max'][2],
+          'lid_minimum_distance_mm':shape(pitched).distance(shape(g['case_lid'])),
+          'sleeve_normal_clearance_mm':.2-abs(projection),
+          'role':'retained_load_envelope' if stroke<4.8 else 'conservative_post_release_envelope'})
+        for dy in [-.3,0,.3]:
+            posed=pitched.translate((0,dy,0))
+            for fixed in ['receiver_core','case_shell','case_lid','servo','servo_clamp','horn_screw']:
+                v=intersection(posed,g[fixed]);check(f'pitched_keeper:{stroke:.6f}:{dy}:{fixed}',v<1e-5,interference_mm3=v,pitch_deg=pitch_deg)
+            if stroke<=RESERVE+1e-8:
+                for pid in driven:
+                    v=intersection(posed,rotate(g[pid],theta-A0))
+                    check(f'pitched_drive:{stroke:.6f}:{dy}:{pid}',v<1e-5,interference_mm3=v)
+    pitch_record={'basis':'Prescribed first-roof-contact rigid pose, not a coupled contact solve.',
+      'pivot_xz_mm':[29.8,7.4],'roof_contact_xz_mm':[50.5,11.0],
+      'equation':'20.7*tan(alpha)+3/cos(alpha)=3.6','pitch_deg':pitch_deg,
+      'maximum_required_axial_adjustment_mm':required_shift,'applied_axial_adjustment_mm':axial_adjustment,
+      'nominal_total_slot_backlash_mm':.4,'lid_relief_mm':{'x':[53,74],'y':[36.5,40.9],'ceiling_z':19.0,'remaining_lid_thickness':1.0},
+      'rows':pitch_rows,'limit':'Printed tolerance, wear, elastic deformation, actual reaction distribution and loaded actuation still require measurement. Mechanical-stop envelope is not a servo command.'}
     # Adapter exits downwards once the actual overlap is cleared.
     open_keeper=g['keeper'].translate((TRAVEL,0,0))
     for dz in [0,-.25,-.5,-1,-2,-4,-8,-16,-30]:
@@ -405,7 +455,7 @@ def verify(g,parts,w):
     check('nominal_release_gap',TRAVEL-4.8>=.5,nominal_gap_mm=TRAVEL-4.8)
     check('all_prints_present',sum(p['kind']=='printed' for p in parts)==6)
     return {'revision':'R5','status':'pass' if all(c['passed'] for c in checks) else 'fail','passed':sum(c['passed'] for c in checks),'total':len(checks),'checks':checks,
-            'scope':'Nominal connected-solid, selected-interference, swept motion, load-direction, cartridge-envelope and installation checks. No strength or physical performance claim.'}
+            'scope':'Nominal connected-solid, assembled-interference, swept motion, prescribed rocking, load-direction, cartridge-envelope and installation checks. No strength or physical performance claim.','pitch_clearance':pitch_record}
 
 
 def main():

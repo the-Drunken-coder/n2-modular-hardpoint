@@ -57,3 +57,9 @@ The modeled lead is a **flat 4.0 × 1.6 mm ribbon allowance**, with 3 mm centerl
 The generator checks valid connected printed solids, the retained outside envelope, assembled solid intersections, swept linkage motion, keeper float, keeper insertion, pad support and fastener clearance, payload departure, module insertion into the example wing, mounting screw paths and top tool access. Receiver and keeper contact faces are defined for downward payload load: the lug-window roof bears on the keeper top, and the keeper bears on the guide floor.
 
 The wing is a one-off installation demonstration. Its skins, local frame, ribs and access-panel lip illustrate the installation sequence. They are not an aircraft structural design. Nominal CAD checks do not establish printed-material strength, a payload rating, actuator torque, loaded release or flight suitability.
+
+## Loaded rocking clearance
+
+After the keeper loses its distal support, a rigid bar can rock between the proximal guide floor and the far guide roof. The nominal first-roof-contact angle satisfies `20.7*tan(alpha) + 3/cos(alpha) = 3.6`, giving **1.656812°**. A pure vertical translation check does not cover this pose.
+
+The lid therefore has an internal relief at **X53–74, Y36.5–40.9**, with its underside ceiling at **Z19.0**. The outside stays at Z20, leaving **1.0 mm of lid material**. The checks sweep this rocking pose, including lateral guide float, through retained withdrawal and a conservative post-release envelope. A prescribed **0.01 mm axial adjustment** accommodates the slightly inclined yoke slot within its existing **0.4 mm nominal total backlash**. These are geometric poses, not a coupled contact or equilibrium solution; the printed assembly still needs a loaded-release check.

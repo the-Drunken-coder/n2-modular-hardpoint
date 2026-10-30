@@ -1,6 +1,6 @@
 # R5 engineering assessment
 
-The enclosed **85.6 × 54 × 20 mm** cartridge passes **1,549 nominal CAD checks**
+The enclosed **85.6 × 54 × 20 mm** cartridge passes **1,931 nominal CAD checks**
 and **18 component finite-element solves** with acceptable numerical residuals.
 This supports building a measured prototype. It establishes **no payload,
 actuator or flight rating**. Near-release contact, guide-gap closure and loaded
@@ -24,9 +24,9 @@ For crank radius 5.5 mm and absolute crank angle θ, withdrawal is:
     u = 5.5 × (cos 15° − cos θ)
     u(100°) = 6.267657 mm
 
-The lug clears after 4.8 mm, leaving 1.467657 mm nominal opening. Allocating
-0.4 mm follower backlash, 0.2 mm combined lug/tip error and 2° endpoint shortfall
-leaves **0.678044 mm**. These are inspection allocations, not measured printing
+A flat keeper clears the lug after 4.8 mm, leaving 1.467657 mm nominal opening.
+Allocating 0.4 mm follower backlash, 0.2 mm combined lug/tip error, 2° endpoint
+shortfall and 0.10 mm for tilted-tip projection leaves **0.578044 mm**. These are inspection allocations, not measured printing
 or servo tolerances. The assembled release gap must measure at least 0.5 mm.
 
 The friction screen spans guide coefficients 0.05–0.30, sleeve coefficients
@@ -69,7 +69,16 @@ peaks exceed the proxy's assumed 25 MPa tension or 40 MPa compression thresholds
 neither numerical equilibrium nor those assumed thresholds qualifies the part.
 Nonlinear yielding, wear and departure dynamics are unsolved.
 
-After 1.0 mm withdrawal, prescribed far-roof support replaces the lost distal
+A final geometric review found that first-roof-contact rocking could strike the
+original lid. An internal relief to Z19.0 now preserves a 1.0 mm lid roof and
+clears the prescribed 1.6568° pitched keeper, including lateral float and a
+0.01 mm axial adjustment within slot backlash. Calculated lid clearance is
+0.233 mm at 4.7 mm withdrawal and 0.188 mm at the operating endpoint. These
+small nominal clearances require printed-fit inspection with the lid installed.
+The outside remains 20 mm thick; the three FEA structural parts are unchanged.
+See the `pitch_clearance` record in [CAD checks](../manufacturing/clearance.json).
+
+After 1.0 mm nominal withdrawal, prescribed far-roof support replaces the lost distal
 support. The solve does not close the initial **0.6 mm guide gap** or simulate
 assembled rocking and possible follower load transfer. The blocked-drive case
 fixes the keeper tip and omits installed guides: its 1.72 mm displacement and

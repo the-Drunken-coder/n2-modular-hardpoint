@@ -1,6 +1,6 @@
 # R5 cost and mass account
 
-**The actuator is $9.95. The modeled mechanical parts consume about $18.49–$21.99 per unit under the allowances below.** This is not a complete first-purchase checkout or a quotation for an assembled product.
+**The actuator is $9.95. The modeled mechanical parts consume about $18.48–$21.98 per unit under the allowances below.** This is not a complete first-purchase checkout or a quotation for an assembled product.
 
 Prices were checked on 2026-10-30, before shipping and tax. The structured [account](cost-and-mass.json) records the CAD/source hashes and each mass assumption.
 
@@ -10,11 +10,11 @@ Prices were checked on 2026-10-30, before shipping and tax. The structured [acco
 | --- | ---: | --- |
 | [MG90D servo, with stock horn/hardware](https://www.adafruit.com/product/1143) | $9.95 | Observed single-unit listing, 2026-10-30 |
 | [One aluminum follower sleeve](https://www.amazon.com/dp/B0CQF66RR7) | $0.72 | Allocated from a $7.19 ten-pack; full first-pack cash cost is separate |
-| Six PAHT-CF prints, with 15% process allowance | $4.82 | $100/kg planning filament price, not a current quotation; CAD solid mass plus 15% |
+| Six PAHT-CF prints, with 15% process allowance | $4.81 | $100/kg planning filament price, not a current quotation; CAD solid mass plus 15% |
 | Remaining generic screws, nuts and washers | $2.50–$5.00 | Unquoted consumed-hardware allowance, including cartridge, payload and host fasteners |
 | Foam, adhesive and servo clamp pads | $0.50–$1.50 | Unquoted allocated-material allowance; does not buy full stock sheets |
 
-The six nominal solid prints total **41.89 g**. At the explicit $100/kg planning assumption and 15% process allowance, their material consumption is $4.82. A slicer estimate and the actual filament invoice must replace this allowance before ordering.
+The six nominal solid prints total **41.83 g**. At the explicit $100/kg planning assumption and 15% process allowance, their material consumption is $4.81. A slicer estimate and the actual filament invoice must replace this allowance before ordering.
 
 Add an unquoted **$1–3** allowance for the wing-side harness/connector if needed. The controller, signal buffer, power switch and regulated supply are offboard and excluded. Reusing those aircraft or bench components changes the incremental cost; buying them new changes the checkout.
 
@@ -24,10 +24,10 @@ Add an unquoted **$1–3** allowance for the wing-side harness/connector if need
 
 | Group | Estimated mass | Included |
 | --- | ---: | --- |
-| Retained cartridge | **56.84 g** | Five retained prints, listed servo, horn, follower, captive nuts, lid/clamp/stop hardware and pads |
+| Retained cartridge | **56.78 g** | Five retained prints, listed servo, horn, follower, captive nuts, lid/clamp/stop hardware and pads |
 | Departing interface modeled here | **7.03 g** | Adapter, four payload screws, free-volume foam and adhesive |
 | Four aircraft mounting screws and washers | 4.98 g | Host hardware outside the 20 mm cartridge |
-| Mechanical package subtotal | 68.86 g | The three rows above; excludes the pod and its mating hardware |
+| Mechanical package subtotal | 68.80 g | The three rows above; excludes the pod and its mating hardware |
 | Illustrative wing frame, if solid PAHT-CF | 40.65 g | Example geometry only; actual aircraft reinforcement is not specified |
 | Illustrative hatch, if solid PAHT-CF | 12.06 g | Example panel only; actual skin material and retention are aircraft-specific |
 

@@ -1,8 +1,8 @@
 {
-  "status_text": "1,549 nominal CAD checks and 18 fresh component solves passed their numerical checks. Physical qualification is pending.",
+  "status_text": "1,931 nominal CAD checks and 18 fresh component solves passed their numerical checks. Physical qualification is pending.",
   "metrics": [
     {
-      "value": "1,549 / 1,549",
+      "value": "1,931 / 1,931",
       "label": "Nominal geometry checks"
     },
     {
@@ -27,7 +27,7 @@
     {
       "result": "PASS",
       "name": "Assembly, motion and wiring",
-      "detail": "Keeper insertion, full sweep, guide float, payload departure, top screw access and the continuous lead reservation are checked. Purchased servo and horn dimensions still need measurement."
+      "detail": "Keeper insertion, swept motion, guide float, prescribed rocking, top access and cable routing pass. A recessed lid clears the tilted keeper while retaining a 1.0 mm roof. Purchased-part and printed-fit measurements remain pending."
     },
     {
       "result": "PASS",
@@ -49,13 +49,14 @@
     "The 20 mm box excludes the departing adapter, wing frame, top installation screws and external flexible harness.",
     "The supplied horn must support a sound 5.5 mm follower-hole location; inspect the actual unit before modification.",
     "At least 0.5 mm measured clearance is required beyond the lug and to the mechanical stop at release.",
+    "The 1.657° prescribed rocking pose leaves only 0.188 mm nominal lid clearance at the operating endpoint; inspect real prints and loaded movement.",
     "Isotropic PLA component screens do not qualify printed PAHT-CF, nonlinear contact, wear or the host wing.",
     "No working-load or flight rating has been assigned."
   ],
   "actions_url": "https://github.com/the-Drunken-coder/n2-modular-hardpoint/actions",
   "actuator_price": "$9.95",
   "actuator_rationale": "The MG90D from Adafruit fits on its narrow side and accepts 4.8–6 V. A 5.5 mm crank needs 85° rotation for 6.27 mm withdrawal. Its listed price is $9.95; real loaded output and horn fit remain measurement gates.",
-  "cost_note": "Observed actuator prices, 2026-10-30, before shipping/tax. Mechanical consumed-parts estimate: $18.49–$21.99 with unquoted hardware/material allowances; full first-purchase packs, wiring and controls cost more.",
+  "cost_note": "Observed actuator prices, 2026-10-30, before shipping/tax. Mechanical consumed-parts estimate: $18.48–$21.98 with unquoted hardware/material allowances; full first-purchase packs, wiring and controls cost more.",
   "actuator_options": [
     {
       "name": "TowerPro MG90D",

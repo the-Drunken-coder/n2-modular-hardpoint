@@ -7,3 +7,5 @@ The later manufacturing export has different STEP header timestamps. `geometry-e
 Read `report.md`, `summary.json` and `cases/` for the curated evidence. `logs/` preserves the frozen solver stdout unchanged: its legacy “raw threshold … N” labels are normalized proxy-threshold calculations and are NOT R5 force capacities. No such threshold is used for acceptance here. Only numerical equilibrium, residual, mesh-volume and identity checks form the numerical gate.
 
 No physical test, PAHT-CF strength rating, actuator qualification or aircraft-wing rating is established.
+
+The final lid-only rocking correction leaves all three solved structural shapes and contact coordinates unchanged. Original `mechanics.py` and `simulate.py` files are preserved under `inputs/analysis/` with hashes matching the run manifest. The current mechanics report additionally deducts 0.10 mm for tilted-tip projection in its clearance allocation; force/contact definitions are unchanged. Fresh PR CI reruns the complete current source.

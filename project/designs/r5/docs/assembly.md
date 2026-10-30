@@ -70,8 +70,10 @@ showing its contents.
    the purchased lead's actual exit and bend requirements. Put the service
    loop and connector above the cartridge in the wing.
 8. **Fit the shell and lid.** Seat the receiver on the shell's retention
-   ledge, keep wires clear, and install the four M2 lid screws. Repeat the
-   hand-motion and powered unloaded checks with the lid installed. The
+   ledge, keep wires clear, and install the four M2 lid screws. The lid has an internal recess over the rocking yoke; its roof remains
+   1.0 mm thick. Keep that recess clear of adhesive, wiring and print residue.
+   Repeat the hand-motion and powered unloaded checks with the lid installed,
+   including guide float and the prescribed tilted position. The
    retained rigid assembly and swept linkage must remain inside the fixed
    box; the departing adapter and flexible external harness are excluded.
 9. **Prepare the payload adapter.** Attach it to the defined pod interface

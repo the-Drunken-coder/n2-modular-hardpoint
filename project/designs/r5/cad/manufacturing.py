@@ -82,11 +82,13 @@ def generate(out,g,meta,constants):
         'M2 holesØ2.2; countersinksØ4.2 ×1.0 deep.',
         'Four host clearance holesØ3.6; see template.',
         'Lead slot10 ×6 atX29–39, Y7–13.',
+        'Inner yoke reliefX53–74, Y36.5–40.9; ceilingZ19.',
+        'The relieved roof remains1.0 thick; outsideZ20.',
         'Keep top access clear through the aircraft frame.',
         'The removable lid provides no seating interlock.'
       ],['Print the outside face down; the exported STL is already flipped. Smooth the lead exit.',
           'Four M2×8 flat-head screws secure the lid to captive nuts; no glued closure.',
-          'Screw heads must sit within the20 mm outside thickness.']),
+          'Inspect the1 mm pocket floor; screw heads remain within the20 mm outside thickness.']),
       'keeper':('R5-04 guided keeper and open yoke',[
         'BarX24.7–60.0874, Y37.2–40.2, Z7.4–10.4.',
         'Bar section3 ×3; nominal vertical float0.6.',
@@ -144,7 +146,7 @@ def generate(out,g,meta,constants):
       'orientations':{
         'receiver_core':'Broad central underside Z0 on the bed. Inspect short perimeter overhangs, guide bridges and accessible nut-pocket supports.',
         'case_shell':'Bottom edge on the bed. Use a brim as needed; inspect the retention ledge and nut loading windows.',
-        'case_lid':'Outside upper face on the bed; the supplied print STL is already flipped.',
+        'case_lid':'Outside upper face on the bed; the supplied print STL is already flipped. The yoke pocket opens upward while printing and leaves a1 mm floor; inspect its thickness and flatness.',
         'keeper':'Broad Y side on the bed; the supplied print STL rotates90° about X. Preserve the3 mm bar and3.3 mm fork columns.',
         'payload_adapter':'Broad payload mounting face Z−5.3 on the bed; inspect the4.2 mm lug-window bridge.',
         'servo_clamp':'Flat broad face on the bed; inspect the countersinks and their edge ligaments.'},
@@ -160,7 +162,8 @@ def generate(out,g,meta,constants):
         'Finish the guide and keeper until they slide freely over the entire stroke; preserve the reviewed load-bearing walls.',
         'Rigid retained parts fit the85.6 ×54 ×20 mm box. The flexible lead exits through the top; the adapter departs below.',
         'Measure at least0.5 mm fully open lug clearance at the calibrated endpoint, including available lateral play.',
-        'Check each printed unit. Nominal CAD clearance does not establish the fit of a material or printer process.'
+        'Check each printed unit. Nominal CAD clearance does not establish the fit of a material or printer process.',
+        'Confirm clearance to the inner lid through loaded withdrawal. The prescribed1.6568° rocking check consumes0.01 mm of the0.4 mm nominal slot backlash; it is not a coupled contact solution.'
       ]}
     (out/'print-process.json').write_text(json.dumps(process,indent=2)+'\n')
     rows=[
@@ -200,6 +203,7 @@ def generate(out,g,meta,constants):
       ['Guide','Bore','3.6 ×3.6 mm nominal','Use a fit coupon; verify running clearance and maximum float.'],
       ['Yoke','Slot width','4.4 mm nominal','The smooth4 mm sleeve must slide without wedging.'],
       ['Lug','Thickness','3.5 mm nominal','Fit the4.1 mm socket; nominal0.3 mm clearance on each side.'],
+      ['Lid','Inner yoke relief','X53–74, Y36.5–40.9; ceilingZ19.0; remaining roof1.0 mm','Inspect pocket depth and flatness; verify loaded rocking never contacts the lid.'],
       ['Release','Measured fully open lug clearance','At least0.5 mm','Measure the actual calibrated endpoint, including lateral play.'],
       ['Preload','Foam thickness','2.36 mm free /1.77 mm installed','Measure force;25% compression is a geometry target.'],
       ['Servo','Purchased fit','MG90D at5 V; operating range4.8–6.6 V','Inspect shaft, horn, supplied screw and wire exit.'],

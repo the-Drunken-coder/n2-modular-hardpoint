@@ -4,7 +4,7 @@
   "orientations": {
     "receiver_core": "Broad central underside Z0 on the bed. Inspect short perimeter overhangs, guide bridges and accessible nut-pocket supports.",
     "case_shell": "Bottom edge on the bed. Use a brim as needed; inspect the retention ledge and nut loading windows.",
-    "case_lid": "Outside upper face on the bed; the supplied print STL is already flipped.",
+    "case_lid": "Outside upper face on the bed; the supplied print STL is already flipped. The yoke pocket opens upward while printing and leaves a1 mm floor; inspect its thickness and flatness.",
     "keeper": "Broad Y side on the bed; the supplied print STL rotates90\u00b0 about X. Preserve the3 mm bar and3.3 mm fork columns.",
     "payload_adapter": "Broad payload mounting face Z\u22125.3 on the bed; inspect the4.2 mm lug-window bridge.",
     "servo_clamp": "Flat broad face on the bed; inspect the countersinks and their edge ligaments."
@@ -21,6 +21,7 @@
     "Finish the guide and keeper until they slide freely over the entire stroke; preserve the reviewed load-bearing walls.",
     "Rigid retained parts fit the85.6 \u00d754 \u00d720 mm box. The flexible lead exits through the top; the adapter departs below.",
     "Measure at least0.5 mm fully open lug clearance at the calibrated endpoint, including available lateral play.",
-    "Check each printed unit. Nominal CAD clearance does not establish the fit of a material or printer process."
+    "Check each printed unit. Nominal CAD clearance does not establish the fit of a material or printer process.",
+    "Confirm clearance to the inner lid through loaded withdrawal. The prescribed1.6568\u00b0 rocking check consumes0.01 mm of the0.4 mm nominal slot backlash; it is not a coupled contact solution."
   ]
 }

@@ -1,8 +1,8 @@
 {
   "revision": "R5",
   "status": "pass",
-  "passed": 1549,
-  "total": 1549,
+  "passed": 1931,
+  "total": 1931,
   "checks": [
     {
       "name": "valid:receiver_core",
@@ -28,7 +28,7 @@
       "name": "valid:case_lid",
       "passed": true,
       "solid_count": 1,
-      "volume_mm3": 7189.265376898109
+      "volume_mm3": 7133.825376898109
     },
     {
       "name": "one_solid:case_lid",
@@ -7880,6 +7880,2134 @@
       "interference_mm3": 0.0
     },
     {
+      "name": "pitched_slot_adjustment",
+      "passed": true,
+      "maximum_required_axial_adjustment_mm": 0.004870886497706367,
+      "applied_axial_adjustment_mm": 0.01,
+      "nominal_total_backlash_mm": 0.4
+    },
+    {
+      "name": "pitched_keeper:1.000000:-0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:-0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:-0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:-0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:-0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:-0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:1.000000:-0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.000000:-0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.000000:-0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.000000:-0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.000000:-0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:1.000000:0:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:0:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:0:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:0:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:0:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:0:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:1.000000:0:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.000000:0:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.000000:0:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.000000:0:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.000000:0:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:1.000000:0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.000000:0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:1.000000:0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.000000:0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.000000:0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.000000:0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.000000:0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:1.010000:-0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:-0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:-0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:-0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:-0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:-0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:1.010000:-0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.010000:-0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.010000:-0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.010000:-0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.010000:-0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:1.010000:0:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:0:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:0:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:0:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:0:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:0:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:1.010000:0:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.010000:0:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.010000:0:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.010000:0:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.010000:0:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:1.010000:0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.010000:0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:1.010000:0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.010000:0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.010000:0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.010000:0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.010000:0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:1.500000:-0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:-0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:-0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:-0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:-0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:-0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:1.500000:-0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.500000:-0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.500000:-0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.500000:-0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.500000:-0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:1.500000:0:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:0:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:0:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:0:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:0:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:0:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:1.500000:0:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.500000:0:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.500000:0:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.500000:0:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.500000:0:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:1.500000:0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:1.500000:0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:1.500000:0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.500000:0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.500000:0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.500000:0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:1.500000:0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:2.000000:-0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:-0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:-0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:-0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:-0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:-0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:2.000000:-0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:2.000000:-0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:2.000000:-0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:2.000000:-0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:2.000000:-0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:2.000000:0:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:0:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:0:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:0:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:0:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:0:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:2.000000:0:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:2.000000:0:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:2.000000:0:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:2.000000:0:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:2.000000:0:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:2.000000:0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:2.000000:0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:2.000000:0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:2.000000:0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:2.000000:0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:2.000000:0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:2.000000:0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:3.000000:-0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:-0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:-0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:-0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:-0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:-0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:3.000000:-0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:3.000000:-0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:3.000000:-0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:3.000000:-0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:3.000000:-0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:3.000000:0:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:0:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:0:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:0:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:0:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:0:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:3.000000:0:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:3.000000:0:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:3.000000:0:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:3.000000:0:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:3.000000:0:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:3.000000:0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:3.000000:0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:3.000000:0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:3.000000:0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:3.000000:0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:3.000000:0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:3.000000:0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:4.000000:-0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:-0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:-0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:-0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:-0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:-0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:4.000000:-0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.000000:-0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.000000:-0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.000000:-0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.000000:-0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:4.000000:0:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:0:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:0:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:0:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:0:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:0:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:4.000000:0:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.000000:0:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.000000:0:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.000000:0:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.000000:0:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:4.000000:0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.000000:0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:4.000000:0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.000000:0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.000000:0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.000000:0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.000000:0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:4.500000:-0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:-0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:-0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:-0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:-0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:-0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:4.500000:-0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.500000:-0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.500000:-0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.500000:-0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.500000:-0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:4.500000:0:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:0:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:0:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:0:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:0:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:0:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:4.500000:0:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.500000:0:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.500000:0:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.500000:0:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.500000:0:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:4.500000:0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.500000:0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:4.500000:0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.500000:0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.500000:0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.500000:0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.500000:0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:4.700000:-0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:-0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:-0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:-0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:-0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:-0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:4.700000:-0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.700000:-0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.700000:-0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.700000:-0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.700000:-0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:4.700000:0:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:0:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:0:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:0:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:0:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:0:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:4.700000:0:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.700000:0:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.700000:0:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.700000:0:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.700000:0:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:4.700000:0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.700000:0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:4.700000:0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.700000:0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.700000:0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.700000:0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.700000:0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:4.800000:-0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:-0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:-0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:-0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:-0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:-0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:4.800000:-0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.800000:-0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.800000:-0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.800000:-0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.800000:-0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:4.800000:0:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:0:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:0:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:0:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:0:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:0:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:4.800000:0:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.800000:0:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.800000:0:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.800000:0:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.800000:0:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:4.800000:0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:4.800000:0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:4.800000:0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.800000:0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.800000:0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.800000:0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:4.800000:0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:6.267657:-0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:-0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:-0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:-0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:-0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:-0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:6.267657:-0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.267657:-0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.267657:-0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.267657:-0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.267657:-0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:6.267657:0:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:0:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:0:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:0:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:0:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:0:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:6.267657:0:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.267657:0:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.267657:0:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.267657:0:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.267657:0:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:6.267657:0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.267657:0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:6.267657:0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.267657:0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.267657:0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.267657:0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.267657:0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:6.736097:-0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:-0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:-0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:-0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:-0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:-0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:6.736097:-0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.736097:-0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.736097:-0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.736097:-0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.736097:-0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:6.736097:0:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:0:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:0:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:0:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:0:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:0:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:6.736097:0:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.736097:0:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.736097:0:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.736097:0:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.736097:0:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:6.736097:0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:6.736097:0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_drive:6.736097:0.3:horn",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.736097:0.3:sleeve",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.736097:0.3:follower_bolt",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.736097:0.3:follower_washer",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_drive:6.736097:0.3:follower_nut",
+      "passed": true,
+      "interference_mm3": 0.0
+    },
+    {
+      "name": "pitched_keeper:7.300000:-0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:-0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:-0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:-0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:-0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:-0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:0:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:0:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:0:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:0:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:0:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:0:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:0.3:receiver_core",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:0.3:case_shell",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:0.3:case_lid",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:0.3:servo",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:0.3:servo_clamp",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
+      "name": "pitched_keeper:7.300000:0.3:horn_screw",
+      "passed": true,
+      "interference_mm3": 0.0,
+      "pitch_deg": 1.6568123463978008
+    },
+    {
       "name": "departure:core:0",
       "passed": true,
       "interference_mm3": 0.0
@@ -8264,5 +10392,144 @@
       "passed": true
     }
   ],
-  "scope": "Nominal connected-solid, selected-interference, swept motion, load-direction, cartridge-envelope and installation checks. No strength or physical performance claim."
+  "scope": "Nominal connected-solid, assembled-interference, swept motion, prescribed rocking, load-direction, cartridge-envelope and installation checks. No strength or physical performance claim.",
+  "pitch_clearance": {
+    "basis": "Prescribed first-roof-contact rigid pose, not a coupled contact solve.",
+    "pivot_xz_mm": [
+      29.8,
+      7.4
+    ],
+    "roof_contact_xz_mm": [
+      50.5,
+      11.0
+    ],
+    "equation": "20.7*tan(alpha)+3/cos(alpha)=3.6",
+    "pitch_deg": 1.6568123463978008,
+    "maximum_required_axial_adjustment_mm": 0.004870886497706367,
+    "applied_axial_adjustment_mm": 0.01,
+    "nominal_total_slot_backlash_mm": 0.4,
+    "lid_relief_mm": {
+      "x": [
+        53,
+        74
+      ],
+      "y": [
+        36.5,
+        40.9
+      ],
+      "ceiling_z": 19.0,
+      "remaining_lid_thickness": 1.0
+    },
+    "rows": [
+      {
+        "nominal_drive_stroke_mm": 1.0,
+        "keeper_pretilt_translation_mm": 1.01,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.659651887368582,
+        "lid_minimum_distance_mm": 0.3403481126314176,
+        "sleeve_normal_clearance_mm": 0.06367119356672718,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 1.01,
+        "keeper_pretilt_translation_mm": 1.02,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.659941015375985,
+        "lid_minimum_distance_mm": 0.34005898462401873,
+        "sleeve_normal_clearance_mm": 0.06331118059777979,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 1.5,
+        "keeper_pretilt_translation_mm": 1.51,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.674108287738605,
+        "lid_minimum_distance_mm": 0.32589171226139513,
+        "sleeve_normal_clearance_mm": 0.04795881183885414,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 2.0,
+        "keeper_pretilt_translation_mm": 2.01,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.688564688108627,
+        "lid_minimum_distance_mm": 0.31143531189137263,
+        "sleeve_normal_clearance_mm": 0.03583881602000788,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 3.0,
+        "keeper_pretilt_translation_mm": 3.01,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.717477488848672,
+        "lid_minimum_distance_mm": 0.28252251115132765,
+        "sleeve_normal_clearance_mm": 0.018919189905322764,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 4.0,
+        "keeper_pretilt_translation_mm": 4.01,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.746390289588717,
+        "lid_minimum_distance_mm": 0.25360971041128266,
+        "sleeve_normal_clearance_mm": 0.009191903635387189,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 4.5,
+        "keeper_pretilt_translation_mm": 4.51,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.76084668995874,
+        "lid_minimum_distance_mm": 0.23915331004126017,
+        "sleeve_normal_clearance_mm": 0.006551169877764107,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 4.7,
+        "keeper_pretilt_translation_mm": 4.71,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.76662925010675,
+        "lid_minimum_distance_mm": 0.23337074989325046,
+        "sleeve_normal_clearance_mm": 0.005879083510404837,
+        "role": "retained_load_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 4.8,
+        "keeper_pretilt_translation_mm": 4.81,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.769520530180756,
+        "lid_minimum_distance_mm": 0.23047946981924738,
+        "sleeve_normal_clearance_mm": 0.005623570247753673,
+        "role": "conservative_post_release_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 6.2676570217579926,
+        "keeper_pretilt_translation_mm": 6.277657021757992,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.81195460520557,
+        "lid_minimum_distance_mm": 0.1880453947944325,
+        "sleeve_normal_clearance_mm": 0.007960890243883523,
+        "role": "conservative_post_release_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 6.736096792653741,
+        "keeper_pretilt_translation_mm": 6.7460967926537405,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.825498510960195,
+        "lid_minimum_distance_mm": 0.1745014890398089,
+        "sleeve_normal_clearance_mm": 0.01115933892123594,
+        "role": "conservative_post_release_envelope"
+      },
+      {
+        "nominal_drive_stroke_mm": 7.3,
+        "keeper_pretilt_translation_mm": 7.31,
+        "pitch_deg": 1.6568123463978008,
+        "top_z_mm": 18.84180253203087,
+        "lid_minimum_distance_mm": 0.15819746796913492,
+        "sleeve_normal_clearance_mm": 0.016721374208206907,
+        "role": "conservative_post_release_envelope"
+      }
+    ],
+    "limit": "Printed tolerance, wear, elastic deformation, actual reaction distribution and loaded actuation still require measurement. Mechanical-stop envelope is not a servo command."
+  }
 }

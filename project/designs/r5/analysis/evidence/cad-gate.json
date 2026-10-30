@@ -1,6 +1,6 @@
 {
   "status": "pass",
   "physical_prints": 6,
-  "nominal_checks": 1549,
-  "generator_sha256": "8b265c2795abd8b95c41fa17ee6cfd3dbbda6297f22f2eb5195ceed3e161994f"
+  "nominal_checks": 1931,
+  "generator_sha256": "5589d2a4f86ad3b2b29fc89457b59533fa545bcc9be5b622f2f76a6417e92fb3"
 }

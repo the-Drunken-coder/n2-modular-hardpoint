@@ -6,6 +6,7 @@ Keeper,Guide bar,3 ×3 mm nominal,Finish straight and free-sliding; preserve the
 Guide,Bore,3.6 ×3.6 mm nominal,Use a fit coupon; verify running clearance and maximum float.
 Yoke,Slot width,4.4 mm nominal,The smooth4 mm sleeve must slide without wedging.
 Lug,Thickness,3.5 mm nominal,Fit the4.1 mm socket; nominal0.3 mm clearance on each side.
+Lid,Inner yoke relief,"X53–74, Y36.5–40.9; ceilingZ19.0; remaining roof1.0 mm",Inspect pocket depth and flatness; verify loaded rocking never contacts the lid.
 Release,Measured fully open lug clearance,At least0.5 mm,"Measure the actual calibrated endpoint, including lateral play."
 Preload,Foam thickness,2.36 mm free /1.77 mm installed,Measure force;25% compression is a geometry target.
 Servo,Purchased fit,MG90D at5 V; operating range4.8–6.6 V,"Inspect shaft, horn, supplied screw and wire exit."

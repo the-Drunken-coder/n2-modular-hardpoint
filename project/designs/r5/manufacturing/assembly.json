@@ -172,7 +172,7 @@
           20.0
         ]
       },
-      "volume_mm3": 7189.265376898109,
+      "volume_mm3": 7133.825376898109,
       "solid_count": 1,
       "step": "parts/case_lid.step",
       "print_stl": "parts/case_lid_print.stl",
@@ -2046,8 +2046,8 @@
   "section_y_mm": 38.7,
   "status": "Dimensioned packaging prototype. Servo receiving fit, physical performance, printed strength and actual aircraft integration remain unqualified.",
   "sources": {
-    "generator_sha256": "8b265c2795abd8b95c41fa17ee6cfd3dbbda6297f22f2eb5195ceed3e161994f",
-    "manufacturing_writer_sha256": "68cb607d0a9b187ae8b7fbe34c161bd44a274abc47a21eccd7257ce08ca25846"
+    "generator_sha256": "5589d2a4f86ad3b2b29fc89457b59533fa545bcc9be5b622f2f76a6417e92fb3",
+    "manufacturing_writer_sha256": "4f1afdc64ebdb5e616ad1af8e94b02b7479f63af70dff3cdc9e1346ef03b8729"
   },
   "annotations": [
     {

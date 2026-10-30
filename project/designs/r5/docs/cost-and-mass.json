@@ -1,6 +1,6 @@
 {
   "revision": "R5",
-  "assembly_sha256": "b9e15597f705e6a7b5861ded8df4ec23550a7d6f5d1bdd200342727c636aa69d",
+  "assembly_sha256": "d94ca49f7cc8f4c47187180cc150cf2e8798b1f58940d447658a727a2be81d93",
   "analysis_source_sha256": "905ee089d8ab0af42516ec37509fd0b21ab984c77c2f8628a9513b574cdb994d",
   "measured_mass": false,
   "rows": [
@@ -26,9 +26,9 @@
       "id": "case_lid",
       "role": "module",
       "kind": "printed",
-      "volume_mm3": 7189.265376898109,
+      "volume_mm3": 7133.825376898109,
       "density_g_cm3": 1.06,
-      "mass_g": 7.6206212995119955,
+      "mass_g": 7.561854899511996,
       "basis": "Nominal solid CAD volume times supplier typical PAHT-CF density."
     },
     {
@@ -510,11 +510,11 @@
     }
   ],
   "totals_g": {
-    "six_prints": 41.893554226685836,
-    "retained_cartridge": 56.843073363809104,
+    "six_prints": 41.83478782668584,
+    "retained_cartridge": 56.78430696380911,
     "modeled_departing_interface": 7.034205860347513,
     "host_mount_fasteners": 4.984730820091,
-    "mechanical_package": 68.86201004424761,
+    "mechanical_package": 68.80324364424762,
     "illustrative_frame": 40.65133614297047,
     "illustrative_hatch": 12.061951999999991
   },
@@ -535,8 +535,8 @@
     },
     {
       "item": "Six PAHT-CF prints, with 15% process allowance",
-      "low_USD": 4.817758736068871,
-      "high_USD": 4.817758736068871,
+      "low_USD": 4.811000600068872,
+      "high_USD": 4.811000600068872,
       "basis": "$100/kg planning filament price, not a current quotation; CAD solid mass plus 15%"
     },
     {
@@ -553,8 +553,8 @@
     }
   ],
   "mechanical_consumed_cost_USD": [
-    18.48675873606887,
-    21.98675873606887
+    18.48000060006887,
+    21.98000060006887
   ],
   "external_harness_allowance_USD": [
     1.0,

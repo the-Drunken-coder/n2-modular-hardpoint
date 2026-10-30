@@ -23,7 +23,9 @@
     "slot_diametral_backlash_mm": 0.4,
     "combined_lug_tip_error_mm": 0.2,
     "release_angle_shortfall_deg": 2.0,
-    "allocated_minimum_open_gap_mm": 0.6780440998702342,
+    "tilted_tip_projection_allowance_mm": 0.1,
+    "flat_kinematic_minimum_gap_mm": 0.6780440998702342,
+    "allocated_minimum_open_gap_mm": 0.5780440998702342,
     "required_measured_gap_mm": 0.5,
     "budget_passes": true
   },
@@ -62450,5 +62452,5 @@
     "No return spring is specified. Unpowered position and retention require physical testing."
   ],
   "geometry_sha256": "19a8e7994db8ddc3452d123f0dad3299cffe504b9a0c3893873cb51246b3fd03",
-  "analysis_source_sha256": "5b4dedc94a2e496c9f3f0becd6bf72af87597228f6725a10bf2bbacca171dea3"
+  "analysis_source_sha256": "8c2888b9291bc47218b1e1125eb233ced44ba24f9cddb8ad52eeb2cda397f669"
 }
