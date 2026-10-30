@@ -1,0 +1,400 @@
+{
+  "id": "R5_keeper",
+  "variant": "R5",
+  "component": "keeper",
+  "step_path": "/workspace/scratch/69097ffe3220/r5-final-cad/parts/keeper.step",
+  "expected_step_sha256": "d1b0346cddde898fac0d5788125989dc7218f8bb478a0d7e5930de0f19b802fd",
+  "loads_are_actual_newtons": true,
+  "max_dofs": 500000,
+  "far_size_factor": 2.5,
+  "mesh_algorithm_3d": 10,
+  "mesh_optimizer": "Netgen",
+  "averaging_radii_mm": [],
+  "refine_boxes": [
+    {
+      "bounds": [
+        [
+          24,
+          36,
+          7
+        ],
+        [
+          32,
+          40,
+          11
+        ]
+      ],
+      "factor": 1
+    }
+  ],
+  "cases": {
+    "stroke_0p000mm": {
+      "loads": [
+        {
+          "label": "Lug on keeper top",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.4,
+            "x_range": [
+              26.0,
+              29.5
+            ],
+            "y_range": [
+              37.2,
+              40.2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -11.9044382
+          ]
+        },
+        {
+          "label": "distal_floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.4,
+            "x_range": [
+              24.7,
+              25.7
+            ],
+            "y_range": [
+              37.2,
+              40.2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            5.9522191
+          ]
+        },
+        {
+          "label": "proximal_floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.4,
+            "x_range": [
+              29.8,
+              30.8
+            ],
+            "y_range": [
+              37.2,
+              40.2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            5.9522191
+          ]
+        }
+      ],
+      "anchors": [
+        {
+          "label": "Translation gauge",
+          "point_mm": [
+            24.7,
+            37.2,
+            7.4
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Two rotation gauges",
+          "point_mm": [
+            24.7,
+            40.2,
+            7.4
+          ],
+          "components": [
+            0,
+            2
+          ]
+        },
+        {
+          "label": "Last rotation gauge",
+          "point_mm": [
+            49.5,
+            37.2,
+            7.4
+          ],
+          "components": [
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 0.0,
+      "remaining_overlap_mm": 3.5,
+      "scope": "Balanced prescribed contact forces; rigid-motion gauges must carry negligible reaction."
+    },
+    "stroke_1p000mm": {
+      "loads": [
+        {
+          "label": "Lug on keeper top",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.4,
+            "x_range": [
+              25.0,
+              28.5
+            ],
+            "y_range": [
+              37.2,
+              40.2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -11.9044382
+          ]
+        },
+        {
+          "label": "proximal_floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.4,
+            "x_range": [
+              28.8,
+              29.8
+            ],
+            "y_range": [
+              37.2,
+              40.2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            13.4854963984375
+          ]
+        },
+        {
+          "label": "far_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.4,
+            "x_range": [
+              48.0,
+              49.0
+            ],
+            "y_range": [
+              37.2,
+              40.2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -1.5810581984375005
+          ]
+        }
+      ],
+      "anchors": [
+        {
+          "label": "Translation gauge",
+          "point_mm": [
+            24.7,
+            37.2,
+            7.4
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Two rotation gauges",
+          "point_mm": [
+            24.7,
+            40.2,
+            7.4
+          ],
+          "components": [
+            0,
+            2
+          ]
+        },
+        {
+          "label": "Last rotation gauge",
+          "point_mm": [
+            49.5,
+            37.2,
+            7.4
+          ],
+          "components": [
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 1.0,
+      "remaining_overlap_mm": 3.5,
+      "scope": "Balanced prescribed contact forces; rigid-motion gauges must carry negligible reaction."
+    },
+    "stroke_4p700mm": {
+      "loads": [
+        {
+          "label": "Lug on keeper top",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.4,
+            "x_range": [
+              24.699999999999996,
+              24.799999999999997
+            ],
+            "y_range": [
+              37.2,
+              40.2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -11.9044382
+          ]
+        },
+        {
+          "label": "proximal_floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 7.4,
+            "x_range": [
+              25.1,
+              26.1
+            ],
+            "y_range": [
+              37.2,
+              40.2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            12.431457599479169
+          ]
+        },
+        {
+          "label": "far_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.4,
+            "x_range": [
+              44.3,
+              45.3
+            ],
+            "y_range": [
+              37.2,
+              40.2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.5270193994791675
+          ]
+        }
+      ],
+      "anchors": [
+        {
+          "label": "Translation gauge",
+          "point_mm": [
+            24.7,
+            37.2,
+            7.4
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Two rotation gauges",
+          "point_mm": [
+            24.7,
+            40.2,
+            7.4
+          ],
+          "components": [
+            0,
+            2
+          ]
+        },
+        {
+          "label": "Last rotation gauge",
+          "point_mm": [
+            49.5,
+            37.2,
+            7.4
+          ],
+          "components": [
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 4.700000000000001,
+      "remaining_overlap_mm": 0.10000000000000142,
+      "scope": "Balanced prescribed contact forces; rigid-motion gauges must carry negligible reaction."
+    },
+    "blocked_drive_12N": {
+      "loads": [
+        {
+          "label": "12 N imposed sleeve load",
+          "selector": {
+            "normal_axis": 0,
+            "value": 62.28740795541013,
+            "x": 62.28740795541013,
+            "y_range": [
+              37.2,
+              40.2
+            ],
+            "z_range": [
+              10,
+              12
+            ],
+            "normal": [
+              1,
+              0,
+              0
+            ]
+          },
+          "force_N": [
+            12,
+            0,
+            0
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Blocked-tip component fixture",
+          "selector": {
+            "normal_axis": 0,
+            "x": 24.7,
+            "y_range": [
+              37.2,
+              40.2
+            ],
+            "z_range": [
+              7.4,
+              10.4
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "scope": "Deliberately blocked tip, no installed guide support; not normal displacement or a servo stall bound."
+    }
+  }
+}

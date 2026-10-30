@@ -1,0 +1,6 @@
+# Keep native CAD bytes intact and make the engineering source reviewable.
+*.step -diff
+*.stl binary
+manufacturing/** linguist-generated
+analysis/evidence/** linguist-generated
+viewer/vendor/** linguist-vendored

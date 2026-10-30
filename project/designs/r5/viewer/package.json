@@ -1,0 +1,6 @@
+{
+  "name": "n2-r5-cartridge-viewer",
+  "private": true,
+  "type": "module",
+  "scripts": {"test": "node test-motion.mjs && node test-software-renderer.mjs"}
+}

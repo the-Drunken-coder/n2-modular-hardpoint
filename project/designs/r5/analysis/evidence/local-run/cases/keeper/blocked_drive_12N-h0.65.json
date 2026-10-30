@@ -1,0 +1,142 @@
+{
+  "id": "R5_keeper",
+  "variant": "R5",
+  "case": "blocked_drive_12N",
+  "h_mm": 0.65,
+  "elements": 4293,
+  "dofs": 23235,
+  "quadratic_nodes": 7745,
+  "element": "P2 displacement tetrahedra; faceted linear boundary geometry",
+  "elapsed_s": 7.996925592422485,
+  "material": {
+    "name": "Common effective solid printed PLA",
+    "elastic_model": "isotropic linear elastic",
+    "E_MPa": 2200.0,
+    "nu": 0.35,
+    "density_g_cm3": 1.24,
+    "tension_MPa": 25.0,
+    "compression_MPa": 40.0,
+    "max_shear_MPa": 15.0,
+    "nominal_temperature_C": 22,
+    "infill_assumption": "100 percent / solid-equivalent, no sparse infill",
+    "interpretation": "Effective common comparison assumptions, not measured allowables or a validated fracture law. No directional strength credit; layer adhesion and defects are homogenized. Short-duration static loading only.",
+    "reference": "Bambu PLA Basic TDS V3.0 gives typical XY/Z E 2580/2060 MPa and tensile strength 35/31 MPa for 100 percent infill, annealed/dried coupons. The chosen 25 MPa tension threshold is an analyst assumption, not a supplier rating.",
+    "reference_url": "https://cdn.shopify.com/s/files/1/0645/5876/0155/files/Bambu_PLA_Basic_Technical_Data_Sheet.pdf"
+  },
+  "applied_force_N": [
+    12.000000000000002,
+    0.0,
+    0.0
+  ],
+  "applied_moment_Nmm": [
+    0.0,
+    131.99999999999997,
+    -464.4000000000001
+  ],
+  "reaction_force_N": [
+    -12.000000000336104,
+    1.2410304034427e-10,
+    -3.9197527862411263e-10
+  ],
+  "reaction_moment_Nmm": [
+    -1.6224217525007134e-08,
+    -131.99999999355757,
+    464.4000000144353
+  ],
+  "force_balance_error_N": 5.310472760937685e-10,
+  "moment_balance_error_Nmm": 2.2651827249932047e-08,
+  "gauge_reaction_norm_N": 0.0,
+  "relative_free_residual": 9.891739820842347e-10,
+  "max_displacement_mm": 1.7129700489227748,
+  "compliance_Nmm": 3.450025019414735,
+  "strain_energy_Nmm": 1.7250125096995965,
+  "cad_volume_mm3": 558.7029296867518,
+  "mesh_volume_mm3": 558.7520771442263,
+  "relative_volume_error": 8.796706597213877e-05,
+  "raw_peak_tensile_MPa": 29.721689280849983,
+  "raw_peak_compressive_MPa": 16.778318550783528,
+  "raw_peak_max_shear_MPa": 11.78596089232103,
+  "raw_peak_vm_MPa": 22.199204950038833,
+  "boundary_audit": [
+    {
+      "label": "12 N imposed sleeve load",
+      "selector": {
+        "normal_axis": 0,
+        "value": 62.28740795541013,
+        "x": 62.28740795541013,
+        "y_range": [
+          37.2,
+          40.2
+        ],
+        "z_range": [
+          10,
+          12
+        ],
+        "normal": [
+          1,
+          0,
+          0
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 6.000000000000012,
+      "geometric_centroid_mm": [
+        62.28740795541013,
+        38.7,
+        10.999999999999998
+      ],
+      "force_N": [
+        12.000000000000002,
+        0.0,
+        0.0
+      ],
+      "moment_Nmm": [
+        0.0,
+        131.99999999999997,
+        -464.4000000000001
+      ],
+      "target_force_N": [
+        12.0,
+        0.0,
+        0.0
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 0.16666666666666632,
+      "maximum_density": 0.16666666666666632,
+      "facets": 10,
+      "kind": "traction"
+    },
+    {
+      "label": "Blocked-tip component fixture",
+      "kind": "fixture",
+      "selector": {
+        "normal_axis": 0,
+        "x": 24.7,
+        "y_range": [
+          37.2,
+          40.2
+        ],
+        "z_range": [
+          7.4,
+          10.4
+        ]
+      },
+      "components": [
+        0,
+        1,
+        2
+      ],
+      "area_mm2": 9.0,
+      "dofs": 402
+    }
+  ],
+  "solver": {
+    "method": "CG with smoothed aggregation AMG",
+    "iterations": 66
+  },
+  "step_sha256": "d1b0346cddde898fac0d5788125989dc7218f8bb478a0d7e5930de0f19b802fd",
+  "driver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+  "configuration_sha256": "34364d085d84668397604597bb540e686a8c2b9c96ab66a155d49d46fe06e2e4",
+  "physical_qualification": false,
+  "numerical_checks_passed": true
+}

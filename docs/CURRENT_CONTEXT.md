@@ -1,10 +1,24 @@
 # Current N2 engineering context
 
-**Current development: [N2 R4](../project/designs/r4/README.md). Preserved issued reference: P14.** R4 implements the user's selected keyed preload interface, reinforced standalone receiver and thicker supported lug. It specifies a long-travel HS-65MG direct servo drive, three structural prints, four host mounting points, hardware, fits, assembly, controls and fresh validation. Its [decisions](../project/designs/r4/docs/decisions.md) and package govern new prototype work. P14 requirements and test records remain historical inputs where explicitly carried forward, not automatically applicable R4 evidence.
+**Current development: [N2 R5](../project/designs/r5/README.md). Previous proposal: [R4](../project/designs/r4/README.md). Preserved issued reference: P14.** R5 fixes the retained cartridge at **85.6 × 54 × 20 mm**, including its casing and lid, and fits the mechanism inside that envelope. It retains the selected keyed preload interface, reinforced receiver and 3.5 mm lug, with a guided keeper driven by the **TowerPro MG90D prototype actuator**. Its observed actuator price is **$9.95 before shipping and tax**, not a complete module price.
 
-R4 excludes the rejected round/diamond pins and seating interlock. The equipment lock is deferred; aircraft backing, twin installations, wing loads and payload power/data remain integration work. The fixed nominal 5 V supply, 0.454 kg departing-mass input and 2 g loaded-release target carry forward. Prototype CAD and computational checks do not establish material strength, power-off retention, actuator force or successful separation on physical hardware.
+The cartridge installs upward from the wing's lower opening. Four screws accessed through a removable upper panel connect the structural receiver's captive nuts to a host mounting frame. The [interactive design page](https://n2-hardpoint-3d-changes.drunken.chatgpt.site) demonstrates this sequence and lets the casing be solid, ghosted or hidden. The wing is a one-off installation illustration, not a flight-qualified structure.
 
-The following sections preserve the **P14 engineering context**, including its four-print solenoid configuration and older numerical screens. They must not be read as a description or qualification of R4.
+| R5 source of current instructions | Link |
+| --- | --- |
+| Package and fixed design requirements | [R5 package](../project/designs/r5/README.md), [requirements](../project/designs/r5/docs/requirements.md) |
+| Interactive inspection | [Hosted viewer](https://n2-hardpoint-3d-changes.drunken.chatgpt.site), [viewer source](../project/designs/r5/viewer/index.html) |
+| Actuator selection, cost and mass | [Actuator research](../project/designs/r5/docs/actuator-research.md), [cost and mass account](../project/designs/r5/docs/cost-and-mass.md) |
+| Assembly and installation | [Assembly instructions](../project/designs/r5/docs/assembly.md), [electrical interface](../project/designs/r5/docs/electrical.md) |
+| Computational validation and physical gates | [R5 analysis](../project/designs/r5/analysis/README.md), [engineering assessment](../project/designs/r5/docs/engineering.md), [qualification plan](../project/designs/r5/docs/qualification.md) |
+
+The fixed nominal **5 V supply**, **0.454 kg total departing-mass input** and **2 g loaded-release target** carry forward. R5 supersedes the earlier footprint/bulk allowances and solenoid-first motion preference. Round-and-diamond locators and the full-seating interlock remain excluded; the positive equipment lock remains deferred. Aircraft-specific loads, reinforcement, payload power/data and any twin installation still require their own integration work.
+
+The complete local R5 run contains **18 actual STEP-based FEA solves that passed their numerical checks**. That status does not qualify actuator output, assembled contact behavior, PAHT-CF strength, power-off retention or successful physical separation. No physical working-load or flight rating has been established. Older P14 and R4 results are not transferred to R5.
+
+## Preserved P14 context
+
+Everything below preserves the earlier **P14 engineering context**, including its four-print solenoid configuration, dimensional allowances, controls and numerical screens. References to “current,” “next” or “further work” in these historical sections apply to that recorded stage. Use the R5 links above for current development; do not apply the old footprint or actuator settings to R5.
 
 ## Decisions that govern further work
 

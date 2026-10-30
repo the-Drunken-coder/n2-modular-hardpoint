@@ -1,0 +1,353 @@
+{
+  "id": "R5_adapter",
+  "variant": "R5",
+  "case": "stroke_4p700mm",
+  "h_mm": 0.45,
+  "elements": 39334,
+  "dofs": 193515,
+  "quadratic_nodes": 64505,
+  "element": "P2 displacement tetrahedra; faceted linear boundary geometry",
+  "elapsed_s": 54.50159239768982,
+  "material": {
+    "name": "Common effective solid printed PLA",
+    "elastic_model": "isotropic linear elastic",
+    "E_MPa": 2200.0,
+    "nu": 0.35,
+    "density_g_cm3": 1.24,
+    "tension_MPa": 25.0,
+    "compression_MPa": 40.0,
+    "max_shear_MPa": 15.0,
+    "nominal_temperature_C": 22,
+    "infill_assumption": "100 percent / solid-equivalent, no sparse infill",
+    "interpretation": "Effective common comparison assumptions, not measured allowables or a validated fracture law. No directional strength credit; layer adhesion and defects are homogenized. Short-duration static loading only.",
+    "reference": "Bambu PLA Basic TDS V3.0 gives typical XY/Z E 2580/2060 MPa and tensile strength 35/31 MPa for 100 percent infill, annealed/dried coupons. The chosen 25 MPa tension threshold is an analyst assumption, not a supplier rating.",
+    "reference_url": "https://cdn.shopify.com/s/files/1/0645/5876/0155/files/Bambu_PLA_Basic_Technical_Data_Sheet.pdf"
+  },
+  "applied_force_N": [
+    0.0,
+    0.0,
+    8.904438199999998
+  ],
+  "applied_moment_Nmm": [
+    345.2017583399997,
+    -266.5857049900002,
+    0.0
+  ],
+  "reaction_force_N": [
+    6.6716445736025864e-12,
+    -1.0071477343515794e-10,
+    -8.904438200304911
+  ],
+  "reaction_moment_Nmm": [
+    -345.20175835209363,
+    266.5857049994707,
+    -3.1310162518227713e-09
+  ],
+  "force_balance_error_N": 3.2118557705240275e-10,
+  "moment_balance_error_Nmm": 1.5676653082400716e-08,
+  "gauge_reaction_norm_N": 0.0,
+  "relative_free_residual": 8.040899355982267e-10,
+  "max_displacement_mm": 0.0381400412924864,
+  "compliance_Nmm": 0.3321395775999369,
+  "strain_energy_Nmm": 0.16606978879996917,
+  "cad_volume_mm3": 3425.3515240948586,
+  "mesh_volume_mm3": 3428.343521129208,
+  "relative_volume_error": 0.0008734861264028115,
+  "raw_peak_tensile_MPa": 32.27338331511637,
+  "raw_peak_compressive_MPa": 59.61813868534908,
+  "raw_peak_max_shear_MPa": 26.502306091598964,
+  "raw_peak_vm_MPa": 46.027132863508136,
+  "boundary_audit": [
+    {
+      "label": "Keeper on upper lug-window face",
+      "selector": {
+        "normal_axis": 2,
+        "z": 10.4,
+        "x_range": [
+          29.4,
+          29.5
+        ],
+        "y_range": [
+          37.2,
+          40.2
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 0.30000000000000493,
+      "geometric_centroid_mm": [
+        29.449999999999992,
+        38.699999999999974,
+        10.39999999999999
+      ],
+      "force_N": [
+        0.0,
+        0.0,
+        11.904438199999998
+      ],
+      "moment_Nmm": [
+        460.7017583399999,
+        -350.58570498999984,
+        0.0
+      ],
+      "target_force_N": [
+        0.0,
+        0.0,
+        11.9044382
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 3.3333333333332784,
+      "maximum_density": 3.3333333333332784,
+      "facets": 14,
+      "kind": "traction"
+    },
+    {
+      "label": "Opposing pad preload 1",
+      "selector": {
+        "normal_axis": 2,
+        "z": -1.5,
+        "circle_xy": [
+          20.5,
+          34,
+          2
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 12.360679774997923,
+      "geometric_centroid_mm": [
+        20.49999999999999,
+        33.99999999999999,
+        -1.5000000000000004
+      ],
+      "force_N": [
+        0.0,
+        0.0,
+        -0.75
+      ],
+      "moment_Nmm": [
+        -25.500000000000004,
+        15.375000000000004,
+        0.0
+      ],
+      "target_force_N": [
+        0.0,
+        0.0,
+        -0.75
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 0.08090169943749458,
+      "maximum_density": 0.08090169943749458,
+      "facets": 42,
+      "kind": "traction"
+    },
+    {
+      "label": "Opposing pad preload 2",
+      "selector": {
+        "normal_axis": 2,
+        "z": -1.5,
+        "circle_xy": [
+          35.5,
+          34,
+          2
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 12.36067977499793,
+      "geometric_centroid_mm": [
+        35.49999999999999,
+        33.99999999999999,
+        -1.5000000000000004
+      ],
+      "force_N": [
+        0.0,
+        0.0,
+        -0.7499999999999997
+      ],
+      "moment_Nmm": [
+        -25.500000000000004,
+        26.624999999999996,
+        0.0
+      ],
+      "target_force_N": [
+        0.0,
+        0.0,
+        -0.75
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 0.08090169943749453,
+      "maximum_density": 0.08090169943749453,
+      "facets": 40,
+      "kind": "traction"
+    },
+    {
+      "label": "Opposing pad preload 3",
+      "selector": {
+        "normal_axis": 2,
+        "z": -1.5,
+        "circle_xy": [
+          20.5,
+          43,
+          2
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 12.360679774997923,
+      "geometric_centroid_mm": [
+        20.499999999999996,
+        43.000000000000014,
+        -1.5000000000000004
+      ],
+      "force_N": [
+        0.0,
+        0.0,
+        -0.7500000000000002
+      ],
+      "moment_Nmm": [
+        -32.25,
+        15.375000000000004,
+        0.0
+      ],
+      "target_force_N": [
+        0.0,
+        0.0,
+        -0.75
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 0.08090169943749458,
+      "maximum_density": 0.08090169943749458,
+      "facets": 40,
+      "kind": "traction"
+    },
+    {
+      "label": "Opposing pad preload 4",
+      "selector": {
+        "normal_axis": 2,
+        "z": -1.5,
+        "circle_xy": [
+          35.5,
+          43,
+          2
+        ]
+      },
+      "distribution": "uniform/affine centroid correction",
+      "area_mm2": 12.36067977499793,
+      "geometric_centroid_mm": [
+        35.49999999999999,
+        42.999999999999986,
+        -1.4999999999999996
+      ],
+      "force_N": [
+        0.0,
+        0.0,
+        -0.7500000000000001
+      ],
+      "moment_Nmm": [
+        -32.25000000000001,
+        26.625,
+        0.0
+      ],
+      "target_force_N": [
+        0.0,
+        0.0,
+        -0.75
+      ],
+      "target_centroid_mm": null,
+      "minimum_density": 0.08090169943749453,
+      "maximum_density": 0.08090169943749453,
+      "facets": 40,
+      "kind": "traction"
+    },
+    {
+      "label": "Mount bearing annulus 1",
+      "kind": "fixture",
+      "selector": {
+        "normal_axis": 2,
+        "z": -5.3,
+        "annulus_xy": [
+          17.5,
+          29,
+          1.7,
+          3.0
+        ]
+      },
+      "components": [
+        0,
+        1,
+        2
+      ],
+      "area_mm2": 18.88093835630928,
+      "dofs": 600
+    },
+    {
+      "label": "Mount bearing annulus 2",
+      "kind": "fixture",
+      "selector": {
+        "normal_axis": 2,
+        "z": -5.3,
+        "annulus_xy": [
+          38.5,
+          29,
+          1.7,
+          3.0
+        ]
+      },
+      "components": [
+        0,
+        1,
+        2
+      ],
+      "area_mm2": 18.880938356309276,
+      "dofs": 600
+    },
+    {
+      "label": "Mount bearing annulus 3",
+      "kind": "fixture",
+      "selector": {
+        "normal_axis": 2,
+        "z": -5.3,
+        "annulus_xy": [
+          17.5,
+          48,
+          1.7,
+          3.0
+        ]
+      },
+      "components": [
+        0,
+        1,
+        2
+      ],
+      "area_mm2": 18.88093835630928,
+      "dofs": 600
+    },
+    {
+      "label": "Mount bearing annulus 4",
+      "kind": "fixture",
+      "selector": {
+        "normal_axis": 2,
+        "z": -5.3,
+        "annulus_xy": [
+          38.5,
+          48,
+          1.7,
+          3.0
+        ]
+      },
+      "components": [
+        0,
+        1,
+        2
+      ],
+      "area_mm2": 18.880938356309272,
+      "dofs": 600
+    }
+  ],
+  "solver": {
+    "method": "CG with smoothed aggregation AMG",
+    "iterations": 80
+  },
+  "step_sha256": "ad15a4814dc4a2c644e5e00ab44bccb6e7d90612882e87d8c5a21bca9de3fed1",
+  "driver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+  "configuration_sha256": "70fc89f792a5cb96507b99dae26145ff01b448236c0a2c44fbb658afdbe6b70e",
+  "physical_qualification": false,
+  "numerical_checks_passed": true
+}

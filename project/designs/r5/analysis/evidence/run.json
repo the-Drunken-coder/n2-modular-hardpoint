@@ -1,0 +1,29 @@
+{
+  "revision": "R5",
+  "started_utc": "2026-10-30T16:42:59.195474+00:00",
+  "commit": "d8d8afc174c44fcf4d832fa6f1779527689e4eb4",
+  "github_run_id": null,
+  "sources": {
+    ".github/workflows/cartridge-validation.yml": "83a4fefd84bebb41a44abb29023549a4c0292a235df97a79292506e2c0265e3a",
+    "project/analysis/inputs/material.json": "ac3df6f1f1154c9db3b9c092fd2213b7681eb49baae6a66f8c4832cab389bd0d",
+    "project/analysis/requirements.txt": "7d6007342709ff0ae64a63d35b8458699c97d6675a68a8ac0db97273d1c37e42",
+    "project/cad/requirements.txt": "08298e8b4b415c9be6637e79189a485124e1d8b0e169df4b1ef931425c7e98cc",
+    "project/designs/r4/analysis/audit_surfaces.py": "5a0a2410238bf051032a9ac27e45fbac02f337f0df3041151709766839c70472",
+    "project/designs/r5/analysis/cost_and_mass.py": "905ee089d8ab0af42516ec37509fd0b21ab984c77c2f8628a9513b574cdb994d",
+    "project/designs/r5/analysis/mechanics.py": "5b4dedc94a2e496c9f3f0becd6bf72af87597228f6725a10bf2bbacca171dea3",
+    "project/designs/r5/analysis/simulate.py": "13a80ad4fa3fa9d6b6be5687c951f7d9c31995d9afa81026341b386062635cbe",
+    "project/designs/r5/analysis/test_evidence.py": "48df1e48a355f322758cff9e60e876ef4193cd9601333a6959119d437ed27950",
+    "project/designs/r5/analysis/test_mechanics.py": "425d0d2a15c2cea341c9f0d114c2d7b94c4ed4aabecdb5e7b3df676c3d86de6f",
+    "project/designs/r5/cad/build.py": "8b265c2795abd8b95c41fa17ee6cfd3dbbda6297f22f2eb5195ceed3e161994f",
+    "project/designs/r5/cad/manufacturing.py": "68cb607d0a9b187ae8b7fbe34c161bd44a274abc47a21eccd7257ce08ca25846",
+    "project/designs/r5/viewer/app.js": "a966be1ff6f82663cb7becf85121b1a7648626990314b302599c79d160fa26b6",
+    "project/designs/r5/viewer/installation.js": "0a2270872128d06c0373b2cf4323c14e6d1e2c2ebb9cee56977e42414345f72d",
+    "project/designs/r5/viewer/kinematics.js": "31b78d55ee2f761829111112ab7a783c7d0294a092ffeabf8da89e7f8ff9f2a8",
+    "project/designs/r5/viewer/software-renderer.js": "8a7564d267896db4f5725ff5630b5a80f6c3d2751ad81389f12a74079d6c0216",
+    "project/designs/r5/viewer/test-motion.mjs": "77d1939aaf96d89ccade59a59b91b33a1f66a3a78e454adde3870ee2466083fe",
+    "project/designs/r5/viewer/test-software-renderer.mjs": "2503d47e89b225d965748ee570305b0d8acf00948e4e118b2c3a01aa37c2678f",
+    "tools/ci/run_cartridge.py": "d608519e4196db9bf4f8b126b8b0f5aa9b214d7a59956af8bea37fab9c31d880",
+    "tools/ci/test_cartridge_handoff.py": "839f01ce023903a497f84454e13c498af4e61ce5a1c3a2182aa81e01f981dbce"
+  },
+  "physical_qualification": false
+}

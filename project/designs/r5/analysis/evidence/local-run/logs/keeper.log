@@ -1,0 +1,16 @@
+R5_keeper: mesh h=0.65
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+4293 elements / 23235 DOF
+stroke_0p000mm: u=0.0091712; raw threshold=8.8046 N; gauge=1.6e-11
+stroke_1p000mm: u=0.15822; raw threshold=3.1454 N; gauge=5e-11
+stroke_4p700mm: u=0.03266; raw threshold=0.67083 N; gauge=1e-11
+blocked_drive_12N: u=1.713; raw threshold=0.84114 N; gauge=0
+R5_keeper: mesh h=0.45
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+7703 elements / 40803 DOF
+stroke_0p000mm: u=0.0091617; raw threshold=8.5813 N; gauge=7.2e-12
+stroke_1p000mm: u=0.15944; raw threshold=3.1538 N; gauge=1.3e-11
+stroke_4p700mm: u=0.032899; raw threshold=0.58286 N; gauge=1.4e-11
+blocked_drive_12N: u=1.7199; raw threshold=0.75622 N; gauge=0

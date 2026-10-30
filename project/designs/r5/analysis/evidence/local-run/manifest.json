@@ -1,0 +1,74 @@
+{
+  "revision": "R5",
+  "cad_directory": "/workspace/scratch/69097ffe3220/r5-final-cad",
+  "geometry_sha256": "19a8e7994db8ddc3452d123f0dad3299cffe504b9a0c3893873cb51246b3fd03",
+  "assembly_sha256": "69ac611d1591f2a2f50a97b30debaf3b28f96a73de7f6509fb9f3430a2686870",
+  "source_steps": {
+    "receiver": {
+      "path": "/workspace/scratch/69097ffe3220/r5-final-cad/parts/receiver_core.step",
+      "sha256": "d65af770d14c729763cd99fbe649bc2f6f5882ddcbdb54d9d1c27c4a48446329"
+    },
+    "adapter": {
+      "path": "/workspace/scratch/69097ffe3220/r5-final-cad/parts/payload_adapter.step",
+      "sha256": "ad15a4814dc4a2c644e5e00ab44bccb6e7d90612882e87d8c5a21bca9de3fed1"
+    },
+    "keeper": {
+      "path": "/workspace/scratch/69097ffe3220/r5-final-cad/parts/keeper.step",
+      "sha256": "d1b0346cddde898fac0d5788125989dc7218f8bb478a0d7e5930de0f19b802fd"
+    }
+  },
+  "runner_sha256": "13a80ad4fa3fa9d6b6be5687c951f7d9c31995d9afa81026341b386062635cbe",
+  "mechanics_sha256": "5b4dedc94a2e496c9f3f0becd6bf72af87597228f6725a10bf2bbacca171dea3",
+  "solver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+  "material_sha256": "ac3df6f1f1154c9db3b9c092fd2213b7681eb49baae6a66f8c4832cab389bd0d",
+  "configuration_sha256": {
+    "receiver": "933bd95d9bfa3a43fa4caff8a115153980fe77e5fcdcb4a9c73815b4466b62c2",
+    "adapter": "70fc89f792a5cb96507b99dae26145ff01b448236c0a2c44fbb658afdbe6b70e",
+    "keeper": "34364d085d84668397604597bb540e686a8c2b9c96ab66a155d49d46fe06e2e4"
+  },
+  "plans": [
+    {
+      "part": "receiver",
+      "config": "configs/receiver.json",
+      "sizes_mm": [
+        1.2,
+        0.9
+      ],
+      "cases": [
+        "retained_2g",
+        "distal_support_lost",
+        "retained_4g_screen"
+      ]
+    },
+    {
+      "part": "adapter",
+      "config": "configs/adapter.json",
+      "sizes_mm": [
+        0.65,
+        0.45
+      ],
+      "cases": [
+        "stroke_0p000mm",
+        "stroke_4p700mm"
+      ]
+    },
+    {
+      "part": "keeper",
+      "config": "configs/keeper.json",
+      "sizes_mm": [
+        0.65,
+        0.45
+      ],
+      "cases": [
+        "stroke_0p000mm",
+        "stroke_1p000mm",
+        "stroke_4p700mm",
+        "blocked_drive_12N"
+      ]
+    }
+  ],
+  "payload_2g_N": 8.9044382,
+  "preload_N": 3.0,
+  "physical_qualification": false,
+  "scope": "Component screening only. Receiver cases include payload/preload reactions; servo/clamp inertia and actuator mounting reactions are omitted. Casing, servo internals, bolts, host wing, fatigue, creep and lateral flight loads are not solved. Prescribed far-roof contact does not solve closure of the initial guide gap or assembled rocking."
+}

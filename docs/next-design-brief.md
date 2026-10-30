@@ -1,5 +1,7 @@
 # N2 next-design brief: pod envelope, 2 g release and 5 V actuation
 
+> **Superseded for current development by [R5](../project/designs/r5/README.md), recorded 2026-10-30.** This brief is preserved as decision history. Its approximately 100 × 65 mm mounting allowance, larger mechanism-bulk allowance and solenoid-first motion preference no longer govern the active design: R5 uses a fixed **85.6 × 54 × 20 mm enclosed cartridge** and the **TowerPro MG90D**, observed at **$9.95** for the actuator before shipping and tax. Use the [R5 requirements](../project/designs/r5/docs/requirements.md), [cost and mass account](../project/designs/r5/docs/cost-and-mass.md), [assembly](../project/designs/r5/docs/assembly.md) and [electrical interface](../project/designs/r5/docs/electrical.md) for implementation. R4 is the previous proposal; P14 remains the preserved issued reference. Historical dimensions, calculations and solenoid settings below are not rewritten or transferred to R5.
+
 Decisions recorded **2026-10-29, America/New_York**. This brief records the user's answers and the engineering assumptions used to begin the next design. **P14 remains the active issued CAD.** These inputs do not claim that a revised mechanism, actuator or installation has already passed analysis or physical testing.
 
 The numerical inputs are also recorded in [next-design-inputs.json](next-design-inputs.json). The three questions in the earlier CI handoff are answered sufficiently to proceed; exact fits, actuator selection and force margins are engineering work.

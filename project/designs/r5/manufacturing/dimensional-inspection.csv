@@ -1,0 +1,13 @@
+part_or_interface,feature,nominal_or_limit,acceptance
+Retained cartridge,Outside envelope,85.6 ×54 ×20 mm,No rigid retained part exceeds the envelope; test with a cutout coupon.
+Host cutout,Opening,86.2 ×54.6 mm,Nominal0.3 mm clearance per side; actual wing-material fit still requires checking.
+Host mount,Four hole centers,"Front(10,10)/(75.6,10); rear(10.5,44.8)/(75.1,44.8) mm",Use the actual CAD pattern and template; the rear pair is staggered inward.
+Keeper,Guide bar,3 ×3 mm nominal,Finish straight and free-sliding; preserve the reviewed section.
+Guide,Bore,3.6 ×3.6 mm nominal,Use a fit coupon; verify running clearance and maximum float.
+Yoke,Slot width,4.4 mm nominal,The smooth4 mm sleeve must slide without wedging.
+Lug,Thickness,3.5 mm nominal,Fit the4.1 mm socket; nominal0.3 mm clearance on each side.
+Release,Measured fully open lug clearance,At least0.5 mm,"Measure the actual calibrated endpoint, including lateral play."
+Preload,Foam thickness,2.36 mm free /1.77 mm installed,Measure force;25% compression is a geometry target.
+Servo,Purchased fit,MG90D at5 V; operating range4.8–6.6 V,"Inspect shaft, horn, supplied screw and wire exit."
+Aircraft frame,Mounting fasteners,M3×12 plus0.5 mm washer and3.5 mm frame,Verify full nut engagement and that screws are not bottomed.
+Payload interface,Threaded metal mates,At least3 mm metal engagement; at least8.7 mm free depth or through hole,The M3×12 screws project8.2 mm below the adapter; include payload attachment mass within454 g.

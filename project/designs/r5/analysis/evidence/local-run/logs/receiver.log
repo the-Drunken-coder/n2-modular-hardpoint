@@ -1,0 +1,14 @@
+R5_receiver: mesh h=1.2
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+40864 elements / 230649 DOF
+retained_2g: u=0.062789; raw threshold=1.3794 N; gauge=0
+distal_support_lost: u=0.072811; raw threshold=0.72257 N; gauge=0
+retained_4g_screen: u=0.11843; raw threshold=0.71909 N; gauge=0
+R5_receiver: mesh h=0.9
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+51426 elements / 285966 DOF
+retained_2g: u=0.06321; raw threshold=1.2043 N; gauge=0
+distal_support_lost: u=0.073274; raw threshold=0.63137 N; gauge=0
+retained_4g_screen: u=0.11922; raw threshold=0.62783 N; gauge=0

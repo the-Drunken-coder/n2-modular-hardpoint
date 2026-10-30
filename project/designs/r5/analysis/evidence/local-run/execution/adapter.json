@@ -1,0 +1,15 @@
+{
+  "returncode": 0,
+  "elapsed_seconds": 80.37709211899892,
+  "command": [
+    "/workspace/scratch/c3093d2e58b9/n2-fea-env/bin/python",
+    "/workspace/scratch/69097ffe3220/r5-fea-final/engine/solver.py",
+    "--config",
+    "/workspace/scratch/69097ffe3220/r5-fea-final/configs/adapter.json",
+    "--sizes",
+    "0.65",
+    "0.45"
+  ],
+  "config_sha256": "70fc89f792a5cb96507b99dae26145ff01b448236c0a2c44fbb658afdbe6b70e",
+  "log": "logs/adapter.log"
+}

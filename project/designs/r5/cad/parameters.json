@@ -1,0 +1,110 @@
+{
+  "revision": "R5",
+  "retained_envelope_mm": [
+    85.6,
+    54,
+    20
+  ],
+  "kinematics": {
+    "type": "short_crank",
+    "radius_mm": 5.5,
+    "crank_radius_mm": 5.5,
+    "pivot": [
+      65.4,
+      0,
+      9.5
+    ],
+    "axis": [
+      0,
+      1,
+      0
+    ],
+    "angle_range_deg": [
+      15.0,
+      105.0
+    ],
+    "retained_angle_deg": 15.0,
+    "operating_angle_deg": 100.0,
+    "operating_rotation_deg": 85.0,
+    "release_angle_deg": 100.0,
+    "travel_mm": 6.736096792653741,
+    "operating_travel_mm": 6.2676570217579926,
+    "mechanical_travel_mm": 7.3,
+    "release_clearance_mm": 4.8,
+    "formula": "s = r * (cos(theta_retained) - cos(theta))",
+    "animation_note": "Geometry starts at 15 degrees; rotate by the delta angle. Prescribed motion is not proof of release."
+  },
+  "host_mounts_mm": [
+    [
+      10,
+      10
+    ],
+    [
+      75.6,
+      10
+    ],
+    [
+      10.5,
+      44.8
+    ],
+    [
+      75.1,
+      44.8
+    ]
+  ],
+  "case_mounts_mm": [
+    [
+      4.2,
+      4.2
+    ],
+    [
+      81.4,
+      4.2
+    ],
+    [
+      4.2,
+      49.8
+    ],
+    [
+      81.4,
+      49.8
+    ]
+  ],
+  "payload_mounts_mm": [
+    [
+      17.5,
+      29
+    ],
+    [
+      38.5,
+      29
+    ],
+    [
+      17.5,
+      48
+    ],
+    [
+      38.5,
+      48
+    ]
+  ],
+  "pad_centers_mm": [
+    [
+      20.5,
+      34
+    ],
+    [
+      35.5,
+      34
+    ],
+    [
+      20.5,
+      43
+    ],
+    [
+      35.5,
+      43
+    ]
+  ],
+  "source_role": "Authoritative geometry is build.py; this record is regenerated from its constants."
+}

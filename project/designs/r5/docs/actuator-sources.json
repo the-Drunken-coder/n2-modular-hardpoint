@@ -1,0 +1,313 @@
+{
+  "research_date": "2026-10-30",
+  "currency": "USD",
+  "price_basis": "Single unit public list prices, before shipping and tax; observations not price guarantees.",
+  "retrieval_method": "Direct public HTTPS reads because search connector returned empty errors.",
+  "sources": [
+    {
+      "id": "mg90d_manufacturer",
+      "url": "https://towerpro.com.tw/product/mg90d-2/",
+      "publisher": "TowerPro",
+      "title": "MG90D manufacturer specifications",
+      "retrieved": "2026-10-30",
+      "facts": {
+        "voltage_V": [
+          4.8,
+          6.6
+        ],
+        "stall_torque_kgf_cm_at_4_8V": 2.1,
+        "speed_s_per_60deg_at_4_8V": 0.1,
+        "mass_g": 13,
+        "dimension_table_mm": {
+          "A_bottom_to_spline_top": 32.5,
+          "B_case_length": 22.6,
+          "C_bottom_to_gearcase_top": 28.5,
+          "D_case_width": 12,
+          "E_mount_ear_overall_span": 31.5,
+          "F_bottom_to_ear_lower_face": 19.8
+        }
+      },
+      "limits": [
+        "Supplier lists12.2mm width; reserve the larger value.",
+        "Exact shaft offset and horn hole locations are not dimensioned.",
+        "Manufacturer does not give a guaranteed operating-angle tolerance."
+      ]
+    },
+    {
+      "id": "mg92b_manufacturer",
+      "url": "https://towerpro.com.tw/product/mg92b/",
+      "publisher": "TowerPro",
+      "title": "MG92B manufacturer specifications",
+      "retrieved": "2026-10-30",
+      "facts": {
+        "voltage_V": [
+          5.0,
+          6.6
+        ],
+        "stall_torque_kgf_cm_at_5V": 3.1,
+        "stall_torque_kgf_cm_at_6V": 3.5,
+        "speed_s_per_60deg_at_5V": 0.13,
+        "mass_g": 13.8,
+        "dimension_table_mm": {
+          "A_bottom_to_spline_top": 35,
+          "B_case_length": 22.6,
+          "C_bottom_to_gearcase_top": 31,
+          "D_case_width": 12,
+          "E_mount_ear_overall_span": 31.5,
+          "F_bottom_to_ear_lower_face": 22.8
+        }
+      },
+      "limits": [
+        "Dimension letter meanings interpreted from manufacturer linked generic sketch.",
+        "Exact shaft offset, horn radial hole positions, and moving-load torque are not specified."
+      ]
+    },
+    {
+      "id": "mg92b_drawing",
+      "url": "https://towerpro.com.tw/wp-content/uploads/2014/07/%E5%B0%8F%E9%A6%AC%E9%81%94%E5%B0%BA%E5%AF%B8%E6%A8%99%E7%A4%BA%E5%9C%96B.jpg",
+      "publisher": "TowerPro",
+      "title": "Micro-servo dimension-letter sketch",
+      "retrieved": "2026-10-30",
+      "facts": {
+        "linked_from": "MG92B product page",
+        "basis": "Read with the numeric dimension table, not scaled from pixels."
+      }
+    },
+    {
+      "id": "mg92b_supplier",
+      "url": "https://www.adafruit.com/product/2307",
+      "publisher": "Adafruit",
+      "title": "Micro Servo \u2014 High Powered, High Torque Metal Gear \u2014 TowerPro MG92B",
+      "retrieved": "2026-10-30",
+      "facts": {
+        "unit_price_USD": 11.95,
+        "availability": "In stock when retrieved",
+        "supplier_envelope_mm": [
+          36,
+          12,
+          31
+        ],
+        "mass_g": 14,
+        "spline_teeth": 20,
+        "signal_high_requirement": "5 V logic explicitly required",
+        "advertised_travel_degrees": "Approximately180; achieved endpoints require calibration",
+        "horns_included": true
+      },
+      "limits": [
+        "Supplier labels3.1kgf\u00b7cm at4.8V; manufacturer assigns3.1kgf\u00b7cm to5.0V. Use manufacturer5.0V in design.",
+        "Supplier envelope axis names not supplied; use manufacturer dimensions and physical receiving inspection.",
+        "Shipping and tax excluded."
+      ]
+    },
+    {
+      "id": "mg90d_supplier",
+      "url": "https://www.adafruit.com/product/1143",
+      "publisher": "Adafruit",
+      "title": "Micro Servo \u2014 MG90D High Torque Metal Gear",
+      "retrieved": "2026-10-30",
+      "facts": {
+        "unit_price_USD": 9.95,
+        "availability": "In stock when retrieved",
+        "stall_torque_kgf_cm_at_4_8V": 2.1,
+        "body_mm": [
+          22.8,
+          12.2,
+          28.5
+        ],
+        "advertised_travel_degrees": "Approximately90; expanded pulse behavior requires characterization"
+      },
+      "limits": [
+        "Only2USD cheaper thanMG92B; smaller documented travel and lower stall torque.",
+        "Shipping and tax excluded."
+      ]
+    },
+    {
+      "id": "mini_solenoid_supplier",
+      "url": "https://www.adafruit.com/product/2776",
+      "publisher": "Adafruit",
+      "title": "Mini Push-Pull Solenoid \u20145V",
+      "retrieved": "2026-10-30",
+      "facts": {
+        "unit_price_USD": 4.95,
+        "availability": "In stock when retrieved",
+        "rated_voltage_V": 5,
+        "current_A": 1.1,
+        "listed_throw_mm": 3,
+        "listed_force_gf": 80,
+        "mass_g": 12.6
+      },
+      "limits": [
+        "3mm/80gf listing does not provide a complete force-stroke curve.",
+        "Insufficient direct travel for the existing keeper; travel multiplication reduces force.",
+        "Driver and flyback protection additional."
+      ]
+    },
+    {
+      "id": "medium_solenoid_supplier",
+      "url": "https://www.adafruit.com/product/3992",
+      "publisher": "Adafruit",
+      "title": "Medium Push-Pull Solenoid \u20145V or6V",
+      "retrieved": "2026-10-30",
+      "facts": {
+        "unit_price_USD": 7.5,
+        "availability": "In stock when retrieved",
+        "voltage_V": [
+          5,
+          6
+        ],
+        "current_A_at_5V": 0.8,
+        "throw_mm": 10,
+        "mass_g": 68,
+        "armature_tube_length_mm": 55.4,
+        "armature_tube_diameter_mm": 7
+      },
+      "limits": [
+        "This product page does not establish adequate force over the installed loaded stroke.",
+        "Driver and flyback protection additional."
+      ]
+    },
+    {
+      "id": "feetech_supplier",
+      "url": "https://www.pololu.com/product/3423",
+      "publisher": "Pololu",
+      "title": "FEETECH Mini ServoFT1117M",
+      "retrieved": "2026-10-30",
+      "facts": {
+        "unit_price_USD": 16.74,
+        "mass_g": 20,
+        "documented_operating_angle_degrees": 120,
+        "documented_pulse_range_us": [
+          900,
+          2100
+        ],
+        "accepts_signal_V": [
+          3.3,
+          5
+        ],
+        "body_mm": [
+          30,
+          12,
+          31.7
+        ]
+      },
+      "limits": [
+        "Body dimensions from linked Pololu RC servo comparison.",
+        "Geartrain has a plastic pinion despite primarily metal construction.",
+        "Shipping and tax excluded."
+      ]
+    },
+    {
+      "id": "gearmotor_supplier",
+      "url": "https://www.pololu.com/product/2367",
+      "publisher": "Pololu",
+      "title": "100:1 Micro Metal GearmotorMP6V",
+      "retrieved": "2026-10-30",
+      "facts": {
+        "unit_price_USD": 23.95,
+        "nominal_voltage_V": 6,
+        "gearbox_cross_section_mm": [
+          10,
+          12
+        ],
+        "output_shaft_length_mm": 9,
+        "output_shaft_diameter_mm": 3,
+        "no_load_speed_rpm_at_6V": 220,
+        "extrapolated_stall_torque_kgf_cm_at_6V": 0.94
+      },
+      "limits": [
+        "Requires motor driver, endpoint sensing or encoder, and custom linkage.",
+        "Published6V performance must not be asserted at5V.",
+        "Shipping and tax excluded."
+      ]
+    },
+    {
+      "id": "logic_buffer",
+      "url": "https://www.ti.com/lit/ds/symlink/sn74ahct1g125.pdf",
+      "publisher": "Texas Instruments",
+      "title": "SN74AHCT1G125 single buffer datasheet",
+      "retrieved": "2026-10-30",
+      "facts": {
+        "role": "Candidate3.3V-to5V servo-signal buffering component"
+      },
+      "limits": [
+        "Retain exact validated circuit and power/enable behavior; an arbitrarily chosen bidirectional level-shifter is not equivalent."
+      ]
+    },
+    {
+      "id": "follower_sleeve",
+      "url": "https://us.c.misumi-ec.com/book/HSK1_USA_M01/pdf/0154.pdf",
+      "publisher": "HiroSugi via MISUMI",
+      "title": "CU-series stainless hollow spacers, catalogue C27",
+      "retrieved": "2026-10-30",
+      "facts": {
+        "part": "CU-2006",
+        "material": "SUS303 stainless steel",
+        "outside_diameter_mm": 4,
+        "bore_diameter_mm": 2.2,
+        "bore_tolerance_mm": 0.1,
+        "length_mm": 6,
+        "length_tolerance_mm": 0.1,
+        "catalogue_minimum_order_quantity": 50
+      },
+      "limits": [
+        "No price established from this catalogue.",
+        "Per-module allocated cost is not the same as purchasing a minimum pack for the first prototype."
+      ]
+    },
+    {
+      "id": "follower_sleeve_budget_alternate",
+      "url": "https://www.amazon.com/dp/B0CQF66RR7",
+      "publisher": "PATIKIL US manufacturer-seller on Amazon",
+      "title": "PATIKIL M2 Aluminum Spacers,10pcs,2.1mmID\u00d74mmOD\u00d76mmL",
+      "retrieved": "2026-10-30",
+      "facts": {
+        "manufacturer_part_number": "pta231201tt000007",
+        "ASIN": "B0CQF66RR7",
+        "seller": "PATIKIL US",
+        "material": "Aluminum; alloy unspecified",
+        "outside_diameter_mm": 4,
+        "bore_diameter_mm": 2.1,
+        "length_mm": 6,
+        "pack_quantity": 10,
+        "observed_pack_price_USD": 7.19,
+        "allocated_unit_price_USD": 0.719
+      },
+      "limits": [
+        "No dimensional tolerance, alloy or wear rating supplied.",
+        "Receiving inspection and wear testing required.",
+        "Price observation excludes shipping and tax; no delivery-date promise.",
+        "CAD exterior envelope matches, but bore and material differ from the nominal stainless reference."
+      ]
+    },
+    {
+      "id": "mg90d_wire_exit_photos",
+      "url": "https://cdn-shop.adafruit.com/970x728/1143-09.jpg",
+      "additional_url": "https://cdn-shop.adafruit.com/970x728/1143-08.jpg",
+      "publisher": "Adafruit",
+      "title": "MG90D product photographs, top and side views",
+      "retrieved": "2026-10-30",
+      "facts": {
+        "wire_exit_orientation": "Short case side at the same end as the output shaft, near the case bottom; qualitative photographic evidence."
+      },
+      "limits": [
+        "Exact exit coordinates, lead bundle size and minimum bend radius are not dimensioned.",
+        "Do not scale these photographs to manufacture an exact mounting interface."
+      ]
+    }
+  ],
+  "selected_candidate": "TowerPro MG90D / Adafruit1143",
+  "selection_basis": "R5 uses85degrees of operating rotation and a5.5mm crank, so the lower-priced4.8V-compatible MG90D is preferred to MG92B subject to measured endpoints and torque margin.",
+  "r5_design_screen": {
+    "crank_radius_mm": 5.5,
+    "shaft_center_Z_mm": 9.5,
+    "retained_angle_deg": 15,
+    "operating_release_angle_deg": 100,
+    "collision_sweep_angle_deg": 105,
+    "mechanical_travel_limit_mm": 7.3,
+    "nominal_stroke_mm": 6.2676570217579926,
+    "nominal_supply_V": 5.0,
+    "minimum_terminal_V": 4.8,
+    "geometry_and_acceptance": "Design assumptions; not manufacturer guarantees."
+  },
+  "selected_follower_sleeve": "PATIKIL pta231201tt000007 / ASINB0CQF66RR7,aluminum4mmOD\u00d72.1mmID\u00d76mmL,10-pack"
+}

@@ -1,0 +1,2090 @@
+{
+  "revision": "R5",
+  "name": "Credit-card hardpoint cartridge",
+  "units": "mm",
+  "bounds": {
+    "min": [
+      0,
+      0,
+      -13.5
+    ],
+    "max": [
+      85.6,
+      54,
+      20
+    ]
+  },
+  "bounds_mm": {
+    "min": [
+      0,
+      0,
+      -13.5
+    ],
+    "max": [
+      85.6,
+      54,
+      20
+    ]
+  },
+  "retained_bounds": {
+    "min": [
+      0,
+      0,
+      0
+    ],
+    "max": [
+      85.6,
+      54,
+      20
+    ]
+  },
+  "wing_bounds": {
+    "min": [
+      -100,
+      -83,
+      -1
+    ],
+    "max": [
+      200,
+      137,
+      53
+    ]
+  },
+  "kinematics": {
+    "type": "short_crank",
+    "radius_mm": 5.5,
+    "crank_radius_mm": 5.5,
+    "pivot": [
+      65.4,
+      0,
+      9.5
+    ],
+    "axis": [
+      0,
+      1,
+      0
+    ],
+    "angle_range_deg": [
+      15.0,
+      105.0
+    ],
+    "retained_angle_deg": 15.0,
+    "operating_angle_deg": 100.0,
+    "operating_rotation_deg": 85.0,
+    "release_angle_deg": 100.0,
+    "travel_mm": 6.736096792653741,
+    "operating_travel_mm": 6.2676570217579926,
+    "mechanical_travel_mm": 7.3,
+    "release_clearance_mm": 4.8,
+    "formula": "s = r * (cos(theta_retained) - cos(theta))",
+    "animation_note": "Geometry starts at 15 degrees; rotate by the delta angle. Prescribed motion is not proof of release."
+  },
+  "parts": [
+    {
+      "id": "receiver_core",
+      "name": "R5-01 structural receiver and mounting bosses",
+      "kind": "printed",
+      "category": "structure",
+      "explode": [
+        0,
+        0,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "notes": "One printed solid. The socket, guide, cradle supports and four M3 nut bosses share the load path.",
+      "mesh": "meshes/receiver_core.json",
+      "bounds_mm": {
+        "min": [
+          1.9999999999999996,
+          1.9999999999998908,
+          -6.661338147750939e-16
+        ],
+        "max": [
+          83.60000000000012,
+          52.0,
+          18.400000000000002
+        ]
+      },
+      "volume_mm3": 17317.731417785642,
+      "solid_count": 1,
+      "step": "parts/receiver_core.step",
+      "print_stl": "parts/receiver_core_print.stl",
+      "drawing": "drawings/receiver_core.svg"
+    },
+    {
+      "id": "case_shell",
+      "name": "R5-02 protective shell",
+      "kind": "printed",
+      "category": "casing",
+      "explode": [
+        0,
+        0,
+        -18
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "notes": "A removable enclosure for service. Its85.6 \u00d754 \u00d720 mm retained envelope includes the lid; the socket and wire slot remain open.",
+      "mesh": "meshes/case_shell.json",
+      "bounds_mm": {
+        "min": [
+          -2.220446049250313e-16,
+          -2.220446049250313e-16,
+          0.0
+        ],
+        "max": [
+          85.6,
+          54.0,
+          18.4
+        ]
+      },
+      "volume_mm3": 10632.371865801128,
+      "solid_count": 1,
+      "step": "parts/case_shell.step",
+      "print_stl": "parts/case_shell_print.stl",
+      "drawing": "drawings/case_shell.svg"
+    },
+    {
+      "id": "case_lid",
+      "name": "R5-03 removable upper lid",
+      "kind": "printed",
+      "category": "casing",
+      "explode": [
+        0,
+        0,
+        28
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/case_lid.json",
+      "bounds_mm": {
+        "min": [
+          -2.220446049250313e-16,
+          -2.220446049250313e-16,
+          18.4
+        ],
+        "max": [
+          85.6,
+          54.0,
+          20.0
+        ]
+      },
+      "volume_mm3": 7189.265376898109,
+      "solid_count": 1,
+      "step": "parts/case_lid.step",
+      "print_stl": "parts/case_lid_print.stl",
+      "drawing": "drawings/case_lid.svg"
+    },
+    {
+      "id": "keeper",
+      "name": "R5-04 keeper with open-top yoke",
+      "kind": "printed",
+      "category": "mechanism",
+      "explode": [
+        18,
+        7,
+        3
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "motion": {
+        "type": "slider"
+      },
+      "notes": "One print; the bar, fork and captive-nut boss stay together. Install the separate M2 travel-stop stud after keeper insertion. The receiver guide carries the payload load.",
+      "mesh": "meshes/keeper.json",
+      "bounds_mm": {
+        "min": [
+          24.700000000000003,
+          37.2,
+          5.199999999999999
+        ],
+        "max": [
+          65.58740795541013,
+          40.2,
+          17.6
+        ]
+      },
+      "volume_mm3": 558.7029296867512,
+      "solid_count": 1,
+      "step": "parts/keeper.step",
+      "print_stl": "parts/keeper_print.stl",
+      "drawing": "drawings/keeper.svg"
+    },
+    {
+      "id": "payload_adapter",
+      "name": "R5-05 adapter, lug and locating keys",
+      "kind": "printed",
+      "category": "payload",
+      "explode": [
+        0,
+        0,
+        -25
+      ],
+      "installation": {
+        "role": "payload"
+      },
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          -32
+        ]
+      },
+      "mesh": "meshes/payload_adapter.json",
+      "bounds_mm": {
+        "min": [
+          13.0,
+          25.0,
+          -5.3
+        ],
+        "max": [
+          43.0,
+          52.0,
+          12.6
+        ]
+      },
+      "volume_mm3": 3425.351524094905,
+      "solid_count": 1,
+      "step": "parts/payload_adapter.step",
+      "print_stl": "parts/payload_adapter_print.stl",
+      "drawing": "drawings/payload_adapter.svg"
+    },
+    {
+      "id": "servo_clamp",
+      "name": "R5-06 padded servo clamp",
+      "kind": "printed",
+      "category": "actuator",
+      "explode": [
+        0,
+        0,
+        18
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/servo_clamp.json",
+      "bounds_mm": {
+        "min": [
+          41.10000000000001,
+          14.600000000000001,
+          15.899999999999999
+        ],
+        "max": [
+          79.70000000000002,
+          21.4,
+          17.5
+        ]
+      },
+      "volume_mm3": 398.79785430500976,
+      "solid_count": 1,
+      "step": "parts/servo_clamp.step",
+      "print_stl": "parts/servo_clamp_print.stl",
+      "drawing": "drawings/servo_clamp.svg"
+    },
+    {
+      "id": "servo",
+      "name": "TowerPro MG90D / Adafruit1143 dimensional reservation",
+      "kind": "purchased",
+      "category": "actuator",
+      "explode": [
+        0,
+        -14,
+        8
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "notes": "Supplier case envelope with provisional shaft offset. Inspect a purchased part; clamp shims and horn fitting remain measured-fit gates.",
+      "mesh": "meshes/servo.json",
+      "bounds_mm": {
+        "min": [
+          43.95,
+          2.0,
+          3.4000000000000004
+        ],
+        "max": [
+          75.45,
+          34.5,
+          15.6
+        ]
+      },
+      "volume_mm3": 8244.506871643322,
+      "solid_count": 1
+    },
+    {
+      "id": "horn",
+      "name": "Trimmed supplied20T horn,5.5 mm follower radius",
+      "kind": "purchased",
+      "category": "actuator",
+      "explode": [
+        0,
+        12,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "motion": {
+        "type": "rotation",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "pivot": [
+          65.4,
+          0,
+          9.5
+        ],
+        "angle_deg": 85.0
+      },
+      "mesh": "meshes/horn.json",
+      "bounds_mm": {
+        "min": [
+          57.78740795541014,
+          31.5,
+          6.1
+        ],
+        "max": [
+          68.80000000000001,
+          35.9,
+          13.223504748063863
+        ]
+      },
+      "volume_mm3": 125.72856302778975,
+      "solid_count": 1
+    },
+    {
+      "id": "sleeve",
+      "name": "Aluminum sleeve:4 mm OD \u00d72.1 mm ID \u00d76 mm long",
+      "kind": "purchased",
+      "category": "actuator",
+      "explode": [
+        0,
+        12,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "motion": {
+        "type": "rotation",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "pivot": [
+          65.4,
+          0,
+          9.5
+        ],
+        "angle_deg": 85.0
+      },
+      "mesh": "meshes/sleeve.json",
+      "bounds_mm": {
+        "min": [
+          58.08740795541013,
+          35.9,
+          8.923504748063865
+        ],
+        "max": [
+          62.08740795541013,
+          41.9,
+          12.923504748063865
+        ]
+      },
+      "volume_mm3": 54.616588282658554,
+      "solid_count": 1
+    },
+    {
+      "id": "follower_bolt",
+      "name": "M2\u00d712 follower screw",
+      "kind": "purchased",
+      "category": "actuator",
+      "explode": [
+        0,
+        12,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "motion": {
+        "type": "rotation",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "pivot": [
+          65.4,
+          0,
+          9.5
+        ],
+        "angle_deg": 85.0
+      },
+      "mesh": "meshes/follower_bolt.json",
+      "bounds_mm": {
+        "min": [
+          58.18740795541013,
+          32.1,
+          9.023504748063864
+        ],
+        "max": [
+          61.98740795541013,
+          46.1,
+          12.823504748063865
+        ]
+      },
+      "volume_mm3": 58.16972957386857,
+      "solid_count": 1
+    },
+    {
+      "id": "follower_washer",
+      "name": "M2 follower washer",
+      "kind": "purchased",
+      "category": "actuator",
+      "explode": [
+        0,
+        12,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "motion": {
+        "type": "rotation",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "pivot": [
+          65.4,
+          0,
+          9.5
+        ],
+        "angle_deg": 85.0
+      },
+      "mesh": "meshes/follower_washer.json",
+      "bounds_mm": {
+        "min": [
+          57.58740795541013,
+          41.9,
+          8.423504748063865
+        ],
+        "max": [
+          62.58740795541013,
+          42.199999999999996,
+          13.423504748063865
+        ]
+      },
+      "volume_mm3": 4.75008809222776,
+      "solid_count": 1
+    },
+    {
+      "id": "follower_nut",
+      "name": "M2 follower locknut",
+      "kind": "purchased",
+      "category": "actuator",
+      "explode": [
+        0,
+        12,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "motion": {
+        "type": "rotation",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "pivot": [
+          65.4,
+          0,
+          9.5
+        ],
+        "angle_deg": 85.0
+      },
+      "mesh": "meshes/follower_nut.json",
+      "bounds_mm": {
+        "min": [
+          57.778006878651624,
+          42.2,
+          8.923504748063863
+        ],
+        "max": [
+          62.39680903216863,
+          45.0,
+          12.923504748063865
+        ]
+      },
+      "volume_mm3": 28.154222179180678,
+      "solid_count": 1
+    },
+    {
+      "id": "horn_screw",
+      "name": "Supplied horn screw (envelope)",
+      "kind": "purchased",
+      "category": "actuator",
+      "explode": [
+        0,
+        18,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/horn_screw.json",
+      "bounds_mm": {
+        "min": [
+          63.50000000000001,
+          31.9,
+          7.6
+        ],
+        "max": [
+          67.30000000000001,
+          36.699999999999996,
+          11.4
+        ]
+      },
+      "volume_mm3": 20.754617706675585,
+      "solid_count": 1
+    },
+    {
+      "id": "host_nut_1",
+      "name": "Captured M3 nut 1",
+      "kind": "purchased",
+      "category": "structure",
+      "explode": [
+        0,
+        -6,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/host_nut_1.json",
+      "bounds_mm": {
+        "min": [
+          6.824573519457059,
+          7.249999999999999,
+          13.0
+        ],
+        "max": [
+          13.175426480542942,
+          12.75,
+          15.4
+        ]
+      },
+      "volume_mm3": 43.57149905109454,
+      "solid_count": 1
+    },
+    {
+      "id": "host_nut_2",
+      "name": "Captured M3 nut 2",
+      "kind": "purchased",
+      "category": "structure",
+      "explode": [
+        0,
+        -6,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/host_nut_2.json",
+      "bounds_mm": {
+        "min": [
+          72.42457351945706,
+          7.249999999999999,
+          13.0
+        ],
+        "max": [
+          78.77542648054293,
+          12.75,
+          15.4
+        ]
+      },
+      "volume_mm3": 43.57149905109449,
+      "solid_count": 1
+    },
+    {
+      "id": "host_nut_3",
+      "name": "Captured M3 nut 3",
+      "kind": "purchased",
+      "category": "structure",
+      "explode": [
+        0,
+        6,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/host_nut_3.json",
+      "bounds_mm": {
+        "min": [
+          7.324573519457059,
+          42.05,
+          13.0
+        ],
+        "max": [
+          13.675426480542942,
+          47.55,
+          15.4
+        ]
+      },
+      "volume_mm3": 43.57149905109455,
+      "solid_count": 1
+    },
+    {
+      "id": "host_nut_4",
+      "name": "Captured M3 nut 4",
+      "kind": "purchased",
+      "category": "structure",
+      "explode": [
+        0,
+        6,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/host_nut_4.json",
+      "bounds_mm": {
+        "min": [
+          71.92457351945706,
+          42.05,
+          13.0
+        ],
+        "max": [
+          78.27542648054293,
+          47.55,
+          15.4
+        ]
+      },
+      "volume_mm3": 43.57149905109451,
+      "solid_count": 1
+    },
+    {
+      "id": "lid_screw_1",
+      "name": "M2\u00d78 flat-head lid screw 1",
+      "kind": "purchased",
+      "category": "casing",
+      "explode": [
+        0,
+        0,
+        36
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/lid_screw_1.json",
+      "bounds_mm": {
+        "min": [
+          2.1999999999999993,
+          2.2,
+          12.0
+        ],
+        "max": [
+          6.2,
+          6.2,
+          20.0
+        ]
+      },
+      "volume_mm3": 28.53841092478114,
+      "solid_count": 1
+    },
+    {
+      "id": "lid_nut_1",
+      "name": "Captured M2 lid nut 1",
+      "kind": "purchased",
+      "category": "casing",
+      "explode": [
+        0,
+        5,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/lid_nut_1.json",
+      "bounds_mm": {
+        "min": [
+          1.8905989232414973,
+          2.1999999999999993,
+          13.1
+        ],
+        "max": [
+          6.509401076758503,
+          6.2,
+          14.7
+        ]
+      },
+      "volume_mm3": 16.08812695953179,
+      "solid_count": 1
+    },
+    {
+      "id": "lid_screw_2",
+      "name": "M2\u00d78 flat-head lid screw 2",
+      "kind": "purchased",
+      "category": "casing",
+      "explode": [
+        0,
+        0,
+        36
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/lid_screw_2.json",
+      "bounds_mm": {
+        "min": [
+          79.4,
+          2.2,
+          12.0
+        ],
+        "max": [
+          83.4,
+          6.2,
+          20.0
+        ]
+      },
+      "volume_mm3": 28.538410924781168,
+      "solid_count": 1
+    },
+    {
+      "id": "lid_nut_2",
+      "name": "Captured M2 lid nut 2",
+      "kind": "purchased",
+      "category": "casing",
+      "explode": [
+        0,
+        5,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/lid_nut_2.json",
+      "bounds_mm": {
+        "min": [
+          79.0905989232415,
+          2.1999999999999993,
+          13.1
+        ],
+        "max": [
+          83.70940107675851,
+          6.2,
+          14.7
+        ]
+      },
+      "volume_mm3": 16.088126959531785,
+      "solid_count": 1
+    },
+    {
+      "id": "lid_screw_3",
+      "name": "M2\u00d78 flat-head lid screw 3",
+      "kind": "purchased",
+      "category": "casing",
+      "explode": [
+        0,
+        0,
+        36
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/lid_screw_3.json",
+      "bounds_mm": {
+        "min": [
+          2.1999999999999997,
+          47.8,
+          12.0
+        ],
+        "max": [
+          6.2,
+          51.8,
+          20.0
+        ]
+      },
+      "volume_mm3": 28.538410924781136,
+      "solid_count": 1
+    },
+    {
+      "id": "lid_nut_3",
+      "name": "Captured M2 lid nut 3",
+      "kind": "purchased",
+      "category": "casing",
+      "explode": [
+        0,
+        -5,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/lid_nut_3.json",
+      "bounds_mm": {
+        "min": [
+          1.8905989232414973,
+          47.8,
+          13.1
+        ],
+        "max": [
+          6.509401076758503,
+          51.8,
+          14.7
+        ]
+      },
+      "volume_mm3": 16.088126959531788,
+      "solid_count": 1
+    },
+    {
+      "id": "lid_screw_4",
+      "name": "M2\u00d78 flat-head lid screw 4",
+      "kind": "purchased",
+      "category": "casing",
+      "explode": [
+        0,
+        0,
+        36
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/lid_screw_4.json",
+      "bounds_mm": {
+        "min": [
+          79.4,
+          47.8,
+          12.0
+        ],
+        "max": [
+          83.4,
+          51.8,
+          20.0
+        ]
+      },
+      "volume_mm3": 28.538410924781157,
+      "solid_count": 1
+    },
+    {
+      "id": "lid_nut_4",
+      "name": "Captured M2 lid nut 4",
+      "kind": "purchased",
+      "category": "casing",
+      "explode": [
+        0,
+        -5,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/lid_nut_4.json",
+      "bounds_mm": {
+        "min": [
+          79.0905989232415,
+          47.8,
+          13.1
+        ],
+        "max": [
+          83.70940107675851,
+          51.8,
+          14.7
+        ]
+      },
+      "volume_mm3": 16.088126959531778,
+      "solid_count": 1
+    },
+    {
+      "id": "clamp_screw_1",
+      "name": "M2\u00d76 clamp screw 1",
+      "kind": "purchased",
+      "category": "actuator",
+      "explode": [
+        0,
+        0,
+        27
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/clamp_screw_1.json",
+      "bounds_mm": {
+        "min": [
+          42.5,
+          16.0,
+          11.5
+        ],
+        "max": [
+          46.5,
+          20.0,
+          17.5
+        ]
+      },
+      "volume_mm3": 22.255225617601557,
+      "solid_count": 1
+    },
+    {
+      "id": "clamp_nut_1",
+      "name": "Captured M2 clamp nut 1",
+      "kind": "purchased",
+      "category": "actuator",
+      "explode": [
+        0,
+        5,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/clamp_nut_1.json",
+      "bounds_mm": {
+        "min": [
+          42.190598923241495,
+          15.999999999999998,
+          12.1
+        ],
+        "max": [
+          46.809401076758505,
+          20.0,
+          13.7
+        ]
+      },
+      "volume_mm3": 16.088126959531813,
+      "solid_count": 1
+    },
+    {
+      "id": "clamp_screw_2",
+      "name": "M2\u00d76 clamp screw 2",
+      "kind": "purchased",
+      "category": "actuator",
+      "explode": [
+        0,
+        0,
+        27
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/clamp_screw_2.json",
+      "bounds_mm": {
+        "min": [
+          74.3,
+          16.0,
+          11.5
+        ],
+        "max": [
+          78.3,
+          20.0,
+          17.5
+        ]
+      },
+      "volume_mm3": 22.255225617601575,
+      "solid_count": 1
+    },
+    {
+      "id": "clamp_nut_2",
+      "name": "Captured M2 clamp nut 2",
+      "kind": "purchased",
+      "category": "actuator",
+      "explode": [
+        0,
+        5,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/clamp_nut_2.json",
+      "bounds_mm": {
+        "min": [
+          73.99059892324149,
+          15.999999999999998,
+          12.1
+        ],
+        "max": [
+          78.6094010767585,
+          20.0,
+          13.7
+        ]
+      },
+      "volume_mm3": 16.08812695953178,
+      "solid_count": 1
+    },
+    {
+      "id": "servo_lower_pad",
+      "name": "Thin cradle shim/pad",
+      "kind": "pad",
+      "category": "actuator",
+      "explode": [
+        0,
+        -4,
+        5
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/servo_lower_pad.json",
+      "bounds_mm": {
+        "min": [
+          49.0,
+          5.0,
+          3.1
+        ],
+        "max": [
+          70.0,
+          28.0,
+          3.4
+        ]
+      },
+      "volume_mm3": 144.89999999999992,
+      "solid_count": 1
+    },
+    {
+      "id": "servo_upper_pad",
+      "name": "Clamp contact shim/pad",
+      "kind": "pad",
+      "category": "actuator",
+      "explode": [
+        0,
+        0,
+        12
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "mesh": "meshes/servo_upper_pad.json",
+      "bounds_mm": {
+        "min": [
+          49.0,
+          16.0,
+          15.6
+        ],
+        "max": [
+          70.0,
+          20.0,
+          15.9
+        ]
+      },
+      "volume_mm3": 25.20000000000006,
+      "solid_count": 1
+    },
+    {
+      "id": "stop_screw",
+      "name": "Removable M2\u00d76 keeper travel-stop screw",
+      "kind": "purchased",
+      "category": "mechanism",
+      "explode": [
+        0,
+        13,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "motion": {
+        "type": "slider"
+      },
+      "notes": "Install after keeper insertion. The screw head meets the integral core travel stops. This is not an equipment lock.",
+      "mesh": "meshes/stop_screw.json",
+      "bounds_mm": {
+        "min": [
+          52.6,
+          34.2,
+          7.0
+        ],
+        "max": [
+          56.4,
+          42.2,
+          10.8
+        ]
+      },
+      "volume_mm3": 39.32017365232983,
+      "solid_count": 1
+    },
+    {
+      "id": "stop_nut",
+      "name": "Captured M2 keeper-stop nut",
+      "kind": "purchased",
+      "category": "mechanism",
+      "explode": [
+        0,
+        -8,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "motion": {
+        "type": "slider"
+      },
+      "mesh": "meshes/stop_nut.json",
+      "bounds_mm": {
+        "min": [
+          52.190598923241495,
+          37.4,
+          6.8999999999999995
+        ],
+        "max": [
+          56.809401076758505,
+          39.0,
+          10.9
+        ]
+      },
+      "volume_mm3": 16.08812695953181,
+      "solid_count": 1
+    },
+    {
+      "id": "pad_1",
+      "name": "Departing preloaded foam pad 1",
+      "kind": "pad",
+      "category": "pad",
+      "explode": [
+        0,
+        0,
+        -10
+      ],
+      "installation": {
+        "role": "payload"
+      },
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          -32
+        ]
+      },
+      "notes": "Foam bonded to the adapter:2.36 mm free thickness and1.77 mm installed, nominally25% compression. Measure actual preload force.",
+      "mesh": "meshes/pad_1.json",
+      "bounds_mm": {
+        "min": [
+          18.5,
+          32.0,
+          -1.44
+        ],
+        "max": [
+          22.5,
+          36.0,
+          0.33000000000000007
+        ]
+      },
+      "volume_mm3": 22.24247598741573,
+      "solid_count": 1
+    },
+    {
+      "id": "pad_adhesive_1",
+      "name": "Pad adhesive 1",
+      "kind": "pad",
+      "category": "pad",
+      "explode": [
+        0,
+        0,
+        -7
+      ],
+      "installation": {
+        "role": "payload"
+      },
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          -32
+        ]
+      },
+      "mesh": "meshes/pad_adhesive_1.json",
+      "bounds_mm": {
+        "min": [
+          18.5,
+          32.0,
+          -1.5
+        ],
+        "max": [
+          22.5,
+          36.0,
+          -1.44
+        ]
+      },
+      "volume_mm3": 0.7539822368615503,
+      "solid_count": 1
+    },
+    {
+      "id": "pad_2",
+      "name": "Departing preloaded foam pad 2",
+      "kind": "pad",
+      "category": "pad",
+      "explode": [
+        0,
+        0,
+        -10
+      ],
+      "installation": {
+        "role": "payload"
+      },
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          -32
+        ]
+      },
+      "notes": "Foam bonded to the adapter:2.36 mm free thickness and1.77 mm installed, nominally25% compression. Measure actual preload force.",
+      "mesh": "meshes/pad_2.json",
+      "bounds_mm": {
+        "min": [
+          33.5,
+          32.0,
+          -1.44
+        ],
+        "max": [
+          37.5,
+          36.0,
+          0.33000000000000007
+        ]
+      },
+      "volume_mm3": 22.242475987415737,
+      "solid_count": 1
+    },
+    {
+      "id": "pad_adhesive_2",
+      "name": "Pad adhesive 2",
+      "kind": "pad",
+      "category": "pad",
+      "explode": [
+        0,
+        0,
+        -7
+      ],
+      "installation": {
+        "role": "payload"
+      },
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          -32
+        ]
+      },
+      "mesh": "meshes/pad_adhesive_2.json",
+      "bounds_mm": {
+        "min": [
+          33.5,
+          32.0,
+          -1.5
+        ],
+        "max": [
+          37.5,
+          36.0,
+          -1.44
+        ]
+      },
+      "volume_mm3": 0.7539822368615505,
+      "solid_count": 1
+    },
+    {
+      "id": "pad_3",
+      "name": "Departing preloaded foam pad 3",
+      "kind": "pad",
+      "category": "pad",
+      "explode": [
+        0,
+        0,
+        -10
+      ],
+      "installation": {
+        "role": "payload"
+      },
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          -32
+        ]
+      },
+      "notes": "Foam bonded to the adapter:2.36 mm free thickness and1.77 mm installed, nominally25% compression. Measure actual preload force.",
+      "mesh": "meshes/pad_3.json",
+      "bounds_mm": {
+        "min": [
+          18.5,
+          41.0,
+          -1.44
+        ],
+        "max": [
+          22.5,
+          45.0,
+          0.33000000000000007
+        ]
+      },
+      "volume_mm3": 22.24247598741573,
+      "solid_count": 1
+    },
+    {
+      "id": "pad_adhesive_3",
+      "name": "Pad adhesive 3",
+      "kind": "pad",
+      "category": "pad",
+      "explode": [
+        0,
+        0,
+        -7
+      ],
+      "installation": {
+        "role": "payload"
+      },
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          -32
+        ]
+      },
+      "mesh": "meshes/pad_adhesive_3.json",
+      "bounds_mm": {
+        "min": [
+          18.5,
+          41.0,
+          -1.5
+        ],
+        "max": [
+          22.5,
+          45.0,
+          -1.44
+        ]
+      },
+      "volume_mm3": 0.7539822368615503,
+      "solid_count": 1
+    },
+    {
+      "id": "pad_4",
+      "name": "Departing preloaded foam pad 4",
+      "kind": "pad",
+      "category": "pad",
+      "explode": [
+        0,
+        0,
+        -10
+      ],
+      "installation": {
+        "role": "payload"
+      },
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          -32
+        ]
+      },
+      "notes": "Foam bonded to the adapter:2.36 mm free thickness and1.77 mm installed, nominally25% compression. Measure actual preload force.",
+      "mesh": "meshes/pad_4.json",
+      "bounds_mm": {
+        "min": [
+          33.5,
+          41.0,
+          -1.44
+        ],
+        "max": [
+          37.5,
+          45.0,
+          0.33000000000000007
+        ]
+      },
+      "volume_mm3": 22.242475987415737,
+      "solid_count": 1
+    },
+    {
+      "id": "pad_adhesive_4",
+      "name": "Pad adhesive 4",
+      "kind": "pad",
+      "category": "pad",
+      "explode": [
+        0,
+        0,
+        -7
+      ],
+      "installation": {
+        "role": "payload"
+      },
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          -32
+        ]
+      },
+      "mesh": "meshes/pad_adhesive_4.json",
+      "bounds_mm": {
+        "min": [
+          33.5,
+          41.0,
+          -1.5
+        ],
+        "max": [
+          37.5,
+          45.0,
+          -1.44
+        ]
+      },
+      "volume_mm3": 0.7539822368615505,
+      "solid_count": 1
+    },
+    {
+      "id": "payload_screw_1",
+      "name": "M3\u00d712 flat-head payload screw 1",
+      "kind": "purchased",
+      "category": "payload",
+      "explode": [
+        0,
+        0,
+        12
+      ],
+      "installation": {
+        "role": "payload"
+      },
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          -32
+        ]
+      },
+      "mesh": "meshes/payload_screw_1.json",
+      "bounds_mm": {
+        "min": [
+          14.14,
+          25.64,
+          -13.5
+        ],
+        "max": [
+          20.86,
+          32.36,
+          -1.5
+        ]
+      },
+      "volume_mm3": 107.08142750024241,
+      "solid_count": 1
+    },
+    {
+      "id": "payload_screw_2",
+      "name": "M3\u00d712 flat-head payload screw 2",
+      "kind": "purchased",
+      "category": "payload",
+      "explode": [
+        0,
+        0,
+        12
+      ],
+      "installation": {
+        "role": "payload"
+      },
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          -32
+        ]
+      },
+      "mesh": "meshes/payload_screw_2.json",
+      "bounds_mm": {
+        "min": [
+          35.14,
+          25.64,
+          -13.5
+        ],
+        "max": [
+          41.86,
+          32.36,
+          -1.5
+        ]
+      },
+      "volume_mm3": 107.08142750024238,
+      "solid_count": 1
+    },
+    {
+      "id": "payload_screw_3",
+      "name": "M3\u00d712 flat-head payload screw 3",
+      "kind": "purchased",
+      "category": "payload",
+      "explode": [
+        0,
+        0,
+        12
+      ],
+      "installation": {
+        "role": "payload"
+      },
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          -32
+        ]
+      },
+      "mesh": "meshes/payload_screw_3.json",
+      "bounds_mm": {
+        "min": [
+          14.139999999999999,
+          44.64,
+          -13.5
+        ],
+        "max": [
+          20.86,
+          51.36,
+          -1.5
+        ]
+      },
+      "volume_mm3": 107.08142750024241,
+      "solid_count": 1
+    },
+    {
+      "id": "payload_screw_4",
+      "name": "M3\u00d712 flat-head payload screw 4",
+      "kind": "purchased",
+      "category": "payload",
+      "explode": [
+        0,
+        0,
+        12
+      ],
+      "installation": {
+        "role": "payload"
+      },
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          -32
+        ]
+      },
+      "mesh": "meshes/payload_screw_4.json",
+      "bounds_mm": {
+        "min": [
+          35.14,
+          44.64,
+          -13.5
+        ],
+        "max": [
+          41.86,
+          51.36,
+          -1.5
+        ]
+      },
+      "volume_mm3": 107.08142750024241,
+      "solid_count": 1
+    },
+    {
+      "id": "lead_reservation",
+      "name": "Continuous servo-lead routing reservation",
+      "kind": "reservation",
+      "category": "actuator",
+      "explode": [
+        0,
+        -8,
+        0
+      ],
+      "installation": {
+        "role": "module"
+      },
+      "notes": "Flat4.0 \u00d71.6 mm ribbon allowance with3 mm centerline bends from the observed shaft-side case exit to the10 \u00d76 mm lid/frame slot. Measure the exact factory exit and wire size; the cradle relief remains a receiving-fit item. The flexible lead continues into the aircraft.",
+      "mesh": "meshes/lead_reservation.json",
+      "bounds_mm": {
+        "min": [
+          29.9999999,
+          1.699999899999999,
+          4.199999900000003
+        ],
+        "max": [
+          76.80000009999999,
+          10.800000100000002,
+          20.000000017452795
+        ]
+      },
+      "volume_mm3": 326.9747310989357,
+      "solid_count": 1
+    },
+    {
+      "id": "wing_skin",
+      "name": "Illustrative NACA0018 wing skins",
+      "kind": "context",
+      "category": "wing_skin",
+      "explode": [
+        0,
+        0,
+        0
+      ],
+      "installation": {
+        "role": "wing"
+      },
+      "notes": "A300 mm chord \u00d7220 mm span demonstration with an86.2 \u00d754.6 mm bottom opening. This is an installation example, not a flight-ready wing or a strength claim.",
+      "mesh": "meshes/wing_skin.json",
+      "bounds_mm": {
+        "min": [
+          -100.0,
+          -83.0,
+          -1.0031771772866271
+        ],
+        "max": [
+          200.0,
+          137.0,
+          53.00317717728663
+        ]
+      },
+      "volume_mm3": 223825.37110534956,
+      "solid_count": 1,
+      "step": "parts/wing_skin.step",
+      "print_stl": "parts/wing_skin_print.stl"
+    },
+    {
+      "id": "wing_frame",
+      "name": "Aircraft mounting frame and local ribs",
+      "kind": "context",
+      "category": "wing_structure",
+      "explode": [
+        0,
+        0,
+        0
+      ],
+      "installation": {
+        "role": "wing"
+      },
+      "notes": "The host frame holds the four fasteners; its underside at Z20 stops upward insertion. Connect the frame to the aircraft load paths when designing the actual wing.",
+      "mesh": "meshes/wing_frame.json",
+      "bounds_mm": {
+        "min": [
+          -20.0,
+          -6.80000000000002,
+          1.9999999999999991
+        ],
+        "max": [
+          108.0,
+          60.8,
+          51.40317717728663
+        ]
+      },
+      "volume_mm3": 38350.31711600988,
+      "solid_count": 1,
+      "step": "parts/wing_frame.step",
+      "print_stl": "parts/wing_frame_print.stl"
+    },
+    {
+      "id": "wing_hatch",
+      "name": "Removable upper access panel",
+      "kind": "context",
+      "category": "hatch",
+      "explode": [
+        0,
+        0,
+        55
+      ],
+      "installation": {
+        "role": "hatch",
+        "vector": [
+          0,
+          0,
+          70
+        ]
+      },
+      "notes": "The top panel rests on an underlying lip. Its latch and skin-joint details remain aircraft integration choices.",
+      "mesh": "meshes/wing_hatch.json",
+      "bounds_mm": {
+        "min": [
+          -8.0,
+          -8.000000000000014,
+          43.08497767075326
+        ],
+        "max": [
+          93.6,
+          62.0,
+          52.99418893859877
+        ]
+      },
+      "volume_mm3": 11379.19999999999,
+      "solid_count": 1,
+      "step": "parts/wing_hatch.step",
+      "print_stl": "parts/wing_hatch_print.stl"
+    },
+    {
+      "id": "host_screw_1",
+      "name": "M3\u00d712 top installation screw 1",
+      "kind": "purchased",
+      "category": "mounts",
+      "explode": [
+        0,
+        0,
+        28
+      ],
+      "installation": {
+        "role": "mount_screw",
+        "vector": [
+          0,
+          0,
+          50
+        ]
+      },
+      "notes": "Inserted from the top access panel through host frame into captive nut in module. Keep screws captive in service tool/wing as installation develops.",
+      "mesh": "meshes/host_screw_1.json",
+      "bounds_mm": {
+        "min": [
+          7.249999999999999,
+          7.25,
+          12.0
+        ],
+        "max": [
+          12.75,
+          12.75,
+          27.0
+        ]
+      },
+      "volume_mm3": 148.6334608303135,
+      "solid_count": 1
+    },
+    {
+      "id": "host_washer_1",
+      "name": "M3 host-frame washer 1",
+      "kind": "purchased",
+      "category": "mounts",
+      "explode": [
+        0,
+        0,
+        20
+      ],
+      "installation": {
+        "role": "mount_screw",
+        "vector": [
+          0,
+          0,
+          50
+        ]
+      },
+      "mesh": "meshes/host_washer_1.json",
+      "bounds_mm": {
+        "min": [
+          7.0,
+          7.0,
+          23.5
+        ],
+        "max": [
+          13.0,
+          13.0,
+          24.0
+        ]
+      },
+      "volume_mm3": 10.115928344559133,
+      "solid_count": 1
+    },
+    {
+      "id": "host_screw_2",
+      "name": "M3\u00d712 top installation screw 2",
+      "kind": "purchased",
+      "category": "mounts",
+      "explode": [
+        0,
+        0,
+        28
+      ],
+      "installation": {
+        "role": "mount_screw",
+        "vector": [
+          0,
+          0,
+          50
+        ]
+      },
+      "notes": "Inserted from the top access panel through host frame into captive nut in module. Keep screws captive in service tool/wing as installation develops.",
+      "mesh": "meshes/host_screw_2.json",
+      "bounds_mm": {
+        "min": [
+          72.85,
+          7.25,
+          12.0
+        ],
+        "max": [
+          78.35,
+          12.75,
+          27.0
+        ]
+      },
+      "volume_mm3": 148.63346083031345,
+      "solid_count": 1
+    },
+    {
+      "id": "host_washer_2",
+      "name": "M3 host-frame washer 2",
+      "kind": "purchased",
+      "category": "mounts",
+      "explode": [
+        0,
+        0,
+        20
+      ],
+      "installation": {
+        "role": "mount_screw",
+        "vector": [
+          0,
+          0,
+          50
+        ]
+      },
+      "mesh": "meshes/host_washer_2.json",
+      "bounds_mm": {
+        "min": [
+          72.6,
+          7.0,
+          23.5
+        ],
+        "max": [
+          78.6,
+          13.0,
+          24.0
+        ]
+      },
+      "volume_mm3": 10.115928344559133,
+      "solid_count": 1
+    },
+    {
+      "id": "host_screw_3",
+      "name": "M3\u00d712 top installation screw 3",
+      "kind": "purchased",
+      "category": "mounts",
+      "explode": [
+        0,
+        0,
+        28
+      ],
+      "installation": {
+        "role": "mount_screw",
+        "vector": [
+          0,
+          0,
+          50
+        ]
+      },
+      "notes": "Inserted from the top access panel through host frame into captive nut in module. Keep screws captive in service tool/wing as installation develops.",
+      "mesh": "meshes/host_screw_3.json",
+      "bounds_mm": {
+        "min": [
+          7.75,
+          42.05,
+          12.0
+        ],
+        "max": [
+          13.25,
+          47.55,
+          27.0
+        ]
+      },
+      "volume_mm3": 148.63346083031354,
+      "solid_count": 1
+    },
+    {
+      "id": "host_washer_3",
+      "name": "M3 host-frame washer 3",
+      "kind": "purchased",
+      "category": "mounts",
+      "explode": [
+        0,
+        0,
+        20
+      ],
+      "installation": {
+        "role": "mount_screw",
+        "vector": [
+          0,
+          0,
+          50
+        ]
+      },
+      "mesh": "meshes/host_washer_3.json",
+      "bounds_mm": {
+        "min": [
+          7.5,
+          41.8,
+          23.5
+        ],
+        "max": [
+          13.5,
+          47.8,
+          24.0
+        ]
+      },
+      "volume_mm3": 10.115928344559133,
+      "solid_count": 1
+    },
+    {
+      "id": "host_screw_4",
+      "name": "M3\u00d712 top installation screw 4",
+      "kind": "purchased",
+      "category": "mounts",
+      "explode": [
+        0,
+        0,
+        28
+      ],
+      "installation": {
+        "role": "mount_screw",
+        "vector": [
+          0,
+          0,
+          50
+        ]
+      },
+      "notes": "Inserted from the top access panel through host frame into captive nut in module. Keep screws captive in service tool/wing as installation develops.",
+      "mesh": "meshes/host_screw_4.json",
+      "bounds_mm": {
+        "min": [
+          72.35,
+          42.05,
+          12.0
+        ],
+        "max": [
+          77.85,
+          47.55,
+          27.0
+        ]
+      },
+      "volume_mm3": 148.63346083031348,
+      "solid_count": 1
+    },
+    {
+      "id": "host_washer_4",
+      "name": "M3 host-frame washer 4",
+      "kind": "purchased",
+      "category": "mounts",
+      "explode": [
+        0,
+        0,
+        20
+      ],
+      "installation": {
+        "role": "mount_screw",
+        "vector": [
+          0,
+          0,
+          50
+        ]
+      },
+      "mesh": "meshes/host_washer_4.json",
+      "bounds_mm": {
+        "min": [
+          72.1,
+          41.8,
+          23.5
+        ],
+        "max": [
+          78.1,
+          47.8,
+          24.0
+        ]
+      },
+      "volume_mm3": 10.11592834455913,
+      "solid_count": 1
+    }
+  ],
+  "drawing_index": "drawings/index.html",
+  "step": "assembly.step",
+  "wing_step": "wing-installation.step",
+  "part_count": 57,
+  "print_count": 6,
+  "installation": {
+    "cutout_mm": [
+      86.2,
+      54.6
+    ],
+    "mount_holes_mm": [
+      [
+        10,
+        10,
+        20
+      ],
+      [
+        75.6,
+        10,
+        20
+      ],
+      [
+        10.5,
+        44.8,
+        20
+      ],
+      [
+        75.1,
+        44.8,
+        20
+      ]
+    ],
+    "frame_stop_z_mm": 20,
+    "insert_vector": [
+      0,
+      0,
+      1
+    ],
+    "note": "Insert the box from below. Four M3\u00d712 screws go down through the top hatch,3.5 mm frame and0.5 mm washers into captive nuts in the module."
+  },
+  "section_y_mm": 38.7,
+  "status": "Dimensioned packaging prototype. Servo receiving fit, physical performance, printed strength and actual aircraft integration remain unqualified.",
+  "sources": {
+    "generator_sha256": "8b265c2795abd8b95c41fa17ee6cfd3dbbda6297f22f2eb5195ceed3e161994f",
+    "manufacturing_writer_sha256": "68cb607d0a9b187ae8b7fbe34c161bd44a274abc47a21eccd7257ce08ca25846"
+  },
+  "annotations": [
+    {
+      "partId": "case_lid",
+      "position": [
+        40,
+        15,
+        20
+      ],
+      "label": "85.6 \u00d7 54 \u00d7 20 mm cartridge"
+    },
+    {
+      "partId": "keeper",
+      "position": [
+        48,
+        38,
+        9
+      ],
+      "label": "Guided keeper \u00b7 6.27 mm withdrawal"
+    },
+    {
+      "partId": "servo",
+      "position": [
+        59,
+        18,
+        14
+      ],
+      "label": "MG90D \u00b7 $9.95 listed actuator"
+    },
+    {
+      "partId": "wing_frame",
+      "position": [
+        75.6,
+        44,
+        23.5
+      ],
+      "label": "Four top-access M3 fasteners"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "artifacts": 91,
+  "physical_solids_compared": 6,
+  "individual_step_solids_compared": 9,
+  "oriented_stls_compared": 9,
+  "assembly_solids_compared": {
+    "step": 46,
+    "wing_step": 57
+  },
+  "generated_documents_compared": 11,
+  "comparison": "Fresh viewer meshes, complete oriented STL bytes, every individual STEP, placed-solid multisets for both assemblies, and generated manufacturing documents; STEP timestamps/serialization order excluded"
+}

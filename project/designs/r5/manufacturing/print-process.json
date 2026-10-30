@@ -1,0 +1,26 @@
+{
+  "revision": "R5",
+  "material": "Bambu PAHT-CF remains the prototype material. Isotropic PLA is only a numerical comparison proxy.",
+  "orientations": {
+    "receiver_core": "Broad central underside Z0 on the bed. Inspect short perimeter overhangs, guide bridges and accessible nut-pocket supports.",
+    "case_shell": "Bottom edge on the bed. Use a brim as needed; inspect the retention ledge and nut loading windows.",
+    "case_lid": "Outside upper face on the bed; the supplied print STL is already flipped.",
+    "keeper": "Broad Y side on the bed; the supplied print STL rotates90\u00b0 about X. Preserve the3 mm bar and3.3 mm fork columns.",
+    "payload_adapter": "Broad payload mounting face Z\u22125.3 on the bed; inspect the4.2 mm lug-window bridge.",
+    "servo_clamp": "Flat broad face on the bed; inspect the countersinks and their edge ligaments."
+  },
+  "critical_receiving_measurements": [
+    "MG90D case, shaft offset and spline height, supplied screw, wire exit and usable horn hole location.",
+    "Smooth sleeve nominal OD4 mm, ID2.1 mm and length6 mm; inspect bore, ovality and running finish.",
+    "M2 flat-head screws: verify head diameter\u22644 mm and head height\u22641 mm against the actual supplier drawing.",
+    "M3 nuts: AF5.5 \u00d72.4 mm; M2 plain nuts: AF4 \u00d71.6 mm; M2 follower locknut: AF4 \u00d72.8 mm.",
+    "Flat servo lead must fit the4.0 \u00d71.6 mm routing reservation with the modeled3 mm centerline bends."
+  ],
+  "acceptance": [
+    "Each printed part is one connected solid; integral features never separate in the exploded view.",
+    "Finish the guide and keeper until they slide freely over the entire stroke; preserve the reviewed load-bearing walls.",
+    "Rigid retained parts fit the85.6 \u00d754 \u00d720 mm box. The flexible lead exits through the top; the adapter departs below.",
+    "Measure at least0.5 mm fully open lug clearance at the calibrated endpoint, including available lateral play.",
+    "Check each printed unit. Nominal CAD clearance does not establish the fit of a material or printer process."
+  ]
+}

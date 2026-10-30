@@ -1,0 +1,581 @@
+{
+  "revision": "R5",
+  "assembly_sha256": "b9e15597f705e6a7b5861ded8df4ec23550a7d6f5d1bdd200342727c636aa69d",
+  "analysis_source_sha256": "905ee089d8ab0af42516ec37509fd0b21ab984c77c2f8628a9513b574cdb994d",
+  "measured_mass": false,
+  "rows": [
+    {
+      "id": "receiver_core",
+      "role": "module",
+      "kind": "printed",
+      "volume_mm3": 17317.731417785642,
+      "density_g_cm3": 1.06,
+      "mass_g": 18.35679530285278,
+      "basis": "Nominal solid CAD volume times supplier typical PAHT-CF density."
+    },
+    {
+      "id": "case_shell",
+      "role": "module",
+      "kind": "printed",
+      "volume_mm3": 10632.371865801128,
+      "density_g_cm3": 1.06,
+      "mass_g": 11.270314177749196,
+      "basis": "Nominal solid CAD volume times supplier typical PAHT-CF density."
+    },
+    {
+      "id": "case_lid",
+      "role": "module",
+      "kind": "printed",
+      "volume_mm3": 7189.265376898109,
+      "density_g_cm3": 1.06,
+      "mass_g": 7.6206212995119955,
+      "basis": "Nominal solid CAD volume times supplier typical PAHT-CF density."
+    },
+    {
+      "id": "keeper",
+      "role": "module",
+      "kind": "printed",
+      "volume_mm3": 558.7029296867512,
+      "density_g_cm3": 1.06,
+      "mass_g": 0.5922251054679563,
+      "basis": "Nominal solid CAD volume times supplier typical PAHT-CF density."
+    },
+    {
+      "id": "payload_adapter",
+      "role": "payload",
+      "kind": "printed",
+      "volume_mm3": 3425.351524094905,
+      "density_g_cm3": 1.06,
+      "mass_g": 3.6308726155405995,
+      "basis": "Nominal solid CAD volume times supplier typical PAHT-CF density."
+    },
+    {
+      "id": "servo_clamp",
+      "role": "module",
+      "kind": "printed",
+      "volume_mm3": 398.79785430500976,
+      "density_g_cm3": 1.06,
+      "mass_g": 0.42272572556331034,
+      "basis": "Nominal solid CAD volume times supplier typical PAHT-CF density."
+    },
+    {
+      "id": "servo",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 8244.506871643322,
+      "density_g_cm3": null,
+      "mass_g": 13.4,
+      "basis": "Adafruit product 1143 listed mass; lead convention not separately established."
+    },
+    {
+      "id": "horn",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 125.72856302778975,
+      "density_g_cm3": 1.15,
+      "mass_g": 0.14458784748195821,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "sleeve",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 54.616588282658554,
+      "density_g_cm3": 2.7,
+      "mass_g": 0.1474647883631781,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "follower_bolt",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 58.16972957386857,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.45663237715486826,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "follower_washer",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 4.75008809222776,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.03728819152398792,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "follower_nut",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 28.154222179180678,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.22101064410656832,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "horn_screw",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 20.754617706675585,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.16292374899740333,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "host_nut_1",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 43.57149905109454,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.3420362675510921,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "host_nut_2",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 43.57149905109449,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.34203626755109173,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "host_nut_3",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 43.57149905109455,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.3420362675510922,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "host_nut_4",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 43.57149905109451,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.3420362675510919,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "lid_screw_1",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 28.53841092478114,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.22402652575953194,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "lid_nut_1",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 16.08812695953179,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.12629179663232457,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "lid_screw_2",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 28.538410924781168,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.22402652575953216,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "lid_nut_2",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 16.088126959531785,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.1262917966323245,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "lid_screw_3",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 28.538410924781136,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.2240265257595319,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "lid_nut_3",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 16.088126959531788,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.12629179663232454,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "lid_screw_4",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 28.538410924781157,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.22402652575953208,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "lid_nut_4",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 16.088126959531778,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.12629179663232445,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "clamp_screw_1",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 22.255225617601557,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.17470352109817222,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "clamp_nut_1",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 16.088126959531813,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.12629179663232473,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "clamp_screw_2",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 22.255225617601575,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.17470352109817236,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "clamp_nut_2",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 16.08812695953178,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.12629179663232448,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "servo_lower_pad",
+      "role": "module",
+      "kind": "pad",
+      "volume_mm3": 144.89999999999992,
+      "density_g_cm3": 1.2,
+      "mass_g": 0.1738799999999999,
+      "basis": "Unmeasured cradle/clamp pad density allowance; actual pad stock is a fit item."
+    },
+    {
+      "id": "servo_upper_pad",
+      "role": "module",
+      "kind": "pad",
+      "volume_mm3": 25.20000000000006,
+      "density_g_cm3": 1.2,
+      "mass_g": 0.03024000000000007,
+      "basis": "Unmeasured cradle/clamp pad density allowance; actual pad stock is a fit item."
+    },
+    {
+      "id": "stop_screw",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 39.32017365232983,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.30866336317078913,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "stop_nut",
+      "role": "module",
+      "kind": "purchased",
+      "volume_mm3": 16.08812695953181,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.1262917966323247,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "pad_1",
+      "role": "payload",
+      "kind": "pad",
+      "volume_mm3": 22.24247598741573,
+      "density_g_cm3": null,
+      "mass_g": 0.009490123087964047,
+      "basis": "Uncompressed foam volume times selected 320 kg/m3 density; compression preserves mass."
+    },
+    {
+      "id": "pad_adhesive_1",
+      "role": "payload",
+      "kind": "pad",
+      "volume_mm3": 0.7539822368615503,
+      "density_g_cm3": 1.0,
+      "mass_g": 0.0007539822368615503,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "pad_2",
+      "role": "payload",
+      "kind": "pad",
+      "volume_mm3": 22.242475987415737,
+      "density_g_cm3": null,
+      "mass_g": 0.009490123087964047,
+      "basis": "Uncompressed foam volume times selected 320 kg/m3 density; compression preserves mass."
+    },
+    {
+      "id": "pad_adhesive_2",
+      "role": "payload",
+      "kind": "pad",
+      "volume_mm3": 0.7539822368615505,
+      "density_g_cm3": 1.0,
+      "mass_g": 0.0007539822368615505,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "pad_3",
+      "role": "payload",
+      "kind": "pad",
+      "volume_mm3": 22.24247598741573,
+      "density_g_cm3": null,
+      "mass_g": 0.009490123087964047,
+      "basis": "Uncompressed foam volume times selected 320 kg/m3 density; compression preserves mass."
+    },
+    {
+      "id": "pad_adhesive_3",
+      "role": "payload",
+      "kind": "pad",
+      "volume_mm3": 0.7539822368615503,
+      "density_g_cm3": 1.0,
+      "mass_g": 0.0007539822368615503,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "pad_4",
+      "role": "payload",
+      "kind": "pad",
+      "volume_mm3": 22.242475987415737,
+      "density_g_cm3": null,
+      "mass_g": 0.009490123087964047,
+      "basis": "Uncompressed foam volume times selected 320 kg/m3 density; compression preserves mass."
+    },
+    {
+      "id": "pad_adhesive_4",
+      "role": "payload",
+      "kind": "pad",
+      "volume_mm3": 0.7539822368615505,
+      "density_g_cm3": 1.0,
+      "mass_g": 0.0007539822368615505,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "payload_screw_1",
+      "role": "payload",
+      "kind": "purchased",
+      "volume_mm3": 107.08142750024241,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.8405892058769029,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "payload_screw_2",
+      "role": "payload",
+      "kind": "purchased",
+      "volume_mm3": 107.08142750024238,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.8405892058769027,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "payload_screw_3",
+      "role": "payload",
+      "kind": "purchased",
+      "volume_mm3": 107.08142750024241,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.8405892058769029,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "payload_screw_4",
+      "role": "payload",
+      "kind": "purchased",
+      "volume_mm3": 107.08142750024241,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.8405892058769029,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "wing_skin",
+      "role": "wing",
+      "kind": "context",
+      "volume_mm3": 223825.37110534956,
+      "density_g_cm3": 1.06,
+      "mass_g": 237.25489337167056,
+      "basis": "Nominal solid CAD volume times supplier typical PAHT-CF density."
+    },
+    {
+      "id": "wing_frame",
+      "role": "wing",
+      "kind": "context",
+      "volume_mm3": 38350.31711600988,
+      "density_g_cm3": 1.06,
+      "mass_g": 40.65133614297047,
+      "basis": "Nominal solid CAD volume times supplier typical PAHT-CF density."
+    },
+    {
+      "id": "wing_hatch",
+      "role": "hatch",
+      "kind": "context",
+      "volume_mm3": 11379.19999999999,
+      "density_g_cm3": 1.06,
+      "mass_g": 12.061951999999991,
+      "basis": "Nominal solid CAD volume times supplier typical PAHT-CF density."
+    },
+    {
+      "id": "host_screw_1",
+      "role": "mount_screw",
+      "kind": "purchased",
+      "volume_mm3": 148.6334608303135,
+      "density_g_cm3": 7.85,
+      "mass_g": 1.166772667517961,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "host_washer_1",
+      "role": "mount_screw",
+      "kind": "purchased",
+      "volume_mm3": 10.115928344559133,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.07941003750478919,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "host_screw_2",
+      "role": "mount_screw",
+      "kind": "purchased",
+      "volume_mm3": 148.63346083031345,
+      "density_g_cm3": 7.85,
+      "mass_g": 1.1667726675179606,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "host_washer_2",
+      "role": "mount_screw",
+      "kind": "purchased",
+      "volume_mm3": 10.115928344559133,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.07941003750478919,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "host_screw_3",
+      "role": "mount_screw",
+      "kind": "purchased",
+      "volume_mm3": 148.63346083031354,
+      "density_g_cm3": 7.85,
+      "mass_g": 1.1667726675179613,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "host_washer_3",
+      "role": "mount_screw",
+      "kind": "purchased",
+      "volume_mm3": 10.115928344559133,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.07941003750478919,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "host_screw_4",
+      "role": "mount_screw",
+      "kind": "purchased",
+      "volume_mm3": 148.63346083031348,
+      "density_g_cm3": 7.85,
+      "mass_g": 1.1667726675179608,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    },
+    {
+      "id": "host_washer_4",
+      "role": "mount_screw",
+      "kind": "purchased",
+      "volume_mm3": 10.11592834455913,
+      "density_g_cm3": 7.85,
+      "mass_g": 0.07941003750478916,
+      "basis": "Planning density times simplified nominal CAD volume; weigh the actual part."
+    }
+  ],
+  "totals_g": {
+    "six_prints": 41.893554226685836,
+    "retained_cartridge": 56.843073363809104,
+    "modeled_departing_interface": 7.034205860347513,
+    "host_mount_fasteners": 4.984730820091,
+    "mechanical_package": 68.86201004424761,
+    "illustrative_frame": 40.65133614297047,
+    "illustrative_hatch": 12.061951999999991
+  },
+  "costs": [
+    {
+      "item": "MG90D servo, with stock horn/hardware",
+      "low_USD": 9.95,
+      "high_USD": 9.95,
+      "basis": "Observed single-unit listing, 2026-10-30",
+      "url": "https://www.adafruit.com/product/1143"
+    },
+    {
+      "item": "One aluminum follower sleeve",
+      "low_USD": 0.719,
+      "high_USD": 0.719,
+      "basis": "Allocated from a $7.19 ten-pack; full first-pack cash cost is separate",
+      "url": "https://www.amazon.com/dp/B0CQF66RR7"
+    },
+    {
+      "item": "Six PAHT-CF prints, with 15% process allowance",
+      "low_USD": 4.817758736068871,
+      "high_USD": 4.817758736068871,
+      "basis": "$100/kg planning filament price, not a current quotation; CAD solid mass plus 15%"
+    },
+    {
+      "item": "Remaining generic screws, nuts and washers",
+      "low_USD": 2.5,
+      "high_USD": 5.0,
+      "basis": "Unquoted consumed-hardware allowance, including cartridge, payload and host fasteners"
+    },
+    {
+      "item": "Foam, adhesive and servo clamp pads",
+      "low_USD": 0.5,
+      "high_USD": 1.5,
+      "basis": "Unquoted allocated-material allowance; does not buy full stock sheets"
+    }
+  ],
+  "mechanical_consumed_cost_USD": [
+    18.48675873606887,
+    21.98675873606887
+  ],
+  "external_harness_allowance_USD": [
+    1.0,
+    3.0
+  ],
+  "first_servo_and_sleeve_pack_USD": 17.14,
+  "not_in_cost": [
+    "Shipping and tax",
+    "Printer, labor, electricity and failed prints beyond the allowance",
+    "Complete hardware/foam/filament stock purchases",
+    "Host wing frame and hatch",
+    "Offboard controller, buffer, switched power, regulated supply and aircraft integration"
+  ],
+  "mass_exclusions": [
+    "Actual mating pod thread/nut structure",
+    "External harness and strain relief",
+    "Offboard controls and power supply",
+    "Actual aircraft reinforcement; illustrative geometry is itemized separately"
+  ],
+  "density_sources": {
+    "PAHT_CF": "https://store.bblcdn.com/7166b20bc68f4c87b32c972b856eeb4b.pdf",
+    "foam": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/elastomeric-material-solutions/poron/english/data-sheets/17-006-poron-4701-30-very-soft.pdf"
+  }
+}

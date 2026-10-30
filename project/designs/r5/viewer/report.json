@@ -1,0 +1,96 @@
+{
+  "status_text": "1,549 nominal CAD checks and 18 fresh component solves passed their numerical checks. Physical qualification is pending.",
+  "metrics": [
+    {
+      "value": "1,549 / 1,549",
+      "label": "Nominal geometry checks"
+    },
+    {
+      "value": "18 / 18",
+      "label": "Fresh component solves"
+    },
+    {
+      "value": "6",
+      "label": "Connected cartridge prints"
+    },
+    {
+      "value": "0",
+      "label": "Completed physical qualification trials"
+    }
+  ],
+  "checks": [
+    {
+      "result": "PASS",
+      "name": "Fixed box and real parts",
+      "detail": "Six connected prints and the retained mechanism fit within 85.6 \u00d754 \u00d720 mm. Casing, manufactured parts and the wing installation are separate viewer controls."
+    },
+    {
+      "result": "PASS",
+      "name": "Assembly, motion and wiring",
+      "detail": "Keeper insertion, full sweep, guide float, payload departure, top screw access and the continuous lead reservation are checked. Purchased servo and horn dimensions still need measurement."
+    },
+    {
+      "result": "PASS",
+      "name": "Fresh manufacturing handoff",
+      "detail": "Regenerated viewer meshes, nine oriented STLs, individual STEPs and both complete STEP assemblies match the downloadable geometry."
+    },
+    {
+      "result": "PASS",
+      "name": "Component numerical checks",
+      "detail": "18 new solves cover retained loading, lost distal support, terminal overlap and a separate blocked-drive fixture. Equilibrium and residual checks pass; this does not establish strength or release reliability."
+    },
+    {
+      "result": "PENDING",
+      "name": "Loaded physical release and aircraft integration",
+      "detail": "Measure the real motor, horn, printed fits, preload, torque, power behavior and repeated 2 g releases. The wing is an access and installation example."
+    }
+  ],
+  "limits": [
+    "The 20 mm box excludes the departing adapter, wing frame, top installation screws and external flexible harness.",
+    "The supplied horn must support a sound 5.5 mm follower-hole location; inspect the actual unit before modification.",
+    "At least 0.5 mm measured clearance is required beyond the lug and to the mechanical stop at release.",
+    "Isotropic PLA component screens do not qualify printed PAHT-CF, nonlinear contact, wear or the host wing.",
+    "No working-load or flight rating has been assigned."
+  ],
+  "actions_url": "https://github.com/the-Drunken-coder/n2-modular-hardpoint/actions",
+  "actuator_price": "$9.95",
+  "actuator_rationale": "The MG90D from Adafruit fits on its narrow side and accepts 4.8\u20136 V. A 5.5 mm crank needs 85\u00b0 rotation for 6.27 mm withdrawal. Its listed price is $9.95; real loaded output and horn fit remain measurement gates.",
+  "cost_note": "Observed actuator prices, 2026-10-30, before shipping/tax. Mechanical consumed-parts estimate: $18.49\u2013$21.99 with unquoted hardware/material allowances; full first-purchase packs, wiring and controls cost more.",
+  "actuator_options": [
+    {
+      "name": "TowerPro MG90D",
+      "price": "$9.95",
+      "fit": "Compact; 4.8 V minimum; approximately 90\u00b0",
+      "decision": "Selected prototype",
+      "url": "https://www.adafruit.com/product/1143"
+    },
+    {
+      "name": "TowerPro MG92B",
+      "price": "$11.95",
+      "fit": "More travel; 5.0 V minimum",
+      "decision": "Unneeded extra travel",
+      "url": "https://www.adafruit.com/product/2307"
+    },
+    {
+      "name": "FEETECH FT1117M",
+      "price": "$16.74",
+      "fit": "120\u00b0 specified; 20 g",
+      "decision": "Larger/heavier alternative",
+      "url": "https://www.pololu.com/product/3423"
+    },
+    {
+      "name": "Mini 5 V solenoid",
+      "price": "$4.95",
+      "fit": "3 mm / 80 gf listing",
+      "decision": "Insufficient direct travel/pull",
+      "url": "https://www.adafruit.com/product/2776"
+    },
+    {
+      "name": "Medium 5\u20136 V solenoid",
+      "price": "$7.50",
+      "fit": "10 mm; 68 g",
+      "decision": "Mass and pull-characterization penalty",
+      "url": "https://www.adafruit.com/product/3992"
+    }
+  ]
+}

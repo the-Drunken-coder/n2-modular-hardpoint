@@ -1,0 +1,12 @@
+R5_adapter: mesh h=0.65
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+17681 elements / 92511 DOF
+stroke_0p000mm: u=0.010901; raw threshold=3.7049 N; gauge=0
+stroke_4p700mm: u=0.037914; raw threshold=0.61353 N; gauge=0
+R5_adapter: mesh h=0.45
+Transforming over 1000 vertices to C_CONTIGUOUS.
+Transforming over 1000 elements to C_CONTIGUOUS.
+39334 elements / 193515 DOF
+stroke_0p000mm: u=0.011003; raw threshold=3.1758 N; gauge=0
+stroke_4p700mm: u=0.03814; raw threshold=0.56599 N; gauge=0

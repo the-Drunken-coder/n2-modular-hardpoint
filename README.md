@@ -1,17 +1,22 @@
 # N2 Modular Hardpoint
 
-**R4 is the current development proposal: a standalone, printable hardpoint with a preloaded keyed seat, supported thicker lug and direct servo drive.** The complete [R4 design package](project/designs/r4/README.md) includes parameterized CAD, physical STEP/STL parts, dimensioned drawings, hardware and fit specifications, assembly instructions, 5 V bench controls, an interactive viewer and fresh CAD/FEA validation. No working-load or flight qualification is claimed.
+**R5 is the current development design: a fixed 85.6 × 54 × 20 mm hardpoint cartridge with a lower-cost actuator and a removable casing.** The [R5 package](project/designs/r5/README.md) defines the mechanism inside that box, with a preloaded keyed seat, reinforced retaining lug, guided keeper and TowerPro MG90D prototype servo. The [actuator listing and comparison](project/designs/r5/docs/actuator-research.md) record a **$9.95 servo price** checked on 2026-10-30, before shipping and tax; that is not the cost of an entire hardpoint.
 
-| Start with R4 | Material |
-|---|---|
-| Review the complete design | [R4 package and decisions](project/designs/r4/README.md) |
-| Inspect the new model | [R4 viewer source](project/designs/r4/viewer/index.html); after building the site, open `r4/viewer/` |
-| Print, buy and assemble | [Manufacturing files](project/designs/r4/manufacturing/), [assembly](project/designs/r4/docs/assembly.md), [interfaces](project/designs/r4/docs/interfaces.md) |
-| Understand the actuator and power | [Actuation](project/designs/r4/docs/actuation.md), [wiring and firmware](project/designs/r4/electrical/README.md) |
-| Reproduce the engineering checks | [R4 analysis](project/designs/r4/analysis/README.md), [R4 Actions workflow](.github/workflows/refined-design-validation.yml) |
-| Plan physical acceptance | [R4 qualification plan](project/designs/r4/docs/qualification.md) |
+The [interactive design page](https://n2-hardpoint-3d-changes.drunken.chatgpt.site) provides solid, ghosted and hidden casing views, plus a wing demonstration showing bottom insertion, top-panel access and four top-driven mounting screws. Exploded views separate the actual manufactured parts.
 
-The remainder of this README preserves the **P14 issued reference** and its provenance. Its smaller four-print solenoid assembly and its numerical results do not describe or qualify R4. [P14 design](docs/p14.md) · [Current context](docs/CURRENT_CONTEXT.md)
+| Start with R5 | Material |
+| --- | --- |
+| Review the complete design | [R5 package](project/designs/r5/README.md), [fixed requirements](project/designs/r5/docs/requirements.md) |
+| Inspect the cartridge and wing installation | [Hosted design page](https://n2-hardpoint-3d-changes.drunken.chatgpt.site), [R5 viewer source](project/designs/r5/viewer/index.html) |
+| Review cost and mass | [Quoted parts, cost allowances and mass account](project/designs/r5/docs/cost-and-mass.md) |
+| Print, buy and assemble | [Manufacturing files](project/designs/r5/manufacturing/), [assembly and wing installation](project/designs/r5/docs/assembly.md), [CAD and print guidance](project/designs/r5/cad/README.md) |
+| Understand the actuator and power | [Actuator comparison](project/designs/r5/docs/actuator-research.md), [5 V electrical interface](project/designs/r5/docs/electrical.md) |
+| Review and reproduce validation | [R5 computational evidence](project/designs/r5/analysis/README.md), [engineering assessment](project/designs/r5/docs/engineering.md), [R5 Actions workflow](.github/workflows/cartridge-validation.yml) |
+| Plan physical acceptance | [R5 qualification plan](project/designs/r5/docs/qualification.md) |
+
+The local R5 evidence records **18 STEP-based FEA solves passing the numerical checks**. This does not establish a material allowable, working-load rating, loaded-release success or flight qualification. Purchased-part fit, printed dimensions and physical performance remain acceptance gates; the wing is an installation illustration.
+
+**R4 is the previous development proposal**, preserved in its [design package](project/designs/r4/README.md). **P14 remains the preserved issued reference.** Their geometry, controls and results retain their original identities and are not R5 evidence. The remainder of this README preserves P14 and its provenance. [P14 design](docs/p14.md) · [Current context](docs/CURRENT_CONTEXT.md)
 
 ## Preserved P14 reference
 

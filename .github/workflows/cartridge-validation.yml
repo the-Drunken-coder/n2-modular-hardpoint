@@ -1,0 +1,96 @@
+name: R5 credit-card cartridge validation
+
+on:
+  pull_request:
+    paths:
+      - 'project/designs/r5/**'
+      - 'tools/ci/run_cartridge.py'
+      - 'tools/ci/test_cartridge_handoff.py'
+      - '.github/workflows/cartridge-validation.yml'
+      - 'project/analysis/inputs/**'
+      - 'project/designs/r4/analysis/audit_surfaces.py'
+      - 'project/cad/requirements.txt'
+      - 'project/analysis/requirements.txt'
+  push:
+    branches: [main]
+    paths:
+      - 'project/designs/r5/**'
+      - 'tools/ci/run_cartridge.py'
+      - 'tools/ci/test_cartridge_handoff.py'
+      - '.github/workflows/cartridge-validation.yml'
+      - 'project/analysis/inputs/**'
+      - 'project/designs/r4/analysis/audit_surfaces.py'
+      - 'project/cad/requirements.txt'
+      - 'project/analysis/requirements.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: r5-cartridge-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONUNBUFFERED: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  OMP_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+
+jobs:
+  cartridge:
+    name: Regenerate cartridge, audit contacts and solve new geometry
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            project/cad/requirements.txt
+            project/analysis/requirements.txt
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+      - name: Check force equilibrium, evidence identities, viewer motion and opaque occlusion
+        run: |
+          python -m unittest discover -s project/designs/r5/analysis -p 'test_*.py' -v
+          node project/designs/r5/viewer/test-motion.mjs
+          node project/designs/r5/viewer/test-software-renderer.mjs
+      - name: Install pinned CAD and numerical dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libgl1 libglu1-mesa libxft2 libxrender1
+          python -m pip install -r project/cad/requirements.txt -r project/analysis/requirements.txt
+      - name: Rebuild the box, mechanism and wing demonstration, then audit actual load faces
+        run: python tools/ci/run_cartridge.py --stage cad --output "$RUNNER_TEMP/n2-r5"
+      - name: Solve receiver load paths to captive-nut interfaces
+        run: python tools/ci/run_cartridge.py --stage receiver --output "$RUNNER_TEMP/n2-r5"
+      - name: Solve adapter retained and terminal-contact cases
+        run: python tools/ci/run_cartridge.py --stage adapter --output "$RUNNER_TEMP/n2-r5"
+      - name: Solve keeper support loss and blocked-drive cases
+        run: python tools/ci/run_cartridge.py --stage keeper --output "$RUNNER_TEMP/n2-r5"
+      - name: Require complete current evidence and distinguish pending physical tests
+        run: python tools/ci/run_cartridge.py --stage report --output "$RUNNER_TEMP/n2-r5"
+      - name: Publish summary
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/n2-r5/summary.md" ]; then
+            cat "$RUNNER_TEMP/n2-r5/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve geometry, logs and numerical results including failed runs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: r5-cartridge-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/n2-r5
+            !${{ runner.temp }}/n2-r5/**/*.npz
+            !${{ runner.temp }}/n2-r5/**/*.msh
+            !${{ runner.temp }}/n2-r5/**/__pycache__/**
+          if-no-files-found: error
+          retention-days: 30

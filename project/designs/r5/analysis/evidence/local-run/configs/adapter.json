@@ -1,0 +1,370 @@
+{
+  "id": "R5_adapter",
+  "variant": "R5",
+  "component": "adapter",
+  "step_path": "/workspace/scratch/69097ffe3220/r5-final-cad/parts/payload_adapter.step",
+  "expected_step_sha256": "ad15a4814dc4a2c644e5e00ab44bccb6e7d90612882e87d8c5a21bca9de3fed1",
+  "loads_are_actual_newtons": true,
+  "max_dofs": 500000,
+  "far_size_factor": 2.5,
+  "mesh_algorithm_3d": 10,
+  "mesh_optimizer": "Netgen",
+  "averaging_radii_mm": [],
+  "refine_boxes": [
+    {
+      "bounds": [
+        [
+          23,
+          32,
+          -2
+        ],
+        [
+          33,
+          44,
+          13
+        ]
+      ],
+      "factor": 1
+    }
+  ],
+  "cases": {
+    "stroke_0p000mm": {
+      "loads": [
+        {
+          "label": "Keeper on upper lug-window face",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.4,
+            "x_range": [
+              26,
+              29.5
+            ],
+            "y_range": [
+              37.2,
+              40.2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            11.9044382
+          ]
+        },
+        {
+          "label": "Opposing pad preload 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.5,
+            "circle_xy": [
+              20.5,
+              34,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Opposing pad preload 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.5,
+            "circle_xy": [
+              35.5,
+              34,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Opposing pad preload 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.5,
+            "circle_xy": [
+              20.5,
+              43,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Opposing pad preload 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.5,
+            "circle_xy": [
+              35.5,
+              43,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Mount bearing annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": -5.3,
+            "annulus_xy": [
+              17.5,
+              29,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Mount bearing annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": -5.3,
+            "annulus_xy": [
+              38.5,
+              29,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Mount bearing annulus 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": -5.3,
+            "annulus_xy": [
+              17.5,
+              48,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Mount bearing annulus 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": -5.3,
+            "annulus_xy": [
+              38.5,
+              48,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 0.0,
+      "remaining_overlap_mm": 3.5,
+      "scope": "Adapter constrained at actual payload-mount bearing annuli; uniform finite bearing patch."
+    },
+    "stroke_4p700mm": {
+      "loads": [
+        {
+          "label": "Keeper on upper lug-window face",
+          "selector": {
+            "normal_axis": 2,
+            "z": 10.4,
+            "x_range": [
+              29.4,
+              29.5
+            ],
+            "y_range": [
+              37.2,
+              40.2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            11.9044382
+          ]
+        },
+        {
+          "label": "Opposing pad preload 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.5,
+            "circle_xy": [
+              20.5,
+              34,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Opposing pad preload 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.5,
+            "circle_xy": [
+              35.5,
+              34,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Opposing pad preload 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.5,
+            "circle_xy": [
+              20.5,
+              43,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Opposing pad preload 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.5,
+            "circle_xy": [
+              35.5,
+              43,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Mount bearing annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": -5.3,
+            "annulus_xy": [
+              17.5,
+              29,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Mount bearing annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": -5.3,
+            "annulus_xy": [
+              38.5,
+              29,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Mount bearing annulus 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": -5.3,
+            "annulus_xy": [
+              17.5,
+              48,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Mount bearing annulus 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": -5.3,
+            "annulus_xy": [
+              38.5,
+              48,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 4.700000000000001,
+      "remaining_overlap_mm": 0.10000000000000142,
+      "scope": "Adapter constrained at actual payload-mount bearing annuli; uniform finite bearing patch."
+    }
+  }
+}

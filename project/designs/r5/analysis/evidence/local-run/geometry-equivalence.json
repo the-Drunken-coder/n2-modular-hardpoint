@@ -1,0 +1,34 @@
+{
+  "status": "pass",
+  "geometry_json_identical": true,
+  "method": "Placed-solid signature then symmetric Boolean volume difference below1e-5mm3. STEP serialization timestamps are not geometric changes.",
+  "parts": [
+    {
+      "part": "receiver_core",
+      "status": "pass",
+      "solids": 1,
+      "archived_path": "inputs/parts/receiver_core.step",
+      "archived_sha256": "d65af770d14c729763cd99fbe649bc2f6f5882ddcbdb54d9d1c27c4a48446329",
+      "manufacturing_path": "../../../manufacturing/parts/receiver_core.step",
+      "manufacturing_sha256": "5907b2104d9f29a4bdfe51b086fd2cb3e366403a367069ea040f922924b0a4a1"
+    },
+    {
+      "part": "keeper",
+      "status": "pass",
+      "solids": 1,
+      "archived_path": "inputs/parts/keeper.step",
+      "archived_sha256": "d1b0346cddde898fac0d5788125989dc7218f8bb478a0d7e5930de0f19b802fd",
+      "manufacturing_path": "../../../manufacturing/parts/keeper.step",
+      "manufacturing_sha256": "6672210fc014a2119874aea65d942d87753e153bf163df34a0ac8acaeb29ff5c"
+    },
+    {
+      "part": "payload_adapter",
+      "status": "pass",
+      "solids": 1,
+      "archived_path": "inputs/parts/payload_adapter.step",
+      "archived_sha256": "ad15a4814dc4a2c644e5e00ab44bccb6e7d90612882e87d8c5a21bca9de3fed1",
+      "manufacturing_path": "../../../manufacturing/parts/payload_adapter.step",
+      "manufacturing_sha256": "84c940f528736dc909076b4568c1c944e730d86e3d6e584d33d04013c6108cd1"
+    }
+  ]
+}

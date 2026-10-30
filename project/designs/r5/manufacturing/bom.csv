@@ -1,0 +1,26 @@
+item,quantity,description,specification,source
+R5-01,1,Printed structural receiver,PAHT-CF,parts/receiver_core.step
+R5-02,1,Printed protective shell,PAHT-CF,parts/case_shell.step
+R5-03,1,Printed upper lid,PAHT-CF,parts/case_lid.step
+R5-04,1,Printed keeper and yoke,PAHT-CF,parts/keeper.step
+R5-05,1,Printed departing adapter and lug,PAHT-CF,parts/payload_adapter.step
+R5-06,1,Printed actuator clamp,PAHT-CF,parts/servo_clamp.step
+ACT-01,1,TowerPro MG90D microservo,Adafruit1143; fixed5 V; listed13.4 g,https://www.adafruit.com/product/1143
+ACT-02,1,Supplied20T single-arm horn and screw,"Trim to CAD; require a sound hole at radius5.5 mm, with no merged or elongated pre-existing holes",Included with ACT-01
+ACT-03,1,Smooth aluminum sleeve4 OD ×2.1 ID ×6 mm,PATIKIL pta231201tt000007; receiving inspection required,https://www.amazon.com/dp/B0CQF66RR7
+M2-01,4,M2×8 flat-head lid screw,Modeled maximum head: diameter4 mm ×height1 mm,Standard hardware
+M2-02,2,M2×6 flat-head clamp screw,Modeled maximum head: diameter4 mm ×height1 mm,Standard hardware
+M2-03,7,M2 plain hex nut,"AF4 ×1.6 mm; four lid, two clamp, one stop stud",Standard hardware
+M2-04,1,M2×6 socket-cap stop stud,Head diameter3.8 ×height2 mm; install after keeper insertion,Standard hardware
+M2-05,1,M2×12 socket-cap follower screw,Head diameter3.8 ×height2 mm,Standard hardware
+M2-06,1,M2 plain washer,OD5 / ID2.2 / thickness0.3 mm,Standard hardware
+M2-07,1,M2 prevailing-torque nut,AF4 ×2.8 mm nominal; follower hardware,Standard hardware
+M3-01,4,M3 plain mounting nut,AF5.5 ×2.4 mm; captive in receiver,Standard hardware
+M3-02,4,M3×12 socket-cap mounting screw,Aircraft side:3.5 mm frame plus0.5 mm washer,Standard hardware
+M3-03,4,M3 mounting washer,OD6 / ID3.2 / thickness0.5 mm; aircraft side,Standard hardware
+M3-04,4,M3×12 flat-head payload screw,Projects8.2 mm below the3.8 mm adapter; see POD-01 mating requirement,Standard hardware
+POD-01,4,Payload-owned M3 metal threaded attachment,"Provide≥3 mm effective metal thread engagement and≥8.7 mm unobstructed depth, or a through hole, below the adapter mating face; its mass counts within454 g",Specified interface; supplied by payload
+PAD-01,4,"PORON4701-30 foam disc, diameter4 ×2.36 mm free",Nominal320 kg/m³; installed thickness1.77 mm; force must be measured,Existing R4 material basis
+PAD-02,4,"467MP adhesive disc, diameter4 ×0.06 mm",Bond foam to the departing adapter,Existing R4 material basis
+PAD-03,1,"Lower cradle shim,21 ×23 ×0.3 mm installed",Cut suitable pad stock; set thickness on the purchased case,Measured fit item
+PAD-04,1,"Upper clamp shim,21 ×4 ×0.3 mm installed",Cut suitable pad stock; set thickness on the purchased case,Measured fit item

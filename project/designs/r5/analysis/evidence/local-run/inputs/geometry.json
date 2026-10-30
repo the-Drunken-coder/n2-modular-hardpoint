@@ -1,0 +1,287 @@
+{
+  "units": "mm",
+  "revision": "R5",
+  "retained_box_mm": {
+    "min": [
+      0,
+      0,
+      0
+    ],
+    "max": [
+      85.6,
+      54,
+      20
+    ]
+  },
+  "receiver_mounts": [
+    [
+      10,
+      10,
+      15.6
+    ],
+    [
+      75.6,
+      10,
+      15.6
+    ],
+    [
+      10.5,
+      44.8,
+      15.6
+    ],
+    [
+      75.1,
+      44.8,
+      15.6
+    ]
+  ],
+  "receiver_mount_annulus_radii": [
+    1.7,
+    2.7
+  ],
+  "receiver_mount_note": "Nut bears upward on captured pocket roofZ15.6; surrounds real top load-bearing boss. Full annulus lies within hex pocket.",
+  "payload_mounts": [
+    [
+      17.5,
+      29,
+      -5.3
+    ],
+    [
+      38.5,
+      29,
+      -5.3
+    ],
+    [
+      17.5,
+      48,
+      -5.3
+    ],
+    [
+      38.5,
+      48,
+      -5.3
+    ]
+  ],
+  "payload_mount_annulus_radii": [
+    1.7,
+    3.0
+  ],
+  "lug_x": [
+    26,
+    29.5
+  ],
+  "keeper_tip_x": 24.7,
+  "keeper_bottom_z": 7.4,
+  "keeper_top_z": 10.4,
+  "adapter_contact_z": 10.4,
+  "receiver_floor_z": 7.4,
+  "receiver_roof_z": 11.0,
+  "distal_floor_x": [
+    24.7,
+    25.7
+  ],
+  "proximal_floor_x": [
+    29.8,
+    30.8
+  ],
+  "far_roof_x": [
+    49,
+    50
+  ],
+  "contact_y": [
+    37.2,
+    40.2
+  ],
+  "pad_contacts": [
+    [
+      20.5,
+      34,
+      0.33,
+      2
+    ],
+    [
+      35.5,
+      34,
+      0.33,
+      2
+    ],
+    [
+      20.5,
+      43,
+      0.33,
+      2
+    ],
+    [
+      35.5,
+      43,
+      0.33,
+      2
+    ]
+  ],
+  "adapter_pad_contacts": [
+    [
+      20.5,
+      34,
+      -1.5,
+      2
+    ],
+    [
+      35.5,
+      34,
+      -1.5,
+      2
+    ],
+    [
+      20.5,
+      43,
+      -1.5,
+      2
+    ],
+    [
+      35.5,
+      43,
+      -1.5,
+      2
+    ]
+  ],
+  "keeper_anchors": [
+    [
+      24.7,
+      37.2,
+      7.4
+    ],
+    [
+      24.7,
+      40.2,
+      7.4
+    ],
+    [
+      49.5,
+      37.2,
+      7.4
+    ]
+  ],
+  "actuation": {
+    "type": "short_crank",
+    "radius_mm": 5.5,
+    "crank_radius_mm": 5.5,
+    "pivot": [
+      65.4,
+      0,
+      9.5
+    ],
+    "axis": [
+      0,
+      1,
+      0
+    ],
+    "angle_range_deg": [
+      15.0,
+      105.0
+    ],
+    "retained_angle_deg": 15.0,
+    "operating_angle_deg": 100.0,
+    "operating_rotation_deg": 85.0,
+    "release_angle_deg": 100.0,
+    "travel_mm": 6.736096792653741,
+    "operating_travel_mm": 6.2676570217579926,
+    "mechanical_travel_mm": 7.3,
+    "release_clearance_mm": 4.8,
+    "formula": "s = r * (cos(theta_retained) - cos(theta))",
+    "animation_note": "Geometry starts at 15 degrees; rotate by the delta angle. Prescribed motion is not proof of release.",
+    "pivot_x_mm": 65.4,
+    "pivot_z_mm": 9.5
+  },
+  "servo_mass_kg": 0.0134,
+  "servo_cg_mm": [
+    59.7,
+    16.25,
+    9.5
+  ],
+  "nominal_pad_preload_N": 2.0,
+  "preload_sensitivity_N": [
+    0,
+    3
+  ],
+  "slot_width_mm": 4.4,
+  "sleeve_diameter_mm": 4,
+  "keeper_vertical_float_mm": 0.6,
+  "host_cutout_mm": [
+    86.2,
+    54.6
+  ],
+  "mount_pattern_note": "Front X10/75.6,Y10; rear X10.5/75.1,Y44.8. Rear pair staggered0.5mm inward to clear casing posts while preserving keeper insertion.",
+  "load_sign": "Payload extraction and gravity are\u2212Z; lug window roof bears down on keeper top; keeper bears on receiver floor.",
+  "refine_boxes": {
+    "receiver": [
+      {
+        "bounds": [
+          [
+            22,
+            32,
+            3
+          ],
+          [
+            53,
+            44,
+            14
+          ]
+        ],
+        "factor": 1
+      }
+    ],
+    "adapter": [
+      {
+        "bounds": [
+          [
+            23,
+            32,
+            -2
+          ],
+          [
+            33,
+            44,
+            13
+          ]
+        ],
+        "factor": 1
+      }
+    ],
+    "keeper": [
+      {
+        "bounds": [
+          [
+            24,
+            36,
+            7
+          ],
+          [
+            32,
+            40,
+            11
+          ]
+        ],
+        "factor": 1
+      }
+    ]
+  },
+  "keeper_axial_load_selector": {
+    "normal_axis": 0,
+    "value": 62.28740795541013,
+    "x": 62.28740795541013,
+    "y_range": [
+      37.2,
+      40.2
+    ],
+    "z_range": [
+      10,
+      12
+    ],
+    "normal": [
+      1,
+      0,
+      0
+    ]
+  },
+  "servo_fit_status": "Conservative sketch-based reservation. Shaft offset/horn dimensions require receiving inspection and shimming, not an exact supplier CAD fit."
+}

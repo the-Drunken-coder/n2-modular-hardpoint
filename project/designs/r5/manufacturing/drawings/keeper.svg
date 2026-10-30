@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="900" viewBox="0 0 1280 900">
+<rect width="1280" height="900" fill="#fafaf7"/>
+<style>text{font-family:Arial,sans-serif;fill:#1c2b32}.title{font-size:27px;font-weight:bold}.sub{font-size:13px}.dim{font-size:13px;fill:#9e5020}.edge{fill:none;stroke:#3c6471;stroke-width:1.05;stroke-opacity:.7}.dline{fill:none;stroke:#b76832;stroke-width:1}</style>
+<text x="38" y="45" class="title">R5-04 guided keeper and open yoke</text>
+<text x="38" y="70" class="sub">N2 / R5 prototype · All dimensions mm · Orthographic edge projections (hidden edges included)</text>
+<text x="38" y="91" class="sub">Datums: A = mounting/print reference face; B = left X reference; C = lateral Y reference. Numerical dimensions govern.</text>
+<text x="40" y="125" class="sub">TOP · X / Y</text>
+<polyline class="edge" points="65.0,288.899 65.0,288.899"/>
+<polyline class="edge" points="65.0,288.899 65.0,251.112"/>
+<polyline class="edge" points="65.0,251.112 65.0,251.112"/>
+<polyline class="edge" points="65.0,288.899 397.523,288.899"/>
+<polyline class="edge" points="397.523,288.899 397.523,288.899"/>
+<polyline class="edge" points="397.523,288.899 441.449,288.899"/>
+<polyline class="edge" points="441.449,288.899 441.449,288.899"/>
+<polyline class="edge" points="441.449,288.899 580.0,288.899"/>
+<polyline class="edge" points="580.0,288.899 580.0,288.899"/>
+<polyline class="edge" points="441.449,288.899 483.014,288.899"/>
+<polyline class="edge" points="538.435,288.899 580.0,288.899"/>
+<polyline class="edge" points="483.014,288.899 483.014,288.899"/>
+<polyline class="edge" points="538.435,288.899 538.435,288.899"/>
+<polyline class="edge" points="483.014,288.899 538.435,288.899"/>
+<polyline class="edge" points="455.437,288.899 470.527,288.899"/>
+<polyline class="edge" points="425.258,288.899 455.437,288.899"/>
+<polyline class="edge" points="410.169,288.899 425.258,288.899"/>
+<polyline class="edge" points="65.0,251.112 397.523,251.112"/>
+<polyline class="edge" points="397.523,288.899 397.523,251.112"/>
+<polyline class="edge" points="397.523,251.112 397.523,251.112"/>
+<polyline class="edge" points="397.523,251.112 441.449,251.112"/>
+<polyline class="edge" points="441.449,251.112 441.449,251.112"/>
+<polyline class="edge" points="441.449,251.112 580.0,251.112"/>
+<polyline class="edge" points="580.0,251.112 580.0,251.112"/>
+<polyline class="edge" points="441.449,251.112 483.014,251.112"/>
+<polyline class="edge" points="538.435,251.112 580.0,251.112"/>
+<polyline class="edge" points="483.014,251.112 483.014,251.112"/>
+<polyline class="edge" points="538.435,251.112 538.435,251.112"/>
+<polyline class="edge" points="483.014,251.112 538.435,251.112"/>
+<polyline class="edge" points="440.348,251.112 443.543,251.112 446.566,251.112 449.254,251.112 451.461,251.112 453.07,251.112 453.992,251.112 454.18,251.112 453.621,251.112 452.347,251.112 450.426,251.112 447.961,251.112 445.087,251.112 441.956,251.112 438.739,251.112 435.609,251.112 432.734,251.112 430.27,251.112 428.349,251.112 427.075,251.112 426.516,251.112 426.703,251.112 427.626,251.112 429.234,251.112 431.442,251.112 434.13,251.112 437.153,251.112 440.348,251.112"/>
+<polyline class="edge" points="441.449,251.112 441.449,288.899"/>
+<polyline class="edge" points="580.0,288.899 580.0,251.112"/>
+<polyline class="edge" points="483.014,288.899 483.014,251.112"/>
+<polyline class="edge" points="538.435,288.899 538.435,251.112"/>
+<polyline class="edge" points="455.437,264.967 455.437,288.899"/>
+<polyline class="edge" points="470.527,264.967 470.527,288.899"/>
+<polyline class="edge" points="455.437,264.967 470.527,264.967"/>
+<polyline class="edge" points="425.258,264.967 425.258,288.899"/>
+<polyline class="edge" points="425.258,264.967 455.437,264.967"/>
+<polyline class="edge" points="410.169,264.967 410.169,288.899"/>
+<polyline class="edge" points="410.169,264.967 425.258,264.967"/>
+<polyline class="edge" points="440.348,264.967 440.348,251.112"/>
+<polyline class="edge" points="440.348,264.967 443.543,264.967 446.566,264.967 449.254,264.967 451.461,264.967 453.07,264.967 453.992,264.967 454.18,264.967 453.621,264.967 452.347,264.967 450.426,264.967 447.961,264.967 445.087,264.967 441.956,264.967 438.739,264.967 435.609,264.967 432.734,264.967 430.27,264.967 428.349,264.967 427.075,264.967 426.516,264.967 426.703,264.967 427.626,264.967 429.234,264.967 431.442,264.967 434.13,264.967 437.153,264.967 440.348,264.967"/>
+<path class="dline" d="M65.0,301.8988254476366v10 M65.0,306.8988254476366H580.0 M580.0,301.8988254476366v10"/>
+<text x="322.5" y="324.8988254476366" text-anchor="middle" class="dim">40.89</text>
+<path class="dline" d="M593.0,251.10117455236337h10 M598.0,251.10117455236337V288.8988254476366 M593.0,288.8988254476366h10"/>
+<text x="604.0" y="270.0" class="dim">3.00</text>
+<text x="40" y="470" class="sub">FRONT · X / Z</text>
+<polyline class="edge" points="65.0,657.882 65.0,620.096"/>
+<polyline class="edge" points="65.0,620.096 65.0,620.096"/>
+<polyline class="edge" points="65.0,657.882 65.0,657.882"/>
+<polyline class="edge" points="65.0,657.882 397.523,657.882"/>
+<polyline class="edge" points="397.523,681.814 397.523,657.882"/>
+<polyline class="edge" points="65.0,620.096 397.523,620.096"/>
+<polyline class="edge" points="397.523,681.814 441.449,681.814"/>
+<polyline class="edge" points="397.523,620.096 397.523,596.164"/>
+<polyline class="edge" points="441.449,685.593 441.449,681.814"/>
+<polyline class="edge" points="397.523,596.164 441.449,596.164"/>
+<polyline class="edge" points="441.449,685.593 580.0,685.593"/>
+<polyline class="edge" points="441.449,596.164 441.449,529.407"/>
+<polyline class="edge" points="580.0,685.593 580.0,529.407"/>
+<polyline class="edge" points="441.449,529.407 483.014,529.407"/>
+<polyline class="edge" points="538.435,529.407 580.0,529.407"/>
+<polyline class="edge" points="483.014,529.407 483.014,650.325"/>
+<polyline class="edge" points="538.435,529.407 538.435,650.325"/>
+<polyline class="edge" points="483.014,650.325 538.435,650.325"/>
+<polyline class="edge" points="455.437,665.125 470.527,638.989"/>
+<polyline class="edge" points="425.258,665.125 455.437,665.125"/>
+<polyline class="edge" points="410.169,638.989 425.258,665.125"/>
+<polyline class="edge" points="425.258,612.853 410.169,638.989"/>
+<polyline class="edge" points="455.437,612.853 425.258,612.853"/>
+<polyline class="edge" points="470.527,638.989 455.437,612.853"/>
+<polyline class="edge" points="397.523,620.096 397.523,620.096"/>
+<polyline class="edge" points="440.348,625.134 443.543,625.507 446.566,626.608 449.254,628.375 451.461,630.715 453.07,633.501 453.992,636.583 454.18,639.795 453.621,642.963 452.347,645.916 450.426,648.497 447.961,650.565 445.087,652.008 441.956,652.75 438.739,652.75 435.609,652.008 432.734,650.565 430.27,648.497 428.349,645.916 427.075,642.963 426.516,639.795 426.703,636.583 427.626,633.501 429.234,630.715 431.442,628.375 434.13,626.608 437.153,625.507 440.348,625.134"/>
+<polyline class="edge" points="397.523,657.882 397.523,657.882"/>
+<polyline class="edge" points="397.523,681.814 397.523,681.814"/>
+<polyline class="edge" points="441.449,681.814 441.449,681.814"/>
+<polyline class="edge" points="397.523,596.164 397.523,596.164"/>
+<polyline class="edge" points="441.449,685.593 441.449,685.593"/>
+<polyline class="edge" points="441.449,596.164 441.449,596.164"/>
+<polyline class="edge" points="580.0,685.593 580.0,685.593"/>
+<polyline class="edge" points="441.449,529.407 441.449,529.407"/>
+<polyline class="edge" points="580.0,529.407 580.0,529.407"/>
+<polyline class="edge" points="483.014,529.407 483.014,529.407"/>
+<polyline class="edge" points="538.435,529.407 538.435,529.407"/>
+<polyline class="edge" points="483.014,650.325 483.014,650.325"/>
+<polyline class="edge" points="538.435,650.325 538.435,650.325"/>
+<polyline class="edge" points="455.437,665.125 455.437,665.125"/>
+<polyline class="edge" points="470.527,638.989 470.527,638.989"/>
+<polyline class="edge" points="425.258,665.125 425.258,665.125"/>
+<polyline class="edge" points="410.169,638.989 410.169,638.989"/>
+<polyline class="edge" points="425.258,612.853 425.258,612.853"/>
+<polyline class="edge" points="455.437,612.853 455.437,612.853"/>
+<polyline class="edge" points="440.348,625.134 440.348,625.134"/>
+<path class="dline" d="M65.0,698.5925031824869v10 M65.0,703.5925031824869H580.0 M580.0,698.5925031824869v10"/>
+<text x="322.5" y="721.5925031824869" text-anchor="middle" class="dim">40.89</text>
+<path class="dline" d="M593.0,529.4074968175131h10 M598.0,529.4074968175131V685.5925031824869 M593.0,685.5925031824869h10"/>
+<text x="604.0" y="607.5" class="dim">12.40</text>
+<text x="700" y="125" class="sub">SIDE · Y / Z</text>
+<polyline class="edge" points="914.669,344.194 914.669,288.548"/>
+<polyline class="edge" points="914.669,288.548 970.315,288.548"/>
+<polyline class="edge" points="970.315,344.194 970.315,288.548"/>
+<polyline class="edge" points="914.669,344.194 970.315,344.194"/>
+<polyline class="edge" points="914.669,344.194 914.669,344.194"/>
+<polyline class="edge" points="914.669,379.435 914.669,344.194"/>
+<polyline class="edge" points="914.669,288.548 914.669,288.548"/>
+<polyline class="edge" points="914.669,379.435 914.669,379.435"/>
+<polyline class="edge" points="914.669,288.548 914.669,253.306"/>
+<polyline class="edge" points="914.669,385.0 914.669,379.435"/>
+<polyline class="edge" points="914.669,253.306 914.669,253.306"/>
+<polyline class="edge" points="914.669,385.0 914.669,385.0"/>
+<polyline class="edge" points="914.669,253.306 914.669,155.0"/>
+<polyline class="edge" points="914.669,385.0 914.669,155.0"/>
+<polyline class="edge" points="914.669,155.0 914.669,155.0"/>
+<polyline class="edge" points="914.669,155.0 914.669,333.065"/>
+<polyline class="edge" points="914.669,333.065 914.669,333.065"/>
+<polyline class="edge" points="914.669,354.859 914.669,316.371"/>
+<polyline class="edge" points="914.669,354.859 914.669,354.859"/>
+<polyline class="edge" points="914.669,277.883 914.669,316.371"/>
+<polyline class="edge" points="914.669,277.883 914.669,277.883"/>
+<polyline class="edge" points="970.315,288.548 970.315,288.548"/>
+<polyline class="edge" points="970.315,344.194 970.315,344.194"/>
+<polyline class="edge" points="970.315,379.435 970.315,344.194"/>
+<polyline class="edge" points="970.315,379.435 970.315,379.435"/>
+<polyline class="edge" points="970.315,288.548 970.315,253.306"/>
+<polyline class="edge" points="970.315,385.0 970.315,379.435"/>
+<polyline class="edge" points="970.315,253.306 970.315,253.306"/>
+<polyline class="edge" points="970.315,385.0 970.315,385.0"/>
+<polyline class="edge" points="970.315,253.306 970.315,155.0"/>
+<polyline class="edge" points="970.315,385.0 970.315,155.0"/>
+<polyline class="edge" points="970.315,155.0 970.315,155.0"/>
+<polyline class="edge" points="970.315,155.0 970.315,333.065"/>
+<polyline class="edge" points="970.315,333.065 970.315,333.065"/>
+<polyline class="edge" points="970.315,295.968 970.315,296.518 970.315,298.138 970.315,300.741 970.315,304.187 970.315,308.29 970.315,312.828 970.315,317.557 970.315,322.223 970.315,326.573 970.315,330.373 970.315,333.418 970.315,335.544 970.315,336.636 970.315,336.636 970.315,335.544 970.315,333.418 970.315,330.373 970.315,326.573 970.315,322.223 970.315,317.557 970.315,312.828 970.315,308.29 970.315,304.187 970.315,300.741 970.315,298.138 970.315,296.518 970.315,295.968"/>
+<polyline class="edge" points="914.669,379.435 970.315,379.435"/>
+<polyline class="edge" points="914.669,253.306 970.315,253.306"/>
+<polyline class="edge" points="914.669,385.0 970.315,385.0"/>
+<polyline class="edge" points="914.669,155.0 970.315,155.0"/>
+<polyline class="edge" points="914.669,333.065 970.315,333.065"/>
+<polyline class="edge" points="949.911,354.859 914.669,354.859"/>
+<polyline class="edge" points="949.911,316.371 914.669,316.371"/>
+<polyline class="edge" points="949.911,354.859 949.911,316.371"/>
+<polyline class="edge" points="949.911,354.859 949.911,354.859"/>
+<polyline class="edge" points="949.911,277.883 914.669,277.883"/>
+<polyline class="edge" points="949.911,277.883 949.911,316.371"/>
+<polyline class="edge" points="949.911,277.883 949.911,277.883"/>
+<polyline class="edge" points="949.911,295.968 970.315,295.968"/>
+<polyline class="edge" points="949.911,295.968 949.911,296.518 949.911,298.138 949.911,300.741 949.911,304.187 949.911,308.29 949.911,312.828 949.911,317.557 949.911,322.223 949.911,326.573 949.911,330.373 949.911,333.418 949.911,335.544 949.911,336.636 949.911,336.636 949.911,335.544 949.911,333.418 949.911,330.373 949.911,326.573 949.911,322.223 949.911,317.557 949.911,312.828 949.911,308.29 949.911,304.187 949.911,300.741 949.911,298.138 949.911,296.518 949.911,295.968"/>
+<path class="dline" d="M914.6693525254341,398.0v10 M914.6693525254341,403.0H970.330647474566 M970.330647474566,398.0v10"/>
+<text x="942.5" y="421.0" text-anchor="middle" class="dim">3.00</text>
+<path class="dline" d="M983.330647474566,155.0h10 M988.330647474566,155.0V385.0 M983.330647474566,385.0h10"/>
+<text x="994.330647474566" y="270.0" class="dim">12.40</text>
+<text x="700" y="465" font-size="18" font-weight="bold">Controlled nominal dimensions / finished acceptance</text>
+<text x="700" y="490" class="sub">BarX24.7–60.0874, Y37.2–40.2, Z7.4–10.4.</text>
+<text x="700" y="512" class="sub">Bar section3 ×3; nominal vertical float0.6.</text>
+<text x="700" y="534" class="sub">YokeX54.5874–65.5874; topZ17.6.</text>
+<text x="700" y="556" class="sub">Slot4.4 wide: X57.8874–62.2874; floorZ8.0.</text>
+<text x="700" y="578" class="sub">The slot is open at the top; side columns3.3.</text>
+<text x="700" y="600" class="sub">M2 stop stud axisX54.5/Z8.9, alongY.</text>
+<text x="700" y="622" class="sub">Stop nut pocketAF4.15; load from the−Y side.</text>
+<text x="700" y="644" class="sub">Crank radius5.5; angles15–100°; travel6.2677.</text>
+<text x="700" y="666" class="sub">Nominal clearance beyond the lug1.4677.</text>
+<text x="700" y="688" class="sub">Mechanical limit7.3;105° reserved motion6.7361.</text>
+<text x="40" y="792" class="sub">Print the broad Y side flat using the oriented STL. The bar, fork and nut boss stay together.</text>
+<text x="40" y="811" class="sub">Insert from+X with the M2 stop stud removed; install the nut and screw afterwards.</text>
+<text x="40" y="830" class="sub">Finish sliding surfaces. Verify that receiver guides take the load before the servo follower.</text>
+<text x="40" y="878" font-size="12">R5 manufacturing definition · Dimensional prototype only · No material or flight qualification implied</text></svg>
