@@ -1,0 +1,23 @@
+{
+  "revision": "R4",
+  "physical_print_bodies": 3,
+  "nominal_clearance_checks": 678,
+  "parts": {
+    "receiver_core": {
+      "step_sha256": "a647a7bbb4eebda2c7135735243a02a390d58c1253e5a403999f5c0320b15f5b",
+      "stl_sha256": "37771a1937fee74f70a1788eb6ce8ad1b9542cd0f25cc5d12900fe4771697413"
+    },
+    "payload_adapter": {
+      "step_sha256": "1a0ee57ba103b9ef2683c8ab4b84773a7ea30121da8d91520e410743958dd22c",
+      "stl_sha256": "ac8e0d57348b9ba6adc7ecc470a31483739662efe0430576591f55ae2e716cbb"
+    },
+    "keeper": {
+      "step_sha256": "a6de411d6f28e0e9bb2da44eaa5f738fb3cc61850ee49fd0d3431907211d0d17",
+      "stl_sha256": "e8b28e0c5d5f80a500321563479929253721e7fb858bba907564206c6fa9f369"
+    }
+  },
+  "geometry_sha256": "ede1eeb0aa2d1445475ab6f3f45926414803fd84c44e850d3acea2fd28094dfa",
+  "manifest_sha256": "7fb9cfdcccc5e22eecc8ab2d02fa844741c94cd5a9a740da97ef6df285930787",
+  "clearance_sha256": "ca354a09a2c3e85f6b4d101193bae2355b4c513c62fd481c5ff062b908500ab7",
+  "physical_qualification": false
+}

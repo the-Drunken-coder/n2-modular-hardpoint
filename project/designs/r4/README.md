@@ -19,6 +19,7 @@ This package defines the parts, interfaces, hardware, print process, assembly op
 | Put it together | [Assembly and inspection](docs/assembly.md) |
 | Wire, calibrate and command the actuator | [Actuation](docs/actuation.md), [electrical instructions](electrical/README.md), [wiring diagram](electrical/wiring.svg), [netlist](electrical/netlist.json) |
 | Understand actual simulated loads and limitations | [Analysis package](analysis/README.md), [recorded results](analysis/evidence/report.md), and source/configuration hashes |
+| Review completed checks and assembly images | [Verification record](docs/verification.md) |
 | Qualify a manufactured prototype | [Physical acceptance plan](docs/qualification.md), [machine-readable bench plan](analysis/bench-plan.json) and record validator |
 | Run the entire computation from a clean checkout | [R4 GitHub Actions workflow](../../../.github/workflows/refined-design-validation.yml), [runner](../../../tools/ci/run_refined_design.py) |
 

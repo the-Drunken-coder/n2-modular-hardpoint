@@ -1,0 +1,19 @@
+{
+  "part": "keeper",
+  "returncode": 0,
+  "elapsed_seconds": 363.61449074300003,
+  "command": [
+    "/workspace/scratch/c3093d2e58b9/n2-fea-env/bin/python",
+    "/workspace/scratch/c3093d2e58b9/n2-r4-recovery-run-06/fea/engine/solver.py",
+    "--config",
+    "/workspace/scratch/c3093d2e58b9/n2-r4-recovery-run-06/fea/configs/keeper.json",
+    "--sizes",
+    "0.7",
+    "0.5",
+    "0.35"
+  ],
+  "solver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+  "runner_sha256": "c832917624d52a070c6dc94e1a5d164a8fe4a9cb31c1a9776eebf8c29c368755",
+  "config_sha256": "e8a07c3206e5d5860bf3922c959bc5b75722983db5b0b0b36c90b80133b2f573",
+  "log": "logs/keeper.log"
+}

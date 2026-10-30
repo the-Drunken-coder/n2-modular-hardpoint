@@ -1,0 +1,621 @@
+{
+  "id": "R4_keeper",
+  "variant": "R4",
+  "component": "keeper",
+  "step_path": "/workspace/scratch/c3093d2e58b9/n2-r4-recovery-run-06/cad/parts/keeper.step",
+  "expected_step_sha256": "a6de411d6f28e0e9bb2da44eaa5f738fb3cc61850ee49fd0d3431907211d0d17",
+  "loads_are_actual_newtons": true,
+  "load_normalization_N": null,
+  "max_dofs": 500000,
+  "far_size_factor": 2.2,
+  "mesh_algorithm_3d": 10,
+  "mesh_optimizer": "Netgen",
+  "averaging_radii_mm": [],
+  "refine_boxes": [
+    {
+      "bounds": [
+        [
+          25,
+          8,
+          14
+        ],
+        [
+          52,
+          12,
+          18
+        ]
+      ],
+      "factor": 1.0
+    },
+    {
+      "bounds": [
+        [
+          62,
+          8,
+          8
+        ],
+        [
+          73,
+          12,
+          22
+        ]
+      ],
+      "factor": 1.0
+    }
+  ],
+  "mesh_policy": "HXT with the declared h inside CAD-specified local boxes, coarser far field. CAD advisory sub-h factors are not compounded into these separately reviewed refinement levels.",
+  "cases": {
+    "stroke_0p00mm": {
+      "loads": [
+        {
+          "label": "Lug floor on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 14.2,
+            "x_range": [
+              26.8,
+              30.3
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            11.9044382
+          ]
+        },
+        {
+          "label": "distal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              25.5,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -5.9522191
+          ]
+        },
+        {
+          "label": "proximal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              30.6,
+              31.6
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -5.9522191
+          ]
+        }
+      ],
+      "anchors": [
+        {
+          "label": "Rigid translation gauge",
+          "point_mm": [
+            25.5,
+            8.5,
+            14.2
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Two rotation gauges",
+          "point_mm": [
+            25.5,
+            11.5,
+            14.2
+          ],
+          "components": [
+            0,
+            2
+          ]
+        },
+        {
+          "label": "Final rotation gauge",
+          "point_mm": [
+            50,
+            8.5,
+            14.2
+          ],
+          "components": [
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 0.0,
+      "remaining_overlap_mm": 3.5,
+      "scope": "Self-equilibrated prescribed vertical tractions; gauge reaction must be negligible."
+    },
+    "stroke_1p00mm": {
+      "loads": [
+        {
+          "label": "Lug floor on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 14.2,
+            "x_range": [
+              25.8,
+              29.3
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            11.9044382
+          ]
+        },
+        {
+          "label": "proximal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              29.6,
+              30.6
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -13.55423805923913
+          ]
+        },
+        {
+          "label": "far_floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 14.2,
+            "x_range": [
+              48.0,
+              49.0
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            1.6497998592391312
+          ]
+        }
+      ],
+      "anchors": [
+        {
+          "label": "Rigid translation gauge",
+          "point_mm": [
+            25.5,
+            8.5,
+            14.2
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Two rotation gauges",
+          "point_mm": [
+            25.5,
+            11.5,
+            14.2
+          ],
+          "components": [
+            0,
+            2
+          ]
+        },
+        {
+          "label": "Final rotation gauge",
+          "point_mm": [
+            50,
+            8.5,
+            14.2
+          ],
+          "components": [
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 1.0,
+      "remaining_overlap_mm": 3.5,
+      "scope": "Self-equilibrated prescribed vertical tractions; gauge reaction must be negligible."
+    },
+    "stroke_4p50mm": {
+      "loads": [
+        {
+          "label": "Lug floor on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 14.2,
+            "x_range": [
+              25.5,
+              25.8
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            11.9044382
+          ]
+        },
+        {
+          "label": "proximal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              26.1,
+              27.1
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -12.519069520108697
+          ]
+        },
+        {
+          "label": "far_floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 14.2,
+            "x_range": [
+              44.5,
+              45.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.6146313201086975
+          ]
+        }
+      ],
+      "anchors": [
+        {
+          "label": "Rigid translation gauge",
+          "point_mm": [
+            25.5,
+            8.5,
+            14.2
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Two rotation gauges",
+          "point_mm": [
+            25.5,
+            11.5,
+            14.2
+          ],
+          "components": [
+            0,
+            2
+          ]
+        },
+        {
+          "label": "Final rotation gauge",
+          "point_mm": [
+            50,
+            8.5,
+            14.2
+          ],
+          "components": [
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 4.500000000000001,
+      "remaining_overlap_mm": 0.3000000000000007,
+      "scope": "Self-equilibrated prescribed vertical tractions; gauge reaction must be negligible."
+    },
+    "stroke_4p70mm": {
+      "loads": [
+        {
+          "label": "Lug floor on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 14.2,
+            "x_range": [
+              25.5,
+              25.6
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            11.9044382
+          ]
+        },
+        {
+          "label": "proximal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              25.9,
+              26.9
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -12.454371486413043
+          ]
+        },
+        {
+          "label": "far_floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 14.2,
+            "x_range": [
+              44.3,
+              45.3
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.5499332864130444
+          ]
+        }
+      ],
+      "anchors": [
+        {
+          "label": "Rigid translation gauge",
+          "point_mm": [
+            25.5,
+            8.5,
+            14.2
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Two rotation gauges",
+          "point_mm": [
+            25.5,
+            11.5,
+            14.2
+          ],
+          "components": [
+            0,
+            2
+          ]
+        },
+        {
+          "label": "Final rotation gauge",
+          "point_mm": [
+            50,
+            8.5,
+            14.2
+          ],
+          "components": [
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 4.700000000000001,
+      "remaining_overlap_mm": 0.09999999999999787,
+      "scope": "Self-equilibrated prescribed vertical tractions; gauge reaction must be negligible."
+    },
+    "coupling_axial_12N": {
+      "loads": [
+        {
+          "label": "12 N follower pressure on loaded slot wall",
+          "selector": {
+            "normal_axis": 0,
+            "x": 69.7,
+            "y_range": [
+              8.5,
+              11.5
+            ],
+            "z_range": [
+              16,
+              18
+            ]
+          },
+          "force_N": [
+            12.0,
+            0,
+            0
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Deliberate blocked-keeper test fixture at tip end",
+          "selector": {
+            "normal_axis": 0,
+            "x": 25.5,
+            "y_range": [
+              8.5,
+              11.5
+            ],
+            "z_range": [
+              14.2,
+              17.2
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "scope": "12 N imposed axial follower/slot jam sensitivity, not certified servo force or normal free-sliding operation. Near-dead-center servo stall is not bounded by this case."
+    },
+    "retained_tipping_sensitivity": {
+      "loads": [
+        {
+          "label": "Lug floor on keeper",
+          "selector": {
+            "normal_axis": 2,
+            "z": 14.2,
+            "x_range": [
+              26.8,
+              30.3
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            31.69207864444444
+          ]
+        },
+        {
+          "label": "distal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              25.5,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -15.84603932222222
+          ]
+        },
+        {
+          "label": "proximal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              30.6,
+              31.6
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0.0,
+            0.0,
+            -15.84603932222222
+          ]
+        }
+      ],
+      "anchors": [
+        {
+          "label": "Rigid translation gauge",
+          "point_mm": [
+            25.5,
+            8.5,
+            14.2
+          ],
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Two rotation gauges",
+          "point_mm": [
+            25.5,
+            11.5,
+            14.2
+          ],
+          "components": [
+            0,
+            2
+          ]
+        },
+        {
+          "label": "Final rotation gauge",
+          "point_mm": [
+            50,
+            8.5,
+            14.2
+          ],
+          "components": [
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 0.0,
+      "remaining_overlap_mm": 3.5,
+      "scope": "Increased retained keeper reaction from the assumed 1 g transverse/60 mm CG tipping couple; balanced vertical component loads only."
+    }
+  }
+}

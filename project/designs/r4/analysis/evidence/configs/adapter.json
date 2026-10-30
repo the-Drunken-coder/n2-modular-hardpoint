@@ -1,0 +1,750 @@
+{
+  "id": "R4_adapter",
+  "variant": "R4",
+  "component": "adapter",
+  "step_path": "/workspace/scratch/c3093d2e58b9/n2-r4-recovery-run-06/cad/parts/payload_adapter.step",
+  "expected_step_sha256": "1a0ee57ba103b9ef2683c8ab4b84773a7ea30121da8d91520e410743958dd22c",
+  "loads_are_actual_newtons": true,
+  "load_normalization_N": null,
+  "max_dofs": 500000,
+  "far_size_factor": 2.2,
+  "mesh_algorithm_3d": 10,
+  "mesh_optimizer": "Netgen",
+  "averaging_radii_mm": [],
+  "refine_boxes": [
+    {
+      "bounds": [
+        [
+          24,
+          5,
+          11
+        ],
+        [
+          34,
+          15,
+          24
+        ]
+      ],
+      "factor": 1.0
+    }
+  ],
+  "mesh_policy": "HXT with the declared h inside CAD-specified local boxes, coarser far field. CAD advisory sub-h factors are not compounded into these separately reviewed refinement levels.",
+  "cases": {
+    "stroke_0p00mm": {
+      "loads": [
+        {
+          "label": "Keeper on remaining lug floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 14.2,
+            "x_range": [
+              26.8,
+              30.3
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -11.9044382
+          ]
+        },
+        {
+          "label": "Pad 1 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              26.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        },
+        {
+          "label": "Pad 2 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              37.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        },
+        {
+          "label": "Pad 3 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              26.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        },
+        {
+          "label": "Pad 4 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              37.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Rigid mount annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              19.5,
+              0.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              44.5,
+              0.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              19.5,
+              25.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              44.5,
+              25.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 0.0,
+      "remaining_overlap_mm": 3.5,
+      "scope": "Rigid payload bolt annuli; prescribed finite lug and pad tractions."
+    },
+    "stroke_4p50mm": {
+      "loads": [
+        {
+          "label": "Keeper on remaining lug floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 14.2,
+            "x_range": [
+              30.0,
+              30.3
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -11.9044382
+          ]
+        },
+        {
+          "label": "Pad 1 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              26.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        },
+        {
+          "label": "Pad 2 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              37.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        },
+        {
+          "label": "Pad 3 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              26.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        },
+        {
+          "label": "Pad 4 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              37.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Rigid mount annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              19.5,
+              0.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              44.5,
+              0.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              19.5,
+              25.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              44.5,
+              25.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 4.500000000000001,
+      "remaining_overlap_mm": 0.3000000000000007,
+      "scope": "Rigid payload bolt annuli; prescribed finite lug and pad tractions."
+    },
+    "stroke_4p70mm": {
+      "loads": [
+        {
+          "label": "Keeper on remaining lug floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 14.2,
+            "x_range": [
+              30.200000000000003,
+              30.3
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -11.9044382
+          ]
+        },
+        {
+          "label": "Pad 1 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              26.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        },
+        {
+          "label": "Pad 2 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              37.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        },
+        {
+          "label": "Pad 3 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              26.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        },
+        {
+          "label": "Pad 4 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              37.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Rigid mount annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              19.5,
+              0.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              44.5,
+              0.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              19.5,
+              25.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              44.5,
+              25.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 4.700000000000001,
+      "remaining_overlap_mm": 0.09999999999999787,
+      "scope": "Rigid payload bolt annuli; prescribed finite lug and pad tractions."
+    },
+    "lateral_1g_and_roll_60mm": {
+      "loads": [
+        {
+          "label": "Keeper tension with tipping couple",
+          "selector": {
+            "normal_axis": 2,
+            "z": 14.2,
+            "x_range": [
+              26.8,
+              30.3
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -31.692078644444443
+          ]
+        },
+        {
+          "label": "Pad 1 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              26.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        },
+        {
+          "label": "Pad 2 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              37.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        },
+        {
+          "label": "Pad 3 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              26.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        },
+        {
+          "label": "Pad 4 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "circle_xy": [
+              37.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            0.75
+          ]
+        },
+        {
+          "label": "Transverse key bearing",
+          "selector": {
+            "normal_axis": 1,
+            "y": 21.2,
+            "x_range": [
+              23.2,
+              26
+            ],
+            "z_range": [
+              23.3,
+              25.8
+            ]
+          },
+          "force_N": [
+            0,
+            -4.4522191,
+            0
+          ]
+        },
+        {
+          "label": "Hard seat compression",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.3,
+            "x_range": [
+              30.5,
+              34.5
+            ],
+            "y_range": [
+              22,
+              25
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            19.787640444444445
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Rigid mount annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              19.5,
+              0.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              44.5,
+              0.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              19.5,
+              25.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": 27.3,
+            "annulus_xy": [
+              44.5,
+              25.5,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "lateral_force_N": 4.4522191,
+      "assumed_CG_offset_mm": 60.0,
+      "scope": "Paired idealized interface reactions; simultaneous sliding/impact, contact migration and preload loss are not solved."
+    }
+  }
+}

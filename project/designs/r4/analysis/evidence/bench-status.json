@@ -1,0 +1,71 @@
+{
+  "status": "pending",
+  "tests": [
+    {
+      "id": "B00",
+      "name": "Installed pad preload and calibrated end positions",
+      "status": "pending",
+      "measurements": {
+        "pass": 0,
+        "fail": 0,
+        "pending": 30
+      }
+    },
+    {
+      "id": "B01",
+      "name": "Restrained static 4 g equivalent fixture hold",
+      "status": "pending",
+      "measurements": {
+        "pass": 0,
+        "fail": 0,
+        "pending": 30
+      }
+    },
+    {
+      "id": "B02",
+      "name": "Loaded release repeatability at 2 g equivalent",
+      "status": "pending",
+      "measurements": {
+        "pass": 0,
+        "fail": 0,
+        "pending": 3900
+      }
+    },
+    {
+      "id": "B03",
+      "name": "Measured available-to-demand force margin over loaded withdrawal",
+      "status": "pending",
+      "measurements": {
+        "pass": 0,
+        "fail": 0,
+        "pending": 420
+      }
+    },
+    {
+      "id": "B04",
+      "name": "Power loss while retained at 2 g equivalent",
+      "status": "pending",
+      "measurements": {
+        "pass": 0,
+        "fail": 0,
+        "pending": 360
+      }
+    },
+    {
+      "id": "B05",
+      "name": "Mid-stroke power-loss state is observed and recorded",
+      "status": "pending",
+      "measurements": {
+        "pass": 0,
+        "fail": 0,
+        "pending": 108
+      }
+    }
+  ],
+  "physical_test_executed_by_software": false,
+  "flight_qualification_established": false,
+  "payload_rating_established": false,
+  "scope": "Completeness and threshold checks on operator-supplied measurements only; not authentication or product qualification.",
+  "plan_sha256": "d40d70151f70df600e4ce44885e6e58653f33ec3c85f205698fe732074ee84a5",
+  "records_sha256": null
+}

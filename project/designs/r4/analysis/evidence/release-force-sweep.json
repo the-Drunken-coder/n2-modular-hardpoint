@@ -1,0 +1,956 @@
+{
+  "model": "Prescribed rigid-contact Coulomb sensitivity",
+  "payload_force_N": 8.9044382,
+  "equation": "F = mu * (N_lug + sum(abs(N_guides)))",
+  "rows": [
+    {
+      "friction_coefficient": 0.05,
+      "preload_N": 0.0,
+      "peak_sliding_demand_N": 1.0138477189673913,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 0.89044382,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 0.89044382,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 1.0138477189673913,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 0.9969099289130436,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 0.9727130859782609,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 0.9485162430434783,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 0.9364178215760871,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 0.9315784529891304,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.05,
+      "preload_N": 1.0,
+      "peak_sliding_demand_N": 1.1277064146195654,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 0.99044382,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 0.99044382,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 1.1277064146195654,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 1.1088664506521742,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 1.0819522164130435,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 1.055037982173913,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 1.0415808650543479,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 1.0361980182065218,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.05,
+      "preload_N": 2.0,
+      "peak_sliding_demand_N": 1.2415651102717393,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 1.09044382,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 1.09044382,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 1.2415651102717393,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 1.2208229723913044,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 1.1911913468478261,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 1.1615597213043478,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 1.1467439085326088,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 1.1408175834239132,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.05,
+      "preload_N": 3.0,
+      "peak_sliding_demand_N": 1.3554238059239132,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 1.19044382,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 1.19044382,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 1.3554238059239132,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 1.332779494130435,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 1.3004304772826087,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 1.2680814604347828,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 1.2519069520108697,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 1.2454371486413043,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.1,
+      "preload_N": 0.0,
+      "peak_sliding_demand_N": 2.0276954379347827,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 1.78088764,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 1.78088764,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 2.0276954379347827,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 1.9938198578260873,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 1.9454261719565218,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 1.8970324860869565,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 1.8728356431521742,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 1.863156905978261,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.1,
+      "preload_N": 1.0,
+      "peak_sliding_demand_N": 2.255412829239131,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 1.98088764,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 1.98088764,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 2.255412829239131,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 2.2177329013043483,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 2.163904432826087,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 2.110075964347826,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 2.0831617301086958,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 2.0723960364130436,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.1,
+      "preload_N": 2.0,
+      "peak_sliding_demand_N": 2.4831302205434787,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 2.18088764,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 2.18088764,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 2.4831302205434787,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 2.441645944782609,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 2.3823826936956523,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 2.3231194426086956,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 2.2934878170652175,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 2.2816351668478263,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.1,
+      "preload_N": 3.0,
+      "peak_sliding_demand_N": 2.7108476118478264,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 2.38088764,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 2.38088764,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 2.7108476118478264,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 2.66555898826087,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 2.6008609545652175,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 2.5361629208695655,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 2.5038139040217393,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 2.4908742972826086,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.15,
+      "preload_N": 0.0,
+      "peak_sliding_demand_N": 3.041543156902174,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 2.6713314599999998,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 2.6713314599999998,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 3.041543156902174,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 2.9907297867391303,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 2.9181392579347825,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 2.8455487291304347,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 2.809253464728261,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 2.794735358967391,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.15,
+      "preload_N": 1.0,
+      "peak_sliding_demand_N": 3.3831192438586957,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 2.9713314599999996,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 2.9713314599999996,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 3.3831192438586957,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 3.3265993519565216,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 3.2458566492391303,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 3.165113946521739,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 3.1247425951630436,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 3.108594054619565,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.15,
+      "preload_N": 2.0,
+      "peak_sliding_demand_N": 3.7246953308152175,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 3.27133146,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 3.27133146,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 3.7246953308152175,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 3.662468917173913,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 3.573574040543478,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 3.484679163913043,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 3.4402317255978265,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 3.422452750271739,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.15,
+      "preload_N": 3.0,
+      "peak_sliding_demand_N": 4.066271417771739,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 3.5713314599999997,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 3.5713314599999997,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 4.066271417771739,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 3.998338482391304,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 3.901291431847826,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 3.8042443813043474,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 3.755720856032609,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 3.7363114459239126,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.2,
+      "preload_N": 0.0,
+      "peak_sliding_demand_N": 4.055390875869565,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 3.56177528,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 3.56177528,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 4.055390875869565,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 3.9876397156521746,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 3.8908523439130436,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 3.794064972173913,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 3.7456712863043484,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 3.726313811956522,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.2,
+      "preload_N": 1.0,
+      "peak_sliding_demand_N": 4.510825658478262,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 3.96177528,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 3.96177528,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 4.510825658478262,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 4.435465802608697,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 4.327808865652174,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 4.220151928695652,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 4.1663234602173915,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 4.144792072826087,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.2,
+      "preload_N": 2.0,
+      "peak_sliding_demand_N": 4.966260441086957,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 4.36177528,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 4.36177528,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 4.966260441086957,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 4.883291889565218,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 4.7647653873913045,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 4.646238885217391,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 4.586975634130435,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 4.563270333695653,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.2,
+      "preload_N": 3.0,
+      "peak_sliding_demand_N": 5.421695223695653,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 4.76177528,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 4.76177528,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 5.421695223695653,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 5.33111797652174,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 5.201721909130435,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 5.072325841739131,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 5.007627808043479,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 4.981748594565217,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.3,
+      "preload_N": 0.0,
+      "peak_sliding_demand_N": 6.083086313804348,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 5.3426629199999995,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 5.3426629199999995,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 6.083086313804348,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 5.9814595734782605,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 5.836278515869565,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 5.691097458260869,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 5.618506929456522,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 5.589470717934782,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.3,
+      "preload_N": 1.0,
+      "peak_sliding_demand_N": 6.766238487717391,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 5.942662919999999,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 5.942662919999999,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 6.766238487717391,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 6.653198703913043,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 6.491713298478261,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 6.330227893043478,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 6.249485190326087,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 6.21718810923913,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.3,
+      "preload_N": 2.0,
+      "peak_sliding_demand_N": 7.449390661630435,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 6.54266292,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 6.54266292,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 7.449390661630435,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 7.324937834347826,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 7.147148081086956,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 6.969358327826086,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 6.880463451195653,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 6.844905500543478,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    },
+    {
+      "friction_coefficient": 0.3,
+      "preload_N": 3.0,
+      "peak_sliding_demand_N": 8.132542835543479,
+      "states": [
+        {
+          "stroke_mm": 0.0,
+          "sliding_demand_N": 7.142662919999999,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 0.5,
+          "sliding_demand_N": 7.142662919999999,
+          "normal_multiplier": 2.0
+        },
+        {
+          "stroke_mm": 1.0,
+          "sliding_demand_N": 8.132542835543479,
+          "normal_multiplier": 2.2771739130434785
+        },
+        {
+          "stroke_mm": 2.0,
+          "sliding_demand_N": 7.996676964782608,
+          "normal_multiplier": 2.239130434782609
+        },
+        {
+          "stroke_mm": 3.0,
+          "sliding_demand_N": 7.802582863695652,
+          "normal_multiplier": 2.1847826086956523
+        },
+        {
+          "stroke_mm": 4.0,
+          "sliding_demand_N": 7.608488762608695,
+          "normal_multiplier": 2.130434782608696
+        },
+        {
+          "stroke_mm": 4.500000000000001,
+          "sliding_demand_N": 7.511441712065218,
+          "normal_multiplier": 2.1032608695652177
+        },
+        {
+          "stroke_mm": 4.700000000000001,
+          "sliding_demand_N": 7.472622891847825,
+          "normal_multiplier": 2.092391304347826
+        }
+      ]
+    }
+  ],
+  "friction_measured": false,
+  "actuator_adequacy": "pending_measured_force_profile",
+  "exclusions": [
+    "Breakaway friction, contamination, guide misalignment and local wedging",
+    "Slot/pin friction, servo gear friction and crank contact reactions",
+    "Assembled contact redistribution",
+    "Temperature, speed, voltage drop and motor current limits"
+  ],
+  "interpretation": "A demand sensitivity only. Stall torque is not counted as usable continuous or guaranteed output force."
+}

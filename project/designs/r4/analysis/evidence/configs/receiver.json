@@ -1,0 +1,1333 @@
+{
+  "id": "R4_receiver",
+  "variant": "R4",
+  "component": "receiver",
+  "step_path": "/workspace/scratch/c3093d2e58b9/n2-r4-recovery-run-06/cad/parts/receiver_core.step",
+  "expected_step_sha256": "a647a7bbb4eebda2c7135735243a02a390d58c1253e5a403999f5c0320b15f5b",
+  "loads_are_actual_newtons": true,
+  "load_normalization_N": null,
+  "max_dofs": 500000,
+  "far_size_factor": 2.6,
+  "mesh_algorithm_3d": 10,
+  "mesh_optimizer": "Netgen",
+  "averaging_radii_mm": [],
+  "refine_boxes": [
+    {
+      "bounds": [
+        [
+          22,
+          4,
+          13
+        ],
+        [
+          52,
+          16,
+          22
+        ]
+      ],
+      "factor": 1.0
+    }
+  ],
+  "mesh_policy": "HXT with the declared h inside CAD-specified local boxes, coarser far field. CAD advisory sub-h factors are not compounded into these separately reviewed refinement levels.",
+  "cases": {
+    "retained_2g": {
+      "loads": [
+        {
+          "label": "distal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              25.5,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            4.4522191
+          ]
+        },
+        {
+          "label": "proximal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              30.6,
+              31.6
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            4.4522191
+          ]
+        },
+        {
+          "label": "Servo inertia bearing patch 1",
+          "selector": {
+            "normal_axis": 1,
+            "y": -2.9,
+            "x_range": [
+              52.8,
+              57.2
+            ],
+            "z_range": [
+              8.3,
+              12.7
+            ],
+            "cad_exclude_disk": {
+              "center": [
+                55,
+                -2.9,
+                10.5
+              ],
+              "radius": 1.1
+            }
+          },
+          "force_N": [
+            0,
+            0,
+            0.122583125
+          ],
+          "imprint": false
+        },
+        {
+          "label": "Servo inertia bearing patch 2",
+          "selector": {
+            "normal_axis": 1,
+            "y": -2.9,
+            "x_range": [
+              81.39999999999999,
+              85.8
+            ],
+            "z_range": [
+              8.3,
+              12.7
+            ],
+            "cad_exclude_disk": {
+              "center": [
+                83.6,
+                -2.9,
+                10.5
+              ],
+              "radius": 1.1
+            }
+          },
+          "force_N": [
+            0,
+            0,
+            0.122583125
+          ],
+          "imprint": false
+        }
+      ],
+      "supports": [
+        {
+          "label": "Rigid mount annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              6,
+              -20,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              6,
+              23,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              94,
+              -20,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              94,
+              23,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 0.0,
+      "payload_force_N": 8.9044382,
+      "preload_N": 0.0,
+      "scope": "Prescribed vertical contact loads and servo inertia; rigid four-hole host fixture only."
+    },
+    "retained_2g_preload": {
+      "loads": [
+        {
+          "label": "distal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              25.5,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            5.9522191
+          ]
+        },
+        {
+          "label": "proximal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              30.6,
+              31.6
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            5.9522191
+          ]
+        },
+        {
+          "label": "Pad 1 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              26.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Pad 2 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              37.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Pad 3 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              26.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Pad 4 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              37.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Servo inertia bearing patch 1",
+          "selector": {
+            "normal_axis": 1,
+            "y": -2.9,
+            "x_range": [
+              52.8,
+              57.2
+            ],
+            "z_range": [
+              8.3,
+              12.7
+            ],
+            "cad_exclude_disk": {
+              "center": [
+                55,
+                -2.9,
+                10.5
+              ],
+              "radius": 1.1
+            }
+          },
+          "force_N": [
+            0,
+            0,
+            0.122583125
+          ],
+          "imprint": false
+        },
+        {
+          "label": "Servo inertia bearing patch 2",
+          "selector": {
+            "normal_axis": 1,
+            "y": -2.9,
+            "x_range": [
+              81.39999999999999,
+              85.8
+            ],
+            "z_range": [
+              8.3,
+              12.7
+            ],
+            "cad_exclude_disk": {
+              "center": [
+                83.6,
+                -2.9,
+                10.5
+              ],
+              "radius": 1.1
+            }
+          },
+          "force_N": [
+            0,
+            0,
+            0.122583125
+          ],
+          "imprint": false
+        }
+      ],
+      "supports": [
+        {
+          "label": "Rigid mount annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              6,
+              -20,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              6,
+              23,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              94,
+              -20,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              94,
+              23,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 0.0,
+      "payload_force_N": 8.9044382,
+      "preload_N": 3.0,
+      "scope": "Prescribed vertical contact loads and servo inertia; rigid four-hole host fixture only."
+    },
+    "distal_support_lost": {
+      "loads": [
+        {
+          "label": "proximal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              30.6,
+              31.6
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            13.55423805923913
+          ]
+        },
+        {
+          "label": "far_floor",
+          "selector": {
+            "normal_axis": 2,
+            "z": 13.6,
+            "x_range": [
+              49,
+              50
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -1.6497998592391312
+          ]
+        },
+        {
+          "label": "Pad 1 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              26.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Pad 2 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              37.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Pad 3 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              26.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Pad 4 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              37.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Servo inertia bearing patch 1",
+          "selector": {
+            "normal_axis": 1,
+            "y": -2.9,
+            "x_range": [
+              52.8,
+              57.2
+            ],
+            "z_range": [
+              8.3,
+              12.7
+            ],
+            "cad_exclude_disk": {
+              "center": [
+                55,
+                -2.9,
+                10.5
+              ],
+              "radius": 1.1
+            }
+          },
+          "force_N": [
+            0,
+            0,
+            0.122583125
+          ],
+          "imprint": false
+        },
+        {
+          "label": "Servo inertia bearing patch 2",
+          "selector": {
+            "normal_axis": 1,
+            "y": -2.9,
+            "x_range": [
+              81.39999999999999,
+              85.8
+            ],
+            "z_range": [
+              8.3,
+              12.7
+            ],
+            "cad_exclude_disk": {
+              "center": [
+                83.6,
+                -2.9,
+                10.5
+              ],
+              "radius": 1.1
+            }
+          },
+          "force_N": [
+            0,
+            0,
+            0.122583125
+          ],
+          "imprint": false
+        }
+      ],
+      "supports": [
+        {
+          "label": "Rigid mount annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              6,
+              -20,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              6,
+              23,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              94,
+              -20,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              94,
+              23,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 1.0,
+      "payload_force_N": 8.9044382,
+      "preload_N": 3.0,
+      "scope": "Prescribed vertical contact loads and servo inertia; rigid four-hole host fixture only."
+    },
+    "static_4g_sensitivity": {
+      "loads": [
+        {
+          "label": "distal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              25.5,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            10.4044382
+          ]
+        },
+        {
+          "label": "proximal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              30.6,
+              31.6
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            10.4044382
+          ]
+        },
+        {
+          "label": "Pad 1 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              26.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Pad 2 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              37.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Pad 3 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              26.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Pad 4 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              37.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Servo inertia bearing patch 1",
+          "selector": {
+            "normal_axis": 1,
+            "y": -2.9,
+            "x_range": [
+              52.8,
+              57.2
+            ],
+            "z_range": [
+              8.3,
+              12.7
+            ],
+            "cad_exclude_disk": {
+              "center": [
+                55,
+                -2.9,
+                10.5
+              ],
+              "radius": 1.1
+            }
+          },
+          "force_N": [
+            0,
+            0,
+            0.24516625
+          ],
+          "imprint": false
+        },
+        {
+          "label": "Servo inertia bearing patch 2",
+          "selector": {
+            "normal_axis": 1,
+            "y": -2.9,
+            "x_range": [
+              81.39999999999999,
+              85.8
+            ],
+            "z_range": [
+              8.3,
+              12.7
+            ],
+            "cad_exclude_disk": {
+              "center": [
+                83.6,
+                -2.9,
+                10.5
+              ],
+              "radius": 1.1
+            }
+          },
+          "force_N": [
+            0,
+            0,
+            0.24516625
+          ],
+          "imprint": false
+        }
+      ],
+      "supports": [
+        {
+          "label": "Rigid mount annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              6,
+              -20,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              6,
+              23,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              94,
+              -20,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              94,
+              23,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "stroke_mm": 0.0,
+      "payload_force_N": 17.8088764,
+      "preload_N": 3.0,
+      "scope": "Prescribed vertical contact loads and servo inertia; rigid four-hole host fixture only."
+    },
+    "servo_reaction_12N": {
+      "loads": [
+        {
+          "label": "Servo mount 1 equivalent force/moment reaction",
+          "selector": {
+            "normal_axis": 1,
+            "y": -2.9,
+            "x_range": [
+              52.8,
+              57.2
+            ],
+            "z_range": [
+              8.3,
+              12.7
+            ],
+            "cad_exclude_disk": {
+              "center": [
+                55,
+                -2.9,
+                10.5
+              ],
+              "radius": 1.1
+            }
+          },
+          "force_N": [
+            -6.0,
+            -5.412587412587414,
+            -2.727272727272728
+          ]
+        },
+        {
+          "label": "Servo mount 2 equivalent force/moment reaction",
+          "selector": {
+            "normal_axis": 1,
+            "y": -2.9,
+            "x_range": [
+              81.39999999999999,
+              85.8
+            ],
+            "z_range": [
+              8.3,
+              12.7
+            ],
+            "cad_exclude_disk": {
+              "center": [
+                83.6,
+                -2.9,
+                10.5
+              ],
+              "radius": 1.1
+            }
+          },
+          "force_N": [
+            -6.0,
+            5.412587412587414,
+            2.727272727272728
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Rigid mount annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              6,
+              -20,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              6,
+              23,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              94,
+              -20,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              94,
+              23,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "scope": "12 N follower reaction transferred as the same force and moment through two bolted servo interfaces. Joint resultants can include tensile/shear traction; local bolt preload, washer contact and pull-through are not modeled.",
+      "target_force_N": [
+        -12.0,
+        0,
+        0
+      ],
+      "target_moment_Nmm": [
+        0,
+        -204.0,
+        120.0
+      ]
+    },
+    "lateral_1g_and_roll_60mm": {
+      "loads": [
+        {
+          "label": "distal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              25.5,
+              26.5
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            15.846039322222222
+          ]
+        },
+        {
+          "label": "proximal_roof",
+          "selector": {
+            "normal_axis": 2,
+            "z": 17.2,
+            "x_range": [
+              30.6,
+              31.6
+            ],
+            "y_range": [
+              8.5,
+              11.5
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            15.846039322222222
+          ]
+        },
+        {
+          "label": "Pad 1 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              26.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Pad 2 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              37.5,
+              2.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Pad 3 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              26.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Pad 4 opposing preload",
+          "selector": {
+            "normal_axis": 2,
+            "z": 21.47,
+            "circle_xy": [
+              37.5,
+              23.5,
+              2
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -0.75
+          ]
+        },
+        {
+          "label": "Transverse key bearing",
+          "selector": {
+            "normal_axis": 1,
+            "y": 20.9,
+            "x_range": [
+              23.2,
+              26
+            ],
+            "z_range": [
+              23.3,
+              25.8
+            ]
+          },
+          "force_N": [
+            0,
+            4.4522191,
+            0
+          ]
+        },
+        {
+          "label": "Hard seat compression for assumed CG moment",
+          "selector": {
+            "normal_axis": 2,
+            "z": 23.05,
+            "x_range": [
+              30.5,
+              34.5
+            ],
+            "y_range": [
+              22,
+              25
+            ]
+          },
+          "force_N": [
+            0,
+            0,
+            -19.787640444444445
+          ]
+        }
+      ],
+      "supports": [
+        {
+          "label": "Rigid mount annulus 1",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              6,
+              -20,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 2",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              6,
+              23,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 3",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              94,
+              -20,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "label": "Rigid mount annulus 4",
+          "selector": {
+            "normal_axis": 2,
+            "z": -1.6,
+            "annulus_xy": [
+              94,
+              23,
+              1.7,
+              3.0
+            ]
+          },
+          "components": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "lateral_force_N": 4.4522191,
+      "assumed_CG_offset_mm": 60.0,
+      "nominal_interface_bending_Nmm": 267.133146,
+      "scope": "Assumed 1 g transverse/60 mm offset contact sensitivity. Positive-compression hard-seat and keeper couple; no aircraft model."
+    }
+  }
+}

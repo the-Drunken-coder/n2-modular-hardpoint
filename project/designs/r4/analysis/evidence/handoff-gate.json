@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "artifact_count": 138,
+  "current_source_hashes": {
+    "generator_sha256": "4207f900ad4d81db22edbe8a333f2c444106a202f23d2dce5a371e9f4639aa01",
+    "manufacturing_generator_sha256": "1b0ade50df16d0e98bf09d9ea45f0c5fcd3a801521bdcf100f415c5b37f3cf27",
+    "parameters_sha256": "16b615141a27343a7798269f9d95741c368d3ed0efe3c53c021ea7662b6e4dc0",
+    "vendor_step_sha256": "82cc8020946f461ff0641caab555ba04f3cc785d83f79cd0ca20a44304c0e264"
+  },
+  "complete_viewer_assembly_matches_fresh_geometry": true,
+  "comparison": "Input hashes, every shipped artifact hash, exact geometry/assembly metadata within 1e-6 mm numerical tolerance; STEP timestamp headers are not treated as geometry."
+}

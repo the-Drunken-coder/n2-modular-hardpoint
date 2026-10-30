@@ -1,0 +1,6 @@
+{
+  "fea/manifest.json": "8c63c7fd42532279be08f1a0fc5f4a6c73172571c0c536abcbdb492b9a565d6c",
+  "fea/configs/adapter.json": "9bf3f289422a61fca7bf78c67bc2f3b76485d1e10d584acda6be6b6d20b77c06",
+  "fea/configs/keeper.json": "e8a07c3206e5d5860bf3922c959bc5b75722983db5b0b0b36c90b80133b2f573",
+  "fea/configs/receiver.json": "c87b7736b74e1d92d4a895c5a943a1e40e278f85fb6a03308a66bf759db16b20"
+}

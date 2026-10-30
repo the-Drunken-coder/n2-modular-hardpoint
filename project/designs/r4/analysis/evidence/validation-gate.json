@@ -1,0 +1,13 @@
+{
+  "case_solves": 42,
+  "numerical_checks_passed": true,
+  "physical_qualification": false,
+  "payload_rating_established": false,
+  "stress_convergence_is_reported_separately": true,
+  "revision": "R4",
+  "commit": "82edc3a99738d8b2fea90aaa66f5e4a05c1348ca",
+  "github_run_id": null,
+  "nominal_clearance_checks": 678,
+  "physical_bench_status": "pending",
+  "committed_manufacturing_handoff": "pass"
+}

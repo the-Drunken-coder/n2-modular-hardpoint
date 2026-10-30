@@ -1,0 +1,1960 @@
+{
+  "model": "Piecewise two-station guide equilibrium with follower resistance and moving vertical pull offset",
+  "equations": [
+    "V_follower = sign(cos(theta)) * mu_follower * Q",
+    "R_b = A + B*Q; R_a = -P - V_follower - R_b",
+    "Q = mu_guide * (P + abs(R_a) + abs(R_b))",
+    "T = Q * r * (sin(theta) + mu_follower * abs(cos(theta)))"
+  ],
+  "derivation": "Vertical reactions balance force and pitching moment about the proximal station. Opposing top/bottom guide contacts are permitted; each sign combination is solved and retained only if its reactions match that sign. Tangential friction moments at the keeper top/bottom are included.",
+  "rows": [
+    {
+      "guide_mu": 0.05,
+      "follower_resistance_coefficient": 0.05,
+      "states": [
+        {
+          "required_horizontal_N": 1.3087377861214426,
+          "front_vertical_reaction_N": -13.12009630586746,
+          "rear_vertical_reaction_N": 1.1502212165613872,
+          "follower_vertical_force_N": 0.06543688930607214,
+          "feedback_denominator": 1.035672554347826,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 0.49077666979554097
+        },
+        {
+          "required_horizontal_N": 1.32731807934296,
+          "front_vertical_reaction_N": -13.306363745413172,
+          "rear_vertical_reaction_N": 1.335559641446025,
+          "follower_vertical_force_N": 0.066365903967148,
+          "feedback_denominator": 1.0211748238936562,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 4.038474632145571
+        },
+        {
+          "required_horizontal_N": 1.334591895463949,
+          "front_vertical_reaction_N": -13.37928375202609,
+          "rear_vertical_reaction_N": 1.4081159572528925,
+          "follower_vertical_force_N": 0.06672959477319745,
+          "feedback_denominator": 1.0156091989849243,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 5.427327990017104
+        },
+        {
+          "required_horizontal_N": 1.3215411478096775,
+          "front_vertical_reaction_N": -13.248450006792016,
+          "rear_vertical_reaction_N": 1.2779347494015325,
+          "follower_vertical_force_N": 0.06607705739048388,
+          "feedback_denominator": 1.0085039700348217,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 7.101987916345013
+        },
+        {
+          "required_horizontal_N": 1.2954055007816152,
+          "front_vertical_reaction_N": -12.98644014533569,
+          "rear_vertical_reaction_N": 1.0172316702966095,
+          "follower_vertical_force_N": 0.06477027503908077,
+          "feedback_denominator": 1.0038790760869565,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 8.063899242365554
+        },
+        {
+          "required_horizontal_N": 1.2671827219753597,
+          "front_vertical_reaction_N": -12.703506787802981,
+          "rear_vertical_reaction_N": 0.735709451704215,
+          "follower_vertical_force_N": 0.06335913609876799,
+          "feedback_denominator": 1.0007092414091805,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 8.627296235572713
+        },
+        {
+          "required_horizontal_N": 1.2524863191166842,
+          "front_vertical_reaction_N": -12.556175349144759,
+          "rear_vertical_reaction_N": 0.5891128331889242,
+          "follower_vertical_force_N": 0.06262431595583422,
+          "feedback_denominator": 0.9995374263998165,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 8.797292994240735
+        },
+        {
+          "required_horizontal_N": 1.2465141606867234,
+          "front_vertical_reaction_N": -12.4963044608844,
+          "rear_vertical_reaction_N": 0.5295405528500644,
+          "follower_vertical_force_N": 0.06232570803433617,
+          "feedback_denominator": 0.9991359808982632,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 8.847420348822066
+        }
+      ],
+      "peak_horizontal_N": 1.334591895463949,
+      "peak_required_torque_Nmm": 8.847420348822066,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.05,
+      "follower_resistance_coefficient": 0.15,
+      "states": [
+        {
+          "required_horizontal_N": 1.2902704094986193,
+          "front_vertical_reaction_N": -12.99947437569859,
+          "rear_vertical_reaction_N": 0.9014956142737971,
+          "follower_vertical_force_N": 0.1935405614247929,
+          "feedback_denominator": 1.0504959239130436,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 1.4515542106859467
+        },
+        {
+          "required_horizontal_N": 1.3079833384117796,
+          "front_vertical_reaction_N": -13.177932134498676,
+          "rear_vertical_reaction_N": 1.0772964337369095,
+          "follower_vertical_force_N": 0.19619750076176692,
+          "feedback_denominator": 1.0362699325893083,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 4.895235426499076
+        },
+        {
+          "required_horizontal_N": 1.3146996092843044,
+          "front_vertical_reaction_N": -13.245598563539366,
+          "rear_vertical_reaction_N": 1.1439554221467207,
+          "follower_vertical_force_N": 0.19720494139264566,
+          "feedback_denominator": 1.0309760468110112,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 6.200987623519628
+        },
+        {
+          "required_horizontal_N": 1.3010161017627964,
+          "front_vertical_reaction_N": -13.107737225260173,
+          "rear_vertical_reaction_N": 1.008146609995754,
+          "follower_vertical_force_N": 0.19515241526441945,
+          "feedback_denominator": 1.0244142961217784,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 7.707244774341221
+        },
+        {
+          "required_horizontal_N": 1.2745158979180125,
+          "front_vertical_reaction_N": -12.840747671523975,
+          "rear_vertical_reaction_N": 0.7451320868362725,
+          "follower_vertical_force_N": 0.19117738468770187,
+          "feedback_denominator": 1.0203328804347827,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 8.507393618602734
+        },
+        {
+          "required_horizontal_N": 1.2460187986497657,
+          "front_vertical_reaction_N": -12.553639396396388,
+          "rear_vertical_reaction_N": 0.4622983765989237,
+          "follower_vertical_force_N": 0.18690281979746484,
+          "feedback_denominator": 1.017706524017876,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 8.91931354299246
+        },
+        {
+          "required_horizontal_N": 1.231214607560982,
+          "front_vertical_reaction_N": -12.404487171176896,
+          "rear_vertical_reaction_N": 0.31536678004274826,
+          "follower_vertical_force_N": 0.1846821911341473,
+          "feedback_denominator": 1.016806448138947,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 9.017247777227766
+        },
+        {
+          "required_horizontal_N": 1.225204491328483,
+          "front_vertical_reaction_N": -12.343935250134464,
+          "rear_vertical_reaction_N": 0.25571637643519235,
+          "follower_vertical_force_N": 0.18378067369927245,
+          "feedback_denominator": 1.0165136982895675,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 9.039227337241142
+        }
+      ],
+      "peak_horizontal_N": 1.3146996092843044,
+      "peak_required_torque_Nmm": 9.039227337241142,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.05,
+      "follower_resistance_coefficient": 0.3,
+      "states": [
+        {
+          "required_horizontal_N": 1.2635263019264626,
+          "front_vertical_reaction_N": -12.824791964553595,
+          "rear_vertical_reaction_N": 0.5412958739756568,
+          "follower_vertical_force_N": 0.37905789057793876,
+          "feedback_denominator": 1.0727309782608696,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 2.842934179334541
+        },
+        {
+          "required_horizontal_N": 1.280014810961746,
+          "front_vertical_reaction_N": -12.99215033126172,
+          "rear_vertical_reaction_N": 0.7037076879731969,
+          "follower_vertical_force_N": 0.3840044432885238,
+          "feedback_denominator": 1.0589125956327867,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 6.1345764593207255
+        },
+        {
+          "required_horizontal_N": 1.2859487301876453,
+          "front_vertical_reaction_N": -13.052379611404598,
+          "rear_vertical_reaction_N": 0.7621567923483056,
+          "follower_vertical_force_N": 0.3857846190562936,
+          "feedback_denominator": 1.0540263185501417,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 7.319179589185081
+        },
+        {
+          "required_horizontal_N": 1.2713967328958575,
+          "front_vertical_reaction_N": -12.904676838892954,
+          "rear_vertical_reaction_N": 0.6188196190241974,
+          "follower_vertical_force_N": 0.38141901986875726,
+          "feedback_denominator": 1.0482797852522132,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 8.580681359832255
+        },
+        {
+          "required_horizontal_N": 1.2444148990157713,
+          "front_vertical_reaction_N": -12.630811225010078,
+          "rear_vertical_reaction_N": 0.35304855530534673,
+          "follower_vertical_force_N": 0.3733244697047314,
+          "feedback_denominator": 1.0450135869565218,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 9.146449507765919
+        },
+        {
+          "required_horizontal_N": 1.2155660322211537,
+          "front_vertical_reaction_N": -12.337995227044711,
+          "rear_vertical_reaction_N": 0.068887217378366,
+          "follower_vertical_force_N": 0.3646698096663461,
+          "feedback_denominator": 1.0432024479309197,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 9.339497207389469
+        },
+        {
+          "required_horizontal_N": 1.2085724060913705,
+          "front_vertical_reaction_N": -12.184174339059458,
+          "rear_vertical_reaction_N": -0.08283558276795333,
+          "follower_vertical_force_N": 0.36257172182741115,
+          "feedback_denominator": 0.985,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 9.395276966105154
+        },
+        {
+          "required_horizontal_N": 1.2085724060913705,
+          "front_vertical_reaction_N": -12.121043900774085,
+          "rear_vertical_reaction_N": -0.1459660210533249,
+          "follower_vertical_force_N": 0.36257172182741115,
+          "feedback_denominator": 0.985,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 9.42412072165434
+        }
+      ],
+      "peak_horizontal_N": 1.2859487301876453,
+      "peak_required_torque_Nmm": 9.42412072165434,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.05,
+      "follower_resistance_coefficient": 0.4,
+      "states": [
+        {
+          "required_horizontal_N": 1.2463044340112939,
+          "front_vertical_reaction_N": -12.712305226915197,
+          "rear_vertical_reaction_N": 0.3093452533106793,
+          "follower_vertical_force_N": 0.49852177360451755,
+          "feedback_denominator": 1.087554347826087,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 3.738913302033882
+        },
+        {
+          "required_horizontal_N": 1.2620242857302777,
+          "front_vertical_reaction_N": -12.87264771444883,
+          "rear_vertical_reaction_N": 0.4633998001567192,
+          "follower_vertical_force_N": 0.5048097142921111,
+          "feedback_denominator": 1.0740077043284388,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 6.931772384676653
+        },
+        {
+          "required_horizontal_N": 1.2674700461355433,
+          "front_vertical_reaction_N": -12.928194470582541,
+          "rear_vertical_reaction_N": 0.5167682521283234,
+          "follower_vertical_force_N": 0.5069880184542174,
+          "feedback_denominator": 1.0693931663762286,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 8.037860780590176
+        },
+        {
+          "required_horizontal_N": 1.2523885346512704,
+          "front_vertical_reaction_N": -12.774363053442958,
+          "rear_vertical_reaction_N": 0.3689694395824499,
+          "follower_vertical_force_N": 0.5009554138605082,
+          "feedback_denominator": 1.0641901113391696,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 9.141208353019497
+        },
+        {
+          "required_horizontal_N": 1.2251252256412886,
+          "front_vertical_reaction_N": -12.496277301541141,
+          "rear_vertical_reaction_N": 0.10178901128462592,
+          "follower_vertical_force_N": 0.49005009025651547,
+          "feedback_denominator": 1.0614673913043478,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 9.555976760002052
+        },
+        {
+          "required_horizontal_N": 1.2147385918367346,
+          "front_vertical_reaction_N": -12.192492963668743,
+          "rear_vertical_reaction_N": -0.19784067306594977,
+          "follower_vertical_force_N": 0.4858954367346939,
+          "feedback_denominator": 0.98,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 9.758298283545676
+        },
+        {
+          "required_horizontal_N": 1.2147385918367348,
+          "front_vertical_reaction_N": -12.033429148270498,
+          "rear_vertical_reaction_N": -0.3569044884641964,
+          "follower_vertical_force_N": 0.48589543673469393,
+          "feedback_denominator": 0.98,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 9.807633630217937
+        },
+        {
+          "required_horizontal_N": 1.2147385918367348,
+          "front_vertical_reaction_N": -11.968986339886287,
+          "rear_vertical_reaction_N": -0.4213472968484063,
+          "follower_vertical_force_N": 0.48589543673469393,
+          "feedback_denominator": 0.98,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 9.812329775948497
+        }
+      ],
+      "peak_horizontal_N": 1.2674700461355433,
+      "peak_required_torque_Nmm": 9.812329775948497,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.1,
+      "follower_resistance_coefficient": 0.05,
+      "states": [
+        {
+          "required_horizontal_N": 2.5302252800365235,
+          "front_vertical_reaction_N": -12.71438203218353,
+          "rear_vertical_reaction_N": 0.6834325681817034,
+          "follower_vertical_force_N": 0.1265112640018262,
+          "feedback_denominator": 1.0713858695652174,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 0.9488344800136963
+        },
+        {
+          "required_horizontal_N": 2.600606825748483,
+          "front_vertical_reaction_N": -13.068049299386125,
+          "rear_vertical_reaction_N": 1.0335807580987004,
+          "follower_vertical_force_N": 0.13003034128742416,
+          "feedback_denominator": 1.0423904086568776,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 7.91256056661922
+        },
+        {
+          "required_horizontal_N": 2.6286773684498796,
+          "front_vertical_reaction_N": -13.209103776460644,
+          "rear_vertical_reaction_N": 1.1732317080381502,
+          "follower_vertical_force_N": 0.131433868422494,
+          "feedback_denominator": 1.0312591588394138,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 10.689930237852188
+        },
+        {
+          "required_horizontal_N": 2.6208764494751526,
+          "front_vertical_reaction_N": -13.16990415861264,
+          "rear_vertical_reaction_N": 1.134422136138884,
+          "follower_vertical_force_N": 0.13104382247375765,
+          "feedback_denominator": 1.0170487009392088,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 14.084641182195243
+        },
+        {
+          "required_horizontal_N": 2.580734034243805,
+          "front_vertical_reaction_N": -12.968188522075122,
+          "rear_vertical_reaction_N": 0.9347136203629323,
+          "follower_vertical_force_N": 0.12903670171219025,
+          "feedback_denominator": 1.0077989130434784,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 16.06506936316769
+        },
+        {
+          "required_horizontal_N": 2.5324674337519846,
+          "front_vertical_reaction_N": -12.72564885460372,
+          "rear_vertical_reaction_N": 0.6945872829161236,
+          "follower_vertical_force_N": 0.12662337168759924,
+          "feedback_denominator": 1.0014592436879262,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 17.241670344005705
+        },
+        {
+          "required_horizontal_N": 2.506030202877741,
+          "front_vertical_reaction_N": -12.592801769460648,
+          "rear_vertical_reaction_N": 0.5630620593167611,
+          "follower_vertical_force_N": 0.12530151014388705,
+          "feedback_denominator": 0.9991156136691982,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 17.602014178230846
+        },
+        {
+          "required_horizontal_N": 2.4950841962932078,
+          "front_vertical_reaction_N": -12.537798086373368,
+          "rear_vertical_reaction_N": 0.5086056765587084,
+          "follower_vertical_force_N": 0.1247542098146604,
+          "feedback_denominator": 0.9983127226660915,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 17.709432741740688
+        }
+      ],
+      "peak_horizontal_N": 2.6286773684498796,
+      "peak_required_torque_Nmm": 17.709432741740688,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.1,
+      "follower_resistance_coefficient": 0.15,
+      "states": [
+        {
+          "required_horizontal_N": 2.461913381111029,
+          "front_vertical_reaction_N": -12.494210409138471,
+          "rear_vertical_reaction_N": 0.22048520197181798,
+          "follower_vertical_force_N": 0.36928700716665436,
+          "feedback_denominator": 1.1011141304347827,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 2.7696525537499075
+        },
+        {
+          "required_horizontal_N": 2.527214759502573,
+          "front_vertical_reaction_N": -12.825614904475557,
+          "rear_vertical_reaction_N": 0.5420944905501714,
+          "follower_vertical_force_N": 0.37908221392538594,
+          "feedback_denominator": 1.0726621477873124,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 9.458309488949775
+        },
+        {
+          "required_horizontal_N": 2.55240844946149,
+          "front_vertical_reaction_N": -12.953472881017062,
+          "rear_vertical_reaction_N": 0.6661734135978384,
+          "follower_vertical_force_N": 0.3828612674192235,
+          "feedback_denominator": 1.062074376230718,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 12.03883616721676
+        },
+        {
+          "required_horizontal_N": 2.5411666572434304,
+          "front_vertical_reaction_N": -12.896420785510408,
+          "rear_vertical_reaction_N": 0.6108075869238946,
+          "follower_vertical_force_N": 0.38117499858651455,
+          "feedback_denominator": 1.0489508748522522,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 15.053920864801428
+        },
+        {
+          "required_horizontal_N": 2.4989343131510933,
+          "front_vertical_reaction_N": -12.682091639241797,
+          "rear_vertical_reaction_N": 0.4028132922691331,
+          "follower_vertical_force_N": 0.374840146972664,
+          "feedback_denominator": 1.0407880434782608,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 16.680386540283546
+        },
+        {
+          "required_horizontal_N": 2.449132198407202,
+          "front_vertical_reaction_N": -12.42934590691655,
+          "rear_vertical_reaction_N": 0.1575378771554713,
+          "follower_vertical_force_N": 0.3673698297610803,
+          "feedback_denominator": 1.035535330644448,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 17.53149953235367
+        },
+        {
+          "required_horizontal_N": 2.422103799077956,
+          "front_vertical_reaction_N": -12.292176780320629,
+          "rear_vertical_reaction_N": 0.0244230104589358,
+          "follower_vertical_force_N": 0.3633155698616934,
+          "feedback_denominator": 1.0337351788865896,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 17.73915771005735
+        },
+        {
+          "required_horizontal_N": 2.417144812182741,
+          "front_vertical_reaction_N": -12.235019471954814,
+          "rear_vertical_reaction_N": -0.03199044987259614,
+          "follower_vertical_force_N": 0.36257172182741115,
+          "feedback_denominator": 0.985,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 17.83304062219193
+        }
+      ],
+      "peak_horizontal_N": 2.55240844946149,
+      "peak_required_torque_Nmm": 17.83304062219193,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.1,
+      "follower_resistance_coefficient": 0.3,
+      "states": [
+        {
+          "required_horizontal_N": 2.454523340206186,
+          "front_vertical_reaction_N": -12.13421626812528,
+          "rear_vertical_reaction_N": -0.5065789339365752,
+          "follower_vertical_force_N": 0.7363570020618557,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 5.522677515463918
+        },
+        {
+          "required_horizontal_N": 2.454523340206186,
+          "front_vertical_reaction_N": -12.473391694970571,
+          "rear_vertical_reaction_N": -0.1674035070912836,
+          "follower_vertical_force_N": 0.7363570020618557,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 11.763505369417281
+        },
+        {
+          "required_horizontal_N": 2.454523340206186,
+          "front_vertical_reaction_N": -12.593326506431241,
+          "rear_vertical_reaction_N": -0.047468695630615176,
+          "follower_vertical_force_N": 0.7363570020618557,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 13.970305900293585
+        },
+        {
+          "required_horizontal_N": 2.454523340206186,
+          "front_vertical_reaction_N": -12.507933389546833,
+          "rear_vertical_reaction_N": -0.13286181251502094,
+          "follower_vertical_force_N": 0.7363570020618557,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 16.565625919620487
+        },
+        {
+          "required_horizontal_N": 2.4545233402061863,
+          "front_vertical_reaction_N": -12.264612820573735,
+          "rear_vertical_reaction_N": -0.3761823814881202,
+          "follower_vertical_force_N": 0.7363570020618558,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 18.04074655051547
+        },
+        {
+          "required_horizontal_N": 2.4545233402061855,
+          "front_vertical_reaction_N": -11.985577482202462,
+          "rear_vertical_reaction_N": -0.6552177198593924,
+          "follower_vertical_force_N": 0.7363570020618556,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 18.858715424484046
+        },
+        {
+          "required_horizontal_N": 2.454523340206186,
+          "front_vertical_reaction_N": -11.835920119919722,
+          "rear_vertical_reaction_N": -0.8048750821421341,
+          "follower_vertical_force_N": 0.7363570020618557,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 19.081129508481606
+        },
+        {
+          "required_horizontal_N": 2.454523340206186,
+          "front_vertical_reaction_N": -11.774405759376908,
+          "rear_vertical_reaction_N": -0.8663894426849472,
+          "follower_vertical_force_N": 0.7363570020618557,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 19.13970909449387
+        }
+      ],
+      "peak_horizontal_N": 2.4545233402061863,
+      "peak_required_torque_Nmm": 19.13970909449387,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.1,
+      "follower_resistance_coefficient": 0.4,
+      "states": [
+        {
+          "required_horizontal_N": 2.4800912916666666,
+          "front_vertical_reaction_N": -11.87478493455616,
+          "rear_vertical_reaction_N": -1.0216897821105067,
+          "follower_vertical_force_N": 0.9920365166666667,
+          "feedback_denominator": 0.96,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 7.440273875
+        },
+        {
+          "required_horizontal_N": 2.4800912916666666,
+          "front_vertical_reaction_N": -12.210754060254459,
+          "rear_vertical_reaction_N": -0.6857206564122069,
+          "follower_vertical_force_N": 0.9920365166666667,
+          "feedback_denominator": 0.96,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 13.62210578784871
+        },
+        {
+          "required_horizontal_N": 2.4800912916666666,
+          "front_vertical_reaction_N": -12.32519881415788,
+          "rear_vertical_reaction_N": -0.571275902508787,
+          "follower_vertical_force_N": 0.9920365166666667,
+          "feedback_denominator": 0.96,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 15.727889259671642
+        },
+        {
+          "required_horizontal_N": 2.4800912916666666,
+          "front_vertical_reaction_N": -12.22779621109782,
+          "rear_vertical_reaction_N": -0.668678505568846,
+          "follower_vertical_force_N": 0.9920365166666667,
+          "feedback_denominator": 0.96,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 18.102234733366537
+        },
+        {
+          "required_horizontal_N": 2.480091291666667,
+          "front_vertical_reaction_N": -11.971831985099639,
+          "rear_vertical_reaction_N": -0.9246427315670274,
+          "follower_vertical_force_N": 0.9920365166666669,
+          "feedback_denominator": 0.96,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 19.344712075000004
+        },
+        {
+          "required_horizontal_N": 2.480091291666666,
+          "front_vertical_reaction_N": -11.679780960855386,
+          "rear_vertical_reaction_N": -1.2166937558112791,
+          "follower_vertical_force_N": 0.9920365166666665,
+          "feedback_denominator": 0.96,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 19.92319232890575
+        },
+        {
+          "required_horizontal_N": 2.4800912916666666,
+          "front_vertical_reaction_N": -11.523510133833062,
+          "rear_vertical_reaction_N": -1.3729645828336055,
+          "follower_vertical_force_N": 0.9920365166666667,
+          "feedback_denominator": 0.96,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 20.023918661694953
+        },
+        {
+          "required_horizontal_N": 2.4800912916666666,
+          "front_vertical_reaction_N": -11.459333185148271,
+          "rear_vertical_reaction_N": -1.4371415315183953,
+          "follower_vertical_force_N": 0.9920365166666667,
+          "feedback_denominator": 0.96,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 20.033506625894844
+        }
+      ],
+      "peak_horizontal_N": 2.480091291666667,
+      "peak_required_torque_Nmm": 20.033506625894844,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.15,
+      "follower_resistance_coefficient": 0.05,
+      "states": [
+        {
+          "required_horizontal_N": 3.672770938976873,
+          "front_vertical_reaction_N": -12.334389070063999,
+          "rear_vertical_reaction_N": 0.24631232311515605,
+          "follower_vertical_force_N": 0.18363854694884366,
+          "feedback_denominator": 1.107139945652174,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 1.3772891021163274
+        },
+        {
+          "required_horizontal_N": 3.822952875447186,
+          "front_vertical_reaction_N": -12.8387500733768,
+          "rear_vertical_reaction_N": 0.7431642296044416,
+          "follower_vertical_force_N": 0.19114764377235932,
+          "feedback_denominator": 1.0636467542896644,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 11.631649148502436
+        },
+        {
+          "required_horizontal_N": 3.8839217589548736,
+          "front_vertical_reaction_N": -13.043503907156785,
+          "rear_vertical_reaction_N": 0.9448696192090409,
+          "follower_vertical_force_N": 0.19419608794774368,
+          "feedback_denominator": 1.0469498795634684,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 15.794579110705874
+        },
+        {
+          "required_horizontal_N": 3.8984059919202783,
+          "front_vertical_reaction_N": -13.092146789532269,
+          "rear_vertical_reaction_N": 0.9927882899362546,
+          "follower_vertical_force_N": 0.19492029959601392,
+          "feedback_denominator": 1.0256341927131611,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 20.95010987248661
+        },
+        {
+          "required_horizontal_N": 3.855947376758365,
+          "front_vertical_reaction_N": -12.949556606946842,
+          "rear_vertical_reaction_N": 0.8523210381089248,
+          "follower_vertical_force_N": 0.19279736883791826,
+          "feedback_denominator": 1.0117595108695652,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 24.003272420320823
+        },
+        {
+          "required_horizontal_N": 3.7957040213080724,
+          "front_vertical_reaction_N": -12.747239338226278,
+          "rear_vertical_reaction_N": 0.6530159371608752,
+          "follower_vertical_force_N": 0.18978520106540364,
+          "feedback_denominator": 1.002250006836237,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 25.84210031157298
+        },
+        {
+          "required_horizontal_N": 3.7604795104247875,
+          "front_vertical_reaction_N": -12.62894368917658,
+          "rear_vertical_reaction_N": 0.5364815136553411,
+          "follower_vertical_force_N": 0.1880239755212394,
+          "feedback_denominator": 0.9987345618081452,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 26.41309493534182
+        },
+        {
+          "required_horizontal_N": 3.7455621405228,
+          "front_vertical_reaction_N": -12.578846188589072,
+          "rear_vertical_reaction_N": 0.48712988156293263,
+          "follower_vertical_force_N": 0.18727810702614,
+          "feedback_denominator": 0.9975302253034851,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 26.584986954004933
+        }
+      ],
+      "peak_horizontal_N": 3.8984059919202783,
+      "peak_required_torque_Nmm": 26.584986954004933,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.15,
+      "follower_resistance_coefficient": 0.15,
+      "states": [
+        {
+          "required_horizontal_N": 3.6535360204603577,
+          "front_vertical_reaction_N": -11.978898852590905,
+          "rear_vertical_reaction_N": -0.47356975047814864,
+          "follower_vertical_force_N": 0.5480304030690536,
+          "feedback_denominator": 0.9775,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 4.1102280230179025
+        },
+        {
+          "required_horizontal_N": 3.666026898352223,
+          "front_vertical_reaction_N": -12.495041678550493,
+          "rear_vertical_reaction_N": 0.04069944379765977,
+          "follower_vertical_force_N": 0.5499040347528334,
+          "feedback_denominator": 1.1091766455940122,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 13.720407760777258
+        },
+        {
+          "required_horizontal_N": 3.719281128551188,
+          "front_vertical_reaction_N": -12.67654984647863,
+          "rear_vertical_reaction_N": 0.21421947719595313,
+          "follower_vertical_force_N": 0.5578921692826782,
+          "feedback_denominator": 1.0932949882591205,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 17.54257480846988
+        },
+        {
+          "required_horizontal_N": 3.7242010272514987,
+          "front_vertical_reaction_N": -12.693318501215526,
+          "rear_vertical_reaction_N": 0.230250147127802,
+          "follower_vertical_force_N": 0.5586301540877248,
+          "feedback_denominator": 1.073609736191422,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 22.062239557980174
+        },
+        {
+          "required_horizontal_N": 3.675728551381591,
+          "front_vertical_reaction_N": -12.528108145958923,
+          "rear_vertical_reaction_N": 0.07231066325168345,
+          "follower_vertical_force_N": 0.5513592827072387,
+          "feedback_denominator": 1.0613654891304347,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 24.53548808047212
+        },
+        {
+          "required_horizontal_N": 3.6535360204603573,
+          "front_vertical_reaction_N": -12.303447933762332,
+          "rear_vertical_reaction_N": -0.1490206693067203,
+          "follower_vertical_force_N": 0.5480304030690536,
+          "feedback_denominator": 0.9775,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 26.152922686572154
+        },
+        {
+          "required_horizontal_N": 3.6535360204603577,
+          "front_vertical_reaction_N": -12.174587445971353,
+          "rear_vertical_reaction_N": -0.2778811570976999,
+          "follower_vertical_force_N": 0.5480304030690536,
+          "feedback_denominator": 0.9775,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 26.75799926121814
+        },
+        {
+          "required_horizontal_N": 3.6535360204603577,
+          "front_vertical_reaction_N": -12.120585133472622,
+          "rear_vertical_reaction_N": -0.331883469596431,
+          "follower_vertical_force_N": 0.5480304030690536,
+          "feedback_denominator": 0.9775,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 26.95480053124151
+        }
+      ],
+      "peak_horizontal_N": 3.7242010272514987,
+      "peak_required_torque_Nmm": 26.95480053124151,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.15,
+      "follower_resistance_coefficient": 0.3,
+      "states": [
+        {
+          "required_horizontal_N": 3.7396140942408373,
+          "front_vertical_reaction_N": -11.386176464113362,
+          "rear_vertical_reaction_N": -1.6401459641588885,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 8.414131712041884
+        },
+        {
+          "required_horizontal_N": 3.7396140942408373,
+          "front_vertical_reaction_N": -11.902930648469278,
+          "rear_vertical_reaction_N": -1.123391779802973,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 17.922408704190723
+        },
+        {
+          "required_horizontal_N": 3.7396140942408373,
+          "front_vertical_reaction_N": -12.085658554935533,
+          "rear_vertical_reaction_N": -0.940663873336719,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 21.284602183169802
+        },
+        {
+          "required_horizontal_N": 3.7396140942408373,
+          "front_vertical_reaction_N": -12.074113606140326,
+          "rear_vertical_reaction_N": -0.9522088221319234,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 25.23872849533802
+        },
+        {
+          "required_horizontal_N": 3.739614094240838,
+          "front_vertical_reaction_N": -11.872766649473597,
+          "rear_vertical_reaction_N": -1.1535557787986548,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 27.48616359267016
+        },
+        {
+          "required_horizontal_N": 3.739614094240837,
+          "front_vertical_reaction_N": -11.61700609126305,
+          "rear_vertical_reaction_N": -1.4093163370092001,
+          "follower_vertical_force_N": 1.121884228272251,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 28.73238842159611
+        },
+        {
+          "required_horizontal_N": 3.7396140942408373,
+          "front_vertical_reaction_N": -11.473677379219255,
+          "rear_vertical_reaction_N": -1.552645049052995,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 29.071249669990294
+        },
+        {
+          "required_horizontal_N": 3.7396140942408373,
+          "front_vertical_reaction_N": -11.413829863259082,
+          "rear_vertical_reaction_N": -1.6124925650131694,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 29.160499196323116
+        }
+      ],
+      "peak_horizontal_N": 3.739614094240838,
+      "peak_required_torque_Nmm": 29.160499196323116,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.15,
+      "follower_resistance_coefficient": 0.4,
+      "states": [
+        {
+          "required_horizontal_N": 3.7992887872340426,
+          "front_vertical_reaction_N": -10.97526431181776,
+          "rear_vertical_reaction_N": -2.4488894030758557,
+          "follower_vertical_force_N": 1.5197155148936172,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 11.397866361702128
+        },
+        {
+          "required_horizontal_N": 3.7992887872340426,
+          "front_vertical_reaction_N": -11.489940419270475,
+          "rear_vertical_reaction_N": -1.934213295623141,
+          "follower_vertical_force_N": 1.5197155148936172,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 20.86790673883207
+        },
+        {
+          "required_horizontal_N": 3.7992887872340426,
+          "front_vertical_reaction_N": -11.66526004227146,
+          "rear_vertical_reaction_N": -1.7588936726221573,
+          "follower_vertical_force_N": 1.5197155148936172,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 24.093787802050176
+        },
+        {
+          "required_horizontal_N": 3.7992887872340426,
+          "front_vertical_reaction_N": -11.636496010953273,
+          "rear_vertical_reaction_N": -1.787657703940343,
+          "follower_vertical_force_N": 1.5197155148936172,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 27.731082995795546
+        },
+        {
+          "required_horizontal_N": 3.799288787234043,
+          "front_vertical_reaction_N": -11.416449839465773,
+          "rear_vertical_reaction_N": -2.007703875427844,
+          "follower_vertical_force_N": 1.5197155148936172,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 29.63445254042554
+        },
+        {
+          "required_horizontal_N": 3.799288787234042,
+          "front_vertical_reaction_N": -11.141121764282163,
+          "rear_vertical_reaction_N": -2.283031950611452,
+          "follower_vertical_force_N": 1.519715514893617,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 30.520635057047112
+        },
+        {
+          "required_horizontal_N": 3.7992887872340426,
+          "front_vertical_reaction_N": -10.987762776204947,
+          "rear_vertical_reaction_N": -2.4363909386886697,
+          "follower_vertical_force_N": 1.5197155148936172,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 30.674939226426314
+        },
+        {
+          "required_horizontal_N": 3.7992887872340426,
+          "front_vertical_reaction_N": -10.923863000398276,
+          "rear_vertical_reaction_N": -2.500290714495341,
+          "follower_vertical_force_N": 1.5197155148936172,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 30.689627171583595
+        }
+      ],
+      "peak_horizontal_N": 3.799288787234043,
+      "peak_required_torque_Nmm": 30.689627171583595,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.2,
+      "follower_resistance_coefficient": 0.05,
+      "states": [
+        {
+          "required_horizontal_N": 4.80987402020202,
+          "front_vertical_reaction_N": -11.95573916611221,
+          "rear_vertical_reaction_N": -0.18919273489789123,
+          "follower_vertical_force_N": 0.24049370101010104,
+          "feedback_denominator": 0.99,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 1.8037027575757578
+        },
+        {
+          "required_horizontal_N": 4.9972126850303376,
+          "front_vertical_reaction_N": -12.617962029701603,
+          "rear_vertical_reaction_N": 0.46366319545008583,
+          "follower_vertical_force_N": 0.2498606342515169,
+          "feedback_denominator": 1.0849438607920163,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 15.204431382356365
+        },
+        {
+          "required_horizontal_N": 5.101901117181827,
+          "front_vertical_reaction_N": -12.882300320884111,
+          "rear_vertical_reaction_N": 0.7227670650250203,
+          "follower_vertical_force_N": 0.25509505585909137,
+          "feedback_denominator": 1.0626813611570882,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 20.7476838647777
+        },
+        {
+          "required_horizontal_N": 5.1545217652437945,
+          "front_vertical_reaction_N": -13.01516745724058,
+          "rear_vertical_reaction_N": 0.8530031689783913,
+          "follower_vertical_force_N": 0.25772608826218973,
+          "feedback_denominator": 1.0342604453566786,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 27.700500549658873
+        },
+        {
+          "required_horizontal_N": 5.121010333226326,
+          "front_vertical_reaction_N": -12.93055109139647,
+          "rear_vertical_reaction_N": 0.7700623747351545,
+          "follower_vertical_force_N": 0.2560505166613163,
+          "feedback_denominator": 1.0157608695652174,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 31.87828932433388
+        },
+        {
+          "required_horizontal_N": 5.056743331142884,
+          "front_vertical_reaction_N": -12.76827691113578,
+          "rear_vertical_reaction_N": 0.6110015445786381,
+          "follower_vertical_force_N": 0.2528371665571442,
+          "feedback_denominator": 1.003081530854113,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 34.42757066401567
+        },
+        {
+          "required_horizontal_N": 5.01568163441822,
+          "front_vertical_reaction_N": -12.664596126906005,
+          "rear_vertical_reaction_N": 0.5093738451850945,
+          "follower_vertical_force_N": 0.250784081720911,
+          "feedback_denominator": 0.9983942708166573,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 35.22946337244472
+        },
+        {
+          "required_horizontal_N": 4.997799082240988,
+          "front_vertical_reaction_N": -12.619442682658494,
+          "rear_vertical_reaction_N": 0.4651145285464454,
+          "follower_vertical_force_N": 0.2498899541120494,
+          "feedback_denominator": 0.9967884888104439,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 35.4730260546603
+        }
+      ],
+      "peak_horizontal_N": 5.1545217652437945,
+      "peak_required_torque_Nmm": 35.4730260546603,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.2,
+      "follower_resistance_coefficient": 0.15,
+      "states": [
+        {
+          "required_horizontal_N": 4.909046680412372,
+          "front_vertical_reaction_N": -11.434543718158897,
+          "rear_vertical_reaction_N": -1.2062514839029579,
+          "follower_vertical_force_N": 0.7363570020618557,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 5.522677515463918
+        },
+        {
+          "required_horizontal_N": 4.909046680412372,
+          "front_vertical_reaction_N": -12.132904272992466,
+          "rear_vertical_reaction_N": -0.5078909290693898,
+          "follower_vertical_force_N": 0.7363570020618557,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 18.37251172440157
+        },
+        {
+          "required_horizontal_N": 4.909046680412372,
+          "front_vertical_reaction_N": -12.392783597056788,
+          "rear_vertical_reaction_N": -0.24801160500506714,
+          "follower_vertical_force_N": 0.7363570020618557,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 23.154291287185107
+        },
+        {
+          "required_horizontal_N": 4.909046680412372,
+          "front_vertical_reaction_N": -12.488459883508728,
+          "rear_vertical_reaction_N": -0.15233531855312732,
+          "follower_vertical_force_N": 0.7363570020618557,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 29.081288327900772
+        },
+        {
+          "required_horizontal_N": 4.909046680412373,
+          "front_vertical_reaction_N": -12.36532831632676,
+          "rear_vertical_reaction_N": -0.2754668857350948,
+          "follower_vertical_force_N": 0.7363570020618558,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 32.767886591752585
+        },
+        {
+          "required_horizontal_N": 4.909046680412371,
+          "front_vertical_reaction_N": -12.170767210348446,
+          "rear_vertical_reaction_N": -0.47002799171340837,
+          "follower_vertical_force_N": 0.7363570020618556,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 35.14018134175159
+        },
+        {
+          "required_horizontal_N": 4.909046680412372,
+          "front_vertical_reaction_N": -12.05320727116508,
+          "rear_vertical_reaction_N": -0.5875879308967756,
+          "follower_vertical_force_N": 0.7363570020618557,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 35.953188010777644
+        },
+        {
+          "required_horizontal_N": 4.909046680412372,
+          "front_vertical_reaction_N": -12.0028804642323,
+          "rear_vertical_reaction_N": -0.6379147378295544,
+          "follower_vertical_force_N": 0.7363570020618557,
+          "feedback_denominator": 0.97,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 36.217618583214545
+        }
+      ],
+      "peak_horizontal_N": 4.909046680412373,
+      "peak_required_torque_Nmm": 36.217618583214545,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.2,
+      "follower_resistance_coefficient": 0.3,
+      "states": [
+        {
+          "required_horizontal_N": 5.065718382978724,
+          "front_vertical_reaction_N": -10.611165803041168,
+          "rear_vertical_reaction_N": -2.81298791185245,
+          "follower_vertical_force_N": 1.519715514893617,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 11.397866361702127
+        },
+        {
+          "required_horizontal_N": 5.065718382978724,
+          "front_vertical_reaction_N": -11.311166152062299,
+          "rear_vertical_reaction_N": -2.112987562831317,
+          "follower_vertical_force_N": 1.519715514893617,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 24.27787278369098
+        },
+        {
+          "required_horizontal_N": 5.065718382978724,
+          "front_vertical_reaction_N": -11.558691188481125,
+          "rear_vertical_reaction_N": -1.8654625264124907,
+          "follower_vertical_force_N": 1.519715514893617,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 28.832333453797396
+        },
+        {
+          "required_horizontal_N": 5.065718382978724,
+          "front_vertical_reaction_N": -11.623351264203503,
+          "rear_vertical_reaction_N": -1.8008024506901144,
+          "follower_vertical_force_N": 1.519715514893617,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 34.18863221708909
+        },
+        {
+          "required_horizontal_N": 5.065718382978725,
+          "front_vertical_reaction_N": -11.465317503214617,
+          "rear_vertical_reaction_N": -1.958836211678999,
+          "follower_vertical_force_N": 1.5197155148936174,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 37.23303011489362
+        },
+        {
+          "required_horizontal_N": 5.065718382978723,
+          "front_vertical_reaction_N": -11.233574537297587,
+          "rear_vertical_reaction_N": -2.1905791775960286,
+          "follower_vertical_force_N": 1.5197155148936168,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 38.92117864202026
+        },
+        {
+          "required_horizontal_N": 5.065718382978724,
+          "front_vertical_reaction_N": -11.096776453691856,
+          "rear_vertical_reaction_N": -2.327377261201761,
+          "follower_vertical_force_N": 1.519715514893617,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 39.380203453674795
+        },
+        {
+          "required_horizontal_N": 5.065718382978724,
+          "front_vertical_reaction_N": -11.03864897948185,
+          "rear_vertical_reaction_N": -2.3855047354117653,
+          "follower_vertical_force_N": 1.519715514893617,
+          "feedback_denominator": 0.94,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 39.50110174821074
+        }
+      ],
+      "peak_horizontal_N": 5.065718382978725,
+      "peak_required_torque_Nmm": 39.50110174821074,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.2,
+      "follower_resistance_coefficient": 0.4,
+      "states": [
+        {
+          "required_horizontal_N": 5.175842695652174,
+          "front_vertical_reaction_N": -10.032414659806237,
+          "rear_vertical_reaction_N": -3.9423606184546314,
+          "follower_vertical_force_N": 2.0703370782608697,
+          "feedback_denominator": 0.9199999999999999,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 15.527528086956522
+        },
+        {
+          "required_horizontal_N": 5.175842695652174,
+          "front_vertical_reaction_N": -10.733567617785297,
+          "rear_vertical_reaction_N": -3.2412076604755713,
+          "follower_vertical_force_N": 2.0703370782608697,
+          "feedback_denominator": 0.9199999999999999,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 28.428742513771223
+        },
+        {
+          "required_horizontal_N": 5.175842695652174,
+          "front_vertical_reaction_N": -10.97240884332287,
+          "rear_vertical_reaction_N": -3.002366434937999,
+          "follower_vertical_force_N": 2.0703370782608697,
+          "feedback_denominator": 0.9199999999999999,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 32.82342106366256
+        },
+        {
+          "required_horizontal_N": 5.175842695652174,
+          "front_vertical_reaction_N": -11.015267669474467,
+          "rear_vertical_reaction_N": -2.959507608786403,
+          "follower_vertical_force_N": 2.0703370782608697,
+          "feedback_denominator": 0.9199999999999999,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 37.778576834851904
+        },
+        {
+          "required_horizontal_N": 5.175842695652175,
+          "front_vertical_reaction_N": -10.83270120704159,
+          "rear_vertical_reaction_N": -3.1420740712192807,
+          "follower_vertical_force_N": 2.07033707826087,
+          "feedback_denominator": 0.9199999999999999,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 40.37157302608696
+        },
+        {
+          "required_horizontal_N": 5.1758426956521735,
+          "front_vertical_reaction_N": -10.57482316566039,
+          "rear_vertical_reaction_N": -3.399952112600478,
+          "follower_vertical_force_N": 2.0703370782608697,
+          "feedback_denominator": 0.9199999999999999,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 41.57883616467287
+        },
+        {
+          "required_horizontal_N": 5.175842695652174,
+          "front_vertical_reaction_N": -10.424502618221545,
+          "rear_vertical_reaction_N": -3.5502726600393237,
+          "follower_vertical_force_N": 2.0703370782608697,
+          "feedback_denominator": 0.9199999999999999,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 41.78904764179816
+        },
+        {
+          "required_horizontal_N": 5.175842695652174,
+          "front_vertical_reaction_N": -10.360892066287695,
+          "rear_vertical_reaction_N": -3.6138832119731736,
+          "follower_vertical_force_N": 2.0703370782608697,
+          "feedback_denominator": 0.9199999999999999,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 41.80905730621533
+        }
+      ],
+      "peak_horizontal_N": 5.175842695652175,
+      "peak_required_torque_Nmm": 41.80905730621533,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.3,
+      "follower_resistance_coefficient": 0.05,
+      "states": [
+        {
+          "required_horizontal_N": 7.251434436548223,
+          "front_vertical_reaction_N": -11.141362660447474,
+          "rear_vertical_reaction_N": -1.1256472613799378,
+          "follower_vertical_force_N": 0.36257172182741115,
+          "feedback_denominator": 0.985,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 2.7192879137055836
+        },
+        {
+          "required_horizontal_N": 7.251434436548223,
+          "front_vertical_reaction_N": -12.192656079119086,
+          "rear_vertical_reaction_N": -0.07435384270832568,
+          "follower_vertical_force_N": 0.36257172182741115,
+          "feedback_denominator": 0.985,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 22.063086817263233
+        },
+        {
+          "required_horizontal_N": 7.4319574259772745,
+          "front_vertical_reaction_N": -12.572394645611555,
+          "rear_vertical_reaction_N": 0.29635857431269064,
+          "follower_vertical_force_N": 0.37159787129886374,
+          "feedback_denominator": 1.0942666069530236,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 30.22322456453993
+        },
+        {
+          "required_horizontal_N": 7.604040556963042,
+          "front_vertical_reaction_N": -12.863501942195814,
+          "rear_vertical_reaction_N": 0.5788617143476635,
+          "follower_vertical_force_N": 0.38020202784815216,
+          "feedback_denominator": 1.0516352332524093,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 40.86426233527033
+        },
+        {
+          "required_horizontal_N": 7.620559181082302,
+          "front_vertical_reaction_N": -12.89144594799756,
+          "rear_vertical_reaction_N": 0.6059797889434452,
+          "follower_vertical_force_N": 0.38102795905411513,
+          "feedback_denominator": 1.0238858695652173,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 47.437980902237335
+        },
+        {
+          "required_horizontal_N": 7.571638646001457,
+          "front_vertical_reaction_N": -12.808688709485796,
+          "rear_vertical_reaction_N": 0.5256685771857249,
+          "follower_vertical_force_N": 0.37858193230007287,
+          "feedback_denominator": 1.0048668614985607,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 51.5496056369331
+        },
+        {
+          "required_horizontal_N": 7.527731938955244,
+          "front_vertical_reaction_N": -12.734413196732623,
+          "rear_vertical_reaction_N": 0.45358839978486165,
+          "follower_vertical_force_N": 0.3763865969477622,
+          "feedback_denominator": 0.9978359714423773,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 52.87376192324195
+        },
+        {
+          "required_horizontal_N": 7.506949933572032,
+          "front_vertical_reaction_N": -12.699256970959356,
+          "rear_vertical_reaction_N": 0.4194712742807546,
+          "follower_vertical_force_N": 0.3753474966786016,
+          "feedback_denominator": 0.9954272984330571,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 53.28230010903642
+        }
+      ],
+      "peak_horizontal_N": 7.620559181082302,
+      "peak_required_torque_Nmm": 53.28230010903642,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.3,
+      "follower_resistance_coefficient": 0.15,
+      "states": [
+        {
+          "required_horizontal_N": 7.479228188481675,
+          "front_vertical_reaction_N": -10.315610309688712,
+          "rear_vertical_reaction_N": -2.7107121185835403,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 8.414131712041884
+        },
+        {
+          "required_horizontal_N": 7.479228188481675,
+          "front_vertical_reaction_N": -11.379604662864459,
+          "rear_vertical_reaction_N": -1.646717765407791,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 27.991627810475688
+        },
+        {
+          "required_horizontal_N": 7.479228188481675,
+          "front_vertical_reaction_N": -11.775546460260887,
+          "rear_vertical_reaction_N": -1.2507759680113624,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 35.276956882569976
+        },
+        {
+          "required_horizontal_N": 7.479228188481675,
+          "front_vertical_reaction_N": -12.0398716495331,
+          "rear_vertical_reaction_N": -0.9864507787391494,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 44.307093735178654
+        },
+        {
+          "required_horizontal_N": 7.479228188481676,
+          "front_vertical_reaction_N": -12.021639873605737,
+          "rear_vertical_reaction_N": -1.004682554666513,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 49.923848158115185
+        },
+        {
+          "required_horizontal_N": 7.479228188481674,
+          "front_vertical_reaction_N": -11.894580894590746,
+          "rear_vertical_reaction_N": -1.1317415336815038,
+          "follower_vertical_force_N": 1.121884228272251,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 53.538182044239335
+        },
+        {
+          "required_horizontal_N": 7.479228188481675,
+          "front_vertical_reaction_N": -11.80015453920621,
+          "rear_vertical_reaction_N": -1.2261678890660423,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 54.77684665516384
+        },
+        {
+          "required_horizontal_N": 7.479228188481675,
+          "front_vertical_reaction_N": -11.75735193476708,
+          "rear_vertical_reaction_N": -1.2689704935051696,
+          "follower_vertical_force_N": 1.1218842282722512,
+          "feedback_denominator": 0.955,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 55.17972255348393
+        }
+      ],
+      "peak_horizontal_N": 7.479228188481676,
+      "peak_required_torque_Nmm": 55.17972255348393,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.3,
+      "follower_resistance_coefficient": 0.3,
+      "states": [
+        {
+          "required_horizontal_N": 7.8490801318681305,
+          "front_vertical_reaction_N": -8.974897014912806,
+          "rear_vertical_reaction_N": -5.2842652246476325,
+          "follower_vertical_force_N": 2.354724039560439,
+          "feedback_denominator": 0.91,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 17.660430296703293
+        },
+        {
+          "required_horizontal_N": 7.8490801318681305,
+          "front_vertical_reaction_N": -10.059512940319177,
+          "rear_vertical_reaction_N": -4.199649299241261,
+          "follower_vertical_force_N": 2.354724039560439,
+          "feedback_denominator": 0.91,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 37.61736332418052
+        },
+        {
+          "required_horizontal_N": 7.8490801318681305,
+          "front_vertical_reaction_N": -10.443040744001095,
+          "rear_vertical_reaction_N": -3.8161214955593437,
+          "follower_vertical_force_N": 2.354724039560439,
+          "feedback_denominator": 0.91,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 44.674274911927824
+        },
+        {
+          "required_horizontal_N": 7.8490801318681305,
+          "front_vertical_reaction_N": -10.667647629425206,
+          "rear_vertical_reaction_N": -3.591514610135233,
+          "follower_vertical_force_N": 2.354724039560439,
+          "feedback_denominator": 0.91,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 52.97359497373144
+        },
+        {
+          "required_horizontal_N": 7.849080131868132,
+          "front_vertical_reaction_N": -10.600523982441473,
+          "rear_vertical_reaction_N": -3.6586382571189673,
+          "follower_vertical_force_N": 2.3547240395604394,
+          "feedback_denominator": 0.91,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 57.69073896923077
+        },
+        {
+          "required_horizontal_N": 7.84908013186813,
+          "front_vertical_reaction_N": -10.419191567382262,
+          "rear_vertical_reaction_N": -3.8399706721781763,
+          "follower_vertical_force_N": 2.354724039560439,
+          "feedback_denominator": 0.91,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 60.30644163214127
+        },
+        {
+          "required_horizontal_N": 7.8490801318681305,
+          "front_vertical_reaction_N": -10.296100626981694,
+          "rear_vertical_reaction_N": -3.9630616125787443,
+          "follower_vertical_force_N": 2.354724039560439,
+          "feedback_denominator": 0.91,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 61.017677878770826
+        },
+        {
+          "required_horizontal_N": 7.8490801318681305,
+          "front_vertical_reaction_N": -10.241583350291277,
+          "rear_vertical_reaction_N": -4.017578889269161,
+          "follower_vertical_force_N": 2.354724039560439,
+          "feedback_denominator": 0.91,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 61.20500380766719
+        }
+      ],
+      "peak_horizontal_N": 7.849080131868132,
+      "peak_required_torque_Nmm": 61.20500380766719,
+      "all_states_have_positive_finite_solution": true
+    },
+    {
+      "guide_mu": 0.3,
+      "follower_resistance_coefficient": 0.4,
+      "states": [
+        {
+          "required_horizontal_N": 8.116662409090909,
+          "front_vertical_reaction_N": -8.004911259980236,
+          "rear_vertical_reaction_N": -7.146191903656126,
+          "follower_vertical_force_N": 3.2466649636363636,
+          "feedback_denominator": 0.88,
+          "stroke_mm": 0.0,
+          "angle_deg": 0.0,
+          "follower_z_mm": 10.5,
+          "required_torque_Nmm": 24.349987227272727
+        },
+        {
+          "required_horizontal_N": 8.116662409090909,
+          "front_vertical_reaction_N": -9.104446580447398,
+          "rear_vertical_reaction_N": -6.046656583188964,
+          "follower_vertical_force_N": 3.2466649636363636,
+          "feedback_denominator": 0.88,
+          "stroke_mm": 0.5,
+          "angle_deg": 21.039469781317234,
+          "follower_z_mm": 13.192582403567252,
+          "required_torque_Nmm": 44.581437123868504
+        },
+        {
+          "required_horizontal_N": 8.116662409090909,
+          "front_vertical_reaction_N": -9.478993047767684,
+          "rear_vertical_reaction_N": -5.67211011586868,
+          "follower_vertical_force_N": 3.2466649636363636,
+          "feedback_denominator": 0.88,
+          "stroke_mm": 1.0,
+          "angle_deg": 29.926434866614244,
+          "follower_z_mm": 14.24165738677394,
+          "required_torque_Nmm": 51.47309212256173
+        },
+        {
+          "required_horizontal_N": 8.116662409090909,
+          "front_vertical_reaction_N": -9.674864342150176,
+          "rear_vertical_reaction_N": -5.476238821486188,
+          "follower_vertical_force_N": 3.2466649636363636,
+          "feedback_denominator": 0.88,
+          "stroke_mm": 2.0,
+          "angle_deg": 42.83342806606725,
+          "follower_z_mm": 15.599019513592784,
+          "required_torque_Nmm": 59.24367730919957
+        },
+        {
+          "required_horizontal_N": 8.116662409090909,
+          "front_vertical_reaction_N": -9.572368167243084,
+          "rear_vertical_reaction_N": -5.57873499639328,
+          "follower_vertical_force_N": 3.2466649636363636,
+          "feedback_denominator": 0.88,
+          "stroke_mm": 3.0,
+          "angle_deg": 53.13010235415599,
+          "follower_z_mm": 16.5,
+          "required_torque_Nmm": 63.30996679090909
+        },
+        {
+          "required_horizontal_N": 8.116662409090907,
+          "front_vertical_reaction_N": -9.35176974353067,
+          "rear_vertical_reaction_N": -5.799333420105691,
+          "follower_vertical_force_N": 3.2466649636363627,
+          "feedback_denominator": 0.88,
+          "stroke_mm": 4.0,
+          "angle_deg": 62.181860715346076,
+          "follower_z_mm": 17.1332495807108,
+          "required_torque_Nmm": 65.20317489460064
+        },
+        {
+          "required_horizontal_N": 8.116662409090909,
+          "front_vertical_reaction_N": -9.207940410182896,
+          "rear_vertical_reaction_N": -5.943162753453466,
+          "follower_vertical_force_N": 3.2466649636363636,
+          "feedback_denominator": 0.88,
+          "stroke_mm": 4.500000000000001,
+          "angle_deg": 66.42182152179818,
+          "follower_z_mm": 17.37386354243376,
+          "required_torque_Nmm": 65.53282471100167
+        },
+        {
+          "required_horizontal_N": 8.116662409090909,
+          "front_vertical_reaction_N": -9.144947745613706,
+          "rear_vertical_reaction_N": -6.006155418022655,
+          "follower_vertical_force_N": 3.2466649636363636,
+          "feedback_denominator": 0.88,
+          "stroke_mm": 4.700000000000001,
+          "angle_deg": 68.07865993845496,
+          "follower_z_mm": 17.45772951471958,
+          "required_torque_Nmm": 65.56420350292858
+        }
+      ],
+      "peak_horizontal_N": 8.116662409090909,
+      "peak_required_torque_Nmm": 65.56420350292858,
+      "all_states_have_positive_finite_solution": true
+    }
+  ],
+  "coefficients_measured": false,
+  "actuator_qualified": false,
+  "notes": [
+    "The follower is a fixed stainless sliding sleeve, not a rolling bearing. Its slot friction is unmeasured; .05/.15/.30/.40 are explicit sensitivities.",
+    "No useful continuous servo force is inferred from stall torque or power-supply current capacity.",
+    "Before distal support loss, three possible contacts make load sharing compliance-dependent. The long-guide-only alternate contact mode does not establish actual load sharing.",
+    "Bearing clearances, impacts, gear backlash, housing flexure and real friction transitions require the measured force-profile test."
+  ]
+}

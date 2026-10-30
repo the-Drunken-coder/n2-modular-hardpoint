@@ -1,0 +1,163 @@
+{
+  "revision": "R4",
+  "generated_from": "analysis/evidence/summary.json",
+  "source_summary_sha256": "efb491215b37675930e6d8885db53d603f9f66e8123ce8215ac9a3b26e148f49",
+  "recorded_local_run_started_utc": "2026-10-30T14:26:18.475919+00:00",
+  "status_text": "Completed local development run: 42 fresh STEP/mesh solves and 678 nominal CAD checks passed numerical and provenance gates. Physical measurements remain PENDING. This is not a payload rating or a GitHub Actions run result.",
+  "metrics": [
+    {
+      "value": "678",
+      "label": "Nominal CAD checks passed"
+    },
+    {
+      "value": "42",
+      "label": "Actual STEP / mesh solves"
+    },
+    {
+      "value": "3.21%",
+      "label": "Largest finest-pair displacement change"
+    },
+    {
+      "value": "PENDING",
+      "label": "Physical release qualification"
+    }
+  ],
+  "rows": [
+    {
+      "name": "Receiver · 2 g retained",
+      "displacement": "0.0149 mm",
+      "stress": "T 3.51 / C 2.32 MPa",
+      "scope": "Four rigid host-mount annuli; h = 0.85 mm."
+    },
+    {
+      "name": "Receiver · 2 g + 3 N preload",
+      "displacement": "0.0158 mm",
+      "stress": "T 4.75 / C 3.11 MPa",
+      "scope": "Four rigid host-mount annuli; h = 0.85 mm."
+    },
+    {
+      "name": "Receiver · distal support lost",
+      "displacement": "0.0213 mm",
+      "stress": "T 10.72 / C 7.08 MPa",
+      "scope": "Four rigid host-mount annuli; h = 0.85 mm."
+    },
+    {
+      "name": "Receiver · 4 g static sensitivity",
+      "displacement": "0.0307 mm",
+      "stress": "T 8.27 / C 5.43 MPa",
+      "scope": "Four rigid host-mount annuli; h = 0.85 mm."
+    },
+    {
+      "name": "Receiver · 12 N servo reaction",
+      "displacement": "0.0309 mm",
+      "stress": "T 3.78 / C 4.17 MPa",
+      "scope": "Four rigid host-mount annuli; h = 0.85 mm. Equivalent servo-mount force/moment; fastener behavior unmodeled."
+    },
+    {
+      "name": "Receiver · lateral / CG sensitivity",
+      "displacement": "0.0760 mm",
+      "stress": "T 13.15 / C 10.38 MPa",
+      "scope": "Four rigid host-mount annuli; h = 0.85 mm. Assumed 1 g transverse / 60 mm CG offset; hard seat engaged."
+    },
+    {
+      "name": "Adapter · retained lug",
+      "displacement": "0.0116 mm",
+      "stress": "T 5.78 / C 2.45 MPa",
+      "scope": "Rigid payload-bolt annuli; h = 0.35 mm."
+    },
+    {
+      "name": "Adapter · 0.3 mm remaining contact",
+      "displacement": "0.0339 mm",
+      "stress": "T 14.78 / C 20.34 MPa",
+      "scope": "Rigid payload-bolt annuli; h = 0.35 mm."
+    },
+    {
+      "name": "Adapter · 0.1 mm remaining contact",
+      "displacement": "0.0356 mm",
+      "stress": "T 25.57 / C 63.00 MPa",
+      "scope": "Rigid payload-bolt annuli; h = 0.35 mm."
+    },
+    {
+      "name": "Adapter · lateral / CG sensitivity",
+      "displacement": "0.0277 mm",
+      "stress": "T 15.40 / C 8.44 MPa",
+      "scope": "Rigid payload-bolt annuli; h = 0.35 mm. Assumed 1 g transverse / 60 mm CG offset; hard seat engaged."
+    },
+    {
+      "name": "Keeper · retained",
+      "displacement": "0.0078 mm",
+      "stress": "T 2.72 / C 3.40 MPa",
+      "scope": "Balanced contact tractions; gauge-relative motion; h = 0.35 mm."
+    },
+    {
+      "name": "Keeper · distal support lost",
+      "displacement": "0.2248 mm",
+      "stress": "T 6.84 / C 10.82 MPa",
+      "scope": "Balanced contact tractions; gauge-relative motion; h = 0.35 mm."
+    },
+    {
+      "name": "Keeper · 0.3 mm remaining contact",
+      "displacement": "0.0621 mm",
+      "stress": "T 10.75 / C 17.80 MPa",
+      "scope": "Balanced contact tractions; gauge-relative motion; h = 0.35 mm."
+    },
+    {
+      "name": "Keeper · 0.1 mm remaining contact",
+      "displacement": "0.0591 mm",
+      "stress": "T 27.99 / C 58.05 MPa",
+      "scope": "Balanced contact tractions; gauge-relative motion; h = 0.35 mm."
+    },
+    {
+      "name": "Keeper · 12 N blocked-tip fixture",
+      "displacement": "1.1730 mm",
+      "stress": "T 29.81 / C 10.57 MPa",
+      "scope": "Tip-fixed fixture without guide support; not installed release deflection."
+    },
+    {
+      "name": "Keeper · tipping reaction sensitivity",
+      "displacement": "0.0208 mm",
+      "stress": "T 7.24 / C 9.06 MPa",
+      "scope": "Balanced contact tractions; gauge-relative motion; h = 0.35 mm. Assumed 1 g transverse / 60 mm CG offset; hard seat engaged."
+    }
+  ],
+  "limits": [
+    "Stress entries show raw peak tension (T) / compression (C). They are not qualified allowables or a safety factor.",
+    "The 0.454 kg departing-mass assumption gives 8.9044 N at 2 g; the preload sensitivity is 3 N total.",
+    "Maximum displacement changes across the finest two meshes are approximately 3.21% for the receiver, 0.99% for the adapter and 0.56% for the keeper. Only two receiver mesh levels were solved.",
+    "Raw stresses remain mesh-sensitive: the keeper axial fixture changes 29.5% in peak tension and 36.6% in peak compression; terminal-bearing compression changes up to 27.9% in the keeper.",
+    "The 12 N blocked-tip keeper case gives 1.173 mm maximum displacement in its deliberately unsupported fixture. It does not include the installed guide constraints and does not bound near-dead-center servo stall.",
+    "All parts use an isotropic effective-solid PLA comparison proxy, E = 2200 MPa and Poisson ratio 0.35. PAHT-CF directionality, print defects, creep and fatigue are not characterized.",
+    "Prescribed component contact tractions and rigid mounts do not solve assembled nonlinear contact, host flexibility, bolt slip, local yielding or dynamic release. Separate component displacement maxima cannot be added into an assembly-clearance claim.",
+    "Applied loads are the specified payload/contact forces and servo inertia in the vertical receiver cases. Distributed inertia of printed bodies, separate hardware inertia and harness loads are not modeled; the installation mass budget is separate.",
+    "Guide and sleeve friction coefficients are assumed. The coupled torque-demand calculation gives no measured servo margin. B03 compares required and available shaft torque through a consistent load path.",
+    "The uncalibrated tolerance stack can reach the open stop. Actual keeper calibration must leave at least 0.5 mm past the measured lug-clearance position and at least 0.5 mm before the actual open stop.",
+    "300 loaded-release trials, material/fit inspection, force/torque-profile measurements and power-loss tests remain unperformed. Numerical passes do not establish a flight-qualified payload rating."
+  ],
+  "plots": [
+    {
+      "src": "../analysis/evidence/plots/mesh-refinement.png",
+      "alt": "Component displacement and raw tensile-stress changes over the actual solved mesh sizes",
+      "caption": "Actual mesh refinement. Displacement settles more closely than several local contact and fixture stress peaks."
+    },
+    {
+      "src": "../analysis/evidence/plots/crank-demand.png",
+      "alt": "Calculated follower-force and shaft-torque demand for assumed guide and sliding-sleeve friction coefficients",
+      "caption": "Coupled crank and guide sensitivity. The coefficients are assumptions; this is demand, not measured servo output."
+    },
+    {
+      "src": "../analysis/evidence/plots/receiver-displacement.png",
+      "alt": "Undeformed receiver boundary mesh colored by solved displacement magnitude for the 2 g plus preload case",
+      "caption": "Receiver: 2 g plus 3 N preload, four rigid host interfaces. The geometry is undeformed; colors show triangle-averaged surface displacement."
+    },
+    {
+      "src": "../analysis/evidence/plots/adapter-displacement.png",
+      "alt": "Undeformed adapter boundary mesh colored by solved displacement at 0.1 mm remaining lug contact",
+      "caption": "Adapter: terminal 0.1 mm contact. Raw local compression reaches 63.0 MPa in the proxy model; it is not a material pass."
+    },
+    {
+      "src": "../analysis/evidence/plots/keeper-displacement.png",
+      "alt": "Undeformed keeper boundary mesh colored by displacement in the 12 N blocked-tip sensitivity fixture",
+      "caption": "Keeper: 12 N axial blocked-tip sensitivity. Its large fixture deflection is shown explicitly; installed guide support is absent from this case."
+    }
+  ]
+}

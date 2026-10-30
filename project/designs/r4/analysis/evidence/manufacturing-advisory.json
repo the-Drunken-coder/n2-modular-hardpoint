@@ -1,0 +1,43 @@
+{
+  "parts": [
+    {
+      "id": "receiver_core",
+      "up": "+Z",
+      "areas_mm2": {
+        "SUPPORT": 250.18,
+        "bridge": 120.24,
+        "small-curve": 21.06,
+        "sliver": 0
+      },
+      "support_indicated": true,
+      "step_sha256": "a647a7bbb4eebda2c7135735243a02a390d58c1253e5a403999f5c0320b15f5b"
+    },
+    {
+      "id": "payload_adapter",
+      "up": "-Z",
+      "areas_mm2": {
+        "SUPPORT": 0,
+        "bridge": 16.1,
+        "small-curve": 0,
+        "sliver": 0
+      },
+      "support_indicated": false,
+      "step_sha256": "1a0ee57ba103b9ef2683c8ab4b84773a7ea30121da8d91520e410743958dd22c"
+    },
+    {
+      "id": "keeper",
+      "up": "+Y",
+      "areas_mm2": {
+        "SUPPORT": 0,
+        "bridge": 0,
+        "small-curve": 0,
+        "sliver": 0
+      },
+      "support_indicated": false,
+      "step_sha256": "a6de411d6f28e0e9bb2da44eaa5f738fb3cc61850ee49fd0d3431907211d0d17"
+    }
+  ],
+  "physical_print_test": false,
+  "slicer_toolpath_test": false,
+  "scope": "Geometric face-normal/bridge heuristic only; support indication is advisory."
+}

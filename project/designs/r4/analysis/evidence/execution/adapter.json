@@ -1,0 +1,19 @@
+{
+  "part": "adapter",
+  "returncode": 0,
+  "elapsed_seconds": 344.353427002,
+  "command": [
+    "/workspace/scratch/c3093d2e58b9/n2-fea-env/bin/python",
+    "/workspace/scratch/c3093d2e58b9/n2-r4-recovery-run-06/fea/engine/solver.py",
+    "--config",
+    "/workspace/scratch/c3093d2e58b9/n2-r4-recovery-run-06/fea/configs/adapter.json",
+    "--sizes",
+    "0.7",
+    "0.5",
+    "0.35"
+  ],
+  "solver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+  "runner_sha256": "c832917624d52a070c6dc94e1a5d164a8fe4a9cb31c1a9776eebf8c29c368755",
+  "config_sha256": "9bf3f289422a61fca7bf78c67bc2f3b76485d1e10d584acda6be6b6d20b77c06",
+  "log": "logs/adapter.log"
+}

@@ -1,0 +1,55 @@
+{
+  "revision": "R4",
+  "assumptions": {
+    "revision": "R4",
+    "finished_print_dimension_error_mm": 0.1,
+    "sleeve_diameter_error_mm": 0.05,
+    "crank_radius_error_mm": 0.1,
+    "uncalibrated_output_angle_error_deg": 2.0,
+    "required_release_margin_mm": 0.5,
+    "required_measured_released_stop_margin_mm": 0.5,
+    "status": "project_inspection_assumptions_not_measured_process_capability",
+    "notes": [
+      "These are explicit development limits, not generic FDM accuracy claims or a vendor sleeve OD tolerance.",
+      "Print a fit coupon and inspect/finish critical dimensions. Actual part dimensions must satisfy the drawing/inspection table.",
+      "Servo endpoints are calibrated from actual keeper position and measured stop margin, not inferred solely from pulse width or the nominal crank equation.",
+      "Retained dead-center alignment does not prove power-off vibration locking. Nominal slot free play allows keeper float."
+    ]
+  },
+  "actual_process_capability_measured": false,
+  "nominal_keeper_clear_mm": 4.800000000000001,
+  "worst_required_clear_mm": 5.000000000000001,
+  "nominal_operating_travel_mm": 9.5,
+  "nominal_operating_angle_deg": 105.46600995342055,
+  "slot_diametral_clearance_interval_mm": [
+    0.2500000000000004,
+    0.5500000000000004
+  ],
+  "vertical_guide_total_clearance_interval_mm": [
+    0.39999999999999963,
+    0.7999999999999996
+  ],
+  "key_single_face_clearance_interval_mm": [
+    0.09999999999999998,
+    0.5
+  ],
+  "uncalibrated_keeper_travel_interval_mm": [
+    8.56871884089849,
+    10.431063736065882
+  ],
+  "minimum_release_reserve_mm_under_assumptions": 3.5687188408984882,
+  "minimum_stop_reserve_mm_without_keeper_calibration": -0.1310637360658813,
+  "slot_interference_free_under_assumptions": true,
+  "guide_interference_free_under_assumptions": true,
+  "key_clearance_strictly_positive_under_assumptions": true,
+  "release_reserve_exceeds_half_mm_under_assumptions": true,
+  "uncalibrated_stop_reserve_meets_requirement": false,
+  "disposition": "Conditionally dimensioned prototype. Calibrate actual keeper travel and inspect stop margin; unknown print/hardware tolerances are not an automatic pass.",
+  "required_measurements": [
+    "Actual critical printed dimensions and key/guide fit coupon",
+    "Sleeve OD, slot width, and side/axial free play",
+    "Retained keeper engagement and visible dead-center alignment",
+    "Released keeper travel, >=0.5 mm clearance past the actual lug, and >=0.5 mm to the physical released stop",
+    "Total installed pad preload between 0.5 and 3 N"
+  ]
+}
