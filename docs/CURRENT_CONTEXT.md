@@ -1,6 +1,10 @@
 # Current N2 engineering context
 
-**Current design: N2 P14.** This page distinguishes the current prototype from the P11/P6 material imported into the repository on 29 October 2026. The current [requirements](requirements.md), [P14 design record](p14.md), [print instructions](print-requirements.md) and [test plan](test-plan.md) take precedence over older selection/import notes.
+**Current development: [N2 R4](../project/designs/r4/README.md). Preserved issued reference: P14.** R4 implements the user's selected keyed preload interface, reinforced standalone receiver and thicker supported lug. It specifies a long-travel HS-65MG direct servo drive, three structural prints, four host mounting points, hardware, fits, assembly, controls and fresh validation. Its [decisions](../project/designs/r4/docs/decisions.md) and package govern new prototype work. P14 requirements and test records remain historical inputs where explicitly carried forward, not automatically applicable R4 evidence.
+
+R4 excludes the rejected round/diamond pins and seating interlock. The equipment lock is deferred; aircraft backing, twin installations, wing loads and payload power/data remain integration work. The fixed nominal 5 V supply, 0.454 kg departing-mass input and 2 g loaded-release target carry forward. Prototype CAD and computational checks do not establish material strength, power-off retention, actuator force or successful separation on physical hardware.
+
+The following sections preserve the **P14 engineering context**, including its four-print solenoid configuration and older numerical screens. They must not be read as a description or qualification of R4.
 
 ## Decisions that govern further work
 

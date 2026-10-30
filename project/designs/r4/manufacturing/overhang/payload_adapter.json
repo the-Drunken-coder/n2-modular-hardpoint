@@ -1,0 +1,28 @@
+{
+ "step": "/workspace/scratch/c3093d2e58b9/n2-r4-recovery-run-06/cad/parts/payload_adapter.step",
+ "up": "-Z",
+ "angle": 45,
+ "bed_mm2": 1099.42,
+ "totals": {
+  "SUPPORT": 0,
+  "bridge": 16.1,
+  "small-curve": 0,
+  "sliver": 0
+ },
+ "faces": [
+  {
+   "kind": "bridge",
+   "area_mm2": 16.1,
+   "height_mm": 13.1,
+   "span_mm": [
+    3.5,
+    4.6
+   ],
+   "centre": [
+    28.55,
+    10.0,
+    14.2
+   ]
+  }
+ ]
+}

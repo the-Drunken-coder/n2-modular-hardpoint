@@ -162,6 +162,12 @@ export default function App() {
   return (
     <div className="app">
       <div className="panel">
+        <div className="status" style={{ border: '1px solid #487f79', padding: 12, marginBottom: 12 }}>
+          <b>New development: R4 standalone core</b><br />
+          Three structural prints, supported thicker lug, direct servo drive and a complete manufacturing/validation package.<br />
+          <a href="r4/viewer/" style={{ display: 'inline-block', marginTop: 8 }}>Open the R4 design viewer →</a><br />
+          <small>The assembly below remains the preserved P14 reference.</small>
+        </div>
         <div className="status">
           <b>N2 hardpoint · {fea?.revision || ''}</b><br />
           {status && <>

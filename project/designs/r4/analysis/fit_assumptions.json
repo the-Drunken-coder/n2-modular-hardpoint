@@ -1,0 +1,16 @@
+{
+  "revision": "R4",
+  "finished_print_dimension_error_mm": 0.1,
+  "sleeve_diameter_error_mm": 0.05,
+  "crank_radius_error_mm": 0.1,
+  "uncalibrated_output_angle_error_deg": 2.0,
+  "required_release_margin_mm": 0.5,
+  "required_measured_released_stop_margin_mm": 0.5,
+  "status": "project_inspection_assumptions_not_measured_process_capability",
+  "notes": [
+    "These are explicit development limits, not generic FDM accuracy claims or a vendor sleeve OD tolerance.",
+    "Print a fit coupon and inspect/finish critical dimensions. Actual part dimensions must satisfy the drawing/inspection table.",
+    "Servo endpoints are calibrated from actual keeper position and measured stop margin, not inferred solely from pulse width or the nominal crank equation.",
+    "Retained dead-center alignment does not prove power-off vibration locking. Nominal slot free play allows keeper float."
+  ]
+}

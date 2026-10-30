@@ -1,0 +1,8 @@
+{
+  "name": "n2-r4-review-viewer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node test-kinematics.mjs"
+  }
+}

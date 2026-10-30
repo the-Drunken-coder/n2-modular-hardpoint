@@ -1,0 +1,32 @@
+{
+  "coupons": [
+    {
+      "id": "guide_coupon",
+      "description": "Four guide channels, widths 3.3/3.4/3.6/3.8 from low to high Y; all heights 3.6.",
+      "step": "coupons/guide_coupon.step",
+      "stl": "coupons/guide_coupon_print.stl",
+      "step_sha256": "1dc811fd3baf071208ba62471a2f80ba1e104fc375d2e493b5e7a846cbf93d77",
+      "stl_sha256": "f240982c3aa4036b14d18846bdaea960933c9bc1bdf7e8414f134e8492e5ec00",
+      "assembly_part": false
+    },
+    {
+      "id": "keeper_gauge",
+      "description": "3 \u00d7 3 square male gauge with grip; 20 mm engagement required.",
+      "step": "coupons/keeper_gauge.step",
+      "stl": "coupons/keeper_gauge_print.stl",
+      "step_sha256": "31b5c38670db8d6329a9ec5e39ac3fd1ee9f80afa66ed49a598085e7759d6814",
+      "stl_sha256": "e08118bbc8ecb93754c01bb073f3e043cc43031d19a4deb3071e340baa2d2a01",
+      "assembly_part": false
+    },
+    {
+      "id": "follower_coupon",
+      "description": "Slots 4.2/4.4/4.6 wide from low to high X; test the actual CU-2004 sleeve.",
+      "step": "coupons/follower_coupon.step",
+      "stl": "coupons/follower_coupon_print.stl",
+      "step_sha256": "4144a4758c872604c047d81aed65bbe5f5f20baed4a1695a67db9c1c76aa924e",
+      "stl_sha256": "5b0811ad6fc2610528cf52882c1a31a10f1f0855404ba0601f5971f8aa1aa926",
+      "assembly_part": false
+    }
+  ],
+  "instruction": "Print with the intended material and profile; identify compensation needed to achieve finished acceptance. Coupon fit does not qualify strength."
+}

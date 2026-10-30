@@ -1,0 +1,55 @@
+{
+  "revision": "R4",
+  "status": "Proposed first-article recipe; no sliced toolpath or printed specimen has been validated",
+  "filament": "Bambu PAHT-CF",
+  "source": "https://store.bblcdn.com/7166b20bc68f4c87b32c972b856eeb4b.pdf",
+  "drying": {
+    "temperature_C": 80,
+    "hours": 12,
+    "printing_storage_max_RH_percent": 20
+  },
+  "machine": {
+    "enclosed": true,
+    "hardened_nozzle_diameter_mm": 0.6,
+    "hardened_feed_gears": true,
+    "record_actual_chamber_temperature": true
+  },
+  "slicing": {
+    "nozzle_temperature_C": 285,
+    "bed_temperature_C": 90,
+    "layer_height_mm": 0.2,
+    "nominal_line_width_mm": 0.62,
+    "perimeters": 6,
+    "top_layers": 6,
+    "bottom_layers": 6,
+    "infill_percent": 100,
+    "infill_pattern": "alternating rectilinear",
+    "external_perimeter_mm_s": 40,
+    "internal_infill_mm_s": 60,
+    "bridge_mm_s": 20,
+    "first_layer_mm_s": 20,
+    "ordinary_part_fan_percent": 20,
+    "bridge_fan_percent_max": 40
+  },
+  "orientations": {
+    "receiver_core": "Flat mounting face A on bed, +Z up; print STL is already oriented.",
+    "payload_adapter": "Broad payload face A on bed, \u2212Z up; print STL is already oriented.",
+    "keeper": "Flat side Y8.5 on bed, +Y up; print STL is already oriented."
+  },
+  "support": {
+    "receiver_core": "Local removable support under seat deck and required pockets; verify removal paths and inspect all guides.",
+    "payload_adapter": "4.6 mm lug-window bridge; inspect before using the part.",
+    "keeper": "Flat side orientation; confirm stop-tab paths are supported. Integral features are not separate prints."
+  },
+  "required_records": [
+    "slicer name/version/project",
+    "printer",
+    "material lot",
+    "drying and humidity",
+    "actual temperatures",
+    "orientation",
+    "finished feature measurements",
+    "specimen ID"
+  ],
+  "qualification": false
+}

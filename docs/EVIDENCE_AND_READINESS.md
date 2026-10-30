@@ -1,6 +1,8 @@
 # Evidence and readiness
 
-**Current baseline: N2 P14, with PAHT-CF as the prototype candidate. No physical specimen, load test or loaded release has been demonstrated.** This page separates current analytical evidence from historical import/rebuild records. [P14](p14.md) · [Requirements](requirements.md)
+**Current development is [R4](../project/designs/r4/README.md).** Its actual-geometry simulation and declared evidence gates are in the [R4 analysis package](../project/designs/r4/analysis/README.md), with a separate [physical acceptance plan](../project/designs/r4/docs/qualification.md). Physical tests remain pending; no working-load rating is assigned.
+
+The register below preserves the **P14 issued reference**, with PAHT-CF as its prototype candidate. No physical specimen, load test or loaded release was demonstrated for that reference either. These P14 analytical numbers must not be transferred to R4. [P14](p14.md) · [P14 requirements](requirements.md)
 
 ## Current evidence register
 

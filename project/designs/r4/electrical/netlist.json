@@ -1,0 +1,125 @@
+{
+  "revision": "R4",
+  "purpose": "Offboard bench harness; no custom PCB or aircraft integration implied",
+  "servo_connector_view": "Hitec datasheet: 1 SIGNAL, 2 VCC, 3 GND; continuity check physical orientation",
+  "component_pins": {
+    "Q1": {
+      "part": "onsemi 2N3904G",
+      "1": "emitter",
+      "2": "base",
+      "3": "collector"
+    },
+    "U2": {
+      "part": "SN74AHCT125N",
+      "1": "1OE",
+      "2": "1A",
+      "3": "1Y",
+      "4": "2OE",
+      "5": "2A",
+      "6": "2Y",
+      "7": "GND",
+      "8": "3Y",
+      "9": "3A",
+      "10": "3OE",
+      "11": "4Y",
+      "12": "4A",
+      "13": "4OE",
+      "14": "VCC"
+    }
+  },
+  "nets": {
+    "5V_UNSWITCHED": [
+      "J1.1",
+      "U1.VIN",
+      "U2.14",
+      "U2.4",
+      "U2.10",
+      "U2.13",
+      "R2.1",
+      "C1.1"
+    ],
+    "GND": [
+      "J1.2",
+      "U1.GND",
+      "U2.7",
+      "U2.5",
+      "U2.9",
+      "U2.12",
+      "U3.physical13",
+      "Q1.1",
+      "R3.2",
+      "R5.2",
+      "R6.2",
+      "R7.2",
+      "C1.2",
+      "C2.negative",
+      "J2.3",
+      "SW1.B",
+      "SW2.B",
+      "R8.2"
+    ],
+    "SERVO_5V": [
+      "U1.VOUT",
+      "J2.2",
+      "C2.positive",
+      "R7.1"
+    ],
+    "POWER_ENABLE": [
+      "U3.GP11.physical15",
+      "U1.ON",
+      "R3.1"
+    ],
+    "PWM_3V3": [
+      "U3.GP9.physical12",
+      "U2.2",
+      "R8.1"
+    ],
+    "PWM_5V": [
+      "U2.3",
+      "R1.1"
+    ],
+    "SERVO_SIGNAL": [
+      "R1.2",
+      "R6.1",
+      "J2.1"
+    ],
+    "SIGNAL_ENABLE": [
+      "U3.GP10.physical14",
+      "R4.1"
+    ],
+    "Q1_BASE": [
+      "R4.2",
+      "R5.1",
+      "Q1.2"
+    ],
+    "OE_ACTIVE_LOW": [
+      "Q1.3",
+      "U2.1",
+      "R2.2"
+    ],
+    "ARM_ACTIVE_LOW": [
+      "U3.GP12.physical16",
+      "SW1.A"
+    ],
+    "FIRE_ACTIVE_LOW": [
+      "U3.GP13.physical17",
+      "SW2.A"
+    ]
+  },
+  "unconnected": [
+    "U2.6",
+    "U2.8",
+    "U2.11",
+    "U3.VBUS",
+    "U3.VSYS",
+    "U3.3V3"
+  ],
+  "notes": [
+    "Pico power arrives only over USB; ground is shared.",
+    "U1 slide switch must remain OFF so firmware ON pin controls power.",
+    "The schematic and firmware do not include automatic voltage, temperature, current or position measurement.",
+    "The stocked servo lead remains attached; do not infer pin orientation from color alone.",
+    "Verify B3F-1000 electrical terminal pairs with continuity before soldering.",
+    "No flyback diode is placed across the servo supply as a replacement for its internal motor driver."
+  ]
+}

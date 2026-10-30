@@ -1,0 +1,1826 @@
+{
+  "id": "r4",
+  "title": "R4 standalone direct-drive hardpoint",
+  "revision": "R4",
+  "units": "mm",
+  "parts": [
+    {
+      "id": "receiver_core",
+      "name": "R4-01 receiver core",
+      "kind": "printed",
+      "explode": [
+        0,
+        0,
+        -12
+      ],
+      "features": [
+        "structure",
+        "seat",
+        "stroke"
+      ],
+      "step": "parts/receiver_core.step",
+      "mesh": "meshes/receiver_core.json",
+      "bounds": {
+        "min": [
+          -0.0006346748767018103,
+          -26.000634674876707,
+          -1.6007609651180588
+        ],
+        "max": [
+          100.00063467487671,
+          29.000634674876704,
+          25.800000100000005
+        ]
+      },
+      "volume_mm3": 37212.19777797246,
+      "print_stl": "parts/receiver_core_print.stl"
+    },
+    {
+      "id": "payload_adapter",
+      "name": "R4-02 payload adapter and supported lug",
+      "kind": "printed",
+      "explode": [
+        0,
+        0,
+        22
+      ],
+      "features": [
+        "lug",
+        "seat"
+      ],
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          32
+        ]
+      },
+      "step": "parts/payload_adapter.step",
+      "mesh": "meshes/payload_adapter.json",
+      "bounds": {
+        "min": [
+          14.999999899999985,
+          -4.000000100000016,
+          11.099999899999993
+        ],
+        "max": [
+          49.000000100000015,
+          30.000000100000015,
+          27.30076096511805
+        ]
+      },
+      "volume_mm3": 4721.280161879803,
+      "print_stl": "parts/payload_adapter_print.stl"
+    },
+    {
+      "id": "keeper",
+      "name": "R4-03 keeper, yoke and stroke-stop tab",
+      "kind": "printed",
+      "explode": [
+        16,
+        15,
+        0
+      ],
+      "features": [
+        "stroke",
+        "lug"
+      ],
+      "motion": {
+        "type": "slider"
+      },
+      "step": "parts/keeper.step",
+      "mesh": "meshes/keeper.json",
+      "bounds": {
+        "min": [
+          25.49999989999997,
+          8.499033740319334,
+          5.29966146006575
+        ],
+        "max": [
+          73.00033853993425,
+          22.0000001,
+          23.20033853993425
+        ]
+      },
+      "volume_mm3": 841.0359325647687,
+      "print_stl": "parts/keeper_print.stl"
+    },
+    {
+      "id": "servo",
+      "name": "Hitec HS-65MG case (supplier HB-envelope reference)",
+      "kind": "purchased",
+      "explode": [
+        0,
+        -22,
+        0
+      ],
+      "features": [
+        "actuator"
+      ],
+      "explodeGroup": "servo",
+      "step": "parts/servo.step",
+      "mesh": "meshes/servo.json",
+      "bounds": {
+        "min": [
+          53.12385761653257,
+          -21.900567446023967,
+          4.6972382232468775
+        ],
+        "max": [
+          85.47614238346743,
+          7.1047884288900365,
+          16.3027617767391
+        ]
+      },
+      "volume_mm3": 6219.210275902959
+    },
+    {
+      "id": "horn",
+      "name": "Modified Hitec MS-I25 horn",
+      "kind": "purchased",
+      "explode": [
+        0,
+        16,
+        0
+      ],
+      "features": [
+        "actuator",
+        "stroke"
+      ],
+      "motion": {
+        "type": "rotation",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "pivot": [
+          75,
+          0,
+          10.5
+        ],
+        "angle_deg": 113.57817847820183
+      },
+      "step": "parts/horn.step",
+      "mesh": "meshes/horn.json",
+      "bounds": {
+        "min": [
+          57.49999989999999,
+          3.8968276539746847,
+          6.496827653974685
+        ],
+        "max": [
+          79.50000010000001,
+          8.203172346025315,
+          14.503172346025314
+        ]
+      },
+      "volume_mm3": 294.89876909951846
+    },
+    {
+      "id": "sleeve",
+      "name": "HiroSugi CU-2004 fixed sliding sleeve",
+      "kind": "purchased",
+      "explode": [
+        0,
+        16,
+        0
+      ],
+      "features": [
+        "actuator",
+        "stroke"
+      ],
+      "motion": {
+        "type": "rotation",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "pivot": [
+          75,
+          0,
+          10.5
+        ],
+        "angle_deg": 113.57817847820183
+      },
+      "step": "parts/sleeve.step",
+      "mesh": "meshes/sleeve.json",
+      "bounds": {
+        "min": [
+          65.49932856094645,
+          8.199104764566991,
+          8.499999899999985
+        ],
+        "max": [
+          69.50067143905355,
+          12.200895235433007,
+          12.500895235433008
+        ]
+      },
+      "volume_mm3": 35.060174014062056
+    },
+    {
+      "id": "follower_bolt",
+      "name": "M2\u00d710 follower screw",
+      "kind": "purchased",
+      "explode": [
+        0,
+        16,
+        0
+      ],
+      "features": [
+        "actuator",
+        "stroke"
+      ],
+      "motion": {
+        "type": "rotation",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "pivot": [
+          75,
+          0,
+          10.5
+        ],
+        "angle_deg": 113.57817847820183
+      },
+      "step": "parts/follower_bolt.step",
+      "mesh": "meshes/follower_bolt.json",
+      "bounds": {
+        "min": [
+          65.59936212789913,
+          4.399149521338646,
+          8.599999899999988
+        ],
+        "max": [
+          69.40063787210087,
+          16.400447667716502,
+          12.400850478661356
+        ]
+      },
+      "volume_mm3": 51.07764699024269
+    },
+    {
+      "id": "follower_washer",
+      "name": "M2 follower washer",
+      "kind": "purchased",
+      "explode": [
+        0,
+        16,
+        0
+      ],
+      "features": [
+        "actuator",
+        "stroke"
+      ],
+      "motion": {
+        "type": "rotation",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "pivot": [
+          75,
+          0,
+          10.5
+        ],
+        "angle_deg": 113.57817847820183
+      },
+      "step": "parts/follower_washer.step",
+      "mesh": "meshes/follower_washer.json",
+      "bounds": {
+        "min": [
+          64.99916072618306,
+          12.198880980708743,
+          7.9999998999999855
+        ],
+        "max": [
+          70.00083927381694,
+          12.501119019291256,
+          13.001119019291256
+        ]
+      },
+      "volume_mm3": 4.75008809222777
+    },
+    {
+      "id": "follower_nut",
+      "name": "M2 follower prevailing-torque nut",
+      "kind": "purchased",
+      "explode": [
+        0,
+        16,
+        0
+      ],
+      "features": [
+        "actuator",
+        "stroke"
+      ],
+      "motion": {
+        "type": "rotation",
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "pivot": [
+          75,
+          0,
+          10.5
+        ],
+        "angle_deg": 113.57817847820183
+      },
+      "step": "parts/follower_nut.step",
+      "mesh": "meshes/follower_nut.json",
+      "bounds": {
+        "min": [
+          65.19059882324149,
+          12.499507575511837,
+          8.499999899999986
+        ],
+        "max": [
+          69.80940117675851,
+          15.300492424488164,
+          12.500000100000014
+        ]
+      },
+      "volume_mm3": 28.154222179180632
+    },
+    {
+      "id": "horn_screw",
+      "name": "Supplied servo horn retaining screw",
+      "kind": "purchased",
+      "explode": [
+        0,
+        25,
+        0
+      ],
+      "features": [
+        "actuator"
+      ],
+      "notes": "Use supplied Hitec screw. Model is an envelope; thread form is not reverse-engineered.",
+      "step": "parts/horn_screw.step",
+      "mesh": "meshes/horn_screw.json",
+      "bounds": {
+        "min": [
+          72.99932856094645,
+          3.6995075755118365,
+          8.499104764566992
+        ],
+        "max": [
+          77.00067143905355,
+          9.100895235433008,
+          12.500000100000015
+        ]
+      },
+      "volume_mm3": 25.54409351679776
+    },
+    {
+      "id": "stop_screw",
+      "name": "Removable M3\u00d710 open-stop screw",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        18
+      ],
+      "features": [
+        "stroke"
+      ],
+      "notes": "Install after straight keeper insertion. This is a travel stop, not an equipment lock.",
+      "step": "parts/stop_screw.step",
+      "mesh": "meshes/stop_screw.json",
+      "bounds": {
+        "min": [
+          74.49876908877962,
+          18.24907680880137,
+          3.199328548425238
+        ],
+        "max": [
+          80.00000010000001,
+          23.75092319119863,
+          16.201230911220378
+        ]
+      },
+      "volume_mm3": 132.38867791768234
+    },
+    {
+      "id": "stop_washer",
+      "name": "Open-stop M3 small washer",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        12
+      ],
+      "features": [
+        "stroke"
+      ],
+      "notes": "Install after straight keeper insertion. This is a travel stop, not an equipment lock.",
+      "step": "parts/stop_washer.step",
+      "mesh": "meshes/stop_washer.json",
+      "bounds": {
+        "min": [
+          74.24999989999999,
+          17.99899289141968,
+          12.6986571968505
+        ],
+        "max": [
+          80.2513428031495,
+          24.00100710858032,
+          13.2013428031495
+        ]
+      },
+      "volume_mm3": 10.115928344559139
+    },
+    {
+      "id": "stop_nut",
+      "name": "Captured M3 open-stop locknut",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        -8
+      ],
+      "features": [
+        "stroke"
+      ],
+      "notes": "Install after straight keeper insertion. This is a travel stop, not an equipment lock.",
+      "step": "parts/stop_nut.step",
+      "mesh": "meshes/stop_nut.json",
+      "bounds": {
+        "min": [
+          74.07457341945705,
+          18.249999899999985,
+          5.19928379165359
+        ],
+        "max": [
+          80.42542658054295,
+          23.750000100000015,
+          9.20071620834641
+        ]
+      },
+      "volume_mm3": 72.61916508515752
+    },
+    {
+      "id": "servo_screw_1",
+      "name": "M2\u00d712 servo mount screw 1",
+      "kind": "purchased",
+      "explode": [
+        0,
+        17,
+        0
+      ],
+      "step": "parts/servo_screw_1.step",
+      "mesh": "meshes/servo_screw_1.json",
+      "bounds": {
+        "min": [
+          53.099362127899134,
+          -8.600447667716503,
+          8.59914952133865
+        ],
+        "max": [
+          56.900637872100866,
+          5.400850478661351,
+          12.400000100000007
+        ]
+      },
+      "volume_mm3": 57.360832297422284
+    },
+    {
+      "id": "servo_front_washer_1",
+      "name": "M2 front washer 1",
+      "kind": "purchased",
+      "explode": [
+        0,
+        13,
+        0
+      ],
+      "step": "parts/servo_front_washer_1.step",
+      "mesh": "meshes/servo_front_washer_1.json",
+      "bounds": {
+        "min": [
+          52.49916072618307,
+          3.0988809807087536,
+          7.9999998999999935
+        ],
+        "max": [
+          57.50083927381693,
+          3.4011190192912464,
+          13.001119019291247
+        ]
+      },
+      "volume_mm3": 4.750088092227766
+    },
+    {
+      "id": "servo_rear_washer_1",
+      "name": "M2 ear washer 1",
+      "kind": "purchased",
+      "explode": [
+        0,
+        -17,
+        0
+      ],
+      "step": "parts/servo_rear_washer_1.step",
+      "mesh": "meshes/servo_rear_washer_1.json",
+      "bounds": {
+        "min": [
+          52.49916072618307,
+          -5.201119019291247,
+          7.9999998999999935
+        ],
+        "max": [
+          57.50083927381693,
+          -4.898880980708753,
+          13.001119019291247
+        ]
+      },
+      "volume_mm3": 4.750088092227766
+    },
+    {
+      "id": "servo_nut_1",
+      "name": "M2 servo locknut 1",
+      "kind": "purchased",
+      "explode": [
+        0,
+        -21,
+        0
+      ],
+      "step": "parts/servo_nut_1.step",
+      "mesh": "meshes/servo_nut_1.json",
+      "bounds": {
+        "min": [
+          52.69059882324148,
+          -8.000492424488154,
+          8.499999899999986
+        ],
+        "max": [
+          57.30940117675852,
+          -5.199507575511847,
+          12.500000100000014
+        ]
+      },
+      "volume_mm3": 28.154222179180664
+    },
+    {
+      "id": "servo_screw_2",
+      "name": "M2\u00d712 servo mount screw 2",
+      "kind": "purchased",
+      "explode": [
+        0,
+        17,
+        0
+      ],
+      "step": "parts/servo_screw_2.step",
+      "mesh": "meshes/servo_screw_2.json",
+      "bounds": {
+        "min": [
+          81.69936212789912,
+          -8.600447667716503,
+          8.599149521338644
+        ],
+        "max": [
+          85.50063787210087,
+          5.400850478661355,
+          12.400000100000012
+        ]
+      },
+      "volume_mm3": 57.36083229742227
+    },
+    {
+      "id": "servo_front_washer_2",
+      "name": "M2 front washer 2",
+      "kind": "purchased",
+      "explode": [
+        0,
+        13,
+        0
+      ],
+      "step": "parts/servo_front_washer_2.step",
+      "mesh": "meshes/servo_front_washer_2.json",
+      "bounds": {
+        "min": [
+          81.09916072618306,
+          3.0988809807087447,
+          7.9999998999999855
+        ],
+        "max": [
+          86.10083927381693,
+          3.4011190192912553,
+          13.001119019291256
+        ]
+      },
+      "volume_mm3": 4.750088092227765
+    },
+    {
+      "id": "servo_rear_washer_2",
+      "name": "M2 ear washer 2",
+      "kind": "purchased",
+      "explode": [
+        0,
+        -17,
+        0
+      ],
+      "step": "parts/servo_rear_washer_2.step",
+      "mesh": "meshes/servo_rear_washer_2.json",
+      "bounds": {
+        "min": [
+          81.09916072618306,
+          -5.201119019291255,
+          7.9999998999999855
+        ],
+        "max": [
+          86.10083927381693,
+          -4.8988809807087454,
+          13.001119019291256
+        ]
+      },
+      "volume_mm3": 4.750088092227765
+    },
+    {
+      "id": "servo_nut_2",
+      "name": "M2 servo locknut 2",
+      "kind": "purchased",
+      "explode": [
+        0,
+        -21,
+        0
+      ],
+      "step": "parts/servo_nut_2.step",
+      "mesh": "meshes/servo_nut_2.json",
+      "bounds": {
+        "min": [
+          81.29059882324148,
+          -8.000492424488163,
+          8.499999899999986
+        ],
+        "max": [
+          85.90940117675851,
+          -5.199507575511837,
+          12.500000100000014
+        ]
+      },
+      "volume_mm3": 28.154222179180625
+    },
+    {
+      "id": "host_screw_1",
+      "name": "M3\u00d716 host screw 1",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        17
+      ],
+      "step": "parts/host_screw_1.step",
+      "mesh": "meshes/host_screw_1.json",
+      "bounds": {
+        "min": [
+          3.2487690887796306,
+          -22.75092319119862,
+          -12.300671451574749
+        ],
+        "max": [
+          8.750000100000003,
+          -17.24907680880138,
+          6.701230911220369
+        ]
+      },
+      "volume_mm3": 174.80017874114458
+    },
+    {
+      "id": "host_top_washer_1",
+      "name": "M3 core washer 1",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        12
+      ],
+      "step": "parts/host_top_washer_1.step",
+      "mesh": "meshes/host_top_washer_1.json",
+      "bounds": {
+        "min": [
+          2.9999998999999966,
+          -23.001007108580314,
+          3.198657196850507
+        ],
+        "max": [
+          9.001342803149493,
+          -16.998992891419686,
+          3.7013428031494935
+        ]
+      },
+      "volume_mm3": 10.115928344559132
+    },
+    {
+      "id": "host_bottom_washer_1",
+      "name": "M3 host washer 1",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        -17
+      ],
+      "step": "parts/host_bottom_washer_1.step",
+      "mesh": "meshes/host_bottom_washer_1.json",
+      "bounds": {
+        "min": [
+          2.9999998999999966,
+          -23.001007108580314,
+          -5.101342803149493
+        ],
+        "max": [
+          9.001342803149493,
+          -16.998992891419686,
+          -4.598657196850506
+        ]
+      },
+      "volume_mm3": 10.115928344559133
+    },
+    {
+      "id": "host_nut_1",
+      "name": "M3 host locknut 1",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        -21
+      ],
+      "step": "parts/host_nut_1.step",
+      "mesh": "meshes/host_nut_1.json",
+      "bounds": {
+        "min": [
+          2.824573419457055,
+          -22.750000100000005,
+          -9.100716208346396
+        ],
+        "max": [
+          9.175426580542947,
+          -17.249999899999995,
+          -5.099283791653602
+        ]
+      },
+      "volume_mm3": 72.61916508515759
+    },
+    {
+      "id": "host_screw_2",
+      "name": "M3\u00d716 host screw 2",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        17
+      ],
+      "step": "parts/host_screw_2.step",
+      "mesh": "meshes/host_screw_2.json",
+      "bounds": {
+        "min": [
+          3.2487690887796306,
+          20.24907680880138,
+          -12.300671451574749
+        ],
+        "max": [
+          8.750000100000003,
+          25.75092319119862,
+          6.701230911220369
+        ]
+      },
+      "volume_mm3": 174.80017874114458
+    },
+    {
+      "id": "host_top_washer_2",
+      "name": "M3 core washer 2",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        12
+      ],
+      "step": "parts/host_top_washer_2.step",
+      "mesh": "meshes/host_top_washer_2.json",
+      "bounds": {
+        "min": [
+          2.9999998999999966,
+          19.998992891419686,
+          3.198657196850507
+        ],
+        "max": [
+          9.001342803149493,
+          26.001007108580314,
+          3.7013428031494935
+        ]
+      },
+      "volume_mm3": 10.115928344559132
+    },
+    {
+      "id": "host_bottom_washer_2",
+      "name": "M3 host washer 2",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        -17
+      ],
+      "step": "parts/host_bottom_washer_2.step",
+      "mesh": "meshes/host_bottom_washer_2.json",
+      "bounds": {
+        "min": [
+          2.9999998999999966,
+          19.998992891419686,
+          -5.101342803149493
+        ],
+        "max": [
+          9.001342803149493,
+          26.001007108580314,
+          -4.598657196850506
+        ]
+      },
+      "volume_mm3": 10.115928344559133
+    },
+    {
+      "id": "host_nut_2",
+      "name": "M3 host locknut 2",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        -21
+      ],
+      "step": "parts/host_nut_2.step",
+      "mesh": "meshes/host_nut_2.json",
+      "bounds": {
+        "min": [
+          2.824573419457055,
+          20.249999899999995,
+          -9.100716208346396
+        ],
+        "max": [
+          9.175426580542947,
+          25.750000100000005,
+          -5.099283791653602
+        ]
+      },
+      "volume_mm3": 72.61916508515759
+    },
+    {
+      "id": "host_screw_3",
+      "name": "M3\u00d716 host screw 3",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        17
+      ],
+      "step": "parts/host_screw_3.step",
+      "mesh": "meshes/host_screw_3.json",
+      "bounds": {
+        "min": [
+          91.24876908877962,
+          -22.75092319119863,
+          -12.300671451574763
+        ],
+        "max": [
+          96.75000010000001,
+          -17.24907680880137,
+          6.70123091122038
+        ]
+      },
+      "volume_mm3": 174.80017874114458
+    },
+    {
+      "id": "host_top_washer_3",
+      "name": "M3 core washer 3",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        12
+      ],
+      "step": "parts/host_top_washer_3.step",
+      "mesh": "meshes/host_top_washer_3.json",
+      "bounds": {
+        "min": [
+          90.99999989999999,
+          -23.00100710858032,
+          3.1986571968504998
+        ],
+        "max": [
+          97.0013428031495,
+          -16.99899289141968,
+          3.7013428031495006
+        ]
+      },
+      "volume_mm3": 10.115928344559137
+    },
+    {
+      "id": "host_bottom_washer_3",
+      "name": "M3 host washer 3",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        -17
+      ],
+      "step": "parts/host_bottom_washer_3.step",
+      "mesh": "meshes/host_bottom_washer_3.json",
+      "bounds": {
+        "min": [
+          90.99999989999999,
+          -23.00100710858032,
+          -5.1013428031495005
+        ],
+        "max": [
+          97.0013428031495,
+          -16.99899289141968,
+          -4.598657196850499
+        ]
+      },
+      "volume_mm3": 10.11592834455914
+    },
+    {
+      "id": "host_nut_3",
+      "name": "M3 host locknut 3",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        -21
+      ],
+      "step": "parts/host_nut_3.step",
+      "mesh": "meshes/host_nut_3.json",
+      "bounds": {
+        "min": [
+          90.82457341945705,
+          -22.750000100000015,
+          -9.10071620834641
+        ],
+        "max": [
+          97.17542658054295,
+          -17.249999899999985,
+          -5.09928379165359
+        ]
+      },
+      "volume_mm3": 72.61916508515753
+    },
+    {
+      "id": "host_screw_4",
+      "name": "M3\u00d716 host screw 4",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        17
+      ],
+      "step": "parts/host_screw_4.step",
+      "mesh": "meshes/host_screw_4.json",
+      "bounds": {
+        "min": [
+          91.24876908877962,
+          20.24907680880137,
+          -12.300671451574763
+        ],
+        "max": [
+          96.75000010000001,
+          25.75092319119863,
+          6.70123091122038
+        ]
+      },
+      "volume_mm3": 174.80017874114458
+    },
+    {
+      "id": "host_top_washer_4",
+      "name": "M3 core washer 4",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        12
+      ],
+      "step": "parts/host_top_washer_4.step",
+      "mesh": "meshes/host_top_washer_4.json",
+      "bounds": {
+        "min": [
+          90.99999989999999,
+          19.99899289141968,
+          3.1986571968504998
+        ],
+        "max": [
+          97.0013428031495,
+          26.00100710858032,
+          3.7013428031495006
+        ]
+      },
+      "volume_mm3": 10.115928344559137
+    },
+    {
+      "id": "host_bottom_washer_4",
+      "name": "M3 host washer 4",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        -17
+      ],
+      "step": "parts/host_bottom_washer_4.step",
+      "mesh": "meshes/host_bottom_washer_4.json",
+      "bounds": {
+        "min": [
+          90.99999989999999,
+          19.99899289141968,
+          -5.1013428031495005
+        ],
+        "max": [
+          97.0013428031495,
+          26.00100710858032,
+          -4.598657196850499
+        ]
+      },
+      "volume_mm3": 10.11592834455914
+    },
+    {
+      "id": "host_nut_4",
+      "name": "M3 host locknut 4",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        -21
+      ],
+      "step": "parts/host_nut_4.step",
+      "mesh": "meshes/host_nut_4.json",
+      "bounds": {
+        "min": [
+          90.82457341945705,
+          20.249999899999985,
+          -9.10071620834641
+        ],
+        "max": [
+          97.17542658054295,
+          25.750000100000015,
+          -5.09928379165359
+        ]
+      },
+      "volume_mm3": 72.61916508515753
+    },
+    {
+      "id": "payload_screw_1",
+      "name": "M3\u00d714 flat-head payload screw 1",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        -13
+      ],
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          32
+        ]
+      },
+      "step": "parts/payload_screw_1.step",
+      "mesh": "meshes/payload_screw_1.json",
+      "bounds": {
+        "min": [
+          16.126958164956605,
+          -2.874169684653345,
+          23.285454337429176
+        ],
+        "max": [
+          22.874545662570824,
+          3.874169684653345,
+          37.30067145157474
+        ]
+      },
+      "volume_mm3": 119.9659629105939
+    },
+    {
+      "id": "payload_washer_1",
+      "name": "M3 payload washer 1",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        20
+      ],
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          32
+        ]
+      },
+      "step": "parts/payload_washer_1.step",
+      "mesh": "meshes/payload_washer_1.json",
+      "bounds": {
+        "min": [
+          16.499999899999995,
+          -2.501007108580314,
+          30.298657196850506
+        ],
+        "max": [
+          22.501342803149495,
+          3.501007108580314,
+          30.801342803149495
+        ]
+      },
+      "volume_mm3": 10.115928344559133
+    },
+    {
+      "id": "payload_nut_1",
+      "name": "M3 payload locknut 1",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        26
+      ],
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          32
+        ]
+      },
+      "step": "parts/payload_nut_1.step",
+      "mesh": "meshes/payload_nut_1.json",
+      "bounds": {
+        "min": [
+          16.32457341945705,
+          -2.2500001000000087,
+          30.799283791653604
+        ],
+        "max": [
+          22.67542658054295,
+          3.250000100000008,
+          34.800716208346394
+        ]
+      },
+      "volume_mm3": 72.61916508515758
+    },
+    {
+      "id": "payload_screw_2",
+      "name": "M3\u00d714 flat-head payload screw 2",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        -13
+      ],
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          32
+        ]
+      },
+      "step": "parts/payload_screw_2.step",
+      "mesh": "meshes/payload_screw_2.json",
+      "bounds": {
+        "min": [
+          41.126958164956605,
+          -2.8741696846533467,
+          23.285454337429172
+        ],
+        "max": [
+          47.874545662570824,
+          3.8741696846533467,
+          37.30067145157475
+        ]
+      },
+      "volume_mm3": 119.96596291059389
+    },
+    {
+      "id": "payload_washer_2",
+      "name": "M3 payload washer 2",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        20
+      ],
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          32
+        ]
+      },
+      "step": "parts/payload_washer_2.step",
+      "mesh": "meshes/payload_washer_2.json",
+      "bounds": {
+        "min": [
+          41.49999989999999,
+          -2.501007108580317,
+          30.298657196850503
+        ],
+        "max": [
+          47.5013428031495,
+          3.501007108580317,
+          30.8013428031495
+        ]
+      },
+      "volume_mm3": 10.11592834455913
+    },
+    {
+      "id": "payload_nut_2",
+      "name": "M3 payload locknut 2",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        26
+      ],
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          32
+        ]
+      },
+      "step": "parts/payload_nut_2.step",
+      "mesh": "meshes/payload_nut_2.json",
+      "bounds": {
+        "min": [
+          41.32457341945705,
+          -2.250000100000011,
+          30.7992837916536
+        ],
+        "max": [
+          47.67542658054295,
+          3.250000100000007,
+          34.8007162083464
+        ]
+      },
+      "volume_mm3": 72.61916508515749
+    },
+    {
+      "id": "payload_screw_3",
+      "name": "M3\u00d714 flat-head payload screw 3",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        -13
+      ],
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          32
+        ]
+      },
+      "step": "parts/payload_screw_3.step",
+      "mesh": "meshes/payload_screw_3.json",
+      "bounds": {
+        "min": [
+          16.1269581649566,
+          22.125830315346654,
+          23.285454337429172
+        ],
+        "max": [
+          22.874545662570828,
+          28.874169684653346,
+          37.30067145157474
+        ]
+      },
+      "volume_mm3": 119.96596291059389
+    },
+    {
+      "id": "payload_washer_3",
+      "name": "M3 payload washer 3",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        20
+      ],
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          32
+        ]
+      },
+      "step": "parts/payload_washer_3.step",
+      "mesh": "meshes/payload_washer_3.json",
+      "bounds": {
+        "min": [
+          16.499999899999995,
+          22.498992891419686,
+          30.298657196850506
+        ],
+        "max": [
+          22.501342803149495,
+          28.501007108580314,
+          30.801342803149495
+        ]
+      },
+      "volume_mm3": 10.11592834455913
+    },
+    {
+      "id": "payload_nut_3",
+      "name": "M3 payload locknut 3",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        26
+      ],
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          32
+        ]
+      },
+      "step": "parts/payload_nut_3.step",
+      "mesh": "meshes/payload_nut_3.json",
+      "bounds": {
+        "min": [
+          16.32457341945705,
+          22.74999989999999,
+          30.7992837916536
+        ],
+        "max": [
+          22.67542658054295,
+          28.25000010000001,
+          34.800716208346394
+        ]
+      },
+      "volume_mm3": 72.61916508515759
+    },
+    {
+      "id": "payload_screw_4",
+      "name": "M3\u00d714 flat-head payload screw 4",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        -13
+      ],
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          32
+        ]
+      },
+      "step": "parts/payload_screw_4.step",
+      "mesh": "meshes/payload_screw_4.json",
+      "bounds": {
+        "min": [
+          41.1269581649566,
+          22.125830315346654,
+          23.285454337429172
+        ],
+        "max": [
+          47.87454566257083,
+          28.874169684653346,
+          37.30067145157475
+        ]
+      },
+      "volume_mm3": 119.96596291059386
+    },
+    {
+      "id": "payload_washer_4",
+      "name": "M3 payload washer 4",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        20
+      ],
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          32
+        ]
+      },
+      "step": "parts/payload_washer_4.step",
+      "mesh": "meshes/payload_washer_4.json",
+      "bounds": {
+        "min": [
+          41.49999989999999,
+          22.498992891419682,
+          30.298657196850503
+        ],
+        "max": [
+          47.5013428031495,
+          28.501007108580318,
+          30.8013428031495
+        ]
+      },
+      "volume_mm3": 10.11592834455913
+    },
+    {
+      "id": "payload_nut_4",
+      "name": "M3 payload locknut 4",
+      "kind": "purchased",
+      "explode": [
+        0,
+        0,
+        26
+      ],
+      "motion": {
+        "type": "payload",
+        "vector": [
+          0,
+          0,
+          32
+        ]
+      },
+      "step": "parts/payload_nut_4.step",
+      "mesh": "meshes/payload_nut_4.json",
+      "bounds": {
+        "min": [
+          41.32457341945705,
+          22.74999989999999,
+          30.7992837916536
+        ],
+        "max": [
+          47.67542658054295,
+          28.25000010000001,
+          34.8007162083464
+        ]
+      },
+      "volume_mm3": 72.61916508515749
+    },
+    {
+      "id": "pad_1",
+      "name": "PORON preload pad 1",
+      "kind": "pad",
+      "explode": [
+        0,
+        0,
+        8
+      ],
+      "features": [
+        "seat"
+      ],
+      "step": "parts/pad_1.step",
+      "mesh": "meshes/pad_1.json",
+      "bounds": {
+        "min": [
+          24.4999999,
+          0.4993285609464564,
+          21.529104764567006
+        ],
+        "max": [
+          28.500895235432996,
+          4.500671439053543,
+          23.300895235432996
+        ]
+      },
+      "volume_mm3": 22.24247598741573
+    },
+    {
+      "id": "pad_adhesive_1",
+      "name": "467MP adhesive disc 1",
+      "kind": "pad",
+      "explode": [
+        0,
+        0,
+        5
+      ],
+      "features": [
+        "seat"
+      ],
+      "step": "parts/pad_adhesive_1.step",
+      "mesh": "meshes/pad_adhesive_1.json",
+      "bounds": {
+        "min": [
+          24.4999999,
+          0.4993285609464564,
+          21.469104764567003
+        ],
+        "max": [
+          28.500895235432996,
+          4.500671439053543,
+          21.530895235432993
+        ]
+      },
+      "volume_mm3": 0.7539822368615448
+    },
+    {
+      "id": "pad_2",
+      "name": "PORON preload pad 2",
+      "kind": "pad",
+      "explode": [
+        0,
+        0,
+        8
+      ],
+      "features": [
+        "seat"
+      ],
+      "step": "parts/pad_2.step",
+      "mesh": "meshes/pad_2.json",
+      "bounds": {
+        "min": [
+          35.49999989999999,
+          0.4993285609464528,
+          21.529104764567002
+        ],
+        "max": [
+          39.500895235433,
+          4.500671439053547,
+          23.300895235433
+        ]
+      },
+      "volume_mm3": 22.24247598741574
+    },
+    {
+      "id": "pad_adhesive_2",
+      "name": "467MP adhesive disc 2",
+      "kind": "pad",
+      "explode": [
+        0,
+        0,
+        5
+      ],
+      "features": [
+        "seat"
+      ],
+      "step": "parts/pad_adhesive_2.step",
+      "mesh": "meshes/pad_adhesive_2.json",
+      "bounds": {
+        "min": [
+          35.49999989999999,
+          0.4993285609464528,
+          21.469104764567
+        ],
+        "max": [
+          39.500895235433,
+          4.500671439053547,
+          21.530895235432997
+        ]
+      },
+      "volume_mm3": 0.7539822368615451
+    },
+    {
+      "id": "pad_3",
+      "name": "PORON preload pad 3",
+      "kind": "pad",
+      "explode": [
+        0,
+        0,
+        8
+      ],
+      "features": [
+        "seat"
+      ],
+      "step": "parts/pad_3.step",
+      "mesh": "meshes/pad_3.json",
+      "bounds": {
+        "min": [
+          24.499999899999995,
+          21.499328560946452,
+          21.529104764567002
+        ],
+        "max": [
+          28.500895235433,
+          25.500671439053548,
+          23.300895235433
+        ]
+      },
+      "volume_mm3": 22.242475987415734
+    },
+    {
+      "id": "pad_adhesive_3",
+      "name": "467MP adhesive disc 3",
+      "kind": "pad",
+      "explode": [
+        0,
+        0,
+        5
+      ],
+      "features": [
+        "seat"
+      ],
+      "step": "parts/pad_adhesive_3.step",
+      "mesh": "meshes/pad_adhesive_3.json",
+      "bounds": {
+        "min": [
+          24.499999899999995,
+          21.499328560946452,
+          21.469104764567
+        ],
+        "max": [
+          28.500895235433,
+          25.500671439053548,
+          21.530895235432997
+        ]
+      },
+      "volume_mm3": 0.753982236861545
+    },
+    {
+      "id": "pad_4",
+      "name": "PORON preload pad 4",
+      "kind": "pad",
+      "explode": [
+        0,
+        0,
+        8
+      ],
+      "features": [
+        "seat"
+      ],
+      "step": "parts/pad_4.step",
+      "mesh": "meshes/pad_4.json",
+      "bounds": {
+        "min": [
+          35.49999989999999,
+          21.499328560946452,
+          21.529104764567002
+        ],
+        "max": [
+          39.500895235433,
+          25.500671439053548,
+          23.300895235433
+        ]
+      },
+      "volume_mm3": 22.24247598741574
+    },
+    {
+      "id": "pad_adhesive_4",
+      "name": "467MP adhesive disc 4",
+      "kind": "pad",
+      "explode": [
+        0,
+        0,
+        5
+      ],
+      "features": [
+        "seat"
+      ],
+      "step": "parts/pad_adhesive_4.step",
+      "mesh": "meshes/pad_adhesive_4.json",
+      "bounds": {
+        "min": [
+          35.49999989999999,
+          21.499328560946452,
+          21.469104764567
+        ],
+        "max": [
+          39.500895235433,
+          25.500671439053548,
+          21.530895235432997
+        ]
+      },
+      "volume_mm3": 0.7539822368615451
+    },
+    {
+      "id": "lead_reservation",
+      "name": "Three-conductor servo lead routing envelope",
+      "kind": "purchased",
+      "explode": [
+        0,
+        -12,
+        0
+      ],
+      "notes": "External lead-clearance reservation. Strain relief belongs to the host harness; no slot is hidden beneath a flush host mount.",
+      "step": "parts/lead_reservation.step",
+      "mesh": "meshes/lead_reservation.json",
+      "bounds": {
+        "min": [
+          82.99959708905514,
+          -19.800302202574095,
+          9.599999899999997
+        ],
+        "max": [
+          93.00040291094486,
+          -17.999697797425902,
+          11.40040291094485
+        ]
+      },
+      "volume_mm3": 25.44690049407733
+    }
+  ],
+  "bounds": {
+    "min": [
+      -0.0006346748767018103,
+      -26.000634674876707,
+      -12.300671451574763
+    ],
+    "max": [
+      100.00063467487671,
+      30.000000100000015,
+      37.30067145157475
+    ]
+  },
+  "kinematics": {
+    "axis": [
+      0,
+      1,
+      0
+    ],
+    "pivot": [
+      75,
+      0,
+      10.5
+    ],
+    "crank_radius_mm": 7.5,
+    "angle_range_deg": [
+      0,
+      113.57817847820183
+    ],
+    "travel_mm": 10.5,
+    "operating_travel_mm": 9.5,
+    "operating_angle_deg": 105.46600995342055,
+    "slider_expression": "r*(1-cos(theta))",
+    "pin_expression": "[75-r*cos(theta),10.2,10.5+r*sin(theta)]",
+    "release_clearance_at_mm": 4.8,
+    "follower": "fixed sliding sleeve; no rolling-bearing assumption"
+  },
+  "dimensions": {
+    "base_mm": [
+      100,
+      55,
+      4.8
+    ],
+    "lug_thickness_mm": 3.5,
+    "lug_side_web_mm": 2.3,
+    "guide_reaction_span_mm": 18.4,
+    "key_lateral_clearance_per_side_mm": 0.3
+  },
+  "annotations": [
+    {
+      "label": "Four actual core mount interfaces",
+      "position": [
+        6,
+        23,
+        3.2
+      ],
+      "partId": "receiver_core"
+    },
+    {
+      "label": "Integral long keeper guide",
+      "position": [
+        45,
+        12,
+        21.7
+      ],
+      "partId": "receiver_core"
+    },
+    {
+      "label": "Supported 3.5 mm lug / 2.3 mm side webs",
+      "position": [
+        28.5,
+        14.6,
+        18
+      ],
+      "partId": "payload_adapter"
+    },
+    {
+      "label": "One printed keeper and yoke",
+      "position": [
+        68,
+        11.5,
+        20
+      ],
+      "partId": "keeper"
+    },
+    {
+      "label": "Hitec HS-65MG, fixed5V prototype",
+      "position": [
+        69,
+        -12,
+        14
+      ],
+      "partId": "servo"
+    },
+    {
+      "label": "Catalog fixed sleeve; sliding friction included",
+      "position": [
+        67.5,
+        10.2,
+        10.5
+      ],
+      "partId": "sleeve"
+    }
+  ],
+  "notes": [
+    "The retained reference already bears on the guide roof; pad compression is not calculated before taking up guide clearance.",
+    "Exactly3 structural printed bodies; integral features never explode separately.",
+    "Host and payload bolts show3mm test-panel grip; aircraft/payload panels are integration context and are not included as hardpoint parts.",
+    "Assembly order: preassemble keeper/horn/follower; insert from +X with stop absent; install servo from \u2212Y; install open-stop screw.",
+    "This is a dimensioned prototype, not a flight-qualified payload rating."
+  ]
+}

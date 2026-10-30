@@ -1,0 +1,283 @@
+{
+  "revision": "R4",
+  "status": "planned_not_performed",
+  "specimen_ids": [
+    "R4-01",
+    "R4-02",
+    "R4-03"
+  ],
+  "notes": [
+    "Replace specimen labels in an explicitly reviewed plan when real batch IDs are known; retain material, printer, orientation, dry state and slicer record per specimen.",
+    "All limits are prototype development acceptance criteria, not a reliability demonstration or flight qualification.",
+    "Test fixtures shall restrain the payload after separation. These instructions do not authorize airborne testing.",
+    "Dimensional acceptance is separately listed in the manufacturing inspection table; these tests do not replace it.",
+    "Demand force is measured on the assembled keeper under 8.9044 N equivalent 2 g loading, real pads and the actual as-printed interface. Available force is measured at the same output position, commanded speed, supply and duty without relying on stall torque."
+  ],
+  "tests": [
+    {
+      "id": "B00",
+      "name": "Installed pad preload and calibrated end positions",
+      "conditions": [
+        "dry_23C",
+        "conditioned_40C"
+      ],
+      "cycles_per_condition": 1,
+      "measurements": {
+        "total_pad_preload_N": {
+          "unit": "N",
+          "minimum": 0.5,
+          "maximum": 3
+        },
+        "released_stop_margin_mm": {
+          "unit": "mm",
+          "minimum": 0.5
+        },
+        "released_keeper_travel_mm": {
+          "unit": "mm",
+          "minimum": 5.3,
+          "maximum": 10
+        },
+        "retained_lug_overlap_mm": {
+          "unit": "mm",
+          "minimum": 3.0
+        },
+        "clearance_past_actual_lug_mm": {
+          "unit": "mm",
+          "minimum": 0.5
+        }
+      }
+    },
+    {
+      "id": "B01",
+      "name": "Restrained static 4 g equivalent fixture hold",
+      "conditions": [
+        "dry_23C",
+        "conditioned_40C"
+      ],
+      "cycles_per_condition": 1,
+      "measurements": {
+        "applied_load_N": {
+          "unit": "N",
+          "minimum": 17.8089,
+          "maximum": 18.7
+        },
+        "hold_duration_s": {
+          "unit": "s",
+          "minimum": 60
+        },
+        "permanent_set_mm": {
+          "unit": "mm",
+          "minimum": 0,
+          "maximum": 0.1
+        },
+        "cracks_or_damage": {
+          "unit": "boolean_0_or_1",
+          "minimum": 0,
+          "maximum": 0
+        },
+        "uncommanded_release": {
+          "unit": "boolean_0_or_1",
+          "minimum": 0,
+          "maximum": 0
+        }
+      }
+    },
+    {
+      "id": "B02",
+      "name": "Loaded release repeatability at 2 g equivalent",
+      "conditions": [
+        "dry_23C",
+        "conditioned_40C",
+        "documented_fine_dust_23C",
+        "dimension_limit_fit_23C"
+      ],
+      "cycles_per_condition": 25,
+      "ordered_measurements": [
+        [
+          "minimum_servo_voltage_V",
+          "maximum_servo_voltage_V"
+        ]
+      ],
+      "measurements": {
+        "applied_load_N": {
+          "unit": "N",
+          "minimum": 8.9044,
+          "maximum": 9.35
+        },
+        "minimum_servo_voltage_V": {
+          "unit": "V",
+          "minimum": 4.8,
+          "maximum": 5.1
+        },
+        "maximum_servo_voltage_V": {
+          "unit": "V",
+          "minimum": 4.8,
+          "maximum": 5.1
+        },
+        "payload_separation_mm": {
+          "unit": "mm",
+          "minimum": 10
+        },
+        "completed_release": {
+          "unit": "boolean_0_or_1",
+          "minimum": 1,
+          "maximum": 1
+        },
+        "case_temperature_before_C": {
+          "unit": "degC",
+          "minimum": -20,
+          "maximum": 45
+        },
+        "case_temperature_after_C": {
+          "unit": "degC",
+          "minimum": -20,
+          "maximum": 55
+        },
+        "cracks_or_damage": {
+          "unit": "boolean_0_or_1",
+          "minimum": 0,
+          "maximum": 0
+        },
+        "keeper_travel_mm": {
+          "unit": "mm",
+          "minimum": 5.3,
+          "maximum": 10
+        },
+        "pwm_motion_to_clear_ms": {
+          "unit": "ms",
+          "minimum": 0,
+          "maximum": 500
+        },
+        "released_stop_margin_mm": {
+          "unit": "mm",
+          "minimum": 0.5
+        },
+        "clearance_past_actual_lug_mm": {
+          "unit": "mm",
+          "minimum": 0.5
+        }
+      },
+      "time_origin": "Start of commanded PWM motion; FIRE edge precedes it by the separate 40 ms power-settle interval."
+    },
+    {
+      "id": "B03",
+      "name": "Measured available-to-demand force margin over loaded withdrawal",
+      "conditions": [
+        "stroke_0p0mm",
+        "stroke_0p5mm",
+        "stroke_1p0mm",
+        "stroke_1p5mm",
+        "stroke_2p0mm",
+        "stroke_2p5mm",
+        "stroke_3p0mm",
+        "stroke_3p5mm",
+        "stroke_4p0mm",
+        "stroke_4p5mm",
+        "stroke_5p0mm",
+        "stroke_5p5mm",
+        "stroke_6p0mm",
+        "stroke_6p5mm",
+        "stroke_7p0mm",
+        "stroke_7p5mm",
+        "stroke_8p0mm",
+        "stroke_8p5mm",
+        "stroke_9p0mm",
+        "stroke_9p5mm"
+      ],
+      "cycles_per_condition": 1,
+      "force_margin_ratio": 1.5,
+      "measurements": {
+        "available_pull_N": {
+          "unit": "N",
+          "minimum": 0.01
+        },
+        "available_uncertainty_N": {
+          "unit": "N",
+          "minimum": 0.001
+        },
+        "required_pull_N": {
+          "unit": "N",
+          "minimum": 0
+        },
+        "required_uncertainty_N": {
+          "unit": "N",
+          "minimum": 0.001
+        },
+        "servo_voltage_V": {
+          "unit": "V",
+          "minimum": 4.8,
+          "maximum": 4.85
+        },
+        "case_temperature_C": {
+          "unit": "degC",
+          "minimum": 40,
+          "maximum": 45
+        }
+      },
+      "endpoint_note": "Profile stops at the calibrated 9.5 mm operating endpoint. Do not use the 10.5 mm mechanical stop as a force-test point."
+    },
+    {
+      "id": "B04",
+      "name": "Power loss while retained at 2 g equivalent",
+      "conditions": [
+        "cut_servo_supply",
+        "controller_reset",
+        "disconnect_control_signal"
+      ],
+      "cycles_per_condition": 10,
+      "measurements": {
+        "applied_load_N": {
+          "unit": "N",
+          "minimum": 8.9044,
+          "maximum": 9.35
+        },
+        "hold_duration_s": {
+          "unit": "s",
+          "minimum": 60
+        },
+        "uncommanded_release": {
+          "unit": "boolean_0_or_1",
+          "minimum": 0,
+          "maximum": 0
+        },
+        "keeper_travel_mm": {
+          "unit": "mm",
+          "minimum": 0,
+          "maximum": 0.5
+        }
+      }
+    },
+    {
+      "id": "B05",
+      "name": "Mid-stroke power-loss state is observed and recorded",
+      "conditions": [
+        "cut_at_1mm",
+        "cut_at_3mm",
+        "cut_at_4p5mm"
+      ],
+      "cycles_per_condition": 3,
+      "measurements": {
+        "applied_load_N": {
+          "unit": "N",
+          "minimum": 8.9044,
+          "maximum": 9.35
+        },
+        "final_keeper_travel_mm": {
+          "unit": "mm",
+          "minimum": 0
+        },
+        "payload_released": {
+          "unit": "boolean_0_or_1",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "state_observed_and_documented": {
+          "unit": "boolean_0_or_1",
+          "minimum": 1,
+          "maximum": 1
+        }
+      },
+      "interpretation": "Observation requirement only. Either final retention state may be recorded; the gate does not claim automatic return or fail-retained behavior during release."
+    }
+  ]
+}

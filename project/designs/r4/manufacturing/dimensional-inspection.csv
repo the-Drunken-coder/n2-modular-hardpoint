@@ -1,0 +1,24 @@
+feature,nominal,minimum,maximum,units,method
+receiver_guide_width,3.6,3.5,3.7,mm,"Measure acrossY at entrance, center and exit after finishing."
+receiver_guide_height,3.6,3.5,3.7,mm,Check Z roof/floor gap with square gauge; remove support scars.
+keeper_bar_width,3,2.95,3.05,mm,Measure both guide-bearing regions.
+keeper_bar_height,3,2.95,3.05,mm,Measure both guide-bearing regions.
+yoke_vertical_end_clearance,0.6,0.4,2,mm,Measure follower-to-slot-end clearance throughout travel with keeper held both against roof and floor; there must be no vertical end bearing.
+yoke_slot_width,4.4,4.3,4.5,mm,Check full straight slot; do not infer width from caliper tips in rounded ends.
+yoke_thickness,3,2.9,3.1,mm,Measure follower area.
+follower_od,4,3.95,4.05,mm,Receiving inspection; catalog does not specifyOD tolerance.
+follower_length,4,3.9,4.1,mm,Catalog length tolerance±0.1.
+follower_id,2.2,2.1,2.3,mm,Catalog ID tolerance±0.1; M2 screw must pass freely.
+lug_x_thickness,3.5,3.4,3.6,mm,Finish without removing retaining-floor material.
+lug_side_web,2.3,2.2,2.4,mm,Inspect both side webs; no voids or damaged bridge junction.
+lug_floor,3.1,3,3.2,mm,Measure remaining floor under rectangular opening.
+key_minimum_face_gap,0.3,0.1,0.5,mm,"Per mating face after finished face-position errors of ±0.1 each; measure the assembled gap, not nominal slot width alone."
+host_bore,3.4,3.3,3.5,mm,4 places.
+servo_bore,2.2,2.1,2.3,mm,2 places.
+horn_follower_hole,2.1,2.05,2.15,mm,Open the existing first MS-I25 Ø1 hole at R7.5; preserve its location.
+horn_width_at_follower,6.5,4.5,7.0,mm,Outline nominal is a drawing-based envelope; inspect actual width≥4.5 before drilling.
+foam_free_thickness,2.36,2.124,2.596,mm,Supplier±10% thickness band; measure unloaded disc before installation.
+pad_pocket_floor_z,21.47,21.42,21.52,mm,Relative to core coordinateA=Z−1.6; total fromA23.07.
+assembled_sleeve_end_clearance,0.7,0.3,1.1,mm,Actual rear-yoke-to-washer clearance; receiving/assembly measurement supersedes stack estimate.
+assembled_sleeve_front_clearance,0.3,0.1,0.5,mm,Measure actual front-yoke-to-horn gap; receiving/assembly measurement supersedes stack estimate.
+open_keeper_tip_clearance,4.7,0.5,7,mm,Distance from keeper tip to lug +X face at the 9.5 mm operating position (4.7 nominal); accept ≥0.5 measured. The 10.5 mm limit gives 5.7 nominal.

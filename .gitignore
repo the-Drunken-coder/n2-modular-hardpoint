@@ -12,3 +12,6 @@ node_modules/
 /project/analysis/results/**/*.npz
 /project/analysis/results/**/*.msh
 _site/
+
+# R4 review files are copied here by web/copy-model.mjs from their canonical package.
+/web/public/r4/

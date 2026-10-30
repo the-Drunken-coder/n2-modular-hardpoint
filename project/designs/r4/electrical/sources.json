@@ -1,0 +1,65 @@
+{
+  "retrieved_date": "2026-10-30",
+  "sources": [
+    {
+      "id": "servo_product",
+      "url": "https://www.hiteccs.com/actuators/product-details/HS-65MG",
+      "use": "Part32065S; manufacturerproductpage"
+    },
+    {
+      "id": "servo_datasheet",
+      "url": "https://www.hiteccs.com/public/uploads/data_sheet/HCS_HS-65MG_Specsheetv2.2_10-1729888021.pdf",
+      "use": "v2.2;12.5g excludes horn;dimensions andelectricalratings"
+    },
+    {
+      "id": "servo_cad",
+      "url": "https://www.hiteccs.com/public/uploads/cad_files/HS-65HB-1784046298.stp",
+      "use": "Linked fromHS65MGpage;filenameandinternalassemblyHS65HB;familyenvelopeonly"
+    },
+    {
+      "id": "horn_part",
+      "url": "https://hitecrcd.com/hs-65-65mg-5065mg-horn-hdwr/",
+      "use": "Hitec55718Micro25Thornset"
+    },
+    {
+      "id": "horn_drawing",
+      "url": "https://shop.multiplex-rc.de/userdata/files/HITEC%20SERVO%20ACTUATOR%20HORN%20%26%20SPLINE%20TECHNICAL%20DATA%20SHEET_v3_0_1_26C.pdf",
+      "use": "Hitecv3.0.1_F2,p10MSI25;R7.5firsthole"
+    },
+    {
+      "id": "power_switch",
+      "url": "https://www.pololu.com/product/2810",
+      "use": "HighsideLVswitch;offslideletsONpincontrol"
+    },
+    {
+      "id": "logic_buffer",
+      "url": "https://www.ti.com/lit/ds/symlink/sn74ahct125.pdf",
+      "use": "TIrevR;PDIPpinoutandOEpullup"
+    },
+    {
+      "id": "enable_transistor",
+      "url": "https://www.onsemi.com/pdf/datasheet/2n3903-d.pdf",
+      "use": "2N3904GTO92pinout"
+    },
+    {
+      "id": "firmware_api",
+      "url": "https://docs.micropython.org/en/v1.25.0/rp2/quickref.html",
+      "use": "VersionedAPIusedinbenchadapter"
+    },
+    {
+      "id": "pico",
+      "url": "https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html",
+      "use": "RP2040PicoHboardreference"
+    },
+    {
+      "id": "fixed_follower",
+      "url": "https://us.c.misumi-ec.com/book/HSK1_USA_M01/pdf/0154.pdf",
+      "use": "HiroSugi CU-2004 manufacturer catalogue: SUS303, ID2.2\u00b10.1, OD4 nominal, L4\u00b10.1 mm. Fixed sliding follower, not a ball bearing."
+    }
+  ],
+  "local_reference_sha256": {
+    "HS-65MG-spec.pdf": "e5064aa22305dfeaa29620d5a2a3503e235c350e71952673dc154ea8452c3373",
+    "HS-65HB-vendor.stp": "82cc8020946f461ff0641caab555ba04f3cc785d83f79cd0ca20a44304c0e264",
+    "horn-chart.pdf": "7d75f2f7720712a825fd19d145fd07a93b877ad899dabc4bb9f40cb2dd4a4e5f"
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "revision": "R4",
+  "status": "Defined inspection requirements; no physical measurements recorded",
+  "measurements": [
+    {
+      "feature": "receiver_guide_width",
+      "nominal": 3.6,
+      "minimum": 3.5,
+      "maximum": 3.7,
+      "units": "mm",
+      "method": "Measure acrossY at entrance, center and exit after finishing."
+    },
+    {
+      "feature": "receiver_guide_height",
+      "nominal": 3.6,
+      "minimum": 3.5,
+      "maximum": 3.7,
+      "units": "mm",
+      "method": "Check Z roof/floor gap with square gauge; remove support scars."
+    },
+    {
+      "feature": "keeper_bar_width",
+      "nominal": 3,
+      "minimum": 2.95,
+      "maximum": 3.05,
+      "units": "mm",
+      "method": "Measure both guide-bearing regions."
+    },
+    {
+      "feature": "keeper_bar_height",
+      "nominal": 3,
+      "minimum": 2.95,
+      "maximum": 3.05,
+      "units": "mm",
+      "method": "Measure both guide-bearing regions."
+    },
+    {
+      "feature": "yoke_vertical_end_clearance",
+      "nominal": 0.6,
+      "minimum": 0.4,
+      "maximum": 2,
+      "units": "mm",
+      "method": "Measure follower-to-slot-end clearance throughout travel with keeper held both against roof and floor; there must be no vertical end bearing."
+    },
+    {
+      "feature": "yoke_slot_width",
+      "nominal": 4.4,
+      "minimum": 4.3,
+      "maximum": 4.5,
+      "units": "mm",
+      "method": "Check full straight slot; do not infer width from caliper tips in rounded ends."
+    },
+    {
+      "feature": "yoke_thickness",
+      "nominal": 3,
+      "minimum": 2.9,
+      "maximum": 3.1,
+      "units": "mm",
+      "method": "Measure follower area."
+    },
+    {
+      "feature": "follower_od",
+      "nominal": 4,
+      "minimum": 3.95,
+      "maximum": 4.05,
+      "units": "mm",
+      "method": "Receiving inspection; catalog does not specifyOD tolerance."
+    },
+    {
+      "feature": "follower_length",
+      "nominal": 4,
+      "minimum": 3.9,
+      "maximum": 4.1,
+      "units": "mm",
+      "method": "Catalog length tolerance\u00b10.1."
+    },
+    {
+      "feature": "follower_id",
+      "nominal": 2.2,
+      "minimum": 2.1,
+      "maximum": 2.3,
+      "units": "mm",
+      "method": "Catalog ID tolerance\u00b10.1; M2 screw must pass freely."
+    },
+    {
+      "feature": "lug_x_thickness",
+      "nominal": 3.5,
+      "minimum": 3.4,
+      "maximum": 3.6,
+      "units": "mm",
+      "method": "Finish without removing retaining-floor material."
+    },
+    {
+      "feature": "lug_side_web",
+      "nominal": 2.3,
+      "minimum": 2.2,
+      "maximum": 2.4,
+      "units": "mm",
+      "method": "Inspect both side webs; no voids or damaged bridge junction."
+    },
+    {
+      "feature": "lug_floor",
+      "nominal": 3.1,
+      "minimum": 3,
+      "maximum": 3.2,
+      "units": "mm",
+      "method": "Measure remaining floor under rectangular opening."
+    },
+    {
+      "feature": "key_minimum_face_gap",
+      "nominal": 0.3,
+      "minimum": 0.1,
+      "maximum": 0.5,
+      "units": "mm",
+      "method": "Per mating face after finished face-position errors of \u00b10.1 each; measure the assembled gap, not nominal slot width alone."
+    },
+    {
+      "feature": "host_bore",
+      "nominal": 3.4,
+      "minimum": 3.3,
+      "maximum": 3.5,
+      "units": "mm",
+      "method": "4 places."
+    },
+    {
+      "feature": "servo_bore",
+      "nominal": 2.2,
+      "minimum": 2.1,
+      "maximum": 2.3,
+      "units": "mm",
+      "method": "2 places."
+    },
+    {
+      "feature": "horn_follower_hole",
+      "nominal": 2.1,
+      "minimum": 2.05,
+      "maximum": 2.15,
+      "units": "mm",
+      "method": "Open the existing first MS-I25 \u00d81 hole at R7.5; preserve its location."
+    },
+    {
+      "feature": "horn_width_at_follower",
+      "nominal": 6.5,
+      "minimum": 4.5,
+      "maximum": 7.0,
+      "units": "mm",
+      "method": "Outline nominal is a drawing-based envelope; inspect actual width\u22654.5 before drilling."
+    },
+    {
+      "feature": "foam_free_thickness",
+      "nominal": 2.36,
+      "minimum": 2.124,
+      "maximum": 2.596,
+      "units": "mm",
+      "method": "Supplier\u00b110% thickness band; measure unloaded disc before installation."
+    },
+    {
+      "feature": "pad_pocket_floor_z",
+      "nominal": 21.47,
+      "minimum": 21.42,
+      "maximum": 21.52,
+      "units": "mm",
+      "method": "Relative to core coordinateA=Z\u22121.6; total fromA23.07."
+    },
+    {
+      "feature": "assembled_sleeve_end_clearance",
+      "nominal": 0.7,
+      "minimum": 0.3,
+      "maximum": 1.1,
+      "units": "mm",
+      "method": "Actual rear-yoke-to-washer clearance; receiving/assembly measurement supersedes stack estimate."
+    },
+    {
+      "feature": "assembled_sleeve_front_clearance",
+      "nominal": 0.3,
+      "minimum": 0.1,
+      "maximum": 0.5,
+      "units": "mm",
+      "method": "Measure actual front-yoke-to-horn gap; receiving/assembly measurement supersedes stack estimate."
+    },
+    {
+      "feature": "open_keeper_tip_clearance",
+      "nominal": 4.7,
+      "minimum": 0.5,
+      "maximum": 7,
+      "units": "mm",
+      "method": "Distance from keeper tip to lug +X face at the 9.5 mm operating position (4.7 nominal); accept \u22650.5 measured. The 10.5 mm limit gives 5.7 nominal."
+    }
+  ],
+  "tolerance_basis": "Finished feature acceptance targets, not unverified printer capabilities.",
+  "stack_cases": [
+    {
+      "name": "Guide/bar total clearance",
+      "minimum_mm": 0.45,
+      "maximum_mm": 0.75,
+      "basis": "guide3.50..3.70 minusbar2.95..3.05"
+    },
+    {
+      "name": "Slot/sleeve diametral clearance",
+      "minimum_mm": 0.25,
+      "maximum_mm": 0.55,
+      "basis": "slot4.30..4.50 minussleeve3.95..4.05"
+    },
+    {
+      "name": "Foam compression, nominal installed1.77",
+      "minimum_percent": 16.666666666666675,
+      "maximum_percent": 31.818181818181824,
+      "basis": "Supplierfoam\u00b110% thickness only; stack heights/adhesive/creep add variation."
+    }
+  ]
+}

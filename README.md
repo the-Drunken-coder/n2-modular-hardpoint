@@ -1,10 +1,25 @@
 # N2 Modular Hardpoint
 
-**N2 P14, the supported cross-bolt, is the sole active design.** A mini spring-return solenoid withdraws one printed keeper to unlock a small payload adapter. The assembly has four printed pieces and a nominal retained envelope of **43.1 × 30 × 19 mm**, excluding the controller, full wiring, installation hardware and departure space. [P14 design](docs/p14.md) · [Current context](docs/CURRENT_CONTEXT.md)
+**R4 is the current development proposal: a standalone, printable hardpoint with a preloaded keyed seat, supported thicker lug and direct servo drive.** The complete [R4 design package](project/designs/r4/README.md) includes parameterized CAD, physical STEP/STL parts, dimensioned drawings, hardware and fit specifications, assembly instructions, 5 V bench controls, an interactive viewer and fresh CAD/FEA validation. No working-load or flight qualification is claimed.
+
+| Start with R4 | Material |
+|---|---|
+| Review the complete design | [R4 package and decisions](project/designs/r4/README.md) |
+| Inspect the new model | [R4 viewer source](project/designs/r4/viewer/index.html); after building the site, open `r4/viewer/` |
+| Print, buy and assemble | [Manufacturing files](project/designs/r4/manufacturing/), [assembly](project/designs/r4/docs/assembly.md), [interfaces](project/designs/r4/docs/interfaces.md) |
+| Understand the actuator and power | [Actuation](project/designs/r4/docs/actuation.md), [wiring and firmware](project/designs/r4/electrical/README.md) |
+| Reproduce the engineering checks | [R4 analysis](project/designs/r4/analysis/README.md), [R4 Actions workflow](.github/workflows/refined-design-validation.yml) |
+| Plan physical acceptance | [R4 qualification plan](project/designs/r4/docs/qualification.md) |
+
+The remainder of this README preserves the **P14 issued reference** and its provenance. Its smaller four-print solenoid assembly and its numerical results do not describe or qualify R4. [P14 design](docs/p14.md) · [Current context](docs/CURRENT_CONTEXT.md)
+
+## Preserved P14 reference
+
+P14 uses a mini spring-return solenoid to withdraw a printed keeper. Its four printed pieces have a nominal retained envelope of **43.1 × 30 × 19 mm**, excluding the controller, full wiring, installation hardware and departure space.
 
 The scope is mechanical retention and release with a local bench actuator controller. Payload power/data transfer and direct RC integration remain outside this prototype. The adapter needs an external +Z force to leave after unlocking; there is no ejector, departure sensor or positive fixed-pod lock. [Mechanism](project/docs/mechanism.md)
 
-## Current baseline
+## Preserved P14 baseline
 
 | Item | Current basis |
 |---|---|
@@ -21,7 +36,7 @@ The receiver analysis assumes ideal continuous full backing. Prescribed contact 
 
 The [subsequent mounting and withdrawal study](project/analysis/validation_20261029/README.md) found adverse fixture and reduced-overlap sensitivity. The **next-design brief** now records the user's one/two-can pod range, compact mounting envelope, **2 g loaded release**, and **fixed 5 V** requirement. Its rounded dimensions and power/mass budgets guide the next layout; P14 remains the issued CAD. [Recorded inputs](docs/next-design-brief.md)
 
-## Start here
+## P14 reference map
 
 | Need | Repository material |
 |---|---|

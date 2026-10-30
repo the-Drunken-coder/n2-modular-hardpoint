@@ -1,0 +1,304 @@
+{
+  "revision": "R4",
+  "units": "mm",
+  "base": {
+    "x": [
+      0,
+      100
+    ],
+    "y": [
+      -26,
+      29
+    ],
+    "z": [
+      -1.6,
+      3.2
+    ],
+    "mounts": [
+      [
+        6,
+        -20
+      ],
+      [
+        6,
+        23
+      ],
+      [
+        94,
+        -20
+      ],
+      [
+        94,
+        23
+      ]
+    ],
+    "mount_hole_diameter": 3.4
+  },
+  "adapter": {
+    "flange_x": [
+      15,
+      49
+    ],
+    "flange_y": [
+      -4,
+      30
+    ],
+    "flange_z": [
+      23.3,
+      27.3
+    ],
+    "mounts": [
+      [
+        19.5,
+        0.5
+      ],
+      [
+        44.5,
+        0.5
+      ],
+      [
+        19.5,
+        25.5
+      ],
+      [
+        44.5,
+        25.5
+      ]
+    ],
+    "lug_x": [
+      26.8,
+      30.3
+    ],
+    "lug_y": [
+      5.4,
+      14.6
+    ],
+    "lug_z": [
+      11.1,
+      23.3
+    ],
+    "bore_y": [
+      7.7,
+      12.3
+    ],
+    "bore_z": [
+      14.2,
+      17.8
+    ],
+    "countersink": {
+      "standard": "ISO10642 M3",
+      "mouth_diameter": 7,
+      "depth": 1.8,
+      "head_theoretical_diameter": 6.72,
+      "head_height": 1.86
+    }
+  },
+  "guide": {
+    "distal_x": [
+      23.4,
+      26.5
+    ],
+    "proximal_x": [
+      30.6,
+      51
+    ],
+    "outer_y": [
+      4.8,
+      15.2
+    ],
+    "bore_y": [
+      8.2,
+      11.8
+    ],
+    "bore_z": [
+      13.6,
+      17.2
+    ],
+    "roof_z": 21.7,
+    "far_contact_x": [
+      49,
+      50
+    ]
+  },
+  "keeper": {
+    "tip_x": 25.5,
+    "bar_end_x": 63,
+    "bar_y": [
+      8.5,
+      11.5
+    ],
+    "bar_z": [
+      14.2,
+      17.2
+    ],
+    "yoke_x": [
+      62,
+      73
+    ],
+    "yoke_y": [
+      8.5,
+      11.5
+    ],
+    "yoke_z": [
+      5.3,
+      23.2
+    ],
+    "slot_center_x": 67.5,
+    "slot_radius": 2.2,
+    "slot_center_z": [
+      9.5,
+      19
+    ],
+    "stop_tab": {
+      "x": [
+        61,
+        64
+      ],
+      "y": [
+        11.3,
+        22
+      ],
+      "z": [
+        14.2,
+        17.2
+      ]
+    }
+  },
+  "actuator": {
+    "part_number": "Hitec HS-65MG / 32065S",
+    "vendor_translation": [
+      69.3,
+      -7.9,
+      10.5
+    ],
+    "axis": [
+      0,
+      1,
+      0
+    ],
+    "pivot": [
+      75,
+      0,
+      10.5
+    ],
+    "horn_radius": 7.5,
+    "angle_range_deg": [
+      0,
+      113.57817847820183
+    ],
+    "travel": 10.5,
+    "mount_centers": [
+      [
+        55,
+        -2.9,
+        10.5
+      ],
+      [
+        83.6,
+        -2.9,
+        10.5
+      ]
+    ],
+    "mount_hole_diameter": 2.2,
+    "mass_kg": 0.0125,
+    "follower": {
+      "part_number": "HiroSugi CU-2004",
+      "type": "fixed sliding sleeve",
+      "od_mm": 4,
+      "id_mm": 2.2,
+      "length_mm": 4,
+      "nominal_slot_width_mm": 4.4,
+      "sleeve_y": [
+        8.2,
+        12.2
+      ]
+    },
+    "operating_travel": 9.5,
+    "operating_angle_deg": 105.46600995342055,
+    "horn_front_y": 8.2,
+    "guide_clearance_shift_x": 8,
+    "open_stop": {
+      "type": "Removable M3x10 socketcap screw + ISO7092 M3 washer + captured M3 locknut",
+      "axis": [
+        77.25,
+        21
+      ],
+      "head_bearing_z": 13.2,
+      "head_radius": 2.75,
+      "boss_top_z": 12.7,
+      "nut_z": [
+        5.2,
+        9.2
+      ],
+      "assembly": "Install after keeper insertion",
+      "nut_loading": "Side-load from +Y through open pocket to rear perimeter; pocket roof Z9.2 takes clamp reaction."
+    },
+    "tool_access": "1.5mm AF L-hex key, checked within 2.4mm cylindrical shaft envelope."
+  },
+  "pads": {
+    "centers": [
+      [
+        26.5,
+        2.5
+      ],
+      [
+        37.5,
+        2.5
+      ],
+      [
+        26.5,
+        23.5
+      ],
+      [
+        37.5,
+        23.5
+      ]
+    ],
+    "diameter": 4,
+    "pocket_diameter": 4.2,
+    "pocket_floor_z": 21.47,
+    "adhesive_thickness": 0.06,
+    "foam_free_thickness": 2.36,
+    "foam_installed_thickness": 1.77,
+    "foam_material": "Rogers PORON 4701-30, 320 kg/m3",
+    "adhesive": "3M 467MP"
+  },
+  "seat_lands": {
+    "z": [
+      21.7,
+      23.05
+    ],
+    "rectangles": [
+      [
+        30.5,
+        34.5,
+        1.5,
+        4.5
+      ],
+      [
+        30.5,
+        34.5,
+        22,
+        25
+      ]
+    ],
+    "nominal_seated_gap": 0.25
+  },
+  "fit": {
+    "guide_total_clearance": 0.6,
+    "lug_x_total_clearance": 0.6,
+    "slot_roller_diametral_clearance": 0.4,
+    "first_key_x_clearance": 0.3,
+    "second_key_x_clearance": 0.6,
+    "key_y_clearance": 0.3
+  },
+  "status": "Dimensioned prototype. Purchased servo/horn fit and physical performance require receiving inspection; no load rating is assigned.",
+  "record_role": "Reviewed dimensional record for fixed revision R4. The generator checks its approved SHA; coordinate changes require reviewing the CAD source and updating this record together.",
+  "reference_pose": {
+    "state": "Loaded keeper already on guide roof; foam preload is defined in this pose",
+    "guide_roof_z": 17.2,
+    "keeper_top_z": 17.2,
+    "unloaded_keeper_float": 0.6,
+    "nominal_foam_thickness": 1.77
+  }
+}

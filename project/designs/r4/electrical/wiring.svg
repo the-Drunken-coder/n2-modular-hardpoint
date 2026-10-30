@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1060" viewBox="0 0 1400 1060" role="img" aria-labelledby="title desc">
+<title id="title">N2 R4 bench electrical wiring</title>
+<desc id="desc">Fixed nominal five volt high-side switched servo supply, Pico H controller and output-disabled level buffer. Exact node list is in netlist.json.</desc>
+<style>
+text{font-family:Arial,sans-serif;fill:#182e39;font-size:17px}.title{font-size:30px;font-weight:700}.sub{font-size:16px;fill:#4f6773}.head{font-size:21px;font-weight:700}.pin{font-family:monospace;font-size:17px}.small{font-size:15px}.box{fill:#f5f9fa;stroke:#617a86;stroke-width:2}.power{fill:none;stroke:#bc4a26;stroke-width:3}.wire{fill:none;stroke:#246c86;stroke-width:2.5}.ground{fill:none;stroke:#536572;stroke-width:2.5}.note{fill:#fff8df;stroke:#ccb976;stroke-width:1.5}
+</style>
+<rect width="1400" height="1060" fill="white"/>
+<text x="45" y="49" class="title">R4 / 5 V direct-servo bench harness</text>
+<text x="45" y="79" class="sub">Purchased modules and through-hole logic. Controller stays off the hardpoint. Crossings without a dot are not joined.</text>
+
+<rect x="45" y="115" width="230" height="180" rx="8" class="box"/>
+<text x="63" y="147" class="head">J1 — bench supply</text>
+<text x="63" y="177">5.00 V / ≥3 A capacity</text>
+<text x="63" y="209" class="pin">1  +5V_UNSW</text>
+<text x="63" y="240" class="pin">2  GND</text>
+<text x="63" y="272" class="small">22 AWG; ≤100 mm per lead</text>
+
+<rect x="370" y="115" width="315" height="180" rx="8" class="box"/>
+<text x="390" y="147" class="head">U1 — Pololu 2810 LV</text>
+<text x="390" y="177">High-side MOSFET switch</text>
+<text x="390" y="209" class="pin">VIN</text><text x="610" y="209" class="pin">VOUT</text>
+<text x="390" y="240" class="pin">GND</text><text x="635" y="240" class="pin">ON</text>
+<text x="390" y="272" class="small">Physical slide switch stays OFF</text>
+<path d="M275 204H370M685 204H990" class="power"/>
+<text x="735" y="189" class="pin">SERVO_5V</text>
+<path d="M275 235H335V315H915M390 245V315" class="ground"/>
+<circle cx="390" cy="315" r="4" fill="#536572"/><text x="430" y="336" class="pin">GND — common return</text>
+
+<rect x="990" y="115" width="365" height="225" rx="8" class="box"/>
+<text x="1010" y="147" class="head">J2 — Hitec HS-65MG</text>
+<text x="1010" y="209" class="pin">2  SERVO_5V</text>
+<text x="1010" y="244" class="pin">1  SIGNAL</text>
+<text x="1010" y="279" class="pin">3  GND</text>
+<text x="1010" y="308" class="small">Verify lead orientation and terminal voltage</text>
+<text x="1010" y="329" class="small">Accept 4.80–5.10 V during motion</text>
+<path d="M990 273H945V315H915" class="ground"/>
+<text x="716" y="245" class="small">C2 100 µF / 10 V</text>
+<text x="716" y="270" class="small">R7 1 kΩ bleeder</text>
+<text x="716" y="294" class="small">Both: SERVO_5V ↔ GND</text>
+
+<rect x="45" y="390" width="315" height="345" rx="8" class="box"/>
+<text x="65" y="423" class="head">U3 — Pico H SC0917</text>
+<text x="65" y="453">USB power; common GND only</text>
+<text x="65" y="496" class="pin">GP9  / pin12  PWM</text>
+<text x="65" y="543" class="pin">GP10 / pin14  SIGNAL_EN</text>
+<text x="65" y="590" class="pin">GP11 / pin15  POWER_EN</text>
+<text x="65" y="637" class="pin">GP12 / pin16  ARM</text>
+<text x="65" y="673" class="pin">GP13 / pin17  FIRE</text>
+<text x="65" y="710" class="pin">GND  / pin13  GND</text>
+
+<rect x="635" y="390" width="300" height="250" rx="8" class="box"/>
+<text x="655" y="423" class="head">U2 — SN74AHCT125N</text>
+<text x="655" y="453">14 VCC → +5V_UNSW</text>
+<text x="655" y="491" class="pin">2 (1A)</text><text x="845" y="491" class="pin">3 (1Y)</text>
+<text x="655" y="535" class="pin">1 (1OE) active low</text>
+<text x="655" y="574">7 GND → common return</text>
+<text x="655" y="610" class="small">C1 100 nF between pins14/7</text>
+<path d="M360 490H635" class="wire"/>
+<text x="394" y="475" class="small">R8 10 kΩ → GND</text>
+<path d="M935 485H965V238H990" class="wire"/>
+<rect x="942" y="385" width="46" height="52" fill="white" stroke="#246c86" stroke-width="2"/>
+<text x="1005" y="392" class="small">R1 220 Ω in series</text>
+<text x="1005" y="418" class="small">R6 10 kΩ SIGNAL → GND</text>
+<text x="1005" y="451" class="small">Unpowered servo: output disabled</text>
+
+<rect x="400" y="682" width="535" height="160" rx="8" class="box"/>
+<text x="420" y="714" class="head">Q1 — onsemi 2N3904G</text>
+<text x="420" y="748" class="pin">GP10 → R4 4.7 kΩ → pin2 BASE</text>
+<text x="420" y="779" class="pin">R5 100 kΩ BASE → GND; pin1 EMITTER → GND</text>
+<text x="420" y="811" class="pin">pin3 COLLECTOR → U2 pin1 (OE)</text>
+<path d="M360 537H385V747H400M935 804H965V660H609V530H635" class="wire"/>
+<text x="420" y="659" class="small">R2 10 kΩ: OE → +5V_UNSW (default signal OFF)</text>
+
+<path d="M360 584H550V360H657V250" class="wire"/>
+<text x="392" y="566" class="small">R3 10 kΩ: ON → GND</text>
+<text x="395" y="605" class="small">GP11 high = servo power ON</text>
+<text x="395" y="627" class="small">GP10 high = PWM output ON</text>
+
+<rect x="45" y="769" width="315" height="140" rx="8" class="box"/>
+<text x="65" y="802" class="head">SW1 / SW2 — B3F-1000</text>
+<text x="65" y="834">Normally open buttons to GND</text>
+<text x="65" y="864">ARM → GP12; FIRE → GP13</text>
+<text x="65" y="891" class="small">Internal pull-ups; 30 ms debounce</text>
+
+<rect x="990" y="500" width="365" height="340" rx="8" class="note"/>
+<text x="1010" y="532" class="head">Unused U2 pins</text>
+<text x="1010" y="566">OE pins 4, 10, 13 → +5V_UNSW</text>
+<text x="1010" y="598">Inputs 5, 9, 12 → GND</text>
+<text x="1010" y="630">Outputs 6, 8, 11 → no connection</text>
+<text x="1010" y="681" class="head">Required checkout</text>
+<text x="1010" y="714">Verify boot and reset leave both</text>
+<text x="1010" y="738">enables OFF; check rail discharge</text>
+<text x="1010" y="762">and signal with an oscilloscope.</text>
+<text x="1010" y="797">No position, voltage, current or</text>
+<text x="1010" y="821">temperature feedback is installed.</text>
+
+<rect x="45" y="935" width="1310" height="92" rx="8" class="note"/>
+<text x="65" y="966">Start with CALIBRATED=False. Record unloaded endpoint calibration before enabling motion.</text>
+<text x="65" y="995">Preparation and release are separate 500 ms command windows. No automatic return. Software state does not prove physical retention.</text>
+<text x="45" y="1048" class="small">R4 • nominal connection diagram • netlist.json is the exact build reference • GPIO numbers are not physical pin numbers</text>
+</svg>

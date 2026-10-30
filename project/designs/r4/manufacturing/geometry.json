@@ -1,0 +1,478 @@
+{
+  "units": "mm",
+  "revision": "R4",
+  "receiver_mounts": [
+    [
+      6,
+      -20,
+      -1.6
+    ],
+    [
+      6,
+      23,
+      -1.6
+    ],
+    [
+      94,
+      -20,
+      -1.6
+    ],
+    [
+      94,
+      23,
+      -1.6
+    ]
+  ],
+  "receiver_mount_annulus_radii": [
+    1.7,
+    3.0
+  ],
+  "payload_mounts": [
+    [
+      19.5,
+      0.5,
+      27.3
+    ],
+    [
+      44.5,
+      0.5,
+      27.3
+    ],
+    [
+      19.5,
+      25.5,
+      27.3
+    ],
+    [
+      44.5,
+      25.5,
+      27.3
+    ]
+  ],
+  "payload_mount_annulus_radii": [
+    1.7,
+    3.0
+  ],
+  "lug_x": [
+    26.8,
+    30.3
+  ],
+  "adapter_floor_z": 14.2,
+  "keeper_tip_x": 25.5,
+  "keeper_bottom_z": 14.2,
+  "keeper_top_z": 17.2,
+  "receiver_roof_z": 17.2,
+  "receiver_floor_z": 13.6,
+  "distal_roof_x": [
+    25.5,
+    26.5
+  ],
+  "proximal_roof_x": [
+    30.6,
+    31.6
+  ],
+  "far_floor_x": [
+    49,
+    50
+  ],
+  "contact_y": [
+    8.5,
+    11.5
+  ],
+  "pad_contacts": [
+    [
+      26.5,
+      2.5,
+      21.47,
+      2
+    ],
+    [
+      37.5,
+      2.5,
+      21.47,
+      2
+    ],
+    [
+      26.5,
+      23.5,
+      21.47,
+      2
+    ],
+    [
+      37.5,
+      23.5,
+      21.47,
+      2
+    ]
+  ],
+  "adapter_pad_contacts": [
+    [
+      26.5,
+      2.5,
+      23.3,
+      2
+    ],
+    [
+      37.5,
+      2.5,
+      23.3,
+      2
+    ],
+    [
+      26.5,
+      23.5,
+      23.3,
+      2
+    ],
+    [
+      37.5,
+      23.5,
+      23.3,
+      2
+    ]
+  ],
+  "keeper_anchors": [
+    [
+      25.5,
+      8.5,
+      14.2
+    ],
+    [
+      25.5,
+      11.5,
+      14.2
+    ],
+    [
+      50,
+      8.5,
+      14.2
+    ]
+  ],
+  "servo_mass_kg": 0.0125,
+  "servo_cg_mm": [
+    69.3,
+    -8,
+    10.5
+  ],
+  "servo_mount_centers": [
+    [
+      55,
+      -2.9,
+      10.5
+    ],
+    [
+      83.6,
+      -2.9,
+      10.5
+    ]
+  ],
+  "servo_load_selectors": [
+    {
+      "kind": "plane",
+      "axis": "y",
+      "value": -2.9,
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "ranges": {
+        "x": [
+          52.8,
+          57.2
+        ],
+        "z": [
+          8.3,
+          12.7
+        ]
+      },
+      "exclude_circle": {
+        "center": [
+          55,
+          -2.9,
+          10.5
+        ],
+        "radius": 1.1
+      }
+    },
+    {
+      "kind": "plane",
+      "axis": "y",
+      "value": -2.9,
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "ranges": {
+        "x": [
+          81.39999999999999,
+          85.8
+        ],
+        "z": [
+          8.3,
+          12.7
+        ]
+      },
+      "exclude_circle": {
+        "center": [
+          83.6,
+          -2.9,
+          10.5
+        ],
+        "radius": 1.1
+      }
+    }
+  ],
+  "actuation": {
+    "crank_radius_mm": 7.5,
+    "pivot_x_mm": 75,
+    "pivot_z_mm": 10.5,
+    "max_angle_deg": 113.57817847820183,
+    "travel_mm": 10.5,
+    "operating_travel_mm": 9.5,
+    "operating_angle_deg": 105.46600995342055,
+    "pin_y_mm": 10.2,
+    "follower": "fixed sliding SUS303 sleeve",
+    "sleeve_diameter_mm": 4,
+    "slot_width_mm": 4.4,
+    "horn_retained_angle_deg": 0,
+    "slot_straight_z_mm": [
+      9.5,
+      19
+    ],
+    "receiver_stop_positions_mm": [
+      0,
+      10.5
+    ],
+    "open_stop": {
+      "type": "removable M3 screw head",
+      "center_mm": [
+        77.25,
+        21,
+        13.2
+      ],
+      "head_radius_mm": 2.75,
+      "installed_after_keeper": true
+    }
+  },
+  "keeper_axial_load_selector": {
+    "kind": "plane",
+    "axis": "x",
+    "value": 69.7,
+    "ranges": {
+      "y": [
+        8.5,
+        11.5
+      ],
+      "z": [
+        16,
+        18
+      ]
+    },
+    "normal": [
+      1,
+      0,
+      0
+    ]
+  },
+  "keeper_axial_fixture_selector": {
+    "kind": "plane",
+    "axis": "x",
+    "value": 25.5,
+    "ranges": {
+      "y": [
+        8.5,
+        11.5
+      ],
+      "z": [
+        14.2,
+        17.2
+      ]
+    },
+    "normal": [
+      -1,
+      0,
+      0
+    ]
+  },
+  "seat_land_receiver_selector": {
+    "kind": "plane",
+    "axis": "z",
+    "value": 23.05,
+    "ranges": {
+      "x": [
+        30.5,
+        34.5
+      ],
+      "y": [
+        22,
+        25
+      ]
+    },
+    "normal": [
+      0,
+      0,
+      1
+    ]
+  },
+  "seat_land_adapter_selector": {
+    "kind": "plane",
+    "axis": "z",
+    "value": 23.3,
+    "ranges": {
+      "x": [
+        30.5,
+        34.5
+      ],
+      "y": [
+        22,
+        25
+      ]
+    },
+    "normal": [
+      0,
+      0,
+      -1
+    ]
+  },
+  "seat_land_centroid_mm": [
+    32.5,
+    23.5,
+    23.05
+  ],
+  "seat_land_gap_mm": 0.25,
+  "key_receiver_selector": {
+    "kind": "plane",
+    "axis": "y",
+    "value": 20.9,
+    "ranges": {
+      "x": [
+        23.2,
+        26
+      ],
+      "z": [
+        23.3,
+        25.8
+      ]
+    },
+    "normal": [
+      0,
+      1,
+      0
+    ]
+  },
+  "key_adapter_selector": {
+    "kind": "plane",
+    "axis": "y",
+    "value": 21.2,
+    "ranges": {
+      "x": [
+        23.2,
+        26
+      ],
+      "z": [
+        23.3,
+        25.8
+      ]
+    },
+    "normal": [
+      0,
+      -1,
+      0
+    ]
+  },
+  "key_normal_gap_mm": 0.3,
+  "refine_boxes": {
+    "receiver": [
+      {
+        "bounds": [
+          [
+            22,
+            52
+          ],
+          [
+            4,
+            16
+          ],
+          [
+            13,
+            22
+          ]
+        ],
+        "factor": 0.6
+      }
+    ],
+    "adapter": [
+      {
+        "bounds": [
+          [
+            24,
+            34
+          ],
+          [
+            5,
+            15
+          ],
+          [
+            11,
+            24
+          ]
+        ],
+        "factor": 0.6
+      }
+    ],
+    "keeper": [
+      {
+        "bounds": [
+          [
+            25,
+            52
+          ],
+          [
+            8,
+            12
+          ],
+          [
+            14,
+            18
+          ]
+        ],
+        "factor": 0.6
+      },
+      {
+        "bounds": [
+          [
+            62,
+            73
+          ],
+          [
+            8,
+            12
+          ],
+          [
+            8,
+            22
+          ]
+        ],
+        "factor": 0.7
+      }
+    ]
+  },
+  "reference_pose": {
+    "state": "Retained with keeper taken up against guide roof by preload and positive payload load",
+    "keeper_top_z_mm": 17.2,
+    "guide_roof_z_mm": 17.2,
+    "unloaded_keeper_float_mm": 0.6,
+    "slot_lower_end_center_z_mm": 9.5,
+    "slot_upper_end_center_z_mm": 19,
+    "nominal_foam_thickness_mm": 1.77,
+    "nominal_foam_compression_percent": 25
+  },
+  "model_limitations": [
+    "Material and friction need physical characterization.",
+    "Seat-land and key-face reactions represent post-clearance contact, not nonlinear take-up.",
+    "Only named discrete host interfaces support the core.",
+    "Servo manufacturer STEP is a case-fit reference; vendor horn outline and supplied screw/lead are envelope models."
+  ]
+}

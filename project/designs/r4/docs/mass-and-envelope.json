@@ -1,0 +1,310 @@
+{
+  "revision": "R4",
+  "status": "planning_estimates_not_measured",
+  "date": "2026-10-30",
+  "cad_assembly_sha256": "6b8b720d26a2452f9bcd57087e99355a3fe63584ad129dd2f744a0d3a4f0e124",
+  "cad_manifest_sha256": "7fb9cfdcccc5e22eecc8ab2d02fa844741c94cd5a9a740da97ef6df285930787",
+  "sources": {
+    "PAHT_CF_density": "https://store.bblcdn.com/7166b20bc68f4c87b32c972b856eeb4b.pdf",
+    "servo_mass": "https://www.hiteccs.com/public/uploads/data_sheet/HCS_HS-65MG_Specsheetv2.2_10-1729888021.pdf",
+    "foam_density": "https://www.rogerscorp.com/-/media/project/rogerscorp/documents/elastomeric-material-solutions/poron/english/data-sheets/17-006-poron-4701-30-very-soft.pdf"
+  },
+  "groups": {
+    "receiver_print": {
+      "part_ids": [
+        "receiver_core"
+      ],
+      "volume_cm3": 37.21219777797246,
+      "density_used_g_cm3": 1.06,
+      "reference_mass_g": 39.44492964465081,
+      "basis": "supplier typical density \u00d7 nominal solid CAD volume"
+    },
+    "keeper_print": {
+      "part_ids": [
+        "keeper"
+      ],
+      "volume_cm3": 0.8410359325647687,
+      "density_used_g_cm3": 1.06,
+      "reference_mass_g": 0.8914980885186549,
+      "basis": "supplier typical density \u00d7 nominal solid CAD volume"
+    },
+    "adapter_print": {
+      "part_ids": [
+        "payload_adapter"
+      ],
+      "volume_cm3": 4.721280161879803,
+      "density_used_g_cm3": 1.06,
+      "reference_mass_g": 5.004556971592591,
+      "basis": "supplier typical density \u00d7 nominal solid CAD volume"
+    },
+    "retained_fasteners": {
+      "part_ids": [
+        "follower_bolt",
+        "follower_washer",
+        "follower_nut",
+        "horn_screw",
+        "stop_screw",
+        "stop_washer",
+        "stop_nut",
+        "servo_screw_1",
+        "servo_front_washer_1",
+        "servo_rear_washer_1",
+        "servo_nut_1",
+        "servo_screw_2",
+        "servo_front_washer_2",
+        "servo_rear_washer_2",
+        "servo_nut_2"
+      ],
+      "volume_cm3": 0.5146802834479647,
+      "density_used_g_cm3": 7.85,
+      "reference_mass_g": 4.040240225066523,
+      "basis": "planning density assumption \u00d7 simplified CAD volume; not purchased mass"
+    },
+    "host_fasteners": {
+      "part_ids": [
+        "host_screw_1",
+        "host_top_washer_1",
+        "host_bottom_washer_1",
+        "host_nut_1",
+        "host_screw_2",
+        "host_top_washer_2",
+        "host_bottom_washer_2",
+        "host_nut_2",
+        "host_screw_3",
+        "host_top_washer_3",
+        "host_bottom_washer_3",
+        "host_nut_3",
+        "host_screw_4",
+        "host_top_washer_4",
+        "host_bottom_washer_4",
+        "host_nut_4"
+      ],
+      "volume_cm3": 1.0706048020616816,
+      "density_used_g_cm3": 7.85,
+      "reference_mass_g": 8.4042476961842,
+      "basis": "planning density assumption \u00d7 simplified CAD volume; not purchased mass"
+    },
+    "departing_fasteners": {
+      "part_ids": [
+        "payload_screw_1",
+        "payload_washer_1",
+        "payload_nut_1",
+        "payload_screw_2",
+        "payload_washer_2",
+        "payload_nut_2",
+        "payload_screw_3",
+        "payload_washer_3",
+        "payload_nut_3",
+        "payload_screw_4",
+        "payload_washer_4",
+        "payload_nut_4"
+      ],
+      "volume_cm3": 0.8108042253612422,
+      "density_used_g_cm3": 7.85,
+      "reference_mass_g": 6.364813169085751,
+      "basis": "planning density assumption \u00d7 simplified CAD volume; not purchased mass"
+    },
+    "sleeve": {
+      "part_ids": [
+        "sleeve"
+      ],
+      "volume_cm3": 0.03506017401406206,
+      "density_used_g_cm3": 7.9,
+      "reference_mass_g": 0.27697537471109024,
+      "basis": "planning density assumption \u00d7 simplified CAD volume; not purchased mass"
+    },
+    "horn": {
+      "part_ids": [
+        "horn"
+      ],
+      "volume_cm3": 0.29489876909951845,
+      "density_used_g_cm3": 1.15,
+      "reference_mass_g": 0.3391335844644462,
+      "basis": "planning density assumption \u00d7 simplified CAD volume; not purchased mass"
+    }
+  },
+  "servo_published_mass_g": 12.5,
+  "foam_uncompressed_volume_mass_g": 0.03796049235185619,
+  "adhesive_assumed_mass_g": 0.003015928947446201,
+  "totals_g": {
+    "structural_prints": 45.34098470476206,
+    "retained_module_without_host_fasteners": 57.53375333871083,
+    "host_fasteners_for_3mm_grip": 8.4042476961842,
+    "retained_with_host_fasteners": 65.93800103489502,
+    "departing_adapter_and_fasteners": 11.369370140678342,
+    "combined_mechanical_package": 77.30737117557337,
+    "arithmetic_remainder_in_454g_departing_target": 442.63062985932163
+  },
+  "budget_sensitivity": {
+    "basis": "Chosen sensitivity only: print masses 90\u2013110% of the solid-CAD estimate, metal hardware 75\u2013125% of the simplified-CAD estimate, horn 0.2\u20130.5 g; servo held at its published 12.5 g. Not a measured range or maximum.",
+    "retained_with_host_fasteners_g": [
+      58.58485885312319,
+      73.31287604773799
+    ],
+    "departing_adapter_and_fasteners_g": [
+      9.277711151247646,
+      13.46102913010904
+    ],
+    "combined_g": [
+      67.86257000437084,
+      86.77390517784703
+    ]
+  },
+  "retained_pose_envelopes": {
+    "retained_module_without_host_fasteners": {
+      "min_mm": [
+        -0.0006346748767018103,
+        -26.000634674876707,
+        -1.6007609651180588
+      ],
+      "max_mm": [
+        100.00063467487671,
+        29.000634674876704,
+        25.800000100000005
+      ],
+      "dimensions_mm": [
+        100.00126934975341,
+        55.001269349753414,
+        27.400761065118065
+      ]
+    },
+    "mated_body_without_attachment_fasteners": {
+      "min_mm": [
+        -0.0006346748767018103,
+        -26.000634674876707,
+        -1.6007609651180588
+      ],
+      "max_mm": [
+        100.00063467487671,
+        30.000000100000015,
+        27.30076096511805
+      ],
+      "dimensions_mm": [
+        100.00126934975341,
+        56.00063477487672,
+        28.90152193023611
+      ]
+    },
+    "retained_with_host_fasteners": {
+      "min_mm": [
+        -0.0006346748767018103,
+        -26.000634674876707,
+        -12.300671451574763
+      ],
+      "max_mm": [
+        100.00063467487671,
+        29.000634674876704,
+        25.800000100000005
+      ],
+      "dimensions_mm": [
+        100.00126934975341,
+        55.001269349753414,
+        38.10067155157477
+      ]
+    },
+    "complete_cad_with_defined_fasteners": {
+      "min_mm": [
+        -0.0006346748767018103,
+        -26.000634674876707,
+        -12.300671451574763
+      ],
+      "max_mm": [
+        100.00063467487671,
+        30.000000100000015,
+        37.30067145157475
+      ],
+      "dimensions_mm": [
+        100.00126934975341,
+        56.00063477487672,
+        49.601342903149515
+      ]
+    }
+  },
+  "operating_sweep_envelopes": {
+    "retained_module_without_host_fasteners": {
+      "min_mm": [
+        -0.0006346748767018103,
+        -26.000634674876707,
+        -1.6007609651180588
+      ],
+      "max_mm": [
+        100.00063467487671,
+        29.000634674876704,
+        27.99905881744767
+      ],
+      "dimensions_mm": [
+        100.00126934975341,
+        55.001269349753414,
+        29.599819782565728
+      ]
+    },
+    "mated_body_without_attachment_fasteners": {
+      "min_mm": [
+        -0.0006346748767018103,
+        -26.000634674876707,
+        -1.6007609651180588
+      ],
+      "max_mm": [
+        100.00063467487671,
+        30.000000100000015,
+        27.99905881744767
+      ],
+      "dimensions_mm": [
+        100.00126934975341,
+        56.00063477487672,
+        29.599819782565728
+      ]
+    },
+    "retained_with_host_fasteners": {
+      "min_mm": [
+        -0.0006346748767018103,
+        -26.000634674876707,
+        -12.300671451574763
+      ],
+      "max_mm": [
+        100.00063467487671,
+        29.000634674876704,
+        27.99905881744767
+      ],
+      "dimensions_mm": [
+        100.00126934975341,
+        55.001269349753414,
+        40.29973026902243
+      ]
+    },
+    "complete_cad_with_defined_fasteners": {
+      "min_mm": [
+        -0.0006346748767018103,
+        -26.000634674876707,
+        -12.300671451574763
+      ],
+      "max_mm": [
+        100.00063467487671,
+        30.000000100000015,
+        37.30067145157475
+      ],
+      "dimensions_mm": [
+        100.00126934975341,
+        56.00063477487672,
+        49.601342903149515
+      ]
+    }
+  },
+  "envelope_basis": "Nominal CAD part bounds at retained pose; rotating mesh vertices analytically extremized over 0\u2013105.466 degrees for operating sweep, with keeper translation 0\u20139.5 mm. Mesh-based sweep is a packaging estimate, not an exact surface clearance or tolerance certificate.",
+  "excluded": [
+    "Offboard control board, Pico, switching/buffer electronics and supply",
+    "Additional host harness and strain relief",
+    "Host and payload test panels, bench fixture and proof-load equipment",
+    "Aircraft backing, pod shell and payload contents",
+    "Print supports, brims and calibration coupons",
+    "Illustrative lead_reservation volume; real supplied servo/lead to be weighed together"
+  ],
+  "measurement_status": "All physical masses and installed envelopes remain unmeasured.",
+  "generator_sources": {
+    "build.py": "4207f900ad4d81db22edbe8a333f2c444106a202f23d2dce5a371e9f4639aa01",
+    "manufacturing.py": "1b0ade50df16d0e98bf09d9ea45f0c5fcd3a801521bdcf100f415c5b37f3cf27",
+    "parameters.json": "16b615141a27343a7798269f9d95741c368d3ed0efe3c53c021ea7662b6e4dc0",
+    "vendor/HS-65HB-vendor.step": "82cc8020946f461ff0641caab555ba04f3cc785d83f79cd0ca20a44304c0e264"
+  },
+  "source_handoff": "Fresh corrected CAD handoff; front pads at Y2.5 mm; committed artifact freshness verified before this calculation."
+}

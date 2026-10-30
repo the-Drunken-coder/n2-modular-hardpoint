@@ -1,0 +1,32 @@
+{
+  "revision": "R4",
+  "verification_date": "2026-10-30",
+  "checks": {
+    "host_state_machine_tests": 11,
+    "host_state_machine_result": "PASS",
+    "python_compile": "PASS",
+    "netlist_no_duplicate_pin_connections": "PASS",
+    "bom_column_integrity": "PASS",
+    "svg_xml": "PASS",
+    "wiring_visual_review": "Rendered with sharp and inspected; no clipping of circuit data; net labels and crossover semantics explicit",
+    "host_calibration_tests": 5,
+    "host_calibration_result": "PASS",
+    "unloaded_calibration_entry": "Explicit USB invocation; one bounded command; no automatic sweep; default main remains inhibited"
+  },
+  "physical_measurements_performed": false,
+  "pico_flashed": false,
+  "servo_calibrated": false,
+  "sha256": {
+    "firmware/controller_core.py": "012181687f44869eacf0479cf4ffc1e57f2da59df8e6cd51244f11c93971b034",
+    "firmware/config.py": "e4df1a40cf7f3227ffa3e5d26511f9283208275352ec97c40d8acebbc0cc92f2",
+    "firmware/main.py": "1fa97ccf16587cf923932d8bcfe4dfff703662812b014334ad1af4bcc1395967",
+    "firmware/test_controller.py": "900b9b34d0fd526a93d66411c1a4cd444ae1f1dd9941174b11afbfb4c5dde4dc",
+    "wiring.svg": "48e19559739110d5f7cd5247f57df341658ef18c8467357bbc2d5dc219247920",
+    "netlist.json": "52c8cf4eddc8f6f83b6720ed717042e2edf2178efc496bf358f0bc336eb50978",
+    "bom.csv": "746c47bfc7b63dc85d605bf3deb2680fd6467f8b5d15193edfb0d4c013c597bf",
+    "firmware/calibrate.py": "55fe13bbf21527ba806ae1e3aeb21936b3e3101c9bb4704b8bd6667a3bf6c22e",
+    "firmware/calibration_core.py": "b2f85f5ed380f736cefc1094308d70d22819e79dd264880c07587c2c5cc498ea",
+    "firmware/test_calibration.py": "5d79242a856222b84be5518e393d665ea3a1c5d7a4eaf4f63f21910f54c4ee2a"
+  },
+  "calibration_policy": "Nominal9.5mm operating withdrawal, measured>=0.5mm open-stop margin; configuration uncalibrated/inhibited."
+}

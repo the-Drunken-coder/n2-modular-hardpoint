@@ -1,0 +1,13 @@
+{
+ "step": "/workspace/scratch/c3093d2e58b9/n2-r4-recovery-run-06/cad/parts/keeper.step",
+ "up": "+Y",
+ "angle": 45,
+ "bed_mm2": 248.85,
+ "totals": {
+  "SUPPORT": 0,
+  "bridge": 0,
+  "small-curve": 0,
+  "sliver": 0
+ },
+ "faces": []
+}

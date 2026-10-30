@@ -1,6 +1,8 @@
-# N2 P14 supported cross-bolt hardpoint
+# N2 hardpoint engineering packages
 
-**N2 P14 is the sole active design.** The four printed pieces use one purchased mini solenoid to retract a supported cross-bolt. Current development focuses on a compact mechanical retention/release mechanism, with PAHT-CF as the candidate material for the next prototype.
+**Current development: [R4 standalone hardpoint](designs/r4/README.md).** R4 contains the selected three-print architecture, supported 3.5 mm lug, longer direct servo withdrawal, dimensional/assembly definition, local bench controls and reproducible validation. Use that package for new prototype work.
+
+The following material is the **preserved P14 issued reference**. Its four printed pieces use a purchased mini solenoid to retract a supported cross-bolt. It is retained with its original CAD, calculations and instructions so previous work remains reproducible. It does not qualify the changed R4 geometry.
 
 This directory began as the P11 package import and still contains historical drawings, BOM/analysis records and website source. The current geometry is P14; the original P11/P6 provenance and test transcripts do not validate later revisions. The repository-level [current context](../docs/CURRENT_CONTEXT.md), [P14 record](../docs/p14.md), [requirements](../docs/requirements.md) and [test plan](../docs/test-plan.md) govern further work.
 

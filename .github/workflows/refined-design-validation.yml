@@ -1,0 +1,113 @@
+name: R4 refined design validation
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/refined-design-validation.yml'
+      - 'project/designs/r4/**'
+      - 'project/concepts/modular-core/scripts/**'
+      - 'tools/ci/run_refined_design.py'
+      - 'tools/overhang.py'
+      - 'tests/ci/test_refined_design*.py'
+      - 'project/cad/**'
+      - 'project/analysis/inputs/**'
+      - 'project/analysis/requirements.txt'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/refined-design-validation.yml'
+      - 'project/designs/r4/**'
+      - 'project/concepts/modular-core/scripts/**'
+      - 'tools/ci/run_refined_design.py'
+      - 'tools/overhang.py'
+      - 'tests/ci/test_refined_design*.py'
+      - 'project/cad/**'
+      - 'project/analysis/inputs/**'
+      - 'project/analysis/requirements.txt'
+  workflow_dispatch:
+    inputs:
+      retain_native_fields:
+        description: Retain native FEA meshes and displacement/stress arrays separately
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: r4-refined-design-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONUNBUFFERED: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  OMP_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+
+jobs:
+  refined-design:
+    name: R4 physical CAD, mechanism and actual STEP simulation
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            project/cad/requirements.txt
+            project/analysis/requirements.txt
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+      - name: Reject stale evidence, invalid numerical results and missing bench measurements
+        run: python -m unittest discover -s tests/ci -p 'test_refined_design*.py' -v
+      - name: Exercise actuator command, timing and power-loss controller behavior
+        run: python -m unittest discover -s project/designs/r4/electrical/firmware -p 'test_*.py' -v
+      - name: Install pinned CAD and numerical dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libgl1 libglu1-mesa libxft2 libxrender1
+          python -m pip install -r project/cad/requirements.txt -r project/analysis/requirements.txt
+      - name: Rebuild physical prints, complete assembly, dimensions and motion checks
+        run: python tools/ci/run_refined_design.py --stage cad --output "$RUNNER_TEMP/n2-r4"
+      - name: Solve standalone receiver through actual host interfaces
+        run: python tools/ci/run_refined_design.py --stage receiver --output "$RUNNER_TEMP/n2-r4"
+      - name: Solve adapter retention, terminal bearing and interface load cases
+        run: python tools/ci/run_refined_design.py --stage adapter --output "$RUNNER_TEMP/n2-r4"
+      - name: Solve keeper retention and the axial follower load path
+        run: python tools/ci/run_refined_design.py --stage keeper --output "$RUNNER_TEMP/n2-r4"
+      - name: Enforce current-input numerical evidence and report pending physical tests
+        run: python tools/ci/run_refined_design.py --stage report --output "$RUNNER_TEMP/n2-r4"
+      - name: Publish run summary
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/n2-r4/summary.md" ]; then
+            cat "$RUNNER_TEMP/n2-r4/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve CAD, drawings, print advice, configurations, numerical results and blank bench records
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: r4-design-evidence-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/n2-r4
+            !${{ runner.temp }}/n2-r4/**/__pycache__/**
+            !${{ runner.temp }}/n2-r4/**/*.msh
+            !${{ runner.temp }}/n2-r4/**/*.npz
+          if-no-files-found: error
+          retention-days: 30
+      - name: Preserve requested native field arrays and meshes
+        if: ${{ always() && github.event_name == 'workflow_dispatch' && inputs.retain_native_fields }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: r4-native-fields-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/n2-r4/fea/**/*.msh
+            ${{ runner.temp }}/n2-r4/fea/**/*.npz
+          if-no-files-found: error
+          retention-days: 7

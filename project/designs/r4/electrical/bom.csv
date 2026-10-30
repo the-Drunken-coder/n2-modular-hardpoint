@@ -1,0 +1,20 @@
+reference,quantity,manufacturer,part_number,description,location,source
+M1,1,Hitec,32065S,HS-65MG micro servo with factory lead,hardpoint,https://www.hiteccs.com/actuators/product-details/HS-65MG
+H1,1,Hitec,55718,Micro25T horn hardware set; select MS-I25 and modify per mechanical drawing,hardpoint,https://hitecrcd.com/hs-65-65mg-5065mg-horn-hdwr/
+U1,1,Pololu,2810,Mini MOSFET Slide Switch LV; physical slide fixed OFF,offboard bench controller,https://www.pololu.com/product/2810
+U2,1,Texas Instruments,SN74AHCT125N,PDIP14 TTL-input quad buffer; one channel used,offboard bench controller,https://www.ti.com/lit/ds/symlink/sn74ahct125.pdf
+U3,1,Raspberry Pi,SC0917,Pico H non-wireless RP2040 USB powered,offboard bench controller,https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html
+Q1,1,onsemi,2N3904G,TO92 NPN signal enable pull-down transistor,offboard bench controller,https://www.onsemi.com/pdf/datasheet/2n3903-d.pdf
+R1,1,Yageo,CFR-25JB-52-220R,220 ohm 0.25W resistor; signal series,offboard bench controller,component specification
+R2 R3 R6 R8,4,Yageo,CFR-25JB-52-10K,10 kohm 0.25W resistor; OE pull-up ON pull-down signal pull-down PWM input pull-down,offboard bench controller,component specification
+R4,1,Yageo,CFR-25JB-52-4K7,4.7 kohm 0.25W resistor; Q1 base series,offboard bench controller,component specification
+R5,1,Yageo,CFR-25JB-52-100K,100 kohm 0.25W resistor; Q1 base pull-down,offboard bench controller,component specification
+R7,1,Yageo,CFR-25JB-52-1K,1 kohm 0.25W resistor; servo rail bleeder,offboard bench controller,component specification
+C1,1,KEMET,C315C104M5U5TA,100nF 50V radial ceramic; at U2 power pins,offboard bench controller,component specification
+C2,1,Panasonic,EEUFR1A101,100uF 10V radial electrolytic; at servo header,offboard bench controller,component specification
+J1,2,WAGO,221-412,Two insulated power splices one per conductor; red +5V black GND,offboard bench controller,component specification
+J2,1,Harwin,M20-9990346,Three-position 2.54mm male header; mark 1 SIGNAL 2 POWER 3 GND,offboard bench controller,component specification
+SW1 SW2,2,Omron,B3F-1000,Normally-open tactile button; use one terminal from each electrical side,offboard bench controller,component specification
+WIRE,1,Generic,22AWG stranded copper,Red and black source leads each <=100mm; signal wiring 26AWG,offboard bench controller,project specification
+BOARD,1,Generic,2.54mm plated perfboard,Soldered insulated offboard interconnection; layout follows netlist,offboard bench controller,project specification
+PSU,1,Existing bench equipment,5.00V regulated >=3A,Set1.5A initial current limit; verify terminal voltage under load,external test equipment,project specification

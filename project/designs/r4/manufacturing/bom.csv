@@ -1,0 +1,20 @@
+item,part_number,description,quantity,material,specification,source,notes
+P01,R4-01,Receiver core,1,PAHT-CF intended,One structural print; proposed settings and inspection apply,parts/receiver_core_print.stl,No measured directional allowables.
+P02,R4-02,Adapter and retaining lug,1,PAHT-CF intended,One structural print,parts/payload_adapter_print.stl,Flange34×34;4M3 interface.
+P03,R4-03,"Keeper, yoke and stop tab",1,PAHT-CF intended,One structural print,parts/keeper_print.stl,Print on its flat Y side.
+A01,Hitec32065S / HS-65MG,Micro servo,1,Purchased,Fixed nominal 5 V;12.5g excluding horn,https://www.hiteccs.com/actuators/product-details/HS-65MG,Vendor-linked HB STEP used only as case-fit reference; inspect actual MG.
+A02,Hitec55718 / MS-I25,Micro 25T horn and suppliedretaining screw,1,Engineeringplastic/steel,Open first R7.5 hole to Ø2.1; trim opposite arm at 4.5 mm from the axis,https://hitecrcd.com/hs-65-65mg-5065mg-horn-hdwr/,Keep active arm. Match Micro 25T; standardfullsize25Tnotinterchangeable.
+A03,HiroSugiCU-2004,Fixed sliding follower sleeve,1,SUS303,OD4 /ID2.2±0.1 /L4±0.1mm,https://us.c.misumi-ec.com/book/HSK1_USA_M01/pdf/0154.pdf,Clamped against horn; does not roll.
+F01,ISO4762 M2×10,Follower screw,1,Steel,"Socket cap, M2×0.4",ISO4762,"Use an M2 washer and prevailing-torque nut; clamp the sleeve, not the printed slot."
+F02,ISO4762 M2×12,Servo mount screw,2,Steel,"Socket cap, M2×0.4",ISO4762,6 mm printed wall + 2 mm servo ear + washers + locknut; verify grip.
+F03,ISO7089 M2,M2 plainwasher,5,Steel,ID2.2 OD5 thickness0.3,ISO7089,4 servo interface washers and 1 follower washer.
+F04,ISO10511 M2,M2 prevailing-torque nut,3,Steel/nylon,AF4; height2.8maximum envelope,ISO10511,Replace if locking resistance is lost.
+F05,ISO4762 M3×16,Host attachment screw,4,Steel,"M3×0.5, socketcap",ISO4762,Length for a 3 mm bench host only; use the grip-length formula for integration.
+F06,ISO7092 / DIN433 M3,M3 small-series plainwasher,13,Steel,ID3.2 OD6 thickness0.5,https://www.jcfasteners.com/wp-content/uploads/2019/10/ISO-7092-Small-OD-Washer-B4iD10-SS304.pdf,"8 host, 4 payload, 1 open-stop washer."
+F07,ISO10511 M3,M3 prevailing-torque nut,9,Steel/nylon,AF5.5; modeledheight4maximum envelope,ISO10511,"4 host, 4 payload, 1 open-stop nut."
+F08,ISO10642 M3×14,Payload interface screw,4,Steel,90° flathead; total length 14 includes the head,ISO10642,Head flush with underside; 3 mm payload test-panel grip.
+F09,ISO4762 M3×10,Removable open-stop screw,1,Steel,M3×0.5 socketcap;headØ5.5×3,ISO4762,Install after keeper insertion with M3 washer and captured nut; do not stall the servo against the stop.
+C01,Rogers PORON4701-30,Preload foam disc,4,320kg/m3 polyurethane foam,Ø4 ×2.36mm free thickness;1.77 mm nominal assembled,https://www.rogerscorp.com/-/media/project/rogerscorp/documents/elastomeric-material-solutions/poron/english/data-sheets/17-006-poron-4701-30-very-soft.pdf,"Purchase sheet and punch discs; measure preload, do not infer force from thickness alone."
+C02,3M467MP,Adhesive disc,4,200MP acrylic transfer adhesive,Ø4 ×0.06mmnominal,https://multimedia.3m.com/mws/media/2366204O/3M-Adhesive-Transfer-Tape-467MP.pdf?pif=000024,Replace with foam; assess the bond to the actual printed material.
+T01,Bench fixture context,Host test panel,1,Rigid test fixture,"3.00 mm grip panel, 4 holes on an 88 × 43 pitch",drawings/R4-01_receiver.svg,Not part of the hardpoint; aircraft backing is outside this design.
+T02,Payload fixture context,Payload test panel,1,Rigid test fixture,"3.00mm grip panel,4 holes25×25 pitch",drawings/R4-02_adapter.svg,Not part of the hardpoint; include its mass in the departing payload test mass.

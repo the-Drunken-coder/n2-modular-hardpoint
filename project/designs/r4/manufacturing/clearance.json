@@ -1,0 +1,4099 @@
+{
+  "revision": "R4",
+  "checks": [
+    {
+      "id": "keeper_receiver_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_0.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_receiver_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_5.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_receiver_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_15.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_receiver_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_29.926deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_receiver_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_30.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_receiver_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_45.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_receiver_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_60.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_receiver_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_66.422deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_receiver_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_68.900deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_receiver_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_72.142deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_receiver_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_75.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_receiver_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_90.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_receiver_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_105.000deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_receiver_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_adapter_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_servo_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_receiver_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_servo_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_keeper_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_receiver_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_servo_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_keeper_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_receiver_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_servo_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_keeper_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_receiver_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_servo_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_keeper_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_receiver_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_servo_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_keeper_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_payload_at_113.578deg",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_0.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_0.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_0.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_0.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_0.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_0.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_0.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_0.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_5.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_5.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_5.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_5.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_5.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_5.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_5.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_5.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_15.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_15.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_15.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_15.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_15.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_15.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_15.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_15.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_29.926_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_29.926_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_29.926_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_29.926_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_29.926_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_29.926_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_29.926_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_29.926_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_30.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_30.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_30.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_30.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_30.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_30.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_30.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_30.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_45.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_45.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_45.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_45.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_45.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_45.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_45.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_45.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_60.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_60.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_60.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_60.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_60.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_60.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_60.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_60.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_66.422_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_66.422_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_66.422_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_66.422_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_66.422_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_66.422_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_66.422_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_66.422_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_68.900_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_68.900_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_68.900_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_68.900_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_68.900_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_68.900_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_68.900_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_68.900_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_72.142_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_72.142_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_72.142_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_72.142_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_72.142_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_72.142_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_72.142_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_72.142_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_75.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_75.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_75.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_75.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_75.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_75.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_75.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_75.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_90.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_90.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_90.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_90.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_90.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_90.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_90.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_90.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_105.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_105.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_105.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_105.000_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_105.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_105.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_105.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_105.000_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_113.578_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_113.578_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_113.578_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_113.578_-0.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_receiver_113.578_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_sleeve_113.578_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_screw_113.578_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_float_stop_washer_113.578_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_receiver_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_keeper_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_servo_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_receiver_0.2",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_keeper_0.2",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_servo_0.2",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_receiver_0.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_keeper_0.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_servo_0.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_receiver_1",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_keeper_1",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_servo_1",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_receiver_3",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_keeper_3",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_servo_3",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_receiver_6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_keeper_6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_servo_6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_receiver_12",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_keeper_12",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_servo_12",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_receiver_32",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_keeper_32",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_departure_servo_32",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "sleeve_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_bolt_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_washer_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "follower_nut_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_screw_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_screw_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "horn_screw_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "stop_screw_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "stop_screw_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "stop_screw_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "stop_washer_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "stop_washer_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "stop_washer_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "stop_nut_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "stop_nut_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "stop_nut_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_screw_1_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_screw_1_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_screw_1_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_front_washer_1_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_front_washer_1_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_front_washer_1_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_rear_washer_1_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_rear_washer_1_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_rear_washer_1_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_nut_1_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_nut_1_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_nut_1_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_screw_2_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_screw_2_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_screw_2_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_front_washer_2_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_front_washer_2_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_front_washer_2_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_rear_washer_2_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_rear_washer_2_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_rear_washer_2_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_nut_2_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_nut_2_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_nut_2_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_screw_1_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_screw_1_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_screw_1_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_top_washer_1_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_top_washer_1_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_top_washer_1_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_bottom_washer_1_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_bottom_washer_1_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_bottom_washer_1_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_nut_1_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_nut_1_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_nut_1_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_screw_2_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_screw_2_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_screw_2_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_top_washer_2_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_top_washer_2_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_top_washer_2_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_bottom_washer_2_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_bottom_washer_2_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_bottom_washer_2_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_nut_2_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_nut_2_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_nut_2_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_screw_3_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_screw_3_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_screw_3_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_top_washer_3_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_top_washer_3_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_top_washer_3_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_bottom_washer_3_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_bottom_washer_3_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_bottom_washer_3_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_nut_3_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_nut_3_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_nut_3_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_screw_4_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_screw_4_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_screw_4_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_top_washer_4_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_top_washer_4_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_top_washer_4_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_bottom_washer_4_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_bottom_washer_4_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_bottom_washer_4_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_nut_4_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_nut_4_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_nut_4_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_screw_1_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_screw_1_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_screw_1_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_washer_1_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_washer_1_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_washer_1_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_nut_1_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_nut_1_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_nut_1_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_screw_2_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_screw_2_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_screw_2_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_washer_2_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_washer_2_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_washer_2_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_nut_2_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_nut_2_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_nut_2_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_screw_3_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_screw_3_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_screw_3_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_washer_3_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_washer_3_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_washer_3_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_nut_3_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_nut_3_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_nut_3_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_screw_4_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_screw_4_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_screw_4_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_washer_4_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_washer_4_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_washer_4_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_nut_4_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_nut_4_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_nut_4_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_1_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_1_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_1_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_adhesive_1_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_adhesive_1_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_adhesive_1_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_2_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_2_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_2_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_adhesive_2_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_adhesive_2_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_adhesive_2_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_3_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_3_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_3_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_adhesive_3_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_adhesive_3_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_adhesive_3_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_4_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_4_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_4_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_adhesive_4_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_adhesive_4_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "pad_adhesive_4_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "lead_reservation_vs_receiver_core",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "lead_reservation_vs_payload_adapter",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "lead_reservation_vs_keeper",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_M3_driver_6_-20",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_M3_driver_6_23",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_M3_driver_94_-20",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "host_M3_driver_94_23",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_M3_driver_19.5_0.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_M3_driver_44.5_0.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_M3_driver_19.5_25.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "payload_M3_driver_44.5_25.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_M2_driver_55",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "servo_M2_driver_83.6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_keeper_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_horn_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_sleeve_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_bolt_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_washer_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_nut_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_keeper_0.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_horn_0.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_sleeve_0.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_bolt_0.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_washer_0.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_nut_0.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_keeper_1",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_horn_1",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_sleeve_1",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_bolt_1",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_washer_1",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_nut_1",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_keeper_3",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_horn_3",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_sleeve_3",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_bolt_3",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_washer_3",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_nut_3",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_keeper_6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_horn_6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_sleeve_6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_bolt_6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_washer_6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_nut_6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_keeper_10.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_horn_10.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_sleeve_10.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_bolt_10.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_washer_10.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_nut_10.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_keeper_15",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_horn_15",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_sleeve_15",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_bolt_15",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_washer_15",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_nut_15",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_keeper_22",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_horn_22",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_sleeve_22",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_bolt_22",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_washer_22",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_nut_22",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_keeper_30",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_horn_30",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_sleeve_30",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_bolt_30",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_washer_30",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_nut_30",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_keeper_45",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_horn_45",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_sleeve_45",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_bolt_45",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_washer_45",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_nut_45",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_keeper_60",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_horn_60",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_sleeve_60",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_bolt_60",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_washer_60",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_nut_60",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_keeper_80",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_horn_80",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_sleeve_80",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_bolt_80",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_washer_80",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_insert_follower_nut_80",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_from_rear_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_horn_engagement_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_from_rear_0.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_horn_engagement_0.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_from_rear_1",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_horn_engagement_1",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_from_rear_3",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_horn_engagement_3",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_from_rear_6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_horn_engagement_6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_from_rear_10",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_horn_engagement_10",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_from_rear_20",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_horn_engagement_20",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_from_rear_35",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_horn_engagement_35",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_from_rear_55",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "assembly_servo_horn_engagement_55",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_stop_screw_at_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_stop_washer_at_0",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_stop_screw_at_3",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_stop_washer_at_3",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_stop_screw_at_6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_stop_washer_at_6",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_stop_screw_at_9.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_stop_washer_at_9.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_stop_screw_at_10.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "keeper_stop_washer_at_10.5",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    },
+    {
+      "id": "open_stop_driver",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "limit_mm3": 1e-05
+    }
+  ],
+  "all_passed": true,
+  "sampled_angles_deg": [
+    0,
+    5,
+    15,
+    29.926434866614244,
+    30,
+    45,
+    60,
+    66.42182152179817,
+    68.89980397590698,
+    72.14153730159272,
+    75,
+    90,
+    105,
+    113.57817847820183
+  ],
+  "scope": "Nominal rigid discrete poses and listed tool paths. Not continuous collision, compliance or tolerance validation.",
+  "tool_access_basis": "M2 ear screws use a 1.5 mm AF L-hex key inside a \u00d82.4 mm cylindrical shaft envelope. Payload screws are installed with adapter removed.",
+  "intentional_contacts": [
+    "Keeper stop tab touches a fixed closed stop at0mm and removable M3 head at10.5mm.",
+    "Preload foam touches adapter underside; adhesive touches pocket floor.",
+    "Screw heads/washers bear on matching parts. Screw thread engagement is simplified.",
+    "Straight keeper/horn assembly insertion requires the open-stop screw and servo body to be removed.",
+    "Servo spline is represented by vendor shaft and a clearance envelope in the purchased matching Micro25T horn; real teeth are not reverse-engineered."
+  ]
+}
