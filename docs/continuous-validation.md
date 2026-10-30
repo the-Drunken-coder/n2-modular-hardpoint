@@ -48,20 +48,23 @@ python tools/ci/run_fea.py --group partial_keeper_terminal_refine --out /tmp/n2-
 
 Choose fresh output directories for each rerun. FEA requires a nonexistent directory; CAD and controller also accept an existing empty directory. Read each output directory's `summary.json` and logs. Nonzero exit status means the check failed. Keep the Git checkout available so the wrappers can record the tested revision automatically.
 
-## Three decisions for the next physical design
+## Recorded inputs for the next physical design
 
-Carry forward the existing user-selected inputs unless the user changes them: **0.454 kg (1 lb) total carried mass, 2 g, straight +Z loading, SF 2, and Bambu PAHT-CF for the prototype**. These remain provisional design inputs, not demonstrated capacity. See [requirements](requirements.md), [print requirements](print-requirements.md) and [active metadata](../project/cad/N2/active_metadata.json). Mass and material do not need to be chosen again to start this work.
+The user has selected **2 g loaded release and a fixed nominal 5 V actuator supply**, and described the desired pod and hardpoint sizes. The following numeric packaging values translate those rough comparisons into engineering working targets; they are not final CAD dimensions or user-imposed mass limits. The [next-design brief](next-design-brief.md) and [machine-readable inputs](next-design-inputs.json) record their status and assumptions.
 
-The remaining questions affect the next design and its physical acceptance tests; they do not prevent CI from checking the existing reference now.
-
-| Decision | Information needed | Recommendation |
+| Item | Recorded decision or working target | Status |
 |---|---|---|
-| Pod geometry and mounting | Rough pod dimensions, center-of-mass offset from the mounting face/centerline, and the available attachment face or backing structure. | Size the seat and backing around the actual pod. Offsets or transverse loads require extending the current straight-pull assessment rather than assuming it covers moments. |
-| Loaded release | Must it release at the full 2 g design load, or may release be limited to steady 1 g conditions? | Prefer release throughout the agreed service envelope if the mass/space budget permits; record any narrower release envelope explicitly. |
-| Actuator envelope and supply | Maximum installed hardpoint mass and footprint; available actuator voltage/current. Is 5 V fixed, or is another regulated voltage acceptable? | Keep the selected solenoid-first approach and servo fallback. Choose the actuator only after its full-stroke force requirement and packaging limits are known. |
+| Pod | Usually one Coke-can-sized pod, occasionally two end-to-end; use **Ø70 × 125 mm nominal** and **Ø70 × 250 mm extended** envelopes. | Qualitative size supplied by the user; rounded dimensions are engineering assumptions. Orientation and actual center of mass remain model inputs. |
+| Carried mass and material | Retain **0.454 kg total departing mass**, including the adapter and its hardware, and **Bambu PAHT-CF** for the prototype. | Existing provisional project inputs; the larger volume allowance does not increase the mass limit. |
+| Loaded release | **2 g straight +Z**, giving **8.9 N** at the carried-mass target. | User-selected release requirement. The separate SF 2 retention proof/screen target remains **17.8 N**. Neither is demonstrated capacity. |
+| Mounting footprint | **85 × 55 mm target**, with **100 × 65 mm** available for development. | Engineering interpretation of the user's credit-card comparison and roughly 20% additional linear dimensions. |
+| Mechanism volume | A compact body around **60 × 45 × 45 mm**, with a wider mounting flange permitted within the footprint. | Engineering packaging target from the one/two AirPods-case analogy; the analogy specifies size, not measured mass. |
+| Installed hardpoint mass | **100 g soft target**. | Engineering optimization goal, not a user-imposed hard limit or a measured assembly mass. |
+| Actuator power | **5 V fixed**; provision **3 A supply capacity** and use **4.75 V at the coil** as the proposed minimum-voltage test point. | Voltage selected by the user; capacity and test point are engineering targets. Supply capacity does not force that current through a coil or authorize a longer pulse. |
 
-For the interface, start with the **preloaded keyed face and broad structural backing**. Keep round-and-diamond locators as an alternative when repeatable remounting accuracy justifies them; this recommendation does not require another immediate user decision.
+Keep the **solenoid-first approach**, servo fallback, **preloaded keyed face and broad structural backing**. Round-and-diamond locators remain an alternative. Actual actuator selection still requires matching full-stroke force demand, return force, packaging and thermal limits.
 
-Before fabrication, confirm access to a printer, drying equipment and wear-resistant hardware that can reproduce the existing PAHT-CF print guidance. Record the actual process and matching specimens then; this is a fabrication check, not a reopened material choice.
+The current P14 bench settings remain **250 ms command pulse, 10 s minimum off-time and a 1.3 A initial bench-supply current limit**. The proposed 3 A supply capacity does not change those settings or qualify another actuator. See the brief for the distinction between current bench limits and next-design electrical targets.
 
-The seating preload, backing, fit limits and environmental test levels can then be developed around those answers. Actual actuator-force, loaded-release, structural, creep, wear and vibration trials remain the hardware work described in the verification plan.
+The existing CI continues to check P14; these new design inputs do not turn its passing reference cases into validation of a new mechanism. Develop preload, backing, fit and environmental conditions against the recorded envelope, then update geometry-specific models deliberately. Physical actuator-force, loaded-release, structural, creep, wear and vibration trials remain the hardware work described in the verification plan. Before fabrication, record a print and drying process that can reproduce the existing [PAHT-CF guidance](print-requirements.md).
+

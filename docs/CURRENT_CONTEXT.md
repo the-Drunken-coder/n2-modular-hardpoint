@@ -4,6 +4,8 @@
 
 ## Decisions that govern further work
 
+The user has now confirmed **2 g loaded release and a fixed 5 V actuator supply**. The next layout uses a roughly **Ø70 × 125 mm** nominal pod and **Ø70 × 250 mm** extended pod, an approximately **100 × 65 mm** mounting allowance, and compact one/two-case mechanism bulk. These rounded dimensions, a **100 g soft mass goal**, and **5 V / 3 A supply capacity per station** are engineering working values, not measured hardware or new issued CAD. The exact decisions and force accounting are in [next-design-brief.md](next-design-brief.md).
+
 N2 remains the sole active mechanism. It uses four printed parts and a mini solenoid, with reliability against accidental release prioritized ahead of simplicity and ease of manufacture. Other mechanisms remain comparison history. P11 selected N2 without changing P6 geometry; P12–P14 subsequently changed the design. [P14](p14.md) · [Historical selection](../project/docs/selection.md)
 
 The provisional carried-mass target is now **0.454 kg (1 lb)**, including the departing adapter and its attachment hardware. The earlier 10–15 lb requirement was withdrawn; the later 4 lb working assumption was superseded. Current loads are straight +Z extraction under an assumed 2g flight load factor. That simplified requirement does not qualify real off-axis forces, moments, vibration or glider separation. [Requirements](requirements.md)
@@ -13,7 +15,7 @@ The provisional carried-mass target is now **0.454 kg (1 lb)**, including the de
 | Carried mass | 0.454 kg, provisional | Payload plus departing adapter and attachment hardware |
 | Design extraction force | 8.9 N | 0.454 × 9.81 × 2, rounded |
 | Sacrificial qualification target | 17.8 N | SF 2 times design force; a planned test, not a passed result |
-| Governing P14 stress-screen crossing | 33.68 N | Scaled linear-model estimate; adapter governs the evaluated straight-pull support cases |
+| Earlier retained-state P14 stress screen | 33.68 N | Conditional scaled estimate for the original evaluated support cases; not governing over the later mounting/partial-overlap studies |
 | Crossing divided by SF 2 | 16.84 N | Arithmetic screening estimate, not a working-load rating |
 
 Sources: [requirements](requirements.md), [P14 analysis](p14.md), [P14 result summary](../project/analysis/p14/fea/B1.4_O0.6/summary.json). **No physical working-load rating has been established.**
@@ -36,7 +38,7 @@ Sources: [current manifest](../project/cad/N2/manifest.json), [CAD generator](..
 
 P14 bridges the proximal roof on both sides of the channel from X 28.5 to 31.7. The keeper linkage begins at X 32.0, beyond the bridge. Keeper body and arm now share the Z 7.2 underside for flat printing. The stem slot narrows from ±1.5 to ±1.0 mm, leaving nominal button bearing during spring return. [P14 changes](p14.md)
 
-The nominal distal overlap remains **0.6 mm**; lug clearance occurs at approximately **2.3 mm** travel, leaving a nominal **0.7 mm** open margin in the 3 mm stroke. Distal support therefore disappears during about 1.7 mm of continued loaded withdrawal. The current two-support and distal-lost screens both predict the adapter as governing, but they do not solve every intermediate contact state, friction or motion. Actual unlocking and payload departure must be observed separately.
+The nominal distal overlap remains **0.6 mm**; lug clearance occurs at approximately **2.3 mm** travel, leaving a nominal **0.7 mm** open margin in the 3 mm stroke. Distal support therefore disappears during about 1.7 mm of continued loaded withdrawal. The original P14 two-support and distal-lost screens both predict the adapter as governing, but they do not solve every intermediate contact state, friction or motion. Actual unlocking and payload departure must be observed separately.
 
 ## Manufacturing and mass accounting
 
@@ -50,7 +52,7 @@ The imported P11 BOM's 9.429 g ideal PLA print mass and 22.029 g partial subtota
 
 P14 uses the frozen linear solver with component contact-load idealizations. The underlying PLA assumptions are E = 2,200 MPa, ν = 0.35 and tension/compression/maximum-shear thresholds of 25/40/15 MPa. The PAHT-CF screen multiplies crossing loads by the supplier Z-tensile ratio **47/31**; it does not substitute measured anisotropic PAHT-CF stiffness or failure properties. [P14](p14.md) · [Tool implementation](../tools/n2fea.py)
 
-The P14 receiver cases use ideal continuous backing. The actual two-screw installation, backing flexibility, preload and local bearing/pull-through are not validated by that condition. Mesh/contact sensitivities in earlier work remain relevant limitations; they are not a completed independent P14 convergence or full-stroke contact study.
+The original P14 receiver cases use ideal continuous backing. The [subsequent 35-case study](../project/analysis/validation_20261029/README.md) compares that idealization with fixed washer annuli and examines reduced overlap. On the refined receiver mesh, the centered PLA screen changes from **40.982 N with full backing to 12.986 N with ideal washers**; refined terminal-overlap screens are **6.745 N for the adapter and 6.574 N for the keeper**. These are model outputs, not measured failures. Actual backing flexibility, preload, contact redistribution and pull-through remain unvalidated, and some results remain mesh-sensitive.
 
 The 33.68 N result is a stress-threshold crossing, not measured ultimate strength. The model does not establish layer fracture, creep, warm/wet material behavior, wear, back-drive immunity, vibration retention or loaded release. A supplier Z coupon mean is not a mechanism allowable or a complete safety-factor validation. [Evidence register](EVIDENCE_AND_READINESS.md)
 
@@ -78,4 +80,7 @@ The P8/N4 direction correction and earlier competing-design studies remain decis
 
 ## Next work
 
+Use the recorded [next-design inputs](next-design-brief.md) for the selected keyed-seat, solenoid, backing and optional-lock concept. The earlier questions about rough envelope, release at 1 g versus 2 g, and whether 5 V is fixed are answered. Select the actuator from the whole-stroke force budget; then update CAD, contact/clearance expectations and evidence together.
+
 Use the [P14 test plan](test-plan.md): inspect the slicer and prints, measure actual overlap and open margin, measure full-stroke actuator pull and demand, test retention and release on the actual mounting fixture, then address conditioning, wear, vibration and installation-specific departure. No physical test has been completed. The current analytical estimate must remain separate from any future demonstrated operating envelope.
+

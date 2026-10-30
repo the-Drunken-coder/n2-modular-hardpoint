@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "decision_date": "2026-10-29",
+  "decision_timezone": "America/New_York",
+  "status": "design_inputs_only_not_qualified_geometry",
+  "active_issued_geometry": "P14_unchanged",
+  "user_decisions": {
+    "pod_size_analogy": "Usually one Coke can; occasional two cans end-to-end",
+    "mounting_footprint_analogy": "Credit card, approximately 20 percent larger acceptable",
+    "mechanism_bulk_analogy": "One or two AirPods Pro cases; a volume guide, not a numerical mass limit",
+    "release_total_load_factor_g": 2.0,
+    "actuator_nominal_voltage_V": 5.0,
+    "actuator_voltage_fixed": true,
+    "power_implementation_delegated": true,
+    "installed_mass_hard_limit_g": null
+  },
+  "carried_forward_inputs": {
+    "maximum_complete_departing_mass_kg": 0.454,
+    "departing_mass_includes_adapter_and_attached_hardware": true,
+    "required_load_direction": "+Z straight extraction",
+    "structural_safety_factor": 2.0,
+    "prototype_material": "Bambu PAHT-CF",
+    "actuator_preference": "Solenoid first; servo fallback",
+    "interface_preference": "Preloaded keyed seat with broad structural backing",
+    "alternatives": ["Round-and-diamond locators", "Two support locations for a long pod"],
+    "equipment_lock": "Optional independent positive lock; disengaged for intentional drops"
+  },
+  "engineering_working_assumptions": {
+    "pod_diameter_mm": 70.0,
+    "nominal_pod_length_mm": 125.0,
+    "extended_pod_length_mm": 250.0,
+    "mounting_footprint_target_mm": [85.0, 55.0],
+    "mounting_footprint_layout_allowance_mm": [100.0, 65.0],
+    "footprint_interpretation": "Approximately 20 percent larger in each linear dimension, not 20 percent greater area",
+    "mechanism_body_bulk_reference_mm": [60.0, 45.0, 45.0],
+    "body_is_distinct_from_wider_thin_mounting_flange": true,
+    "dimensions_are_layout_targets_not_manufacturing_dimensions": true,
+    "installed_mass_soft_target_g": 100.0,
+    "mass_target_is_not_a_user_acceptance_limit": true,
+    "mass_accounting": "Receiver/keeper, actuator, module electronics, local harness, dedicated fasteners and backing; aircraft-specific backing reported separately and in installation total; departing adapter remains in carried mass",
+    "supply_capacity_per_hardpoint_A": 3.0,
+    "minimum_actuator_terminal_test_voltage_V": 4.75,
+    "terminal_voltage_floor_is_an_engineering_test_target": true,
+    "supply_capacity_is_not_commanded_coil_current": true,
+    "nominal_uniform_vertical_pod_cg_from_interface_mm": [0.0, 0.0, 62.5],
+    "extended_uniform_vertical_pod_cg_from_interface_mm": [0.0, 0.0, 125.0],
+    "distal_concentration_sensitivity_distance_mm": 250.0,
+    "actual_payload_cg_and_orientation_known": false,
+    "moment_rule": "M = r cross F; collinear axial force and vertical offset alone produce no moment"
+  },
+  "derived_loads": {
+    "gravity_m_per_s2": 9.81,
+    "comparison_1g_force_N": 4.45374,
+    "release_and_retention_2g_force_N": 8.90748,
+    "retention_proof_screen_target_N": 17.81496,
+    "release_load_is_not_the_proof_load": true,
+    "supply_capacity_W": 15.0
+  },
+  "existing_p14_bench_settings_unchanged": {
+    "initial_current_limit_A": 1.3,
+    "command_pulse_ms": 250,
+    "minimum_off_interval_s": 10,
+    "temperature_protocol": "Existing ambient-temperature checks remain applicable; warm testing requires a hardware-specific thermal protocol",
+    "settings_are_not_thermal_ratings": true
+  },
+  "next_actuator_selected": null,
+  "new_geometry_analyzed": false,
+  "physical_tests_performed_for_this_record": 0,
+  "working_load_rating_N": null,
+  "reference_note": "next-design-brief.md"
+}

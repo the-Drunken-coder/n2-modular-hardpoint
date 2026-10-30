@@ -13,11 +13,13 @@ The scope is mechanical retention and release with a local bench actuator contro
 | Provisional payload requirement | **0.454 kg (1 lb)** including the departing adapter and all departing attachment hardware |
 | Design load | **8.9 N**, assuming 2 g and straight +Z extraction only |
 | Sacrificial bench qualification target | **17.8 N**, twice the design load; this is a test target, not a demonstrated proof rating |
-| Governing calculated stress screen | **33.68 N**, adapter, using PLA component FEA thresholds scaled by 47/31 for a PAHT-CF estimate |
+| Earlier retained-state stress screen | **33.68 N**, adapter, using PLA component FEA thresholds scaled by 47/31; conditional on the original modeled support states |
 | Arithmetic SF 2 allowance | **16.84 N** = 33.68/2; not an established working-load or loaded-release rating |
 | Physical evidence | No manufactured prototype, successful loaded release or qualified installation recorded |
 
 The receiver analysis assumes ideal continuous full backing. Prescribed contact tractions and a material-strength ratio do not establish the performance of printed PAHT-CF parts, the actual two-screw installation, or the entire release stroke. The two modeled engagement states do not prove all partial-engagement states. See [requirements](docs/requirements.md), [analysis limits](docs/provisional-load-rating.md) and [test plan](docs/test-plan.md).
+
+The [subsequent mounting and withdrawal study](project/analysis/validation_20261029/README.md) found adverse fixture and reduced-overlap sensitivity. The **next-design brief** now records the user's one/two-can pod range, compact mounting envelope, **2 g loaded release**, and **fixed 5 V** requirement. Its rounded dimensions and power/mass budgets guide the next layout; P14 remains the issued CAD. [Recorded inputs](docs/next-design-brief.md)
 
 ## Start here
 
@@ -32,6 +34,7 @@ The receiver analysis assumes ideal continuous full backing. Prescribed contact 
 | Reproduce or examine the current calculations | [P14 result summary](project/analysis/p14/fea/B1.4_O0.6/summary.json), [tool instructions](tools/README.md), [analysis overview](project/analysis/README.md) |
 | Run automated FEA, CAD clearance and controller checks | [Engineering validation workflow](https://github.com/the-Drunken-coder/n2-modular-hardpoint/actions/workflows/engineering-validation.yml), [CI scope and local commands](docs/continuous-validation.md) |
 | Plan the first physical prototype | [P14 bench-test plan](docs/test-plan.md), [requirements and open gates](docs/requirements.md) |
+| Develop the next concept within the selected size and power constraints | [Next-design brief](docs/next-design-brief.md), [structured inputs](docs/next-design-inputs.json) |
 | Recover the original P11 package or comparison history | [Artifacts and recovery](docs/ARTIFACTS_AND_RECOVERY.md), [historical comparison guide](history/README.md), [import scope](project/IMPORT_NOTE.md) |
 
 The issued [drawings](project/drawings/) and original [BOM](project/manufacturing/BOM.md) are **P11 historical records**. The drawings explain the general assembly but do not show the P14 roof and keeper revisions; use the current CAD and instructions to make P14. Historical printed masses, cost totals and PLA screens are not current P14 manufacturing results.
@@ -56,7 +59,7 @@ Use a verified P11 extraction for whole-archive integrity checks or historical r
 
 The **Engineering validation** workflow runs on every pull request, push to `main`, and manual dispatch. It performs 35 fresh P14 FEA case solves, regenerates and compares all 13 CAD parts, checks 16 nominal clearance poses, and runs the current controller host tests. Each job records logs and results as Actions artifacts retained for 14 days. The final gate fails if a required job or result is missing or unsuccessful.
 
-These are computational regression checks, not a payload rating or physical qualification. The P14 contact model and clearance expectations are guarded against changes to their inputs; new geometry requires a reviewed model update. See [continuous validation](docs/continuous-validation.md) for commands, failure handling and the remaining design decisions.
+These are computational regression checks, not a payload rating or physical qualification. The P14 contact model and clearance expectations are guarded against changes to their inputs; new geometry requires a reviewed model update. See [continuous validation](docs/continuous-validation.md) for commands, failure handling and the recorded design inputs.
 
 ## Check documentation consistency
 
@@ -69,3 +72,4 @@ npm run build
 ```
 
 These checks validate metadata, result references and the website build. They do not run FEA, qualify print settings or demonstrate mechanical performance.
+

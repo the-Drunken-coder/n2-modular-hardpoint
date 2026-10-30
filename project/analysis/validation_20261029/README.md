@@ -19,7 +19,7 @@ The requested demonstrations cover a preloaded keyed flange, round/diamond locat
 | Partial seating | Demonstrate closure being inhibited before full seating | Build and verify the physical interlock. Seating and keeper position are separate conditions; no new feedback hardware or firmware has been implemented. |
 | Retained equipment | Optional independent positive lock for a camera or other retained pod | Disengage/remove it for an intentional drop. A power-off command is not the same as a positive lock. |
 
-Battery power architecture and wing aerodynamics, mass distribution and asymmetry are outside this study. No fixed payload envelope was selected. Local interface forces, moments and offsets still need to be specified to qualify the hardpoint.
+Battery power architecture and wing aerodynamics, mass distribution and asymmetry are outside this study. At the time of this study, no fixed payload envelope had been selected. Subsequent user decisions are recorded in the [next-design brief](../../../docs/next-design-brief.md). Local interface forces, moments and offsets still need to be specified to qualify the hardpoint.
 
 ## Results that change the design assessment
 
@@ -79,14 +79,19 @@ The mounting demonstration uses `M = F e` and a moment-couple component `M / d`,
 | Existing controller tests | 16/16 | Existing host logic; no GPIO, proposed interlock or physical actuator exercised |
 | Hardware measurements/tests | 0 | Explicitly pending; blank templates contain no invented readings |
 
-From the repository root:
+For ordinary validation of the current Git checkout, use the CI wrappers from the repository root. Create fresh output directories so these runs preserve the historical evidence:
 
 ```sh
-python project/analysis/validation_20261029/mechanical/run_validation.py
-python project/analysis/validation_20261029/replay_controller.py
+n2_check_dir="$(mktemp -d "${TMPDIR:-/tmp}/n2-checks.XXXXXX")"
+python tools/ci/run_cad.py --output "$n2_check_dir/cad"
+python tools/ci/run_controller.py --output "$n2_check_dir/controller"
 ```
 
-For FEA, use the pinned dependencies and group commands in [FEA_REPORT.md](fea/FEA_REPORT.md). The frozen solver is unchanged. [artifact_inventory.json](fea/artifact_inventory.json) identifies the compact publishable records and separately hashes the omitted 157 MB of native meshes/field arrays, which the scripts regenerate.
+Use the pinned dependencies and fresh FEA group commands in [continuous validation](../../../docs/continuous-validation.md). The wrappers record the tested checkout, guard the P14 inputs and reject missing or failed evidence. Changed geometry requires a reviewed model and expectation update.
+
+The original `mechanical/run_validation.py`, `replay_controller.py` and `tools/validation_20261029/*` are **frozen-reference-only utilities**. They carry hard-coded historical source identifiers and in-place output paths, so running them on a later checkout can mislabel its inputs and overwrite the recorded study evidence. Use them only in a disposable reconstruction whose inputs have been verified against the historical source hashes; use the CI wrappers for current work.
+
+[FEA_REPORT.md](fea/FEA_REPORT.md) preserves the original methods and commands. The frozen solver is unchanged. [artifact_inventory.json](fea/artifact_inventory.json) identifies the compact published records and separately hashes the omitted 157 MB of native meshes/field arrays. The historical results above remain unchanged.
 
 ## Remaining work and recommendation
 
@@ -95,3 +100,4 @@ Proceed with a **preloaded located seat, solenoid cross-bolt, broader backing an
 The physical protocols and eight blank data sheets are ready in [concept verification](../../../docs/concept-verification-20261029.md) and [physical_pending](physical_pending/README.md). They cover actual fit, actuator and latch force curves, complete-assembly retention/release, partial seating, manual-lock modes, wear, creep, vibration and environment. Numerical side-load/moment contact analysis and the new concept CAD/FEA remain unperformed; their contact and installation definitions must be designed first.
 
 The previous 8.9 N service and 17.8 N proof-screen targets are provisional carryovers. The study does not turn them into a rated payload. [verification_status.json](verification_status.json) records completed computation separately from missing inputs and hardware evidence.
+

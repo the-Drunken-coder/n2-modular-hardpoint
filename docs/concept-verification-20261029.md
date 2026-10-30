@@ -37,33 +37,35 @@ Distal support ends at `x = e = 1.0 mm`; the bolt is still retaining the lug unt
 
 For real parts, use measured minimum keeper travel, maximum lost motion, maximum lug/gap dimensions, deflection and skew. A nominal 1.2 mm margin is not a guaranteed manufactured clearance. The actual open-clearance acceptance value remains to be set from the tolerance stack and departure path.
 
-## Acceptance inputs still unknown
+## Recorded acceptance inputs and remaining engineering definitions
+
+The user has answered the envelope, release-load and supply questions: typically one can, up to two end-to-end; approximately credit-card mounting space; **2 g loaded release**; **5 V fixed**. The [next-design brief](next-design-brief.md) records the rounded dimensions, retained 0.454 kg carried-mass target and delegated engineering budgets. Those choices do not change the issued P14 geometry or qualify a replacement actuator.
 
 | Input | Why it is needed |
 |---|---|
-| Service load envelope `(Fx,Fy,Fz,Mx,My,Mz)` and payload CG offsets | Defines axial, transverse, eccentric and combined structural tests. A hanging mass alone is insufficient. |
-| Required release load envelope | A payload may have a structural retention limit different from its reliable release limit. |
-| Allowable installed mass and envelope | Prevents selecting a much heavier actuator merely because its endpoint force is high. |
-| Minimum actuator-terminal voltage, wiring/driver limits and command duration | Defines available force and thermal/electrical conditions. The existing 5 V bench driver is not automatically suitable for a different solenoid. |
+| Combined load envelope `(Fx,Fy,Fz,Mx,My,Mz)` and actual payload CG offsets | The selected axial release target is 8.9 N. Transverse/eccentric cases and real mass distribution remain analysis/installation definitions; a vertical CG offset alone adds no moment to a collinear axial force. |
+| Loaded-release acceptance | **8.9 N straight +Z**, corresponding to the retained 0.454 kg at total 2 g. Verify withdrawal through disengagement and record payload departure separately. |
+| Installed mass and envelope | Use the recorded pod/footprint/bulk targets and 100 g soft mass goal. The user's case analogy supplies volume, not a numerical mass acceptance limit. |
+| Actuator-terminal voltage, wiring/driver limits and command duration | **5 V nominal is fixed.** A 3 A source-capacity budget and 4.75 V terminal test point are engineering working values. Final current/pulse/thermal qualification remains actuator-specific; the old bench driver is not automatically suitable for a different coil. |
 | Exact actuator model/winding, full-stroke force, return spring and linkage | Closes the withdrawal and return budgets without counting the spring twice. |
 | Preload magnitude, application method and acceptable face opening/play | Establishes whether the locating interface remains seated and whether preload increases release demand. |
-| Print material, conditioning, orientation and process | Establishes repeatable specimens and material evidence for the small retaining features. |
+| Actual print conditioning, orientation and process | PAHT-CF remains selected for the prototype. Record the actual process and matching specimens for the revised geometry. |
 | Host/backing material, geometry, fasteners and assembly torque | Establishes a real installation boundary instead of assuming rigid full backing. |
 | Fit limits, permanent-set limit and minimum closed/open engagement | Defines numerical acceptance of retention, reset and release. |
 | Retention duration, cycle life, temperature/moisture range and vibration spectrum | Defines durability and environmental test conditions. A static 2 g load does not specify vibration. |
 | Required release time and clearance corridor | Defines the difference between an electrical command, an unlocked keeper and a departed payload. |
 
-The earlier **8.9 N axial service target and 17.8 N qualification/proof-screen target are provisional carryovers only**. They are not a working-load rating for the concept and do not define side loads or moments. Confirm or replace them before physical qualification; do not infer a capacity from them.
+The user has confirmed **2 g loaded release**; the retained 0.454 kg input gives **8.9 N axial service/release force**. The separate **17.8 N retention proof/screen target** retains SF 2. These are selected design/test inputs, not a working-load rating, and they do not define side loads or moments. The existing bench plan already uses 8.9 N release trials.
 
 ## What can be checked now
 
 The current bench controller can be replayed without hardware. Run from the repository root:
 
 ```bash
-python project/analysis/validation_20261029/replay_controller.py
+python tools/ci/run_controller.py --output /tmp/n2-controller-fresh
 ```
 
-The replay records the command, UTC execution timestamps, Python/platform details, SHA-256 hashes of the exact four electronics source files, full unittest output and return code. Its result is limited to the existing button/state/timing logic. It neither implements the proposed seating interlock nor exercises GPIO, a solenoid, temperature, physical engagement, loaded release or departure.
+Choose a new or empty output directory for each run. The CI wrapper records the actual checkout, command, timestamps, source hashes and test output without overwriting the historical record. Its result is limited to the existing button/state/timing logic. It neither implements the proposed seating interlock nor exercises GPIO, a solenoid, temperature, physical engagement, loaded release or departure. See [continuous validation](continuous-validation.md) for CAD and FEA execution; the original archived replay scripts are frozen-study tools.
 
 See [machine-readable verification status](../project/analysis/validation_20261029/verification_status.json), [controller result](../project/analysis/validation_20261029/controller_host_tests.json) and [controller log](../project/analysis/validation_20261029/controller_host_tests.log). Geometry/computation evidence produced separately must retain its own assumptions and revision identity.
 
@@ -97,7 +99,7 @@ Use a fixture reproducing the actual backing footprint, stiffness, fasteners and
 
 After low-load seating checks, apply the agreed axial service target in controlled steps while measuring load, displacement, face opening and keeper movement. Add both signs of transverse load and the defined moments, followed by relevant combined cases. Repeat at selected intermediate keeper positions, especially just after distal support is lost and near lug clearance. Distinguish the normal retained configuration from deliberately degraded/partial engagement.
 
-If the provisional 8.9/17.8 N targets are retained, label them as the selected axial screening loads in the test record. Set ramp rate, dwell time, permissible permanent set and stop conditions before testing. Record first slip, first visible damage, permanent set after unloading and ultimate failure separately. A survivor at 17.8 N is evidence for that specimen, fixture and condition; it is not a measured breaking load or a general flight rating.
+Label **8.9 N service/release and 17.8 N retention proof/screen** as the selected axial loads in the test record. Set ramp rate, dwell time, permissible permanent set and stop conditions before testing. Record first slip, first visible damage, permanent set after unloading and ultimate failure separately. A survivor at 17.8 N is evidence for that specimen, fixture and condition; it is not a measured breaking load or a general flight rating.
 
 For twin supports on one pod, repeat using the actual spacing and alignment. Measure load sharing rather than assuming 50/50; include a support-clearance mismatch and coordinated versus one-side-delayed release if both supports latch.
 
@@ -119,7 +121,7 @@ No cycle count, thermal range, vibration level or environmental rating is assign
 
 ## Two actuator families with manufacturer force/stroke data
 
-These are **screening candidates only**, not selected parts or purchase recommendations. Their 63 g and 125 g catalog masses are substantial relative to the original 12.6 g actuator, so they may violate the desired small/light envelope. A required force curve and mass allowance must be established before selection. Neither is a drop-in replacement for the existing mounting, spring, wiring or driver.
+These are **screening candidates only**, not selected parts or purchase recommendations. Their 63 g and 125 g catalog masses are substantial relative to the original 12.6 g actuator; the 125 g candidate alone exceeds the next-design 100 g soft assembly goal. The new **fixed 5 V** requirement means a compatible winding, current and full-stroke force curve must be established. Neither is a drop-in replacement for the existing mounting, spring, wiring or driver. The next-design brief also records a simple captive-spring candidate without claiming it meets the force requirement.
 
 | Candidate family | Manufacturer-listed envelope | Available evidence and condition |
 |---|---|---|
@@ -139,3 +141,4 @@ Sources checked 2026-10-29 America/New_York: [push-pull range](https://www.geepl
 - `FAIL`: an executed check did not meet its stated criterion.
 
 The overall state remains `CONCEPT_ONLY` regardless of host-test success. Header-only physical templates deliberately contain no measured values, trial outcomes or implied passes.
+
