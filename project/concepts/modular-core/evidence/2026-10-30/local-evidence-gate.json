@@ -1,0 +1,13 @@
+{
+  "case_solves": 29,
+  "component_count": 3,
+  "numerical_checks_passed": true,
+  "physical_qualification": false,
+  "strength_rating_established": false,
+  "mesh_convergence_is_reported_not_a_strength_acceptance": true,
+  "scope": "Independent CI evidence gate applied to the completed local run. This is not a GitHub Actions run.",
+  "preparation_and_reporting_runner_sha256": "2b8662df8a95edab644eb3e02f4a74981dc3681de0507d360999c85a58fbc650",
+  "solver_invocation_runner_snapshot_sha256": "8c0fc7f6541493ea6004dac5939e6bc3479277564cb5937cdbb3753967efb777",
+  "execution_snapshot_recording_method": "Recovered exact source from a contemporaneous CI staging copy; original local launcher did not record its own hash at process start.",
+  "geometry_configuration_sha256": "19d2479e3670a1a7e2741a90620164ca22124ffd3dceb1dc0a8fbab4059f392d"
+}

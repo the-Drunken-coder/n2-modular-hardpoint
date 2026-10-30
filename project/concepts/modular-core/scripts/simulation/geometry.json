@@ -1,0 +1,42 @@
+{
+  "units": "mm",
+  "parts": {
+    "receiver": "dist/models/modular-core-parts/receiver_core.step",
+    "adapter": "dist/models/modular-core-parts/payload_adapter.step",
+    "keeper": "dist/models/modular-core-parts/keeper.step"
+  },
+  "source_metadata": "dist/models/modular-core-simulation-geometry.json",
+  "receiver_mounts": [[5,14,3.2],[35,-10,3.2]],
+  "payload_mounts": [[35.1,8,26.3],[35.1,14,26.3]],
+  "lug_x": [26.8,30.3],
+  "adapter_floor_z": 14.2,
+  "keeper_tip_x": 25.5,
+  "keeper_bottom_z": 14.2,
+  "keeper_top_z": 17.2,
+  "receiver_roof_z": 17.5,
+  "receiver_floor_z": 13.9,
+  "distal_roof_x": [25.5,26.5],
+  "proximal_roof_x": [30.6,31.6],
+  "far_floor_x": [35.1,36.1],
+  "contact_y": [8.5,11.5],
+  "distal_support_loss_mm": 1.0,
+  "actuator_stroke_mm": 10.0,
+  "actuator_pull_line_y_mm": 10.0,
+  "keeper_contact_center_y_mm": 10.0,
+  "nominal_yaw_eccentricity_mm": 0.0,
+  "vertical_pull_offset_mm": 0.5,
+  "pad_contacts": [[24.3,4.9,21.7,1.3],[24.3,16.7,21.7,1.3],[40.5,7,21.7,1.3],[40.5,14.8,21.7,1.3]],
+  "adapter_pad_contacts": [[24.3,4.9,23.3,1.3],[24.3,16.7,23.3,1.3],[40.5,7,23.3,1.3],[40.5,14.8,23.3,1.3]],
+  "keeper_anchors": [
+    {"label":"Rigid translation gauge", "point_mm":[25.5,8.5,14.2], "components":[0,1,2]},
+    {"label":"Two rotation gauges", "point_mm":[44,8.5,14.2], "components":[1,2]},
+    {"label":"Final rotation gauge", "point_mm":[44,11.5,14.2], "components":[2]}
+  ],
+  "actuator_load_selectors": [
+    {"annulus_xy":[84,16,1.71,3.06], "z_range":[0,1.5]},
+    {"annulus_xy":[69,4,1.71,3.06], "z_range":[0,1.5]}
+  ],
+  "actuator_load_scope": "Vertical prescribed bearing tractions on the actual two countersink surfaces, each carrying half the 68 g actuator inertia. This finite mount-load surrogate omits the detailed bolt and body contact. Its resultant is at the mount midpoint (76.5,10), 1 mm from the approximate body-envelope CG (77.5,10).",
+  "contact_scope": "Prescribed seated/contact-state resultants, not a nonlinear contact solution. The 0.3 mm keeper-guide clearance and associated rotations are not solved.",
+  "uncovered_loads": ["Lateral forces and keyed-face bearing", "Torsion and payload CG offset moments", "Combined multiaxis loads", "Fastener preload, slip, pull-through and host-interface compliance"]
+}

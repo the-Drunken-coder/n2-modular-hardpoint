@@ -1,0 +1,422 @@
+{
+  "geometry": {
+    "units": "mm",
+    "parts": {
+      "receiver": "dist/models/modular-core-parts/receiver_core.step",
+      "adapter": "dist/models/modular-core-parts/payload_adapter.step",
+      "keeper": "dist/models/modular-core-parts/keeper.step"
+    },
+    "source_metadata": "dist/models/modular-core-simulation-geometry.json",
+    "receiver_mounts": [
+      [
+        5,
+        14,
+        3.2
+      ],
+      [
+        35,
+        -10,
+        3.2
+      ]
+    ],
+    "payload_mounts": [
+      [
+        35.1,
+        8,
+        26.3
+      ],
+      [
+        35.1,
+        14,
+        26.3
+      ]
+    ],
+    "lug_x": [
+      26.8,
+      30.3
+    ],
+    "adapter_floor_z": 14.2,
+    "keeper_tip_x": 25.5,
+    "keeper_bottom_z": 14.2,
+    "keeper_top_z": 17.2,
+    "receiver_roof_z": 17.5,
+    "receiver_floor_z": 13.9,
+    "distal_roof_x": [
+      25.5,
+      26.5
+    ],
+    "proximal_roof_x": [
+      30.6,
+      31.6
+    ],
+    "far_floor_x": [
+      35.1,
+      36.1
+    ],
+    "contact_y": [
+      8.5,
+      11.5
+    ],
+    "distal_support_loss_mm": 1.0,
+    "actuator_stroke_mm": 10.0,
+    "actuator_pull_line_y_mm": 10.0,
+    "keeper_contact_center_y_mm": 10.0,
+    "nominal_yaw_eccentricity_mm": 0.0,
+    "vertical_pull_offset_mm": 0.5,
+    "pad_contacts": [
+      [
+        24.3,
+        4.9,
+        21.7,
+        1.3
+      ],
+      [
+        24.3,
+        16.7,
+        21.7,
+        1.3
+      ],
+      [
+        40.5,
+        7,
+        21.7,
+        1.3
+      ],
+      [
+        40.5,
+        14.8,
+        21.7,
+        1.3
+      ]
+    ],
+    "adapter_pad_contacts": [
+      [
+        24.3,
+        4.9,
+        23.3,
+        1.3
+      ],
+      [
+        24.3,
+        16.7,
+        23.3,
+        1.3
+      ],
+      [
+        40.5,
+        7,
+        23.3,
+        1.3
+      ],
+      [
+        40.5,
+        14.8,
+        23.3,
+        1.3
+      ]
+    ],
+    "keeper_anchors": [
+      {
+        "label": "Rigid translation gauge",
+        "point_mm": [
+          25.5,
+          8.5,
+          14.2
+        ],
+        "components": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "label": "Two rotation gauges",
+        "point_mm": [
+          44,
+          8.5,
+          14.2
+        ],
+        "components": [
+          1,
+          2
+        ]
+      },
+      {
+        "label": "Final rotation gauge",
+        "point_mm": [
+          44,
+          11.5,
+          14.2
+        ],
+        "components": [
+          2
+        ]
+      }
+    ],
+    "actuator_load_selectors": [
+      {
+        "annulus_xy": [
+          84,
+          16,
+          1.71,
+          3.06
+        ],
+        "z_range": [
+          0,
+          1.5
+        ]
+      },
+      {
+        "annulus_xy": [
+          69,
+          4,
+          1.71,
+          3.06
+        ],
+        "z_range": [
+          0,
+          1.5
+        ]
+      }
+    ],
+    "actuator_load_scope": "Vertical prescribed bearing tractions on the actual two countersink surfaces, each carrying half the 68 g actuator inertia. This finite mount-load surrogate omits the detailed bolt and body contact. Its resultant is at the mount midpoint (76.5,10), 1 mm from the approximate body-envelope CG (77.5,10).",
+    "contact_scope": "Prescribed seated/contact-state resultants, not a nonlinear contact solution. The 0.3 mm keeper-guide clearance and associated rotations are not solved.",
+    "uncovered_loads": [
+      "Lateral forces and keyed-face bearing",
+      "Torsion and payload CG offset moments",
+      "Combined multiaxis loads",
+      "Fastener preload, slip, pull-through and host-interface compliance"
+    ]
+  },
+  "source_steps": {
+    "receiver": {
+      "path": "dist/models/modular-core-parts/receiver_core.step",
+      "sha256": "8704253d1a3376f1535b3f208297671b7a53fd3bd28b27301f54231b805ce48b"
+    },
+    "adapter": {
+      "path": "dist/models/modular-core-parts/payload_adapter.step",
+      "sha256": "8f222032a840e1674ec2b09c233ca2c504ee3678f4c379764b264cfdadbdd965"
+    },
+    "keeper": {
+      "path": "dist/models/modular-core-parts/keeper.step",
+      "sha256": "582daa4c5ee88dc8a5a2bf5fcc78e2dde910cc38663524a292e0783a43690fd6"
+    }
+  },
+  "solver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+  "runner_sha256": "2b8662df8a95edab644eb3e02f4a74981dc3681de0507d360999c85a58fbc650",
+  "geometry_config_sha256": "19d2479e3670a1a7e2741a90620164ca22124ffd3dceb1dc0a8fbab4059f392d",
+  "material_sha256": "ac3df6f1f1154c9db3b9c092fd2213b7681eb49baae6a66f8c4832cab389bd0d",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "gmsh": "4.15.2",
+    "scikit-fem": "12.0.2",
+    "pyamg": "5.3.0"
+  },
+  "mass_kg": 0.454,
+  "actuator_mass_kg": 0.068,
+  "gravity_m_s2": 9.80665,
+  "payload_force_2g_N": 8.9044382,
+  "actuator_force_2g_N": 1.3337044,
+  "assumed_seat_preload_N": 2.0,
+  "plans": [
+    {
+      "part": "receiver",
+      "config": "/tmp/n2-modular-simulation/configs/receiver.json",
+      "sizes_mm": [
+        1.15,
+        0.85
+      ],
+      "cases": [
+        "retained_2g",
+        "retained_2g_preload",
+        "distal_lost_2g_preload",
+        "proof_4g_preload"
+      ]
+    },
+    {
+      "part": "adapter",
+      "config": "/tmp/n2-modular-simulation/configs/adapter.json",
+      "sizes_mm": [
+        0.7,
+        0.5,
+        0.35
+      ],
+      "cases": [
+        "stroke_0p0mm",
+        "stroke_4p5mm",
+        "stroke_4p7mm"
+      ]
+    },
+    {
+      "part": "keeper",
+      "config": "/tmp/n2-modular-simulation/configs/keeper.json",
+      "sizes_mm": [
+        0.7,
+        0.5,
+        0.35
+      ],
+      "cases": [
+        "stroke_0p0mm",
+        "stroke_1p0mm",
+        "stroke_4p5mm",
+        "stroke_4p7mm"
+      ]
+    }
+  ],
+  "contact_states": [
+    {
+      "stroke_mm": 0,
+      "lug_contact_x": [
+        26.8,
+        30.3
+      ],
+      "lug_centroid_x": 28.55,
+      "remaining_overlap_mm": 3.5,
+      "contacts": [
+        [
+          "distal_roof",
+          [
+            25.5,
+            26.5
+          ],
+          0.5
+        ],
+        [
+          "proximal_roof",
+          [
+            30.6,
+            31.6
+          ],
+          0.5
+        ]
+      ],
+      "sliding_normal_force_multiplier": 2.0
+    },
+    {
+      "stroke_mm": 1.0,
+      "lug_contact_x": [
+        26.8,
+        30.3
+      ],
+      "lug_centroid_x": 28.55,
+      "remaining_overlap_mm": 3.5,
+      "contacts": [
+        [
+          "proximal_roof",
+          [
+            30.6,
+            31.6
+          ],
+          1.5666666666666669
+        ],
+        [
+          "far_floor",
+          [
+            35.1,
+            36.1
+          ],
+          -0.5666666666666669
+        ]
+      ],
+      "sliding_normal_force_multiplier": 3.1333333333333337
+    },
+    {
+      "stroke_mm": 4.5,
+      "lug_contact_x": [
+        30.0,
+        30.3
+      ],
+      "lug_centroid_x": 30.15,
+      "remaining_overlap_mm": 0.3000000000000007,
+      "contacts": [
+        [
+          "proximal_roof",
+          [
+            30.6,
+            31.6
+          ],
+          1.2111111111111117
+        ],
+        [
+          "far_floor",
+          [
+            35.1,
+            36.1
+          ],
+          -0.21111111111111175
+        ]
+      ],
+      "sliding_normal_force_multiplier": 2.4222222222222234
+    },
+    {
+      "stroke_mm": 4.7,
+      "lug_contact_x": [
+        30.2,
+        30.3
+      ],
+      "lug_centroid_x": 30.25,
+      "remaining_overlap_mm": 0.10000000000000142,
+      "contacts": [
+        [
+          "proximal_roof",
+          [
+            30.6,
+            31.6
+          ],
+          1.188888888888889
+        ],
+        [
+          "far_floor",
+          [
+            35.1,
+            36.1
+          ],
+          -0.18888888888888922
+        ]
+      ],
+      "sliding_normal_force_multiplier": 2.377777777777778
+    }
+  ],
+  "structural_or_physical_qualification": false,
+  "runner_sha256_scope": "Preparation/reporting source version. Executed numerical problems are identified by the frozen solver hash and per-case configuration and STEP hashes.",
+  "execution_orchestration": {
+    "runner_sha256_at_solve": "8c0fc7f6541493ea6004dac5939e6bc3479277564cb5937cdbb3753967efb777",
+    "snapshot": "simulation/provenance/solve-era-runner.py.txt",
+    "recording_method": "Recovered exact source from a contemporaneous CI staging copy; original local launcher did not record its own hash at process start.",
+    "final_reporting_runner_sha256": "2b8662df8a95edab644eb3e02f4a74981dc3681de0507d360999c85a58fbc650",
+    "reporting_source_diff": "simulation/provenance/reporting-only-source-diff.patch",
+    "numerical_input_change": false,
+    "evidence": "All per-case STEP, configuration and frozen solver hashes match the final inputs. Later changes concern reporting, plots and provenance bookkeeping."
+  },
+  "preparation_runner_sha256": "2b8662df8a95edab644eb3e02f4a74981dc3681de0507d360999c85a58fbc650",
+  "reporting_runner_sha256": "2b8662df8a95edab644eb3e02f4a74981dc3681de0507d360999c85a58fbc650",
+  "execution_records": [
+    {
+      "part": "receiver",
+      "returncode": 0,
+      "elapsed_seconds": 344.5088324546814,
+      "log": "/tmp/n2-modular-simulation/logs/receiver.log",
+      "solver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+      "config_sha256": "4a794268aea2844b85ce5fbe7bf82e3364f21b1f1cfd953c44d582ef63b459e7"
+    },
+    {
+      "part": "adapter",
+      "returncode": 0,
+      "elapsed_seconds": 137.8912377357483,
+      "log": "/tmp/n2-modular-simulation/logs/adapter.log",
+      "solver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+      "config_sha256": "7d44db19d1782a9ef8bec4d304f10cb63b906ab06f493aa9cf1fe8ce8be718aa"
+    },
+    {
+      "part": "keeper",
+      "returncode": 0,
+      "elapsed_seconds": 53.44514727592468,
+      "log": "/tmp/n2-modular-simulation/logs/keeper.log",
+      "solver_sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c",
+      "config_sha256": "da5092d945b26e34cdfbf32bf2cd068a0c25d4967cd4a4c9619daf6be05c8a56"
+    }
+  ]
+}

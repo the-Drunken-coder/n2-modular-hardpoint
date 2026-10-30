@@ -1,0 +1,174 @@
+--- solve-era-runner
++++ final-reporting-runner
+@@ -135,7 +135,11 @@
+         'material_sha256':sha(ENGINE/'material.json'),'python':sys.version,'platform':platform.platform(),'packages':versions,
+         'mass_kg':MASS_KG,'actuator_mass_kg':ACTUATOR_MASS_KG,'gravity_m_s2':G,'payload_force_2g_N':PAYLOAD_2G,
+         'actuator_force_2g_N':ACTUATOR_2G,'assumed_seat_preload_N':PRELOAD_N,'plans':plans,'contact_states':states,
+-        'structural_or_physical_qualification':False}
++        'structural_or_physical_qualification':False,
++        'runner_sha256_scope':'Preparation/reporting source version. Executed numerical problems are identified by the frozen solver hash and per-case configuration and STEP hashes.'}
++    snapshot_record=out/'execution-orchestration.json'
++    if snapshot_record.exists():manifest['execution_orchestration']=read(snapshot_record)
++    manifest['preparation_runner_sha256']=sha(__file__)
+     dump(out/'manifest.json',manifest);dump(PUBLIC/'input-manifest.json',manifest)
+     for plan in plans:shutil.copyfile(plan['config'],PUBLIC/f'{plan["part"]}-configuration.json')
+     release_sweep(g)
+@@ -186,10 +190,12 @@
+     for key in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'):env[key]='1'
+     log=out/'logs'/f'{part}.log';log.parent.mkdir(exist_ok=True)
+     cmd=[sys.executable,str(ENGINE/'solver.py'),'--config',plan['config'],'--sizes',*map(str,plan['sizes_mm'])]
++    start_runner_hash=sha(__file__)
+     started=time.time();print('START '+part,flush=True)
+     with log.open('w') as stream:result=subprocess.run(cmd,stdout=stream,stderr=subprocess.STDOUT,env=env)
+     record={'part':part,'returncode':result.returncode,'elapsed_seconds':time.time()-started,'log':str(log),
+-        'solver_sha256':sha(ENGINE/'solver.py'),'config_sha256':sha(plan['config'])}
++        'solver_sha256':sha(ENGINE/'solver.py'),'config_sha256':sha(plan['config']),
++        'runner_sha256_at_start':start_runner_hash}
+     dump(out/'logs'/f'{part}-execution.json',record);print(json.dumps(record),flush=True)
+     if result.returncode:raise SystemExit(result.returncode)
+ 
+@@ -215,9 +221,13 @@
+     metrics={'tensile_MPa':np.maximum(p[:,-1],0),'compressive_MPa':np.maximum(-p[:,0],0),
+              'max_shear_MPa':(p[:,-1]-p[:,0])/2,
+              'vm_MPa':np.sqrt(.5*((s[:,0]-s[:,1])**2+(s[:,1]-s[:,2])**2+(s[:,2]-s[:,0])**2)+3*np.sum(s[:,3:]**2,axis=1))}
+-    peaks={k:{'value':float(v.max()),'location_mm':cent[int(v.argmax())].tolist()} for k,v in metrics.items()}
++    neighbors=weights.getnnz(axis=1)
++    peaks={k:{'value':float(v.max()),'location_mm':cent[int(v.argmax())].tolist(),
++              'centroids_in_averaging_neighborhood':int(neighbors[int(v.argmax())])} for k,v in metrics.items()}
+     peaks['radius_mm']=.4
+-    peaks['interpretation']='Each metric is independently maximized after volume-weighted tensor averaging within0.4mm of each element centroid. Uncalibrated comparison, not a strength allowable.'
++    peaks['sampling']={'median_neighbor_count':float(np.median(neighbors)),
++                       'single_centroid_neighborhood_fraction':float(np.mean(neighbors==1))}
++    peaks['interpretation']='Each metric is independently maximized after volume-weighted tensor averaging within 0.4 mm of each element centroid. Uncalibrated comparison, not a strength allowable; small neighborhoods can undersample the requested radius.'
+     displacement={'location_mm':points[int(unorm.argmax())].tolist(),'vector_mm':u[int(unorm.argmax())].tolist()}
+     return peaks,displacement
+ 
+@@ -229,6 +239,7 @@
+     matplotlib.use('Agg')
+     import matplotlib.pyplot as plt
+     from matplotlib import colors,cm
++    from matplotlib.collections import PolyCollection
+     from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+     dest=PUBLIC/'plots';dest.mkdir(exist_ok=True)
+     plt.rcParams.update({'font.size':10,'axes.spines.top':False,'axes.spines.right':False,
+@@ -258,15 +269,51 @@
+             values=np.linalg.norm(u,axis=1)[faces].mean(axis=1);label='Surface-facet mean displacement (mm)'
+         else:
+             vm=np.sqrt(.5*((s[:,0]-s[:,1])**2+(s[:,1]-s[:,2])**2+(s[:,2]-s[:,0])**2)+3*np.sum(s[:,3:]**2,axis=1))
+-            values=vm[owner];label='Boundary-element mean von Mises stress (MPa)'
+-        norm=colors.Normalize(vmin=0,vmax=float(values.max()));cmap=plt.get_cmap('magma')
+-        fig=plt.figure(figsize=(9,6.4),layout='constrained');ax=fig.add_subplot(111,projection='3d')
++            values=vm[owner];label='Von Mises of boundary-element mean stress (MPa)'
++        norm=colors.Normalize(vmin=0,vmax=float(values.max()));cmap=plt.get_cmap('viridis')
++        if part=='adapter':
++            # Exact planar intersections with tetrahedra, not a filled contour
++            # interpolated across the keeper opening or other absent material.
++            plane_y=10.;polygons=[];section_values=[]
++            crossed=np.flatnonzero((p[t,1].min(axis=1)<=plane_y)&(p[t,1].max(axis=1)>=plane_y))
++            edges=[(0,1),(0,2),(0,3),(1,2),(1,3),(2,3)]
++            for element in crossed:
++                vertices=p[t[element]];cut=[]
++                for i,j in edges:
++                    a,b=vertices[i],vertices[j];da=a[1]-plane_y;db=b[1]-plane_y
++                    if abs(da)<1e-10:cut.append(a[[0,2]])
++                    if abs(db)<1e-10:cut.append(b[[0,2]])
++                    if da*db<0:cut.append((a+(b-a)*(-da)/(db-da))[[0,2]])
++                if not cut:continue
++                cut=np.unique(np.round(cut,10),axis=0)
++                if len(cut)<3:continue
++                center=cut.mean(axis=0);angle=np.arctan2(cut[:,1]-center[1],cut[:,0]-center[0])
++                polygons.append(cut[np.argsort(angle)]);section_values.append(vm[element])
++            norm=colors.Normalize(vmin=0,vmax=float(vm.max()))
++            fig=plt.figure(figsize=(11.2,6.1))
++            gs=fig.add_gridspec(1,3,width_ratios=[1.4,1,.07],left=.06,right=.91,bottom=.13,top=.78,wspace=.3)
++            for j,limits in enumerate([((22,44),(10.5,27)),((26.4,30.7),(11,18))]):
++                ax=fig.add_subplot(gs[0,j]);collection=PolyCollection(polygons,array=np.asarray(section_values),cmap=cmap,norm=norm,edgecolors='none',rasterized=True)
++                ax.add_collection(collection);ax.set(xlim=limits[0],ylim=limits[1],xlabel='X (mm)',ylabel='Z (mm)')
++                ax.set_aspect('equal');ax.grid(alpha=.12);ax.set_title('Complete section' if j==0 else 'Lug-floor detail')
++                if j==1:
++                    ax.plot([30.2,30.3],[14.2,14.2],color='#dc2626',lw=3)
++                    ax.annotate('0.1 mm remaining\nloaded contact',(30.25,14.2),xytext=(27,17.1),fontsize=9,
++                                arrowprops={'arrowstyle':'->','color':'#dc2626'},color='#9f1239')
++            cax=fig.add_subplot(gs[0,2]);fig.colorbar(cm.ScalarMappable(norm=norm,cmap=cmap),cax=cax,label='Von Mises of element-mean stress (MPa)')
++            fig.suptitle('Adapter at 4.7 mm withdrawal: exact section through Y = 10 mm\nUndeformed tetrahedra; piecewise element-mean values; no interpolation across voids',fontsize=13,y=.96)
++            fig.text(.06,.025,'Full field stress scale. The raw vertex peak and the 0.4 mm averaged metric are separate results; no strength qualification.',fontsize=9)
++            fig.savefig(dest/'adapter-field.png',dpi=170);plt.close(fig)
++            continue
++        fig=plt.figure(figsize=(10.5,6.5))
++        gs=fig.add_gridspec(1,2,width_ratios=[24,1],left=.02,right=.9,bottom=.06,top=.84,wspace=.23)
++        ax=fig.add_subplot(gs[0,0],projection='3d')
+         surface=Poly3DCollection(p[faces],facecolors=cmap(norm(values)),edgecolors='none',rasterized=True)
+         ax.add_collection3d(surface);lo=p.min(axis=0);hi=p.max(axis=0)
+         ax.set(xlim=(lo[0],hi[0]),ylim=(lo[1],hi[1]),zlim=(lo[2],hi[2]),xlabel='X (mm)',ylabel='Y (mm)',zlabel='Z (mm)')
+         ax.set_box_aspect(hi-lo);ax.view_init(elev=24,azim=-125 if part=='adapter' else -65)
+-        ax.set_title(f'{part.capitalize()}: {case.replace("_"," ")}\nUndeformed geometry; h={row["mesh_size_mm"]:g} mm; no strength qualification')
+-        fig.colorbar(cm.ScalarMappable(norm=norm,cmap=cmap),ax=ax,shrink=.65,pad=.05,label=label)
++        fig.suptitle(f'{part.capitalize()}: {case.replace("_"," ")}\nUndeformed geometry; h={row["mesh_size_mm"]:g} mm; no strength qualification',fontsize=13,y=.97)
++        cax=fig.add_subplot(gs[0,1]);fig.colorbar(cm.ScalarMappable(norm=norm,cmap=cmap),cax=cax,label=label)
+         fig.savefig(dest/f'{part}-field.png',dpi=170);plt.close(fig)
+ 
+     g=read(GEOMETRY);strokes=np.r_[np.linspace(0,.99,30),np.linspace(1,4.799,100)]
+@@ -300,7 +347,8 @@
+       '- The receiver also has a 4 g external-load sensitivity, equivalent to twice the 2 g payload and actuator forces. The 2 N preload remains constant. This is a numerical proof-load screen, not a passed physical proof test.',
+       '- Isotropic solid PLA comparison proxy: E=2200 MPa, ν=0.35. The repository material file contains analyst-assumed strength numbers used by legacy diagnostic code; they are not measured allowables. The curated results remove derived strength-threshold and failure-index fields. No PAHT-CF strength or anisotropy is inferred.',
+       '- Vertical load cases only. Lateral key bearing, torsion, payload-center-of-gravity moments, combined multiaxis loads, bolt preload/slip/pull-through and host compliance are not solved.',
+-      '- Contact is represented by finite prescribed tractions. The actual 0.3 mm guide clearance, rotation into alternate contacts, frictional redistribution, wear, nonlinear geometry and material yielding are not solved.',
++      '- Contact is represented by finite prescribed tractions. The actual 0.3 mm guide clearance, rotation into alternate contacts, frictional redistribution, wear, nonlinear geometry and material yielding are not solved. The vanishing distal-guide overlap immediately before its support is lost is not resolved by these discrete contact states.',
++      '- Solenoid axial pull, tongue/pin bearing strength and their coupled frictional contact response are not included in the vertical retention FEA.',
+       '- The actuator inertial force is split between the two actual countersink surfaces. Its resultant is at their midpoint, 1 mm from the approximate envelope CG. This is a finite bearing-traction surrogate, not a bolt/contact model.','',
+       '## Finest-mesh results','',
+       '| Part and case | h (mm) | Tetrahedra | Max displacement (mm) | Raw peak tension (MPa) | 0.4 mm averaged peak tension (MPa) |',
+@@ -313,6 +361,7 @@
+     for r in summary['mesh_convergence']:
+         c=r['finest_pair_change_percent'];lines.append(f'| {r["part"]}: {r["case"]} | {r["mesh_levels"]} | {c["max_displacement_mm"]:.2f}% | {c["averaged_0p4mm_tensile_MPa"]:.2f}% | {c["raw_peak_tensile_MPa"]:.2f}% |')
+     lines+=['','Numerical gates are force balance <1e-4 N, moment balance <1e-3 N·mm, free-DOF relative residual <1e-7, mesh/CAD volume error <2%, and keeper gauge reactions <1e-4 N. Refinement is reported separately: a solved equilibrium problem is not evidence of mesh-independent stress or physical safety. The receiver has two levels; the critical lug/keeper cases have three.','',
++      'The 0.4 mm averaging operator is undersampled near some fixtures. At the retained adapter tensile peak, its neighborhood contains only one element centroid at h=0.5 mm and three at h=0.35 mm. At the receiver retained/preload tensile peak, the corresponding counts are one at h=1.15 mm and two at h=0.85 mm. The peak locations also move around the attachment fixtures. These observations explain why some averaged maxima change by 28–44% even while displacements settle. The averaged stress is not converged in those cases, and no safety credit is taken from smoothing. Per-case neighbor counts are recorded in the curated results.','',
+       '## Release force and actuator decision','',
+       'The friction sweep uses Fpull = μ × (lug normal + sum of absolute guide normals) + return resistance. For 0.454 kg at 2 g, 2 N preload, μ=0.15 and 0.5 N return resistance, its peak is approximately 5.63 N immediately after the distal support is lost. At zero preload the same assumptions give about 4.69 N. These are sensitivity values, not measured requirements; they omit breakaway, side binding, contamination, wedges, current rise, temperature and tolerance.','',
+       'The nominal lug overlap is 3.5 mm retained, 0.3 mm at 4.5 mm withdrawal and 0.1 mm at 4.7 mm. Distal guide support ends at 1 mm; complete lug clearance occurs at 4.8 mm. A 10 mm actuator stroke leaves 5.2 mm nominal final travel margin, but the initial pull begins at a 10 mm magnetic gap. Longer stroke does not establish usable force throughout that gap.','',
+@@ -327,6 +376,10 @@
+       'The public `dist/simulation` directory contains the input manifest, exact component configurations, curated case results, compact summary, friction/yaw sweep and plots. Raw meshes, field arrays and solver logs stay in the output directory and are suitable for CI artifacts. Every result includes STEP, solver and configuration hashes. A fresh geometry build must be prepared and solved again; old numerical results are not carried forward by shape similarity.','',
+       '## Next verification steps','',
+       'Measure the candidate solenoid and its actual loaded 5 V force across the full 10 mm travel. Establish printed-material directional properties and print orientation, then run a controlled fixture proof and repeated release test at 2 g equivalent loading, including unfavorable lateral loads and tolerance extremes. These remain outstanding, and no physical testing is claimed here.','']
++    if summary.get('execution_orchestration'):
++        record=summary['execution_orchestration']
++        lines+=['## Local execution and reporting provenance','',
++          f'The solve-era orchestration source is preserved with SHA-256 `{record["runner_sha256_at_solve"]}`. Its snapshot was recovered from a contemporaneous CI staging copy; the original local launcher did not capture its own hash at process start. The final preparation/reporting source has SHA-256 `{summary["reporting_runner_sha256"]}`. Later edits changed reporting, plots and provenance bookkeeping, with no changes to the executed STEP bodies, solver or case configurations. The input manifest and provenance directory distinguish these versions and preserve a source diff. Future runs record the runner hash at launch.','']
+     path=ROOT/'docs/modular-simulation.md';path.parent.mkdir(exist_ok=True);path.write_text('\n'.join(lines))
+ 
+ def summarize(out):
+@@ -352,6 +405,7 @@
+                     'raw_peak_vm_MPa':d['raw_peak_vm_MPa'],'averaged_0p4mm_tensile_MPa':avg['tensile_MPa']['value'],
+                     'averaged_0p4mm_vm_MPa':avg['vm_MPa']['value'],
+                     'averaged_0p4mm_compressive_MPa':avg['compressive_MPa']['value'],
++                    'averaging_centroids_at_tensile_peak':avg['tensile_MPa']['centroids_in_averaging_neighborhood'],
+                     'force_balance_error_N':d['force_balance_error_N'],'moment_balance_error_Nmm':d['moment_balance_error_Nmm'],
+                     'relative_free_residual':d['relative_free_residual'],'gauge_reaction_norm_N':d['gauge_reaction_norm_N'],
+                     'relative_volume_error':d['relative_volume_error'],'numerical_checks_passed':balanced,
+@@ -373,14 +427,25 @@
+         'payload_mass_kg':MASS_KG,'payload_force_2g_N':PAYLOAD_2G,'assumed_preload_N':PRELOAD_N,
+         'actuator_mass_kg':ACTUATOR_MASS_KG,'actuator_force_2g_N':ACTUATOR_2G,
+         'cases':rows,'mesh_convergence':convergence,
++        'mesh_convergence_summary':{
++            'all_displacement_changes_under_5_percent':all(c['displacement_change_under_5_percent'] for c in convergence),
++            'all_averaged_stress_changes_under_10_percent':all(c['averaged_stress_change_under_10_percent'] for c in convergence),
++            'mesh_sensitive_raw_peak_cases':[{'part':c['part'],'case':c['case']} for c in convergence if c['raw_peak_is_mesh_sensitive']]},
+         'limits':['Prescribed finite tractions, not an assembled nonlinear contact simulation.',
+                   'Raw stress peaks can be singular at traction/fixture boundaries; averaging is an uncalibrated comparison metric.',
+                   'No anisotropic strength, creep, fatigue, temperature, print-defect or physical release qualification.',
+                   'Rigid bolt-annulus fixtures omit host compliance, fastener preload, slip and pull-through.',
+                   'Vertical load-path screens only: lateral/key-face bearing, torsion, payload-CG moments and combined multiaxis loads are not solved.',
+                   'The inline pull correction removes nominal yaw eccentricity, but misalignment/side-contact binding is not simulated.',
+-                  'The actuator mount-load surrogate splits68g inertia equally between actual screw countersink surfaces; its resultant is1mm from the approximate envelope CG.'],
++                  'Actuator axial pull and tongue/pin bearing strength are not solved in the vertical retention submodels.',
++                  'The vanishing distal-guide overlap just before support loss is not resolved by the discrete contact states.',
++                  'The actuator mount-load surrogate splits 68 g inertia equally between actual screw countersink surfaces; its resultant is 1 mm from the approximate envelope CG.'],
+         'input_manifest':'simulation/input-manifest.json','release_sensitivity':'simulation/release-force-sweep.json'}
++    summary['reporting_runner_sha256']=sha(__file__)
++    summary['execution_orchestration']=manifest.get('execution_orchestration')
++    manifest['reporting_runner_sha256']=sha(__file__)
++    manifest['execution_records']=[read(out/'logs'/f'{part}-execution.json') for part in ('receiver','adapter','keeper')]
++    dump(out/'manifest.json',manifest);dump(PUBLIC/'input-manifest.json',manifest)
+     summary['plots']=make_plots(out,summary)
+     write_report(summary)
+     dump(PUBLIC/'modular-core-summary.json',summary)

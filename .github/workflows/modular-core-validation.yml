@@ -1,0 +1,118 @@
+name: Modular core concept validation
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/modular-core-validation.yml'
+      - 'project/concepts/modular-core/**'
+      - 'tools/ci/run_modular_core.py'
+      - 'tools/overhang.py'
+      - 'tests/ci/test_modular_core_gate.py'
+      - 'project/cad/N2/**'
+      - 'project/cad/common.py'
+      - 'project/cad/solenoid_parts.py'
+      - 'project/cad/requirements.txt'
+      - 'project/analysis/inputs/drivers/solver_6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c.py'
+      - 'project/analysis/inputs/material.json'
+      - 'project/analysis/requirements.txt'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/modular-core-validation.yml'
+      - 'project/concepts/modular-core/**'
+      - 'tools/ci/run_modular_core.py'
+      - 'tools/overhang.py'
+      - 'tests/ci/test_modular_core_gate.py'
+      - 'project/cad/N2/**'
+      - 'project/cad/common.py'
+      - 'project/cad/solenoid_parts.py'
+      - 'project/cad/requirements.txt'
+      - 'project/analysis/inputs/drivers/solver_6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c.py'
+      - 'project/analysis/inputs/material.json'
+      - 'project/analysis/requirements.txt'
+  workflow_dispatch:
+    inputs:
+      retain_meshes:
+        description: Preserve native FEA meshes and field arrays in a separate artifact
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: modular-core-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONUNBUFFERED: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  OMP_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+
+jobs:
+  modular-core:
+    name: Revised CAD, clearance and actual STEP FEA
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            project/cad/requirements.txt
+            project/analysis/requirements.txt
+      - name: Check evidence gates reject invalid, stale and missing results
+        run: python -m unittest discover -s tests/ci -p 'test_modular_core_gate.py' -v
+      - name: Install pinned CAD and numerical dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libgl1 libglu1-mesa libxft2 libxrender1
+          python -m pip install -r project/cad/requirements.txt -r project/analysis/requirements.txt
+      - name: Build fresh physical CAD, check nominal clearances and prepare actual-STEP cases
+        run: python tools/ci/run_modular_core.py --stage cad --output "$RUNNER_TEMP/n2-modular-core"
+      - name: Solve receiver at two mesh sizes
+        run: python tools/ci/run_modular_core.py --stage receiver --output "$RUNNER_TEMP/n2-modular-core"
+      - name: Solve adapter at three mesh sizes
+        run: python tools/ci/run_modular_core.py --stage adapter --output "$RUNNER_TEMP/n2-modular-core"
+      - name: Solve keeper at three mesh sizes
+        run: python tools/ci/run_modular_core.py --stage keeper --output "$RUNNER_TEMP/n2-modular-core"
+      - name: Enforce numerical and provenance gates and report mesh sensitivity
+        run: python tools/ci/run_modular_core.py --stage report --output "$RUNNER_TEMP/n2-modular-core"
+      - name: Write engineering summary
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/n2-modular-core/summary.md" ]; then
+            cat "$RUNNER_TEMP/n2-modular-core/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve physical CAD, configurations, results and logs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: modular-core-evidence-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/n2-modular-core
+            !${{ runner.temp }}/n2-modular-core/**/__pycache__/**
+            !${{ runner.temp }}/n2-modular-core/**/*.msh
+            !${{ runner.temp }}/n2-modular-core/**/*.npz
+            !${{ runner.temp }}/n2-modular-core/workspace/source-cad/**
+            !${{ runner.temp }}/n2-modular-core/workspace/scripts/**
+            !${{ runner.temp }}/n2-modular-core/workspace/dist/models/meshes/**
+            !${{ runner.temp }}/n2-modular-core/workspace/dist/models/modular-core.stl
+          retention-days: 14
+          if-no-files-found: error
+      - name: Preserve requested native meshes and field arrays
+        if: ${{ always() && github.event_name == 'workflow_dispatch' && inputs.retain_meshes }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: modular-core-native-fields-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/n2-modular-core/fea/**/*.msh
+            ${{ runner.temp }}/n2-modular-core/fea/**/*.npz
+          retention-days: 7
+          if-no-files-found: error

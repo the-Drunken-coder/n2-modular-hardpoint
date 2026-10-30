@@ -1,0 +1,90 @@
+{
+  "source_commit": "15f64836da8fa8a9957beea391beb9685ffbd532",
+  "scope": "Immutable issued baseline inputs and engine reused to generate and solve new concept geometry; old P14 results are not replayed as new evidence.",
+  "files": [
+    {
+      "path": "project/analysis/inputs/drivers/solver_6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c.py",
+      "sha256": "6d9b172de0fca72755d74c663b9eba88c9d2bce19719962deb9385a2e644a64c"
+    },
+    {
+      "path": "project/analysis/inputs/material.json",
+      "sha256": "ac3df6f1f1154c9db3b9c092fd2213b7681eb49baae6a66f8c4832cab389bd0d"
+    },
+    {
+      "path": "project/analysis/requirements.txt",
+      "sha256": "7d6007342709ff0ae64a63d35b8458699c97d6675a68a8ac0db97273d1c37e42"
+    },
+    {
+      "path": "project/cad/N2/N2_adapter.step",
+      "sha256": "fac0ae34b99824b56b1a253ca65d3f81ba6475433464a432675456c617904d27"
+    },
+    {
+      "path": "project/cad/N2/N2_armature.step",
+      "sha256": "5a76281113d68237c34da15cff73cee7f079e467cffed68cd7f7f5cca64c9e61"
+    },
+    {
+      "path": "project/cad/N2/N2_clamp.step",
+      "sha256": "7a5a78f512553510096989e413237fff86dc20f59af2571419e20c47c16c1d93"
+    },
+    {
+      "path": "project/cad/N2/N2_clamp_nut_1.step",
+      "sha256": "12d6b2f05391c706bca19c8bcfc320b7c46805e8149ccde3b12b97efa325cc88"
+    },
+    {
+      "path": "project/cad/N2/N2_clamp_nut_2.step",
+      "sha256": "47f7afb561129b297b81be6b98245c1f57c92476d290614fafb1c7a6696ca7d6"
+    },
+    {
+      "path": "project/cad/N2/N2_clamp_screw_1.step",
+      "sha256": "125a5ae0439b8299c31fabc8218e45e9b0cbb151021472c30d87be54d8c8625f"
+    },
+    {
+      "path": "project/cad/N2/N2_clamp_screw_2.step",
+      "sha256": "9c50b1f89bcb88153551060ac1a0f85ebc24402b572d2bd4a3258683002a234e"
+    },
+    {
+      "path": "project/cad/N2/N2_keeper.step",
+      "sha256": "6cfde36f7bbe933964989052fb2b48a09979c9adad714e853049a188a91edbde"
+    },
+    {
+      "path": "project/cad/N2/N2_receiver.step",
+      "sha256": "a122d616ba1ced141df8f188050b7fb53599d528f7ce4b0a4251a1382bcbf852"
+    },
+    {
+      "path": "project/cad/N2/N2_return_spring.step",
+      "sha256": "cf92cfe2e7157de0f9d4ba616f4c66c881615299d170a2790c7e3281e909b095"
+    },
+    {
+      "path": "project/cad/N2/N2_solenoid_body.step",
+      "sha256": "fe64f2b0ac388bbafc6cffa34a124e84ffb92e10e937bba9804efcf5de7444af"
+    },
+    {
+      "path": "project/cad/N2/N2_wire_1.step",
+      "sha256": "8a0c581b429a46dcc5d3d44c159411f9a30fd12afde4250102858aaa5dac847b"
+    },
+    {
+      "path": "project/cad/N2/N2_wire_2.step",
+      "sha256": "d46718c86ae5fb80d3c86449e40e69fd12cbb777f147c6ac18061af2ad686cf2"
+    },
+    {
+      "path": "project/cad/N2/viewer.json",
+      "sha256": "150fec10d6a8c8db5f5ecf34640fe0007007827f7761a7f58d1b28828353c3de"
+    },
+    {
+      "path": "project/cad/common.py",
+      "sha256": "343d326162086023a15a80a05a3c659b0cb34656cb8b90241a8fcd9bd5afa2eb"
+    },
+    {
+      "path": "project/cad/requirements.txt",
+      "sha256": "08298e8b4b415c9be6637e79189a485124e1d8b0e169df4b1ef931425c7e98cc"
+    },
+    {
+      "path": "project/cad/solenoid_parts.py",
+      "sha256": "b838ebd964727a76fbdf063538289d48356644fd16178cf15ef440b1caf09035"
+    },
+    {
+      "path": "tools/overhang.py",
+      "sha256": "6448fff146f621e39e067eacd767bf5659b0622d99d8e06b811d12e751628229"
+    }
+  ]
+}
