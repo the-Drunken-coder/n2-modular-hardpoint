@@ -22,7 +22,7 @@
     {
       "result": "PASS",
       "name": "Fixed box and real parts",
-      "detail": "Six connected prints and the retained mechanism fit within 85.6 \u00d754 \u00d720 mm. Casing, manufactured parts and the wing installation are separate viewer controls."
+      "detail": "Six connected prints and the retained mechanism fit within 85.6 × 54 × 20 mm. Casing, manufactured parts and the wing installation are separate viewer controls."
     },
     {
       "result": "PASS",
@@ -54,13 +54,13 @@
   ],
   "actions_url": "https://github.com/the-Drunken-coder/n2-modular-hardpoint/actions",
   "actuator_price": "$9.95",
-  "actuator_rationale": "The MG90D from Adafruit fits on its narrow side and accepts 4.8\u20136 V. A 5.5 mm crank needs 85\u00b0 rotation for 6.27 mm withdrawal. Its listed price is $9.95; real loaded output and horn fit remain measurement gates.",
-  "cost_note": "Observed actuator prices, 2026-10-30, before shipping/tax. Mechanical consumed-parts estimate: $18.49\u2013$21.99 with unquoted hardware/material allowances; full first-purchase packs, wiring and controls cost more.",
+  "actuator_rationale": "The MG90D from Adafruit fits on its narrow side and accepts 4.8–6 V. A 5.5 mm crank needs 85° rotation for 6.27 mm withdrawal. Its listed price is $9.95; real loaded output and horn fit remain measurement gates.",
+  "cost_note": "Observed actuator prices, 2026-10-30, before shipping/tax. Mechanical consumed-parts estimate: $18.49–$21.99 with unquoted hardware/material allowances; full first-purchase packs, wiring and controls cost more.",
   "actuator_options": [
     {
       "name": "TowerPro MG90D",
       "price": "$9.95",
-      "fit": "Compact; 4.8 V minimum; approximately 90\u00b0",
+      "fit": "Compact; 4.8 V minimum; approximately 90°",
       "decision": "Selected prototype",
       "url": "https://www.adafruit.com/product/1143"
     },
@@ -74,7 +74,7 @@
     {
       "name": "FEETECH FT1117M",
       "price": "$16.74",
-      "fit": "120\u00b0 specified; 20 g",
+      "fit": "120° specified; 20 g",
       "decision": "Larger/heavier alternative",
       "url": "https://www.pololu.com/product/3423"
     },
@@ -86,11 +86,12 @@
       "url": "https://www.adafruit.com/product/2776"
     },
     {
-      "name": "Medium 5\u20136 V solenoid",
+      "name": "Medium 5–6 V solenoid",
       "price": "$7.50",
       "fit": "10 mm; 68 g",
       "decision": "Mass and pull-characterization penalty",
       "url": "https://www.adafruit.com/product/3992"
     }
-  ]
+  ],
+  "pr_url": "https://github.com/the-Drunken-coder/n2-modular-hardpoint/pull/12"
 }
