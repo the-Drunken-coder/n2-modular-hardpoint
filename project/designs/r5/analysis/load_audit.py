@@ -11,10 +11,15 @@ from skfem import ElementTetP2, ElementVector, FacetBasis, Functional, LinearFor
 
 def horizontal_facets(mesh, candidates, plane_z):
     """Keep whole facets on the intended plane, not just near-plane midpoints."""
+    return planar_facets(mesh, candidates, 2, plane_z)
+
+
+def planar_facets(mesh, candidates, axis, coordinate):
+    """Keep whole facets on an axis-aligned physical load plane."""
     candidates = np.asarray(candidates, dtype=int)
     if not len(candidates):
         return candidates
-    return candidates[np.all(np.abs(mesh.p[2, mesh.facets[:, candidates]] - plane_z) < 1e-7, axis=0)]
+    return candidates[np.all(np.abs(mesh.p[axis, mesh.facets[:, candidates]] - coordinate) < 1e-7, axis=0)]
 
 
 def resultants(basis, nodal_force):
@@ -41,7 +46,7 @@ def check_resultants(actual, expected, label, rtol=1e-8):
 def surface_load(mesh, facets, force, application_point=None):
     """Assemble a specified force, returning its audited N / N*mm resultants.
 
-``application_point`` is supported for horizontal patches.  It specifies the
+``application_point`` is supported for axis-aligned planar patches. It specifies the
 resultant location, not a point load; pressure remains distributed over the
 selected facets.  If omitted, uniform traction acts at the mesh patch centroid.
 """
@@ -54,21 +59,24 @@ selected facets.  If omitted, uniform traction acts at the mesh patch centroid.
     centroid = np.array([Functional(lambda w, i=i: w.x[i]).assemble(scalar) / area for i in range(3)])
     target = centroid if application_point is None else np.asarray(application_point, dtype=float)
     coefficients = np.array([1.0 / area, 0.0, 0.0])
+    in_plane = (0, 1)
     if application_point is not None:
         xyz = scalar.global_coordinates()
-        if np.max(np.abs(xyz[2] - target[2])) > 1e-7:
-            raise ValueError("prescribed resultant requires a horizontal patch at the target Z")
+        normal_axes = np.flatnonzero(np.ptp(xyz.reshape(3, -1), axis=1) < 1e-7)
+        if len(normal_axes) != 1 or np.max(np.abs(xyz[normal_axes[0]] - target[normal_axes[0]])) > 1e-7:
+            raise ValueError("prescribed resultant requires an axis-aligned planar patch containing the target")
+        in_plane = tuple(i for i in range(3) if i != normal_axes[0])
         def polynomial(w):
-            return (1.0 + 0 * w.x[0], w.x[0] - centroid[0], w.x[1] - centroid[1])
+            return (1.0 + 0 * w.x[0], w.x[in_plane[0]] - centroid[in_plane[0]], w.x[in_plane[1]] - centroid[in_plane[1]])
         gram = np.array([[Functional(lambda w, i=i, j=j: polynomial(w)[i] * polynomial(w)[j]).assemble(scalar)
                           for j in range(3)] for i in range(3)])
-        coefficients = np.linalg.solve(gram, [1.0, target[0] - centroid[0], target[1] - centroid[1]])
+        coefficients = np.linalg.solve(gram, [1.0, target[in_plane[0]] - centroid[in_plane[0]], target[in_plane[1]] - centroid[in_plane[1]]])
     def weight(w):
-        return coefficients[0] + coefficients[1] * (w.x[0] - centroid[0]) + coefficients[2] * (w.x[1] - centroid[1])
+        return coefficients[0] + coefficients[1] * (w.x[in_plane[0]] - centroid[in_plane[0]]) + coefficients[2] * (w.x[in_plane[1]] - centroid[in_plane[1]])
     # An affine pressure reaches its extrema at patch vertices.  Do not silently
     # introduce tensile contact to enforce an inadmissible resultant location.
     xyz = mesh.p[:, np.unique(mesh.facets[:, facets])]
-    weights = coefficients[0] + coefficients[1] * (xyz[0] - centroid[0]) + coefficients[2] * (xyz[1] - centroid[1])
+    weights = coefficients[0] + coefficients[1] * (xyz[in_plane[0]] - centroid[in_plane[0]]) + coefficients[2] * (xyz[in_plane[1]] - centroid[in_plane[1]])
     if weights.min() < -1e-10 / area:
         raise ValueError("resultant location requires negative pressure on the selected patch")
     force = np.asarray(force, dtype=float)

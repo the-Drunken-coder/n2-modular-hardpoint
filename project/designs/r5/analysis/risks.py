@@ -184,22 +184,34 @@ def bounded_fit(bounds=None):
 
 
 def dynamics(fea):
-    out = {}
-    if fea:
-        k = 1 / sum(fea["cases"][c]["fine"]["load_point_disp_mm"] / p.P_PROOF for c in ("keeper", "adapter", "body"))
+    out = {"fea_status": "pending current, mesh-converged FEA"}
+    if fea is not None:
+        from export_web import validate_summary
+        validate_summary(fea)
+        load = float(fea["load_N"])
+        displacements = [float(fea["cases"][c]["fine"]["load_point_disp_mm"]) for c in ("keeper", "adapter", "body")]
+        if not np.isfinite(load) or load <= 0 or any(not np.isfinite(u) or u <= 0 for u in displacements):
+            raise ValueError("dynamics requires positive finite audited load and component compliance")
+        k = load / sum(displacements)
+        out["fea_status"] = "current numerical proxy; physical dynamics unvalidated"
+        out["fea_analysis_id"] = fea["analysis_id"]
         out["support_stiffness_N_per_mm_rigid_wing"] = k
         out["payload_mode_Hz"] = sqrt(k * 1000 / p.MASS_KG) / (2 * pi)
     # Hanging payload rattle: it lifts off the keeper once vertical acceleration
     # exceeds 1 g plus the steady load factor (n = 1 assumed).
     gap = p.HOLE_H - p.KEEPER_W                         # 1.1 mm free play in the hole
     out["liftoff_threshold_g_peak"] = 1.0
-    k_contact = out.get("support_stiffness_N_per_mm_rigid_wing", 5000.0)
+    k_contact = out.get("support_stiffness_N_per_mm_rigid_wing")
     rows = []
     for a_g in (2.0, 3.0, 5.0):
         v = sqrt(2 * (a_g - 1) * G * gap / 1000)        # m/s after free flight across the gap
-        f_imp = v * sqrt(k_contact * 1000 * p.MASS_KG)   # undamped impact peak, N
-        rows.append(dict(vib_g_peak=a_g, impact_velocity_mps=v, impact_force_N=f_imp,
-                         ratio_to_proof=f_imp / p.P_PROOF))
+        row = dict(vib_g_peak=a_g, impact_velocity_mps=v)
+        if k_contact is None:
+            row["impact_force_status"] = "pending current FEA compliance"
+        else:
+            f_imp = v * sqrt(k_contact * 1000 * p.MASS_KG)   # undamped impact peak, N
+            row.update(impact_force_N=f_imp, ratio_to_proof=f_imp / p.P_PROOF)
+        rows.append(row)
     out["rattle_impact"] = rows
     # Back-drive at dead centre. The axial keeper force comes from keeper inertia and from
     # friction as the tab slides in its socket under X vibration at load factor n.
@@ -256,15 +268,27 @@ def unseated():
 
 
 def hand_stresses():
-    P, h = p.P_PROOF, p.KEEPER_W
-    arm = p.TUNNEL_X[0] - (p.TAB_X[0] + p.TAB_X[1]) / 2
-    s_keeper = P * arm / (h ** 3 / 6) + 1.5 * P * (1 + p.REACTION_RATIO) / h ** 2
+    from sections import keeper_section
+    P = p.P_PROOF
+    patch = p.GUIDE_PATCH_LENGTH
+    arm = p.GUIDE_PATCH_X[0] - (p.TAB_X[0] + p.TAB_X[1]) / 2
+    reaction_ratio = p.REACTION_RATIO
+    front = keeper_section(p, p.TUNNEL_X[0])
+    rear = keeper_section(p, p.GUIDE_PATCH_X[1])
+    # Beam comparison at the tunnel mouth; the narrowest section width gives a
+    # conservative rectangular shear-area estimate. Local groove/edge stresses
+    # still require CAD FEA and physical proof, not this beam approximation.
+    s_keeper = P * arm / front["section_modulus_y_mm3"] + 1.5 * P * (1 + reaction_ratio) / front["conservative_shear_area_mm2"]
     lig = (p.TAB_W - p.HOLE_W) / 2 * (p.TAB_X[1] - p.TAB_X[0]) * 2
     s_lig = P / lig
-    bearing = P * (1 + p.REACTION_RATIO) / (h * 2.0)
+    bearing = P * (1 + reaction_ratio) / (front["bottom_bearing_width_mm"] * patch)
+    rear_bearing = P * reaction_ratio / (rear["top_bearing_width_mm"] * patch)
     return dict(keeper_bending_plus_shear_MPa=s_keeper, margin_keeper=p.ALLOW_XY / s_keeper,
                 tab_ligament_tension_MPa=s_lig, margin_ligament_across_layers=p.ALLOW_Z / s_lig,
-                tunnel_mouth_bearing_MPa=bearing, margin_bearing=p.ALLOW_XY / bearing)
+                tunnel_mouth_bearing_MPa=bearing, tunnel_rear_bearing_MPa=rear_bearing,
+                margin_bearing=p.ALLOW_XY / max(bearing, rear_bearing),
+                keeper_mouth_area_mm2=front["area_mm2"], keeper_mouth_section_modulus_mm3=front["section_modulus_y_mm3"],
+                keeper_rear_area_mm2=rear["area_mm2"], keeper_rear_section_modulus_mm3=rear["section_modulus_y_mm3"])
 
 
 def main():

@@ -52,6 +52,8 @@ maxima occur at different section points:
 
 This is a section screen. It omits local re-entrant-corner concentration,
 nonlinear contact, damage and a calibrated multiaxial FDM failure criterion.
+The tensile comparison does not establish an interlayer-shear allowable for
+the eccentric pin load; that failure mode still needs printed-process evidence.
 Those limitations require the targeted analysis and physical gates; a nominal
 section pass is not complete assembly qualification. The rectangular torsion
 series is documented in [Chen and Howell (2018), equations 1–4](https://doi.org/10.1186/s10033-018-0214-9).

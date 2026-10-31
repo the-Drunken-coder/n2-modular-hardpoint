@@ -7,7 +7,7 @@ import numpy as np
 from skfem import Basis, ElementTetP2, ElementVector, MeshTet
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "analysis"))
-from load_audit import check_resultants, horizontal_facets, resultants, surface_load
+from load_audit import check_resultants, horizontal_facets, planar_facets, resultants, surface_load
 
 
 class SurfaceLoadTests(unittest.TestCase):
@@ -37,6 +37,22 @@ class SurfaceLoadTests(unittest.TestCase):
         nodal, report = surface_load(self.mesh, self.facets, force, target)
         np.testing.assert_allclose(resultants(self.basis, nodal)[1], np.cross(target, force), atol=1e-12)
         self.assertGreaterEqual(report["relative_pressure_min"], 0)
+
+    def test_vertical_pin_patch_preserves_force_and_friction_moment(self):
+        facets = planar_facets(self.mesh, self.mesh.boundary_facets(), 0, 0.0)
+        self.assertEqual(len(facets), 1)
+        target = np.array([0.0, 0.30, 0.30])
+        force = np.array([7.1681, 0.0, 2.508835])
+        nodal, report = surface_load(self.mesh, facets, force, target)
+        self.assertAlmostEqual(report["area_mm2"], 0.5)
+        actual_force, actual_moment = resultants(self.basis, nodal)
+        np.testing.assert_allclose(actual_force, force, atol=1e-12)
+        np.testing.assert_allclose(actual_moment, np.cross(target, force), atol=1e-12)
+        self.assertGreaterEqual(report["relative_pressure_min"], 0.0)
+
+    def test_off_plane_application_point_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, "planar patch containing"):
+            surface_load(self.mesh, self.facets, [0, 0, -1], [0.3, 0.3, 0.1])
 
     def test_resultant_outside_patch_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "negative pressure"):

@@ -146,7 +146,8 @@ export default function App() {
       const nrm = g.attributes.normal, ctr = new T.Vector3(); g.computeBoundingBox(); g.boundingBox.getCenter(ctr);
       const pv = new T.Vector3().fromBufferAttribute(g.attributes.position, pi), pn = new T.Vector3().fromBufferAttribute(nrm, pi);
       if (pn.dot(pv.clone().sub(ctr)) < 0) pn.negate(); // DoubleSide: orient outward
-      d.peakV = pv.toArray(); d.peakN = pn.normalize().toArray(); d.fiMax = d.fi[pi];
+      d.peakV = d.governing_fi_per_N != null ? d.peak_mm : pv.toArray();
+      d.peakN = pn.normalize().toArray(); d.fiMax = d.governing_fi_per_N ?? d.fi[pi];
       m.userData = { d, part: c.part }; m.visible = false; s.fea.set(`${c.part}__${c.case}`, m); s.scene.add(m); s.dirty = true; setFeaN(n => n + 1);
     }));
   }, [fea]);
@@ -164,7 +165,7 @@ export default function App() {
   const alpha = mo ? mo.a_latch + (mo.a_release - mo.a_latch) * ease(Math.min(phase, 1)) : 0;
   const kx = mo ? mo.r * (Math.cos(alpha * Math.PI / 180) - Math.cos(mo.a_latch * Math.PI / 180)) : 0;
   const loadMax = fea?.cases ? Math.max(60, Math.ceil(Math.min(...fea.cases.map(c => c.fail_N)) * 1.2)) : 60;
-  const k = fea ? 31 / fea.z_tds_MPa : 1;
+  const k = fea?.fields_include_allowables ? 1 : fea ? 31 / fea.z_tds_MPa : 1;
   const uMax = Math.max(1e-9, ...[...s.fea.values()].filter(m => shown[m.userData.part] && !hidden[m.userData.part]).map(m => (m.userData.d.fiMax || 0) * load * k));
   const scale = autoScale ? uMax : 1;
   const rows = fea ? Object.entries(shown).map(([p, c]) => fea.cases.find(x => x.part === p && x.case === c)).filter(Boolean) : [];
@@ -212,7 +213,11 @@ export default function App() {
       const ck = `${load}|${k}|${scale}`;
       if (m.userData.ck !== ck) {
         const col = m.geometry.attributes.color, c = new T.Color(), fi = m.userData.d.fi;
-        for (let i = 0; i < fi.length; i++) { cmap(fi[i] * load * k / scale, c); col.setXYZ(i, c.r, c.g, c.b); }
+        for (let i = 0; i < fi.length; i++) {
+          if (m.userData.d.excluded?.[i]) c.setRGB(0.42, 0.44, 0.47);
+          else cmap(fi[i] * load * k / scale, c);
+          col.setXYZ(i, c.r, c.g, c.b);
+        }
         col.needsUpdate = true; m.userData.ck = ck;
       }
       const d = m.userData.d, isGov = gov && d.part === gov.part, fade = focus && gov && !isGov;
@@ -240,7 +245,10 @@ export default function App() {
           <b>N2 hardpoint · {p14 ? fea?.revision || '' : man?.revision || ''}</b><br />
           {!p14 && man && <>{man.parts.length} parts from CI-built CAD (cad/viewer.py){mo ? ', release driven by the servo crank kinematics.' : '.'}</>}
           {status && <>
-            Straight-pull stress screen <b>{status.fail_N.toFixed(2)} N</b> ({short(status.part)} governs). Dividing by SF 2 gives {status.rating_sf2_N.toFixed(2)} N for comparison only.<br />
+            Fully engaged axial stress screen <b>{status.fail_N.toFixed(2)} N</b> ({short(status.part)} governs).
+            {fea.fields_include_allowables
+              ? <> Comparison strength ratio at the {fea.reference_load_N.toFixed(2)} N reference load: <b>{status.margin_at_proof.toFixed(2)}×</b>.</>
+              : <> Dividing by SF 2 gives {status.rating_sf2_N.toFixed(2)} N for comparison only.</>}<br />
             <b>No working-load rating assigned.</b> No printed or loaded-release tests recorded.<br />
             Design load: {fea.design_N} N. Sacrificial bench target: {fea.required_fail_N} N.
           </>}
@@ -273,7 +281,7 @@ export default function App() {
             <Button small text={`Bench target ${fea.required_fail_N} N`} onClick={() => setLoad(fea.required_fail_N)} />
           </div>
           <table className="fea"><thead><tr><th>Part</th><th>Screen</th><th>Screen/load</th></tr></thead><tbody>
-            {rows.map(r => <tr key={r.part}><td>{gov === r && '● '}{short(r.part)}</td><td className="n">{r.fail_N} N</td><td className="n">{(r.fail_N / load).toFixed(2)}×</td></tr>)}
+            {rows.map(r => <tr key={r.part}><td>{gov === r && '● '}{short(r.part)}</td><td className="n">{r.fail_N.toFixed(2)} N</td><td className="n">{(r.fail_N / load).toFixed(2)}×</td></tr>)}
           </tbody></table>
           <Switch checked={ghost} label="Ghost other parts" onChange={() => setGhost(!ghost)} />
           <Switch checked={autoScale} label="Scale colours to peak at this load" onChange={() => setAutoScale(!autoScale)} />
@@ -300,6 +308,7 @@ export default function App() {
           Screen utilisation at {load.toFixed(1)} N {autoScale ? `(colours scaled to peak ${uMax.toFixed(2)}; 1.0 = assumed stress limit)` : '(1.0 = assumed stress limit)'}
           <div className="bar" style={{ background: GRAD }} />
           <div className="ticks"><span>0</span><span>{(0.5 * scale).toFixed(2)}</span><span>{scale.toFixed(2)}</span>{!autoScale && <span style={{ color: '#d91ad9' }}>&gt;1</span>}</div>
+          {fea.support_exclusion_mm != null && <div>Grey: no assessed samples outside the {fea.support_exclusion_mm} mm ideal-support zone.</div>}
           {gov && <div style={{ marginTop: 4 }}>○ governing peak: {short(gov.part)} {(() => { const d = s.fea.get(`${gov.part}__${gov.case}`)?.userData.d; return d?.peakV ? `at (${d.peakV.map(v => v.toFixed(1)).join(', ')}) mm, ${(d.fiMax * load * k).toFixed(3)} of limit` : ''; })()}</div>}
         </div>}
         <div className="hint">Drag: orbit · scroll: zoom to cursor · right-drag: pan · double-click: orbit around point</div>
