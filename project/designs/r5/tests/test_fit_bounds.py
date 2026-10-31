@@ -19,14 +19,18 @@ class FitBoundTests(unittest.TestCase):
     def test_combined_continuous_guide_envelope_and_dimensional_extrema_pass(self):
         r = risks.bounded_fit()
         self.assertGreater(r["configurations_checked"], 0)
-        self.assertGreater(r["continuous_pitch_yaw_abs_bound_deg"], 1.8)
+        self.assertGreater(r["continuous_pitch_yaw_abs_bound_deg"],
+                           r["latched_pitch_yaw_abs_bound_deg"])
         self.assertTrue(r["rigid_kinematic_bounds_pass"])
         self.assertGreaterEqual(r["minima"]["full_section_overlap_mm"], 0.5)
         self.assertGreaterEqual(r["minima"]["spare_after_clearance_mm"], 1.0)
 
     def test_old_decoupled_tip_fails_with_the_same_clearance_thresholds(self):
+        # The old shorter tip cannot certify 11.5 mm of remaining guidance.
+        # A smaller diagnostic barrier exposes its separate overlap failure;
+        # the accepted geometry still has to certify 11.5 mm.
         with patch.object(p, "TIP_LATCHED_X", 5.8), patch.object(risks, "L_PIN_TIP", p.SHAFT_X-p.CRANK_R-5.8):
-            r = risks.bounded_fit()
+            r = risks.bounded_fit(dict(p.FIT_BOUNDS, remaining_guide_length_min_mm=10.0))
         self.assertFalse(r["rigid_kinematic_bounds_pass"])
         self.assertLess(r["minima"]["full_section_overlap_mm"], 0.5)
 
@@ -38,7 +42,7 @@ class FitBoundTests(unittest.TestCase):
         half = (b["keeper_width_mm"][1]+b["guide_clearance_total_mm"][1])/2
         zfloat = b["relative_guide_shaft_z_error_mm"]+b["guide_clearance_total_mm"][1]/2
         xc = sum(p.TUNNEL_X)/2
-        for alpha in (p.A_RELEASE, p.A_RELEASE+4, 177, 180, 183):
+        for alpha in (p.A_RELEASE, p.A_RELEASE+p.FIT_BOUNDS["release_error_deg"][1], 177, 180, 183):
             lo, hi = tip_interval(p, b, tilt, radius, 0.1, alpha, length)
             xp = p.SHAFT_X+0.1+radius*cos(radians(alpha))
             zp = p.SHAFT_Z+radius*sin(radians(alpha))
@@ -61,7 +65,8 @@ class FitBoundTests(unittest.TestCase):
 
     def test_broad_guessed_scatter_is_not_accepted_as_manufacturing_tolerance(self):
         b = dict(p.FIT_BOUNDS, horn_r=(4.5, 5.5), servo_dx=(-0.5, 0.5))
-        self.assertFalse(risks.bounded_fit(b)["rigid_kinematic_bounds_pass"])
+        with self.assertRaises(ValueError):
+            risks.bounded_fit(b)
 
     def test_pin_slot_lost_motion_reduces_both_endpoint_margins(self):
         centered = risks.bounded_fit(dict(p.FIT_BOUNDS, pin_slot_clearance_total_mm=(0.0, 0.0)))
@@ -70,11 +75,11 @@ class FitBoundTests(unittest.TestCase):
         for key in ("full_section_overlap_mm", "spare_after_clearance_mm", "tip_to_pocket_floor_mm"):
             self.assertAlmostEqual(centered["minima"][key] - actual["minima"][key], 0.25)
         with patch.object(p, "TIP_LATCHED_X", 6.2), patch.object(risks, "L_PIN_TIP", p.SHAFT_X - p.CRANK_R - 6.2):
-            self.assertFalse(risks.bounded_fit()["rigid_kinematic_bounds_pass"])
+            self.assertFalse(risks.bounded_fit(dict(p.FIT_BOUNDS, remaining_guide_length_min_mm=10.0))["rigid_kinematic_bounds_pass"])
 
     def test_previous_tip_length_loses_full_section_margin(self):
         with patch.object(p, "TIP_LATCHED_X", 6.5), patch.object(risks, "L_PIN_TIP", p.SHAFT_X - p.CRANK_R - 6.5):
-            r = risks.bounded_fit()
+            r = risks.bounded_fit(dict(p.FIT_BOUNDS, remaining_guide_length_min_mm=10.0))
         self.assertFalse(r["rigid_kinematic_bounds_pass"])
         self.assertLess(r["minima"]["full_section_overlap_mm"], 0.5)
 

@@ -22,11 +22,20 @@ a prescribed component-load model; it does not solve assembly contact.
 All three component cases audit the same source force and moment at the tab
 centre. The adapter's bottom traction uses that declared resultant location
 rather than silently applying the load at the plate's offset area centroid.
-The guide-patch length, centres and lever ratio are shared parameters used by
-FEA, the beam checks and friction/servo calculations. For the 2 mm patches their
-centres are X=13.4 and 27.4 mm, giving a reaction ratio of 3.4/14 and service
-withdrawal drag of about 7.747 N at mu=0.35. These contact positions remain an
-idealization. The former tunnel-end lever ratio and 7.168 N drag are superseded.
+The fully engaged retention FEA and beam checks share the nominal guide-patch
+length, centres and payload-only lever ratio. Sliding actuation additionally
+changes the guide normals through sleeve friction and horizontal-force moments.
+Its shared [coupled force model](COUPLED_FORCES.md) therefore solves equilibrium
+with unilateral contacts, the inspected guide interval, migrating tab contact
+and the clamped sleeve's rotation. The former 7.747 N and 7.168 N scalar drag
+estimates are superseded. Both sets of prescribed contact patches remain
+idealizations, with their distinct retention and sliding scopes recorded.
+The body pressure footprint is confined to the nominal 5.0 mm keeper width,
+rather than the wider guide cavity. Only facets whose vertices are wholly in
+that Y band receive pressure; this keeps the pressure off the corner-relief
+joins. The selected area and affine pressure correction are still audited on
+every mesh. This changes the physical load footprint, not the stress-exclusion
+zone or comparison criteria.
 
 The load tests use a reference tetrahedron with an independently known face
 area of 0.5. They check the full proof force, all force/moment components, a
@@ -53,13 +62,29 @@ the result. Failure to meet the gate makes the FEA command fail and prevents
 publication of its fields as current viewer evidence.
 
 The keeper and adapter first refine globally to 0.45 mm; the body first refines
-globally to 1.0 mm. If the gate still fails, the bulk keeps that spacing while
-1.5 mm-radius regions around the finite bearing patches **and every governing
-peak seen on previous meshes** receive successively finer elements. The sizing
+globally to 1.1 mm. If the gate still fails, the bulk keeps that spacing while
+regions around the finite bearing patches **and every governing peak seen on
+previous meshes** receive successively finer elements. Keeper and adapter use
+1.5 mm radii. The body uses 0.8 mm radii with a denser grid over each bearing
+rectangle: every point on the nominal 2 x 5 mm patch is at most 0.7072 mm from
+a grid centre. This keeps the whole pressure footprint covered while avoiding
+unnecessary fine volume. The sizing
 field transitions to the bulk spacing over one bulk element length. Each run
 records the global and local targets, the actual refinement centres, degrees of
-freedom and governing peak. A nominal local size must not be described as the
+freedom and governing peak. It also reports the governing tetrahedron's actual
+minimum/maximum edge lengths and centroid, so a moving hotspot can be checked
+against the mesh geometry. A nominal local size must not be described as the
 size of the whole mesh. The exported viewer carries the same mesh metadata.
+Keeper and adapter must reach 0.25 mm locally. The body must reach at most
+0.22 mm (or 0.4 times its corner-relief radius if that is smaller). In particular,
+the 0.30 to 0.22 mm pair is below the R0.60 arc's approximately 0.314 mm
+curvature sizing target, so a stable pair of coarse meshes with nearly unchanged
+fillet resolution cannot pass. These depth requirements supplement both 5%
+stability tests; they do not relax either one.
+Curvature sizing remains active on surfaces. Gmsh's automatic extension of
+boundary sizes into the whole volume is disabled at every stage, so the global
+and local studies use the same sizing policy. Explicit local fields, rather
+than uncontrolled propagation from small relief arcs, resolve the loaded zones.
 
 The bounded sequence stops before stiffness assembly if a mesh exceeds 650,000
 quadratic vector degrees of freedom (configurable with `N2_FEA_MAX_DOFS` for a
@@ -69,6 +94,13 @@ fails and the viewer rejects publication. Field checkpoints are written after
 each solve and their large arrays are released before the next refinement.
 This avoids retaining all earlier meshes and fields simultaneously. Changing
 the memory budget never changes the two 5% criteria.
+
+For the expanded 72 x 53.5 x 20 mm body, a mesh-only Gmsh 4.15.2 preflight found
+693,765 DOFs at a global 1.0 mm target, and 752,013 with local 0.22 mm fields.
+Using a 1.1 mm bulk target while retaining those same 0.22 mm load/peak fields
+gave 630,927 DOFs. This is why the bulk floor changed; the 650,000 DOF guard,
+both 5% gates, actual peak-element metadata and required local depth remain.
+The final study must still meet those gates with its own evolving hotspots.
 
 Convergence under this test is stability of these monitored quantities. It does
 not establish an absolute numerical error bound or validate the physical model.
@@ -124,6 +156,9 @@ on printing conditions and geometry.
   groove in the current design restores the full bar section in the calculation.
   This is a
   beam/bearing comparison, not a substitute for local groove or contact tests.
+  Bearing stress uses the smaller of the actual bar bearing width and the
+  inspected minimum guide-flat width (4.80 mm for the relieved guide), rather
+  than treating the nominal 5.0 mm FEA footprint as a manufacturing minimum.
 
 These limitations are not removed by a passing numerical workflow. Loaded
 release, manufacturing fit, mounting strength and environmental performance
@@ -164,18 +199,34 @@ Its output is `out/actuation_fea.json` and `out/actuation_fea.md`; it never repl
 the three retention-proof cases or their viewer fields. The keeper uses the
 same declared print axis as its exported manufacturing orientation.
 
-The sleeve force acts at the lowest pin pose in the inspected angle/radius
-envelope. Its upward slot-friction component is retained. To screen yaw-induced
+The sleeve force comes from the shared coupled opening envelope and acts at
+the minimum opening pin height. Its signed vertical component is retained,
+and the tab patch includes horizontal friction. To screen yaw-induced
 eccentricity, a nonnegative pressure is distributed over an assumed 2 mm-high
-by 1 mm-wide patch adjacent to the +Y wall edge. Its actual nominal-CAD
-eccentricity is 2.0 mm, explicitly smaller than the 2.70 mm conservative
-inspection envelope in the hand section check. These two screens answer
-different questions: the hand check bounds minimum section dimensions and
-eccentricity, while the CAD model resolves the modeled wall/bridge geometry.
-Neither calculates the real contact-pressure distribution.
+by 1 mm-wide patch adjacent to the **-Y wall edge**, opposite the bridge's +Y
+widening. The load centroid is 2.0 mm from the bar centre; its eccentricity from
+the shifted bridge centroid is larger. The hand check separately uses inspected
+minimum sections and an adverse edge-contact envelope. The FEA applies these
+bounded forces to nominal CAD with ideal guide supports; it does not reproduce
+the complete as-built contact state or its real pressure distribution.
 
 Both 5% mesh gates still apply to the opening model. The usual 1 mm ideal guide
 support exclusion remains; no extra exclusion removes yoke corners. Sharp or
 unresolved corner stresses cause a failed numerical screen rather than a larger
 allowable. This case does not demonstrate full-stroke sliding, arbitrary servo
 stall survival, aircraft mounting capacity or printed-process qualification.
+The opening study must reach the 0.35 and 0.25 mm local refinements before a
+stable pair can pass: two coarse global meshes may otherwise share the same
+curvature-controlled fillet discretization. Every load patch also reports its
+pressure-weighted displacement vector. Its X component can inform a separate
+elastic lost-motion assessment; the maximum displacement magnitude of the
+whole keeper is not a release-travel loss. The force-bound opening pose differs
+from the release endpoint, and payload drag ceases after disengagement.
+
+Finite-patch force assembly now precedes stiffness allocation. An opening mesh
+whose selected facets cannot carry its declared resultant with nonnegative
+pressure is rejected with the patch name and mesh size; the report records the
+rejection and proceeds to finer meshes. It keeps the physical footprint and
+resultant fixed. At least two successful levels and the same local-depth and
+5% gates are still required. A running, failed or terminated new study cannot
+leave an older passing JSON report in place.

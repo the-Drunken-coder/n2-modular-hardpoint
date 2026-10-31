@@ -1,13 +1,13 @@
 # R5 – simplified servo hardpoint
 
-3 printed parts, 0 captive nuts, one external M2 locknut. Body envelope **65 × 51 × 20 mm**; with the servo overhang **65 × 51.4 × 20 mm**. The 20 mm height provides loaded-motion clearance within the original thickness limit; the wider rear boss spacing clears keeper insertion. The top plate is 2.5 mm, with a 1.0 mm local roof above the reinforced yoke. Regenerated volumes and mass estimates are in `out/cad.json`. Purchased parts: [BOM.md](BOM.md).
+3 printed parts, 0 captive nuts, one external M2 locknut. Body envelope **65 × 51 × 20 mm**; with the servo overhang **65 × 51.6 × 20 mm**. The 20 mm height provides loaded-motion clearance within the original thickness limit; the wider rear boss spacing clears keeper insertion. The top plate is 2.5 mm, with a 1.0 mm local roof above the reinforced yoke. Regenerated volumes and mass estimates are in `out/cad.json`. Purchased parts: [BOM.md](BOM.md).
 
 Unpowered retention is **not** a requirement: losing servo power means losing the aircraft.
 
 ## Concept and load path
 A printed 5 × 5 mm keeper slides in a 5.4 × 5.4 tunnel in the body and passes through a 5.6 × 5.6 hole in a 4 mm tab on the payload adapter. Payload load goes tab → keeper top → tunnel mouth and back roof → body → 4 M3 self-tapping screws → wing.
 
-The drive is a scotch yoke. A smooth 4 mm metal sleeve, clamped to the stock horn by an M2 through-bolt and locknut, runs in a 4.4 mm vertical slot. Measure the clamped sleeve-center radius at **5.4±0.1 mm**. Latched is 180°; the accepted released endpoint is 40–44°. The 2 mm tip-pocket depth is free travel beyond the latched tip, not bearing overlap. See [assembly and joint details](ASSEMBLY.md).
+The drive is a scotch yoke. A smooth 4 mm metal sleeve, clamped to the stock horn by an M2 through-bolt and locknut, runs in a 4.4 mm vertical slot. Measure the clamped sleeve-center radius at **5.4±0.1 mm**. Latched is 180°; the accepted released endpoint is 40–42°. The 2 mm tip-pocket depth is free travel beyond the latched tip, not bearing overlap. See [assembly and joint details](ASSEMBLY.md).
 
 ## Build and check
 ```
@@ -97,9 +97,10 @@ The keeper tip is at X5.65 mm to preserve full-section overlap across the
 combined dimensional and guide-pose bounds. Inspect the **assembled sleeve-center
 radius 5.4 ±0.1 mm**, including bolt/hole/sleeve eccentricity, mounted shaft
 X and printed pin-to-tip length (±0.1 mm), latch angle (180 ±3°), release angle
-(40–44°), and tab thickness (4.0 ±0.1 mm). The deterministic check includes the
+(40–42°), and tab thickness (4.0 ±0.1 mm). The deterministic check includes the
 entire ±0.4 mm socket float. Require measured guide clearance **0.3–0.5 mm total**
-and full-section guide length **at least 15.8 mm**, keeper section **4.9–5.1 mm**,
+and uninterrupted body guide flats over **X12.50–28.30 mm**, keeper section
+and yoke-wall breadth **4.9–5.1 mm**,
 and relative guide/shaft Z datum **within ±0.20 mm**. The horn groove is removed
 so the full guide section is available. Use the separate loaded-pose CAD checks.
 Inspect the sleeve/slot gap to **0.3–0.5 mm total**. The check includes its

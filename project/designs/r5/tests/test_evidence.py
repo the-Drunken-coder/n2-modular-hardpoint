@@ -34,6 +34,16 @@ class NumericalEvidenceTests(unittest.TestCase):
         after = dict(load_point_disp_mm=0.0101, max_utilization_at_proof=0.202)
         self.assertTrue(convergence(before, after)["converged"])
 
+    def test_a_stable_coarse_pair_does_not_bypass_actual_feature_refinement(self):
+        before = dict(load_point_disp_mm=0.01, max_utilization_at_proof=0.2, h_mm=0.8)
+        after = dict(load_point_disp_mm=0.0101, max_utilization_at_proof=0.202, h_mm=0.6)
+        result = convergence(before, after, minimum_refinement_mm=0.25)
+        self.assertTrue(result["monitored_quantities_stable"])
+        self.assertFalse(result["refinement_depth_reached"])
+        self.assertFalse(result["converged"])
+        after["h_mm"] = 0.25
+        self.assertTrue(convergence(before, after, minimum_refinement_mm=0.25)["converged"])
+
     def test_nonfinite_result_is_not_convergence(self):
         before = dict(load_point_disp_mm=0.01, max_utilization_at_proof=0.2)
         after = dict(load_point_disp_mm=float("nan"), max_utilization_at_proof=0.2)
