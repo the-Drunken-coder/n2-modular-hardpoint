@@ -1,0 +1,69 @@
+{
+ "revision": "R5",
+ "material": "paht-cf",
+ "z_tds_MPa": 31.0,
+ "sf": 2.0,
+ "design_N": 8.9,
+ "required_fail_N": 17.8,
+ "groups": {
+  "Z": {
+   "label": "Straight pull",
+   "parts": {
+    "adapter": "Z",
+    "keeper": "Z",
+    "body": "Z"
+   }
+  }
+ },
+ "note": "Linear transversely isotropic PAHT-CF (fea.py), finest converged mesh, 1 mm around fixed patches excluded. 1.0 = allowable (in-layer 35.5 MPa, across layers 16.0 MPa, already mean-3sd x0.5). Prescribed contact tractions; not a tested rating.",
+ "cases": [
+  {
+   "part": "adapter",
+   "case": "Z",
+   "label": "Straight pull",
+   "in_scope": true,
+   "fail_N": 49.2,
+   "rating_sf2_N": 24.6,
+   "peak_mm": [
+    8.19,
+    37.31,
+    5.03
+   ],
+   "h_mm": 0.45,
+   "elements": 81754,
+   "margin_at_proof": 2.8
+  },
+  {
+   "part": "keeper",
+   "case": "Z",
+   "label": "Straight pull",
+   "in_scope": true,
+   "fail_N": 281.4,
+   "rating_sf2_N": 140.7,
+   "peak_mm": [
+    25.07,
+    38.72,
+    10.43
+   ],
+   "h_mm": 0.35,
+   "elements": 93973,
+   "margin_at_proof": 15.8
+  },
+  {
+   "part": "body",
+   "case": "Z",
+   "label": "Straight pull",
+   "in_scope": true,
+   "fail_N": 64.9,
+   "rating_sf2_N": 32.5,
+   "peak_mm": [
+    12.81,
+    37.31,
+    5.57
+   ],
+   "h_mm": 1.0,
+   "elements": 118462,
+   "margin_at_proof": 3.6
+  }
+ ]
+}
