@@ -44,7 +44,11 @@ python analysis/risks.py       # friction, voltage, tolerance Monte Carlo, dynam
 FEA: skfem P2 tets, transversely isotropic, direct solver with residual check. Refined until load-point displacement changes < 5 % (adapter 0.2 %, body 1.1 %). Keeper stays at 11 % but its margin is 176, and hand calcs give 10.8.
 
 ## Print
-PAHT-CF, dried. Body: wing face down; the tunnel roof is the only bridge. Keeper: on its side. Adapter: flat. FEA uses the XY/Z properties for these orientations.
+Use the generated `out/body_print.stl`, `out/keeper_print.stl` and
+`out/adapter_print.stl`, following [PRINTING.md](PRINTING.md). These files already
+put the selected face on the bed. Record the material/process and finished fits
+in [inspection-template.csv](inspection-template.csv). `params.PRINT_AXES` and
+the CAD manifest tie the FEA material directions to those exact orientations.
 
 The [loaded-fit envelope and bench gate](docs/loaded-fit.md) define acceptable
 finished guide dimensions, horn radius and non-contact clearances. The CAD gate

@@ -97,7 +97,11 @@ SCREW_CLEAR = 0.5                            # min gap head-to-keeper, whole 180
 HORN_GROOVE_ENABLED = False
 OVERSHOOT = 10.0                             # deg past latch the slot tolerates
 
-# Material: PAHT-CF, Bambu TDS V2 (dry), mean - 3 sd, x0.5 knock-down
+# Print-layer normals in the ASSEMBLY frame (X=0, Y=1, Z=2).
+PRINT_AXES = {"body": 2, "keeper": 1, "adapter": 2}
+
+# Material: PAHT-CF, Bambu TDS V3.0 (dry). Subtract three quoted scatter units
+# and apply a 0.5 engineering factor; neither establishes statistical confidence.
 E_XY, E_Z, NU = 3860.0, 2180.0, 0.35
 UTS_XY, UTS_Z = 92 - 3 * 7, 47 - 3 * 5       # 71, 32 MPa
 KNOCKDOWN = 0.5                              # moisture, voids, creep, notches
