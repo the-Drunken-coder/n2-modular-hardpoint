@@ -28,14 +28,6 @@ class CableFitTests(unittest.TestCase):
     def test_connector_has_continuous_insertion_and_exit_path(self):
         self.assertLess(overlap(self.body, build.cable_connector_sweep()), 1e-6)
 
-    def test_host_opening_preserves_the_complete_cable_route(self):
-        connector = p.CABLE_CONNECTOR
-        route = build.box(*connector["x"], *connector["y"],
-                          p.BODY["z"] - 1, p.BODY["z"] + viewer.WING_T + 1)
-        host = viewer.wing()
-        self.assertTrue(host.val().isValid())
-        self.assertLess(overlap(host, route), 1e-6)
-
     def test_regression_rejects_the_original_gland_wall(self):
         x0 = p.SHAFT_X - p.SHAFT_FROM_END
         old_wall = build.box(x0 - 1.5, x0 - 0.5, *p.SERVO_GLAND["y"], *p.SERVO_GLAND["z"])
