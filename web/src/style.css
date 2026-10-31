@@ -35,3 +35,4 @@ h6{margin:0;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#
 .bar{height:10px;border-radius:2px;margin:4px 0}.ticks{display:flex;justify-content:space-between;color:#abb3bf}
 .err{position:absolute;left:50%;transform:translateX(-50%);bottom:40px;background:#3a1d1f;color:#ffb3b5;padding:6px 10px;border-radius:4px;font-size:12px}
 .hint{position:absolute;left:12px;bottom:10px;font-size:11px;color:#738091;pointer-events:none}
+.legend.dev{top:auto;bottom:34px}.legend .sub{color:#8f99a8;font-size:11px;margin-top:3px}.note.dev b{font-weight:600}

@@ -4,6 +4,7 @@ import * as T from 'three';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 import { toCreasedNormals } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { MeshBVH } from 'three-mesh-bvh';
 
 // Every version (main at the Pages root, each PR at pr/<n>/) is loaded from its published path,
 // so any version can be compared with any other without merging.
@@ -38,8 +39,31 @@ const GRAD = `linear-gradient(90deg, ${[0, .2, .4, .6, .8, 1].map(u => '#' + cma
 function sig(g) {
   const a = g.attributes.position, n = a.count; g.computeBoundingBox(); const b = g.boundingBox;
   let cx = 0, cy = 0, cz = 0; for (let i = 0; i < n; i++) { cx += a.getX(i); cy += a.getY(i); cz += a.getZ(i); }
-  return { tris: n / 3, size: b.getSize(new T.Vector3()).toArray(), key: [n / 3, ...b.min.toArray(), ...b.max.toArray(), cx / n, cy / n, cz / n].map(v => v.toFixed(2)).join(',') };
+  return { tris: n / 3, size: b.getSize(new T.Vector3()).toArray(), c: [cx / n, cy / n, cz / n], bc: b.getCenter(new T.Vector3()).toArray(), key: [n / 3, ...b.min.toArray(), ...b.max.toArray(), cx / n, cy / n, cz / n].map(v => v.toFixed(2)).join(',') };
 }
+// signed distance of every vertex of `src` to the surface of `dst` (src point p maps to dst frame as p + off).
+// > 0: src lies outside dst. Runs in slices so the page stays responsive.
+async function deviation(src, dst, off, step = 1) {
+  const g = new T.BufferGeometry(); g.setAttribute('position', dst.attributes.position.clone());
+  const bvh = new MeshBVH(g), P = src.attributes.position, D = g.attributes.position, I = g.index, out = new Float32Array(Math.ceil(P.count / step));
+  const q = new T.Vector3(), hit = { point: new T.Vector3() }, tri = new T.Triangle(), n = new T.Vector3(), o = new T.Vector3(...off);
+  for (let i = 0, j = 0; i < P.count; i += step, j++) {
+    q.fromBufferAttribute(P, i).add(o); bvh.closestPointToPoint(q, hit);
+    const f = hit.faceIndex * 3, ix = k => (I ? I.getX(f + k) : f + k);
+    tri.setFromAttributeAndIndices(D, ix(0), ix(1), ix(2)).getNormal(n);
+    out[j] = Math.sign(q.clone().sub(hit.point).dot(n)) * hit.distance;
+    if (j % 20000 === 19999) await new Promise(r => setTimeout(r));
+  }
+  let mx = 0, mn = 0, sum = 0, over = 0; for (const d of out) { mx = Math.max(mx, d); mn = Math.min(mn, d); sum += Math.abs(d); }
+  return { d: out, max: mx, min: mn, mean: sum / out.length };
+}
+const GREY = new T.Color('#8a939f'), GREEN = new T.Color('#32a467'), RED = new T.Color('#e76a6e');
+function devColor(d, tol, scale, c) { // diverging: red = inward/removed, grey = within tolerance, green = outward/added
+  if (Math.abs(d) <= tol) return c.copy(GREY);
+  return c.copy(GREY).lerp(d > 0 ? GREEN : RED, Math.min(1, 0.35 + 0.65 * (Math.abs(d) - tol) / Math.max(scale - tol, 1e-6)));
+}
+const DEVGRAD = `linear-gradient(90deg, #e76a6e, #8a939f 42%, #8a939f 58%, #32a467)`;
+const median = a => { const b = [...a].sort((x, y) => x - y); return b.length ? b[b.length >> 1] : 0; };
 const shapeKey = s => [s.tris, ...s.size.map(v => v.toFixed(2))].join(',');
 
 function motionOf(man, phase) {
@@ -135,10 +159,13 @@ export default function App() {
   const [designs, setDesigns] = useState([]), [design, setDesign] = useState(Q.get('design'));
   const [explode, setExplode] = useState(Number(Q.get('explode') || 0));
   const [phase, setPhase] = useState(Number(Q.get('phase') || 0)), [playing, setPlaying] = useState(false);
-  const [hidden, setHidden] = useState({}), [focus, setFocus] = useState(null);
+  const [hidden, setHidden] = useState({}), [focus, setFocus] = useState(Q.get('focus'));
   const [diffCol, setDiffCol] = useState(Q.get('diffcolors') !== '0'), [onlyChanged, setOnlyChanged] = useState(Q.get('changed') === '1');
   const [group, setGroup] = useState('Z'), [load, setLoad] = useState(Number(Q.get('load') || 17.8));
   const [autoScale, setAutoScale] = useState(Q.get('scale') !== 'abs'), [fade, setFade] = useState(Q.get('fade') !== '0'), [ghost, setGhost] = useState(true);
+  const [devOn, setDevOn] = useState(Q.get('devmap') !== '0'), [tol, setTol] = useState(Number(Q.get('tol') || 0.05)), [dscale, setDscale] = useState(Number(Q.get('dscale') || 1));
+  const [onlyDiff, setOnlyDiff] = useState(Q.get('onlydiff') === '1'), [removedOv, setRemovedOv] = useState(Q.get('removed') !== '0'), [align, setAlign] = useState(Q.get('align') || 'assembly');
+  const [devN, setDevN] = useState(0);
   const [nLoaded, setNLoaded] = useState(0), [feaN, setFeaN] = useState(0);
   const bump = () => setNLoaded(n => n + 1);
   const compare = view !== 'single';
@@ -167,9 +194,10 @@ export default function App() {
     const setq = (k, v, def) => (v === def || v === null ? q.delete(k) : q.set(k, v));
     setq('design', design, null); setq('base', base ? base.replace(/\/$/, '') : 'main', null); setq('prop', prop ? prop.replace(/\/$/, '') : 'main', null);
     setq('view', view, 'single'); setq('mode', layer, 'model'); setq('explode', explode ? String(explode) : null, null);
-    setq('diffcolors', diffCol ? null : '0', null); setq('changed', onlyChanged ? '1' : null, null);
+    setq('diffcolors', diffCol ? null : '0', null); setq('devmap', devOn ? null : '0', null); setq('tol', tol === 0.05 ? null : String(tol), null); setq('dscale', dscale === 1 ? null : String(dscale), null);
+    setq('onlydiff', onlyDiff ? '1' : null, null); setq('removed', removedOv ? null : '0', null); setq('align', align, 'assembly'); setq('focus', focus, null); setq('changed', onlyChanged ? '1' : null, null);
     history.replaceState(null, '', u);
-  }, [design, base, prop, view, layer, explode, diffCol, onlyChanged]);
+  }, [design, base, prop, view, layer, explode, diffCol, onlyChanged, devOn, tol, dscale, onlyDiff, removedOv, align, focus]);
 
   // FEA surfaces for the proposal (Single view)
   useEffect(() => {
@@ -197,18 +225,48 @@ export default function App() {
   }, [playing]);
 
   // ---------- diff ----------
+  // baseline -> proposal translation per part. 'assembly': median offset of parts whose shape is unchanged,
+  // so a whole-assembly shift reads as 'moved'/'same' and isn't painted as a shape change.
+  const offs = useMemo(() => {
+    const o = {}; if (!compare || !A.man || !B.man) return o;
+    const pairs = [...s.sets.B].map(([id, b]) => [id, b, s.sets.A.get(id)]).filter(([, b, a]) => a);
+    const same = pairs.filter(([, b, a]) => shapeKey(a.userData.sig) === shapeKey(b.userData.sig));
+    const g = [0, 1, 2].map(k => median(same.map(([, b, a]) => b.userData.sig.c[k] - a.userData.sig.c[k])));
+    const fits = (b, a, v) => [0, 1, 2].every(k => Math.abs(b.userData.sig.c[k] - a.userData.sig.c[k] - v[k]) < 0.02);
+    for (const [id, b, a] of pairs) o[id] = align === 'assembly' ? (fits(b, a, g) ? g : [0, 0, 0]) : align === 'none' ? [0, 0, 0] : align === 'part' ? [0, 1, 2].map(k => b.userData.sig.bc[k] - a.userData.sig.bc[k]) : g;
+    o._g = align === 'assembly' ? g : [0, 0, 0]; return o;
+  }, [compare, A.man, B.man, nLoaded, align]);
   const diff = useMemo(() => {
     if (!compare || !A.man || !B.man) return null;
     const ids = [...new Set([...A.man.parts.map(p => p.id), ...B.man.parts.map(p => p.id)])], out = {};
     for (const id of ids) {
       const a = s.sets.A.get(id), b = s.sets.B.get(id), inA = A.man.parts.some(p => p.id === id), inB = B.man.parts.some(p => p.id === id);
-      const st = !inA ? 'added' : !inB ? 'removed' : !a || !b ? 'loading' : a.userData.sig.key === b.userData.sig.key ? 'same'
-        : shapeKey(a.userData.sig) === shapeKey(b.userData.sig) ? 'moved' : 'changed';
+      const o = offs[id] || [0, 0, 0], shape = a && b && shapeKey(a.userData.sig) === shapeKey(b.userData.sig);
+      const still = shape && [o, align === 'assembly' ? [0, 0, 0] : o].some(o2 => [0, 1, 2].every(k => Math.abs(b.userData.sig.c[k] - a.userData.sig.c[k] - o2[k]) < 0.02));
+      const st = !inA ? 'added' : !inB ? 'removed' : !a || !b ? 'loading' : still ? 'same' : shape ? 'moved' : 'changed';
       const f = v => v.map(x => x.toFixed(1)).join('×');
       out[id] = { st, note: st === 'changed' ? `${f(a.userData.sig.size)} → ${f(b.userData.sig.size)} mm · ${a.userData.sig.tris}→${b.userData.sig.tris} tris` : st === 'moved' ? 'same shape, new position' : '' };
     }
     return out;
-  }, [compare, A.man, B.man, nLoaded]);
+  }, [compare, A.man, B.man, nLoaded, offs]);
+  useEffect(() => {
+    if (!diff || !devOn) return; let stop = false; s.dev = s.dev || {};
+    (async () => { for (const [id, d] of Object.entries(diff)) {
+      if (stop) return; if (d.st !== 'changed') continue;
+      const a = s.sets.A.get(id), b = s.sets.B.get(id), o = offs[id], key = `${s.tagA}|${s.tagB}|${o}`;
+      if (!a || !b || s.dev[id]?.key === key) continue;
+      let best = o;
+      if (align === 'assembly') { // best fit among: no shift, assembly shift, bbox-centre shift (coarse sample)
+        const cands = [[0, 0, 0], offs._g, [0, 1, 2].map(k => b.userData.sig.bc[k] - a.userData.sig.bc[k])];
+        const step = Math.max(1, Math.floor(b.geometry.attributes.position.count / 3000));
+        let bm = Infinity; for (const c of cands) { const r = await deviation(b.geometry, a.geometry, c.map(v => -v), step); if (r.mean < bm) { bm = r.mean; best = c; } }
+      }
+      const neg = best.map(v => -v), fwd = await deviation(b.geometry, a.geometry, neg), rev = await deviation(a.geometry, b.geometry, best);
+      if (stop) return; s.dev[id] = { key, fwd, rev, off: best }; setDevN(n => n + 1);
+    } })();
+    return () => { stop = true; };
+  }, [diff, devOn]);
+  const devOf = id => { const v = s.dev?.[id]; return v && v.key === `${s.tagA}|${s.tagB}|${offs[id]}` ? v : null; };
   const order = { added: 0, removed: 1, changed: 2, moved: 3, loading: 4, same: 5 };
   const changeList = diff ? Object.entries(diff).sort((a, b) => order[a[1].st] - order[b[1].st]) : [];
   const nDiff = changeList.filter(([, d]) => !['same', 'loading'].includes(d.st)).length;
@@ -270,7 +328,7 @@ export default function App() {
       const M = key === 'A' ? A.man : B.man, isBase = key === 'A';
       for (const [id, m] of s.sets[key]) {
         if (!M) { m.visible = false; continue; }
-        place(m, id, M, key === 'A' ? offA : offB);
+        place(m, id, M, key === 'A' ? offA : offB); if (key === 'A') { const o = devOf(id)?.off || offs[id]; if (o) m.position.add(new T.Vector3(...o)); }
         const op0 = m.userData.p.opacity ?? 1, st = diff?.[id]?.st;
         let vis = !hidden[id] && (key === 'B' || compare), color = null, op = op0, wire = false;
         if (compare && diff) {
@@ -282,8 +340,23 @@ export default function App() {
           }
         }
         if (showFea) { if (shown[id]) vis = false; else if (!ghost) vis = false; else op = 0.12 * op0; }
-        if (focus && id !== focus) op = Math.min(op, 0.1);
-        m.visible = vis; if (vis) style(m, color, op, wire && vis);
+        if (focus && id !== focus) { op = Math.min(op, 0.08); wire = false; }
+        const dv = compare && devOn && st === 'changed' && (!focus || focus === id) && devOf(id);
+        const showDev = dv && (key === 'B' || removedOv);
+        if (!m.userData.mat0) m.userData.mat0 = m.material;
+        if (showDev) { // per-vertex deviation map
+          const arr = key === 'B' ? dv.fwd.d : dv.rev.d, g = m.geometry, ck = `${dv.key}|${tol}|${dscale}|${onlyDiff}|${view}`;
+          if (!g.attributes.devc || g.attributes.devc.count !== arr.length) g.setAttribute('devc', new T.Float32BufferAttribute(new Float32Array(arr.length * 4), 4));
+          if (!m.userData.devMat) m.userData.devMat = new T.MeshStandardMaterial({ vertexColors: true, roughness: 0.65, side: T.DoubleSide });
+          if (m.userData.ck !== ck) { const ca = g.attributes.devc, c = new T.Color();
+            for (let i = 0; i < arr.length; i++) {
+              if (key === 'B') { devColor(arr[i], tol, dscale, c); ca.setXYZW(i, c.r, c.g, c.b, onlyDiff && Math.abs(arr[i]) <= tol ? 0.06 : 1); }
+              else { const out = arr[i] > tol; c.copy(out ? RED : GREY); ca.setXYZW(i, c.r, c.g, c.b, out ? 0.32 : (view === 'side' ? 0.35 : 0.04)); }
+            }
+            g.setAttribute('color', ca); ca.needsUpdate = true; m.userData.ck = ck; }
+          const dm = m.userData.devMat, tr = key === 'A' || onlyDiff; dm.transparent = tr; dm.depthWrite = !tr; m.material = dm;
+        } else m.material = m.userData.mat0;
+        m.visible = vis; if (vis && !showDev) style(m, color, op, wire && vis);
       }
     }
     s.markers.clear();
@@ -345,7 +418,13 @@ export default function App() {
           <ButtonGroup className="views" minimal>{['iso', 'front', 'side', 'top'].map(v => <Button key={v} small text={v} onClick={() => frame(v)} />)}</ButtonGroup>
           {(B.err || A.err) && <div className="err">{[A.err && `Baseline: ${A.err}`, B.err && `Proposal: ${B.err}`].filter(Boolean).join(' · ')}</div>}
           {compare && <div className="legend chips">{Object.entries(DIFF).map(([k2, c]) => <span key={k2}><i style={{ background: c }} />{k2}</span>)}
-            <div className="sub">{view === 'overlay' ? 'Baseline drawn as a red ghost (wireframe where the shape changed).' : 'Baseline left, proposal right, shared camera.'}</div></div>}
+            <div className="sub">{view === 'overlay' ? devOn ? 'Changed parts coloured by surface deviation; baseline shown as a ghost.' : 'Baseline drawn as a red ghost (wireframe where the shape changed).' : 'Baseline left, proposal right, shared camera.'}</div></div>}
+          {compare && devOn && <div className="legend dev">
+            Surface deviation, proposal vs baseline (mm)
+            <div className="bar" style={{ background: DEVGRAD }} />
+            <div className="ticks"><span>−{dscale.toFixed(1)} removed</span><span>±{tol.toFixed(2)}</span><span>+{dscale.toFixed(1)} added</span></div>
+            {removedOv && <div className="sub">Red ghost: baseline surface that is no longer there.</div>}
+          </div>}
           {showFea && <div className="legend">
             Utilisation at {load.toFixed(1)} N {autoScale ? `(scaled to peak ${uMax.toFixed(2)})` : '(1.0 = stress limit)'}
             <div className="bar" style={{ background: GRAD }} />
@@ -363,6 +442,9 @@ export default function App() {
                 <button key={id} className={`row ${focus === id ? 'on' : ''}`} onClick={() => focusOn(id)}>
                   <i style={{ background: DIFF[d.st] || DIFF.same }} /><span className="nm">{short(id)}</span><span className="st" style={{ color: DIFF[d.st] }}>{d.st}</span>
                   {d.note && <span className="note">{d.note}</span>}
+                  {d.st === 'changed' && devOn && (dv => dv ? <span className="note dev">
+                    <b style={{ color: GREEN.getStyle() }}>+{dv.fwd.max.toFixed(2)}</b> / <b style={{ color: RED.getStyle() }}>{Math.min(dv.fwd.min, -dv.rev.max).toFixed(2)}</b> mm max · mean {dv.fwd.mean.toFixed(2)} mm</span>
+                    : <span className="note">measuring surface deviation…</span>)(devOf(id))}
                 </button>)}</div>
             </> : <div className="muted">
               {man && <>{man.name || man.id} · {man.parts.length} parts{mo ? ', release driven by the servo crank kinematics' : ''}.<br /></>}
@@ -390,6 +472,16 @@ export default function App() {
               : phase < 0.02 ? 'Latched.' : phase <= 1 ? 'Solenoid retracting the keeper.' : 'Keeper open; illustrated adapter travel.'}</div>}
             {compare && <><Switch checked={diffCol} label="Colour by change" onChange={() => setDiffCol(!diffCol)} />
               <Switch checked={onlyChanged} label="Hide unchanged parts" onChange={() => setOnlyChanged(!onlyChanged)} /></>}
+            {compare && <>
+              <div className="ctl"><span>Align</span><HTMLSelect minimal fill value={align} onChange={e => setAlign(e.target.value)} options={[
+                { value: 'assembly', label: 'Best fit (auto)' }, { value: 'part', label: 'Each part by bbox centre' }, { value: 'none', label: 'None (raw coordinates)' }]} /></div>
+              <Switch checked={devOn} label="Surface deviation map" onChange={() => setDevOn(!devOn)} />
+              {devOn && <>
+                <div className="ctl"><span>Tol {tol.toFixed(2)}</span><Slider min={0.01} max={0.5} stepSize={0.01} labelRenderer={false} value={tol} onChange={setTol} /></div>
+                <div className="ctl"><span>Scale {dscale.toFixed(1)}</span><Slider min={0.2} max={5} stepSize={0.1} labelRenderer={false} value={dscale} onChange={setDscale} /></div>
+                <Switch checked={onlyDiff} label="Show only differences" onChange={() => setOnlyDiff(!onlyDiff)} />
+                <Switch checked={removedOv} label="Baseline as removed-material overlay" onChange={() => setRemovedOv(!removedOv)} />
+              </>}</>}
             {focus && <Button small icon="cross" text={`Clear focus (${short(focus)})`} onClick={() => focusOn(focus)} />}
           </section>
 
