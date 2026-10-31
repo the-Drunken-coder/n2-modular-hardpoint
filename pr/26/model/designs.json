@@ -1,7 +1,8 @@
 [
  {
   "id": "r5",
-  "label": "R5 (CI-built CAD)"
+  "label": "R5 (CI-built CAD)",
+  "fea": true
  },
  {
   "id": "N2",
