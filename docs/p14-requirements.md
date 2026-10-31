@@ -42,4 +42,3 @@ Geometry and analysis: [p14.md](p14.md). Manufacturing: [print-requirements.md](
 P13's distal-ineffective receiver screen was 12.089 N in PLA, scaled to 18.33 N for PAHT-CF. Its 9.1 N value was that screen divided by SF 2 and rounded down, not a physical rating. The margin above 17.8 N was only about 3%, within the numerical variation discussed in the older studies. P13 also retained a weaker one-sided proximal roof and print-support concerns.
 
 P14 replaces the current geometry and test instructions. P11–P13 calculations remain in [provisional-load-rating.md](provisional-load-rating.md) as historical comparisons; they must not supply the current print or test loads. The old 4 lb case required 71.2 N and is outside the current baseline.
-
