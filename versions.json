@@ -28,13 +28,6 @@
   "path": "pr/26/"
  },
  {
-  "label": "PR #25 (fix/r5-active-baseline)",
-  "title": "Select R5 consistently across requirements, status, documentation and viewer",
-  "sha": "46c8c71543f5a696bf0219d982cad7974647bc52",
-  "built": "2026-10-31T08:21:40Z",
-  "path": "pr/25/"
- },
- {
   "label": "PR #24 (fix/r5-evidence)",
   "title": "Fix coupled release mechanics and require converged, traceable R5 evidence",
   "sha": "0ef42b7df1f1910f772408dd9019c9dadd2df925",
