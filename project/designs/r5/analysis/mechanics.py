@@ -19,7 +19,7 @@ def results():
     # scotch yoke: slot force gives F r |sin a|, pin sliding in the slot adds mu F r |cos a|
     t_need = max(f_drag * p.CRANK_R * (abs(sin(radians(a))) + p.MU * abs(cos(radians(a))))
                  for a in range(int(p.A_RELEASE), int(p.A_LATCH) + 1))
-    stall = p.STALL_KGFCM_4V8 * KGFCM
+    stall = p.STALL_KGFCM_5V * KGFCM
     working = stall * p.WORKING_FRACTION
     return dict(
         travel_mm=travel, needed_mm=needed,

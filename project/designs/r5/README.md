@@ -1,6 +1,6 @@
 # R5 – simplified servo hardpoint
 
-3 printed parts, 0 captive nuts. Body envelope 64 × 48.5 × 18 mm: a 2.5 mm top plate with a local relief over the horn and yoke, a lightening window and short mounting bosses. Regenerated part volumes and mass estimates are in `out/cad.json`; use those values for the current revision. All purchased parts with links or specs: [BOM.md](BOM.md).
+3 printed parts, 0 captive nuts. Body envelope **64 × 48.5 × 20 mm**: a 2.5 mm top plate with a 1.5 mm roof over the relieved yoke sweep, a lightening window and short mounting bosses. The restored 20 mm height provides loaded-motion clearance within the original thickness limit. Regenerated part volumes and mass estimates are in `out/cad.json`; use those values for the current revision. All purchased parts with links or specs: [BOM.md](BOM.md).
 
 Unpowered retention is **not** a requirement: losing servo power means losing the aircraft.
 
@@ -25,17 +25,17 @@ python analysis/risks.py       # friction, voltage, tolerance Monte Carlo, dynam
 |---|---|---|
 | Keeper sliding fit | 0.4 total | 0.3–0.4 |
 | Tab-in-socket gap | 0.4 per side | ≥0.3 |
-| Tab hole to keeper | 0.6 per side | ≥0.5 |
+| Tab hole to keeper | 0.6 total; 0.3 per side when centered | ≥0.5 total |
 | Servo pocket, horn and yoke gaps | ≥0.5 | ≥0.5 |
 | Spare travel beyond 0.5 mm | 2.83 mm (1.87 if the servo stops 15° short) | ≥1 |
-| Working-torque margin, 4.8 V, μ 0.35 | 4.00× (8.0× on stall) | ≥3 |
+| Assumed working-torque margin, 5.0 V, μ 0.35 | 4.00× (8.0× on stall); 50% stall is an assumption | ≥3 |
 | FEA at 17.8 N, lowest margin | 26.2 (adapter, across layers) | ≥1 |
 
 ## Simulated risks (`risks.py`, gated in CI)
 | Risk | Result |
 |---|---|
 | Friction μ 0.2–0.6, yoke T = F·r(\|sin α\| + μ\|cos α\|) | margin 7.3× → 2.1×; falls to 3× at μ 0.45 |
-| Supply 4.4–6.0 V (datasheet interpolation) | 3.83× at 4.4 V, 4.00× at 4.8 V |
+| Supply | Manufacturer operating range 5.0–6.6 V; 4.4/4.6/4.8 V are unsupported and cannot pass by extrapolation. Fixed nominal 5 V must be measured at the servo under load. |
 | Tolerance Monte Carlo, 200k (horn radius, stop error, print) | P(no release) 0, P(spare < 1 mm) 2e-5, P(partial engagement) 3.5e-5, tip never hits pocket floor |
 | Back-drive at dead centre, 3° backlash, 10 g | 1.65 N·mm, 92× below working torque |
 | Unseated tab | Integral lower-root buttresses are screened against the same 16 MPa across-layer allowable as the structure. This prescribed root-load case does not qualify upper hole contacts or arbitrary mis-seating; complete jam tests remain pending. |
@@ -46,21 +46,25 @@ FEA: skfem P2 tets, transversely isotropic, direct solver with residual check. R
 ## Print
 PAHT-CF, dried. Body: wing face down; the tunnel roof is the only bridge. Keeper: on its side. Adapter: flat. FEA uses the XY/Z properties for these orientations.
 
+The [loaded-fit envelope and bench gate](docs/loaded-fit.md) define acceptable
+finished guide dimensions, horn radius and non-contact clearances. The CAD gate
+checks pitch/yaw and free-play poses; it does not demonstrate loaded release.
+
 ## Assembly
 The servo lead uses the continuous gland-side opening; see [cable fit and routing](docs/cable-fit.md).
 
 1. Screw the servo into the cradle with its ear screws.
-2. Centre the servo at 180° and fit the stock horn with the M2 pin facing the keeper.
+2. Follow the [5 V interface and endpoint calibration procedure](electronics/README.md). The 180° latch angle is a geometric horn angle, not a universal servo command. Fit the horn at the calibrated latch pulse with the pin facing the keeper.
 3. Slide the keeper into the tunnel so that the pin enters the slot.
 4. Screw the body to the wing with 4 M3 self-tapping screws.
 5. Fit the payload, command latch and pull-test it every time. If the tab isn't seated, the keeper tip hits the tab face and the servo stalls instead of latching.
 
 ## Sources
-- Servo: Adafruit 2307 (TowerPro MG92B), 3.1 kgf·cm stall at 4.8 V, 14 g. https://www.adafruit.com/product/2307
+- Servo: TowerPro MG92B, manufacturer 3.1 kgf·cm stall at 5.0 V, 13.8 g. https://towerpro.com.tw/product/mg92b/ . Adafruit 2307 labels that point 4.8 V but also specifies a 5.0 V operating minimum; this design uses the manufacturer's point. https://www.adafruit.com/product/2307
 - Material: Bambu PAHT-CF TDS V2, dry. https://wiki.bambulab.com/en/filament-acc/filament/paht-cf
 
 ## Bench tests (cannot be simulated)
-1. Servo torque at 4.8 V: stall and the speed–torque curve (50 % of stall assumed).
+1. Servo torque at the actual nominal 5 V terminals: stall and the speed–torque curve (50 % of stall assumed), minimum terminal voltage/current transients, signal level and endpoint calibration. Sub-5 V sag behavior is unqualified.
 2. μ between printed PAHT-CF parts: incline or pull test (0.35 assumed; ≥3× holds to 0.45).
 3. Print strength: tab proof at 17.8 N on a printed adapter, plus a Z coupon.
 4. Wing boss M3 self-tapper pull-out.

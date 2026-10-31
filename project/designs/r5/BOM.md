@@ -4,7 +4,7 @@ Prices are rough and unverified. Links were checked with curl (HTTP 200, title m
 
 | # | Qty | Part | Spec | Link | Approx. price (unverified) |
 |---|---|---|---|---|---|
-| P1 | 1 | Servo | TowerPro MG92B metal-gear micro servo, 4.8-6 V. Includes horns, horn centre screw and 2 ear screws | https://www.adafruit.com/product/2307 (maker: https://www.towerpro.com.tw/product/mg92b/) | $12 |
+| P1 | 1 | Servo | TowerPro MG92B metal-gear micro servo, manufacturer operating range 5.0-6.6 V, 5 V signal logic. Use the project's fixed nominal 5 V interface; do not extrapolate a sag qualification. Includes horns and screws. | https://www.adafruit.com/product/2307 (maker: https://towerpro.com.tw/product/mg92b/) | $12 |
 | P2 | 1 | Crank pin screw | M2 x 8 pan head, ISO 7045 / DIN 7985, A2 stainless. Threads into the horn's outer hole | spec only | $0.10 ea, ~$5 per 100 |
 | P3 | 1 | Horn centre screw | M2 x 4 pan head (supplied with the MG92B). Spare: M2 x 4 pan head, A2 | in servo bag | - |
 | P4 | 2 | Servo ear screws | Supplied with the MG92B (self-tapping, ~M2 x 8) | in servo bag | - |
@@ -14,3 +14,5 @@ Prices are rough and unverified. Links were checked with curl (HTTP 200, title m
 | P8 | ~25 g | Filament | PAHT-CF (carbon-fibre PA12), 1.75 mm. Body 19.1 g + keeper 0.8 g + adapter 1.5 g, plus waste | https://us.store.bambulab.com/products/paht-cf | ~$40 / 0.5 kg spool, ~$2 used |
 
 The servo horn is included with the MG92B. Use the single-arm horn.
+
+External bench-control hardware and wiring are specified in [electronics/README.md](electronics/README.md). They are not included in the cartridge mass or the mechanical BOM subtotal.

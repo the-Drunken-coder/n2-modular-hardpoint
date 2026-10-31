@@ -91,7 +91,8 @@ def body():
     # tunnel and tip pocket
     h = (p.KEEPER_W + p.SLIDE) / 2
     s = s.cut(box(p.TAB_X[1], p.TUNNEL_X[1] + 1, p.YK - h, p.YK + h, p.ZK - h, p.ZK + h))
-    s = s.cut(box(p.TIP_LATCHED_X - p.TIP_POCKET, p.TAB_X[0], p.YK - 3, p.YK + 3, p.ZK - 3, p.ZK + 3))
+    tp = p.TIP_POCKET_HALF
+    s = s.cut(box(p.TIP_LATCHED_X - p.TIP_POCKET, p.TAB_X[0], p.YK - tp, p.YK + tp, p.ZK - tp, p.ZK + tp))
     # servo pocket, open below
     c, gp = p.SERVO_CASE, p.POCKET_GAP
     x0 = p.SHAFT_X - p.SHAFT_FROM_END
@@ -109,7 +110,7 @@ def body():
     ch = p.CABLE_CHANNEL
     s = s.cut(box(*ch["x"], *ch["y"], -1, p.BODY["z"] + 1))
     # plate underside relief over the horn and keeper-yoke sweep (0.5 mm over both)
-    hz = max(p.SHAFT_Z + p.HORN_REACH, p.SHAFT_Z + p.CRANK_R_MAX + p.PIN_SLOT / 2 + 2.0) + 0.5
+    hz = p.BODY["z"] - p.YOKE_ROOF_T
     s = s.cut(box(p.SHAFT_X - p.HORN_REACH - 0.5, p.SHAFT_X + p.HORN_REACH + 0.5 + 0.0,
                   p.SPLINE_TOP_Y - 3.0, p.YK + p.KEEPER_W / 2 + 2.5, top0 - 1, hz))
     # lightening window in the plate where nothing hangs below
@@ -130,9 +131,10 @@ def keeper():
     s = s.cut(box(xs - p.PIN_SLOT / 2, xs + p.PIN_SLOT / 2, p.YK - h - 1, p.YK + h + 1, z0, z1))
     s = s.faces("<X").edges().chamfer(0.5)
     # groove in the horn-side face so the horn centre screw head passes under the yoke
-    hs, c = p.HORN_SCREW, p.SCREW_CLEAR
-    gz = hs["head_d"] / 2 + c
-    s = s.cut(box(p.TIP_LATCHED_X - 1, yx1 + 1, p.YK - h - 1, p.SPLINE_TOP_Y + hs["head_h"] + c,
+    hs = p.HORN_SCREW
+    gz = hs["head_d"] / 2 + p.HORN_GROOVE_Z_CLEAR
+    s = s.cut(box(p.HORN_GROOVE_START_X, yx1 + 1, p.YK - h - 1,
+                  p.SPLINE_TOP_Y + hs["head_h"] + p.HORN_GROOVE_Y_CLEAR,
                   p.SHAFT_Z - gz, p.SHAFT_Z + gz))
     return s
 
@@ -218,6 +220,10 @@ def build(out=OUT):
     report["overlap_horn_screw_keeper_sweep_mm3"] = round(worst, 4)
     report["horn_screw_clearance_mm"] = c
     assert worst < 1e-3, worst
+    # Loaded guides permit pitch/yaw before elastic displacement. Check those
+    # states explicitly; pure translation only covers a freely floating level bar.
+    from clearance import check_loaded_clearance
+    report["loaded_clearance"] = check_loaded_clearance(shapes["body"], shapes["keeper"])
     (out / "cad.json").write_text(json.dumps(report, indent=2))
     return report
 

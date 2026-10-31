@@ -28,8 +28,10 @@ G = 9.80665
 W1 = p.MASS_KG * G       # payload weight at 1 g
 L_PIN_TIP = (p.SHAFT_X - p.CRANK_R) - p.TIP_LATCHED_X   # pin to keeper tip (25.5)
 
-# Datasheet (Adafruit 2307, TowerPro MG92B): stall 3.1 kgf*cm at 4.8 V, 3.5 at 6.0 V
-DATASHEET = [(4.8, 3.1), (6.0, 3.5)]
+# Manufacturer points. Adafruit labels the lower torque point 4.8 V but both
+# sources specify a 5.0 V operating minimum. Use TowerPro's 5.0 V point and do
+# not turn a motor-torque extrapolation into an electronics operating claim.
+DATASHEET = [(5.0, p.STALL_KGFCM_5V), (6.0, 3.5)]
 
 # Assumed scatter. All are guesses and should be replaced by measurements.
 MC = dict(
@@ -46,6 +48,8 @@ BACKLASH_DEG = 3.0              # MG92B output backlash plus position error at l
 
 def stall_nmm(v):
     (v0, t0), (v1, t1) = DATASHEET
+    if not v0 <= v <= v1:
+        raise ValueError("No sourced torque model outside 5.0..6.0 V; sag requires hardware evidence")
     return (t0 + (t1 - t0) * (v - v0) / (v1 - v0)) * KGFCM
 
 
@@ -63,24 +67,27 @@ def torque_curve(mu, r=p.CRANK_R, load=p.P_DESIGN):
 
 
 def friction_sweep():
-    working = stall_nmm(4.8) * p.WORKING_FRACTION
+    working = stall_nmm(5.0) * p.WORKING_FRACTION
     rows = []
     for mu in np.round(np.arange(0.2, 0.61, 0.05), 2):
         _, t = torque_curve(mu)
         rows.append(dict(mu=float(mu), torque_needed_Nmm=float(t.max()),
                          margin_working=float(working / t.max()),
-                         margin_stall=float(stall_nmm(4.8) / t.max())))
+                         margin_stall=float(stall_nmm(5.0) / t.max())))
     mus = np.linspace(0.05, 2.0, 2000)
     need = np.array([torque_curve(m)[1].max() for m in mus])
     mu_at = lambda lim: float(mus[np.argmax(need > lim)]) if (need > lim).any() else None
-    return dict(rows=rows, mu_for_margin_3=mu_at(working / 3), mu_for_stall=mu_at(stall_nmm(4.8)))
+    return dict(rows=rows, mu_for_margin_3=mu_at(working / 3), mu_for_stall=mu_at(stall_nmm(5.0)))
 
 
 def derating():
     _, t = torque_curve(p.MU)
     need = t.max()
-    return [dict(volts=v, stall_kgfcm=stall_nmm(v) / KGFCM,
-                 margin_working=stall_nmm(v) * p.WORKING_FRACTION / need)
+    return [dict(volts=v, supported_by_torque_points=v >= 5.0,
+                 stall_kgfcm=stall_nmm(v) / KGFCM if v >= 5.0 else None,
+                 margin_working=stall_nmm(v) * p.WORKING_FRACTION / need if v >= 5.0 else None,
+                 status="torque sensitivity only; physical operation unverified" if v >= 5.0
+                 else "outside specified operating range; NOT QUALIFIED")
             for v in (4.4, 4.6, 4.8, 5.0, 6.0)]
 
 
@@ -143,7 +150,7 @@ def dynamics(fea):
     t_bd = f_ax * p.CRANK_R * sin(radians(BACKLASH_DEG))
     out["backdrive"] = dict(load_factor=n, axial_g=ax_g, backlash_deg=BACKLASH_DEG,
                             axial_force_N=f_ax, torque_Nmm=t_bd,
-                            ratio_working_torque=stall_nmm(4.8) * p.WORKING_FRACTION / t_bd,
+                            ratio_working_torque=stall_nmm(5.0) * p.WORKING_FRACTION / t_bd,
                             note="powered servo holds position; with the servo unpowered, "
                                  "retention is not a requirement")
     return out
@@ -154,7 +161,7 @@ def unseated():
     cos_a = (p.TAB_X[1] - p.TIP_LATCHED_X) / p.CRANK_R - 1
     alpha = float(np.degrees(np.arccos(cos_a)))
     arm = p.CRANK_R * sin(radians(alpha))
-    f_work = stall_nmm(4.8) * p.WORKING_FRACTION / arm
+    f_work = stall_nmm(5.0) * p.WORKING_FRACTION / arm
     f_stall = stall_nmm(6.0) / arm
     chamfer = 0.5
     f_lift = W1 * (1 + p.MU) / (1 - p.MU) + drag(p.MU, W1)     # 45 deg wedge lifts 1 g payload
@@ -211,8 +218,8 @@ def main():
     mc, fr, dy, un, hs = r["monte_carlo"], r["friction"], r["dynamics"], r["unseated_tab"], r["hand_stresses"]
     nominal = next(x for x in fr["rows"] if abs(x["mu"] - 0.35) < 1e-9)
     gates = {
-        "working margin >= 3 at mu 0.35, 4.8 V": nominal["margin_working"] >= 3,
-        "working margin >= 3 at 4.6 V sag": next(d for d in r["derating"] if d["volts"] == 4.6)["margin_working"] >= 3,
+        "assumed working margin >= 3 at mu 0.35, 5.0 V": nominal["margin_working"] >= 3,
+        "unsupported voltage rows cannot claim a torque pass": all(d["margin_working"] is None for d in r["derating"] if d["volts"] < 5.0),
         "P(no release) < 1e-4": mc["P_no_release"] < 1e-4,
         "P(spare travel < 1 mm) < 1e-3": mc["P_spare_below_1mm"] < 1e-3,
         "P(tip hits pocket floor) < 1e-4": mc["P_tip_hits_pocket_floor"] < 1e-4,
@@ -236,7 +243,8 @@ def main():
     md += [f"| {x['mu']:.2f} | {x['torque_needed_Nmm']:.1f} | {x['margin_working']:.2f} | {x['margin_stall']:.2f} |" for x in fr["rows"]]
     md += ["", f"Margin falls to 3 at mu = {fr['mu_for_margin_3']:.2f}; stall at mu = {fr['mu_for_stall']}.", "",
            "| V | stall kgf·cm | working margin |", "|---|---:|---:|"]
-    md += [f"| {d['volts']} | {d['stall_kgfcm']:.2f} | {d['margin_working']:.2f} |" for d in r["derating"]]
+    md += [f"| {d['volts']} | {d['stall_kgfcm']:.2f} | {d['margin_working']:.2f} |" if d["supported_by_torque_points"]
+           else f"| {d['volts']} | unsupported | NOT QUALIFIED |" for d in r["derating"]]
     md += ["", "Monte Carlo (" + f"{MC['n']:,}" + " samples):", ""] + [f"- {k}: {v}" for k, v in mc.items() if k != "inputs"]
     md += ["", "Dynamics:", ""] + [f"- {k}: {v}" for k, v in dy.items()]
     md += ["", "Unseated tab:", ""] + [f"- {k}: {v}" for k, v in un.items()]
