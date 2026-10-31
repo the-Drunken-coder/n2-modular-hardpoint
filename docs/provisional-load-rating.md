@@ -1,10 +1,12 @@
 # N2 analysis load estimates — current P14 and superseded studies
 
+> **Historical P14 context.** R5 is the current development package. Follow [the current R5 instructions](EVIDENCE_AND_READINESS.md); the specifications, files and results below apply only to the earlier package.
+
 **No working-load rating has been demonstrated.** This page keeps the historical "provisional load rating" filename for existing links. The values are stress-screen calculations, not measured breaking loads, qualified payload capacities or successful release loads.
 
 ## Current baseline: P14, PAHT-CF material scaling, SF 2
 
-The current design is the bridged receiver roof and flat-print keeper described in [p14.md](p14.md), with lug 1.4 mm, distal overlap 0.6 mm and nominal 3 mm actuator stroke. Use the current [print instructions](print-requirements.md) and [P14 test plan](test-plan.md).
+The current design is the bridged receiver roof and flat-print keeper described in [p14.md](p14.md), with lug 1.4 mm, distal overlap 0.6 mm and nominal 3 mm actuator stroke. Use the current [print instructions](p14-print-requirements.md) and [P14 test plan](p14-test-plan.md).
 
 | Quantity | Value | Meaning |
 |---|---:|---|
@@ -16,7 +18,7 @@ The current design is the bridged receiver roof and flat-print keeper described 
 | Governing analysis screen | **33.68 N** | Adapter, selected straight +Z case, after material scaling. |
 | Screen divided by SF 2 | **16.84 N** | Arithmetic estimate; 16.8 N rounded down. **Not a working-load rating.** |
 
-Requirements source: [requirements.md](requirements.md). Analysis source: [P14 selected summary](../project/analysis/p14/fea/B1.4_O0.6/summary.json). Legacy JSON keys such as `fail_N` and `rating_N` retain their original names; those labels do not establish physical failure or rating evidence.
+Requirements source: [requirements.md](p14-requirements.md). Analysis source: [P14 selected summary](../project/analysis/p14/fea/B1.4_O0.6/summary.json). Legacy JSON keys such as `fail_N` and `rating_N` retain their original names; those labels do not establish physical failure or rating evidence.
 
 ### Reproducible interpretation
 
@@ -30,7 +32,7 @@ Arithmetic SF-2 allowance = 33.68 / 2 = 16.84 N
 Requirement comparison = 33.68 / 17.8 ≈ 1.89
 ```
 
-Small differences from multiplying displayed rounded inputs are expected; the saved summary is the recorded result. Material sources and process assumptions are linked in [print-requirements.md](print-requirements.md).
+Small differences from multiplying displayed rounded inputs are expected; the saved summary is the recorded result. Material sources and process assumptions are linked in [print-requirements.md](p14-print-requirements.md).
 
 | Selected P14 straight-pull component state | Scaled stress-screen crossing |
 |---|---:|

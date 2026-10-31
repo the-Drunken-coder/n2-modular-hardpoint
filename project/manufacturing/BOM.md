@@ -1,6 +1,6 @@
 # Historical P11 bill of materials and cost basis
 
-**Historical record:** the quantities, PLA masses and cost arithmetic below describe P11, not the current P14 PAHT-CF prototype. Use the [current order list](ORDER_LIST.md), [P14 print requirements](../../docs/print-requirements.md) and current CAD part volumes. P14 printed masses and total installed mass remain unmeasured.
+**Historical P11 record:** the quantities, PLA masses and cost arithmetic below do not describe current R5 or the later P14 PAHT-CF prototype. P14 has a separate [historical order list](ORDER_LIST.md) and [print requirements](../../docs/p14-print-requirements.md); its printed masses and total installed mass remain unmeasured. Use the [R5 BOM](../designs/r5/BOM.md) for current procurement.
 
 Four custom printed pieces and one complete purchased solenoid form the mechanism, held by two screws and two nuts. The actuator's frame/coil, armature, return spring and wire models are components of **one Adafruit 2776 purchase**, not separate procurement lines. Purchased metal hardware and electrical components are modeled for fit and explanation; they are not intended to be printed.
 

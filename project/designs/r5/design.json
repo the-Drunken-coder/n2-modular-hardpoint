@@ -1,0 +1,33 @@
+{
+  "id": "r5",
+  "revision": "R5",
+  "status": "bench_prototype_unqualified",
+  "prototype_material": "Bambu PAHT-CF",
+  "parameters": "project/designs/r5/params.py",
+  "printed_parts": ["body", "keeper", "adapter"],
+  "actuator": "TowerPro MG92B positional servo",
+  "requirements": {
+    "source": "docs/requirements.md",
+    "departing_mass_kg": 0.454,
+    "total_load_factor_g": 2.0,
+    "gravity_m_s2": 9.80665,
+    "retention_proof_multiplier": 2.0,
+    "release_load_N": 8.9044382,
+    "retention_proof_target_N": 17.8088764,
+    "extraction_direction": "-Z in R5 assembly coordinates",
+    "nominal_supply_V": 5.0,
+    "power_off_retention_required": false,
+    "payload_power_data": false,
+    "ejector": false,
+    "departure_sensor": false
+  },
+  "evidence": {
+    "working_load_rating_N": null,
+    "physical_tests_performed": false,
+    "flight_qualified": false,
+    "numerical_results": "project/designs/r5/out/fea.json",
+    "numerical_status": "requires_current_checkout_run",
+    "bench_plan": "docs/test-plan.md"
+  },
+  "historical_references": ["project/cad/N2/active_metadata.json", "docs/p14-requirements.md", "docs/p14-test-plan.md"]
+}

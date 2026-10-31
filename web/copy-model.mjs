@@ -9,7 +9,7 @@ const p14 = '../project/cad/N2';
 if (existsSync(`${p14}/manifest.json`)) {
   mkdirSync(`${out}/N2`);
   for (const f of readdirSync(p14)) if (f === 'manifest.json' || (f.endsWith('.stl') && !f.endsWith('_print.stl'))) cpSync(`${p14}/${f}`, `${out}/N2/${f}`);
-  designs.push({ id: 'N2', label: 'P14 solenoid (baseline)', p14: true });
+  designs.push({ id: 'N2', label: 'P14 solenoid (historical reference)', p14: true });
 }
 
 function stlBounds(buf) {
@@ -43,5 +43,6 @@ for (const id of existsSync(root) ? readdirSync(root).sort() : []) {
   writeFileSync(`${out}/${id}/manifest.json`, JSON.stringify({ id, name: id.toUpperCase(), revision: id.toUpperCase(), units: 'mm', bounds: { min, max, size }, parts }, null, 1));
   designs.push({ id, label: `${id.toUpperCase()} (CI-built CAD)` });
 }
+designs.sort((a, b) => Number(b.id === 'r5') - Number(a.id === 'r5'));
 writeFileSync(`${out}/designs.json`, JSON.stringify(designs, null, 1));
 console.log('designs:', designs.map(d => d.id).join(', '));
