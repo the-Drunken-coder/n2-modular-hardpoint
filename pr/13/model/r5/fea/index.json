@@ -22,16 +22,16 @@
    "case": "Z",
    "label": "Straight pull",
    "in_scope": true,
-   "fail_N": 558.2,
-   "rating_sf2_N": 279.1,
+   "fail_N": 495.9,
+   "rating_sf2_N": 248.0,
    "peak_mm": [
     8.19,
     37.11,
     5.03
    ],
    "h_mm": 0.45,
-   "elements": 87692,
-   "margin_at_proof": 31.3
+   "elements": 79290,
+   "margin_at_proof": 27.8
   },
   {
    "part": "keeper",
@@ -54,16 +54,16 @@
    "case": "Z",
    "label": "Straight pull",
    "in_scope": true,
-   "fail_N": 875.1,
-   "rating_sf2_N": 437.5,
+   "fail_N": 785.0,
+   "rating_sf2_N": 392.5,
    "peak_mm": [
     12.81,
     37.12,
     5.58
    ],
    "h_mm": 1.0,
-   "elements": 130642,
-   "margin_at_proof": 49.1
+   "elements": 106956,
+   "margin_at_proof": 44.1
   }
  ]
 }
