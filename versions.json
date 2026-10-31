@@ -21,6 +21,13 @@
   "path": "pr/18/"
  },
  {
+  "label": "PR #17 (fix/r5-jam-root)",
+  "title": "Fix R5 lower-tab jam strength and allowable mismatch",
+  "sha": "b5b06125f8e410bc8c4dbaac663e4525094653a5",
+  "built": "2026-10-31T04:28:35Z",
+  "path": "pr/17/"
+ },
+ {
   "label": "PR #16 (fix/r5-servo-cable)",
   "title": "Fix R5 servo cable-gland interference and cable routing",
   "sha": "72fa63e0e68c8ac18cdb395a1d470257925ced93",
