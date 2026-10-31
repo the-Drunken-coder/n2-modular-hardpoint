@@ -36,6 +36,12 @@ a tangent square neck. This leaves nominal 5.20 mm central flats on the
 unchanged guide planes. Use the [specified profile](docs/guide-relief.md),
 not an inward fillet or a circle-only cut that leaves a thin undercut fin.
 
+The adapter uses a different [lower-hole relief](docs/adapter-hole-relief.md):
+two outward R0.40 circles centered on the original lower hole corners. Its tab
+is now 8.20 mm wide in Y and the matching socket is 9.00 mm wide. These cuts
+retain the complete original square passage and upper bearing plane. Do not
+replace them with inward fillets; that blocks a valid floated latching pose.
+
 ## Material and machine setup
 
 Use **Bambu PAHT-CF**, 1.75 mm, on an enclosed X1C with a **0.4 mm hardened steel
@@ -153,6 +159,15 @@ The limits include:
   chamfer is accounted for separately and is not subtracted from this measurement.
 - Upper-tab **X thickness 3.90–4.10 mm**, measured between the far and near
   faces at the keeper-hole ligaments. Record actual thickness after conditioning.
+- Adapter lower-hole relief **radius ≥0.40 mm**, with each finished side
+  ligament **≥0.80 mm**, measured directly after conditioning. The nominal tab
+  Y breadth is 8.20 mm and the nominal minimum ligament is 0.90 mm; neither
+  establishes the printed minimum. Record the actual Y breadth, both lower
+  profiles and both side ligaments. Match the outward profile in the drawing;
+  reject notches, fins, splitting or overcut ligaments. Keep the upper bearing
+  plane unchanged. Measure keeper/hole clearance between the original flat
+  planes, requiring **≥0.50 mm total in Y and Z**, and centered tab/socket
+  clearance **≥0.30 mm per side in Y**. Do not measure clearance across the bulbs.
 - Actual tab **far-face X must remain within 7.60–8.40 mm over the complete
   permitted socket float**, in the common receiver datum. Gently move the
   seated adapter to both X limits and inspect the permitted float/rocking poses;

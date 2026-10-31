@@ -40,6 +40,12 @@ Level-translation interference checks missed this additional contact.
   guide, straight slot faces or actuator moment arms. Finite-pin cap extremes
   and ordered assembly still pass; structural acceptance requires a regenerated
   passing opening result, with no extra fillet-area credit in hand screens.
+- Relieve the adapter's two lower hole corners with outward R0.4 cuts, while
+  widening the tab to 8.2 mm in Y and its matching socket to 9.0 mm. The original
+  full square passage and upper load plane remain. The
+  [adapter profile and inspection gates](adapter-hole-relief.md) require each
+  finished side ligament to remain at least 0.8 mm; inward rounding would block
+  a valid upward/side-float latching pose.
 - Require a measured **5.4 ±0.1 mm assembled sleeve-center** crank radius. A guessed larger stock-hole
   radius is not accepted. Inspect or prepare the hole as described in assembly.
 

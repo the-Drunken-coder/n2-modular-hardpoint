@@ -15,7 +15,7 @@ import uuid
 import numpy as np
 
 import fea
-from evidence import convergence, validate_cad_inputs
+from evidence import convergence, validate_cad_inputs, validate_source_identities
 from coupled_forces import study
 
 HERE = Path(__file__).resolve().parent
@@ -133,6 +133,8 @@ def main():
     fine.setdefault("converged", False)
     if stopped:
         fine.update(converged=False, refinement_stopped_reason=stopped)
+    validate_cad_inputs(HERE.parent, ("keeper",))
+    validate_source_identities(HERE.parent, identities)
     passed = bool(fine["converged"] and fine["strength_ratio_at_proof"] >= 1.0)
     summary = dict(schema_version=1, analysis_id=analysis_id, case="service_opening_keeper",
                    source_sha256=identities,

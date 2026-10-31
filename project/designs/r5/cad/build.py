@@ -231,6 +231,16 @@ def adapter():
     s = s.union(xz_prism(tab_root_profile(), p.YK - p.TAB_W / 2, p.YK + p.TAB_W / 2))
     s = s.cut(box(p.TAB_X[0] - 1, p.TAB_X[1] + 1, p.YK - p.HOLE_W / 2, p.YK + p.HOLE_W / 2,
                   p.HOLE_TOP_LOADED - p.HOLE_H, p.HOLE_TOP_LOADED))
+    # Outward circular relief preserves the entire original square passage.
+    # An inward fillet blocks a valid adapter-up/side-float latching pose. The
+    # circle centers are at the old corners, so the mouth joins are convex and
+    # there is no undercut fin. The upper bearing plane remains unchanged.
+    if p.ADAPTER_LOWER_HOLE_RADIUS > 0:
+        for sy in (-1, 1):
+            s = s.cut(cq.Workplane().add(cq.Solid.makeCylinder(
+                p.ADAPTER_LOWER_HOLE_RADIUS, p.TAB_X[1] - p.TAB_X[0] + 2,
+                cq.Vector(p.TAB_X[0] - 1, p.YK + sy * p.HOLE_W / 2,
+                          p.HOLE_TOP_LOADED - p.HOLE_H), cq.Vector(1, 0, 0))))
     s = s.faces(">Z").edges().chamfer(1.0)
     for hx, hy in p.ADAPTER_HOLES:
         s = s.cut(zcyl(hx, hy, a["z"][0] - 1, a["z"][1] + 1, 3.4))

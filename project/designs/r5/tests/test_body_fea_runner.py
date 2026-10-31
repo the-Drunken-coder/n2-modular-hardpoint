@@ -39,7 +39,7 @@ class BodyFeaRunnerTests(unittest.TestCase):
     def test_scaled_reference_and_builder_are_used_at_every_level(self):
         record, calls = self.run_fake(lambda case, h, peaks, **kw: result(h))
         self.assertTrue(record["numerical_screen_passed"])
-        self.assertEqual([call.args[1] for call in calls], [1.2, .3, .22])
+        self.assertEqual([call.args[1] for call in calls], [1.3, .3, .22])
         for call in calls:
             self.assertEqual(call.kwargs["reference_load_N"], 12.0)
             self.assertTrue(callable(call.kwargs["mesh_builder"]))
@@ -51,7 +51,7 @@ class BodyFeaRunnerTests(unittest.TestCase):
         def solve(case, h, peaks, **kw):
             if h == .16:
                 raise runner.fea.MeshBudgetExceeded("guard")
-            return result(h, utilization={1.2: .01, .3: .02, .22: .03}[h])
+            return result(h, utilization={1.3: .01, .3: .02, .22: .03}[h])
         record, _ = self.run_fake(solve)
         self.assertFalse(record["numerical_screen_passed"])
         self.assertGreater(record["fine"]["strength_ratio_at_reference_load"], 30)
@@ -61,7 +61,7 @@ class BodyFeaRunnerTests(unittest.TestCase):
 
     def test_displacement_gate_is_independent(self):
         def solve(case, h, peaks, **kw):
-            return result(h, displacement={1.2: 1., .3: 2., .22: 3., .16: 4.}[h])
+            return result(h, displacement={1.3: 1., .3: 2., .22: 3., .16: 4., .12: 5.}[h])
         record, _ = self.run_fake(solve)
         self.assertFalse(record["numerical_screen_passed"])
         self.assertTrue(record["fine"]["stress_converged"])
@@ -73,9 +73,26 @@ class BodyFeaRunnerTests(unittest.TestCase):
                 raise runner.fea.InvalidLoadPatch("negative pressure")
             return result(h)
         record, _ = self.run_fake(solve)
-        self.assertEqual(len(record["rejected_meshes"]), 3)
+        self.assertEqual(len(record["rejected_meshes"]), 4)
         self.assertEqual(len(record["study"]), 1)
         self.assertFalse(record["numerical_screen_passed"])
+
+    def test_extra_refinement_retains_patch_baseline_and_refines_all_old_peaks(self):
+        def solve(case, h, peaks, **kw):
+            value = result(h, utilization=.5 if h > .22 else .6)
+            value["governing_peak_mm"] = {
+                1.3: [0., 0., 0.], .3: [3., 0., 0.], .22: [6., 0., 0.], .16: [6.1, 0., 0.]}[h]
+            return value
+        record, calls = self.run_fake(solve)
+        self.assertTrue(record["numerical_screen_passed"])
+        self.assertEqual(record["fine"]["h_mm"], .16)
+        fields = record["fine"]["mesh_refinement_fields"]
+        self.assertEqual({f["h_mm"] for f in fields}, {.22, .16})
+        for peak in ([0, 0, 0], [3, 0, 0], [6, 0, 0]):
+            self.assertTrue(any(f["h_mm"] == .16 and np.linalg.norm(np.array(peak)-f["centre_mm"]) < f["radius_mm"] for f in fields))
+        builder = calls[-1].kwargs["mesh_builder"]
+        self.assertEqual(builder.keywords["baseline_h_mm"], .22)
+        self.assertEqual(len(builder.keywords["peak_points"]), 3)
 
     def test_first_mesh_over_budget_is_a_reported_hold(self):
         def solve(*args, **kwargs):

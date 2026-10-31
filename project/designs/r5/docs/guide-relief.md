@@ -4,8 +4,9 @@ The original square receiver tunnel left four sharp longitudinal concave
 corners. Body stress peaks moved toward those corners as the mesh was refined,
 so stable displacement alone did not establish a stable stress result. The
 strict convergence gate rejected that result. The new body removes each sharp
-corner with a finite-radius outward relief; the keeper and adapter hole retain
-their existing square sections. The changed body still requires regenerated
+corner with a finite-radius outward relief; the keeper retains its square
+section. The adapter's separate [lower-hole relief](adapter-hole-relief.md)
+also retains the entire original square passage. The changed body still requires regenerated
 CAD and a passing force/moment-audited, mesh-refined structural result.
 
 ## Exact section
