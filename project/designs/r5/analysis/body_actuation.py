@@ -133,13 +133,18 @@ def ear_patch_points():
 
 
 def servo_ear_loads(state):
-    """Return the complete opposite sleeve wrench through four ear patches."""
+    """Transfer the sleeve wrench through centered, edge-tapered ear patches.
+
+    The declared profile preserves each patch's force and centroid. It is an
+    assumed clamp traction, not a conservative bound on real interface stress.
+    """
     points = ear_patch_points()
     servo_force = -_vector(state["sleeve_force_N"], "sleeve force on keeper")
     servo_moment = np.cross(_vector(state["sleeve_application_point_mm"], "sleeve point"), servo_force)
     vectors = clamped_patch_forces(points, servo_force, servo_moment)
-    return [rectangular_patch(f"servo_ear_{i+1}", point, 1,
-                ((0, point[0]-0.8, point[0]+0.8), (2, point[2]-0.8, point[2]+0.8)), vector)
+    return [dict(rectangular_patch(f"servo_ear_{i+1}", point, 1,
+                ((0, point[0]-0.8, point[0]+0.8), (2, point[2]-0.8, point[2]+0.8)), vector),
+                 pressure_profile="quadratic_edge_taper")
             for i, (point, vector) in enumerate(zip(points, vectors))]
 
 
@@ -280,8 +285,14 @@ def positive_socket_return(definition):
     check_resultants((force, moment),
                      (np.array([force[0], 0., 0.]), np.cross([x, p.YK, centre_z], [force[0], 0., 0.])),
                      "single-side socket return")
-    ybands = ((p.YK-p.TAB_W/2+0.25, p.YK-p.HOLE_W/2-0.15),
-              (p.YK+p.HOLE_W/2+0.15, p.YK+p.TAB_W/2-0.25))
+    # The reviewed traction footprint is 0.8 mm wide. A wider tab provides
+    # more surrounding material; it must not silently dilute this pressure.
+    inner_offset = p.HOLE_W/2+0.15
+    outer_offset = inner_offset+0.8
+    if p.TAB_W/2-outer_offset < 0.25-1e-9:
+        raise ValueError("socket traction strips require at least 0.25 mm outer tab material")
+    ybands = ((p.YK-outer_offset, p.YK-inner_offset),
+              (p.YK+inner_offset, p.YK+outer_offset))
     heights = ((centre_z-1.3, centre_z-0.7), (p.TAB_TOP-1.7, p.TAB_TOP-1.3))
     lower, upper = (sum(band)/2 for band in heights)
     if not lower < centre_z < upper:
@@ -321,10 +332,12 @@ def body_opening_cases():
             unscaled_centered_reference_state=reference, **scaling,
             contact_status="Conditional nominal component traction model; not a jointly realized rigid contact state",
             basis="Centered tab and payload at the +0.4 mm socket float datum; balanced nominal guide/servo forces scaled together to cover selected envelope force and servo-moment components",
+            ear_traction_basis="Four centered quadratic_edge_taper profiles on the unchanged 1.6 x 1.6 mm rectangles; normalized scalar density 9/(4A)*(1-xi^2)*(1-eta^2), zero at the edges and peak/mean 2.25; each force and centroid, hence the full servo wrench, is preserved",
             socket_basis="Four positive +X side-strip patches at the actual near socket face; lower/upper weights preserve the tab-height return centroid; no opposed artificial couple",
-            limitations="Componentwise amplitude coverage does not prove a full-stroke stress/contact envelope. The edge-pressure envelope and centered reference are not the same assembled contact state. Clamped ear tractions idealize screw tension/shear, not pull-out or slip qualification. Physical release and printed-process qualification remain pending.")
+            limitations="Componentwise amplitude coverage does not prove a full-stroke stress/contact envelope. The edge-pressure envelope and centered reference are not the same assembled contact state. The tapered ear profile is a conditional regularization, not a conservative bound on real clamp stress. Its nonnegative scalar density still multiplies vectors with normal tension and shear; this is not unilateral contact or pull-out/slip qualification. Physical release and printed-process qualification remain pending.")
         definition["load_patch_definitions"] = [
-            {key: load[key] for key in ("name", "plane", "application_point", "force", "vertex_bands")}
+            dict({key: load[key] for key in ("name", "plane", "application_point", "force", "vertex_bands")},
+                 pressure_profile=load.get("pressure_profile", "nonnegative_affine"))
             for load in loads]
         cases[name] = (case, definition)
     return cases

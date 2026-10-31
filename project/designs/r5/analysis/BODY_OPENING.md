@@ -76,6 +76,71 @@ They do not qualify screw pull-out, clamp preload, slip, or the servo housing.
 The ears are loaded surfaces, not additional fixed supports. The body's
 original host mounting constraints and print axis remain unchanged.
 
+### Prescribed ear traction profile
+
+Only the four `servo_ear_*` patches declare
+`pressure_profile="quadratic_edge_taper"`. The two guide patches and four
+socket patches retain `nonnegative_affine`, whose zero-slope case is uniform
+traction on the complete centered rectangles. Every exported patch definition
+records its profile as well as its original force, plane, centroid and bounds.
+
+On an ear rectangle of area `A`, let `xi` and `eta` be the two centered
+in-plane coordinates divided by their respective half-widths. Both range from
+−1 to +1. The prescribed scalar density and vector traction are
+
+```text
+q(xi, eta) = 9/(4A) * (1 - xi^2) * (1 - eta^2)
+t(xi, eta) = q(xi, eta) * F_ear
+```
+
+The integral of `q` over the rectangle is one. Symmetry puts its centroid at
+the existing patch center, so both `integral(t) = F_ear` and
+`integral(r cross t) = r_center cross F_ear` are unchanged. The four original
+ear vectors consequently transmit exactly the same full servo wrench. The
+reference scale factors, payload forces, footprints and supports are unchanged.
+
+This profile is nonnegative, zero on all four edges, and has a center peak
+**2.25 times its mean density**. "Nonnegative" describes the scalar weight;
+the ear vectors can still include normal tension and tangential shear under
+the ideal clamped-interface assumption. It is not a unilateral pressure model.
+
+The profile is biquadratic, with total polynomial degree four. Multiplying it
+by a P2 surface test function gives degree six, so the FE load assembly uses
+**degree-six surface quadrature** for the load and its scalar audits. The
+complete physical rectangle and centered resultant are required; an off-center
+target must be rejected, rather than adjusted by an affine recentering. The
+analytic relative-density limits are **0 and 2.25**; inspecting only mesh
+vertices can miss the interior maximum. Actual assembled forces and moments
+remain independently audited.
+
+### Uniform-profile trial and the change in assumption
+
+The [archived uniform-ear trial](reference_results/body_uniform_ear_aa3e947.json.gz)
+is a **HOLD and sensitivity record**, with its original source identities and
+load audits. It is not current qualification evidence. In its maximum-torque
+case, layer-normal stress rose from **3.098241 MPa at 0.30 mm** local size to
+**3.298002 MPa at 0.22 mm**, a **6.057%** change. The governing point moved
+toward the right edge of the upper-right ear traction patch; at the finer level
+it was X67.399160 mm, versus the patch edge at X67.525 mm. No stress exclusion
+was added to hide that location.
+
+A sharp tangential-traction cutoff can produce an edge singularity in elastic
+half-space models; see [Willert, section 4.3, equations 14–19](https://arxiv.org/html/2410.20979v1).
+The peak trend is consistent with that concern, but does not prove this
+orthotropic receiver's exact asymptotic behavior. A relative-change gate alone
+cannot establish a finite limit: a peak proportional to `log(1/h)` has
+successively smaller relative changes despite increasing without bound.
+
+The replacement profile removes the imposed traction jump at the same ear
+rectangle edges. This is an explicit **change in the assumed clamp traction**,
+not a geometric repair or a conservative bound on real local clamp stress.
+It retains a higher center density and every ear stress remains included in
+the comparison. Both cases must pass the original displacement/utilization
+gates, local-refinement requirement and allowable; there is no added support
+exclusion or relaxed threshold. Any passing result is conditional on this
+declared traction model. Clamp preload, slip, pull-out, servo housing, printed
+material and physical loaded release remain unqualified.
+
 ## Positive socket-side return
 
 The centered reference requires a net **+X** socket return equal to the tab's
@@ -94,6 +159,11 @@ remain below the tab's top chamfer, including its nominal loaded vertical
 shift. All four patch forces are positive compression in +X; their weighted
 centroid is **(12.4, 40.2, 10.5) mm**. No arbitrary opposed-face couple or
 tensile socket contact is introduced.
+
+The 0.8 mm strip breadth is fixed by this reviewed traction assumption. The
+later tab widening to 8.2 mm adds surrounding material without widening the
+pressure footprint. At least 0.25 mm of outer tab material must remain beside
+each strip; a narrower tab is rejected rather than silently changing the load.
 
 The raw edge-pressure maximum cannot simply be combined with this single-side
 return: its contact moment differs. The code exposes and checks the residual
@@ -117,11 +187,13 @@ labelling, current geometry/source identities, and a failed status for an
 unresolved case. Neither a source-wrench audit nor a larger comparison ratio
 can substitute for mesh convergence or printed-process evidence.
 
-The focused tests exercise the complete balanced cases, the positive socket
-distribution, signed component coverage, the full servo wrench, coordinate
-origin invariance, physical patch bounds, and rejection of invalid contact
-combinations. They do not build CAD, generate a mesh, or perform a stiffness
-solve.
+The focused load-definition tests exercise the complete balanced cases, the
+positive socket distribution, signed component coverage, the full servo wrench,
+coordinate origin invariance, physical patch bounds, and rejection of invalid
+contact combinations. They also require exactly four tapered ear declarations,
+unchanged reference scales, and independently integrate the declared profile
+to check each actual ear force and moment. Those tests do not build CAD,
+generate a mesh, or perform a stiffness solve.
 
 ## Conforming traction mesh and report
 
@@ -139,7 +211,9 @@ count/volume and the actual boundary area and centroid of every rectangle.
 The shape, loads and pressure-positivity audit are preserved. This is a mesh
 partition, not a geometry change or a contact solution.
 
-A mesh-only preflight on the 72 × 53.5 × 20 mm receiver found these sizes:
+The earlier uniform-profile mesh-only preflight on the 72 × 53.5 × 20 mm
+receiver found these sizes; these records describe the original patch/mesh
+check, not results for the new ear profile:
 
 | Bulk size | Local size | Quadratic displacement DOFs | Patch audit |
 | ---: | ---: | ---: | --- |
@@ -149,16 +223,34 @@ A mesh-only preflight on the 72 × 53.5 × 20 mm receiver found these sizes:
 
 An unpartitioned 1.1 mm bulk / 0.22 mm local trial required 686,373 DOFs,
 over the unchanged 650,000 limit, and still had an inadmissible socket patch.
-The additional ear/socket zones are why this separate body-opening study uses
-a 1.2 mm bulk floor. These are planning estimates without a stiffness solve;
-the final records include actual DOFs and every newly tracked stress peak.
+The complete uniform-profile study with the 1.2 mm bulk floor reached
+6,808 MiB peak process RSS. Its attempted 0.16 mm refinement of every load
+zone required 726,675 DOFs and was rejected before stiffness assembly.
 
-The accepted sequence starts at the bulk floor, then refines locally to
-0.30 and 0.22 mm; 0.16 mm is attempted only if required and within budget.
-Every physical patch and every previous governing peak remains a refinement
-centre. At least two successful levels, both unchanged 5% gates, a finite
-comparison strength ratio of at least one, and the mandatory 0.22 mm depth
-are required for each case. A resource stop or unresolved patch cannot pass.
+An [isolated bulk-size comparison](reference_results/body_uniform_ear_bulk_comparison_aa3e947.json.gz)
+retained the 0.22 mm physical patch/peak refinement and changed only the bulk
+floor from 1.2 to **1.3 mm**. It used **531,438 DOFs** and **5,813 MiB** peak
+process RSS. The load-compliance displacement changed by **0.0842%**. Its
+peak utilization changed by **6.8563%**, so this is a resource comparison,
+not an accuracy pass or evidence for the new ear profile. It also retains the
+old uniform-ear assumption and its edge sensitivity.
+
+The current sequence starts at the **1.3 mm bulk floor**, then refines every
+physical patch and every previously governing peak to 0.30 and 0.22 mm.
+If further refinement is needed, **all previous governing peaks** refine to
+0.16 and then 0.12 mm, while every physical patch zone retains its mandatory
+0.22 mm baseline. Fine peak fields are independent of baseline-field
+deduplication, so a nearby patch center cannot suppress a requested finer
+peak field. Each run records every field's center, radius, size and role.
+No load footprint or stress-comparison region is removed.
+
+With the uniform trial's three known governing peaks, mesh-only preflight of
+this policy gave **541,959 DOFs at 0.16 mm** and **563,016 at 0.12 mm**.
+Those counts are planning estimates, not converged tapered-profile results;
+newly governing peaks and changed geometry can alter the actual counts.
+At least two successful levels, both unchanged 5% gates, a finite comparison
+strength ratio of at least one, and the mandatory 0.22 mm depth remain
+required for each case. A resource stop or unresolved patch cannot pass.
 
 The driver records all source files, the force/case definitions, mesh builder,
 shared solver/audits, current CAD manifest and body STEP. It starts with a
@@ -166,5 +258,6 @@ failed/pending report, revalidates the CAD generator identities and source
 hashes before accepting results, and aggregates both cases explicitly. A
 generator change, interrupted study or missing case cannot leave an older
 successful body report in place. The small mesh regression separately checks
-volume, narrow-rectangle geometry, uniform pressure and assembled force/moment;
-it does not stand in for the actual receiver solve.
+volume, narrow-rectangle geometry and assembled force/moment. The tapered
+profile also requires its own integration regression; neither test stands in
+for the actual receiver solve.

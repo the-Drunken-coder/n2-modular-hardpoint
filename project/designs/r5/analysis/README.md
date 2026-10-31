@@ -64,8 +64,11 @@ publication of its fields as current viewer evidence.
 The keeper and adapter first refine globally to 0.45 mm; the body first refines
 globally to 1.1 mm. If the gate still fails, the bulk keeps that spacing while
 regions around the finite bearing patches **and every governing peak seen on
-previous meshes** receive successively finer elements. Keeper and adapter use
-1.5 mm radii. The body uses 0.8 mm radii with a denser grid over each bearing
+previous meshes** receive successively finer elements. The keeper uses 1.5 mm
+radii. The adapter uses 0.8 mm radii, with explicit fields covering both lower
+hole-relief cylinders through the complete tab thickness; it does not depend
+on the coarse mesh finding those features first. The body uses 0.8 mm radii
+with a denser grid over each bearing
 rectangle: every point on the nominal 2 x 5 mm patch is at most 0.7072 mm from
 a grid centre. This keeps the whole pressure footprint covered while avoiding
 unnecessary fine volume. The sizing
@@ -75,7 +78,10 @@ freedom and governing peak. It also reports the governing tetrahedron's actual
 minimum/maximum edge lengths and centroid, so a moving hotspot can be checked
 against the mesh geometry. A nominal local size must not be described as the
 size of the whole mesh. The exported viewer carries the same mesh metadata.
-Keeper and adapter must reach 0.25 mm locally. The body must reach at most
+The keeper must reach 0.25 mm locally. The adapter must reach at most 0.25 mm
+and at most 0.4 times its lower-hole relief radius, requiring **0.16 mm** for
+the R0.40 relief. Its sequence uses a 0.25 to 0.16 mm step, with 0.12 mm
+available if needed and within budget. The body must reach at most
 0.22 mm (or 0.4 times its corner-relief radius if that is smaller). In particular,
 the 0.30 to 0.22 mm pair is below the R0.60 arc's approximately 0.314 mm
 curvature sizing target, so a stable pair of coarse meshes with nearly unchanged
@@ -101,6 +107,14 @@ Using a 1.1 mm bulk target while retaining those same 0.22 mm load/peak fields
 gave 630,927 DOFs. This is why the bulk floor changed; the 650,000 DOF guard,
 both 5% gates, actual peak-element metadata and required local depth remain.
 The final study must still meet those gates with its own evolving hotspots.
+The separate [receiver-opening study](BODY_OPENING.md) has additional finite
+ear/socket load zones and records its own partitioned-mesh resource policy.
+
+Every driver replaces an older machine-readable and Markdown PASS with a
+pending HOLD before validation starts. Captured analysis, parameter and STEP
+identities are checked again after the expensive solve, together with the CAD
+generator identities in the manifest. A changed input cannot publish a fresh
+PASS from computations made with an earlier version.
 
 Convergence under this test is stability of these monitored quantities. It does
 not establish an absolute numerical error bound or validate the physical model.

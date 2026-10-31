@@ -19,13 +19,13 @@ import fea
 from body_actuation import body_opening_cases
 from evidence import (DISPLACEMENT_CHANGE_LIMIT_PCT, UTILIZATION_CHANGE_LIMIT_PCT,
                       convergence, validate_cad_inputs)
-from traction_mesh import mesh_with_traction_partitions
+from traction_mesh import mesh_with_traction_partitions, traction_refinement_fields
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE.parent/"out"
 EXPECTED_CASES = ("body_opening_force", "body_opening_torque")
-BULK_FLOOR_MM = 1.2
-SIZES_MM = (1.2, 0.3, 0.22, 0.16)
+BULK_FLOOR_MM = 1.3
+SIZES_MM = (1.3, 0.3, 0.22, 0.16, 0.12)
 SOURCE_FILES = ("analysis/body_actuation_fea.py", "analysis/body_actuation.py",
                 "analysis/traction_mesh.py", "analysis/fea.py", "analysis/load_audit.py",
                 "analysis/linear_solver.py", "analysis/evidence.py", "analysis/coupled_forces.py",
@@ -70,7 +70,6 @@ def run_study(name, source_case, definition, analysis_id, output_dir, progress=l
     if not 0 < minimum <= 0.22:
         raise ValueError("body-opening must retain the mandatory 0.22 mm or finer local refinement")
     case = dict(source_case, sizes=SIZES_MM, global_floor_mm=BULK_FLOOR_MM)
-    builder = partial(mesh_with_traction_partitions, patches=case["loads"])
     record = dict(definition=definition, reference_load_N=reference, numerical_screen_passed=False,
                   study=[], rejected_meshes=[], fine=None)
     runs, peaks = [], []
@@ -78,6 +77,8 @@ def run_study(name, source_case, definition, analysis_id, output_dir, progress=l
     for h in case["sizes"]:
         print(f"{name}: global floor {BULK_FLOOR_MM:g}, local h={h:g} mm", flush=True)
         gc.collect()
+        builder = partial(mesh_with_traction_partitions, patches=case["loads"],
+                          baseline_h_mm=minimum, peak_points=tuple(peaks))
         try:
             result = fea.run_case(case, h, peaks, reference_load_N=reference, mesh_builder=builder)
         except fea.InvalidLoadPatch as exc:
@@ -91,6 +92,9 @@ def run_study(name, source_case, definition, analysis_id, output_dir, progress=l
         field.update(analysis_id=analysis_id, case_name=name)
         np.savez_compressed(Path(output_dir)/f"{name}_fields.npz", **field)
         del field
+        _, centres = fea.refinement_plan(case, h, peaks)
+        result["mesh_refinement_fields"] = traction_refinement_fields(
+            h, centres, case.get("refinement_radius_mm", 1.5), minimum, peaks)
         peaks.append(result["governing_peak_mm"])
         if runs:
             result.update(convergence(runs[-1], result, minimum))
@@ -155,7 +159,7 @@ def main():
         design_service_force_N=fea.p.P_DESIGN, max_dofs_per_solve=fea.MAX_DOFS,
         convergence_limits_pct=dict(load_point_displacement=DISPLACEMENT_CHANGE_LIMIT_PCT,
                                     governing_utilization=UTILIZATION_CHANGE_LIMIT_PCT),
-        mesh_policy="Exact partitions preserve all ten finite traction rectangles on the unchanged solid; bulk 1.2 mm, then local 0.30/0.22 mm at every physical patch and all previous governing peaks; 0.16 mm only if needed and within budget",
+        mesh_policy="Exact partitions preserve all ten finite traction rectangles on the unchanged solid; bulk 1.3 mm, then local 0.30/0.22 mm at every physical patch and all previous governing peaks. If needed, all previous governing peaks refine to 0.16/0.12 mm while the complete physical patch zones retain their mandatory 0.22 mm baseline; every field size is recorded and the DOF guard remains active",
         contact_basis="Two balanced, scaled centered-reference component screens with positive socket tractions and full ideal-clamp servo wrenches. Componentwise amplitude coverage is not a full-stroke stress envelope or a jointly realized contact state; fastener pull-out/slip and physical loaded release remain unqualified.",
         material_basis="Dry PAHT-CF tensile-data proxy; elastic coupling/shear and compression are assumed; no printed-process qualification",
         support_exclusion_mm=fea.SUPPORT_EXCLUDE, status="RUNNING OR UNRESOLVED")
