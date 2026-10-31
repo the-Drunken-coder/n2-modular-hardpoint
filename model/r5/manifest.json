@@ -209,19 +209,6 @@
    "opacity": 1
   },
   {
-   "id": "wing",
-   "name": "Wing panel section (ghost)",
-   "kind": "ghost",
-   "color": "#8abbff",
-   "stl": "wing.stl",
-   "explode": [
-    0,
-    0,
-    24
-   ],
-   "opacity": 0.18
-  },
-  {
    "id": "payload",
    "name": "1 lb payload stand-in",
    "kind": "payload",

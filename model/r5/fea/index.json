@@ -3,7 +3,7 @@
  "revision": "R5",
  "material": "PAHT-CF comparison proxy",
  "fields_include_allowables": true,
- "analysis_id": "a461cfa9bb51460c8b445e15f8e6e0c2",
+ "analysis_id": "7b34474e645448759cf61bd91f1cf971",
  "reference_load_N": 17.8088764,
  "source_sha256": {
   "analysis/fea.py": "4d9e3ac2c11905f56ecbb3e6d8e2db967e1026f4984c0aede501d4a7058c1116",
@@ -11,10 +11,10 @@
   "analysis/linear_solver.py": "b18a869363117f5953ad198ff1ed5c8f3f9f5577aeac7c6869480f5214037cf7",
   "analysis/evidence.py": "71269c09a928a2687e09c9ce413e7f57eaeb03eaa4a528fa594c0a7af10baa68",
   "params.py": "8c7ccd5984befeeb2514e1dd2d63237619364bdb19e5c9c03f76fd41f78aa169",
-  "out/cad.json": "aa05c212a1b21944474d40203242d0c99ae15487fecb2489ca1ad79db4e4ef03",
-  "out/keeper.step": "fccd40f075ffc55b045714b5394ef0c96fd686a5e7600104bb3ea2eff8ace431",
-  "out/adapter.step": "a10d17e8079959a7326758c89252d7154dcc1a820c3565a60b8934733da568d4",
-  "out/body.step": "2914b64a8f0aa89c9bedc7c0e68665635737abf36ee2fcebb2a57774999651ec"
+  "out/cad.json": "ed8171eea7e3a2c1b04ac01b94883b5effbf0e7efd834d6a9e3885ceccbd0307",
+  "out/keeper.step": "ea8a59a6d41d2364d815d956bcce54232413f869b39bbcdc928fcb271dbfa73f",
+  "out/adapter.step": "801457894978aa5fd37aadbbdf1cdc09a63835954149db79844c5c902cce56e1",
+  "out/body.step": "b0dfddb4d0f1c8bd25c05fcf82651ff0273748adbe23f32bd42824c22d56ca36"
  },
  "design_N": 8.9044382,
  "required_fail_N": 17.8088764,
@@ -39,12 +39,12 @@
    "case": "Z",
    "label": "Fully engaged axial load",
    "in_scope": true,
-   "fail_N": 42.44833342668824,
-   "stress_screen_N": 42.44833342668824,
-   "margin_at_proof": 2.383549218562056,
+   "fail_N": 42.44833342678275,
+   "stress_screen_N": 42.44833342678275,
+   "margin_at_proof": 2.3835492185673632,
    "reference_load_N": 17.8088764,
    "working_load_rating_N": null,
-   "governing_fi_per_N": 0.02355805091210665,
+   "governing_fi_per_N": 0.023558050912054197,
    "peak_mm": [
     9.256425879158963,
     36.982982274013395,
@@ -152,11 +152,11 @@
    ],
    "local_refinement_radius_mm": 0.8,
    "elements": 101565,
-   "analysis_id": "a461cfa9bb51460c8b445e15f8e6e0c2",
-   "disp_change_pct": 0.304462240176182,
-   "utilization_change_pct": 0.828743200631672,
+   "analysis_id": "7b34474e645448759cf61bd91f1cf971",
+   "disp_change_pct": 0.3044622401618482,
+   "utilization_change_pct": 0.8287432007428877,
    "required_refinement_mm": 0.16000000000000003,
-   "raw_max_utilization_at_proof": 0.8491615640064534,
+   "raw_max_utilization_at_proof": 0.8491615640093728,
    "support_exclusion_mm": 1.0,
    "applied_load_audit": {
     "reference_point_mm": [
@@ -175,17 +175,17 @@
      0.0
     ],
     "reaction_force_N": [
-     9.556196979565446e-13,
-     -2.7912581100630884e-12,
-     17.80887640000002
+     -1.4958785078678094e-12,
+     6.672214863945314e-13,
+     17.80887639999682
     ],
     "reaction_moment_Nmm": [
-     715.9168312799924,
-     -178.0887640000154,
-     -5.6145074700530984e-11
+     715.916831279929,
+     -178.08876399994125,
+     5.0954424707372326e-11
     ],
-    "force_relative_error": 1.658039477915277e-13,
-    "moment_relative_error": 7.981834562272273e-14,
+    "force_relative_error": 1.9589233451477858e-13,
+    "moment_relative_error": 1.443167899497023e-13,
     "expected_applied_force_N": [
      0.0,
      0.0,
@@ -203,12 +203,12 @@
    "case": "Z",
    "label": "Fully engaged axial load",
    "in_scope": true,
-   "fail_N": 216.3509139136506,
-   "stress_screen_N": 216.3509139136506,
-   "margin_at_proof": 12.148487588675197,
+   "fail_N": 216.35091391375184,
+   "stress_screen_N": 216.35091391375184,
+   "margin_at_proof": 12.148487588680881,
    "reference_load_N": 17.8088764,
    "working_load_rating_N": null,
-   "governing_fi_per_N": 0.004622120525911517,
+   "governing_fi_per_N": 0.004622120525909354,
    "peak_mm": [
     12.346847609710812,
     40.077906872277104,
@@ -281,11 +281,11 @@
    ],
    "local_refinement_radius_mm": 1.5,
    "elements": 92287,
-   "analysis_id": "a461cfa9bb51460c8b445e15f8e6e0c2",
-   "disp_change_pct": 1.0075042070695985,
-   "utilization_change_pct": 2.007630565389079,
+   "analysis_id": "7b34474e645448759cf61bd91f1cf971",
+   "disp_change_pct": 1.0075042069967763,
+   "utilization_change_pct": 2.007630565458434,
    "required_refinement_mm": 0.25,
-   "raw_max_utilization_at_proof": 0.8546570102485728,
+   "raw_max_utilization_at_proof": 0.854657010248016,
    "support_exclusion_mm": 1.0,
    "applied_load_audit": {
     "reference_point_mm": [
@@ -304,17 +304,17 @@
      0.0
     ],
     "reaction_force_N": [
-     -9.065369982463878e-13,
-     1.9861803174370252e-13,
-     17.808876400005033
+     -1.7419694159359622e-12,
+     6.451505996096785e-13,
+     17.80887639999622
     ],
     "reaction_moment_Nmm": [
-     715.9168312801945,
-     -178.08876400010482,
-     5.842021311153189e-11
+     715.9168312798365,
+     -178.0887639999364,
+     9.721794202999234e-11
     ],
-    "force_relative_error": 2.8665742941065404e-13,
-    "moment_relative_error": 3.1100512418671224e-13,
+    "force_relative_error": 2.372196509231629e-13,
+    "moment_relative_error": 2.707150084032364e-13,
     "expected_applied_force_N": [
      0.0,
      0.0,
@@ -332,12 +332,12 @@
    "case": "Z",
    "label": "Fully engaged axial load",
    "in_scope": true,
-   "fail_N": 78.11399609341713,
-   "stress_screen_N": 78.11399609341713,
-   "margin_at_proof": 4.386239442563436,
+   "fail_N": 78.11399609341831,
+   "stress_screen_N": 78.11399609341831,
+   "margin_at_proof": 4.386239442563502,
    "reference_load_N": 17.8088764,
    "working_load_rating_N": null,
-   "governing_fi_per_N": 0.012801803134025973,
+   "governing_fi_per_N": 0.012801803134025779,
    "peak_mm": [
     13.101793429216464,
     36.39976649919601,
@@ -351,7 +351,7 @@
      4.597914305074758
     ],
     "max_edge_mm": 0.26032655633690466,
-    "min_edge_mm": 0.21920733591622746
+    "min_edge_mm": 0.21920733591622749
    },
    "h_mm": 0.22,
    "global_h_mm": 1.1,
@@ -475,11 +475,11 @@
    ],
    "local_refinement_radius_mm": 0.8,
    "elements": 129913,
-   "analysis_id": "a461cfa9bb51460c8b445e15f8e6e0c2",
-   "disp_change_pct": 0.5932577224337834,
-   "utilization_change_pct": 1.8705111107359251,
+   "analysis_id": "7b34474e645448759cf61bd91f1cf971",
+   "disp_change_pct": 0.5932577224233442,
+   "utilization_change_pct": 1.8705111107277965,
    "required_refinement_mm": 0.22,
-   "raw_max_utilization_at_proof": 0.22798572971100117,
+   "raw_max_utilization_at_proof": 0.22798572971099773,
    "support_exclusion_mm": 1.0,
    "applied_load_audit": {
     "reference_point_mm": [
@@ -498,17 +498,17 @@
      0.0
     ],
     "reaction_force_N": [
-     -2.2824657474381643e-12,
-     2.9145456393372265e-12,
-     17.808876400000084
+     3.096574429165e-12,
+     3.641674384735529e-12,
+     17.808876399996148
     ],
     "reaction_moment_Nmm": [
-     715.916831280015,
-     -178.08876400001336,
-     1.5882763420432822e-11
+     715.9168312798625,
+     -178.0887639998679,
+     -9.284564176509358e-11
     ],
-    "force_relative_error": 2.0800766585872157e-13,
-    "moment_relative_error": 3.385108003589355e-14,
+    "force_relative_error": 3.4294548254750426e-13,
+    "moment_relative_error": 2.884167309228151e-13,
     "expected_applied_force_N": [
      0.0,
      0.0,
