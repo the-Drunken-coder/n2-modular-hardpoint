@@ -1,0 +1,8 @@
+item,qty,part,notes
+1,1,Body (printed PAHT-CF),print wing face down
+2,1,Keeper 5x5 bar (printed PAHT-CF),print on its side
+3,1,Payload adapter with tab (printed PAHT-CF),print flat; bond or screw to payload
+4,1,TowerPro MG92B servo (Adafruit 2307),stock horn and ear screws used
+5,1,M2x8 screw,threads into stock horn outer hole; crank pin
+6,4,M3x12 self-tapping screw (plastic),wing side into body bosses
+7,1,Servo lead / connector,to aircraft harness
