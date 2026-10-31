@@ -16,8 +16,8 @@
  {
   "label": "PR #25 (fix/r5-active-baseline)",
   "title": "Select R5 consistently across requirements, status, documentation and viewer",
-  "sha": "cf32174b5cbec9efbc3f2ac1ffbc9b084db09fb3",
-  "built": "2026-10-31T05:22:25Z",
+  "sha": "46c8c71543f5a696bf0219d982cad7974647bc52",
+  "built": "2026-10-31T08:21:40Z",
   "path": "pr/25/"
  },
  {
