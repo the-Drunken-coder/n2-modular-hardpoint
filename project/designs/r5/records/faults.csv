@@ -1,0 +1,1 @@
+specimen_id,configuration_id,test_id,fault_type,contact_position,maximum_stall_duration_s,actual_exposure_s,minimum_servo_V,peak_current_A,torque_measurement,observed_motion,damage,post_fault_proof_result,result,raw_evidence,notes

@@ -1,5 +1,7 @@
 # N2 order list
 
+> **Historical P14 context.** R5 is the current development package. Follow [the current R5 instructions](../designs/r5/BOM.md); the specifications, files and results below apply only to the earlier package.
+
 Everything needed to build one N2 and run the bench tests. Prices and stock were read from each product page on 2026-10-29. They are not quotes; check again at checkout.
 
 Printed parts (receiver, adapter, keeper, clamp) are printed in-house in PAHT-CF, about 10 g total.

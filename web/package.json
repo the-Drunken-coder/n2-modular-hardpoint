@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "node copy-model.mjs && vite",
     "build": "node copy-model.mjs && vite build",
+    "build:ui": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {

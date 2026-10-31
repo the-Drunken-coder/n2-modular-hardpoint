@@ -1,47 +1,28 @@
-# N2 P14 supported cross-bolt hardpoint
+# N2 project packages — current R5
 
-**N2 P14 is the sole active design.** The four printed pieces use one purchased mini solenoid to retract a supported cross-bolt. Current development focuses on a compact mechanical retention/release mechanism, with PAHT-CF as the candidate material for the next prototype.
+**R5 is the active development package.** It uses three printed parts and a TowerPro MG92B positional servo. It remains an unqualified bench prototype; numerical checks do not establish a working-load rating, physical release result or aircraft qualification. The repository selection is recorded in [active_design.json](active_design.json).
 
-This directory began as the P11 package import and still contains historical drawings, BOM/analysis records and website source. The current geometry is P14; the original P11/P6 provenance and test transcripts do not validate later revisions. The repository-level [current context](../docs/CURRENT_CONTEXT.md), [P14 record](../docs/p14.md), [requirements](../docs/requirements.md) and [test plan](../docs/test-plan.md) govern further work.
+## Current R5 work
 
-## Start here
-
-| Task | Current entry point |
+| Task | Entry point |
 |---|---|
-| Understand the selected design and load targets | [Current context](../docs/CURRENT_CONTEXT.md), [requirements](../docs/requirements.md), [P14](../docs/p14.md) |
-| Open the complete retained assembly | [cad/N2/assembly.step](cad/N2/assembly.step) |
-| Edit and regenerate the design | [cad/build_n2.py](cad/build_n2.py), [CAD instructions](cad/README.md) |
-| Print the four custom parts | `cad/N2/*_print.stl`, [printing](manufacturing/PRINTING.md), [print requirements](../docs/print-requirements.md) |
-| Assemble and inspect release motion | [Assembly](docs/assembly_installation.md), [mechanism](docs/mechanism.md), current CAD viewer |
-| Procure components | [Order list](manufacturing/ORDER_LIST.md); older BOM records retain their original cost/material basis |
-| Wire and program the local bench release | [Wiring](electronics/wiring.md), [electronics](electronics/README.md) |
-| Read the current structural estimate | [P14 evidence](../docs/p14.md), [load-estimate interpretation](../docs/provisional-load-rating.md) |
-| Reproduce current analyses | [Tools](../tools/README.md), `analysis/p14/`; the original PLA archive has separate reproduction instructions |
-| Plan physical inspection and tests | [Current test plan](../docs/test-plan.md), [inspection form](manufacturing/inspection_record.csv) |
-| Build the current website | Repository [README](../README.md) and [web/](../web/) |
+| Read the selected scope and load requirements | [Current context](../docs/CURRENT_CONTEXT.md), [R5 requirements](../docs/requirements.md) |
+| Understand the mechanism and reproduce its checks | [R5 package](designs/r5/README.md) |
+| Edit the geometry | [R5 parameters](designs/r5/params.py), [CAD generator](designs/r5/cad/build.py) |
+| Procure components | [R5 BOM](designs/r5/BOM.md) |
+| Print, inspect and assemble | [R5 printing](designs/r5/PRINTING.md), [assembly](designs/r5/ASSEMBLY.md), [current print requirements](../docs/print-requirements.md) |
+| Wire and calibrate the bench controller | [R5 servo electronics](designs/r5/electronics/README.md) |
+| Define the host and payload mounting interfaces | [R5 installation interface](designs/r5/docs/installation-interface.md) |
+| Plan physical testing and assess evidence | [R5 bench plan](../docs/test-plan.md), [evidence status](../docs/EVIDENCE_AND_READINESS.md) |
 
-## Compact assembly and operation
+The active CAD, analysis, manufacturing and controller instructions are under `designs/r5/`. Follow their measured-fit and calibration limits before powered trials. The repository [README](../README.md) is the top-level entry point.
 
-The current retained envelope is approximately **43.1 × 30 × 19 mm**, excluding full wiring, controls, installation hardware/backing and the departure corridor. Four custom pieces are printed: receiver, payload adapter, keeper and solenoid clamp. One purchased Adafruit 2776 mini solenoid drives the keeper; two M2 × 16 screws and two M2 nuts retain its clamp. The 13 modeled objects include simplified purchased actuator components and hardware; those reference pieces are not intended to be printed. [Manifest](cad/N2/manifest.json)
+## Historical P11–P14 material
 
-The keeper carries adapter load through receiver supports. The solenoid retracts it in +X; after the keeper clears, an external force must move the adapter away in +Z. Commanding the coil establishes neither unlocking nor complete separation. There is no ejector, position sensor or implemented positive fixed-pod lock.
+The other directories in this package preserve earlier designs, source imports and studies. In particular, `cad/N2/`, `manufacturing/` and `electronics/` describe the historical four-print P14 solenoid mechanism. Their dimensions, positive-Z extraction frame, hardware, controller and numerical results do not apply to R5.
 
-P14 bridges the proximal roof on both sides, moves the keeper linkage past it, makes the keeper underside flat and narrows the stem slot to give the return button a bearing surface. It preserves the 3 mm stroke, 0.6 mm distal overlap and 1.4 mm lug. Losing distal support still occurs before lug clearance; two modeled support states having the same governing adapter screen does not prove the intervening loaded motion. [P14 changes](../docs/p14.md)
+- [P14 design record](../docs/p14.md), [requirements](../docs/p14-requirements.md), [print requirements](../docs/p14-print-requirements.md) and [bench plan](../docs/p14-test-plan.md).
+- [P14 CAD](cad/README.md), [fabrication](manufacturing/PRINTING.md), [electronics](electronics/README.md) and [analysis interpretation](../docs/provisional-load-rating.md).
+- [P11 import scope](IMPORT_NOTE.md), [original analysis archive](analysis/README.md) and [artifact recovery](../docs/ARTIFACTS_AND_RECOVERY.md).
 
-The local COTS bench controller and firmware are included. Payload power/data transfer and aircraft-wide electrical integration remain outside the current mechanical scope. There is no bespoke PCB and therefore no PCB fabrication quote.
-
-## Current engineering basis
-
-The provisional carried-mass target is **0.454 kg (1 lb), including the departing adapter and its attachment hardware**. At the assumed 2g load factor this is **8.9 N**; SF 2 sets a **17.8 N sacrificial qualification target**. These are development requirements, not demonstrated performance. The old 10–15 lb target and later superseded 4 lb requirement do not apply. [Requirements](../docs/requirements.md)
-
-The current P14 estimate has a governing **33.68 N scaled local stress-screen crossing**. Dividing by SF 2 gives **16.84 N as an analytical estimate**, not an established working-load rating. The calculation scales a homogeneous isotropic PLA model by the supplier Z-tensile ratio 47/31; it is not a measured or anisotropic PAHT-CF solution. P14 receiver cases use ideal full backing, so actual mounting remains a separate qualification issue. [Analysis interpretation](../docs/provisional-load-rating.md)
-
-No part has been printed or physically tested. Immediate work is slicer/bridge inspection, measured print/actuator fit, actual spring return and full-stroke pull, retained-load tests on the real mounting fixture, and complete loaded release. Matching coupons, moisture/temperature, wear and retention duration also require evidence.
-
-## Reproduction and historical records
-
-Use the current commands in [cad/README.md](cad/README.md) for geometry and [../tools/README.md](../tools/README.md) for P14 structural studies. The original [analysis/README.md](analysis/README.md) covers the P8/P11 common-PLA archive; it is valuable history but is not the P14 result set.
-
-The original `PACKAGE_MANIFEST.json`, CAD provenance/regeneration reports, drawings, historical BOM figures and `website_source/` describe the imported snapshot. They must not be presented as fresh P14 verification. Large raw historical arrays/meshes were retained in the indexed original archive, not all in this Git checkout. See the [artifact recovery guide](../docs/ARTIFACTS_AND_RECOVERY.md).
-
-The original controller host-test transcript covers software logic only. No controller was physically flashed or exercised for this documentation correction, and no new FEA or physical test is implied by it.
+Original manifests, hashes, drawings, archived test transcripts and `website_source/` describe their recorded revisions. Preserve that source identity when reproducing them; they are not current R5 evidence.

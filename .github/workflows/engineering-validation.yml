@@ -1,4 +1,4 @@
-name: Engineering validation
+name: P14 reference regression
 
 on:
   pull_request:

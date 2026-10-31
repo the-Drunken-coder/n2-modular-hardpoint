@@ -1,5 +1,7 @@
 # N2 local release electronics
 
+> **Historical P14 context.** R5 is the current development package. Follow [the current R5 instructions](../designs/r5/electronics/README.md); the specifications, files and results below apply only to the earlier package.
+
 The existing local bench controller is retained without functional changes. One **Adafruit 2776** solenoid mounts in N2; the **Adafruit 5648** driver, **Raspberry Pi Pico H / SC0917**, ARM/FIRE buttons, resistor and regulated supply remain outside the compact mechanism. There is no aircraft-wide architecture or payload power/data interface.
 
 [wiring.md](wiring.md) contains the complete circuit, physical Pico pin assignments, supply arrangement, limits, programming instructions, checkout and command/unlock/clear test procedure. [sources.json](sources.json) preserves the historical supplier-source and cost records. [provenance.json](provenance.json) records the copied firmware's hashes.

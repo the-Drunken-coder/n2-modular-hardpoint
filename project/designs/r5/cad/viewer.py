@@ -15,7 +15,8 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 sys.path.insert(0, str(HERE))
 import params as p  # noqa: E402
-from build import adapter, body, box, horn_screw, keeper, ycyl, zcyl  # noqa: E402
+from build import (adapter, body, box, cable_gland, crank_screw, crank_sleeve, crank_spacer,
+                   crank_washer, crank_nut, horn_screw, keeper, ycyl, zcyl)  # noqa: E402
 
 OUT = HERE.parent / "out" / "viewer"
 X0 = p.SHAFT_X - p.SHAFT_FROM_END                 # servo case -X end
@@ -43,7 +44,7 @@ def servo_case():
     s = s.union(ycyl(p.SHAFT_X, p.SHAFT_Z, CASE_TOP_Y - 0.1, CASE_TOP_Y + 1.5, 11.6))
     s = s.union(ycyl(p.SHAFT_X + 6.0, p.SHAFT_Z, CASE_TOP_Y - 0.1, CASE_TOP_Y + 1.0, 6.0))
     # cable gland at the -X end, low
-    s = s.union(box(X0 - 1.5, X0 + 0.1, p.SERVO_BOTTOM_Y + 2, p.SERVO_BOTTOM_Y + 6, p.SHAFT_Z - 2.5, p.SHAFT_Z + 2.5))
+    s = s.union(cable_gland())
     return s
 
 
@@ -66,21 +67,23 @@ def horn():
     tip_r, tip_c = 2.2, p.HORN_REACH - 2.2
     arm = (cq.Workplane("XZ").moveTo(p.SHAFT_X, p.SHAFT_Z + 3.2).lineTo(p.SHAFT_X - tip_c, p.SHAFT_Z + tip_r)
            .threePointArc((p.SHAFT_X - tip_c - tip_r, p.SHAFT_Z), (p.SHAFT_X - tip_c, p.SHAFT_Z - tip_r))
-           .lineTo(p.SHAFT_X, p.SHAFT_Z - 3.2).close().extrude(-1.6).translate((0, y1 - 1.6, 0)))
+           .lineTo(p.SHAFT_X, p.SHAFT_Z - 3.2).close().extrude(-p.CRANK_PIN["horn_arm_t"])
+           .translate((0, y1 - p.CRANK_PIN["horn_arm_t"], 0)))
     s = hub.union(arm)
     s = s.cut(ycyl(p.SHAFT_X, p.SHAFT_Z, y0 - 1, y1 + 1, 2.0))                    # centre screw hole
-    s = s.cut(ycyl(p.SHAFT_X - p.CRANK_R, p.SHAFT_Z, y0 - 1, y1 + 1, 1.6))        # crank hole (M2 tap)
+    c = p.CRANK_PIN
+    s = s.cut(ycyl(p.SHAFT_X - p.CRANK_R, p.SHAFT_Z, y0 - 1, y1 + 1, c["horn_hole_d"]))
+    # Rear countersink for the flush DIN965H head. Inspect the actual horn/head;
+    # do not substitute the wider ISO10642 socket-head screw.
+    depth = (c["head_d"] - c["horn_hole_d"]) / 2
+    s = s.cut(cq.Workplane().add(cq.Solid.makeCone(c["head_d"] / 2, c["horn_hole_d"] / 2,
+                       depth, cq.Vector(p.SHAFT_X - p.CRANK_R, y1 - c["horn_arm_t"], p.SHAFT_Z), cq.Vector(0, 1, 0))))
     s = s.cut(ycyl(p.SHAFT_X - p.CRANK_R - 2.0, p.SHAFT_Z, y0 - 1, y1 + 1, 1.2))  # spare outer hole
     return s
 
 
 def pin_screw():
-    """M2 x 8 pan head: threads into the horn's crank hole through the keeper slot."""
-    x = p.SHAFT_X - p.CRANK_R
-    ky1 = p.YK + p.KEEPER_W / 2
-    shank = ycyl(x, p.SHAFT_Z, HORN_Y[1] - 1.6, ky1 + 0.4, p.PIN_D)
-    head = ycyl(x, p.SHAFT_Z, ky1 + 0.4, ky1 + 1.7, 3.8).faces(">Y").edges().fillet(0.5)
-    return shank.union(head).cut(box(x - 0.3, x + 0.3, ky1 + 1.0, ky1 + 2, p.SHAFT_Z - 1.4, p.SHAFT_Z + 1.4))
+    return crank_screw()
 
 
 def ear_screws():
@@ -108,6 +111,10 @@ def wing_screws():
 def wing():
     z0 = p.BODY["z"]
     s = box(-12, p.BODY["x"] + 12, -12, p.BODY["y"] + 12, z0, z0 + WING_T)
+    # Illustrate the host opening required by the gland-side cable route.
+    # This ghost panel is not a qualified host/backing design.
+    ch = p.CABLE_CHANNEL
+    s = s.cut(box(*ch["x"], *ch["y"], z0 - 1, z0 + WING_T + 1))
     for bx, by in p.BOSSES:
         s = s.cut(zcyl(bx, by, z0 - 1, z0 + WING_T + 1, 3.4))
     return s
@@ -130,7 +137,7 @@ def adapter_screws():
     return s
 
 
-ROT, SLIDE, DROP = ["horn", "servo_spline", "pin_screw", "horn_screw"], ["keeper"], ["adapter", "payload", "payload_screws"]
+ROT, SLIDE, DROP = ["horn", "servo_spline", "pin_screw", "pin_spacer", "pin_sleeve", "pin_washer", "pin_nut", "horn_screw"], ["keeper"], ["adapter", "payload", "payload_screws"]
 PARTS = [  # id, builder, name, kind, colour, explode (mm at slider 1)
     ("body", body, "Body (printed, PAHT-CF)", "printed", "#5f6b7c", [0, 0, 0]),
     ("keeper", keeper, "Keeper bar (printed)", "printed", "#f0b726", [0, 22, 0]),
@@ -138,7 +145,11 @@ PARTS = [  # id, builder, name, kind, colour, explode (mm at slider 1)
     ("servo", servo_case, "TowerPro MG92B servo", "purchased", "#2d72d2", [0, -14, -26]),
     ("servo_spline", servo_spline, "Servo output spline", "moving", "#c5cbd3", [0, -14, -26]),
     ("horn", horn, "Stock single-arm horn", "moving", "#f6f7f9", [0, 10, -26]),
-    ("pin_screw", pin_screw, "M2x8 crank pin screw", "purchased", "#abb3bf", [0, 34, -26]),
+    ("pin_screw", pin_screw, "M2x20 DIN965H crank through-bolt", "purchased", "#abb3bf", [0, -7, -26]),
+    ("pin_spacer", crank_spacer, "2mm horn-side brass spacer (4mm OD, 2.2mm ID)", "purchased", "#b39749", [0, 14, -26]),
+    ("pin_sleeve", crank_sleeve, "12mm running brass sleeve (4mm OD, 2.2mm ID)", "purchased", "#c9ad60", [0, 22, -26]),
+    ("pin_washer", crank_washer, "M2 flat washer", "purchased", "#abb3bf", [0, 27, -26]),
+    ("pin_nut", crank_nut, "M2 nylon-insert locknut", "purchased", "#abb3bf", [0, 34, -26]),
     ("horn_screw", horn_screw, "M2 horn centre retaining screw (supplied)", "purchased", "#dfe3e8", [0, 18, -26]),
     ("ear_screws", ear_screws, "Servo ear screws (2, supplied)", "purchased", "#abb3bf", [0, 2, -26]),
     ("wing_screws", wing_screws, "M3 self-tapping screws (4)", "purchased", "#abb3bf", [0, 0, 40]),
