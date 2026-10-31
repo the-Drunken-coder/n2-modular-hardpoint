@@ -55,6 +55,19 @@ def cable_connector_sweep():
     return box(*c["x"], *c["y"], -1, p.BODY["z"] + 1)
 
 
+def tab_root_profile(gap=0.0):
+    """XZ lower-tab buttress; offset in X for the receiver's release clearance."""
+    x0, x1 = p.TAB_X
+    z0, z1 = p.ADAPTER["z"][1], p.TAB_ROOT_TAPER_TOP_Z
+    extra = p.TAB_ROOT_EXTRA_X
+    return [(x0 - extra - gap, z0), (x1 + extra + gap, z0),
+            (x1 + gap, z1), (x0 - gap, z1)]
+
+
+def xz_prism(profile, y0, y1):
+    return cq.Workplane("XZ").polyline(profile).close().extrude(-(y1 - y0)).translate((0, y0, 0))
+
+
 def body():
     B, top0 = p.BODY, p.BODY["z"] - p.TOP_PLATE_T
     s = box(0, B["x"], 0, B["y"], top0, B["z"])
@@ -71,6 +84,10 @@ def body():
                   p.YK + p.TAB_W / 2 + g, -1, p.TAB_TOP + 1.0))
     s = s.cut(box(p.TAB_X[0] - g - 1, p.TAB_X[1] + g + 1, p.YK - p.TAB_W / 2 - g - 1,
                   p.YK + p.TAB_W / 2 + g + 1, -1, 1.0))
+    # Clearance for the integral lower-tab buttresses. The relief stops below
+    # the hole and tunnel floor; no extra printed part or guide contact is added.
+    s = s.cut(xz_prism(tab_root_profile(g), p.YK - p.TAB_W / 2 - g,
+                      p.YK + p.TAB_W / 2 + g))
     # tunnel and tip pocket
     h = (p.KEEPER_W + p.SLIDE) / 2
     s = s.cut(box(p.TAB_X[1], p.TUNNEL_X[1] + 1, p.YK - h, p.YK + h, p.ZK - h, p.ZK + h))
@@ -135,6 +152,7 @@ def adapter():
     s = s.edges(cq.selectors.BoxSelector((p.TAB_X[0] - 0.1, p.YK - p.TAB_W / 2 - 0.1, a["z"][1] - 0.1),
                                          (p.TAB_X[1] + 0.1, p.YK + p.TAB_W / 2 + 0.1, a["z"][1] + 0.1))
                 ).fillet(p.TAB_ROOT_FILLET)
+    s = s.union(xz_prism(tab_root_profile(), p.YK - p.TAB_W / 2, p.YK + p.TAB_W / 2))
     s = s.cut(box(p.TAB_X[0] - 1, p.TAB_X[1] + 1, p.YK - p.HOLE_W / 2, p.YK + p.HOLE_W / 2,
                   p.HOLE_TOP_LOADED - p.HOLE_H, p.HOLE_TOP_LOADED))
     s = s.faces(">Z").edges().chamfer(1.0)

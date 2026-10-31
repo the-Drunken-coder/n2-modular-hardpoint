@@ -38,7 +38,7 @@ python analysis/risks.py       # friction, voltage, tolerance Monte Carlo, dynam
 | Supply 4.4–6.0 V (datasheet interpolation) | 3.83× at 4.4 V, 4.00× at 4.8 V |
 | Tolerance Monte Carlo, 200k (horn radius, stop error, print) | P(no release) 0, P(spare < 1 mm) 2e-5, P(partial engagement) 3.5e-5, tip never hits pocket floor |
 | Back-drive at dead centre, 3° backlash, 10 g | 1.65 N·mm, 92× below working torque |
-| Unseated tab | chamfer self-seats with 12.8 N of 30.6 N; servo stall on a clamped tab gives 27.5 MPa, 1.7× mean Z UTS |
+| Unseated tab | Integral lower-root buttresses are screened against the same 16 MPa across-layer allowable as the structure. This prescribed root-load case does not qualify upper hole contacts or arbitrary mis-seating; complete jam tests remain pending. |
 | Payload mode / rattle | ≈2 kHz on rigid wing; lifts off above 1 g peak, impact 34–68× proof at 2–5 g (undamped, reported only) |
 
 FEA: skfem P2 tets, transversely isotropic, direct solver with residual check. Refined until load-point displacement changes < 5 % (adapter 0.2 %, body 1.1 %). Keeper stays at 11 % but its margin is 176, and hand calcs give 10.8.
@@ -66,6 +66,7 @@ The servo lead uses the continuous gland-side opening; see [cable fit and routin
 4. Wing boss M3 self-tapper pull-out.
 5. Horn hole radius and servo case: measure on arrival.
 6. Vibration at the hardpoint in flight (decides whether rattle matters) and servo holding under vibration.
+7. Mis-seating/jam trials on sacrificial assemblies: upper tab and hole contacts, keeper, horn and body must be inspected after each event. The lower-root hand calculation is not a complete jam model. Do not continue a stalled command or fly a damaged specimen.
 
 ## Optional
 A latched-position microswitch is not fitted. The keeper is visible from the +Y side for a visual check. A switch could be added later on the tunnel back if needed.

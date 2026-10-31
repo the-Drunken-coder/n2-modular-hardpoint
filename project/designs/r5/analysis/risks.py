@@ -158,19 +158,36 @@ def unseated():
     f_stall = stall_nmm(6.0) / arm
     chamfer = 0.5
     f_lift = W1 * (1 + p.MU) / (1 - p.MU) + drag(p.MU, W1)     # 45 deg wedge lifts 1 g payload
-    # tab as a cantilever from its root if the adapter is held rigidly while latching
+    # Lower-root cantilever screen, with the same across-layer allowable used
+    # elsewhere. This is NOT a contact model of every possible mis-seated pose.
     t, w = p.TAB_X[1] - p.TAB_X[0], p.TAB_W
     L = p.ZK - p.ADAPTER["z"][1]
-    sigma_root = f_stall * L / (w * t * t / 6)
+    z0, z1 = p.ADAPTER["z"][1], p.TAB_ROOT_TAPER_TOP_Z
+    t0 = t + 2 * p.TAB_ROOT_EXTRA_X
+    slope = (t - t0) / (z1 - z0)
+    sections = [z0, z1]
+    if slope:
+        stationary_z = 2 * p.ZK + t0 / slope - z0
+        if z0 < stationary_z < z1:
+            sections.append(stationary_z)
+    root_stresses = [(z, f_stall * (p.ZK - z) * 6 /
+                     (w * (t0 + slope * (z - z0)) ** 2)) for z in sections]
+    critical_z, sigma_root = max(root_stresses, key=lambda row: row[1])
+    # Original uniform-tab stiffness is retained only as a conservative
+    # deflection sensitivity; it is not an assembled-contact prediction.
     k_tab = 3 * p.E_Z * (w * t ** 3 / 12) / L ** 3
     return dict(contact_alpha_deg=alpha, self_seat_window_mm=chamfer,
                 force_to_cam_payload_up_N=f_lift, keeper_force_working_N=f_work,
                 self_seats=bool(f_work > f_lift),
                 stall_force_6V_N=f_stall,
-                tab_root_stress_if_adapter_clamped_MPa=sigma_root,
+                lower_tab_root_stress_if_adapter_clamped_MPa=sigma_root,
+                root_critical_z_mm=critical_z,
+                root_allowable_across_layers_MPa=p.ALLOW_Z,
                 tab_deflection_to_socket_wall_mm=f_stall / k_tab,
                 socket_gap_mm=p.SOCKET_GAP,
-                margin_clamped_vs_mean_UTS_Z=(47.0 / sigma_root))
+                margin_root_vs_allowable_Z=(p.ALLOW_Z / sigma_root),
+                complete_jam_qualification="PENDING: upper tab/hole contacts, mis-seating, purchased horn and printed assembly tests",
+                scope="Prescribed keeper-height load on the reinforced lower root only; no arbitrary-jam survival claim")
 
 
 def hand_stresses():
@@ -203,7 +220,7 @@ def main():
         "pin clears slot top": mc["min_pin_to_slot_top_mm"] > 0,
         "chamfer self-seats a 1 g payload": un["self_seats"],
         "back-drive torque < working / 10": dy["backdrive"]["ratio_working_torque"] > 10,
-        "stall on clamped unseated tab < mean UTS_Z": un["margin_clamped_vs_mean_UTS_Z"] > 1,
+        "prescribed jam lower-root stress <= design allowable_Z": un["margin_root_vs_allowable_Z"] >= 1,
         "hand-stress margins >= 1": min(hs["margin_keeper"], hs["margin_ligament_across_layers"], hs["margin_bearing"]) >= 1,
     }
     if "payload_mode_Hz" in dy:

@@ -37,6 +37,10 @@ SOCKET_GAP = 0.4                             # per side, tab in socket
 ADAPTER = dict(x=(-2.0, 21.0), y=(30.0, 48.5), z=(-3.5, -0.5))  # centred on the tab, 0.5 gap to body
 ADAPTER_HOLES = [(1.5, 34.0), (17.5, 34.0), (1.5, 45.0), (17.5, 45.0)]
 TAB_ROOT_FILLET = 1.0
+# Buttress only the lower tab, below the keeper hole. The upper tab and travel
+# stay unchanged; body() provides a matching tapered socket with SOCKET_GAP.
+TAB_ROOT_EXTRA_X = 1.0                       # 6 mm root; 4 mm upper tab
+TAB_ROOT_TAPER_TOP_Z = HOLE_TOP_LOADED - HOLE_H - 0.5
 
 # Servo: TowerPro MG92B on its side, shaft along +Y.
 SHAFT_X, SHAFT_Z = 38.0, 7.0
