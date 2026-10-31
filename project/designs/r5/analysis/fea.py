@@ -175,7 +175,7 @@ CASES = {
     # body fixed at the four screw pilots; keeper reactions on the tunnel
     "body": dict(part="body", print_axis=2, sizes=(2.0, 1.4, 1.0),
                  fixed=lambda x: np.any([np.hypot(x[0] - bx, x[1] - by) < p.PILOT_M3 / 2 + 0.05
-                                         for bx, by in p.BOSSES], axis=0) & (x[2] > 10),
+                                         for bx, by in p.BOSSES], axis=0) & (x[2] > p.BODY["z"] - p.PILOT_DEPTH),
                  loads=[(lambda x: near(x[2], p.ZK - (p.KEEPER_W + p.SLIDE) / 2) & (x[0] > X0) & (x[0] < X0 + PATCH), (0, 0, -R1)),
                         (lambda x: near(x[2], p.ZK + (p.KEEPER_W + p.SLIDE) / 2) & (x[0] > X1 - PATCH) & (x[0] < X1), (0, 0, R2))]),
 }

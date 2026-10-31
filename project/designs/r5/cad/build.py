@@ -37,7 +37,7 @@ def body():
     # servo cradle (ear ledge at EAR_Y)
     s = s.union(box(26.5, 60.5, 0, p.EAR_Y, 0, top0))
     for bx, by in p.BOSSES:
-        s = s.union(zcyl(bx, by, 9.0, top0 + 0.01, p.BOSS_D))
+        s = s.union(zcyl(bx, by, p.BODY["z"] - p.PILOT_DEPTH - 1.5, top0 + 0.01, p.BOSS_D))
     # socket for the tab, open below, 1 mm lead-in
     g = p.SOCKET_GAP
     s = s.cut(box(p.TAB_X[0] - g, p.TAB_X[1] + g, p.YK - p.TAB_W / 2 - g,
@@ -61,6 +61,12 @@ def body():
     for bx, by in p.BOSSES:
         s = s.cut(zcyl(bx, by, p.BODY["z"] - p.PILOT_DEPTH, p.BODY["z"] + 1, p.PILOT_M3))
     s = s.cut(box(56.0, 62.0, 8.0, 16.0, top0 - 1, p.BODY["z"] + 1))
+    # plate underside relief over the horn and keeper-yoke sweep (0.5 mm over both)
+    hz = max(p.SHAFT_Z + p.HORN_REACH, p.SHAFT_Z + p.CRANK_R_MAX + p.PIN_SLOT / 2 + 2.0) + 0.5
+    s = s.cut(box(p.SHAFT_X - p.HORN_REACH - 0.5, p.SHAFT_X + p.HORN_REACH + 0.5 + 0.0,
+                  p.SPLINE_TOP_Y - 3.0, p.YK + p.KEEPER_W / 2 + 2.5, top0 - 1, hz))
+    # lightening window in the plate where nothing hangs below
+    s = s.cut(box(9.0, 24.0, 9.0, 29.0, top0 - 1, p.BODY["z"] + 1).edges("|Z").fillet(2.0))
     return s
 
 
@@ -104,6 +110,8 @@ def adapter():
     s = s.faces(">Z").edges().chamfer(1.0)
     for hx, hy in p.ADAPTER_HOLES:
         s = s.cut(zcyl(hx, hy, a["z"][0] - 1, a["z"][1] + 1, 3.4))
+        # 90 deg countersink so M3 flat heads sit flush under the 0.5 mm gap to the body
+        s = s.cut(cq.Workplane().add(cq.Solid.makeCone(1.7, 3.3, 1.6, cq.Vector(hx, hy, a["z"][1] - 1.6))))
     return s
 
 
@@ -131,10 +139,11 @@ def build(out=OUT):
         report[f"overlap_{a}_{b}_mm3"] = round(v, 4)
         assert v < 1e-3, f"{a} intersects {b}: {v} mm3"
     # swept keeper (withdrawn) vs body
-    d = p.keeper_x(p.A_RELEASE)
-    moved = shapes["keeper"].translate((d, 0, 0))
-    inter = moved.intersect(shapes["body"])
-    v = inter.val().Volume() if inter.vals() else 0.0
+    v = 0.0
+    for i in range(15):  # whole sweep, not just the end point
+        moved = shapes["keeper"].translate((p.keeper_x(p.A_LATCH + (p.A_RELEASE - p.A_LATCH) * i / 14), 0, 0))
+        inter = moved.intersect(shapes["body"])
+        v = max(v, inter.val().Volume() if inter.vals() else 0.0)
     report["overlap_keeper_released_body_mm3"] = round(v, 4)
     assert v < 1e-3
     # purchased-part envelopes: servo case and a full horn disc (any angle)

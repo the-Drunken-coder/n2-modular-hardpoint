@@ -1,6 +1,6 @@
 # R5 – simplified servo hardpoint
 
-3 printed parts, 0 captive nuts, 7 BOM lines. Fits the 85.6 × 54 × 20 mm card envelope (64 × 50 × 20), so keeping the envelope cost nothing.
+3 printed parts, 0 captive nuts. Envelope 64 × 48.5 × 18 mm (was 64 × 50 × 20), body 19.1 g (was 24.1 g): thinner 2.5 mm top plate with a local relief over the horn and yoke, a lightening window, shorter bosses, and the rear bosses moved in 1 mm. All purchased parts with links or specs: [BOM.md](BOM.md).
 
 Unpowered retention is **not** a requirement: losing servo power means losing the aircraft.
 
@@ -29,7 +29,7 @@ python analysis/risks.py       # friction, voltage, tolerance Monte Carlo, dynam
 | Servo pocket, horn and yoke gaps | ≥0.5 | ≥0.5 |
 | Spare travel beyond 0.5 mm | 2.83 mm (1.87 if the servo stops 15° short) | ≥1 |
 | Working-torque margin, 4.8 V, μ 0.35 | 4.00× (8.0× on stall) | ≥3 |
-| FEA at 17.8 N, lowest margin | 28.9 (adapter, across layers) | ≥1 |
+| FEA at 17.8 N, lowest margin | 26.2 (adapter, across layers) | ≥1 |
 
 ## Simulated risks (`risks.py`, gated in CI)
 | Risk | Result |
@@ -70,6 +70,6 @@ A latched-position microswitch is not fitted. The keeper is visible from the +Y 
 
 ## Viewer
 
-`viewer_build.sh` (run by the Pages preview) builds `out/viewer/`: all twelve parts (printed parts, MG92B, stock horn, M2 crank pin, ear and M3 screws, payload stand-in, ghosted wing), explode vectors, the servo-crank release kinematics from `params.py`, and the FEA colormap from `analysis/fea.py` via `analysis/export_web.py`. Purchased parts are modelled from listing dimensions, not vendor CAD.
+`viewer_build.sh` (run by the Pages preview) builds `out/viewer/`: all thirteen parts (printed parts, MG92B, stock horn, M2 crank pin, horn centre, ear, wing M3 and adapter-to-payload screws, payload stand-in, ghosted wing), explode vectors, the servo-crank release kinematics from `params.py`, and the FEA colormap from `analysis/fea.py` via `analysis/export_web.py`. Purchased parts are modelled from listing dimensions, not vendor CAD.
 
 Fit note: the horn centre retaining screw (stock M2 pan head) is fitted. The keeper's horn-side face has a groove (head + 0.5 mm all round) so the head passes under the yoke through the whole 180->40 deg sweep; `cad/build.py` checks this at 29 angles.

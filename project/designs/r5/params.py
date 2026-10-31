@@ -12,9 +12,9 @@ P_DESIGN = MASS_KG * G_DESIGN * 9.80665      # 8.90 N
 P_PROOF = 2 * P_DESIGN                       # 17.81 N, safety factor 2
 
 # Envelope / body
-BODY = dict(x=64.0, y=50.0, z=20.0)
-TOP_PLATE_T = 3.0                            # Z 17..20
-BOSSES = [(4.0, 4.0), (60.0, 4.0), (4.0, 46.0), (60.0, 46.0)]
+BODY = dict(x=64.0, y=48.5, z=18.0)          # R5 compact: was 64 x 50 x 20
+TOP_PLATE_T = 2.5                            # Z 15.5..18
+BOSSES = [(4.0, 4.0), (60.0, 4.0), (4.0, 45.0), (60.0, 45.0)]
 BOSS_D = 7.0
 PILOT_M3 = 2.5                               # M3 self-tapping pilot
 PILOT_DEPTH = 10.0
@@ -34,8 +34,8 @@ TAB_TOP = 14.5
 HOLE_W, HOLE_H = 5.6, 5.6                    # keeper hole, 0.6 clearance (less rattle)
 HOLE_TOP_LOADED = ZK + KEEPER_W / 2          # hole top bears on keeper top
 SOCKET_GAP = 0.4                             # per side, tab in socket
-ADAPTER = dict(x=(-2.0, 21.0), y=(30.0, 50.0), z=(-3.5, -0.5))  # centred on the tab, 0.5 gap to body
-ADAPTER_HOLES = [(1.5, 34.0), (17.5, 34.0), (1.5, 46.0), (17.5, 46.0)]
+ADAPTER = dict(x=(-2.0, 21.0), y=(30.0, 48.5), z=(-3.5, -0.5))  # centred on the tab, 0.5 gap to body
+ADAPTER_HOLES = [(1.5, 34.0), (17.5, 34.0), (1.5, 45.0), (17.5, 45.0)]
 TAB_ROOT_FILLET = 1.0
 
 # Servo: TowerPro MG92B on its side, shaft along +Y.

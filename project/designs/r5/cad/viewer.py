@@ -75,7 +75,7 @@ def horn():
 
 
 def pin_screw():
-    """M2 x 10 pan head: threads into the horn's crank hole through the keeper slot."""
+    """M2 x 8 pan head: threads into the horn's crank hole through the keeper slot."""
     x = p.SHAFT_X - p.CRANK_R
     ky1 = p.YK + p.KEEPER_W / 2
     shank = ycyl(x, p.SHAFT_Z, HORN_Y[1] - 1.6, ky1 + 0.4, p.PIN_D)
@@ -124,7 +124,8 @@ def adapter_screws():
     s = None
     a = p.ADAPTER
     for hx, hy in p.ADAPTER_HOLES:
-        one = zcyl(hx, hy, a["z"][0] - 6, a["z"][1] - 0.3, 2.9).union(zcyl(hx, hy, a["z"][1] - 0.3, a["z"][1], 5.0))
+        one = zcyl(hx, hy, a["z"][0] - 6.4, a["z"][1] - 1.6, 2.9).union(
+            cq.Workplane().add(cq.Solid.makeCone(1.5, 3.0, 1.5, cq.Vector(hx, hy, a["z"][1] - 1.6))))
         s = one if s is None else s.union(one)
     return s
 
