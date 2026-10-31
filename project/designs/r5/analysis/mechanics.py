@@ -1,6 +1,6 @@
 """Hand checks for R5: travel, clearances, servo torque. Exits nonzero on failure."""
 import json, sys
-from math import cos, radians
+from math import cos, radians, sin
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -13,10 +13,12 @@ def results():
     travel = p.keeper_x(p.A_RELEASE)
     needed = p.TAB_X[1] - p.TIP_LATCHED_X          # tip must clear the tab face
     short = p.keeper_x(p.A_RELEASE + 15)            # servo stops 15 deg short
-    # Friction: hole top on keeper (P), tunnel mouth (R1) and back (R2) reactions.
-    normals = 1.0 + 1.119 + 0.119
+    # Friction: hole top on keeper (P) plus tunnel mouth and back reactions, per side.
+    normals = 2 * (1 + p.REACTION_RATIO)
     f_drag = p.MU * normals * p.P_DESIGN
-    t_need = f_drag * p.CRANK_R * p.PIN_FRICTION    # worst case at alpha = 90
+    # scotch yoke: slot force gives F r |sin a|, pin sliding in the slot adds mu F r |cos a|
+    t_need = max(f_drag * p.CRANK_R * (abs(sin(radians(a))) + p.MU * abs(cos(radians(a))))
+                 for a in range(int(p.A_RELEASE), int(p.A_LATCH) + 1))
     stall = p.STALL_KGFCM_4V8 * KGFCM
     working = stall * p.WORKING_FRACTION
     return dict(

@@ -3,6 +3,7 @@
     python project/designs/r5/cad/build.py
 """
 import json
+from math import radians, sin
 import sys
 from pathlib import Path
 
@@ -46,7 +47,7 @@ def body():
     # tunnel and tip pocket
     h = (p.KEEPER_W + p.SLIDE) / 2
     s = s.cut(box(p.TAB_X[1], p.TUNNEL_X[1] + 1, p.YK - h, p.YK + h, p.ZK - h, p.ZK + h))
-    s = s.cut(box(p.TIP_LATCHED_X - 1.0, p.TAB_X[0], p.YK - 3, p.YK + 3, p.ZK - 3, p.ZK + 3))
+    s = s.cut(box(p.TIP_LATCHED_X - p.TIP_POCKET, p.TAB_X[0], p.YK - 3, p.YK + 3, p.ZK - 3, p.ZK + 3))
     # servo pocket, open below
     c, gp = p.SERVO_CASE, p.POCKET_GAP
     x0 = p.SHAFT_X - p.SHAFT_FROM_END
@@ -68,8 +69,10 @@ def keeper():
     xs = p.SHAFT_X - p.CRANK_R                      # pin x when latched
     yx0, yx1 = xs - p.PIN_SLOT / 2 - 2.0, xs + p.PIN_SLOT / 2 + 2.0
     s = box(p.TIP_LATCHED_X, yx1, p.YK - h, p.YK + h, p.ZK - h, p.ZK + h)
-    z0 = p.SHAFT_Z - 0.17 * 6 - p.PIN_SLOT / 2 - 0.5
-    z1 = p.SHAFT_Z + 6 + p.PIN_SLOT / 2 + 0.5
+    # pin height is SHAFT_Z + r sin(alpha); slot covers the sweep plus overshoot
+    dip = p.CRANK_R_MAX * sin(radians(p.OVERSHOOT))
+    z0 = p.SHAFT_Z - dip - p.PIN_SLOT / 2 - 0.5
+    z1 = p.SHAFT_Z + p.CRANK_R_MAX + p.PIN_SLOT / 2 + 0.5
     s = s.union(box(yx0, yx1, p.YK - h, p.YK + h, z0 - 1.5, z1 + 1.5))
     s = s.cut(box(xs - p.PIN_SLOT / 2, xs + p.PIN_SLOT / 2, p.YK - h - 1, p.YK + h + 1, z0, z1))
     s = s.faces("<X").edges().chamfer(0.5)
@@ -81,12 +84,14 @@ def adapter():
     s = box(a["x"][0], a["x"][1], a["y"][0], a["y"][1], a["z"][0], a["z"][1])
     s = s.union(box(p.TAB_X[0], p.TAB_X[1], p.YK - p.TAB_W / 2, p.YK + p.TAB_W / 2,
                     a["z"][1] - 0.01, p.TAB_TOP))
+    s = s.edges(cq.selectors.BoxSelector((p.TAB_X[0] - 0.1, p.YK - p.TAB_W / 2 - 0.1, a["z"][1] - 0.1),
+                                         (p.TAB_X[1] + 0.1, p.YK + p.TAB_W / 2 + 0.1, a["z"][1] + 0.1))
+                ).fillet(p.TAB_ROOT_FILLET)
     s = s.cut(box(p.TAB_X[0] - 1, p.TAB_X[1] + 1, p.YK - p.HOLE_W / 2, p.YK + p.HOLE_W / 2,
                   p.HOLE_TOP_LOADED - p.HOLE_H, p.HOLE_TOP_LOADED))
     s = s.faces(">Z").edges().chamfer(1.0)
-    for hx, hy in ((4, 34), (26, 34), (4, 46), (26, 46)):
-        if not (p.TAB_X[0] - 4 < hx < p.TAB_X[1] + 4):
-            s = s.cut(zcyl(hx, hy, a["z"][0] - 1, a["z"][1] + 1, 3.4))
+    for hx, hy in p.ADAPTER_HOLES:
+        s = s.cut(zcyl(hx, hy, a["z"][0] - 1, a["z"][1] + 1, 3.4))
     return s
 
 
