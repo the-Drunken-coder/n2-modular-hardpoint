@@ -1,6 +1,6 @@
 # R5 – simplified servo hardpoint
 
-3 printed parts, 0 captive nuts. Body envelope 64 × 48.5 × 18 mm: a 2.5 mm top plate with a local relief over the horn and yoke, a lightening window and short mounting bosses. Regenerated part volumes and mass estimates are in `out/cad.json`; use those values for the current revision. All purchased parts with links or specs: [BOM.md](BOM.md).
+3 printed parts, 0 captive nuts. Body envelope **64 × 48.5 × 20 mm**: a 2.5 mm top plate with a 1.5 mm roof over the relieved yoke sweep, a lightening window and short mounting bosses. The restored 20 mm height provides loaded-motion clearance within the original thickness limit. Regenerated part volumes and mass estimates are in `out/cad.json`; use those values for the current revision. All purchased parts with links or specs: [BOM.md](BOM.md).
 
 Unpowered retention is **not** a requirement: losing servo power means losing the aircraft.
 
@@ -25,7 +25,7 @@ python analysis/risks.py       # friction, voltage, tolerance Monte Carlo, dynam
 |---|---|---|
 | Keeper sliding fit | 0.4 total | 0.3–0.4 |
 | Tab-in-socket gap | 0.4 per side | ≥0.3 |
-| Tab hole to keeper | 0.6 per side | ≥0.5 |
+| Tab hole to keeper | 0.6 total; 0.3 per side when centered | ≥0.5 total |
 | Servo pocket, horn and yoke gaps | ≥0.5 | ≥0.5 |
 | Spare travel beyond 0.5 mm | 2.83 mm (1.87 if the servo stops 15° short) | ≥1 |
 | Assumed working-torque margin, 5.0 V, μ 0.35 | 4.00× (8.0× on stall); 50% stall is an assumption | ≥3 |
@@ -45,6 +45,10 @@ FEA: skfem P2 tets, transversely isotropic, direct solver with residual check. R
 
 ## Print
 PAHT-CF, dried. Body: wing face down; the tunnel roof is the only bridge. Keeper: on its side. Adapter: flat. FEA uses the XY/Z properties for these orientations.
+
+The [loaded-fit envelope and bench gate](docs/loaded-fit.md) define acceptable
+finished guide dimensions, horn radius and non-contact clearances. The CAD gate
+checks pitch/yaw and free-play poses; it does not demonstrate loaded release.
 
 ## Assembly
 The servo lead uses the continuous gland-side opening; see [cable fit and routing](docs/cable-fit.md).
