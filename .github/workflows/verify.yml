@@ -24,14 +24,15 @@ jobs:
           python site/build_status.py
           python tools/check_current_baseline.py
           python -m unittest discover -s tests -p test_current_design.py -v
+          python -m unittest discover -s tests -p test_preview_pipeline.py -v
           python -m py_compile project/cad/build_n2.py project/cad/common.py project/manufacturing/build_bom.py site/build_data.py site/build_status.py tools/export_fea_web.py
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: web/package-lock.json
-      - name: Build the current Blueprint viewer
+      - name: Compile the viewer UI (complete model build runs in preview job)
         working-directory: web
         run: |
           npm ci --legacy-peer-deps --no-audit --no-fund
-          npm run build
+          npm run build:ui
