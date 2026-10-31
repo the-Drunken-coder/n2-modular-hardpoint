@@ -28,6 +28,33 @@ def ycyl(x, z, y0, y1, d):
     return cq.Workplane("XZ").circle(d / 2).extrude(-(y1 - y0)).translate((x, y0, z))
 
 
+def cable_gland():
+    g = p.SERVO_GLAND
+    x0 = p.SHAFT_X - p.SHAFT_FROM_END
+    return box(x0 - g["outstand"], x0 + g["inside"], *g["y"], *g["z"])
+
+
+def servo_envelope():
+    """Complete conservative case reservation, including ears, gland and gear bosses."""
+    c = p.SERVO_CASE
+    x0 = p.SHAFT_X - p.SHAFT_FROM_END
+    z0, z1 = p.SHAFT_Z - c["w"] / 2, p.SHAFT_Z + c["w"] / 2
+    top = p.SERVO_BOTTOM_Y + c["h"]
+    s = box(x0, x0 + c["l"], p.SERVO_BOTTOM_Y, top, z0, z1)
+    s = s.union(box(x0 - (p.EAR_SPAN - c["l"]) / 2,
+                    x0 + c["l"] + (p.EAR_SPAN - c["l"]) / 2,
+                    p.EAR_Y, p.EAR_Y + 2.5, z0, z1))
+    s = s.union(ycyl(p.SHAFT_X, p.SHAFT_Z, top - 0.1, top + 1.5, 11.6))
+    s = s.union(ycyl(p.SHAFT_X + 6, p.SHAFT_Z, top - 0.1, top + 1, 6.0))
+    return s.union(cable_gland())
+
+
+def cable_connector_sweep():
+    """Connector can enter from below and leave through the same open top channel."""
+    c = p.CABLE_CONNECTOR
+    return box(*c["x"], *c["y"], -1, p.BODY["z"] + 1)
+
+
 def body():
     B, top0 = p.BODY, p.BODY["z"] - p.TOP_PLATE_T
     s = box(0, B["x"], 0, B["y"], top0, B["z"])
@@ -60,7 +87,10 @@ def body():
     # mounting pilots from the wing face, and lead exit
     for bx, by in p.BOSSES:
         s = s.cut(zcyl(bx, by, p.BODY["z"] - p.PILOT_DEPTH, p.BODY["z"] + 1, p.PILOT_M3))
-    s = s.cut(box(56.0, 62.0, 8.0, 16.0, top0 - 1, p.BODY["z"] + 1))
+    # A continuous, open-bottom channel at the actual gland end. The old +X
+    # hole did not clear the -X cable gland and required an unspecified route.
+    ch = p.CABLE_CHANNEL
+    s = s.cut(box(*ch["x"], *ch["y"], -1, p.BODY["z"] + 1))
     # plate underside relief over the horn and keeper-yoke sweep (0.5 mm over both)
     hz = max(p.SHAFT_Z + p.HORN_REACH, p.SHAFT_Z + p.CRANK_R_MAX + p.PIN_SLOT / 2 + 2.0) + 0.5
     s = s.cut(box(p.SHAFT_X - p.HORN_REACH - 0.5, p.SHAFT_X + p.HORN_REACH + 0.5 + 0.0,
@@ -146,11 +176,8 @@ def build(out=OUT):
         v = max(v, inter.val().Volume() if inter.vals() else 0.0)
     report["overlap_keeper_released_body_mm3"] = round(v, 4)
     assert v < 1e-3
-    # purchased-part envelopes: servo case and a full horn disc (any angle)
-    c = p.SERVO_CASE
-    x0 = p.SHAFT_X - p.SHAFT_FROM_END
-    servo = box(x0, x0 + c["l"], p.SERVO_BOTTOM_Y, p.SERVO_BOTTOM_Y + c["h"],
-                p.SHAFT_Z - c["w"] / 2, p.SHAFT_Z + c["w"] / 2)
+    # Complete purchased-part envelope and reserved connector insertion path.
+    servo = servo_envelope()
     horn = ycyl(p.SHAFT_X, p.SHAFT_Z, p.SPLINE_TOP_Y - 2.5, p.SPLINE_TOP_Y, 2 * p.HORN_REACH)
     for name, env in (("servo", servo), ("horn_disc", horn)):
         for other in ("body", "keeper"):
@@ -158,6 +185,10 @@ def build(out=OUT):
             v = inter.val().Volume() if inter.vals() else 0.0
             report[f"overlap_{name}_{other}_mm3"] = round(v, 4)
             assert v < 1e-3, (name, other, v)
+    inter = cable_connector_sweep().intersect(shapes["body"])
+    v = sum(s.Volume() for s in inter.solids().vals())
+    report["overlap_cable_connector_path_body_mm3"] = round(v, 4)
+    assert v < 1e-6, ("cable connector path", v)
     # horn centre screw head, inflated by SCREW_CLEAR, vs keeper over the full sweep
     hs, c = p.HORN_SCREW, p.SCREW_CLEAR
     env = ycyl(p.SHAFT_X, p.SHAFT_Z, p.SPLINE_TOP_Y, p.SPLINE_TOP_Y + hs["head_h"] + c - 0.01, hs["head_d"] + 2 * c - 0.02)

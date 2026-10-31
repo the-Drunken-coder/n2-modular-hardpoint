@@ -47,6 +47,11 @@ SPLINE_TOP_Y = 37.0                          # servo bottom to spline top 35 mm
 EAR_Y = SERVO_BOTTOM_Y + 22.8
 EAR_SPAN = 32.5
 POCKET_GAP = 0.5
+# Cable gland and an open installation channel to the wing face. These are
+# receiving-inspection envelopes, not vendor-certified CAD dimensions.
+SERVO_GLAND = dict(outstand=1.5, inside=0.1, y=(4.0, 8.0), z=(4.5, 9.5))
+CABLE_CHANNEL = dict(x=(22.5, 32.7), y=(3.0, 9.0))
+CABLE_CONNECTOR = dict(x=(23.5, 31.5), y=(4.0, 8.0))  # 8 x 4 mm reserved pass-through
 
 # Keeper lever: tab load at mid-tab, supports at tunnel mouth and back
 REACTION_RATIO = (TUNNEL_X[0] - (TAB_X[0] + TAB_X[1]) / 2) / (TUNNEL_X[1] - TUNNEL_X[0])

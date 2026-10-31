@@ -1,6 +1,6 @@
 # R5 – simplified servo hardpoint
 
-3 printed parts, 0 captive nuts. Envelope 64 × 48.5 × 18 mm (was 64 × 50 × 20), body 19.1 g (was 24.1 g): thinner 2.5 mm top plate with a local relief over the horn and yoke, a lightening window, shorter bosses, and the rear bosses moved in 1 mm. All purchased parts with links or specs: [BOM.md](BOM.md).
+3 printed parts, 0 captive nuts. Body envelope 64 × 48.5 × 18 mm: a 2.5 mm top plate with a local relief over the horn and yoke, a lightening window and short mounting bosses. Regenerated part volumes and mass estimates are in `out/cad.json`; use those values for the current revision. All purchased parts with links or specs: [BOM.md](BOM.md).
 
 Unpowered retention is **not** a requirement: losing servo power means losing the aircraft.
 
@@ -47,6 +47,8 @@ FEA: skfem P2 tets, transversely isotropic, direct solver with residual check. R
 PAHT-CF, dried. Body: wing face down; the tunnel roof is the only bridge. Keeper: on its side. Adapter: flat. FEA uses the XY/Z properties for these orientations.
 
 ## Assembly
+The servo lead uses the continuous gland-side opening; see [cable fit and routing](docs/cable-fit.md).
+
 1. Screw the servo into the cradle with its ear screws.
 2. Centre the servo at 180° and fit the stock horn with the M2 pin facing the keeper.
 3. Slide the keeper into the tunnel so that the pin enters the slot.

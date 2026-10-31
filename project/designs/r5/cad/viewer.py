@@ -15,7 +15,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 sys.path.insert(0, str(HERE))
 import params as p  # noqa: E402
-from build import adapter, body, box, horn_screw, keeper, ycyl, zcyl  # noqa: E402
+from build import adapter, body, box, cable_gland, horn_screw, keeper, ycyl, zcyl  # noqa: E402
 
 OUT = HERE.parent / "out" / "viewer"
 X0 = p.SHAFT_X - p.SHAFT_FROM_END                 # servo case -X end
@@ -43,7 +43,7 @@ def servo_case():
     s = s.union(ycyl(p.SHAFT_X, p.SHAFT_Z, CASE_TOP_Y - 0.1, CASE_TOP_Y + 1.5, 11.6))
     s = s.union(ycyl(p.SHAFT_X + 6.0, p.SHAFT_Z, CASE_TOP_Y - 0.1, CASE_TOP_Y + 1.0, 6.0))
     # cable gland at the -X end, low
-    s = s.union(box(X0 - 1.5, X0 + 0.1, p.SERVO_BOTTOM_Y + 2, p.SERVO_BOTTOM_Y + 6, p.SHAFT_Z - 2.5, p.SHAFT_Z + 2.5))
+    s = s.union(cable_gland())
     return s
 
 
