@@ -1,0 +1,54 @@
+assembly_id,part_or_stage,feature,unit,nominal,minimum,maximum,measured,result,operator,date,method_notes
+,process,source commit / cad.json hash,,,,,,PENDING,,,Archive both source identity and generated manifest
+,process,printer / nozzle identity,,,,,,PENDING,,,X1C; hardened 0.4 mm; record nozzle wear
+,process,filament manufacturer / lot,,,,,,PENDING,,,Bambu PAHT-CF; no unrecorded substitution
+,process,drying temperature,degC,80,80,80,,PENDING,,,Record measured temperature and equipment
+,process,drying duration,h,12,12,,,PENDING,,,Forced-air baseline; record actual duration
+,process,feed storage RH,percent,,0,20,,PENDING,,,Must remain below 20%; record actual maximum
+,process,slicer version / archived project,,,,,,PENDING,,,Include complete profile and G-code identity
+,process,nozzle temperature,degC,290,290,290,,PENDING,,,Record qualified deviation separately
+,process,bed temperature,degC,100,100,100,,PENDING,,,Smooth PEI with PVP glue
+,process,layer height,mm,0.2,0.2,0.2,,PENDING,,,Includes first layer; roof must have 5 continuous layers
+,process,wall loops,count,6,6,,,PENDING,,,Inspect continuous toolpaths at thin features
+,process,infill,percent,100,100,100,,PENDING,,,Solid alternating rectilinear; inspect joins and gap fill
+,process,chamber temperature,degC,,45,60,,PENDING,,,Record measured conditions; no unqualified equivalence assumed
+,process,profile / compensation changes,,,,,,PENDING,,,Record flow and first-layer compensation; scale 100%
+,process,part post-treatment temperature,degC,80,80,80,,PENDING,,,Final dimensional inspection follows this conditioning
+,process,part post-treatment duration,h,12,12,,,PENDING,,,Record uniform forced-air oven and cool/store dry
+,keeper,Y section / minimum yoke breadth,mm,5,4.9,5.1,,PENDING,,,Measure full section at multiple locations
+,keeper,Z bar section,mm,5,4.9,5.1,,PENDING,,,Measure across full guide-bearing length
+,keeper,slot-center-to-leading-tip length,mm,29.35,29.25,29.45,,PENDING,,,Measure along keeper X from midpoint of straight slot faces to leading flat tip plane; do not subtract 0.50 mm chamfer or use sleeve position
+,adapter,upper-tab X thickness,mm,4.00,3.90,4.10,,PENDING,,,Far-to-near face thickness at keeper-hole ligaments after conditioning; exclude lower root buttress and top chamfer
+,body+keeper,effective full-section guide length,mm,16,15.8,,,PENDING,,,No groove inside effective span
+,body+keeper,total Y sliding clearance,mm,0.4,0.3,0.5,,PENDING,,,Guide Y minus actual keeper Y; both ends and centre
+,body+keeper,total Z sliding clearance,mm,0.4,0.3,0.5,,PENDING,,,Guide Z minus actual keeper Z; both ends and centre
+,keeper,left yoke wall,mm,3.5,3.5,,,PENDING,,,Measured minimum; do not sand below
+,keeper,right yoke wall,mm,3,3,,,PENDING,,,Measured minimum; do not sand below
+,keeper,top yoke bridge,mm,2.4,2.4,,,PENDING,,,Measured minimum; filleted corners intact
+,keeper+pin,slot minus actual sleeve OD,mm,0.4,0.3,0.5,,PENDING,,,Total side play throughout operating slot
+,body,local roof thickness,mm,1,1,,,PENDING,,,Five continuous 0.2 mm layers; reject voids
+,body,guide datum error Y,mm,0,-0.1,0.1,,PENDING,,,Against current CAD coordinates
+,body,guide datum error Z,mm,0,-0.1,0.1,,PENDING,,,Against current CAD coordinates
+,servo,shaft datum error X,mm,0,-0.1,0.1,,PENDING,,,Against current shaft X40.4
+,servo,shaft datum error Y,mm,0,-0.1,0.1,,PENDING,,,Against spline face Y34.6; inspect seated hardware
+,servo,shaft datum error Z,mm,0,-0.1,0.1,,PENDING,,,Against current shaft Z6.5
+,assembly,tab far-face X minimum over full float,mm,7.60,7.60,8.40,,PENDING,,,Receiver CAD X=0 common datum after host mounting; record smallest X of upper-tab minus-X face across full permitted socket float and rocking
+,assembly,tab far-face X maximum over full float,mm,8.40,7.60,8.40,,PENDING,,,Same receiver datum; record largest X across full permitted float and rocking; minimum and maximum must both remain within 7.60..8.40
+,assembly,effective sleeve-center radius,mm,5.4,5.3,5.5,,PENDING,,,Measure after clamp; include all hole and sleeve-ID play
+,assembly,latch endpoint,deg,180,177,183,,PENDING,,,Physical CAD angle; log calibrated pulse
+,assembly,release endpoint,deg,40,40,44,,PENDING,,,Physical CAD angle; log calibrated pulse
+,assembly,safe unloaded physical span,deg,175,175,,,PENDING,,,Must include 40..215 without internal stop; outside controller commands
+,assembly,bare pin entry height,mm,2.4,,3,,PENDING,,,Finished sleeve cannot escape; do not enlarge slot entry
+,assembly,sleeve length,mm,10,,,,PENDING,,,Record actual; washer gap and engaged thread are functional gates
+,assembly,bolt thread beyond locknut,mm,1.1,0.8,,,PENDING,,,At least two full M2 pitches; nylon insert fully engaged
+,assembly,minimum loaded roof gap,mm,,0.5,,,PENDING,,,Full path and both lateral float limits
+,assembly,minimum loaded horn gap,mm,,0.5,,,PENDING,,,Full path and both lateral float limits
+,assembly,minimum loaded center-head gap,mm,,0.5,,,PENDING,,,Full path and both lateral float limits
+,assembly,minimum loaded washer gap,mm,,0.5,,,PENDING,,,Full path and both lateral float limits
+,assembly,full-section latched overlap,mm,,0.5,,,PENDING,,,Exclude tip chamfer; include loaded contact state
+,assembly,released tip-to-near-tab-face opening,mm,,1.5,,,PENDING,,,Minimum across declared loaded/float poses; 0.5 mm clearance plus 1.0 mm spare
+,assembly,clamp / horn / nut condition,,,,,,PENDING,,,No relative slip; no cracks; witness mark; reject damaged engaged threads
+,bench,unloaded conditioning cycles,count,10,10,,,PENDING,,,One row set per independently printed assembly
+,bench,loaded release/reset cycles,count,100,100,,,PENDING,,,8.9044 N at minimum qualified terminal voltage; log every attempt
+,bench,retention proof force,N,17.8088764,17.8088764,,,PENDING,,,Separate from loaded-release requirement; record duration and result
+,bench,host screw pull-out / defined jam / environment,,,,,,PENDING,,,Record separate protocol/report IDs; remains PENDING until tested

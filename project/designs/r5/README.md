@@ -24,7 +24,7 @@ python analysis/risks.py       # friction, voltage, tolerance Monte Carlo, dynam
 | Check | Value | Requirement |
 |---|---|---|
 | Keeper sliding fit | 0.4 total | 0.3–0.5 total, inspected |
-| Tab-in-socket gap | 0.4 per side | ≥0.3 |
+| Tab-in-socket gap | 0.4 per side nominal | ≥0.3 per side when centered **and** far-face X 7.60–8.40 across full float, with tab thickness 3.90–4.10; see [inspection](PRINTING.md) |
 | Tab hole to keeper | 0.6 total (0.3 per side when centered; all vertical clearance below when loaded) | ≥0.5 total |
 | Servo pocket, horn and yoke gaps | ≥0.5 | ≥0.5 |
 | Spare travel beyond 0.5 mm | 2.33 mm (1.37 if the servo stops 15° short, nominal centered geometry); deterministic check additionally includes pin/slot play | ≥1 |
@@ -44,7 +44,11 @@ python analysis/risks.py       # friction, voltage, tolerance Monte Carlo, dynam
 FEA: skfem P2 tets, transversely isotropic, direct solver with residual check. Refined until load-point displacement changes < 5 % (adapter 0.2 %, body 1.1 %). Keeper stays at 11 % but its margin is 176, and hand calcs give 10.8.
 
 ## Print
-PAHT-CF, dried. Body: wing face down; the tunnel roof is the only bridge. Keeper: on its side. Adapter: flat. FEA uses the XY/Z properties for these orientations.
+Use the generated `out/body_print.stl`, `out/keeper_print.stl` and
+`out/adapter_print.stl`, following [PRINTING.md](PRINTING.md). These files already
+put the selected face on the bed. Record the material/process and finished fits
+in [inspection-template.csv](inspection-template.csv). `params.PRINT_AXES` and
+the CAD manifest tie the FEA material directions to those exact orientations.
 
 The [loaded-fit envelope and bench gate](docs/loaded-fit.md) define acceptable
 finished guide dimensions, horn radius and non-contact clearances. The CAD gate

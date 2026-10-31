@@ -3,6 +3,7 @@
     python project/designs/r5/cad/build.py
 """
 import json
+from hashlib import sha256
 from math import radians, sin
 import sys
 from pathlib import Path
@@ -258,6 +259,14 @@ def build(out=OUT):
     report["loaded_clearance"] = check_loaded_clearance(shapes["body"], shapes["keeper"])
     from pin_joint import check_pin_joint
     report["pin_joint"] = check_pin_joint(shapes["body"], shapes["keeper"])
+    from printing import export_print_parts
+    report["printing"] = export_print_parts(shapes, out)
+    source_names = ["params.py", "cad/build.py", "cad/clearance.py", "cad/pin_joint.py",
+                    "cad/printing.py", "cad/viewer.py"]
+    report["source_sha256"] = {name: sha256((HERE.parent / name).read_bytes()).hexdigest()
+                               for name in source_names}
+    report["step_sha256"] = {name: sha256((out / f"{name}.step").read_bytes()).hexdigest()
+                             for name in shapes}
     (out / "cad.json").write_text(json.dumps(report, indent=2))
     return report
 
