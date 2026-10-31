@@ -1,0 +1,11 @@
+[
+ {
+  "id": "r5",
+  "label": "R5 (CI-built CAD)"
+ },
+ {
+  "id": "N2",
+  "label": "P14 solenoid (historical reference)",
+  "p14": true
+ }
+]

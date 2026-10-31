@@ -7,6 +7,13 @@
   "path": ""
  },
  {
+  "label": "PR #25 (fix/r5-active-baseline)",
+  "title": "Select R5 consistently across requirements, status, documentation and viewer",
+  "sha": "cf32174b5cbec9efbc3f2ac1ffbc9b084db09fb3",
+  "built": "2026-10-31T05:22:25Z",
+  "path": "pr/25/"
+ },
+ {
   "label": "PR #24 (fix/r5-evidence)",
   "title": "Require converged, traceable R5 evidence and consistent viewer strength criteria",
   "sha": "eb385a7c60bbedf4076a462e11384d76744dbddc",

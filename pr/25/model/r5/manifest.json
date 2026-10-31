@@ -1,0 +1,91 @@
+{
+ "id": "r5",
+ "name": "R5",
+ "revision": "R5",
+ "units": "mm",
+ "bounds": {
+  "min": [
+   -2,
+   0,
+   -3.5
+  ],
+  "max": [
+   65,
+   51,
+   20
+  ],
+  "size": [
+   67,
+   51,
+   23.5
+  ]
+ },
+ "parts": [
+  {
+   "id": "adapter",
+   "stl": "adapter.stl",
+   "kind": "printed",
+   "color": "#4c90f0",
+   "explode": [
+    -13.4,
+    0,
+    -26.8
+   ]
+  },
+  {
+   "id": "adapter_print",
+   "stl": "adapter_print.stl",
+   "kind": "printed",
+   "color": "#f0b726",
+   "explode": [
+    13.4,
+    0,
+    -53.6
+   ]
+  },
+  {
+   "id": "body",
+   "stl": "body.stl",
+   "kind": "printed",
+   "color": "#32a467",
+   "explode": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "body_print",
+   "stl": "body_print.stl",
+   "kind": "printed",
+   "color": "#e76a6e",
+   "explode": [
+    40.2,
+    0,
+    -80.4
+   ]
+  },
+  {
+   "id": "keeper",
+   "stl": "keeper.stl",
+   "kind": "printed",
+   "color": "#9d3f9d",
+   "explode": [
+    67,
+    0,
+    -107.2
+   ]
+  },
+  {
+   "id": "keeper_print",
+   "stl": "keeper_print.stl",
+   "kind": "printed",
+   "color": "#68c1ee",
+   "explode": [
+    93.8,
+    0,
+    -134
+   ]
+  }
+ ]
+}
