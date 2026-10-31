@@ -46,8 +46,10 @@ the cartridge mass and mechanical cost estimate.
 
 1. Support/catch the mechanism; keep the payload detached. Disconnect the servo
    from the keeper and remove the horn for initial electrical checkout.
-2. Install MicroPython **1.25.0** on a non-wireless RP2040 Pico/Pico H. Initially
-   copy only `calibrate.py`. Check the 5 V signal with the actuator disconnected.
+2. Install MicroPython **1.25.0** on a non-wireless RP2040 Pico/Pico H. Remove or
+   rename any existing `main.py`, then power-cycle; Ctrl-C alone cannot disable
+   a watchdog started by previous firmware. Initially copy only `calibrate.py`.
+   Check the 5 V signal with the actuator disconnected.
    With the free actuator powered, run `import calibrate` at the REPL. `CENTER`
    requests 1500 µs; `STEP +10` / `STEP -10` move by 10 µs. `STOP` or Ctrl-C
    removes PWM. Observe each movement before the next command. The helper's
@@ -65,8 +67,13 @@ the cartridge mass and mechanical cost estimate.
    (exclude the tip chamfer), and **0.5 mm clear opening** in the assembled
    endpoint. Apply the fit/tolerance and loaded-test procedure as separate gates.
 6. Enter the measured pulse limits and endpoints, servo identity and fit records
-   in `bench_config.py`. Only after inspecting the signal/fit set the two explicit
-   acceptance booleans true. These are operator records; firmware does not measure
+   in `bench_config.py`. Check all `params.FIT_BOUNDS` limits, including horn radius,
+   shaft and keeper dimensions, angular endpoints (**latch 177–183°, release
+   40–45°**), guide fit and **0.3–0.5 mm total sleeve/slot clearance**. Measure
+   endpoint fit against the actual driven pin contact faces, not a centered-pin
+   pose; the kinematic budget includes up to ±0.25 mm of yoke lost motion. Only after
+   inspecting the signal/fit set the three explicit acceptance booleans true.
+   These are operator records; firmware does not measure
    position or certify the inspection. Recalibrate after servo, horn, linkage,
    geometry, print or endpoint changes.
 

@@ -10,13 +10,17 @@ def valid_calibration(c):
         ints = (c["min_us"], c["max_us"], c["latched_us"], c["released_us"])
         if not all(type(x) is int for x in ints):
             return False
+        measurements = (c["measured_open_clearance_mm"], c["measured_full_section_overlap_mm"])
+        if not all(type(x) in (int, float) and 0 <= x < 100 for x in measurements):
+            return False
         lo, hi, latch, release = ints
         return (750 <= lo < hi <= 2250 and lo <= latch <= hi and lo <= release <= hi
                 and latch != release and bool(c["servo_id"])
                 and c["geometry_revision"] == "R5"
                 and c["measured_open_clearance_mm"] >= 0.5
                 and c["measured_full_section_overlap_mm"] >= 0.5
-                and c["signal_verified_5v"] is True and c["operator_accepted"] is True)
+                and c["signal_verified_5v"] is True and c["fit_bounds_inspected"] is True
+                and c["operator_accepted"] is True)
     except (KeyError, TypeError, ValueError):
         return False
 

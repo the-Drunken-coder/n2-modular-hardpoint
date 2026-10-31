@@ -15,7 +15,7 @@ def fixture():
     return dict(CALIBRATION, servo_id="TEST FIXTURE ONLY", latched_us=1100,
                 released_us=1900, measured_open_clearance_mm=1.0,
                 measured_full_section_overlap_mm=1.0,
-                signal_verified_5v=True, operator_accepted=True)
+                signal_verified_5v=True, fit_bounds_inspected=True, operator_accepted=True)
 
 
 class BenchControlTests(unittest.TestCase):
@@ -66,6 +66,9 @@ class BenchControlTests(unittest.TestCase):
     def test_invalid_endpoints_are_rejected_not_clipped(self):
         for changes in ({"released_us": 2400}, {"latched_us": 1900},
                         {"min_us": True}, {"signal_verified_5v": False},
+                        {"fit_bounds_inspected": False},
+                        {"measured_open_clearance_mm": float("inf")},
+                        {"measured_open_clearance_mm": True},
                         {"measured_open_clearance_mm": 0.49},
                         {"measured_full_section_overlap_mm": 0.49}):
             self.assertFalse(valid_calibration(dict(fixture(), **changes)))
