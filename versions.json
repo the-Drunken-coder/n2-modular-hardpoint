@@ -26,12 +26,5 @@
   "sha": "75b9e7c70b85b81d6377dfbafc92379818a08827",
   "built": "2026-10-31T04:35:19Z",
   "path": "pr/21/"
- },
- {
-  "label": "PR #18 (fix/r5-servo-control)",
-  "title": "Fix R5 servo voltage assumptions and add calibrated bench controls",
-  "sha": "c528f14629e0c787ac88a288dab567c40c5d0e61",
-  "built": "2026-10-31T04:28:29Z",
-  "path": "pr/18/"
  }
 ]
