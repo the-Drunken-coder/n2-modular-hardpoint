@@ -2,6 +2,25 @@
 // - P14 (project/cad/N2): committed manifest + STLs -> model/N2/
 // - project/designs/<id>/out/*.stl (CI-built, gitignored) -> model/<id>/ with a generated manifest
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+const active = JSON.parse(readFileSync('../project/active_design.json', 'utf8')).id;
+if (active !== 'r5') throw new Error('Active viewer selection must be R5');
+const activeSource = `../project/designs/${active}/out/viewer`;
+const required = name => {
+  const path = `${activeSource}/${name}`;
+  if (!existsSync(path) || readFileSync(path).length === 0)
+    throw new Error(`Missing active viewer artifact: ${path}. Regenerate the complete active preview first.`);
+  return path;
+};
+const manifest = JSON.parse(readFileSync(required('manifest.json'), 'utf8'));
+const index = JSON.parse(readFileSync(required('fea/index.json'), 'utf8'));
+if (manifest.id !== active || manifest.revision !== 'R5' || index.revision !== 'R5')
+  throw new Error('Active viewer revision differs from the selected design');
+for (const id of ['body', 'keeper', 'adapter']) {
+  if (!manifest.parts.some(p => p.id === id) || !index.cases.some(c => c.part === id))
+    throw new Error(`Active viewer is missing printed part or analysis case: ${id}`);
+}
+for (const part of manifest.parts) required(part.stl);
+for (const c of index.cases) required(`fea/${c.part}__${c.case}.json`);
 const out = 'public/model', designs = [];
 rmSync(out, { recursive: true, force: true }); mkdirSync(out, { recursive: true });
 
@@ -9,7 +28,7 @@ const p14 = '../project/cad/N2';
 if (existsSync(`${p14}/manifest.json`)) {
   mkdirSync(`${out}/N2`);
   for (const f of readdirSync(p14)) if (f === 'manifest.json' || (f.endsWith('.stl') && !f.endsWith('_print.stl'))) cpSync(`${p14}/${f}`, `${out}/N2/${f}`);
-  designs.push({ id: 'N2', label: 'P14 solenoid (baseline)', p14: true });
+  designs.push({ id: 'N2', label: 'P14 solenoid (historical reference)', p14: true });
 }
 
 function stlBounds(buf) {
@@ -30,7 +49,7 @@ for (const id of existsSync(root) ? readdirSync(root).sort() : []) {
     designs.push({ id, label: `${id.toUpperCase()} (CI-built CAD)`, fea: existsSync(`${src}/viewer/fea/index.json`) });
     continue;
   }
-  const stls = existsSync(src) ? readdirSync(src).filter(f => f.endsWith('.stl')).sort() : [];
+  const stls = existsSync(src) ? readdirSync(src).filter(f => f.endsWith('.stl') && !f.endsWith('_print.stl')).sort() : [];
   if (!stls.length) continue;
   mkdirSync(`${out}/${id}`);
   const parts = stls.map((f, i) => { cpSync(`${src}/${f}`, `${out}/${id}/${f}`); return { id: f.replace(/\.stl$/, ''), stl: f, kind: 'printed', color: COLORS[i % COLORS.length], b: stlBounds(readFileSync(`${src}/${f}`)) }; });
@@ -43,5 +62,6 @@ for (const id of existsSync(root) ? readdirSync(root).sort() : []) {
   writeFileSync(`${out}/${id}/manifest.json`, JSON.stringify({ id, name: id.toUpperCase(), revision: id.toUpperCase(), units: 'mm', bounds: { min, max, size }, parts }, null, 1));
   designs.push({ id, label: `${id.toUpperCase()} (CI-built CAD)` });
 }
+designs.sort((a, b) => Number(b.id === active) - Number(a.id === active));
 writeFileSync(`${out}/designs.json`, JSON.stringify(designs, null, 1));
 console.log('designs:', designs.map(d => d.id).join(', '));

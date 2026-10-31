@@ -15,7 +15,8 @@ class JamScreenTests(unittest.TestCase):
     def test_original_four_mm_root_fails_declared_allowable(self):
         with patch.object(p, "TAB_ROOT_EXTRA_X", 0.0):
             r = risks.unseated()
-        self.assertAlmostEqual(r["lower_tab_root_stress_if_adapter_clamped_MPa"], 27.48915086, places=6)
+        expected = r["stall_force_6V_N"] * (p.ZK - p.ADAPTER["z"][1]) * 6 / (p.TAB_W * (p.TAB_X[1] - p.TAB_X[0]) ** 2)
+        self.assertAlmostEqual(r["lower_tab_root_stress_if_adapter_clamped_MPa"], expected, places=6)
         self.assertLess(r["margin_root_vs_allowable_Z"], 1)
 
     def test_reinforced_root_checks_interior_taper_section(self):

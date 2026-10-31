@@ -1,5 +1,7 @@
 # N2 — complete local bench control
 
+> **Historical P14 context.** R5 is the current development package. Follow [the current R5 instructions](../designs/r5/electronics/README.md); the specifications, files and results below apply only to the earlier package.
+
 ## Selected arrangement
 
 Use **one Adafruit 2776 mini solenoid, one Adafruit 5648 MOSFET driver, and a separate regulated 5.0 V bench supply capable of at least 2 A**. For repeatable development pulses, the supplied firmware adds a USB-powered **Raspberry Pi Pico H (RP2040, SC0917)** and two ordinary normally-open momentary buttons marked **ARM** and **FIRE**. A 10 kΩ resistor holds the driver's input low when the controller is absent or resetting. The actuator is in the hardpoint; the controller, driver, buttons, power supply, and test wiring are all external bench equipment, outside its quoted mechanical envelope.

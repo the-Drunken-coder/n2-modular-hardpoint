@@ -1,5 +1,7 @@
 # Continuous engineering validation
 
+> **Historical P14 context.** R5 is the current development package. Follow [the current R5 instructions](EVIDENCE_AND_READINESS.md); the specifications, files and results below apply only to the earlier package.
+
 The workflow [engineering-validation.yml](../.github/workflows/engineering-validation.yml) runs on pull requests, pushes to `main`, and manual dispatch. It checks the controller, CAD and the recorded P14 finite-element model. These checks establish computational consistency; they do not establish a payload rating, manufactured strength or reliable physical release.
 
 ## What runs
@@ -66,5 +68,5 @@ Keep the **solenoid-first approach**, servo fallback, **preloaded keyed face and
 
 The current P14 bench settings remain **250 ms command pulse, 10 s minimum off-time and a 1.3 A initial bench-supply current limit**. The proposed 3 A supply capacity does not change those settings or qualify another actuator. See the brief for the distinction between current bench limits and next-design electrical targets.
 
-The existing CI continues to check P14; these new design inputs do not turn its passing reference cases into validation of a new mechanism. Develop preload, backing, fit and environmental conditions against the recorded envelope, then update geometry-specific models deliberately. Physical actuator-force, loaded-release, structural, creep, wear and vibration trials remain the hardware work described in the verification plan. Before fabrication, record a print and drying process that can reproduce the existing [PAHT-CF guidance](print-requirements.md).
+The existing CI continues to check P14; these new design inputs do not turn its passing reference cases into validation of a new mechanism. Develop preload, backing, fit and environmental conditions against the recorded envelope, then update geometry-specific models deliberately. Physical actuator-force, loaded-release, structural, creep, wear and vibration trials remain the hardware work described in the verification plan. Before fabrication, record a print and drying process that can reproduce the existing [PAHT-CF guidance](p14-print-requirements.md).
 

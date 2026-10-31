@@ -1,6 +1,8 @@
 # P14 assembly, installation and operation
 
-Use the current [P14 print requirements](../../docs/print-requirements.md) and [bench-test plan](../../docs/test-plan.md). PAHT-CF is the candidate prototype material; no working-load or loaded-release rating is assigned.
+> **Historical P14 context.** R5 is the current development package. Follow [the current R5 instructions](../designs/r5/README.md); the specifications, files and results below apply only to the earlier package.
+
+Use the current [P14 print requirements](../../docs/p14-print-requirements.md) and [bench-test plan](../../docs/p14-test-plan.md). PAHT-CF is the candidate prototype material; no working-load or loaded-release rating is assigned.
 
 ## Assembly
 

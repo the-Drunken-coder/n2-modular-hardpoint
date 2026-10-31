@@ -1,6 +1,6 @@
 # N2 P14 editable CAD and models
 
-**N2 P14 is the sole active design.** The default generator now produces the bridged proximal roof, relocated keeper linkage, flat keeper underside and narrowed return-button slot described in [P14](../../docs/p14.md). This is later geometry than the P6-01 model consolidated in P11.
+**This directory contains the historical N2 P14 design.** Its generator produces the bridged proximal roof, relocated keeper linkage, flat keeper underside and narrowed return-button slot described in [P14](../../docs/p14.md). This is later geometry than the P6-01 model consolidated in P11. Current development uses [R5](../designs/r5/README.md).
 
 The four printed pieces remain the receiver, adapter, keeper and clamp. The retained assembly envelope, including the modeled actuator and hardware, is approximately **43.1 × 30 × 19 mm**. It excludes full wiring, off-board controls, aircraft/payload backing and departure clearance. [Current manifest](N2/manifest.json)
 
@@ -18,7 +18,7 @@ The four printed pieces remain the receiver, adapter, keeper and clamp. The reta
 | [N2/manifest.json](N2/manifest.json), [parts_catalog.json](parts_catalog.json) | Current nominal geometry, volumes, file mapping and print notes |
 | [N2/active_metadata.json](N2/active_metadata.json) | Current revision, prototype material and evidence status |
 
-Use the [P14 print requirements](../../docs/print-requirements.md) and [fabrication/inspection instructions](../manufacturing/PRINTING.md). PAHT-CF is the current prototype candidate; the estimate based on scaled PLA screens is not a qualified material or load rating.
+Use the [P14 print requirements](../../docs/p14-print-requirements.md) and [fabrication/inspection instructions](../manufacturing/PRINTING.md) when reproducing P14. PAHT-CF was its prototype candidate; the estimate based on scaled PLA screens is not a qualified material or load rating.
 
 The illustrations in [../drawings/](../drawings/) were issued with the P11/P6 package. They remain useful for the general assembly and release sequence, but are **historical illustrations**, not current P14 roof/keeper fabrication drawings. Use the current STEP/STL and manifest for those features.
 
@@ -52,4 +52,4 @@ The purchased Adafruit 2776 is an exterior-envelope model based on its supplier 
 
 P14 preserves the nominal 3 mm actuator stroke, 0.6 mm distal keeper engagement, 1.4 mm lug thickness and approximately 2.3 mm travel to lug clearance. The proximal roof now spans X 28.5–31.7, supported on both sides of the channel; the floor and outer wall continue to X 37.4. The keeper's linkage begins at X 32.0 and its body/arm underside is coplanar at Z 7.2 in assembly coordinates. [Generator](build_n2.py)
 
-The two P14 structural support cases have the same governing adapter screen. They do not establish every intermediate contact state, full-stroke force or actual separation. No part has been printed or physically tested; use the [test plan](../../docs/test-plan.md) before assigning an operating capacity.
+The two P14 structural support cases have the same governing adapter screen. They do not establish every intermediate contact state, full-stroke force or actual separation. No physical qualification was recorded for P14; its [historical test plan](../../docs/p14-test-plan.md) does not establish an operating capacity.

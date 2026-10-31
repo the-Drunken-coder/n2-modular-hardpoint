@@ -1,78 +1,103 @@
-# R5 – simplified servo hardpoint
+# R5 – servo hardpoint bench prototype
 
-3 printed parts, 0 captive nuts. Body envelope 64 × 48.5 × 18 mm: a 2.5 mm top plate with a local relief over the horn and yoke, a lightening window and short mounting bosses. Regenerated part volumes and mass estimates are in `out/cad.json`; use those values for the current revision. All purchased parts with links or specs: [BOM.md](BOM.md).
+R5 is the selected design: three PAHT-CF printed parts, one TowerPro MG92B positional servo, and the purchased hardware in [BOM.md](BOM.md). The receiver envelope is **72 × 53.5 × 20 mm**; the servo's 0.6 mm overhang brings the retained assembly envelope to **72 × 54.1 × 20 mm**. Current dimensions come from [params.py](params.py); generated volumes and mass estimates come from `out/cad.json`.
 
-Unpowered retention is **not** a requirement: losing servo power means losing the aircraft.
+**Physical qualification is pending.** The service target is retention and commanded release of a complete 0.454 kg departing assembly at 2 g total, or **8.9044382 N**. The separate retention proof target is **17.8088764 N**. These are requirements, not established working-load ratings. See the [current requirements](../../../docs/requirements.md), [evidence status](../../../docs/EVIDENCE_AND_READINESS.md) and [complete-assembly bench plan](../../../docs/test-plan.md).
 
-## Concept and load path
-A printed 5 × 5 mm keeper slides in a 5.4 × 5.4 tunnel in the body and passes through a 5.6 × 5.6 hole in a 4 mm tab on the payload adapter. Payload load goes tab → keeper top → tunnel mouth and back roof → body → 4 M3 self-tapping screws → wing.
+Power-off retention is outside the selected scope. A local servo, connector or supply fault can affect retention while the rest of the aircraft remains powered. Payload power/data, an ejector and a departure sensor are not fitted.
 
-The drive is a scotch yoke. An M2 screw in the stock horn's outer hole (r = 5 mm) rides in a vertical slot in the keeper. Latched is 180° (dead centre, so payload load puts no torque on the servo). Released is 40° (140° swing). The keeper tip sits 2 mm deep in a pocket when latched.
+## Mechanism and load path
 
-## Build and check
-```
+A printed 5 × 5 mm keeper slides through the receiver guide and the adapter's tab hole. The seated adapter loads the keeper's top surface; the guide mouth and rear roof transfer that force and moment through the body to four host mounting bosses. The lower tab has integral buttresses; its upper engagement section remains 4 mm thick.
+
+A crank on the servo horn drives the keeper's vertical slot. A 2 mm horn-side spacer, 12 mm smooth running sleeve, M2×20 through-bolt, washer and locking nut form the retained pin joint. The hardware stack must rotate rigidly with the horn while leaving the keeper free to move; its spacer seam remains outside the keeper's contact path. Follow the joint dimensions, clamping and receiving checks in the BOM and assembly procedure.
+
+The nominal crank angles are 180° latched and 40° released. These are mechanical assembly angles, not universal servo PWM commands. Dead-center geometry reduces the modeled back-drive torque; backlash, friction, servo holding and guide contact still need measurement. The adapter departs along −Z only after the keeper actually clears it.
+
+## Generate and verify
+
+From the repository root:
+
+```sh
 pip install -r project/cad/requirements.txt -r project/analysis/requirements.txt -r project/designs/r5/requirements.txt
 cd project/designs/r5
-python cad/build.py            # STEP/STL + interference checks -> out/
-python analysis/mechanics.py   # travel, clearances, torque margin
-python analysis/fea.py         # 17.8 N FEA, mesh-converged -> out/fea.md
-python analysis/risks.py       # friction, voltage, tolerance Monte Carlo, dynamics -> out/risks.md
+python cad/build.py
+python -m unittest discover -s tests -v
+python analysis/coupled_forces.py
+python analysis/mechanics.py
+python analysis/yoke_strength.py > out/yoke_strength.json
+python analysis/actuation_fea.py
+python analysis/fea.py
+python analysis/body_actuation_fea.py
+python analysis/risks.py
+python cad/viewer.py
+python analysis/export_web.py
 ```
-`out/` is generated, not committed. CI (`.github/workflows/r5.yml`) builds and uploads it.
 
-## Numbers (from the scripts)
-| Check | Value | Requirement |
-|---|---|---|
-| Keeper sliding fit | 0.4 total | 0.3–0.4 |
-| Tab-in-socket gap | 0.4 per side | ≥0.3 |
-| Tab hole to keeper | 0.6 per side | ≥0.5 |
-| Servo pocket, horn and yoke gaps | ≥0.5 | ≥0.5 |
-| Spare travel beyond 0.5 mm | 2.83 mm (1.87 if the servo stops 15° short) | ≥1 |
-| Assumed working-torque margin, 5.0 V, μ 0.35 | 4.00× (8.0× on stall); 50% stall is an assumption | ≥3 |
-| FEA at 17.8 N, lowest margin | 26.2 (adapter, across layers) | ≥1 |
+`out/` is generated and ignored by Git. Run the stages on the current checkout; historical files and numbers are not substitutes. The R5 workflow uploads the generated package. A failed calculation, mesh gate or export is a failed stage.
 
-## Simulated risks (`risks.py`, gated in CI)
-| Risk | Result |
+## Fit acceptance
+
+These are inspection limits, not claimed printer or supplier accuracy. Record actual measurements for each assembly and reject or rework parts outside the specified process.
+
+| Feature | Nominal or accepted condition |
 |---|---|
-| Friction μ 0.2–0.6, yoke T = F·r(\|sin α\| + μ\|cos α\|) | margin 7.3× → 2.1×; falls to 3× at μ 0.45 |
-| Supply | Manufacturer operating range 5.0–6.6 V; 4.4/4.6/4.8 V are unsupported and cannot pass by extrapolation. Fixed nominal 5 V must be measured at the servo under load. |
-| Tolerance Monte Carlo, 200k (horn radius, stop error, print) | P(no release) 0, P(spare < 1 mm) 2e-5, P(partial engagement) 3.5e-5, tip never hits pocket floor |
-| Back-drive at dead centre, 3° backlash, 10 g | 1.65 N·mm, 92× below working torque |
-| Unseated tab | Integral lower-root buttresses are screened against the same 16 MPa across-layer allowable as the structure. This prescribed root-load case does not qualify upper hole contacts or arbitrary mis-seating; complete jam tests remain pending. |
-| Payload mode / rattle | ≈2 kHz on rigid wing; lifts off above 1 g peak, impact 34–68× proof at 2–5 g (undamped, reported only) |
+| Keeper-to-guide clearance | 0.4 mm nominal total; accept 0.30–0.50 mm in both guide axes |
+| Body guide flats | Uninterrupted over X12.50–34.30 mm, with at least 4.80 mm flat width; inspect the [corner reliefs](docs/guide-relief.md) |
+| Remaining guidance during withdrawal | At least 17.50 mm throughout the normal stroke; the full 21.8 mm body span is recovered at latch |
+| Keeper section and yoke-wall breadth | 4.90–5.10 mm |
+| Upper bridge breadth | 7.90–8.10 mm; inspect its face alignment and thickness using [PRINTING.md](PRINTING.md) |
+| Internal yoke slot radii | At least R1.50 mm within the STEP surface limits; retain the required finite-pin clearance |
+| Relative guide-to-shaft Z datum | Within ±0.20 mm |
+| Tab-in-socket position | Nominal 0.4 mm gap per side; the upper tab's −X face must remain within X7.60–8.40 mm over its full float in the receiver datum |
+| Upper-tab X thickness | 3.90–4.10 mm at the keeper-hole ligaments, excluding buttress and chamfer |
+| Lower adapter-hole reliefs | Outward R0.40 mm, preserving the square passage; directly inspect at least 0.80 mm of finished side ligament on each side, following [the profile requirements](docs/adapter-hole-relief.md) |
+| Keeper slot-center-to-tip length | 36.35±0.10 mm to the leading tip plane; the 0.50 mm chamfer and sleeve play are separate |
+| Tab-hole clearance | 0.6 mm total, or 0.3 mm per side when centered; when loaded, the vertical clearance lies below the keeper |
+| Measured crank radius | See the measured radius bounds in `params.FIT_BOUNDS`, including assembled sleeve eccentricity |
+| Calibrated latch / release angles | 177–183° / 40–42° in the assembly frame |
+| Pin sleeve-to-slot clearance | 0.30–0.50 mm total; up to ±0.25 mm lost motion at an endpoint |
+| Latched engagement | At least 0.5 mm of full keeper section beyond the far tab face, excluding its chamfer |
+| Opening clearance | At least 1.50 mm actual clearance, including the 0.50 mm reserve and 1.00 mm spare travel |
+| Yoke roof, horn and head clearance | At least 0.5 mm remaining through the accepted loaded-pose path |
 
-FEA: skfem P2 tets, transversely isotropic, direct solver with residual check. Refined until load-point displacement changes < 5 % (adapter 0.2 %, body 1.1 %). Keeper stays at 11 % but its margin is 176, and hand calcs give 10.8.
+[Loaded-fit requirements](docs/loaded-fit.md) define roll, pitch/yaw, datum errors, surface allowances and the sampled geometry checks. The [continuous interval proof](analysis/FIT_ENVELOPE.md) accounts for shortened guide engagement during withdrawal, the raised yoke contact point and pin-slot lost motion. It bounds the inspected rigid geometry; the separate CAD checks screen sampled poses for external interference. Neither establishes frictional motion or elastic loaded release. `analysis/risks.py` evaluates the dimensional limits and analytic extrema. Its separate Monte Carlo output is a sensitivity exercise under guessed distributions, with no measured reliability probability.
 
-## Print
-PAHT-CF, dried. Body: wing face down; the tunnel roof is the only bridge. Keeper: on its side. Adapter: flat. FEA uses the XY/Z properties for these orientations.
+## Numerical evidence and limits
 
-## Assembly
-The servo lead uses the continuous gland-side opening; see [cable fit and routing](docs/cable-fit.md).
+Read [analysis/README.md](analysis/README.md) and the current generated `out/coupled_forces.json`, `out/mechanics.json`, `out/yoke_strength.json`, `out/actuation_fea.json`, `out/body_actuation_fea.json`, `out/fea.json` and `out/risks.md`.
 
-1. Screw the servo into the cradle with its ear screws.
-2. Follow the [5 V interface and endpoint calibration procedure](electronics/README.md). The 180° latch angle is a geometric horn angle, not a universal servo command. Fit the horn at the calibrated latch pulse with the pin facing the keeper.
-3. Slide the keeper into the tunnel so that the pin enters the slot.
-4. Screw the body to the wing with 4 M3 self-tapping screws.
-5. Fit the payload, command latch and pull-test it every time. If the tab isn't seated, the keeper tip hits the tab face and the servo stalls instead of latching.
+- Each assembled FE load is audited for actual force and moment, followed by independent support-reaction equilibrium checks. The original factor-ten load normalization error invalidates the old stress margins and derived stiffness/dynamics.
+- Displacement and governing stress utilization must each change by no more than 5% between the final two mesh levels. A large strength ratio cannot bypass convergence.
+- Report and viewer use the same provisional criteria, reference load and source identities. Excluded ideal-support regions remain identified; they are not shown as validated low-stress material.
+- The [coupled actuation screen](analysis/COUPLED_FORCES.md) solves guide reactions and sleeve friction together, including rigid sleeve rotation, changing tab overlap and the over-center contact branch. It is a level-slot two-dimensional Coulomb model sampled across dimensional limits and angle; tilted contact normals, lateral binding and elastic contact still require characterization.
+- Linear component FEA prescribes supports and contact tractions for retention and opening. It does not simulate actual frictional withdrawal, contact redistribution, screw pull-out, arbitrary mis-seating, wear, creep or aircraft dynamics. The separate opening checks must pass as well as retention proof.
+- PAHT-CF properties, elastic coupling, compression/shear behavior and the assumed working-torque fraction require process and component characterization. A computed comparison ratio is not a tested failure load.
+- The [yoke section screen](analysis/YOKE_LOADS.md) checks service withdrawal and one prescribed closing-jam pose, including the open assembly entry and eccentric pin force. It is not an unrestricted stall rating or a local-notch, contact or interlayer-shear qualification.
+- The jam screen checks the reinforced lower root against the same 16 MPa across-layer design allowable. It does not qualify all tab/hole contact poses.
+- Compliance-derived modes, rattle impacts and friction sensitivities are model estimates. Regenerate them after geometry or load changes; no old fixed frequency or impact multiplier is retained here.
+
+## Manufacture and assemble
+
+Use [PRINTING.md](PRINTING.md) for print-oriented exports, the trial process, support restrictions, conditioning and dimensional records. Use [BOM.md](BOM.md) for the exact purchased joint and [electronics/README.md](electronics/README.md) for the nominal 5 V terminal contract, 5 V command logic and individual endpoint calibration.
+
+1. Print and inspect the three parts and receive-inspect the actual servo, horn, sleeve and fasteners.
+2. Verify the [continuous gland-side cable route](docs/cable-fit.md), then attach the servo using the specified screws.
+3. Calibrate the free actuator, index the horn, install the retained pin joint following [ASSEMBLY.md](ASSEMBLY.md), and inspect the entire unloaded path. The 215° assembly-only bare-pin pose requires at least 175° of separately verified safe unloaded actuator travel between release and assembly positions; it is never a normal controller command.
+4. Attach the body and adapter through their actual mounting interfaces. Establish installation torque on matching coupons and record it.
+5. Command latch deliberately with the adapter supported, inspect full engagement, and then execute the complete-assembly acceptance plan.
+
+The bench controller ships with no valid endpoint calibration and refuses motion until the measured endpoint and fit records are entered. It requires an explicit arm before release and an explicit relatch afterward. Controller command state is not a physical position measurement.
+
+## Physical evidence still required
+
+The [bench plan](../../../docs/test-plan.md) specifies three independent printed assemblies, complete-assembly proof, repeated releases at the service force, measured actual departure, post-cycle proof, defined jam exposure and sustained hold. Record every failure and configuration change. Use the [installation interface](docs/installation-interface.md) before extending a bench result to a particular host, pod, vibration spectrum, environmental range or load vector.
+
+The viewer depicts purchased parts using receiving envelopes rather than certified vendor CAD. Its release animation is explanatory; it does not demonstrate separation.
 
 ## Sources
-- Servo: TowerPro MG92B, manufacturer 3.1 kgf·cm stall at 5.0 V, 13.8 g. https://towerpro.com.tw/product/mg92b/ . Adafruit 2307 labels that point 4.8 V but also specifies a 5.0 V operating minimum; this design uses the manufacturer's point. https://www.adafruit.com/product/2307
-- Material: Bambu PAHT-CF TDS V2, dry. https://wiki.bambulab.com/en/filament-acc/filament/paht-cf
 
-## Bench tests (cannot be simulated)
-1. Servo torque at the actual nominal 5 V terminals: stall and the speed–torque curve (50 % of stall assumed), minimum terminal voltage/current transients, signal level and endpoint calibration. Sub-5 V sag behavior is unqualified.
-2. μ between printed PAHT-CF parts: incline or pull test (0.35 assumed; ≥3× holds to 0.45).
-3. Print strength: tab proof at 17.8 N on a printed adapter, plus a Z coupon.
-4. Wing boss M3 self-tapper pull-out.
-5. Horn hole radius and servo case: measure on arrival.
-6. Vibration at the hardpoint in flight (decides whether rattle matters) and servo holding under vibration.
-7. Mis-seating/jam trials on sacrificial assemblies: upper tab and hole contacts, keeper, horn and body must be inspected after each event. The lower-root hand calculation is not a complete jam model. Do not continue a stalled command or fly a damaged specimen.
-
-## Optional
-A latched-position microswitch is not fitted. The keeper is visible from the +Y side for a visual check. A switch could be added later on the tunnel back if needed.
-
-## Viewer
-
-`viewer_build.sh` (run by the Pages preview) builds `out/viewer/`: all thirteen parts (printed parts, MG92B, stock horn, M2 crank pin, horn centre, ear, wing M3 and adapter-to-payload screws, payload stand-in, ghosted wing), explode vectors, the servo-crank release kinematics from `params.py`, and the FEA colormap from `analysis/fea.py` via `analysis/export_web.py`. Purchased parts are modelled from listing dimensions, not vendor CAD.
-
-Fit note: the horn centre retaining screw (stock M2 pan head) is fitted. The keeper's horn-side face has a groove (head + 0.5 mm all round) so the head passes under the yoke through the whole 180->40 deg sweep; `cad/build.py` checks this at 29 angles.
+- [TowerPro MG92B](https://towerpro.com.tw/product/mg92b/): manufacturer operating range and torque points.
+- [Adafruit 2307](https://www.adafruit.com/product/2307): purchased servo dimensions, signal and endpoint guidance; the manufacturer governs the lower torque-point voltage.
+- [Bambu PAHT-CF TDS V3.0](https://idarts.co.jp/3dfs/data_sheet/bambuLab/Bambu_PAHT-CF_TDS.pdf): the manufacturer data sheet matching the selected numerical properties and coupon conditions. Quoted scatter is not a statistical confidence statement.
+- [Bambu PAHT-CF](https://wiki.bambulab.com/en/filament-acc/filament/paht-cf): material and processing reference. Supplier data do not qualify this printed geometry.
