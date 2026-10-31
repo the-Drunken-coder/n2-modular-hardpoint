@@ -4,6 +4,8 @@ import * as T from 'three';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
+const SITE_ROOT = import.meta.env.VITE_SITE_ROOT || './';
+const BUILD = { label: import.meta.env.VITE_BUILD_LABEL || 'local build', sha: (import.meta.env.VITE_BUILD_SHA || '').slice(0, 7) };
 const short = id => id.replace(/^N2_/, '').replace(/_/g, ' ');
 const STROKE = 3, DROP = 22;            // keeper stroke (mm, manifest actuator), adapter travel shown
 const MOVERS = ['N2_keeper', 'N2_armature']; // pulled +X by the solenoid
@@ -79,16 +81,30 @@ export default function App() {
   const [group, setGroup] = useState('Z');
   const [load, setLoad] = useState(17.8);
   const [ghost, setGhost] = useState(true);
+  const [designs, setDesigns] = useState([]), [design, setDesign] = useState(null), [versions, setVersions] = useState([]);
+  const p14 = designs.find(d => d.id === design)?.p14;
 
   useEffect(() => {
-    fetch('model/manifest.json').then(r => r.json()).then(setMan);
-    fetch('fea/index.json').then(r => r.json()).then(setFea);
+    fetch('model/designs.json').then(r => r.json()).then(ds => {
+      setDesigns(ds); const want = new URLSearchParams(location.search).get('design');
+      setDesign((ds.find(d => d.id === want) || ds[ds.length - 1])?.id);
+    });
+    fetch(`${SITE_ROOT}versions.json`, { cache: 'no-store' }).then(r => r.json()).then(setVersions).catch(() => {});
   }, []);
+  useEffect(() => {
+    if (!design) return;
+    for (const m of [...s.parts.values(), ...s.fea.values()]) { s.scene.remove(m); m.geometry.dispose(); }
+    s.parts.clear(); s.fea.clear(); setHidden({}); setMan(null); setFea(null);
+    fetch(`model/${design}/manifest.json`).then(r => r.json()).then(setMan);
+    if (designs.find(d => d.id === design)?.p14) fetch('fea/index.json').then(r => r.json()).then(setFea);
+  }, [design]);
 
   // load assembly STLs
   useEffect(() => {
-    if (!man) return; const L = new STLLoader();
-    man.parts.forEach(p => L.load(`model/${p.stl}`, g => {
+    if (!man) return; s.design = man.id; const L = new STLLoader();
+    const cur = man.id;
+    man.parts.forEach(p => L.load(`model/${man.id}/${p.stl}`, g => {
+      if (cur !== s.design) return;
       g.computeVertexNormals();
       const m = new T.Mesh(g, new T.MeshStandardMaterial({ color: p.color, metalness: 0.1, roughness: 0.6, side: T.DoubleSide }));
       m.userData.p = p; s.parts.set(p.id, m); s.scene.add(m); s.dirty = true;
@@ -115,7 +131,7 @@ export default function App() {
     raf = requestAnimationFrame(f); return () => cancelAnimationFrame(raf);
   }, [playing]);
 
-  const shown = mode === 'fea' && fea ? GROUPS[group].parts : {};
+  const shown = mode === 'fea' && p14 && fea ? GROUPS[group].parts : {};
   const k = fea ? 31 / fea.z_tds_MPa : 1;
   const rows = fea ? Object.entries(shown).map(([p, c]) => fea.cases.find(x => x.part === p && x.case === c)).filter(Boolean) : [];
   const gov = rows.reduce((a, b) => (!a || b.fail_N < a.fail_N ? b : a), null);
@@ -163,7 +179,14 @@ export default function App() {
     <div className="app">
       <div className="panel">
         <div className="status">
-          <b>N2 hardpoint · {fea?.revision || ''}</b><br />
+          Version: <Tag minimal intent={BUILD.label === 'main' ? 'success' : 'warning'}>{BUILD.label}</Tag> {BUILD.sha && <code>{BUILD.sha}</code>}
+          {versions.length > 1 && <HTMLSelect fill minimal value="" onChange={e => { location.href = SITE_ROOT + e.target.value; }}
+            options={[{ value: '', label: 'Switch version…' }, ...versions.map(v => ({ value: v.path, label: v.label + (v.title ? ` — ${v.title}` : '') }))]} />}
+        </div>
+        {designs.length > 1 && <HTMLSelect fill value={design || ''} onChange={e => setDesign(e.target.value)} options={designs.map(d => ({ value: d.id, label: d.label }))} />}
+        <div className="status">
+          <b>N2 hardpoint · {p14 ? fea?.revision || '' : man?.revision || ''}</b><br />
+          {!p14 && man && <>CI-built CAD preview. Exploded view and parts only; FEA and release animation are P14-only for now.</>}
           {status && <>
             Straight-pull stress screen <b>{status.fail_N.toFixed(2)} N</b> ({short(status.part)} governs). Dividing by SF 2 gives {status.rating_sf2_N.toFixed(2)} N for comparison only.<br />
             <b>No working-load rating assigned.</b> No printed or loaded-release tests recorded.<br />
@@ -172,19 +195,19 @@ export default function App() {
         </div>
         <ButtonGroup fill>
           <Button intent={mode === 'model' ? 'primary' : 'none'} icon="cube" text="Model" onClick={() => setMode('model')} />
-          <Button intent={mode === 'fea' ? 'primary' : 'none'} icon="heat-grid" text="FEA" onClick={() => setMode('fea')} />
+          <Button intent={mode === 'fea' ? 'primary' : 'none'} icon="heat-grid" text="FEA" disabled={!p14} onClick={() => setMode('fea')} />
         </ButtonGroup>
 
         <h6>Explode</h6>
         <Slider min={0} max={1} stepSize={0.01} labelRenderer={false} value={explode} onChange={setExplode} />
 
-        <h6>Release sequence</h6>
+        {p14 && <><h6>Release sequence</h6>
         <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
           <Button small icon={playing ? 'pause' : 'play'} onClick={() => setPlaying(!playing)} />
           <Button small icon="reset" onClick={() => { setPlaying(false); setPhase(0); }} />
           <div style={{ flex: 1, paddingTop: 4 }}><Slider min={0} max={2} stepSize={0.01} labelRenderer={false} value={phase} onChange={v => { setPlaying(false); setPhase(v); }} /></div>
         </div>
-        <div className="status">{phase < 0.02 ? 'Latched: keeper crosses the adapter lug.' : phase <= 1 ? `Solenoid pulls keeper +X ${(STROKE * phase * phase * (3 - 2 * phase)).toFixed(1)} / ${STROKE} mm.` : 'Keeper open; illustrated adapter travel is +Z. Actual clearance requires an external departure force.'} This is a prescribed motion illustration, not a tested release.</div>
+        <div className="status">{phase < 0.02 ? 'Latched: keeper crosses the adapter lug.' : phase <= 1 ? `Solenoid pulls keeper +X ${(STROKE * phase * phase * (3 - 2 * phase)).toFixed(1)} / ${STROKE} mm.` : 'Keeper open; illustrated adapter travel is +Z. Actual clearance requires an external departure force.'} This is a prescribed motion illustration, not a tested release.</div></>}
 
         {mode === 'fea' && fea && <>
           <h6>Load case</h6>

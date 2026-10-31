@@ -26,7 +26,7 @@ The [subsequent mounting and withdrawal study](project/analysis/validation_20261
 | Need | Repository material |
 |---|---|
 | Understand the current geometry and remaining evidence | [P14 design](docs/p14.md), [current context](docs/CURRENT_CONTEXT.md), [evidence and readiness](docs/EVIDENCE_AND_READINESS.md) |
-| Rotate the model, explode the assembly or inspect the FEA | [GitHub Pages viewer](https://the-drunken-coder.github.io/n2-modular-hardpoint/) and [current viewer source](web/src/App.jsx) |
+| Rotate the model, explode the assembly or inspect the FEA | [GitHub Pages viewer](https://the-drunken-coder.github.io/n2-modular-hardpoint/) (every PR gets a preview at `/pr/<n>/`, linked in a PR comment) and [current viewer source](web/src/App.jsx) |
 | Edit or inspect CAD | [CAD instructions](project/cad/README.md), [generator](project/cad/build_n2.py), [assembly STEP](project/cad/N2/assembly.step), [active metadata](project/cad/N2/active_metadata.json) |
 | Print the four custom pieces | [Receiver](project/cad/N2/N2_receiver_print.stl), [adapter](project/cad/N2/N2_adapter_print.stl), [keeper](project/cad/N2/N2_keeper_print.stl), [clamp](project/cad/N2/N2_clamp_print.stl), [P14 print requirements](docs/print-requirements.md) |
 | Assemble, mount or buy components | [Assembly and installation](project/docs/assembly_installation.md), [manufacturing instructions](project/manufacturing/PRINTING.md), [order list](project/manufacturing/ORDER_LIST.md) |
