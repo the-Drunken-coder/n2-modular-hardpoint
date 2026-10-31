@@ -16,6 +16,27 @@ import fea
 
 
 class MeshRefinementTests(unittest.TestCase):
+    def test_adapter_requires_actual_lower_radius_refinement_and_covers_both_reliefs(self):
+        case = fea.CASES["adapter"]
+        radius = fea.p.ADAPTER_LOWER_HOLE_RADIUS
+        self.assertLessEqual(case["minimum_refinement_mm"], .4*radius)
+        self.assertTrue(any(h <= case["minimum_refinement_mm"] for h in case["sizes"]))
+        self.assertFalse(fea.convergence(
+            dict(load_point_disp_mm=1., max_utilization_at_proof=.5),
+            dict(h_mm=1.1*case["minimum_refinement_mm"], load_point_disp_mm=1., max_utilization_at_proof=.5),
+            case["minimum_refinement_mm"])["converged"])
+        centres = np.asarray(case["bearing_points"])
+        # A lower-relief circle is extruded through the complete tab thickness.
+        # The field grid covers both arcs, including its least-covered X
+        # midpoints, without relying on a particular first-mesh peak location.
+        for x in np.linspace(*fea.p.TAB_X, 9):
+            for side in (-1, 1):
+                for angle in np.linspace(0., 2*np.pi, 33):
+                    point = [x, fea.p.YK+side*fea.p.HOLE_W/2+radius*np.cos(angle),
+                             fea.p.HOLE_TOP_LOADED-fea.p.HOLE_H+radius*np.sin(angle)]
+                    self.assertLessEqual(np.linalg.norm(centres-point, axis=1).min(),
+                                         case["refinement_radius_mm"])
+
     def test_inadmissible_named_load_patch_fails_before_stiffness_allocation(self):
         mesh = MeshTet.init_refdom()
         matrix = Mock(side_effect=AssertionError("stiffness allocation reached"))

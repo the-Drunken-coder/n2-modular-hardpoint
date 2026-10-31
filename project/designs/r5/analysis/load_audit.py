@@ -67,16 +67,39 @@ def check_resultants(actual, expected, label, rtol=1e-8):
     return dict(force_relative_error=errors[0], moment_relative_error=errors[1])
 
 
-def surface_load(mesh, facets, force, application_point=None):
+def quadratic_edge_density(coordinates, vertex_bands):
+    """Normalized centred rectangular density, zero at its four edges.
+
+    This is a prescribed traction profile, not a solved contact pressure.
+    Its analytic relative-density range is [0, 9/4], including the interior
+    maximum that a vertex-only audit would miss.
+    """
+    area = float(np.prod([upper-lower for _, lower, upper in vertex_bands]))
+    density = 9.0/(4.0*area)
+    for axis, lower, upper in vertex_bands:
+        xi = 2.0*(coordinates[axis]-(lower+upper)/2)/(upper-lower)
+        density = density*np.maximum(0.0, 1.0-xi*xi)
+    return density
+
+
+def surface_load(mesh, facets, force, application_point=None, pressure_profile=None, vertex_bands=()):
     """Assemble a specified force, returning its audited N / N*mm resultants.
 
 ``application_point`` is supported for axis-aligned planar patches. It specifies the
 resultant location, not a point load; pressure remains distributed over the
 selected facets.  If omitted, uniform traction acts at the mesh patch centroid.
+
+``quadratic_edge_taper`` requires the complete rectangle and its central
+resultant. Its degree-four density is integrated with the quadratic shape
+functions using degree-six quadrature. No affine recentering is applied.
 """
+    if pressure_profile not in (None, "nonnegative_affine", "quadratic_edge_taper"):
+        raise ValueError(f"unknown prescribed traction profile: {pressure_profile}")
     if not len(facets):
         raise ValueError("load patch contains no boundary facets")
-    scalar = FacetBasis(mesh, ElementTetP2(), facets=facets)
+    tapered = pressure_profile == "quadratic_edge_taper"
+    order = 6 if tapered else None
+    scalar = FacetBasis(mesh, ElementTetP2(), facets=facets, intorder=order)
     area = float(Functional(lambda w: 1.0).assemble(scalar))
     if not np.isfinite(area) or area <= 0:
         raise ValueError("load patch has nonpositive area")
@@ -84,27 +107,59 @@ selected facets.  If omitted, uniform traction acts at the mesh patch centroid.
     target = centroid if application_point is None else np.asarray(application_point, dtype=float)
     coefficients = np.array([1.0 / area, 0.0, 0.0])
     in_plane = (0, 1)
-    if application_point is not None:
+    if application_point is not None or tapered:
         xyz = scalar.global_coordinates()
         normal_axes = np.flatnonzero(np.ptp(xyz.reshape(3, -1), axis=1) < 1e-7)
         if len(normal_axes) != 1 or np.max(np.abs(xyz[normal_axes[0]] - target[normal_axes[0]])) > 1e-7:
             raise ValueError("prescribed resultant requires an axis-aligned planar patch containing the target")
         in_plane = tuple(i for i in range(3) if i != normal_axes[0])
-        def polynomial(w):
-            return (1.0 + 0 * w.x[0], w.x[in_plane[0]] - centroid[in_plane[0]], w.x[in_plane[1]] - centroid[in_plane[1]])
-        gram = np.array([[Functional(lambda w, i=i, j=j: polynomial(w)[i] * polynomial(w)[j]).assemble(scalar)
-                          for j in range(3)] for i in range(3)])
-        coefficients = np.linalg.solve(gram, [1.0, target[in_plane[0]] - centroid[in_plane[0]], target[in_plane[1]] - centroid[in_plane[1]]])
-    def weight(w):
-        return coefficients[0] + coefficients[1] * (w.x[in_plane[0]] - centroid[in_plane[0]]) + coefficients[2] * (w.x[in_plane[1]] - centroid[in_plane[1]])
-    # An affine pressure reaches its extrema at patch vertices.  Do not silently
-    # introduce tensile contact to enforce an inadmissible resultant location.
-    xyz = mesh.p[:, np.unique(mesh.facets[:, facets])]
-    weights = coefficients[0] + coefficients[1] * (xyz[in_plane[0]] - centroid[in_plane[0]]) + coefficients[2] * (xyz[in_plane[1]] - centroid[in_plane[1]])
-    if weights.min() < -1e-10 / area:
-        raise ValueError("resultant location requires negative pressure on the selected patch")
+    if tapered:
+        bands = tuple((int(axis), float(lower), float(upper)) for axis, lower, upper in vertex_bands)
+        if (len(bands) != 2 or {axis for axis, _, _ in bands} != set(in_plane)
+                or any(not np.isfinite((lower, upper)).all() or lower >= upper for _, lower, upper in bands)):
+            raise ValueError("edge taper requires both finite in-plane rectangle bounds")
+        rectangle_area = float(np.prod([upper-lower for _, lower, upper in bands]))
+        centre = centroid.copy()
+        vertices = mesh.p[:, np.unique(mesh.facets[:, facets])]
+        for axis, lower, upper in bands:
+            centre[axis] = (lower+upper)/2
+            if np.any(vertices[axis] < lower-1e-8) or np.any(vertices[axis] > upper+1e-8):
+                raise ValueError("edge taper requires the complete rectangle footprint")
+        if not np.isclose(area, rectangle_area, rtol=1e-8, atol=1e-10):
+            raise ValueError("edge taper requires the complete rectangle footprint")
+        if not np.allclose(target, centre, rtol=0, atol=1e-8):
+            raise ValueError("symmetric edge taper requires the rectangle centre; affine recentering is not permitted")
+        def weight(w):
+            return quadratic_edge_density(w.x, bands)
+        integral = float(Functional(weight).assemble(scalar))
+        first_moments = np.array([Functional(lambda w, i=i: w.x[i]*weight(w)).assemble(scalar)
+                                  for i in range(3)])
+        if not np.isclose(integral, 1.0, rtol=1e-10, atol=1e-12) or not np.allclose(first_moments, centre, rtol=0, atol=1e-8):
+            raise ValueError("edge-taper scalar quadrature failed normalization or centroid audit")
+        profile_report = dict(pressure_profile="quadratic_edge_taper", traction_quadrature_order=6,
+                              relative_pressure_min=0.0, relative_pressure_max=2.25,
+                              pressure_extrema_basis="analytic range over the full rectangle",
+                              scalar_density_integral=integral, scalar_density_centroid_mm=(first_moments/integral).tolist())
+    else:
+        if application_point is not None:
+            def polynomial(w):
+                return (1.0 + 0 * w.x[0], w.x[in_plane[0]] - centroid[in_plane[0]], w.x[in_plane[1]] - centroid[in_plane[1]])
+            gram = np.array([[Functional(lambda w, i=i, j=j: polynomial(w)[i] * polynomial(w)[j]).assemble(scalar)
+                              for j in range(3)] for i in range(3)])
+            coefficients = np.linalg.solve(gram, [1.0, target[in_plane[0]] - centroid[in_plane[0]], target[in_plane[1]] - centroid[in_plane[1]]])
+        def weight(w):
+            return coefficients[0] + coefficients[1] * (w.x[in_plane[0]] - centroid[in_plane[0]]) + coefficients[2] * (w.x[in_plane[1]] - centroid[in_plane[1]])
+        # An affine density reaches its extrema at patch vertices. Do not use
+        # this vertex-only check for the tapered profile's interior maximum.
+        xyz = mesh.p[:, np.unique(mesh.facets[:, facets])]
+        weights = coefficients[0] + coefficients[1] * (xyz[in_plane[0]] - centroid[in_plane[0]]) + coefficients[2] * (xyz[in_plane[1]] - centroid[in_plane[1]])
+        if weights.min() < -1e-10 / area:
+            raise ValueError("resultant location requires negative pressure on the selected patch")
+        profile_report = dict(pressure_profile="nonnegative_affine",
+                              relative_pressure_min=float(weights.min()*area), relative_pressure_max=float(weights.max()*area),
+                              pressure_extrema_basis="affine extrema at selected facet vertices")
     force = np.asarray(force, dtype=float)
-    vector = FacetBasis(mesh, ElementVector(ElementTetP2()), facets=facets)
+    vector = FacetBasis(mesh, ElementVector(ElementTetP2()), facets=facets, intorder=order)
     nodal = LinearForm(lambda v, w: weight(w) * (force[0] * v[0] + force[1] * v[1] + force[2] * v[2])).assemble(vector)
     expected = (force, np.cross(target, force))
     actual = resultants(vector, nodal)
@@ -112,8 +167,7 @@ selected facets.  If omitted, uniform traction acts at the mesh patch centroid.
     return nodal, dict(area_mm2=area, mesh_centroid_mm=centroid.tolist(), application_point_mm=target.tolist(),
                        expected_force_N=force.tolist(), expected_moment_Nmm=expected[1].tolist(),
                        applied_force_N=actual[0].tolist(), applied_moment_Nmm=actual[1].tolist(),
-                       relative_pressure_min=float(weights.min() * area), relative_pressure_max=float(weights.max() * area),
-                       **audit)
+                       **profile_report, **audit)
 
 
 def support_equilibrium(basis, stiffness, displacement, applied, fixed):

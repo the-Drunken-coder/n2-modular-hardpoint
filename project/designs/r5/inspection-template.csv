@@ -21,6 +21,14 @@ assembly_id,part_or_stage,feature,unit,nominal,minimum,maximum,measured,result,o
 ,keeper,Z bar section,mm,5,4.9,5.1,,PENDING,,,Measure across full guide-bearing length
 ,keeper,slot-center-to-leading-tip length,mm,36.35,36.25,36.45,,PENDING,,,Measure along keeper X from midpoint of straight slot faces to leading flat tip plane; do not subtract 0.50 mm chamfer or use sleeve position
 ,adapter,upper-tab X thickness,mm,4.00,3.90,4.10,,PENDING,,,Far-to-near face thickness at keeper-hole ligaments after conditioning; exclude lower root buttress and top chamfer
+,adapter,tab Y breadth,mm,8.2,,,,PENDING,,,Record actual after conditioning; direct side-ligament and centered socket-clearance gates apply independently
+,adapter,minimum lower-hole relief arc radius,mm,0.4,0.4,,,PENDING,,,Inspect both outward arcs throughout X thickness; centers at original lower corners; no inward rounding or local sharp notch
+,adapter,minimum minus-Y lower-hole side ligament,mm,0.9,0.8,,,PENDING,,,Direct finished measurement after conditioning; do not infer from nominal tab width or subtract guessed print error
+,adapter,minimum plus-Y lower-hole side ligament,mm,0.9,0.8,,,PENDING,,,Direct finished measurement after conditioning; radius and both ligament limits must hold together
+,adapter,lower-hole relief profile,,,,,,PENDING,,,Outward circles only; original full square passage and upper load plane retained; no undercut fin or split
+,adapter+keeper,total Y hole clearance between original flat planes,mm,0.6,0.5,,,PENDING,,,Actual keeper/hole pair; do not measure across lower relief bulbs
+,adapter+keeper,total Z hole clearance between original flat planes,mm,0.6,0.5,,,PENDING,,,Upper load plane and central lower flat; verify upward and side-float latching pose
+,body+adapter,centered Y socket clearance per side,mm,0.4,0.3,,,PENDING,,,Measure both sides with tab centered; nominal socket width 9.00 mm for nominal 8.20 mm tab
 ,body+keeper,effective full-section guide length,mm,22,21.8,,,PENDING,,,All four full-section flats; no groove; spans X12.50..34.30 in common receiver datum
 ,body,front end X of uninterrupted guide flats,mm,12.40,,12.50,,PENDING,,,Common receiver X=0 datum; all four flat planes must continue from at most X12.50
 ,body,rear end X of uninterrupted guide flats,mm,34.40,34.30,,,PENDING,,,Common receiver X=0 datum; all four flat planes must continue through at least X34.30

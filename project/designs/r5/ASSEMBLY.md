@@ -39,7 +39,9 @@ controller must never command the 215° assembly position.
 ## Ordered procedure
 
 1. Inspect the prints and smooth only identified bearing edges. Confirm the
-   finished guide and slot fits before installing hardware.
+   finished guide and slot fits before installing hardware. The adapter's
+   [outward lower-hole reliefs](docs/adapter-hole-relief.md) must retain at least
+   R0.40 arcs and 0.80 mm finished side ligaments; do not round into the passage.
 2. Prepare the crank hole to **2.2 mm through**. Countersink the **rear face**
    with a 90° tool just until the specified screw head is flush. Retain at least
    0.4 mm of horn throat beneath the countersink; reject cracks, whitening or an
@@ -107,6 +109,13 @@ an old host-hole pattern. The rear row also gives the 8 mm bridge 0.80 mm nomina
 clearance during straight +X insertion, with 0.30 mm reserved for opposing
 surface/datum errors. The geometry gate checks every complete boss annulus;
 thread-forming torque and host pull-out still require physical qualification.
+
+The adapter tab is 8.20 mm wide in Y, with a 9.00 mm matching socket and
+0.40 mm nominal clearance per side. Its original 5.60 mm square hole remains
+fully open; the additional R0.40 reliefs extend outward at the two lower
+corners only. The upper load plane, tab X thickness and inspected far-face X
+limits are unchanged. Accept the measured hole and socket clearances in the
+print instructions, including the upward/side-float latching check.
 
 Host mounting screw heads, departing adapter/payload and external harness are
 outside that retained envelope. Keep assembly access on +X and +Y before
