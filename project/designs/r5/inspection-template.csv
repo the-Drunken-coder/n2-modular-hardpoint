@@ -17,6 +17,8 @@ assembly_id,part_or_stage,feature,unit,nominal,minimum,maximum,measured,result,o
 ,process,part post-treatment duration,h,12,12,,,PENDING,,,Record uniform forced-air oven and cool/store dry
 ,keeper,Y section / minimum yoke breadth,mm,5,4.9,5.1,,PENDING,,,Measure full section at multiple locations
 ,keeper,Z bar section,mm,5,4.9,5.1,,PENDING,,,Measure across full guide-bearing length
+,keeper,slot-center-to-leading-tip length,mm,29.35,29.25,29.45,,PENDING,,,Measure along keeper X from midpoint of straight slot faces to leading flat tip plane; do not subtract 0.50 mm chamfer or use sleeve position
+,adapter,upper-tab X thickness,mm,4.00,3.90,4.10,,PENDING,,,Far-to-near face thickness at keeper-hole ligaments after conditioning; exclude lower root buttress and top chamfer
 ,body+keeper,effective full-section guide length,mm,16,15.8,,,PENDING,,,No groove inside effective span
 ,body+keeper,total Y sliding clearance,mm,0.4,0.3,0.5,,PENDING,,,Guide Y minus actual keeper Y; both ends and centre
 ,body+keeper,total Z sliding clearance,mm,0.4,0.3,0.5,,PENDING,,,Guide Z minus actual keeper Z; both ends and centre
@@ -30,6 +32,8 @@ assembly_id,part_or_stage,feature,unit,nominal,minimum,maximum,measured,result,o
 ,servo,shaft datum error X,mm,0,-0.1,0.1,,PENDING,,,Against current shaft X40.4
 ,servo,shaft datum error Y,mm,0,-0.1,0.1,,PENDING,,,Against spline face Y34.6; inspect seated hardware
 ,servo,shaft datum error Z,mm,0,-0.1,0.1,,PENDING,,,Against current shaft Z6.5
+,assembly,tab far-face X minimum over full float,mm,7.60,7.60,8.40,,PENDING,,,Receiver CAD X=0 common datum after host mounting; record smallest X of upper-tab minus-X face across full permitted socket float and rocking
+,assembly,tab far-face X maximum over full float,mm,8.40,7.60,8.40,,PENDING,,,Same receiver datum; record largest X across full permitted float and rocking; minimum and maximum must both remain within 7.60..8.40
 ,assembly,effective sleeve-center radius,mm,5.4,5.3,5.5,,PENDING,,,Measure after clamp; include all hole and sleeve-ID play
 ,assembly,latch endpoint,deg,180,177,183,,PENDING,,,Physical CAD angle; log calibrated pulse
 ,assembly,release endpoint,deg,40,40,44,,PENDING,,,Physical CAD angle; log calibrated pulse

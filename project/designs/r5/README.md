@@ -24,7 +24,7 @@ python analysis/risks.py       # friction, voltage, tolerance Monte Carlo, dynam
 | Check | Value | Requirement |
 |---|---|---|
 | Keeper sliding fit | 0.4 total | 0.3–0.5 total, inspected |
-| Tab-in-socket gap | 0.4 per side | ≥0.3 |
+| Tab-in-socket gap | 0.4 per side nominal | ≥0.3 per side when centered **and** far-face X 7.60–8.40 across full float, with tab thickness 3.90–4.10; see [inspection](PRINTING.md) |
 | Tab hole to keeper | 0.6 total (0.3 per side when centered; all vertical clearance below when loaded) | ≥0.5 total |
 | Servo pocket, horn and yoke gaps | ≥0.5 | ≥0.5 |
 | Spare travel beyond 0.5 mm | 2.33 mm (1.37 if the servo stops 15° short, nominal centered geometry); deterministic check additionally includes pin/slot play | ≥1 |

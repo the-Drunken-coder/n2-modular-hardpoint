@@ -103,11 +103,36 @@ hole expansion as a substitute for a qualified process. Record dimensions
 before/after on the first articles and reject parts that cannot meet the gates.
 
 Use [inspection-template.csv](inspection-template.csv) for each assembly. Fill
-in actual values; blank/PENDING entries remain open gates. The limits include:
+in actual values; blank/PENDING entries remain open gates. Use the receiver's
+**CAD X=0 side plane as the common assembly X datum**, with the receiver seated
+on its intended host fixture and its mounting screws tightened. Do not zero the
+measurement on the floating adapter. The tab's **far face** is its −X face
+(nominal X8.00), which the keeper must extend past when latched; its
+**near face** is the +X
+face toward the servo (nominal X12.00). Measure the unbuttressed upper tab at the
+keeper-hole ligaments, excluding the lower root reinforcement and top chamfer.
+
+The limits include:
 
 - Keeper Y and Z section **4.90–5.10 mm**, full square section across an effective
   guide length **≥15.8 mm**. Measure total guide/keeper clearance in both axes:
   **0.30–0.50 mm** throughout the bearing span after finishing.
+- Keeper **slot-center-to-tip length 29.35 ±0.10 mm** (29.25–29.45 mm).
+  Measure along the keeper's own X direction from the geometric center plane
+  between the slot's straight X faces to the leading flat tip plane. Do not
+  substitute the installed sleeve position: sleeve/slot play is budgeted
+  separately. Nominally, `(40.4 − 5.4) − 5.65 = 29.35 mm`; the 0.50 mm tip
+  chamfer is accounted for separately and is not subtracted from this measurement.
+- Upper-tab **X thickness 3.90–4.10 mm**, measured between the far and near
+  faces at the keeper-hole ligaments. Record actual thickness after conditioning.
+- Actual tab **far-face X must remain within 7.60–8.40 mm over the complete
+  permitted socket float**, in the common receiver datum. Gently move the
+  seated adapter to both X limits and inspect the permitted float/rocking poses;
+  record the smallest and largest far-face X separately. Retain at least
+  0.30 mm socket clearance per side when centered. A lower-only socket-gap
+  measurement does not establish the far-face position or its maximum movement.
+  In the endpoint model, the near-face position is the measured far-face X plus
+  the measured upper-tab thickness; all three dimensional gates must hold together.
 - As-built yoke left wall **≥3.5 mm**, right wall **≥3.0 mm**, top bridge
   **≥2.4 mm**, and full breadth **≥4.9 mm**. These are measured minima, not
   permission to subtract a guessed printer error from nominal CAD.
