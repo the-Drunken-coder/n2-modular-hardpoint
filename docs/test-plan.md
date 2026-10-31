@@ -1,78 +1,105 @@
-# N2 P14 bench verification plan
+# R5 bench acceptance plan
 
-**Current specimen: P14 bridged receiver and flat-print keeper, dried Bambu PAHT-CF.** This plan replaces the P13 / 9.1 N plan. It checks the provisional **0.454 kg carried mass at 2 g** requirement: **8.9 N design load** and **17.8 N sacrificial proof target** at SF 2. Neither is the predicted breaking load.
+**Status: PLANNED; no physical tests have been performed.** This is the active R5 procedure. [P14's solenoid plan](p14-test-plan.md) is historical. Software/FEA success must not change the physical status.
 
-The recorded P14 analysis gives a **33.68 N scaled stress-screen crossing** and **16.84 N after division by SF 2**. These are analysis estimates, not demonstrated capacities or alternate test targets. See [requirements.md](requirements.md) and [p14.md](p14.md). Passing this bench plan does not by itself qualify an aircraft installation.
+## 1. Configuration and development envelope
 
-## 1. Specimens and setup
+Use three independently printed complete assemblies (A, B, C) of the same proposed revision. Each includes the body, keeper, adapter, specified crank-pin hardware, actual servo and the selected host/payload fasteners. Record all deviations; a different material, print orientation, major fit adjustment or hardware substitution is a different configuration.
 
-- Use **three complete sacrificial P14 assemblies**, with unique specimen IDs. Do not fly specimens used for proof, partial-engagement or failure testing. Record which parts are reused between trials.
-- Confirm the P14 geometry: proximal bridge ends at X 31.7 mm; keeper link begins at X 32.0 mm; keeper underside is flat at Z 7.2 mm; stem slot is ±1.0 mm. Lug 1.4 mm, nominal distal overlap 0.6 mm and nominal actuator stroke 3 mm are unchanged. Use the current generated files, not P13 exports.
-- Print per [print-requirements.md](print-requirements.md). Record filament lot, drying/storage, printer/nozzle, orientation, layer height, walls, infill, temperatures and slicer 3MF. Check that the load-bearing regions are solid and bridge surfaces do not obstruct the keeper.
-- Mount the receiver to a **representative airframe/backing coupon with the installation-selected host fasteners**, through its two Ø3.2 mm holes at **(X, Y) = (5, 14) and (35, −10) mm** in assembly coordinates. These are separate from the **two M2 solenoid-clamp screws**, which do not attach the receiver to the aircraft. Record host-fastener diameter, grade, length, thread engagement, washers, backing/coupon construction and tightening method. Do not glue the receiver to the bench: the P14 receiver analysis uses ideal backing, which does not verify this real mounting. Hole geometry comes from [solenoid_parts.py](../project/cad/solenoid_parts.py), called with receiver length parameter 38 mm by [build_n2.py](../project/cad/build_n2.py).
-- Pull the adapter in **+Z extraction**, with no intentional eccentricity. Use a force gauge or weighed suspended masses. The indicated force must include the adapter, attached hardware and suspended fixture mass. At 1 g, 8.9 N corresponds to approximately 0.907 kg total suspended mass, although the proposed in-flight carried mass is 0.454 kg at 2 g.
-- Measure displacement at the adapter relative to the receiver. Record instrument resolution, load uncertainty, ambient temperature and humidity. Film the keeper and payload path. Use a catch box and keep people clear of the suspended mass; disconnect the coil while loading.
+The initial campaign is an engineering development acceptance gate, not a statistical field-reliability or flight qualification. Its selected conditions are dry, conditioned parts at 20–25 °C, straight −Z load, measured supply/logic within the R5 electronics limits, and the identified rigid bench fixture. Record humidity and conditioning history. Other temperature, moisture, vibration, mounting or load-vector conditions remain unqualified.
 
-## 2. Fit, actuation and material gates
+Before loading, fill [specimen records](../project/designs/r5/records/specimens.csv) and the [installation interface record](../project/designs/r5/records/installation.csv). Record:
 
-Before proof loading:
+- Git commit, CAD export identity, firmware/configuration/calibration identity and servo serial/lot.
+- Printer, filament lot, drying, post-conditioning, orientation, nozzle, layer profile, actual slicer project and measured masses.
+- Actual guide fit, keeper/tab dimensions, full engagement, released clearance, horn radius and cable route against the [R5 print recipe](../project/designs/r5/PRINTING.md).
+- Actual screw/pilot dimensions, engagement, installation torque, crank-pin running gap/retention and mating structure.
+- Force, voltage/current and timing instrument ranges, calibration/accuracy and recording rate.
 
-1. Inspect all four prints for cracks, delamination, under-extrusion and bridge defects. Measure lug, slot, roof engagement and keeper clearances. Record actual distal overlap and the fully seated position.
-2. Measure keeper travel and require **at least 0.20 mm full-open axial lug clearance after measured variation**, consistent with the provisional development criterion in [PRINTING.md](../project/manufacturing/PRINTING.md); the nominal CAD margin is 0.7 mm. Record the measurement and variation allowance through the actual linkage. An electrical pulse or armature motion alone does not prove that the keeper cleared the lug. Confirm spring return to full seating without hand assistance.
-3. Measure return-spring force across the working stroke, especially latched preload; measure actuator pull and supply voltage/current over the same stroke using the intended driver at nominal and lowest intended voltage. **Initially, before every bench ARM, externally verify coil-case temperature within 2°C of ambient, including instrument uncertainty.** Warm powered measurements remain open until a separately documented thermal-conditioning and temperature-limit protocol is approved for the actual hardware, as required by [verification.md, Priority 5](../project/docs/verification.md). Record pulse length and duty cycle; the controller's 250 ms pulse and 10 s lockout are not a tested thermal rating. The listing's single force value is not a full-stroke guarantee.
-4. With the payload unloaded, verify that power-up, reset and power interruption do not command release. Verify that a valid release command does unlock. Repeat after the loaded tests.
-5. Print and test **at least three Z-built tensile coupons** from the same filament lot and process, using a documented coupon geometry and test method (for example ISO 527-2 1BA). Record individual strengths, minimum, mean, dimensions, conditioning and failure locations. The PAHT-CF screen used the TDS Z value of **47 MPa** to scale the PLA screen by 47/31. For the initial material check, any measured result below 47 MPa requires review of that assumption before proceeding to a capacity claim. Three coupons do not establish a statistical material allowable; tensile coupons also do not validate the assumed compression/shear scaling or creep performance. **Do not automatically raise a rating, substitute SF 3, or accept a coupon mean as qualification.**
+Establish the self-tapper installation torque and pull-out behavior on matching process coupons before loading an assembly. No numerical tightening torque is invented here. An unknown process or failing coupon keeps the assembly gate pending.
 
-A PLA trial is a separate material configuration. Label it as such and review its own analysis and test targets; do not multiply this P14 PAHT-CF test ladder by the old P13 ratio.
+## 2. Fixture and event definitions
 
-## 3. Power-off retention and progressive load test
+Mount through all four R5 host bosses with the selected actual fasteners. Use a rigid fixture whose drawing and material are recorded; it qualifies only that fixture. Attach the payload through the real adapter holes. Apply axial force through the intended load center without adding an unrecorded moment or preventing normal adapter motion.
 
-Run the following on each sacrificial assembly in its measured, fully seated state. Apply load gradually, without shock. The 10-minute dwell and displacement limits below are **initial bench acceptance criteria**, not established service-life limits.
+Use a measured force fixture, pulley or equivalent test load that maintains the required extraction force until keeper disengagement. Extra bench load is an equivalent-force test and does not increase the 0.454 kg permitted departing mass. Record actual moving mass separately. A catch must stop the released item without loading the mechanism before departure.
 
-| Step | Applied force | Approximate total suspended mass at 1 g | Hold |
-|---|---:|---:|---:|
-| 1: seating check | 4.5 N | 0.459 kg | 1 minute |
-| 2: design-load check | **8.9 N** | **0.907 kg** | **10 minutes** |
-| 3: intermediate check | 13.35 N | 1.361 kg | 1 minute |
-| 4: sacrificial proof | **17.8 N** | **1.815 kg** | **1 minute** |
+Define the events before the run:
 
-Keep the solenoid unpowered during retention holds. Mark and observe keeper position to detect back-drive. After each step unload and inspect; measure residual set before proceeding. At step 2, record displacement immediately after load settles and after 10 minutes.
+| Event | Definition |
+|---|---|
+| t0 | Intentional release command reaches the bench controller |
+| t1 | Measured keeper tip clears the actual tab, with at least 1.50 mm open clearance (0.50 mm reserve plus 1.00 mm spare travel) |
+| t2 | Highest adapter feature clears the body and adapter has moved at least 20 mm along −Z without recontact |
+| t3 | Operator supports/reinstalls the adapter, deliberately commands latch, and verifies full engagement |
 
-**Initial acceptance:** all three assemblies complete every step with no crack, whitening, delamination, keeper migration or slip; no measurable permanent set at the recorded instrument resolution; and additional displacement during the 10-minute design-load dwell is **less than 0.2 mm**. Use displacement measurement with resolution **0.05 mm or better**. Any binding or loss of full spring return after unloading is a failure.
+Use synchronized video of at least 120 frames/s or position sensing with comparable timing resolution. These are temporary test instruments, not added product features. Record uncertainty; command logs alone cannot establish t1 or t2.
 
-These observations screen the mechanism and mount only for the tested conditions. Longer carriage time, different temperature/moisture, fatigue and flight loads require additional tests.
+Selected development timing limits are **t1−t0≤1.0 s** and **t2−t0≤2.0 s**. These are acceptance targets, not demonstrated capabilities. Revise them deliberately before testing if the intended installation requires different timing.
 
-## 4. Loaded release and reset
+## 3. Fit, power and unloaded operation
 
-The planned campaign is **20 release/reset trials at 8.9 N per assembly**, using the actual driver: **10 at nominal supply voltage and ambient coil temperature, plus 10 at the minimum intended supply voltage under a separately approved warm-coil protocol**. This is **60 planned loaded-release trials across three assemblies**.
+1. Inspect the current print and purchased parts, gland recess, continuous lead path, actual crank-pin gap and fastener retention.
+2. Calibrate using the [R5 electronics procedure](../project/designs/r5/electronics/README.md). Confirm the real latched and released keeper positions; nominal software degrees do not count.
+3. Measure terminal voltage and signal high/low levels at the servo during motion and holding. Record startup, STOP, signal interruption and reconnect behavior with the adapter supported.
+4. Run ten unloaded release/reset cycles per assembly. Every cycle must clear and relatch without scraping, jamming, screw movement or sustained stall.
+5. An automatic startup or reconnect movement, uninspected damage, failed dimensional limit or unexplained current rise stops loaded trials.
 
-After the preceding fit, **ambient-condition force**, material and structural gates, the **initial 10 ambient trials per assembly may proceed**, cooling and externally verifying the coil case is within **2°C of ambient, including instrument uncertainty, before every ARM**. Record actual voltage and coil temperature for every trial. The **10 warm trials per assembly remain open** until the hardware-specific thermal-conditioning method, temperature limits, monitoring and stop criteria are documented and approved under [verification.md, Priority 5](../project/docs/verification.md). No warm temperature or duty limit is assigned by this plan, and the initial ambient gate must not be bypassed merely to complete the trial count.
+Power-off retention is deliberately not required. Loss of retention after disconnecting actuator power is not reclassified as an aircraft-wide power failure; record the observed local consequence.
 
-A catch box must allow the adapter to move freely until clear; a tether must not pull it out or conceal a hang-up.
+## 4. Complete-assembly static retention
 
-For every command, record separately:
+The required service force is:
 
-- Whether the keeper reached the measured lug-clear position.
-- Whether the adapter **actually moved clear** without assistance, plus time to clear from video.
-- Any hesitation, rubbing, bounce or incomplete release.
-- Whether the keeper returned fully and the next reattachment seated without forcing.
+`0.454 × 9.80665 × 2 = 8.9044382 N`.
 
-**Acceptance:** each completed condition requires 10/10 successful unlocks, clearances and resets on each assembly, with no unintended release during power changes or holds. Completing the ambient set records **ambient-set success only**; the warm set and overall loaded-release campaign remain **open**, not passed by default. Completion of both approved sets requires 20/20 per assembly (60/60 total). A missed/sticky release fails the relevant bench gate even if the static proof passed. This is preliminary characterization; no reliability probability is inferred from this small sample.
+The separate proof target is:
 
-A hanging weight supplies the separation force in this test. It does **not** demonstrate that a lifting glider will separate: glider lift, attitude, airflow and clearance need an installation-specific separation test.
+`2 × 8.9044382 = 17.8088764 N`.
 
-## 5. Partial engagement, vibration and sustained load — still open
+Using a supported catch and measured load, increase axial force in stages of approximately 4.45 N, 8.90 N and 13.36 N, holding 10 s at each stage. Then hold the complete assembly at **17.8089 N for 60 s**. The measured force, including instrument uncertainty, must remain between the target and 105% of it during the scored proof dwell. Record actual force, displacement, servo terminal voltage/current and any event.
 
-The two P14 FEA support states are not a sweep of every partially retracted keeper position. Before closing R5d, map the measured retained engagement and tolerance/wear envelope, including loss of distal-roof contact. On sacrificial hardware, use controlled keeper positions and representative misalignment to check retention and loaded release. Any positioning fixture must not carry the payload's +Z load. Record the allowable fully latched condition and test the identified weakest credible retained condition to the same **17.8 N** target. If the weakest condition is not yet known, this gate remains open.
+Pass requires no separation, crack, layer split, mounting slip, fastener movement or permanent deformation that violates the original inspected fit/engagement limits after unloading. Recheck the actuator path and open clearance. Do not re-tighten, sand or reset a shifted joint and count the original trial as a pass.
 
-For vibration, measure or define the intended installation's axes, frequency content, acceleration and duration; test unpowered retention and subsequent commanded release under that exposure. The preliminary **0.26 N / 0.52 N** preload calculation in [p14.md](p14.md) is only a 2 g moving-mass estimate. The flight load factor does not define vibration severity or resonance.
+Repeat for A, B and C. This is a complete load-path proof, not an adapter coupon test. The force multiplier is not a working-load rating and does not qualify unspecified side loads or moments.
 
-Extend the design-load dwell to the intended maximum carriage duration and temperature/moisture range before claiming service suitability. No creep, vibration or aircraft separation test is currently reported.
+## 5. Repeated loaded release and reset
 
-## 6. Optional destructive characterization and records
+For each of A, B and C, perform **100 scored cycles** with **8.9044 N** axial extraction force maintained through keeper disengagement. The scored force range is the target through 105% of it, including uncertainty. Do not require release at 17.8 N; that is the separate retention proof.
 
-After the required tests, dedicated sacrificial specimens may be loaded incrementally to failure to identify location and mode. Record the measured force trace and mounting response. The **33.68 N** screen is a comparison point, not a commanded failure target or proof that failure will occur there. Stop if the fixture becomes the limiting component.
+For every cycle:
 
-Retain: revision/part IDs, source commit, print 3MF and settings, coupon results, as-built measurements, actuator force/stroke data, driver settings, mount details, loads/dwells, displacement readings, videos, release/reset outcomes and failure observations. Record unsuccessful specimens as well as successful ones.
+1. Support and fully seat the adapter, command latch deliberately and inspect engagement. Confirm the selected payload envelope and clear departure path.
+2. Apply and record the full 8.9044 N release load.
+3. Issue one release command. Record t0, t1, t2, minimum terminal voltage, peak current, keeper clearance and contact observations.
+4. Count a failure for late/missing clearance, extra command, manual help, binding, recontact, any unintended release, or an electrical condition outside the accepted range.
+5. Remove the test load, support the adapter and reset deliberately. Inspect engagement again. Record t3 and reset outcome.
 
-A failure triggers review of the geometry, fit, material assumptions, mounting or load requirement. Do not silently lower the load, discard a failed sample, or convert a successful proof into a working-load rating. Publish the evidence and remaining limits before assigning any capacity.
+Inspect retaining edges, guide roof/floor, yoke, slot/pin, tab root, cable and fasteners every ten cycles. Record wear even when motion succeeds. After 100 cycles, repeat the complete-assembly 17.8 N proof and dimensional inspection.
+
+The development campaign requires **300/300 successful scored cycles** and all three post-cycle proofs. A failure remains in the record; repair/reprint starts a new configuration campaign rather than deleting the result. This limited sample is not a claim of zero field-failure probability.
+
+## 6. Defined jam and sustained-hold trials
+
+After the normal campaign, use an identified sacrificial assembly for the documented lower-tab unseated pose. Restrict the stall exposure to the maximum established by the selected servo/driver characterization. If no bounded stall exposure has been established, this physical gate remains pending; do not intentionally stall it indefinitely.
+
+Record actual contact height, torque/current, time and deformation. Inspect and repeat static proof afterward. The reinforced-root calculation covers its stated pose only; higher hole-ligament contact, arbitrary mis-seating and repeated jams require their own evidence. Do not mark all jam conditions qualified from one test.
+
+On another identified specimen, hold **8.9044 N for 60 min** within the initial ambient/conditioning envelope. Record creep, local temperature and power throughout, then perform ten loaded releases and re-inspect. This establishes only the tested dwell; other carriage durations and environments remain open.
+
+## 7. Acceptance, records and later installation
+
+Use the header-only templates in [R5 records](../project/designs/r5/records/README.md). Attach raw force/power/time traces and videos, including every failure. A reviewer must associate the results with the exact specimen and revision before updating physical status.
+
+| Gate | Required result |
+|---|---|
+| Print, hardware and control acceptance | All stated inspections complete, no undocumented rework |
+| Unloaded cycle gate | 10/10 per assembly |
+| Initial complete-assembly proof | 3/3 at 17.8089 N for 60 s |
+| Loaded release | 100/100 per assembly at 8.9044 N, with both t1 and t2 accepted |
+| Post-cycle proof/inspection | 3/3; no unacceptable permanent change |
+| Defined jam trial | Documented bounded exposure, inspection and subsequent proof |
+| Sustained hold | 60 min at 8.9044 N followed by 10/10 loaded releases |
+| Installation | Explicit force/moment, mounting, power, environmental and departure limits recorded |
+
+Passing this bench campaign does not qualify an aircraft installation. Use the [installation interface](../project/designs/r5/docs/installation-interface.md) to identify pod CG, lateral forces/moments, host stiffness, vibration, service duration and departure corridor. Expand qualification only against those stated conditions.

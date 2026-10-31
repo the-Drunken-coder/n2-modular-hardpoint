@@ -1,15 +1,19 @@
 # tools
 
-## check_current_baseline.py: current documentation and result consistency
+## check_current_baseline.py: current R5 selection and requirements
 
 ```bash
 python tools/check_current_baseline.py
 python site/build_status.py
 ```
 
-The first command is a read-only standard-library check linking P14 active metadata, carried-load arithmetic, stored analysis summaries, CAD/viewer/catalog fields and the frontend's numerical labels. It exits nonzero on disagreement. The second regenerates `STATUS.md` from active metadata, the correction log and Git history. Neither command rebuilds CAD, runs FEA or qualifies a load rating. The PR verification workflow also builds the current `web/` application with its locked Blueprint dependencies.
+The first command is a read-only standard-library check of the R5 selection, source parameters, carried-load and proof arithmetic, declared evidence status, package references and current documentation headings. It exits nonzero on disagreement. The second regenerates `STATUS.md` from the selected R5 metadata and parameters. Neither command rebuilds CAD, runs FEA, checks every prose claim or qualifies a load rating. Reproduce current numerical and geometry checks using the [R5 package instructions](../project/designs/r5/README.md).
 
-## n2fea.py: one-command variant FEA
+## Historical P14 workflows
+
+The commands and viewer exports below document P14. Its saved results, material scaling and active-metadata filename are historical; they do not select or validate the current R5 package.
+
+### n2fea.py: one-command variant FEA
 
 ```
 export LD_LIBRARY_PATH=/tmp/debs/root/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH   # box only (OCC libs)
@@ -37,7 +41,7 @@ Limits:
 - The receiver uses ideal continuous full backing. Actual host fasteners and airframe compliance are not verified by this screen.
 - The keeper and actuator are not rebuilt. `stroke_needed_mm` is approximately overlap + lug + 1.0 mm.
 
-## overhang.py: support check from the solid
+### overhang.py: support check from the solid
 
 ```
 python3 tools/overhang.py project/cad/N2/N2_receiver.step --up=+Z [--angle 45] [--bridge 10] [--json out.json]
@@ -53,7 +57,7 @@ It works on the STEP; the `*_print.stl` files are the same solids rotated. It is
 
 Print orientations used (P14): receiver `+Z`, keeper `+Z`, adapter `-Z` (flange down), clamp `-Z`.
 
-## export_fea_web.py: FEA fields to the web viewer
+### export_fea_web.py: FEA fields to the web viewer
 
 ```
 /workspace/n2env/bin/python tools/export_fea_web.py --run <n2fea.py out dir> --keeper <keeper solve dir> [--material paht-cf]

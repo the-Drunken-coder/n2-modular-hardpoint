@@ -1,0 +1,1 @@
+specimen_id,configuration_id,cycle,minimum_load_N,maximum_load_N,force_uncertainty_N,t0_s,t1_s,t2_s,t3_s,timing_uncertainty_s,open_clearance_mm,departure_distance_mm,minimum_servo_V,peak_current_A,temperature_C,extra_command,manual_help,recontact,unintended_release,reset_engagement,wear_observed,result,raw_evidence,notes

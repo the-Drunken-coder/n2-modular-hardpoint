@@ -105,7 +105,7 @@ export default function App() {
   useEffect(() => {
     fetch('model/designs.json').then(r => r.json()).then(ds => {
       setDesigns(ds); const want = new URLSearchParams(location.search).get('design');
-      setDesign((ds.find(d => d.id === want) || ds[ds.length - 1])?.id);
+      setDesign((ds.find(d => d.id === want) || ds[0])?.id);
     });
     fetch(`${SITE_ROOT}versions.json`, { cache: 'no-store' }).then(r => r.json()).then(setVersions).catch(() => {});
   }, []);

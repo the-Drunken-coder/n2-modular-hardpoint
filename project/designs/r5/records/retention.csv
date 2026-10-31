@@ -1,0 +1,1 @@
+specimen_id,configuration_id,test_id,stage,target_N,minimum_N,maximum_N,force_uncertainty_N,dwell_s,temperature_C,minimum_servo_V,peak_current_A,displacement_trace,cracks,layer_splits,slip,fastener_movement,permanent_change,post_test_fit,result,raw_evidence,notes
