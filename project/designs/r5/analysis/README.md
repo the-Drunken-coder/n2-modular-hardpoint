@@ -173,6 +173,15 @@ on printing conditions and geometry.
   Bearing stress uses the smaller of the actual bar bearing width and the
   inspected minimum guide-flat width (4.80 mm for the relieved guide), rather
   than treating the nominal 5.0 mm FEA footprint as a manufacturing minimum.
+- The adapter hand tension check uses both directly inspected lower-hole side
+  ligaments, each at least **0.80 mm**, and the inspected upper-tab X thickness
+  of at least **3.90 mm**: the accepted net area is **6.24 mm²**. The outward
+  R0.40 lower-hole reliefs leave nominal 0.90 mm side ligaments and a nominal
+  **7.20 mm²** net area, reported separately. The former
+  `(TAB_W-HOLE_W)*thickness = 10.40 mm²` omitted the relief removal. This
+  average proof-tension screen does not capture local corner concentration,
+  bending or arbitrary jam contact; the adapter FEA and physical tests retain
+  their separate scopes.
 
 These limitations are not removed by a passing numerical workflow. Loaded
 release, manufacturing fit, mounting strength and environmental performance
