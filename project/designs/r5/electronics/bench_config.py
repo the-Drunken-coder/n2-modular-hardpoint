@@ -18,7 +18,9 @@ CALIBRATION = {
     "max_us": 2000,
     "latched_us": None,
     "released_us": None,
-    "measured_open_clearance_mm": None,
+    "measured_latched_angle_deg": None,   # 177..183, operator measurement
+    "measured_released_angle_deg": None,  # 40..42; earlier 40..44 profiles must be recalibrated
+    "measured_open_clearance_mm": None,  # >=1.50 mm in worst inspected loaded/float pose
     "measured_full_section_overlap_mm": None,
     "signal_verified_5v": False,
     "fit_bounds_inspected": False,

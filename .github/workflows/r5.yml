@@ -14,7 +14,10 @@ permissions:
 jobs:
   r5:
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 45
+    env:
+      MKL_NUM_THREADS: '2'
+      OMP_NUM_THREADS: '2'
     defaults:
       run:
         working-directory: project/designs/r5
@@ -29,10 +32,23 @@ jobs:
       - run: pip install -r ../../cad/requirements.txt -r ../../analysis/requirements.txt -r requirements.txt
       - run: python -m unittest discover -s tests -v
       - run: python cad/build.py
+      - run: python analysis/coupled_forces.py
       - run: python analysis/mechanics.py
+      - run: python analysis/yoke_strength.py > out/yoke_strength.json
+      - run: python analysis/actuation_fea.py
       - run: python analysis/fea.py
+      - run: python analysis/body_actuation_fea.py
+      - run: python analysis/export_web.py
       - run: python analysis/risks.py
-      - run: cat out/fea.md out/risks.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Summarize available numerical evidence
+        run: |
+          for report in out/actuation_fea.md out/body_actuation_fea.md out/fea.md out/risks.md; do
+            if [ -f "$report" ]; then
+              cat "$report" >> "$GITHUB_STEP_SUMMARY"
+            else
+              printf '\nMissing report: %s. Check the failed or skipped analysis stage above.\n' "$report" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
         if: always()
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()

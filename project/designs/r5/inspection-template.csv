@@ -1,0 +1,83 @@
+assembly_id,part_or_stage,feature,unit,nominal,minimum,maximum,measured,result,operator,date,method_notes
+,process,source commit / cad.json hash,,,,,,PENDING,,,Archive both source identity and generated manifest
+,process,printer / nozzle identity,,,,,,PENDING,,,X1C; hardened 0.4 mm; record nozzle wear
+,process,filament manufacturer / lot,,,,,,PENDING,,,Bambu PAHT-CF; no unrecorded substitution
+,process,drying temperature,degC,80,80,80,,PENDING,,,Record measured temperature and equipment
+,process,drying duration,h,12,12,,,PENDING,,,Forced-air baseline; record actual duration
+,process,feed storage RH,percent,,0,20,,PENDING,,,Must remain below 20%; record actual maximum
+,process,slicer version / archived project,,,,,,PENDING,,,Include complete profile and G-code identity
+,process,nozzle temperature,degC,290,290,290,,PENDING,,,Record qualified deviation separately
+,process,bed temperature,degC,100,100,100,,PENDING,,,Smooth PEI with PVP glue
+,process,layer height,mm,0.2,0.2,0.2,,PENDING,,,Includes first layer; roof must have 5 continuous layers
+,process,wall loops,count,6,6,,,PENDING,,,Inspect continuous toolpaths at thin features
+,process,infill,percent,100,100,100,,PENDING,,,Solid alternating rectilinear; inspect joins and gap fill
+,process,chamber temperature,degC,,45,60,,PENDING,,,Record measured conditions; no unqualified equivalence assumed
+,process,profile / compensation changes,,,,,,PENDING,,,Record flow and first-layer compensation; scale 100%
+,process,part post-treatment temperature,degC,80,80,80,,PENDING,,,Final dimensional inspection follows this conditioning
+,process,part post-treatment duration,h,12,12,,,PENDING,,,Record uniform forced-air oven and cool/store dry
+,keeper,Y bar section,mm,5,4.9,5.1,,PENDING,,,Measure full guide-bar section at multiple locations
+,keeper,minimum Y breadth through yoke sleeve-contact walls,mm,5,4.9,5.1,,PENDING,,,Inspect both walls including above bar center; record actual minimum after conditioning
+,keeper,maximum Y breadth through yoke sleeve-contact walls,mm,5,4.9,5.1,,PENDING,,,Inspect both walls including above bar center; record actual maximum after conditioning
+,keeper,Z bar section,mm,5,4.9,5.1,,PENDING,,,Measure across full guide-bearing length
+,keeper,slot-center-to-leading-tip length,mm,36.35,36.25,36.45,,PENDING,,,Measure along keeper X from midpoint of straight slot faces to leading flat tip plane; do not subtract 0.50 mm chamfer or use sleeve position
+,adapter,upper-tab X thickness,mm,4.00,3.90,4.10,,PENDING,,,Far-to-near face thickness at keeper-hole ligaments after conditioning; exclude lower root buttress and top chamfer
+,adapter,tab Y breadth,mm,8.2,,,,PENDING,,,Record actual after conditioning; direct side-ligament and centered socket-clearance gates apply independently
+,adapter,minimum lower-hole relief arc radius,mm,0.4,0.4,,,PENDING,,,Inspect both outward arcs throughout X thickness; centers at original lower corners; no inward rounding or local sharp notch
+,adapter,minimum minus-Y lower-hole side ligament,mm,0.9,0.8,,,PENDING,,,Direct finished measurement after conditioning; do not infer from nominal tab width or subtract guessed print error
+,adapter,minimum plus-Y lower-hole side ligament,mm,0.9,0.8,,,PENDING,,,Direct finished measurement after conditioning; radius and both ligament limits must hold together
+,adapter,lower-hole relief profile,,,,,,PENDING,,,Outward circles only; original full square passage and upper load plane retained; no undercut fin or split
+,adapter+keeper,total Y hole clearance between original flat planes,mm,0.6,0.5,,,PENDING,,,Actual keeper/hole pair; do not measure across lower relief bulbs
+,adapter+keeper,total Z hole clearance between original flat planes,mm,0.6,0.5,,,PENDING,,,Upper load plane and central lower flat; verify upward and side-float latching pose
+,body+adapter,centered Y socket clearance per side,mm,0.4,0.3,,,PENDING,,,Measure both sides with tab centered; nominal socket width 9.00 mm for nominal 8.20 mm tab
+,body+keeper,effective full-section guide length,mm,22,21.8,,,PENDING,,,All four full-section flats; no groove; spans X12.50..34.30 in common receiver datum
+,body,front end X of uninterrupted guide flats,mm,12.40,,12.50,,PENDING,,,Common receiver X=0 datum; all four flat planes must continue from at most X12.50
+,body,rear end X of uninterrupted guide flats,mm,34.40,34.30,,,PENDING,,,Common receiver X=0 datum; all four flat planes must continue through at least X34.30
+,body+keeper,total Y sliding clearance,mm,0.4,0.3,0.5,,PENDING,,,Guide Y minus actual keeper Y; both ends and centre
+,body+keeper,total Z sliding clearance,mm,0.4,0.3,0.5,,PENDING,,,Guide Z minus actual keeper Z; both ends and centre
+,body,guide relief maximum intrusion at any flat end,mm,0.10,0,0.20,,PENDING,,,All eight flat ends; measure from original guide corners after conditioning; record method and uncertainty
+,body,guide relief minimum actual arc radius,mm,0.60,0.60,,,PENDING,,,All four arcs throughout span; smooth tangent neck joins; reject smaller notches or fins; process qualification remains pending
+,body,guide minimum continuous central flat width,mm,5.20,4.80,,,PENDING,,,All four planes through full effective span; reject sagging or broken bearing flats
+,body,guide relief maximum outward extent,mm,1.10,,1.20,,PENDING,,,Relative to each original flat plane; both ends and internal profile; no arbitrarily enlarged bulbs
+,body,guide relief neck and arc profile,,,,,,PENDING,,,Tangent square-neck plus R0.60 arc; no thin undercut fin or sharp concave join; optical/profile or replica inspection through span
+,keeper,left yoke wall,mm,3.5,3.5,3.7,,PENDING,,,Record minimum and maximum after conditioning; section faces within 0.10 mm of STEP; do not sand below minimum
+,keeper,right yoke wall,mm,3,3,3.2,,PENDING,,,Record minimum and maximum after conditioning; section faces within 0.10 mm of STEP; do not sand below minimum
+,keeper,top yoke bridge,mm,2.4,2.4,2.6,,PENDING,,,Thickness and both Z-face limits must all pass; blend and slot radii intact
+,keeper,minimum internal slot corner radius,mm,1.5,1.5,,,PENDING,,,Smooth tangent internal arcs; profile within 0.10 mm of STEP; no smaller local notch; distinct from R0.8 underside blend; verify complete finite-pin motion
+,keeper+pin,slot minus actual sleeve OD,mm,0.4,0.3,0.5,,PENDING,,,Total side play throughout operating slot
+,body,local roof thickness,mm,1,1,,,PENDING,,,Five continuous 0.2 mm layers; reject voids
+,body,guide datum error Y,mm,0,-0.1,0.1,,PENDING,,,Against current CAD coordinates
+,body,guide datum error Z,mm,0,-0.1,0.1,,PENDING,,,Against current CAD coordinates
+,servo,shaft datum error X,mm,0,-0.1,0.1,,PENDING,,,Against current shaft X47.4
+,servo,shaft datum error Y,mm,0,-0.1,0.1,,PENDING,,,Against spline face Y34.4; inspect seated hardware
+,servo,shaft datum error Z,mm,0,-0.1,0.1,,PENDING,,,Against current shaft Z6.3
+,assembly,tab far-face X minimum over full float,mm,7.60,7.60,8.40,,PENDING,,,Receiver CAD X=0 common datum after host mounting; record smallest X of upper-tab minus-X face across full permitted socket float and rocking
+,assembly,tab far-face X maximum over full float,mm,8.40,7.60,8.40,,PENDING,,,Same receiver datum; record largest X across full permitted float and rocking; minimum and maximum must both remain within 7.60..8.40
+,assembly,effective sleeve-center radius,mm,5.4,5.3,5.5,,PENDING,,,Measure after clamp; include all hole and sleeve-ID play
+,assembly,latch endpoint,deg,180,177,183,,PENDING,,,Physical CAD angle; log calibrated pulse
+,assembly,release endpoint,deg,40,40,42,,PENDING,,,Physical CAD angle; log calibrated pulse
+,assembly,safe unloaded physical span,deg,175,175,,,PENDING,,,Must include 40..215 without internal stop; outside controller commands
+,assembly,bare pin entry height,mm,2.4,,3,,PENDING,,,Finished sleeve cannot escape; do not enlarge slot entry
+,assembly,running sleeve length,mm,12,,,,PENDING,,,Ettinger 005.51.123; 12 mm part spans full contact region; actual washer gap and engaged thread remain functional gates
+,assembly,bolt thread beyond locknut,mm,1.1,0.8,,,PENDING,,,At least two full M2 pitches; nylon insert fully engaged
+,assembly,minimum loaded roof gap,mm,,0.5,,,PENDING,,,Full path and both lateral float limits
+,assembly,minimum loaded horn gap,mm,,0.5,,,PENDING,,,Full path and both lateral float limits
+,assembly,minimum loaded center-head gap,mm,,0.5,,,PENDING,,,Full path and both lateral float limits
+,assembly,minimum loaded washer gap,mm,,0.5,,,PENDING,,,Full path and both lateral float limits
+,assembly,full-section latched overlap,mm,,0.5,,,PENDING,,,Exclude tip chamfer; include loaded contact state
+,assembly,released tip-to-near-tab-face opening,mm,,1.5,,,PENDING,,,Minimum across declared loaded/float poses; 0.5 mm clearance plus 1.0 mm spare
+,assembly,clamp / horn / nut condition,,,,,,PENDING,,,No relative slip; no cracks; witness mark; reject damaged engaged threads
+,keeper,upper-bridge Y breadth,mm,8,7.9,8.1,,PENDING,,,Extra breadth only +Y; both sleeve-contact walls remain 4.90..5.10 mm
+,keeper,bridge near-face alignment error,mm,0,-0.1,0.1,,PENDING,,,Bridge minus-Y face relative to bar and sleeve-wall minus-Y faces; controls cap centroid and torsion arm
+,keeper,bridge underside Z,mm,14.8,14.7,14.9,,PENDING,,,Keeper STEP datum; inspect straight underside away from R0.8 root; thickness gate also required
+,keeper,bridge top Z,mm,17.2,17.1,17.3,,PENDING,,,Keeper STEP datum; thickness gate also required
+,keeper,all yoke section-face location errors,mm,0,-0.1,0.1,,PENDING,,,Against current STEP including left/right faces and wall-to-bar return sections; record maximum error and measurement uncertainty
+,keeper,bridge underside blend radius,mm,0.8,0.8,,,PENDING,,,Smooth tangent root; no notch or unsupported fin; inspect narrow wall shoulders below Z14.00 separately
+,assembly,horn-side spacer length,mm,2,,,,PENDING,,,Ettinger 005.51.023 supplier-listed dimensions; pre-fit before keeper insertion
+,assembly,total clamped metal length,mm,14,,,,PENDING,,,2 mm horn-side spacer plus 12 mm running sleeve; measure after seating; no gap at seam
+,assembly,minimum spacer-seam to moving keeper gap,mm,,0,,,PENDING,,,Strictly positive through full loaded path after measurement uncertainty; seam must remain outside running contact region
+,assembly,minimum bridge-to-rear-boss insertion gap,mm,,0.5,,,PENDING,,,Entire straight +X insertion path; current rear centers Y50.0; nominal gap 0.80 mm
+,body,full-depth mounting annuli,,,,,,PENDING,,,All four 7 mm boss annuli intact through 10 mm pilot depth; centers (4;4) (68.5;4) (4;50) (68.5;50); record inspection method
+,bench,unloaded conditioning cycles,count,10,10,,,PENDING,,,One row set per independently printed assembly
+,bench,loaded release/reset cycles,count,100,100,,,PENDING,,,8.9044 N at minimum qualified terminal voltage; log every attempt
+,bench,retention proof force,N,17.8088764,17.8088764,,,PENDING,,,Separate from loaded-release requirement; record duration and result
+,bench,host screw pull-out / defined jam / environment,,,,,,PENDING,,,Record separate protocol/report IDs; remains PENDING until tested

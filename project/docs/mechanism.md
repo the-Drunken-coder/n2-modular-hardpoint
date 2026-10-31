@@ -1,6 +1,8 @@
 # N2 P14 retention and release
 
-The current prototype candidate uses PAHT-CF. The [P14 design record](../../docs/p14.md) and [bench-test plan](../../docs/test-plan.md) govern the 8.9 N design-load and 17.8 N sacrificial qualification targets. Neither is a demonstrated capacity.
+> **Historical P14 context.** R5 is the current development package. Follow [the current R5 instructions](../designs/r5/README.md); the specifications, files and results below apply only to the earlier package.
+
+The current prototype candidate uses PAHT-CF. The [P14 design record](../../docs/p14.md) and [bench-test plan](../../docs/p14-test-plan.md) govern the 8.9 N design-load and 17.8 N sacrificial qualification targets. Neither is a demonstrated capacity.
 
 ## What carries the load
 

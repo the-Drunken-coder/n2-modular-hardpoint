@@ -61,21 +61,66 @@ the cartridge mass and mechanical cost estimate.
 4. Index the stock horn so its crank pin faces the keeper at the selected latch
    pulse. **180° is the geometric crank orientation, not a universal PWM command
    or the servo's electrical center.** Adjust indexing/trim with the keeper
-   unloaded. Inspect the full motion for pin/slot/roof contact and binding.
-5. Measure actual fully latched engagement, pin radius and released clearance.
+   unloaded. Follow the ordered [sleeve-joint assembly](../ASSEMBLY.md), including
+   its assembly-only 215° bare-pin position. Verify at least 175° of useful free
+   servo travel for the 40–215° installation range; the nominal vendor travel
+   is not that measurement. The normal controller never commands the assembly
+   position. The spacer and running sleeve must stay rigidly clamped to the
+   horn as one rotating stack; inspect their witness marks for relative
+   movement during the prescribed loaded tests. This is an assumption of the
+   [shared force model](../analysis/COUPLED_FORCES.md). Inspect the full motion
+   for pin/slot/roof contact and binding.
+5. Measure actual fully latched engagement, assembled sleeve-center radius and
+   released clearance under the declared loaded/float poses.
    Require at least **0.5 mm of full keeper section beyond the far tab face**
-   (exclude the tip chamfer), and **0.5 mm clear opening** in the assembled
-   endpoint. Apply the fit/tolerance and loaded-test procedure as separate gates.
-6. Enter the measured pulse limits and endpoints, servo identity and fit records
-   in `bench_config.py`. Check all `params.FIT_BOUNDS` limits, including horn radius,
-   shaft and keeper dimensions, angular endpoints (**latch 177–183°, release
-   40–45°**), guide fit and **0.3–0.5 mm total sleeve/slot clearance**. Measure
+   (exclude the tip chamfer), and **1.5 mm minimum clear opening** at release:
+   0.5 mm clearance plus the selected 1.0 mm additional stroke reserve. Apply
+   the fit/tolerance and loaded-test procedure as separate gates.
+6. Enter the measured pulse limits, endpoint angles, servo identity and fit records
+   in `bench_config.py`. Check all `params.FIT_BOUNDS` limits, including the
+   **assembled sleeve-center radius 5.4 ±0.1 mm** after clamping (including bolt,
+   horn-hole and sleeve eccentricity),
+   shaft X47.4/Z6.3 mm and keeper slot-center-to-leading-tip length
+   **36.35 ±0.10 mm**, angular endpoints (**latch 177–183°, release
+   40–42°**), keeper section and yoke-wall breadth **4.9–5.1 mm**, guide fit, relative guide/shaft Z
+   datum **within ±0.20 mm**, and **0.3–0.5 mm total sleeve/slot clearance**. Measure
    endpoint fit against the actual driven pin contact faces, not a centered-pin
-   pose; the kinematic budget includes up to ±0.25 mm of yoke lost motion. Only after
+   pose; the [continuous guided-fit bound](../analysis/FIT_ENVELOPE.md) includes
+   up to ±0.25 mm of yoke lost motion, guide tilt, roll, raised-yoke contact and
+   tip-corner projection. Inspect the uninterrupted flat-guide interval
+   **X12.50–34.30 mm**, corner-mouth intrusion **≤0.20 mm**, outward relief
+   extent **≤1.20 mm** and flat width **≥4.80 mm**. Withdrawal reduces available
+   guide length; the full-path certificate establishes **≥17.50 mm** remaining
+   guidance instead of assuming the full 21.8 mm persists at release. Only after
    inspecting the signal/fit set the three explicit acceptance booleans true.
    These are operator records; firmware does not measure
    position or certify the inspection. Recalibrate after servo, horn, linkage,
    geometry, print or endpoint changes.
+
+Earlier 40–44° profiles must be remeasured for the 40–42° window. The controller
+requires explicit measured latch/release angles in addition to the pulse values
+and unchanged **≥1.50 mm opening /≥0.50 mm overlap**. These operator-entered
+values do not provide live position feedback or detect servo overshoot.
+
+## Mechanical force gate
+
+The [coupled force screen](../analysis/COUPLED_FORCES.md) includes the effect of
+pin/slot friction on the guide reactions, the clamped sleeve's rotation, and
+the migrating tab contact. For the selected geometry, 8.9044382 N service load
+and assumed friction coefficient 0.35, it gives approximately **49.6185 N mm**
+required torque and **3.0634 working-torque ratio** at the sourced 5 V point
+with the assumed 50%-of-stall working factor. The maximum opening force is
+approximately **12.2970 N**, at a different crank angle from maximum torque.
+
+Those model results do not replace the terminal-voltage, current, motion and
+departure measurements above. The force screen uses level-slot, two-dimensional
+contact directions; tilted contact normals, lateral binding and actual servo
+performance remain physical qualification items. The
+[yoke section screen](../analysis/YOKE_LOADS.md) covers the service force and
+the separately defined closing-jam case. It does not qualify unrestricted
+stall survival, and this controller cannot detect a jam. The 17.8088764 N
+retention proof holds the mechanism latched; it does not command release at
+proof load.
 
 ## Run the manual bench controller
 

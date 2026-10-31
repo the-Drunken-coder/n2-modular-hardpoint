@@ -1,6 +1,6 @@
 # Artifacts and recovery
 
-**Historical import inventory:** this page identifies the complete P11 source package and the files checked at initial import. P12–P14 changes mean the current working tree no longer matches every imported-original hash. Use a verified P11 extraction or the original import commit for historical integrity checks; use the current [README](../README.md) for P14 fabrication and testing.
+**Historical import inventory:** this page identifies the complete P11 source package and the files checked at initial import. Later design changes mean the current working tree no longer matches every imported-original hash. Use a verified P11 extraction or the original import commit for historical integrity checks. P14 has separate historical [print requirements](p14-print-requirements.md) and [bench instructions](p14-test-plan.md); the repository [README](../README.md) describes the current R5 package.
 
 All five recovered source artifacts are indexed below. The checked-in source tree and PDFs are available through this private GitHub repository; GitHub permissions do not grant access to the external archives.
 
@@ -37,9 +37,9 @@ The P11 ZIP contains **212,823,735 expanded bytes**. Git includes 230 original P
 
 The 158-file historical calculation ZIP is retained as a download, with a complete inventory and verified original manifest. Its six-concept source tree is not placed inside active `project/`. The three historical PDFs provide immediate review access. The calculation PDF inside the ZIP has a different hash and size from the separately delivered PDF committed here; see the [historical version note](../history/README.md).
 
-## Verify and inspect this checkout
+## Verify historical import identity
 
-From the repository root, this standard checksum command verifies the 233 byte-preserved source files against the import record:
+At the root of the original import checkout, this command verifies the 233 byte-preserved source files against the import record. It also applies to a separately reconstructed tree containing those originals at the recorded repository paths. Later edited files in the current R5 checkout are expected to differ:
 
 ```sh
 sha256sum -c provenance/imported_originals.sha256
@@ -65,15 +65,15 @@ Extract into a **new separate directory**, preserving the `N2_Selected_Hardpoint
 
 The original [analysis reproduction instructions](../project/analysis/REPRODUCE.md) apply from that extracted package root. In particular, `analysis/verify_package.py` and `analysis/reproduce.py --verify-only` check archived raw outputs; a partial Git checkout is expected to report those files missing. The 11 frozen analysis inputs, including the replay wrapper and exact final solver, are already in Git. Future replay should use the supplied remapping wrapper rather than invoking historical configuration paths directly.
 
-Full replay is optional and requires the original pinned environment and meaningful compute. It was not performed for this import. The frozen implementation is suitable for current replay, but historical executing-code provenance is incomplete; archive hash consistency is not proof of bit-identical historical numerical reruns. [Reproducibility boundary](EVIDENCE_AND_READINESS.md)
+Full replay is optional and requires the original pinned environment and meaningful compute. It was not performed for this import. The frozen implementation is suitable for replay, but historical executing-code provenance is incomplete; archive hash consistency is not proof of bit-identical historical numerical reruns. See the [historical replay instructions](../project/analysis/REPRODUCE.md).
 
 ## Website and editable exports
 
 For the exact issued static website, use the original archive's `website_source/dist/`. For further development, use the committed [website source instructions](../project/website_source/README.md), application, build script and lockfile. The unchanged builder writes generated `data/`, `dist/`, a project snapshot and license outputs; review changes if rebuilding. No dependencies were installed and no build or deployment was performed during this import.
 
-The supplemental [package_link.json](../project/package_link.json) supplies the now-known saved ZIP link to that builder. It was not a member of the original ZIP. All original files remain unchanged. [Import scope note](../project/IMPORT_NOTE.md)
+The supplemental [package_link.json](../project/package_link.json) supplies the now-known saved ZIP link to that builder. It was not a member of the original ZIP. All selected original files were unchanged at initial import; subsequent revisions are outside that identity claim. [Import scope note](../project/IMPORT_NOTE.md)
 
-Use the [CAD README](../project/cad/README.md) for regenerating exports into a new output directory. The current checked-in STEP/STL files are the issued source exports; integrity validation did not regenerate or alter them. Preserve source/version identity when changing geometry so old analysis is not silently attached to a changed part.
+The checked-in `project/cad/N2/` STEP/STL files now describe historical P14 geometry; the [P14 CAD README](../project/cad/README.md) explains regeneration into a new output directory. Recover the issued P11 exports from the verified original archive. Current R5 geometry has its own [generator and reproduction instructions](../project/designs/r5/README.md). Preserve source/version identity when changing geometry so old analysis is not silently attached to a changed part.
 
 ## Source SHA-256 values
 
