@@ -1,0 +1,58 @@
+{
+ "id": "r5",
+ "name": "R5",
+ "revision": "R5",
+ "units": "mm",
+ "bounds": {
+  "min": [
+   -2,
+   0,
+   -3.5
+  ],
+  "max": [
+   64,
+   50,
+   20
+  ],
+  "size": [
+   66,
+   50,
+   23.5
+  ]
+ },
+ "parts": [
+  {
+   "id": "adapter",
+   "stl": "adapter.stl",
+   "kind": "printed",
+   "color": "#4c90f0",
+   "explode": [
+    -13.2,
+    0,
+    -26.4
+   ]
+  },
+  {
+   "id": "body",
+   "stl": "body.stl",
+   "kind": "printed",
+   "color": "#f0b726",
+   "explode": [
+    0,
+    0,
+    0
+   ]
+  },
+  {
+   "id": "keeper",
+   "stl": "keeper.stl",
+   "kind": "printed",
+   "color": "#32a467",
+   "explode": [
+    13.2,
+    0,
+    -52.8
+   ]
+  }
+ ]
+}

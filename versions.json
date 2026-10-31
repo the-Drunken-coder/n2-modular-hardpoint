@@ -5,5 +5,12 @@
   "sha": "9a8fce495ffecbee056d2a4eef3789112dbc8e1c",
   "built": "2026-10-31T00:50:52Z",
   "path": ""
+ },
+ {
+  "label": "PR #13 (design/r5-clean)",
+  "title": "R5 clean: simplified servo hardpoint",
+  "sha": "c33816e1fe4c37f4864bcfdc52fe1c50ec5b4e08",
+  "built": "2026-10-31T00:51:27Z",
+  "path": "pr/13/"
  }
 ]
