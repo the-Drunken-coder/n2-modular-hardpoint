@@ -22,6 +22,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import params as p  # noqa: E402
+from coupled_forces import study
 
 OUT = Path(__file__).resolve().parents[1] / "out"
 KGFCM = 98.0665          # N*mm per kgf*cm
@@ -56,38 +57,63 @@ def stall_nmm(v):
 
 
 def drag(mu, load=p.P_DESIGN):
-    """Axial force to pull the keeper: friction at the hole top and both tunnel reactions."""
-    return mu * load * 2 * (1 + p.REACTION_RATIO)
+    """Maximum opening force from the shared coupled 2D positional envelope."""
+    result = study(p, mu=mu, load=load, include_states=False)
+    if not result["finite_sliding_solution"]:
+        raise ValueError(result["failure_reason"])
+    return result["max_opening_force"]["force_x_N"]
 
 
-def torque_curve(mu, r=p.CRANK_R, load=p.P_DESIGN):
-    """Scotch yoke: slot force F gives T = F r |sin a|; the pin sliding along the slot
-    adds mu F r |cos a|. Returns (alpha, T) over the release swing."""
-    a = np.radians(np.linspace(p.A_RELEASE, p.A_LATCH, 221))
-    f = drag(mu, load)
-    return np.degrees(a), f * r * (np.abs(np.sin(a)) + mu * np.abs(np.cos(a)))
+def torque_curve(mu, r=None, load=p.P_DESIGN):
+    """Torque envelope with coupled reactions, sleeve spin and load removal."""
+    from types import SimpleNamespace
+    model = p if r is None else SimpleNamespace(**dict(vars(p), FIT_BOUNDS=dict(p.FIT_BOUNDS, horn_r=(r, r))))
+    result = study(model, mu=mu, load=load)
+    if not result["finite_sliding_solution"]:
+        raise ValueError(result["failure_reason"])
+    curve = {}
+    for state in result["states"]:
+        a = state["alpha_deg"]
+        curve[a] = max(curve.get(a, 0.), state["torque_Nmm"])
+    return np.array(sorted(curve)), np.array([curve[a] for a in sorted(curve)])
 
 
 def friction_sweep():
     working = stall_nmm(5.0) * p.WORKING_FRACTION
     rows = []
     for mu in np.round(np.arange(0.2, 0.61, 0.05), 2):
-        _, t = torque_curve(mu)
-        rows.append(dict(mu=float(mu), torque_needed_Nmm=float(t.max()),
-                         margin_working=float(working / t.max()),
-                         margin_stall=float(stall_nmm(5.0) / t.max())))
-    mus = np.linspace(0.05, 2.0, 2000)
-    need = np.array([torque_curve(m)[1].max() for m in mus])
-    mu_at = lambda lim: float(mus[np.argmax(need > lim)]) if (need > lim).any() else None
-    return dict(rows=rows, mu_for_margin_3=mu_at(working / 3), mu_for_stall=mu_at(stall_nmm(5.0)))
+        result = study(p, mu=float(mu), include_states=False)
+        finite, need = result["finite_sliding_solution"], result["required_torque_Nmm"]
+        rows.append(dict(mu=float(mu), torque_needed_Nmm=need,
+                         finite_sliding_solution=finite,
+                         margin_working=float(working / need) if finite else 0.,
+                         margin_stall=float(stall_nmm(5.0) / need) if finite else 0.,
+                         status="prescribed 2D screen" if finite else result["failure_reason"]))
+    def threshold(limit):
+        def exceeds(mu):
+            result = study(p, mu=mu, include_states=False)
+            return not result["finite_sliding_solution"] or result["required_torque_Nmm"] > limit
+        previous = 0.05
+        for current in np.linspace(0.05, 0.65, 25)[1:]:
+            if exceeds(float(current)):
+                lo, hi = previous, float(current)
+                for _ in range(16):
+                    mid = (lo+hi)/2
+                    if exceeds(mid): hi = mid
+                    else: lo = mid
+                return hi
+            previous = float(current)
+        return None
+    return dict(rows=rows, mu_for_margin_3=threshold(working / 3),
+                mu_for_stall=threshold(stall_nmm(5.0)),
+                threshold_basis="First torque-limit crossing or loss of a finite sliding solution in the prescribed 2D screen; friction is unmeasured")
 
 
 def derating():
-    _, t = torque_curve(p.MU)
-    need = t.max()
+    need = study(p, include_states=False)["required_torque_Nmm"]
     return [dict(volts=v, supported_by_torque_points=v >= 5.0,
                  stall_kgfcm=stall_nmm(v) / KGFCM if v >= 5.0 else None,
-                 margin_working=stall_nmm(v) * p.WORKING_FRACTION / need if v >= 5.0 else None,
+                 margin_working=stall_nmm(v) * p.WORKING_FRACTION / need if v >= 5.0 and need is not None else None,
                  status="torque sensitivity only; physical operation unverified" if v >= 5.0
                  else "outside specified operating range; NOT QUALIFIED")
             for v in (4.4, 4.6, 4.8, 5.0, 6.0)]
@@ -137,7 +163,7 @@ def bounded_fit(bounds=None):
     includes lost motion, edge contact and tip-corner projection; it does not
     prove a contact-free path or physical payload departure.
     """
-    from fit_envelope import angular_candidates, guide_angle, tip_interval
+    from fit_envelope import angular_candidates, contact_envelope, guide_angle, motion_guide_certificate, tip_interval, validate_relief_contract
     b = dict(p.FIT_BOUNDS if bounds is None else bounds)
     if not (0 < b["horn_r"][0] <= b["horn_r"][1]
             and -10 <= b["latch_error_deg"][0] <= 0 <= b["latch_error_deg"][1] <= 10
@@ -151,6 +177,10 @@ def bounded_fit(bounds=None):
             and b["relative_guide_shaft_z_error_mm"] >= 0):
         raise ValueError("invalid inspected keeper width or relative Z datum")
     tilt = guide_angle(b)
+    engagement = motion_guide_certificate(p, b)
+    released_bounds = dict(b, guide_length_min_mm=b["remaining_guide_length_min_mm"])
+    released_tilt = guide_angle(released_bounds)
+    corner = contact_envelope(p, b, released_tilt)
     half_play = slot_hi / 2
     rows = []
     for radius, dx, dl, tab, dt in product(
@@ -160,12 +190,12 @@ def bounded_fit(bounds=None):
         latch = angular_candidates(p.A_LATCH+b["latch_error_deg"][0],
             p.A_LATCH+b["latch_error_deg"][1], radius, p.SHAFT_Z, p.ZK, tilt)
         release = angular_candidates(p.A_RELEASE+b["release_error_deg"][0],
-            p.A_RELEASE+b["release_error_deg"][1], radius, p.SHAFT_Z, p.ZK, tilt)
+            p.A_RELEASE+b["release_error_deg"][1], radius, p.SHAFT_Z, p.ZK, released_tilt)
         for al, ar in product(latch, release):
             length = L_PIN_TIP+dl
             _, full_tip_hi = tip_interval(p, b, tilt, radius, dx, al, length-b["tip_chamfer_mm"])
             tip_lo, _ = tip_interval(p, b, tilt, radius, dx, al, length)
-            open_lo, _ = tip_interval(p, b, tilt, radius, dx, ar, length)
+            open_lo, _ = tip_interval(p, b, released_tilt, radius, dx, ar, length)
             rows.append(dict(full_section_overlap_mm=p.TAB_X[0]+tab-full_tip_hi,
                              spare_after_clearance_mm=open_lo-(p.TAB_X[1]+tab+dt)-b["open_clearance_reserve_mm"],
                              tip_to_pocket_floor_mm=tip_lo-(p.TIP_LATCHED_X-p.TIP_POCKET)))
@@ -174,8 +204,13 @@ def bounded_fit(bounds=None):
           and minima["spare_after_clearance_mm"] >= b["spare_after_clearance_min_mm"]
           and minima["tip_to_pocket_floor_mm"] > 0)
     return dict(inspection_bounds=b, configurations_checked=len(rows), minima=minima,
-                continuous_pitch_yaw_abs_bound_deg=float(np.degrees(tilt)),
-                cross_section_corner_envelope_mm=b["keeper_width_mm"][1]+b["guide_clearance_total_mm"][1],
+                continuous_pitch_yaw_abs_bound_deg=float(np.degrees(released_tilt)),
+                latched_pitch_yaw_abs_bound_deg=float(np.degrees(tilt)),
+                guide_engagement_certificate=engagement,
+                cross_section_corner_envelope_mm=corner["local_corner_box_mm"],
+                roll_abs_bound_deg=corner["roll_abs_bound_deg"],
+                sleeve_contact_y_abs_bound_mm=corner["sleeve_contact_y_abs_bound_mm"],
+                guide_relief_contract=validate_relief_contract(released_bounds, released_tilt),
                 pin_slot_play_per_endpoint_mm=half_play,
                 rigid_kinematic_bounds_pass=bool(ok),
                 physical_inspection="PENDING: every built assembly must be measured against these limits",
@@ -281,12 +316,15 @@ def hand_stresses():
     s_keeper = P * arm / front["section_modulus_y_mm3"] + 1.5 * P * (1 + reaction_ratio) / front["conservative_shear_area_mm2"]
     lig = (p.TAB_W - p.HOLE_W) / 2 * (p.TAB_X[1] - p.TAB_X[0]) * 2
     s_lig = P / lig
-    bearing = P * (1 + reaction_ratio) / (front["bottom_bearing_width_mm"] * patch)
-    rear_bearing = P * reaction_ratio / (rear["top_bearing_width_mm"] * patch)
+    front_contact = min(front["bottom_bearing_width_mm"], p.FIT_GUIDE_FLAT_MIN)
+    rear_contact = min(rear["top_bearing_width_mm"], p.FIT_GUIDE_FLAT_MIN)
+    bearing = P * (1 + reaction_ratio) / (front_contact * patch)
+    rear_bearing = P * reaction_ratio / (rear_contact * patch)
     return dict(keeper_bending_plus_shear_MPa=s_keeper, margin_keeper=p.ALLOW_XY / s_keeper,
                 tab_ligament_tension_MPa=s_lig, margin_ligament_across_layers=p.ALLOW_Z / s_lig,
                 tunnel_mouth_bearing_MPa=bearing, tunnel_rear_bearing_MPa=rear_bearing,
                 margin_bearing=p.ALLOW_XY / max(bearing, rear_bearing),
+                inspected_front_contact_width_mm=front_contact, inspected_rear_contact_width_mm=rear_contact,
                 keeper_mouth_area_mm2=front["area_mm2"], keeper_mouth_section_modulus_mm3=front["section_modulus_y_mm3"],
                 keeper_rear_area_mm2=rear["area_mm2"], keeper_rear_section_modulus_mm3=rear["section_modulus_y_mm3"])
 
@@ -295,7 +333,7 @@ def main():
     OUT.mkdir(exist_ok=True)
     fea_path = OUT / "fea.json"
     fea = json.loads(fea_path.read_text()) if fea_path.exists() else None
-    r = dict(friction=friction_sweep(), derating=derating(), monte_carlo=monte_carlo(), bounded_fit=bounded_fit(),
+    r = dict(coupled_forces=study(p, include_states=False), friction=friction_sweep(), derating=derating(), monte_carlo=monte_carlo(), bounded_fit=bounded_fit(),
              dynamics=dynamics(fea), unseated_tab=unseated(), hand_stresses=hand_stresses())
     mc, fr, dy, un, hs = r["monte_carlo"], r["friction"], r["dynamics"], r["unseated_tab"], r["hand_stresses"]
     nominal = next(x for x in fr["rows"] if abs(x["mu"] - 0.35) < 1e-9)
@@ -318,10 +356,11 @@ def main():
     r["gates"] = gates
     (OUT / "risks.json").write_text(json.dumps(r, indent=1))
     md = ["# R5 risk simulations", "", "| mu | torque N·mm | margin working | margin stall |", "|---|---:|---:|---:|"]
-    md += [f"| {x['mu']:.2f} | {x['torque_needed_Nmm']:.1f} | {x['margin_working']:.2f} | {x['margin_stall']:.2f} |" for x in fr["rows"]]
+    md += [f"| {x['mu']:.2f} | {x['torque_needed_Nmm']:.1f} | {x['margin_working']:.2f} | {x['margin_stall']:.2f} |"
+           if x["finite_sliding_solution"] else f"| {x['mu']:.2f} | unresolved sliding | HOLD | HOLD |" for x in fr["rows"]]
     md += ["", f"Margin falls to 3 at mu = {fr['mu_for_margin_3']:.2f}; stall at mu = {fr['mu_for_stall']}.", "",
            "| V | stall kgf·cm | working margin |", "|---|---:|---:|"]
-    md += [f"| {d['volts']} | {d['stall_kgfcm']:.2f} | {d['margin_working']:.2f} |" if d["supported_by_torque_points"]
+    md += [f"| {d['volts']} | {d['stall_kgfcm']:.2f} | {d['margin_working']:.2f} |" if d["supported_by_torque_points"] and d["margin_working"] is not None
            else f"| {d['volts']} | unsupported | NOT QUALIFIED |" for d in r["derating"]]
     md += ["", "Deterministic fit within the stated inspection limits:", ""] + [f"- {k}: {v}" for k, v in r["bounded_fit"].items()]
     md += ["", "Synthetic Monte Carlo sensitivity (" + f"{MC['n']:,}" + " guessed-input samples; not measured reliability):", ""] + [f"- {k}: {v}" for k, v in mc.items() if k != "inputs"]

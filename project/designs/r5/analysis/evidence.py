@@ -50,11 +50,14 @@ def relative_change_pct(previous, current):
     return 100.0 * abs(current - previous) / current
 
 
-def convergence(previous, current):
+def convergence(previous, current, minimum_refinement_mm=None):
     displacement = relative_change_pct(previous["load_point_disp_mm"], current["load_point_disp_mm"])
     utilization = relative_change_pct(previous["max_utilization_at_proof"], current["max_utilization_at_proof"])
+    stable = (displacement <= DISPLACEMENT_CHANGE_LIMIT_PCT
+              and utilization <= UTILIZATION_CHANGE_LIMIT_PCT)
+    refined = minimum_refinement_mm is None or current["h_mm"] <= minimum_refinement_mm
     return dict(disp_change_pct=displacement, utilization_change_pct=utilization,
                 displacement_converged=displacement <= DISPLACEMENT_CHANGE_LIMIT_PCT,
                 stress_converged=utilization <= UTILIZATION_CHANGE_LIMIT_PCT,
-                converged=(displacement <= DISPLACEMENT_CHANGE_LIMIT_PCT
-                           and utilization <= UTILIZATION_CHANGE_LIMIT_PCT))
+                monitored_quantities_stable=stable, required_refinement_mm=minimum_refinement_mm,
+                refinement_depth_reached=refined, converged=stable and refined)

@@ -2,8 +2,9 @@
 from pathlib import Path
 import sys
 import tempfile
+from types import SimpleNamespace
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 import gmsh
 import numpy as np
@@ -15,6 +16,32 @@ import fea
 
 
 class MeshRefinementTests(unittest.TestCase):
+    def test_inadmissible_named_load_patch_fails_before_stiffness_allocation(self):
+        mesh = MeshTet.init_refdom()
+        matrix = Mock(side_effect=AssertionError("stiffness allocation reached"))
+        case = dict(part="keeper", print_axis=1, global_floor_mm=1., loads=[dict(
+            name="declared finite sleeve patch", select=lambda x: x[0] > 5.,
+            force=(1., 0., 0.), application_point=(5., 0., 0.))])
+        with patch.object(fea, "mesh_step", return_value=mesh), \
+                patch.object(fea, "BilinearForm", lambda function: SimpleNamespace(assemble=matrix)):
+            with self.assertRaisesRegex(fea.InvalidLoadPatch, "declared finite sleeve patch"):
+                fea.run_case(case, 1.)
+        matrix.assert_not_called()
+
+    def test_reported_peak_element_size_uses_actual_geometry_and_quadrature_mapping(self):
+        mesh = MeshTet(np.array([[0., 1., 0., 0., 2.],
+                                 [0., 0., 1., 0., 2.],
+                                 [0., 0., 0., 1., 2.]]),
+                       np.array([[0, 1], [1, 2], [2, 3], [3, 4]]))
+        first = fea.governing_element_geometry(mesh, 3, 4)
+        second = fea.governing_element_geometry(mesh, 6, 4)
+        self.assertEqual(first["element_index"], 0)
+        self.assertEqual(second["element_index"], 1)
+        self.assertAlmostEqual(first["max_edge_mm"], np.sqrt(2))
+        self.assertAlmostEqual(second["max_edge_mm"], 3.0)
+        np.testing.assert_allclose(first["centroid_mm"], [0.25, 0.25, 0.25])
+        np.testing.assert_allclose(second["centroid_mm"], [0.75, 0.75, 0.75])
+
     def test_local_refinement_retains_physical_zones_and_all_old_peaks(self):
         case = dict(global_floor_mm=1.0, bearing_points=[[0, 0, 0], [0, 2, 0]])
         global_h, centres = fea.refinement_plan(case, 0.5, [[3, 2, 1], [6, 5, 4]])
@@ -28,6 +55,18 @@ class MeshRefinementTests(unittest.TestCase):
                 patch.object(fea, "Basis", side_effect=AssertionError("matrix allocation reached")):
             with self.assertRaisesRegex(fea.MeshBudgetExceeded, "convergence remains unresolved"):
                 fea.run_case(dict(part="keeper"), 1.0)
+
+    def test_compact_body_fields_cover_the_complete_bearing_rectangles(self):
+        case = fea.CASES["body"]
+        centres = np.array(case["bearing_points"])
+        # Rectangle edges and Voronoi-cell corners attain the greatest distance
+        # to the regular centre grid; these are not arbitrary random samples.
+        for cx, z in ((fea.PATCH_X[0], fea.p.ZK-(fea.p.KEEPER_W+fea.p.SLIDE)/2),
+                      (fea.PATCH_X[1], fea.p.ZK+(fea.p.KEEPER_W+fea.p.SLIDE)/2)):
+            for dx in (-fea.PATCH/2, 0, fea.PATCH/2):
+                for dy in np.linspace(-fea.p.KEEPER_W/2, fea.p.KEEPER_W/2, 11):
+                    point = np.array([cx+dx, fea.p.YK+dy, z])
+                    self.assertLessEqual(np.linalg.norm(centres-point, axis=1).min(), case["refinement_radius_mm"])
 
     def test_gmsh_refines_the_selected_region_without_global_refinement(self):
         # A STEP box supplies independent, uncomplicated geometry. The actual

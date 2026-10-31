@@ -22,6 +22,30 @@ def planar_facets(mesh, candidates, axis, coordinate):
     return candidates[np.all(np.abs(mesh.p[axis, mesh.facets[:, candidates]] - coordinate) < 1e-7, axis=0)]
 
 
+def facets_inside_band(mesh, candidates, axis, lower, upper):
+    """Keep whole facets inside a physical contact footprint, including its edge."""
+    candidates = np.asarray(candidates, dtype=int)
+    if lower >= upper:
+        raise ValueError("contact band must have positive width")
+    coordinates = mesh.p[axis, mesh.facets[:, candidates]]
+    return candidates[np.all((coordinates >= lower-1e-9) & (coordinates <= upper+1e-9), axis=0)]
+
+
+def mean_patch_displacement(basis, nodal_force, force, displacement):
+    """Integrate displacement with the same pressure weights used for the load.
+
+This is the patch's pressure-weighted vector displacement, not the part maximum
+and not automatically the relative displacement of an assembled mechanism.
+"""
+    force = np.asarray(force, dtype=float)
+    component = int(np.argmax(np.abs(force)))
+    if force[component] == 0:
+        raise ValueError("patch displacement requires a nonzero applied force")
+    indices = basis.split_indices()
+    weights = np.asarray(nodal_force)[indices[component]] / force[component]
+    return np.array([weights @ np.asarray(displacement)[idx] for idx in indices])
+
+
 def resultants(basis, nodal_force):
     """Sum the actual assembled nodal force and its moment about (0, 0, 0)."""
     nodal_force = np.asarray(nodal_force)

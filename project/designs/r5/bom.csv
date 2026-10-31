@@ -1,15 +1,16 @@
 item,qty,part,notes
 1,1,Body (printed PAHT-CF),print wing face down
-2,1,Keeper 5x5 bar (printed PAHT-CF),print original +Y face down; keeper_print.stl
+2,1,Keeper 5x5 bar (printed PAHT-CF),print original -Y face down; wider +Y bridge builds upward; keeper_print.stl
 3,1,Payload adapter with tab (printed PAHT-CF),print flat; 4 countersunk holes
 4,1,TowerPro MG92B servo,https://www.adafruit.com/product/2307; stock single-arm horn
-5,1,M2x16 DIN965H countersunk through-bolt A2,crank joint; rear countersunk horn hole; see ASSEMBLY.md
+5,1,M2x20 DIN965H countersunk through-bolt A2,Accu SIK-M2-20-A2; rear countersunk horn hole; see ASSEMBLY.md
 6,4,M3x12 pan head self-tapping screw for plastic,wing into body bosses (3 mm skin)
 7,1,Servo extension lead 30 cm JR,https://www.adafruit.com/product/972
-8,1,M2x4 pan head horn centre screw,supplied with servo; runs under keeper groove
+8,1,M2x4 pan head horn centre screw,supplied with servo; clears the full-width keeper; no groove
 9,2,Servo ear screws,supplied with servo
 10,4,M3x10 countersunk self-tapping screw for plastic,adapter to payload
 11,~30 g,PAHT-CF filament 1.75 mm,https://us.store.bambulab.com/products/paht-cf
-12,1,Ettinger005.51.103 smooth brass sleeve,4mmOD x2.2mmID x10mm long; slides in keeper slot
+12,1,Ettinger 005.51.123 smooth running brass sleeve,4 mm OD x 2.2 mm ID x 12 mm long; spans keeper slot; clamp against 2 mm horn-side spacer
 13,1,M2 DIN125 stainless washer,5mmOD x2.2mmID x0.3mm; RS PRO527347
 14,1,M2 DIN985 nylon-insert locknut,4mmAF and maximum3mm height; TR00000406-000
+15,1,Ettinger 005.51.023 horn-side brass spacer,4 mm OD x 2.2 mm ID x 2 mm long; pre-fit before keeper; supplier listing; total metal stack 14 mm

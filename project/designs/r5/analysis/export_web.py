@@ -97,11 +97,13 @@ def export_case(part, summary, data):
                 fail_N=screen, stress_screen_N=screen, margin_at_proof=ratio,
                 reference_load_N=summary["load_N"], working_load_rating_N=None,
                 governing_fi_per_N=float(fe.max()), peak_mm=np.asarray(peak).tolist(),
+                governing_element=fine["governing_element"],
                 h_mm=fine["h_mm"], global_h_mm=fine["global_h_mm"], dofs=fine["dofs"],
                 local_refinement_centres_mm=fine["local_refinement_centres_mm"],
                 local_refinement_radius_mm=fine["local_refinement_radius_mm"],
                 elements=int(len(tet)), analysis_id=summary["analysis_id"],
                 disp_change_pct=fine["disp_change_pct"], utilization_change_pct=fine["utilization_change_pct"],
+                required_refinement_mm=fine["required_refinement_mm"],
                 raw_max_utilization_at_proof=fine["raw_max_utilization_at_proof"],
                 support_exclusion_mm=summary["support_exclusion_mm"], applied_load_audit=fine["equilibrium"])
     body = dict(meta, pos=np.round(pts[used], 5).ravel().tolist(), idx=remap[tri].ravel().tolist(),
