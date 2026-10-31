@@ -7,6 +7,13 @@
   "path": ""
  },
  {
+  "label": "PR #27 (fix/r5-preview-gates)",
+  "title": "Fail preview publication on missing, stale or failed active-design evidence",
+  "sha": "3a1723fbf7cba60184a29a084469ff4de0d3bcb1",
+  "built": "2026-10-31T08:26:57Z",
+  "path": "pr/27/"
+ },
+ {
   "label": "PR #26 (fix/r5-bench-acceptance)",
   "title": "Define complete-assembly proof, repeated loaded release and installation limits",
   "sha": "4458c0c8da12446421a7fbb510763bf3ee77037d",
