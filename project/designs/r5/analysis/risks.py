@@ -314,14 +314,28 @@ def hand_stresses():
     # conservative rectangular shear-area estimate. Local groove/edge stresses
     # still require CAD FEA and physical proof, not this beam approximation.
     s_keeper = P * arm / front["section_modulus_y_mm3"] + 1.5 * P * (1 + reaction_ratio) / front["conservative_shear_area_mm2"]
-    lig = (p.TAB_W - p.HOLE_W) / 2 * (p.TAB_X[1] - p.TAB_X[0]) * 2
-    s_lig = P / lig
+    # Outward lower-hole reliefs reduce both side ligaments. Use the directly
+    # inspected minimum widths and the existing inspected X-thickness bound;
+    # nominal TAB_W-HOLE_W omits that removal and is not an accepted section.
+    tab_thickness = p.TAB_X[1] - p.TAB_X[0]
+    tab_thickness_min = tab_thickness + min(p.FIT_BOUNDS["tab_thickness_error_mm"])
+    side_ligament_min = p.ADAPTER_MIN_HOLE_SIDE_LIGAMENT
+    net_width_min = 2 * side_ligament_min
+    net_area_min = net_width_min * tab_thickness_min
+    nominal_side_ligament = (p.TAB_W - p.HOLE_W) / 2 - p.ADAPTER_LOWER_HOLE_RADIUS
+    nominal_net_area = 2 * nominal_side_ligament * tab_thickness
+    s_lig = P / net_area_min
     front_contact = min(front["bottom_bearing_width_mm"], p.FIT_GUIDE_FLAT_MIN)
     rear_contact = min(rear["top_bearing_width_mm"], p.FIT_GUIDE_FLAT_MIN)
     bearing = P * (1 + reaction_ratio) / (front_contact * patch)
     rear_bearing = P * reaction_ratio / (rear_contact * patch)
     return dict(keeper_bending_plus_shear_MPa=s_keeper, margin_keeper=p.ALLOW_XY / s_keeper,
                 tab_ligament_tension_MPa=s_lig, margin_ligament_across_layers=p.ALLOW_Z / s_lig,
+                adapter_side_ligament_min_mm=side_ligament_min,
+                adapter_tab_thickness_min_mm=tab_thickness_min,
+                adapter_net_width_min_mm=net_width_min, adapter_net_area_min_mm2=net_area_min,
+                adapter_nominal_side_ligament_mm=nominal_side_ligament,
+                adapter_nominal_net_area_mm2=nominal_net_area,
                 tunnel_mouth_bearing_MPa=bearing, tunnel_rear_bearing_MPa=rear_bearing,
                 margin_bearing=p.ALLOW_XY / max(bearing, rear_bearing),
                 inspected_front_contact_width_mm=front_contact, inspected_rear_contact_width_mm=rear_contact,
