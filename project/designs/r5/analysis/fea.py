@@ -136,6 +136,13 @@ def run_case(case, h):
         "max_across_layer_tension_MPa": float(sz[:, ax, ax].max()),
         "p99_9_principal_MPa": float(np.percentile(princ[:, -1], 99.9)),
     }
+    # viewer field: per-element failure index per 1 N (max over its quadrature points of
+    # in-layer principal / ALLOW_XY and across-layer tension / ALLOW_Z), support zone excluded
+    ne = m.t.shape[1]
+    fiq = np.maximum(princ[:, -1] / p.ALLOW_XY, s[:, ax, ax] / p.ALLOW_Z) / P
+    fiq = np.where(far, fiq, np.nan).reshape(ne, -1)
+    fi_e = np.where(np.all(np.isnan(fiq), axis=1), 0.0, np.nanmax(np.nan_to_num(fiq, nan=-np.inf), axis=1))
+    res["_field"] = dict(points_mm=m.p.T, tet4=m.t[:4].T, fi_e=np.maximum(fi_e, 0))
     res["margin_in_layer"] = margin(p.ALLOW_XY, res["max_principal_MPa"])
     res["margin_across_layer"] = margin(p.ALLOW_Z, res["max_across_layer_tension_MPa"])
     res["margin_compression"] = margin(p.ALLOW_XY, -res["min_principal_MPa"])
@@ -193,6 +200,9 @@ def main():
                 if r1["disp_change_pct"] < CONVERGED_PCT and r1["stress_change_pct"] < CONVERGED_PCT:
                     break
         fine = runs[-1]
+        np.savez_compressed(OUT / f"{name}_fields.npz", **fine.pop("_field"))
+        for r_ in runs:
+            r_.pop("_field", None)
         # Gate on displacement; stresses this small are noisy, so the margin is
         # discounted by the last refinement change instead.
         fine["converged"] = fine.get("disp_change_pct", 100) < CONVERGED_PCT

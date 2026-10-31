@@ -25,6 +25,11 @@ const COLORS = ['#4c90f0', '#f0b726', '#32a467', '#e76a6e', '#9d3f9d', '#68c1ee'
 const root = '../project/designs';
 for (const id of existsSync(root) ? readdirSync(root).sort() : []) {
   const src = `${root}/${id}/out`;
+  if (existsSync(`${src}/viewer/manifest.json`)) { // full viewer assembly from cad/viewer.py
+    cpSync(`${src}/viewer`, `${out}/${id}`, { recursive: true });
+    designs.push({ id, label: `${id.toUpperCase()} (CI-built CAD)`, fea: existsSync(`${src}/viewer/fea/index.json`) });
+    continue;
+  }
   const stls = existsSync(src) ? readdirSync(src).filter(f => f.endsWith('.stl')).sort() : [];
   if (!stls.length) continue;
   mkdirSync(`${out}/${id}`);

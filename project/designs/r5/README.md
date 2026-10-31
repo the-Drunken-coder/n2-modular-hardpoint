@@ -67,3 +67,9 @@ PAHT-CF, dried. Body: wing face down; the tunnel roof is the only bridge. Keeper
 
 ## Optional
 A latched-position microswitch is not fitted. The keeper is visible from the +Y side for a visual check. A switch could be added later on the tunnel back if needed.
+
+## Viewer
+
+`viewer_build.sh` (run by the Pages preview) builds `out/viewer/`: all twelve parts (printed parts, MG92B, stock horn, M2 crank pin, ear and M3 screws, payload stand-in, ghosted wing), explode vectors, the servo-crank release kinematics from `params.py`, and the FEA colormap from `analysis/fea.py` via `analysis/export_web.py`. Purchased parts are modelled from listing dimensions, not vendor CAD.
+
+Fit note: there is no room for the horn's centre retaining screw; its head would hit the keeper yoke as the keeper moves +X. The horn is held by the spline press fit and the M2 crank pin only.

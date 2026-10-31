@@ -36,6 +36,7 @@ jobs:
           sudo apt-get update && sudo apt-get install -y --no-install-recommends libgl1 libglu1-mesa libxft2 libxrender1
           pip install -r project/cad/requirements.txt
           for b in project/designs/*/cad/build.py; do (cd "$(dirname "$b")/.." && python cad/build.py) || echo "::warning::$b failed"; done
+          for v in project/designs/*/viewer_build.sh; do [ -f "$v" ] && { bash "$v" || echo "::warning::$v failed"; }; done
       - uses: actions/setup-node@v4
         with: {node-version: 22, cache: npm, cache-dependency-path: web/package-lock.json}
       - name: Build viewer
