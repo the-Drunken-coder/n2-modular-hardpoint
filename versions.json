@@ -7,6 +7,13 @@
   "path": ""
  },
  {
+  "label": "PR #19 (fix/r5-loaded-clearance)",
+  "title": "Fix loaded keeper roof and horn clearance across inspected guide poses",
+  "sha": "d9aee7cd7aacd49ac5a6404090238181e03935a8",
+  "built": "2026-10-31T04:28:21Z",
+  "path": "pr/19/"
+ },
+ {
   "label": "PR #16 (fix/r5-servo-cable)",
   "title": "Fix R5 servo cable-gland interference and cable routing",
   "sha": "72fa63e0e68c8ac18cdb395a1d470257925ced93",
