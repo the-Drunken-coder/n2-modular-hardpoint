@@ -76,7 +76,19 @@ def keeper():
     s = s.union(box(yx0, yx1, p.YK - h, p.YK + h, z0 - 1.5, z1 + 1.5))
     s = s.cut(box(xs - p.PIN_SLOT / 2, xs + p.PIN_SLOT / 2, p.YK - h - 1, p.YK + h + 1, z0, z1))
     s = s.faces("<X").edges().chamfer(0.5)
+    # groove in the horn-side face so the horn centre screw head passes under the yoke
+    hs, c = p.HORN_SCREW, p.SCREW_CLEAR
+    gz = hs["head_d"] / 2 + c
+    s = s.cut(box(p.TIP_LATCHED_X - 1, yx1 + 1, p.YK - h - 1, p.SPLINE_TOP_Y + hs["head_h"] + c,
+                  p.SHAFT_Z - gz, p.SHAFT_Z + gz))
     return s
+
+
+def horn_screw():
+    hs = p.HORN_SCREW
+    y = p.SPLINE_TOP_Y
+    return ycyl(p.SHAFT_X, p.SHAFT_Z, y - hs["l"], y, hs["d"]).union(
+        ycyl(p.SHAFT_X, p.SHAFT_Z, y, y + hs["head_h"], hs["head_d"]))
 
 
 def adapter():
@@ -137,6 +149,17 @@ def build(out=OUT):
             v = inter.val().Volume() if inter.vals() else 0.0
             report[f"overlap_{name}_{other}_mm3"] = round(v, 4)
             assert v < 1e-3, (name, other, v)
+    # horn centre screw head, inflated by SCREW_CLEAR, vs keeper over the full sweep
+    hs, c = p.HORN_SCREW, p.SCREW_CLEAR
+    env = ycyl(p.SHAFT_X, p.SHAFT_Z, p.SPLINE_TOP_Y, p.SPLINE_TOP_Y + hs["head_h"] + c - 0.01, hs["head_d"] + 2 * c - 0.02)
+    worst = 0.0
+    for i in range(29):
+        a = p.A_LATCH + (p.A_RELEASE - p.A_LATCH) * i / 28
+        inter = env.intersect(shapes["keeper"].translate((p.keeper_x(a), 0, 0)))
+        worst = max(worst, inter.val().Volume() if inter.vals() else 0.0)
+    report["overlap_horn_screw_keeper_sweep_mm3"] = round(worst, 4)
+    report["horn_screw_clearance_mm"] = c
+    assert worst < 1e-3, worst
     (out / "cad.json").write_text(json.dumps(report, indent=2))
     return report
 

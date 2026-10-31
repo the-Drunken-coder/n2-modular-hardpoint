@@ -72,4 +72,4 @@ A latched-position microswitch is not fitted. The keeper is visible from the +Y 
 
 `viewer_build.sh` (run by the Pages preview) builds `out/viewer/`: all twelve parts (printed parts, MG92B, stock horn, M2 crank pin, ear and M3 screws, payload stand-in, ghosted wing), explode vectors, the servo-crank release kinematics from `params.py`, and the FEA colormap from `analysis/fea.py` via `analysis/export_web.py`. Purchased parts are modelled from listing dimensions, not vendor CAD.
 
-Fit note: there is no room for the horn's centre retaining screw; its head would hit the keeper yoke as the keeper moves +X. The horn is held by the spline press fit and the M2 crank pin only.
+Fit note: the horn centre retaining screw (stock M2 pan head) is fitted. The keeper's horn-side face has a groove (head + 0.5 mm all round) so the head passes under the yoke through the whole 180->40 deg sweep; `cad/build.py` checks this at 29 angles.

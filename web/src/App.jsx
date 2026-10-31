@@ -64,6 +64,19 @@ function useScene(el) {
   return st.current;
 }
 
+function label(text) {
+  const cv = document.createElement('canvas'), x = cv.getContext('2d'); cv.width = 512; cv.height = 64;
+  x.fillStyle = 'rgba(17,20,24,0.85)'; x.fillRect(0, 0, 512, 64); x.fillStyle = '#fff'; x.font = 'bold 30px sans-serif'; x.textBaseline = 'middle'; x.fillText(text, 14, 32);
+  const sp = new T.Sprite(new T.SpriteMaterial({ map: new T.CanvasTexture(cv), depthTest: false, transparent: true, sizeAttenuation: false }));
+  sp.scale.set(0.24, 0.03, 1); sp.center.set(0, 0.5); sp.renderOrder = 11; return sp;
+}
+
+function lookAtPeak(s, d, off) {
+  const p = new T.Vector3(...d.peakV).add(off), n = new T.Vector3(...d.peakN);
+  const v = n.clone().add(new T.Vector3(0, 0, n.z > 0.7 ? 0 : 0.35)).normalize();
+  s.oc.target.copy(p); s.cam.position.copy(p).add(v.multiplyScalar(70)); s.oc.update(); s.dirty = true;
+}
+
 function setView(s, bounds, dir) {
   const c = new T.Vector3(...bounds.min).add(new T.Vector3(...bounds.max)).multiplyScalar(0.5);
   const d = new T.Vector3(...bounds.size).length() * 2.1;
@@ -81,6 +94,9 @@ export default function App() {
   const [playing, setPlaying] = useState(false);
   const [hidden, setHidden] = useState({});
   const [group, setGroup] = useState('Z');
+  const [feaN, setFeaN] = useState(0);
+  const [focus, setFocus] = useState(new URLSearchParams(location.search).get('fade') !== '0');
+  const [autoScale, setAutoScale] = useState(new URLSearchParams(location.search).get('scale') !== 'abs');
   const [load, setLoad] = useState(Number(new URLSearchParams(location.search).get('load') || 17.8));
   const [ghost, setGhost] = useState(true);
   const [designs, setDesigns] = useState([]), [design, setDesign] = useState(null), [versions, setVersions] = useState([]);
@@ -126,7 +142,12 @@ export default function App() {
       g.setAttribute('position', new T.Float32BufferAttribute(d.pos, 3)); g.setIndex(d.idx); g.computeVertexNormals();
       g.setAttribute('color', new T.Float32BufferAttribute(new Float32Array(d.pos.length), 3));
       const m = new T.Mesh(g, new T.MeshStandardMaterial({ vertexColors: true, metalness: 0, roughness: 0.75, side: T.DoubleSide }));
-      m.userData = { d, part: c.part }; m.visible = false; s.fea.set(`${c.part}__${c.case}`, m); s.scene.add(m); s.dirty = true;
+      let pi = 0; for (let i = 1; i < d.fi.length; i++) if (d.fi[i] > d.fi[pi]) pi = i;
+      const nrm = g.attributes.normal, ctr = new T.Vector3(); g.computeBoundingBox(); g.boundingBox.getCenter(ctr);
+      const pv = new T.Vector3().fromBufferAttribute(g.attributes.position, pi), pn = new T.Vector3().fromBufferAttribute(nrm, pi);
+      if (pn.dot(pv.clone().sub(ctr)) < 0) pn.negate(); // DoubleSide: orient outward
+      d.peakV = pv.toArray(); d.peakN = pn.normalize().toArray(); d.fiMax = d.fi[pi];
+      m.userData = { d, part: c.part }; m.visible = false; s.fea.set(`${c.part}__${c.case}`, m); s.scene.add(m); s.dirty = true; setFeaN(n => n + 1);
     }));
   }, [fea]);
 
@@ -144,8 +165,16 @@ export default function App() {
   const kx = mo ? mo.r * (Math.cos(alpha * Math.PI / 180) - Math.cos(mo.a_latch * Math.PI / 180)) : 0;
   const loadMax = fea?.cases ? Math.max(60, Math.ceil(Math.min(...fea.cases.map(c => c.fail_N)) * 1.2)) : 60;
   const k = fea ? 31 / fea.z_tds_MPa : 1;
+  const uMax = Math.max(1e-9, ...[...s.fea.values()].filter(m => shown[m.userData.part] && !hidden[m.userData.part]).map(m => (m.userData.d.fiMax || 0) * load * k));
+  const scale = autoScale ? uMax : 1;
   const rows = fea ? Object.entries(shown).map(([p, c]) => fea.cases.find(x => x.part === p && x.case === c)).filter(Boolean) : [];
   const gov = rows.reduce((a, b) => (!a || b.fail_N < a.fail_N ? b : a), null);
+
+  useEffect(() => { // ?peak=1: frame the governing peak once its surface is loaded
+    if (!gov || mode !== 'fea' || new URLSearchParams(location.search).get('peak') !== '1' || s.peaked) return;
+    const m = s.fea.get(`${gov.part}__${gov.case}`); if (!m?.userData.d.peakV) return;
+    s.peaked = true; s.tick?.(); lookAtPeak(s, m.userData.d, m.position);
+  }, [feaN, gov, mode]);
 
   // per-frame placement + colouring
   s.tick = () => {
@@ -180,15 +209,17 @@ export default function App() {
     for (const [key, m] of s.fea) {
       const on = shown[m.userData.part] && key === `${m.userData.part}__${shown[m.userData.part]}` && !hidden[m.userData.part];
       m.visible = !!on; if (!on) continue; place(m, m.userData.part);
-      const ck = `${load}|${k}`;
+      const ck = `${load}|${k}|${scale}`;
       if (m.userData.ck !== ck) {
         const col = m.geometry.attributes.color, c = new T.Color(), fi = m.userData.d.fi;
-        for (let i = 0; i < fi.length; i++) { cmap(fi[i] * load * k, c); col.setXYZ(i, c.r, c.g, c.b); }
+        for (let i = 0; i < fi.length; i++) { cmap(fi[i] * load * k / scale, c); col.setXYZ(i, c.r, c.g, c.b); }
         col.needsUpdate = true; m.userData.ck = ck;
       }
-      const d = m.userData.d, isGov = gov && d.part === gov.part;
+      const d = m.userData.d, isGov = gov && d.part === gov.part, fade = focus && gov && !isGov;
+      m.material.transparent = fade; m.material.opacity = fade ? 0.12 : 1; m.material.depthWrite = !fade;
       const mk = new T.Mesh(new T.SphereGeometry(isGov ? 0.9 : 0.6, 20, 14), new T.MeshBasicMaterial({ color: isGov ? 0xffffff : 0xabb3bf, depthTest: false, transparent: true, opacity: 0.95 }));
-      mk.position.set(...d.peak_mm).add(m.position); mk.renderOrder = 10; s.markers.add(mk);
+      mk.position.set(...(d.peakV || d.peak_mm)).add(m.position);
+      if (isGov) { const lb = label(`PEAK ${short(d.part)}: ${(d.fiMax * load * k).toFixed(2)} of limit`); lb.position.copy(mk.position).add(new T.Vector3(...(d.peakN || [0, 0, 1])).multiplyScalar(4)); s.markers.add(lb); } mk.renderOrder = 10; s.markers.add(mk);
       if (isGov) { const ring = new T.Mesh(new T.TorusGeometry(1.6, 0.18, 8, 32), mk.material); ring.position.copy(mk.position); ring.quaternion.copy(s.cam.quaternion); ring.renderOrder = 10; s.markers.add(ring); }
     }
   };
@@ -245,6 +276,9 @@ export default function App() {
             {rows.map(r => <tr key={r.part}><td>{gov === r && '● '}{short(r.part)}</td><td className="n">{r.fail_N} N</td><td className="n">{(r.fail_N / load).toFixed(2)}×</td></tr>)}
           </tbody></table>
           <Switch checked={ghost} label="Ghost other parts" onChange={() => setGhost(!ghost)} />
+          <Switch checked={autoScale} label="Scale colours to peak at this load" onChange={() => setAutoScale(!autoScale)} />
+          <Switch checked={focus} label="Fade parts other than the governing one" onChange={() => setFocus(!focus)} />
+          <Button small icon="locate" text="Look at peak" disabled={!gov} onClick={() => { setFocus(true); const m = s.fea.get(`${gov.part}__${gov.case}`); if (m?.userData.d.peakV) lookAtPeak(s, m.userData.d, m.position); }} />
           <div className="status">{fea.material.toUpperCase()}, {fea.note}</div>
         </>}
 
@@ -263,10 +297,10 @@ export default function App() {
           {['iso', 'front', 'side', 'top'].map(v => <Button key={v} small text={v} onClick={() => setView(s, man.bounds, v)} />)}
         </ButtonGroup>}
         {mode === 'fea' && fea && <div className="legend">
-          Screen utilisation at {load.toFixed(1)} N (1.0 = assumed stress limit)
+          Screen utilisation at {load.toFixed(1)} N {autoScale ? `(colours scaled to peak ${uMax.toFixed(2)}; 1.0 = assumed stress limit)` : '(1.0 = assumed stress limit)'}
           <div className="bar" style={{ background: GRAD }} />
-          <div className="ticks"><span>0</span><span>0.5</span><span>1.0</span><span style={{ color: '#d91ad9' }}>&gt;1</span></div>
-          {gov && <div style={{ marginTop: 4 }}>○ governing peak: {short(gov.part)} at ({gov.peak_mm.join(', ')}) mm</div>}
+          <div className="ticks"><span>0</span><span>{(0.5 * scale).toFixed(2)}</span><span>{scale.toFixed(2)}</span>{!autoScale && <span style={{ color: '#d91ad9' }}>&gt;1</span>}</div>
+          {gov && <div style={{ marginTop: 4 }}>○ governing peak: {short(gov.part)} {(() => { const d = s.fea.get(`${gov.part}__${gov.case}`)?.userData.d; return d?.peakV ? `at (${d.peakV.map(v => v.toFixed(1)).join(', ')}) mm, ${(d.fiMax * load * k).toFixed(3)} of limit` : ''; })()}</div>}
         </div>}
         <div className="hint">Drag: orbit · scroll: zoom to cursor · right-drag: pan · double-click: orbit around point</div>
       </div>
