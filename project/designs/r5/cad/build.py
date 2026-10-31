@@ -69,6 +69,28 @@ def xz_prism(profile, y0, y1):
     return cq.Workplane("XZ").polyline(profile).close().extrude(-(y1 - y0)).translate((0, y0, 0))
 
 
+def guide_corner_relief(sy, sz):
+    """Outward round relief with a tangent square neck; no thin floor undercut.
+
+    A circle alone with the same narrow mouth leaves a tapered fin below the
+    bearing flat. The square neck removes that fin. Its two outer sides join
+    the remaining 270-degree arc tangentially; the guide-mouth edges are convex.
+    Both ends open through the receiver, outside the effective guide span.
+    """
+    assert sy in (-1, 1) and sz in (-1, 1)
+    r, d = p.GUIDE_RELIEF_RADIUS, p.GUIDE_RELIEF_INTRUSION
+    assert 0 < d < r
+    h = (p.KEEPER_W + p.SLIDE) / 2
+    wall_y, wall_z = p.YK + sy * h, p.ZK + sz * h
+    cy, cz = wall_y + sy * (r - d), wall_z + sz * (r - d)
+    x0, x1 = p.TAB_X[1], p.TUNNEL_X[1] + 0.1
+    circle = cq.Workplane().add(cq.Solid.makeCylinder(
+        r, x1 - x0, cq.Vector(x0, cy, cz), cq.Vector(1, 0, 0)))
+    y0, y1 = sorted((cy, wall_y - sy * d))
+    z0, z1 = sorted((cz, wall_z - sz * d))
+    return circle.union(box(x0, x1, y0, y1, z0, z1))
+
+
 def crank_screw():
     """M2 DIN965H through-bolt, flush on the rear of the horn (not tapped plastic)."""
     c = p.CRANK_PIN
@@ -82,9 +104,17 @@ def crank_screw():
 
 def crank_sleeve():
     c = p.CRANK_PIN
+    x, y, z = p.SHAFT_X - p.CRANK_R, p.SPLINE_TOP_Y + c["horn_spacer_l"], p.SHAFT_Z
+    return ycyl(x, z, y, y + c["running_sleeve_l"], p.PIN_D).cut(
+        ycyl(x, z, y - 1, y + c["running_sleeve_l"] + 1, c["sleeve_id"]))
+
+
+def crank_spacer():
+    """Short horn-side spacer; its seam stays outside the running contact band."""
+    c = p.CRANK_PIN
     x, y, z = p.SHAFT_X - p.CRANK_R, p.SPLINE_TOP_Y, p.SHAFT_Z
-    return ycyl(x, z, y, y + c["sleeve_l"], p.PIN_D).cut(
-        ycyl(x, z, y - 1, y + c["sleeve_l"] + 1, c["sleeve_id"]))
+    return ycyl(x, z, y, y + c["horn_spacer_l"], p.PIN_D).cut(
+        ycyl(x, z, y - 1, y + c["horn_spacer_l"] + 1, c["sleeve_id"]))
 
 
 def crank_washer():
@@ -107,9 +137,9 @@ def body():
     s = box(0, B["x"], 0, B["y"], top0, B["z"])
     # keeper/socket block
     hw = p.TAB_W / 2 + p.SOCKET_GAP + 3.0
-    s = s.union(box(0, p.TUNNEL_X[1], p.YK - hw, p.YK + hw, 0, top0))
+    s = s.union(box(0, p.TUNNEL_X[1], p.YK - hw, max(p.YK + hw, B["y"] - 3.4), 0, top0))
     # servo cradle (ear ledge at EAR_Y)
-    s = s.union(box(26.5, 62.0, 0, p.EAR_Y, 0, top0))
+    s = s.union(box(*p.SERVO_CRADLE_X, 0, p.EAR_Y, 0, top0))
     for bx, by in p.BOSSES:
         s = s.union(zcyl(bx, by, p.BODY["z"] - p.PILOT_DEPTH - 1.5, top0 + 0.01, p.BOSS_D))
     # socket for the tab, open below, 1 mm lead-in
@@ -125,6 +155,9 @@ def body():
     # tunnel and tip pocket
     h = (p.KEEPER_W + p.SLIDE) / 2
     s = s.cut(box(p.TAB_X[1], p.TUNNEL_X[1] + 1, p.YK - h, p.YK + h, p.ZK - h, p.ZK + h))
+    for sy in (-1, 1):
+        for sz in (-1, 1):
+            s = s.cut(guide_corner_relief(sy, sz))
     tp = p.TIP_POCKET_HALF
     s = s.cut(box(p.TIP_LATCHED_X - p.TIP_POCKET, p.TAB_X[0], p.YK - tp, p.YK + tp, p.ZK - tp, p.ZK + tp))
     # servo pocket, open below
@@ -146,7 +179,7 @@ def body():
     # plate underside relief over the horn and keeper-yoke sweep (0.5 mm over both)
     hz = p.BODY["z"] - p.YOKE_ROOF_T
     s = s.cut(box(p.TUNNEL_X[1] - 0.4, p.YOKE_RELIEF_X_MAX,
-                  p.SPLINE_TOP_Y - 3.0, p.YK + p.KEEPER_W / 2 + 2.5, top0 - 1, hz))
+                  p.SPLINE_TOP_Y - 3.0, p.YOKE_RELIEF_Y_MAX, top0 - 1, hz))
     # lightening window in the plate where nothing hangs below
     s = s.cut(box(9.0, 24.0, 9.0, 29.0, top0 - 1, p.BODY["z"] + 1).edges("|Z").fillet(2.0))
     return s
@@ -160,8 +193,16 @@ def keeper():
     # pin height is SHAFT_Z + r sin(alpha); slot covers the sweep plus overshoot
     dip = p.CRANK_R_MAX * sin(radians(p.OVERSHOOT))
     z0 = p.SHAFT_Z - dip - p.PIN_SLOT / 2 - 0.5
-    z1 = p.SHAFT_Z + p.CRANK_R_MAX + p.PIN_SLOT / 2 + 0.5
+    z1 = p.SHAFT_Z + p.CRANK_R_MAX + p.PIN_SLOT / 2 + p.YOKE_SLOT_TOP_EXTRA
     s = s.union(box(yx0, yx1, p.YK - h, p.YK + h, z0 - 1.5, z1 + p.YOKE_TOP_WALL))
+    if p.YOKE_BRIDGE_EXTRA_Y > 0:
+        s = s.union(box(yx0, yx1, p.YK + h, p.YK + h + p.YOKE_BRIDGE_EXTRA_Y,
+                        z1, z1 + p.YOKE_TOP_WALL))
+        # Round the concave underside root before cutting the through-slot. The
+        # slot tool also removes the blend inside the opening, preserving its bore.
+        s = s.edges(cq.selectors.BoxSelector(
+            (yx0 - 0.01, p.YK + h - 0.01, z1 - 0.01),
+            (yx1 + 0.01, p.YK + h + 0.01, z1 + 0.01))).fillet(p.YOKE_BRIDGE_FILLET)
     s = s.cut(box(xs - p.PIN_SLOT / 2, xs + p.PIN_SLOT / 2, p.YK - h - 1, p.YK + h + 1, z0, z1).edges("|Y").fillet(p.YOKE_SLOT_FILLET))
     # Assembly entry for the BARE M2 shank below the bar. After indexing to latch,
     # the 4 mm sleeve is fitted from +Y and cannot pass this 2.4 mm opening.
@@ -190,6 +231,16 @@ def adapter():
     s = s.union(xz_prism(tab_root_profile(), p.YK - p.TAB_W / 2, p.YK + p.TAB_W / 2))
     s = s.cut(box(p.TAB_X[0] - 1, p.TAB_X[1] + 1, p.YK - p.HOLE_W / 2, p.YK + p.HOLE_W / 2,
                   p.HOLE_TOP_LOADED - p.HOLE_H, p.HOLE_TOP_LOADED))
+    # Outward circular relief preserves the entire original square passage.
+    # An inward fillet blocks a valid adapter-up/side-float latching pose. The
+    # circle centers are at the old corners, so the mouth joins are convex and
+    # there is no undercut fin. The upper bearing plane remains unchanged.
+    if p.ADAPTER_LOWER_HOLE_RADIUS > 0:
+        for sy in (-1, 1):
+            s = s.cut(cq.Workplane().add(cq.Solid.makeCylinder(
+                p.ADAPTER_LOWER_HOLE_RADIUS, p.TAB_X[1] - p.TAB_X[0] + 2,
+                cq.Vector(p.TAB_X[0] - 1, p.YK + sy * p.HOLE_W / 2,
+                          p.HOLE_TOP_LOADED - p.HOLE_H), cq.Vector(1, 0, 0))))
     s = s.faces(">Z").edges().chamfer(1.0)
     for hx, hy in p.ADAPTER_HOLES:
         s = s.cut(zcyl(hx, hy, a["z"][0] - 1, a["z"][1] + 1, 3.4))
@@ -262,7 +313,8 @@ def build(out=OUT):
     from printing import export_print_parts
     report["printing"] = export_print_parts(shapes, out)
     source_names = ["params.py", "cad/build.py", "cad/clearance.py", "cad/pin_joint.py",
-                    "cad/printing.py", "cad/viewer.py"]
+                    "cad/printing.py", "cad/viewer.py", "cad/guide_motion.py",
+                    "analysis/fit_envelope.py", "analysis/guided_pose_geometry.py"]
     report["source_sha256"] = {name: sha256((HERE.parent / name).read_bytes()).hexdigest()
                                for name in source_names}
     report["step_sha256"] = {name: sha256((out / f"{name}.step").read_bytes()).hexdigest()

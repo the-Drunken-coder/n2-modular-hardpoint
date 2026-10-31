@@ -7,7 +7,8 @@ import numpy as np
 from skfem import Basis, ElementTetP2, ElementVector, MeshTet
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "analysis"))
-from load_audit import check_resultants, horizontal_facets, resultants, surface_load
+from load_audit import (check_resultants, facets_inside_band, horizontal_facets, mean_patch_displacement,
+                        planar_facets, resultants, surface_load)
 
 
 class SurfaceLoadTests(unittest.TestCase):
@@ -37,6 +38,40 @@ class SurfaceLoadTests(unittest.TestCase):
         nodal, report = surface_load(self.mesh, self.facets, force, target)
         np.testing.assert_allclose(resultants(self.basis, nodal)[1], np.cross(target, force), atol=1e-12)
         self.assertGreaterEqual(report["relative_pressure_min"], 0)
+
+    def test_vertical_pin_patch_preserves_force_and_friction_moment(self):
+        facets = planar_facets(self.mesh, self.mesh.boundary_facets(), 0, 0.0)
+        self.assertEqual(len(facets), 1)
+        target = np.array([0.0, 0.30, 0.30])
+        force = np.array([7.1681, 0.0, 2.508835])
+        nodal, report = surface_load(self.mesh, facets, force, target)
+        self.assertAlmostEqual(report["area_mm2"], 0.5)
+        actual_force, actual_moment = resultants(self.basis, nodal)
+        np.testing.assert_allclose(actual_force, force, atol=1e-12)
+        np.testing.assert_allclose(actual_moment, np.cross(target, force), atol=1e-12)
+        self.assertGreaterEqual(report["relative_pressure_min"], 0.0)
+
+    def test_off_plane_application_point_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, "planar patch containing"):
+            surface_load(self.mesh, self.facets, [0, 0, -1], [0.3, 0.3, 0.1])
+
+    def test_physical_footprint_rejects_a_facet_that_only_has_its_midpoint_inside(self):
+        # The base midpoint has Y=1/3, but one vertex extends to Y=1. A finite
+        # keeper footprint ending at Y=0.7 must not put pressure on that vertex.
+        self.assertEqual(len(facets_inside_band(self.mesh, self.facets, 1, 0.0, 0.7)), 0)
+        np.testing.assert_array_equal(facets_inside_band(self.mesh, self.facets, 1, 0.0, 1.0), self.facets)
+
+    def test_pressure_weighted_displacement_integrates_a_known_linear_field(self):
+        force = np.array([7.0, 0.0, 2.0])
+        target = np.array([0.3, 0.3, 0.0])
+        nodal, _ = surface_load(self.mesh, self.facets, force, target)
+        transform = np.array([[1, 2, 3], [2, 0, 1], [0, -1, 2]], dtype=float)
+        offset = np.array([0.1, -0.2, 0.3])
+        displacement = np.zeros(self.basis.N)
+        for component, indices in enumerate(self.basis.split_indices()):
+            displacement[indices] = transform[component] @ self.basis.doflocs[:, indices] + offset[component]
+        np.testing.assert_allclose(mean_patch_displacement(self.basis, nodal, force, displacement),
+                                   transform @ target + offset, atol=1e-12)
 
     def test_resultant_outside_patch_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "negative pressure"):

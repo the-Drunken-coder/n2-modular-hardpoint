@@ -1,5 +1,7 @@
 # N2 next-design brief: pod envelope, 2 g release and 5 V actuation
 
+> **Historical P14 context.** R5 is the current development package. Follow [the current R5 instructions](requirements.md); the specifications, files and results below apply only to the earlier package.
+
 Decisions recorded **2026-10-29, America/New_York**. This brief records the user's answers and the engineering assumptions used to begin the next design. **P14 remains the active issued CAD.** These inputs do not claim that a revised mechanism, actuator or installation has already passed analysis or physical testing.
 
 The numerical inputs are also recorded in [next-design-inputs.json](next-design-inputs.json). The three questions in the earlier CI handoff are answered sufficiently to proceed; exact fits, actuator selection and force margins are engineering work.
@@ -32,7 +34,7 @@ Use the project's existing `g = 9.81 m/s²` convention and total load factor; **
 | 2 g retention/release service force | 0.454 × 9.81 × 2 | **8.90748 N**, reported as 8.9 N |
 | SF 2 retention proof/screen target | 8.90748 × 2 | **17.81496 N**, reported as 17.8 N |
 
-The existing [P14 bench plan](test-plan.md#4-loaded-release-and-reset) already calls for 20 release/reset trials at 8.9 N per assembly. The user's answer confirms that target. **17.8 N is the separate retention proof/screen target**, not the requested release load. The proposed actuator force margin in [H2](concept-verification-20261029.md#h2--available-actuator-force-and-actual-latch-demand) is a separate force-budget criterion; do not multiply all three factors into a larger release-load requirement.
+The existing [P14 bench plan](p14-test-plan.md#4-loaded-release-and-reset) already calls for 20 release/reset trials at 8.9 N per assembly. The user's answer confirms that target. **17.8 N is the separate retention proof/screen target**, not the requested release load. The proposed actuator force margin in [H2](concept-verification-20261029.md#h2--available-actuator-force-and-actual-latch-demand) is a separate force-budget criterion; do not multiply all three factors into a larger release-load requirement.
 
 Release at 2 g is a reasonable design objective, but its extra actuator requirement cannot be assumed negligible. In the study's ideal two-contact sliding model, `F_sliding >= 2 * mu * P`. For the illustrative, unmeasured `mu = 0.2`, the payload-dependent term changes from **1.78 N at 1 g to 3.56 N at 2 g**. Spring force and other fixed contributions need not double; guide reactions, preload, skew and binding can alter the real demand. This arithmetic is not a measured PAHT-CF friction value or a qualified actuator requirement. [Mechanical model and assumptions](../project/analysis/validation_20261029/mechanical/README.md)
 

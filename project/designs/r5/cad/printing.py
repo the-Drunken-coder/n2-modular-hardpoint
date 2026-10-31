@@ -10,9 +10,9 @@ import params as p
 
 
 # Rotation about assembly X, then translation so the bounding-box minimum is 0.
-# The keeper's +Y face is on the bed; its X/Z actuator and bending paths lie in layers.
-ROTATIONS_X_DEG = {"body": 180.0, "keeper": -90.0, "adapter": 0.0}
-BED_FACES = {"body": "+Z wing face", "keeper": "+Y plain side", "adapter": "-Z base"}
+# The keeper's unchanged -Y face is on the bed; its wider +Y bridge builds upward.
+ROTATIONS_X_DEG = {"body": 180.0, "keeper": 90.0, "adapter": 0.0}
+BED_FACES = {"body": "+Z wing face", "keeper": "-Y plain side", "adapter": "-Z base"}
 
 
 def exact_bounds(shape):

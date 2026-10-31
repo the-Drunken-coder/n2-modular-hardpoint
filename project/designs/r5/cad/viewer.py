@@ -15,7 +15,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 sys.path.insert(0, str(HERE))
 import params as p  # noqa: E402
-from build import (adapter, body, box, cable_gland, crank_screw, crank_sleeve,
+from build import (adapter, body, box, cable_gland, crank_screw, crank_sleeve, crank_spacer,
                    crank_washer, crank_nut, horn_screw, keeper, ycyl, zcyl)  # noqa: E402
 
 OUT = HERE.parent / "out" / "viewer"
@@ -137,7 +137,7 @@ def adapter_screws():
     return s
 
 
-ROT, SLIDE, DROP = ["horn", "servo_spline", "pin_screw", "pin_sleeve", "pin_washer", "pin_nut", "horn_screw"], ["keeper"], ["adapter", "payload", "payload_screws"]
+ROT, SLIDE, DROP = ["horn", "servo_spline", "pin_screw", "pin_spacer", "pin_sleeve", "pin_washer", "pin_nut", "horn_screw"], ["keeper"], ["adapter", "payload", "payload_screws"]
 PARTS = [  # id, builder, name, kind, colour, explode (mm at slider 1)
     ("body", body, "Body (printed, PAHT-CF)", "printed", "#5f6b7c", [0, 0, 0]),
     ("keeper", keeper, "Keeper bar (printed)", "printed", "#f0b726", [0, 22, 0]),
@@ -145,8 +145,9 @@ PARTS = [  # id, builder, name, kind, colour, explode (mm at slider 1)
     ("servo", servo_case, "TowerPro MG92B servo", "purchased", "#2d72d2", [0, -14, -26]),
     ("servo_spline", servo_spline, "Servo output spline", "moving", "#c5cbd3", [0, -14, -26]),
     ("horn", horn, "Stock single-arm horn", "moving", "#f6f7f9", [0, 10, -26]),
-    ("pin_screw", pin_screw, "M2x16 DIN965H crank through-bolt", "purchased", "#abb3bf", [0, -7, -26]),
-    ("pin_sleeve", crank_sleeve, "10mm brass sleeve (4mm OD, 2.2mm ID)", "purchased", "#c9ad60", [0, 22, -26]),
+    ("pin_screw", pin_screw, "M2x20 DIN965H crank through-bolt", "purchased", "#abb3bf", [0, -7, -26]),
+    ("pin_spacer", crank_spacer, "2mm horn-side brass spacer (4mm OD, 2.2mm ID)", "purchased", "#b39749", [0, 14, -26]),
+    ("pin_sleeve", crank_sleeve, "12mm running brass sleeve (4mm OD, 2.2mm ID)", "purchased", "#c9ad60", [0, 22, -26]),
     ("pin_washer", crank_washer, "M2 flat washer", "purchased", "#abb3bf", [0, 27, -26]),
     ("pin_nut", crank_nut, "M2 nylon-insert locknut", "purchased", "#abb3bf", [0, 34, -26]),
     ("horn_screw", horn_screw, "M2 horn centre retaining screw (supplied)", "purchased", "#dfe3e8", [0, 18, -26]),

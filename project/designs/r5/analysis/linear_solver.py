@@ -1,4 +1,11 @@
 """Memory-bounded direct solve for a constrained, symmetric elastic stiffness."""
+import os
+
+# Set before loading MKL through pypardiso. Explicit caller settings remain
+# available for a separately verified machine/resource budget.
+os.environ.setdefault("MKL_NUM_THREADS", "2")
+os.environ.setdefault("OMP_NUM_THREADS", "2")
+
 import numpy as np
 import pypardiso
 from scipy.sparse import triu

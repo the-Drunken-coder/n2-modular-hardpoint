@@ -1,5 +1,11 @@
 # Changelog
 
+## R5 active package — 2026-10-31
+
+- Select the merged R5 servo design through explicit repository metadata.
+- Route requirements, printing, controls, status and bench acceptance to R5.
+- Preserve P14 as a historical reference; its green regressions do not qualify R5.
+
 ## P14 documentation and metadata correction — 2026-10-29
 
 - Made P14 and candidate Bambu PAHT-CF consistent across current instructions, project/CAD metadata, catalog, viewer and generated status. Requirements remain 0.454 kg (1 lb, including departing adapter/hardware), 2 g and SF 2: 8.9 N design and 17.8 N sacrificial qualification targets.

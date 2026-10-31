@@ -9,13 +9,13 @@ those gates. Use one identified material lot and record any process change.
 
 From `project/designs/r5`, run `python cad/build.py`. Import these millimetre STLs
 at **100% scale**, with no automatic reorientation. The body measures
-**65×51×20 mm**; the retained assembly including the servo overhang measures
-**65×51.4×20 mm**:
+**72×53.5×20 mm**; the retained assembly including the servo overhang measures
+**72×54.1×20 mm**:
 
 | File | Face on bed | Layer normal in the assembly frame | Reason |
 |---|---|---|---|
 | `out/body_print.stl` | Wing face, original +Z | Z; `PRINT_AXES.body = 2` | Flat mounting datum; guide/servo pockets build upward |
-| `out/keeper_print.stl` | Plain side, original +Y | Y; `PRINT_AXES.keeper = 1` | X/Z bar bending and yoke actuation paths run in the layer plane |
+| `out/keeper_print.stl` | Plain side, original −Y | Y; `PRINT_AXES.keeper = 1` | X/Z bar bending and yoke actuation paths run in the layer plane; the wider +Y bridge builds upward |
 | `out/adapter_print.stl` | Adapter base, original −Z | Z; `PRINT_AXES.adapter = 2` | Flat attachment base; the tab's weaker across-layer direction remains explicit in analysis |
 
 The unsuffixed STLs and STEP files retain assembly coordinates for CAD/FEA and
@@ -25,9 +25,22 @@ records each transform, bed bounding box, layer axis, volume and print-STL
 SHA-256, together with CAD-source and assembly-STEP SHA-256 values. Archive that
 manifest with the actual sliced project/G-code and inspection record.
 
-The body local roof is 1.0 mm, the yoke slot has 0.8 mm internal corner radii,
-and the keeper has a full 5×5 mm bar through the guide. Do not add a horn groove
+The body local roof is 1.0 mm, the yoke slot has 1.5 mm internal corner radii,
+and the keeper has a full 5×5 mm bar through the guide. Only the upper bridge
+widens to 8 mm toward +Y, joined to the narrower walls by a 0.8 mm underside
+blend. The original −Y face remains flat on the bed; the keeper's total print
+height is now 8 mm. Do not add a horn groove
 or rotate the adapter sideways while using the current structural results.
+The receiver's four guide corners have an outward 0.60 mm radius relief with
+a tangent square neck. This leaves nominal 5.20 mm central flats on the
+unchanged guide planes. Use the [specified profile](docs/guide-relief.md),
+not an inward fillet or a circle-only cut that leaves a thin undercut fin.
+
+The adapter uses a different [lower-hole relief](docs/adapter-hole-relief.md):
+two outward R0.40 circles centered on the original lower hole corners. Its tab
+is now 8.20 mm wide in Y and the matching socket is 9.00 mm wide. These cuts
+retain the complete original square passage and upper bearing plane. Do not
+replace them with inward fillets; that blocks a valid floated latching pose.
 
 ## Material and machine setup
 
@@ -76,8 +89,12 @@ Check all three parts layer by layer. The body has the keeper tunnel and the
 small Y-axis ear-screw pilots; the adapter tab has its keeper hole. These are
 bridges/overhangs that need first-article inspection. The 1.0 mm body roof must
 contain five continuous 0.20 mm layers. The keeper's slot and bare-pin entry
-must remain open, its 2.4 mm top bridge continuous, and the reinforced tab root
+must remain open, its 2.4 mm top bridge continuous across the 8 mm breadth,
+the 0.8 mm underside blend solid, and the reinforced tab root
 must have continuous solid toolpaths into its base.
+Inspect the receiver's four guide-relief necks and arcs as well: each must
+remain open through the complete guide span, without a thin unsupported fin
+or bridge sag that changes the central bearing flat.
 
 Do not fill the guide, slot, pilots or tab hole with trapped supports. If the
 chosen process cannot bridge these features without sagging beyond the fit
@@ -115,16 +132,42 @@ keeper-hole ligaments, excluding the lower root reinforcement and top chamfer.
 The limits include:
 
 - Keeper Y and Z section **4.90–5.10 mm**, full square section across an effective
-  guide length **≥15.8 mm**. Measure total guide/keeper clearance in both axes:
+  guide length **≥21.8 mm**. Measure total guide/keeper clearance in both axes:
   **0.30–0.50 mm** throughout the bearing span after finishing.
-- Keeper **slot-center-to-tip length 29.35 ±0.10 mm** (29.25–29.45 mm).
+  Record both guide ends in the common receiver datum: all four uninterrupted
+  flats must span **X12.50 through X34.30 mm**. Length alone does not fix their
+  location or establish the shorter engagement remaining after withdrawal.
+  The **4.90–5.10 mm Y-breadth limit also applies at both yoke sleeve-contact
+  walls**, including above the bar; record their minimum and maximum breadth.
+- Receiver guide-relief intrusion at each end of each flat **≤0.20 mm**,
+  continuous central flat width **≥4.80 mm** on all four planes, and maximum
+  outward relief extent **≤1.20 mm** from each original guide plane. Nominal
+  values are 0.10, 5.20 and 1.10 mm respectively. Measure between the original
+  flat planes, not across the relief bulbs, when checking sliding clearance.
+  The actual arc radius must remain **≥0.60 mm throughout each arc**, with a
+  smooth tangent neck and no local notch or fin; a rounded but smaller-radius
+  defect is not accepted against the nominal structural model.
+  Inspect profiles at both ends and through the effective span using a
+  calibrated optical/profile or replica method; record the method and its
+  uncertainty. Reject undercut fins, sharp concave joins, sagging or gaps in
+  the bearing flats. These are measured gates, not assumed printer accuracy.
+- Keeper **slot-center-to-tip length 36.35 ±0.10 mm** (36.25–36.45 mm).
   Measure along the keeper's own X direction from the geometric center plane
   between the slot's straight X faces to the leading flat tip plane. Do not
   substitute the installed sleeve position: sleeve/slot play is budgeted
-  separately. Nominally, `(40.4 − 5.4) − 5.65 = 29.35 mm`; the 0.50 mm tip
+  separately. Nominally, `(47.4 − 5.4) − 5.65 = 36.35 mm`; the 0.50 mm tip
   chamfer is accounted for separately and is not subtracted from this measurement.
 - Upper-tab **X thickness 3.90–4.10 mm**, measured between the far and near
   faces at the keeper-hole ligaments. Record actual thickness after conditioning.
+- Adapter lower-hole relief **radius ≥0.40 mm**, with each finished side
+  ligament **≥0.80 mm**, measured directly after conditioning. The nominal tab
+  Y breadth is 8.20 mm and the nominal minimum ligament is 0.90 mm; neither
+  establishes the printed minimum. Record the actual Y breadth, both lower
+  profiles and both side ligaments. Match the outward profile in the drawing;
+  reject notches, fins, splitting or overcut ligaments. Keep the upper bearing
+  plane unchanged. Measure keeper/hole clearance between the original flat
+  planes, requiring **≥0.50 mm total in Y and Z**, and centered tab/socket
+  clearance **≥0.30 mm per side in Y**. Do not measure clearance across the bulbs.
 - Actual tab **far-face X must remain within 7.60–8.40 mm over the complete
   permitted socket float**, in the common receiver datum. Gently move the
   seated adapter to both X limits and inspect the permitted float/rocking poses;
@@ -133,17 +176,35 @@ The limits include:
   measurement does not establish the far-face position or its maximum movement.
   In the endpoint model, the near-face position is the measured far-face X plus
   the measured upper-tab thickness; all three dimensional gates must hold together.
-- As-built yoke left wall **≥3.5 mm**, right wall **≥3.0 mm**, top bridge
-  **≥2.4 mm**, and full breadth **≥4.9 mm**. These are measured minima, not
-  permission to subtract a guessed printer error from nominal CAD.
+- As-built yoke left-wall thickness **3.50–3.70 mm**, right-wall thickness
+  **3.00–3.20 mm**, and top-bridge thickness **2.40–2.60 mm**. Keep the bar and
+  both sleeve-contact walls at **4.90–5.10 mm Y breadth**. Inspect all yoke
+  section-face positions within **0.10 mm** of the current STEP, not just their
+  thickness: section placement also controls the actuator moment arms.
+- Upper-bridge breadth **7.90–8.10 mm**, with its −Y face aligned to the bar and
+  sleeve-contact walls' −Y face within **0.10 mm**. The extra breadth extends
+  toward +Y only. Inspect the bridge underside at **Z14.80 ±0.10 mm** and top at
+  **Z17.20 ±0.10 mm**, relative to the keeper drawing datum. Both face-location
+  limits and the 2.40–2.60 mm thickness limit must hold together. Keep the R0.80
+  underside blend at least 0.80 mm in radius, smooth and intact, without a
+  notch, fin or unsupported gap.
+  The narrow wall shoulders below Z14.00 and the left-wall/bar root remain
+  separate load-bearing sections; do not assume the 8 mm cap widens those walls.
 - Sleeve-to-slot total lateral clearance **0.30–0.50 mm**, measured with the
   actual 4 mm sleeve. A smooth pin should pass the entire slot without forcing.
+- Internal slot arcs must retain **at least 1.50 mm radius**, with smooth
+  tangent joins and no smaller local notch. Match the current STEP profile
+  within the 0.10 mm surface-location limit; do not enlarge the radius without
+  preserving the entire finite-pin motion. This is separate from the **0.80 mm
+  underside blend** at the widened +Y bridge. The larger internal radius
+  addresses the converged opening-load hotspot; its added area is not credited
+  in the conservative hand section calculations.
 - Guide and shaft datums **±0.10 mm** each; relevant non-contact roof/yoke
   surfaces **±0.10 mm** each. Inspect the true dimensions against the current
   STEP drawing, including after tightening host mounting screws.
 - Effective **assembled** sleeve-center radius **5.30–5.50 mm**, after the
   clamp is tightened. A stock hole measurement alone omits sleeve/hole play.
-- Latch endpoint **177–183°** and released endpoint **40–44°** in the CAD frame,
+- Latch endpoint **177–183°** and released endpoint **40–42°** in the CAD frame,
   calibrated from actual motion. Accept the separate **175° safe unloaded
   assembly span** before attempting the 215° bare-pin installation procedure.
 - Minimum measured non-contact roof, horn, center head and washer gap **0.50 mm**
@@ -152,6 +213,16 @@ The limits include:
   the 0.50 mm clearance and 1.00 mm spare, across the declared loaded/float poses.
 - At least **0.80 mm of bolt beyond the engaged locknut**, no clamp looseness,
   no horn whitening/cracks and no visible print splitting or bearing damage.
+  Use the current **2 mm horn-side spacer + 12 mm running sleeve and M2×20
+  bolt**. Record both metal lengths and the 14 mm total; the seam must stay
+  outside the complete moving keeper envelope with a measured positive gap.
+  The metal stack is rigidly clamped to the horn and rotates with it. The
+  old 12/18 or 10/16 mm sleeve/bolt combinations do not retain the specified
+  washer-clearance allowance for the wider rolled bridge.
+- Verify all four **7 mm mounting-boss annuli through the full 10 mm pilot
+  depth**. Use the current centers **(4,4), (68.5,4), (4,50), (68.5,50) mm**;
+  check the matching host pattern and at least **0.50 mm** remaining bridge-to-
+  rear-boss clearance during the full straight +X assembly insertion.
 
 Assemble using [ASSEMBLY.md](ASSEMBLY.md). Finally run the unloaded motion check,
 the [full-path loaded-release protocol](docs/loaded-fit.md), retention proof,
