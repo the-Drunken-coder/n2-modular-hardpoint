@@ -80,7 +80,8 @@ DENSITY = 1.06
 
 # Friction / servo (see README for sources)
 MU = 0.35
-STALL_KGFCM_4V8 = 3.1
+SERVO_MIN_V, SERVO_MAX_V = 5.0, 6.6          # TowerPro MG92B operating range
+STALL_KGFCM_5V = 3.1                        # manufacturer point; do not extrapolate below 5 V
 WORKING_FRACTION = 0.5                        # working torque = 50 % of stall
 
 
