@@ -11,18 +11,18 @@
  "bounds": {
   "min": [
    -6.002249593716108,
-   -1.0000000710542735e-07,
+   -0.6003589827669951,
    -17.502249593716108
   ],
   "max": [
-   64.00000010000001,
-   50.50224959371611,
-   22.801506879600883
+   72.00155668895427,
+   53.50155668895427,
+   24.80150687960089
   ],
   "size": [
-   70.00224969371612,
-   50.50224969371612,
-   40.303756473316994
+   78.00380628267038,
+   54.101915671721265,
+   42.303756473316994
   ]
  },
  "parts": [
@@ -106,10 +106,62 @@
   },
   {
    "id": "pin_screw",
-   "name": "M2x8 crank pin screw",
+   "name": "M2x20 DIN965H crank through-bolt",
    "kind": "purchased",
    "color": "#abb3bf",
    "stl": "pin_screw.stl",
+   "explode": [
+    0,
+    -7,
+    -26
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "pin_spacer",
+   "name": "2mm horn-side brass spacer (4mm OD, 2.2mm ID)",
+   "kind": "purchased",
+   "color": "#b39749",
+   "stl": "pin_spacer.stl",
+   "explode": [
+    0,
+    14,
+    -26
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "pin_sleeve",
+   "name": "12mm running brass sleeve (4mm OD, 2.2mm ID)",
+   "kind": "purchased",
+   "color": "#c9ad60",
+   "stl": "pin_sleeve.stl",
+   "explode": [
+    0,
+    22,
+    -26
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "pin_washer",
+   "name": "M2 flat washer",
+   "kind": "purchased",
+   "color": "#abb3bf",
+   "stl": "pin_washer.stl",
+   "explode": [
+    0,
+    27,
+    -26
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "pin_nut",
+   "name": "M2 nylon-insert locknut",
+   "kind": "purchased",
+   "color": "#abb3bf",
+   "stl": "pin_nut.stl",
    "explode": [
     0,
     34,
@@ -199,17 +251,21 @@
  "motion": {
   "type": "crank",
   "pivot": [
-   38.0,
+   47.4,
    0,
-   7.0
+   6.3
   ],
   "a_latch": 180.0,
   "a_release": 40.0,
-  "r": 5.0,
+  "r": 5.4,
   "rotate": [
    "horn",
    "servo_spline",
    "pin_screw",
+   "pin_spacer",
+   "pin_sleeve",
+   "pin_washer",
+   "pin_nut",
    "horn_screw"
   ],
   "slide": [
