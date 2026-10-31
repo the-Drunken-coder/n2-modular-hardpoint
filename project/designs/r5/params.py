@@ -57,10 +57,12 @@ MOTION_CLEARANCE = 0.5                       # residual non-contact clearance, m
 
 # Payload tab (on the adapter)
 TAB_X = (8.0, 12.0)                          # 4 mm upper tab; lower-root jam screen is separate
-TAB_W = 8.0                                  # Y
+TAB_W = 8.2                                  # Y; preserves the lower-relief side ligaments
 TAB_TOP = 14.5
 HOLE_W, HOLE_H = 5.6, 5.6                    # keeper hole, 0.6 clearance (less rattle)
 HOLE_TOP_LOADED = ZK + KEEPER_W / 2          # hole top bears on keeper top
+ADAPTER_LOWER_HOLE_RADIUS = 0.4             # outward relief at the two lower corners only
+ADAPTER_MIN_HOLE_SIDE_LIGAMENT = 0.8         # directly inspected after conditioning
 SOCKET_GAP = 0.4                             # per side, tab in socket
 ADAPTER = dict(x=(-2.0, 21.0), y=(30.0, 48.5), z=(-3.5, -0.5))  # centred on the tab, 0.5 gap to body
 ADAPTER_HOLES = [(1.5, 34.0), (17.5, 34.0), (1.5, 45.0), (17.5, 45.0)]

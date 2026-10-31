@@ -47,7 +47,29 @@ def audit_patch_geometry(mesh, patch):
     return dict(area_mm2=area, centroid_mm=centroid.tolist(), facets=len(facets))
 
 
-def mesh_with_traction_partitions(step, h, global_h=None, centres=(), radius=1.5, *, patches):
+def traction_refinement_fields(h, centres, radius, baseline_h_mm=None, peak_points=()):
+    """Retain resolved patch zones while refining every previously governing peak.
+
+    After all physical patches reach the required baseline, further local
+    refinement need not remesh every non-governing patch. Peak fields are
+    independent of the baseline centres, so a nearby load-zone centre cannot
+    accidentally suppress a requested finer hotspot field.
+    """
+    baseline = h if baseline_h_mm is None else max(h, baseline_h_mm)
+    fields = [dict(centre_mm=list(point), h_mm=baseline, radius_mm=radius,
+                   role="physical patch / retained peak baseline") for point in centres]
+    if h < baseline:
+        fine = []
+        for point in peak_points:
+            if not any(np.linalg.norm(np.asarray(point)-old) < 0.5 for old in fine):
+                fine.append(np.asarray(point, dtype=float))
+        fields.extend(dict(centre_mm=point.tolist(), h_mm=h, radius_mm=radius,
+                           role="previously governing peak") for point in fine)
+    return fields
+
+
+def mesh_with_traction_partitions(step, h, global_h=None, centres=(), radius=1.5, *, patches,
+                                 baseline_h_mm=None, peak_points=()):
     """Match fea.mesh_step's size policy, adding only exact boundary partitions."""
     global_h = h if global_h is None else global_h
     gmsh.initialize()
@@ -75,12 +97,14 @@ def mesh_with_traction_partitions(step, h, global_h=None, centres=(), radius=1.5
         gmsh.option.setNumber("Mesh.MeshSizeMin", h/3)
         gmsh.option.setNumber("Mesh.MeshSizeFromCurvature", 12)
         gmsh.option.setNumber("Mesh.MeshSizeExtendFromBoundary", 0)
-        if centres:
+        zones = traction_refinement_fields(h, centres, radius, baseline_h_mm, peak_points)
+        if zones:
             fields = []
-            for centre in centres:
+            for zone in zones:
+                centre = zone["centre_mm"]
                 field = gmsh.model.mesh.field.add("Ball")
                 for key, value in dict(XCenter=centre[0], YCenter=centre[1], ZCenter=centre[2],
-                        Radius=radius, Thickness=global_h, VIn=h, VOut=global_h).items():
+                        Radius=zone["radius_mm"], Thickness=global_h, VIn=zone["h_mm"], VOut=global_h).items():
                     gmsh.model.mesh.field.setNumber(field, key, float(value))
                 fields.append(field)
             background = gmsh.model.mesh.field.add("Min")

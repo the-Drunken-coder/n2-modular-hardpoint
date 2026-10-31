@@ -51,6 +51,7 @@ These are inspection limits, not claimed printer or supplier accuracy. Record ac
 | Relative guide-to-shaft Z datum | Within ±0.20 mm |
 | Tab-in-socket position | Nominal 0.4 mm gap per side; the upper tab's −X face must remain within X7.60–8.40 mm over its full float in the receiver datum |
 | Upper-tab X thickness | 3.90–4.10 mm at the keeper-hole ligaments, excluding buttress and chamfer |
+| Lower adapter-hole reliefs | Outward R0.40 mm, preserving the square passage; directly inspect at least 0.80 mm of finished side ligament on each side, following [the profile requirements](docs/adapter-hole-relief.md) |
 | Keeper slot-center-to-tip length | 36.35±0.10 mm to the leading tip plane; the 0.50 mm chamfer and sleeve play are separate |
 | Tab-hole clearance | 0.6 mm total, or 0.3 mm per side when centered; when loaded, the vertical clearance lies below the keeper |
 | Measured crank radius | See the measured radius bounds in `params.FIT_BOUNDS`, including assembled sleeve eccentricity |

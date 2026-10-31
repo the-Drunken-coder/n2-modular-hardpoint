@@ -9,6 +9,19 @@ DISPLACEMENT_CHANGE_LIMIT_PCT = 5.0
 UTILIZATION_CHANGE_LIMIT_PCT = 5.0
 
 
+def validate_source_identities(root, identities):
+    """Reject computations whose captured inputs changed before publication."""
+    root = Path(root).resolve()
+    changed = []
+    for name, expected in identities.items():
+        path = (root/name).resolve()
+        if (not path.is_relative_to(root) or not path.is_file()
+                or hashlib.sha256(path.read_bytes()).hexdigest() != expected):
+            changed.append(name)
+    if changed:
+        raise ValueError(f"analysis sources changed during solve: {changed}")
+
+
 def validate_cad_inputs(root, parts):
     """Reject STEP files or parameter/generator inputs stale since CAD regeneration."""
     root = Path(root).resolve()

@@ -52,6 +52,65 @@ class BodyOpeningLoadTests(unittest.TestCase):
         b = body.clamped_patch_forces(points+shift, force, moment+np.cross(shift, force))
         np.testing.assert_allclose(a, b, atol=1e-12)
 
+    def test_only_the_four_ears_declare_the_tapered_profile(self):
+        for case, definition in body.body_opening_cases().values():
+            declared = {load["name"]: load for load in definition["load_patch_definitions"]}
+            tapered = []
+            for load in case["loads"]:
+                if load["name"].startswith("servo_ear_"):
+                    self.assertEqual(load["pressure_profile"], "quadratic_edge_taper")
+                    tapered.append(load)
+                else:
+                    self.assertNotIn("pressure_profile", load)
+                self.assertEqual(declared[load["name"]]["pressure_profile"],
+                                 load.get("pressure_profile", "nonnegative_affine"))
+            self.assertEqual(len(tapered), 4)
+            self.assertEqual(len(case["loads"])-len(tapered), 6)
+            self.assertIn("not a conservative bound", definition["limitations"])
+
+    def test_declared_taper_preserves_every_actual_ear_force_and_moment(self):
+        # Independent tensor-product integration of the declared density. This
+        # checks the case contract without calling the FE load assembler.
+        abscissae, weights = np.polynomial.legendre.leggauss(3)
+        for case, _ in body.body_opening_cases().values():
+            for load in case["loads"]:
+                if load.get("pressure_profile") != "quadratic_edge_taper":
+                    continue
+                point, force = np.array(load["application_point"]), np.array(load["force"])
+                bands = load["vertex_bands"]
+                area = np.prod([hi-lo for _, lo, hi in bands])
+                mass, centroid = 0., np.zeros(3)
+                integrated_force, integrated_moment = np.zeros(3), np.zeros(3)
+                for i, xi in enumerate(abscissae):
+                    for j, eta in enumerate(abscissae):
+                        coordinate = point.copy()
+                        for (axis, lo, hi), value in zip(bands, (xi, eta)):
+                            coordinate[axis] = (lo+hi)/2+(hi-lo)*value/2
+                        density = 9/(4*area)*(1-xi*xi)*(1-eta*eta)
+                        quadrature_weight = density*area/4*weights[i]*weights[j]
+                        mass += quadrature_weight
+                        centroid += coordinate*quadrature_weight
+                        integrated_force += force*quadrature_weight
+                        integrated_moment += np.cross(coordinate, force)*quadrature_weight
+                self.assertAlmostEqual(mass, 1., places=12)
+                np.testing.assert_allclose(centroid, point, atol=1e-12)
+                np.testing.assert_allclose(integrated_force, force, atol=1e-12)
+                np.testing.assert_allclose(integrated_moment, np.cross(point, force), atol=1e-10)
+
+    def test_ear_profile_change_preserves_the_approved_reference_scales(self):
+        # Recorded before changing only the traction distribution, at aa3e947.
+        # A different force envelope requires explicit review of these targets.
+        expected = {
+            "body_opening_force": (1.3462472710861162, 11.987575627304969),
+            "body_opening_torque": (1.317780940021949, 11.73409894156335),
+        }
+        for name, (case, definition) in body.body_opening_cases().items():
+            scale, applied = expected[name]
+            self.assertAlmostEqual(definition["scale_factor"], scale, places=10)
+            self.assertAlmostEqual(case["reference_load_N"], applied, places=9)
+            np.testing.assert_allclose(body.patch_resultants(case["loads"]),
+                                       case["source_resultant"], atol=1e-9)
+
     def test_collinear_ear_points_cannot_silently_drop_a_moment(self):
         with self.assertRaisesRegex(ValueError, "full wrench"):
             body.clamped_patch_forces([[0, 0, 0], [1, 0, 0], [2, 0, 0]], [0, 0, 1], [1, 0, 0])
@@ -126,6 +185,18 @@ class BodyOpeningLoadTests(unittest.TestCase):
             np.testing.assert_allclose(centroid, [12.4, 40.2, 10.5], atol=1e-12)
             lower_fraction = sum(load["force"][0] for load in loads if "lower" in load["name"])/force
             self.assertAlmostEqual(lower_fraction, 5/7)
+
+    def test_tab_widening_does_not_dilute_the_reviewed_socket_pressure(self):
+        footprints = []
+        for width in (8.0, 8.2):
+            with patch.object(body.p, "TAB_W", width):
+                case, _ = body.body_opening_cases()["body_opening_force"]
+                footprints.append([(load["vertex_bands"], load["force"])
+                    for load in case["loads"] if load["name"].startswith("socket_")])
+        self.assertEqual(footprints[0], footprints[1])
+        with patch.object(body.p, "TAB_W", 7.9):
+            with self.assertRaisesRegex(ValueError, "outer tab material"):
+                body.body_opening_cases()
 
     def test_raw_incompatible_envelope_is_not_forced_onto_a_single_socket_face(self):
         _, definition = body.opening_components(self.report["max_opening_force"])

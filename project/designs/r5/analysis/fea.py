@@ -30,7 +30,7 @@ from scipy.spatial import cKDTree
 from load_audit import (check_resultants, facets_inside_band, horizontal_facets, mean_patch_displacement,
                         planar_facets, resultants, support_equilibrium, surface_load)
 from evidence import (DISPLACEMENT_CHANGE_LIMIT_PCT, UTILIZATION_CHANGE_LIMIT_PCT,
-                      convergence, stress_utilizations, validate_cad_inputs)
+                      convergence, stress_utilizations, validate_cad_inputs, validate_source_identities)
 from linear_solver import solve_spd
 
 HERE = Path(__file__).resolve().parent
@@ -176,7 +176,9 @@ def run_case(case, h, peak_history=(), reference_load_N=None, mesh_builder=None)
         for axis, lower, upper in load.get("vertex_bands", ()):
             facets = facets_inside_band(m, facets, axis, lower, upper)
         try:
-            nodal, report = surface_load(m, facets, force, load.get("application_point"))
+            nodal, report = surface_load(m, facets, force, load.get("application_point"),
+                                         pressure_profile=load.get("pressure_profile"),
+                                         vertex_bands=load.get("vertex_bands", ()))
         except (ValueError, np.linalg.LinAlgError) as exc:
             label = load.get("name", f"patch {load_index}")
             raise InvalidLoadPatch(f"{case['part']} h={h}: {label}: {exc}") from exc
@@ -296,9 +298,14 @@ CASES = {
                                force=(0, 0, -P), application_point=TAB_CENTRE)],
                    source_resultant=SOURCE_RESULTANT),
     # adapter held at the hole top (keeper contact); payload pulls the plate down
-    "adapter": dict(part="adapter", print_axis=p.PRINT_AXES["adapter"], sizes=(0.8, 0.6, 0.45, 0.35, 0.25, 0.18), global_floor_mm=0.45,
-                    minimum_refinement_mm=0.25,
-                    bearing_points=[(xx, p.YK + yy, p.HOLE_TOP_LOADED) for xx in p.TAB_X for yy in (-p.HOLE_W/2, p.HOLE_W/2)],
+    "adapter": dict(part="adapter", print_axis=p.PRINT_AXES["adapter"], sizes=(0.8, 0.6, 0.45, 0.35, 0.25, 0.16, 0.12), global_floor_mm=0.45,
+                    # A stable curvature-controlled pair cannot qualify the
+                    # R0.40 lower-hole relief without actual local refinement.
+                    minimum_refinement_mm=min(0.25, 0.4*p.ADAPTER_LOWER_HOLE_RADIUS),
+                    refinement_radius_mm=0.8,
+                    bearing_points=[(xx, p.YK + yy, p.HOLE_TOP_LOADED) for xx in p.TAB_X for yy in (-p.HOLE_W/2, p.HOLE_W/2)]
+                        + [(xx, p.YK + yy, p.HOLE_TOP_LOADED-p.HOLE_H)
+                           for xx in np.linspace(*p.TAB_X, 5) for yy in (-p.HOLE_W/2, p.HOLE_W/2)],
                     fixed=lambda x: near(x[2], p.HOLE_TOP_LOADED) & (np.abs(x[1] - p.YK) < p.HOLE_W / 2),
                     loads=[dict(select=lambda x: near(x[2], p.ADAPTER["z"][0]), force=(0, 0, -P),
                                 application_point=(TAB_CENTRE[0], p.YK, p.ADAPTER["z"][0]))],
@@ -392,6 +399,11 @@ def main():
             fine["refinement_stopped_reason"] = stopped
         summary["cases"][name] = {"study": runs, "fine": fine}
         print(name, json.dumps(fine, indent=1), flush=True)
+    # Keep the startup HOLD if a generator, analysis input or STEP changes while
+    # the expensive solve is in progress. The manifest alone cannot detect a
+    # changed CAD generator unless its identities are checked again as well.
+    validate_cad_inputs(HERE.parent, CASES)
+    validate_source_identities(HERE.parent, identities)
     unconverged = [n for n, v in summary["cases"].items() if not v["fine"]["converged"]]
     worst = min(v["fine"]["strength_ratio_at_proof"] for v in summary["cases"].values())
     summary["min_margin"] = worst
@@ -404,7 +416,8 @@ def main():
     (OUT / "fea.md").write_text(f"FEA at {P:.5f} N (2 x design load); all applied forces, moments and support reactions audited\n\n"
                                + "\n".join(lines) + f"\n\nMinimum comparison strength ratio: {worst:.2f}. "
                                + "Both mesh changes must be <=5%; no numerical-error discount or high-ratio bypass is used.\n\n"
-                               + "Minimum local refinement is 0.25 mm for keeper/adapter and at most 0.22 mm for the rounded body; a stable coarse pair cannot pass.\n\n"
+                               + "Minimum local refinement is 0.25 mm for the keeper, at most 0.4 times the adapter lower-hole radius "
+                               + f"({CASES['adapter']['minimum_refinement_mm']:g} mm for this adapter), and at most 0.22 mm for the rounded body; a stable coarse pair cannot pass.\n\n"
                                + summary["mesh_policy"] + f". The pre-assembly budget is {MAX_DOFS} DOFs; a budget stop fails the gate.\n\n"
                                + "\n".join(f"{n}: {v['fine']['refinement_stopped_reason']}\n" for n, v in summary["cases"].items()
                                            if "refinement_stopped_reason" in v["fine"])
