@@ -1,0 +1,226 @@
+{
+ "id": "r5",
+ "name": "R5 servo crank hardpoint",
+ "revision": "R5",
+ "units": "mm",
+ "iso": [
+  0.8,
+  1.0,
+  -0.6
+ ],
+ "bounds": {
+  "min": [
+   -6.002249593716108,
+   -1.0000000710542735e-07,
+   -17.502249593716108
+  ],
+  "max": [
+   64.00000010000001,
+   50.50224959371611,
+   22.801506879600883
+  ],
+  "size": [
+   70.00224969371612,
+   50.50224969371612,
+   40.303756473316994
+  ]
+ },
+ "parts": [
+  {
+   "id": "body",
+   "name": "Body (printed, PAHT-CF)",
+   "kind": "printed",
+   "color": "#5f6b7c",
+   "stl": "body.stl",
+   "explode": [
+    0,
+    0,
+    0
+   ],
+   "opacity": 0.45
+  },
+  {
+   "id": "keeper",
+   "name": "Keeper bar (printed)",
+   "kind": "printed",
+   "color": "#f0b726",
+   "stl": "keeper.stl",
+   "explode": [
+    0,
+    22,
+    0
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "adapter",
+   "name": "Payload adapter with tab (printed)",
+   "kind": "printed",
+   "color": "#4c90f0",
+   "stl": "adapter.stl",
+   "explode": [
+    0,
+    0,
+    -22
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "servo",
+   "name": "TowerPro MG92B servo",
+   "kind": "purchased",
+   "color": "#2d72d2",
+   "stl": "servo.stl",
+   "explode": [
+    0,
+    -14,
+    -26
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "servo_spline",
+   "name": "Servo output spline",
+   "kind": "moving",
+   "color": "#c5cbd3",
+   "stl": "servo_spline.stl",
+   "explode": [
+    0,
+    -14,
+    -26
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "horn",
+   "name": "Stock single-arm horn",
+   "kind": "moving",
+   "color": "#f6f7f9",
+   "stl": "horn.stl",
+   "explode": [
+    0,
+    10,
+    -26
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "pin_screw",
+   "name": "M2x8 crank pin screw",
+   "kind": "purchased",
+   "color": "#abb3bf",
+   "stl": "pin_screw.stl",
+   "explode": [
+    0,
+    34,
+    -26
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "horn_screw",
+   "name": "M2 horn centre retaining screw (supplied)",
+   "kind": "purchased",
+   "color": "#dfe3e8",
+   "stl": "horn_screw.stl",
+   "explode": [
+    0,
+    18,
+    -26
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "ear_screws",
+   "name": "Servo ear screws (2, supplied)",
+   "kind": "purchased",
+   "color": "#abb3bf",
+   "stl": "ear_screws.stl",
+   "explode": [
+    0,
+    2,
+    -26
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "wing_screws",
+   "name": "M3 self-tapping screws (4)",
+   "kind": "purchased",
+   "color": "#abb3bf",
+   "stl": "wing_screws.stl",
+   "explode": [
+    0,
+    0,
+    40
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "wing",
+   "name": "Wing panel section (ghost)",
+   "kind": "ghost",
+   "color": "#8abbff",
+   "stl": "wing.stl",
+   "explode": [
+    0,
+    0,
+    24
+   ],
+   "opacity": 0.18
+  },
+  {
+   "id": "payload",
+   "name": "1 lb payload stand-in",
+   "kind": "payload",
+   "color": "#29a634",
+   "stl": "payload.stl",
+   "explode": [
+    0,
+    0,
+    -40
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "payload_screws",
+   "name": "Adapter-to-payload screws (4)",
+   "kind": "purchased",
+   "color": "#abb3bf",
+   "stl": "payload_screws.stl",
+   "explode": [
+    0,
+    0,
+    -31
+   ],
+   "opacity": 1
+  }
+ ],
+ "motion": {
+  "type": "crank",
+  "pivot": [
+   38.0,
+   0,
+   7.0
+  ],
+  "a_latch": 180.0,
+  "a_release": 40.0,
+  "r": 5.0,
+  "rotate": [
+   "horn",
+   "servo_spline",
+   "pin_screw",
+   "horn_screw"
+  ],
+  "slide": [
+   "keeper"
+  ],
+  "drop": [
+   "adapter",
+   "payload",
+   "payload_screws"
+  ],
+  "drop_mm": 30.0,
+  "note": "Servo 180 to 40 deg; the M2 pin in the horn drives the keeper slot, keeper x = r (cos a - cos 180). Payload then falls by gravity."
+ }
+}
