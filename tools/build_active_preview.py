@@ -18,12 +18,31 @@ def active_directory(root):
 
 def validate_assets(design):
     out = design / "out"
+    numerical_flags = {
+        "coupled_forces.json": ("numerical_screen_passed",),
+        "mechanics.json": ("numerical_checks_passed",),
+        "yoke_strength.json": ("service_section_screen_pass",
+                               "prescribed_closing_jam_section_screen_pass"),
+        "actuation_fea.json": ("numerical_screen_passed",),
+        "body_actuation_fea.json": ("numerical_screen_passed",),
+    }
     required = ["cad.json", "body.step", "keeper.step", "adapter.step",
-                "viewer/manifest.json", "viewer/fea/index.json"]
+                "viewer/manifest.json", "viewer/fea/index.json", "risks.json",
+                *numerical_flags]
     for name in required:
         path = out / name
         if not path.is_file() or path.stat().st_size == 0:
             raise ValueError(f"Missing active preview artifact: {path}")
+
+    for name, flags in numerical_flags.items():
+        report = json.loads((out / name).read_text())
+        for flag in flags:
+            if report.get(flag) is not True:
+                raise ValueError(f"Failed or missing numerical gate: {name}:{flag}")
+    risk_gates = json.loads((out / "risks.json").read_text()).get("gates")
+    if not isinstance(risk_gates, dict) or not risk_gates or any(
+            value is not True for value in risk_gates.values()):
+        raise ValueError("Failed or missing numerical gate: risks.json:gates")
 
     def inside_viewer(name):
         path = (out / "viewer" / name).resolve()

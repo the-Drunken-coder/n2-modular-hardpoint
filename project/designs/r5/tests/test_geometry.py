@@ -61,9 +61,11 @@ class LoadedFitTests(unittest.TestCase):
         with patch.object(p, "CRANK_R_MAX", 6.0), patch.object(p, "PIN_SLOT", 2.4), \
                 patch.object(p, "SHAFT_X", 38.0), patch.object(p, "SHAFT_Z", 7.0), \
                 patch.object(p, "CRANK_R", 5.0), patch.object(p, "YOKE_LEFT_WALL", 2.0), patch.object(p, "YOKE_RIGHT_WALL", 2.0), \
-                patch.object(p, "YOKE_TOP_WALL", 1.5):
+                patch.object(p, "YOKE_TOP_WALL", 1.5), patch.object(p, "YOKE_BRIDGE_EXTRA_Y", 0), \
+                patch.object(p, "YOKE_SLOT_TOP_EXTRA", 0.5), patch.object(p, "YOKE_SLOT_FILLET", 0.8):
             original_height_keeper = build.keeper()
-        pose = loaded_pose(original_height_keeper, 5.0, 1.4265484919014684, 0)
+        pose = loaded_pose(original_height_keeper, 5.0, 1.4265484919014684, 0,
+                           pivot_x=20.4)  # original 12.4..28.4 mm guide midpoint
         self.assertGreater(overlap(pose, old_roof), 0.02)
 
 
@@ -84,7 +86,10 @@ class MountBossTests(unittest.TestCase):
 
     def test_original_boss_positions_lose_reserved_material(self):
         old_positions = [(4.,4.), (60.,4.), (4.,46.5), (60.,46.5)]
-        with patch.dict(p.BODY, x=64.0, y=50.0), patch.object(p, "BOSSES", old_positions):
+        # Preserve the reviewed pocket depth as well as the old boss placement.
+        with patch.dict(p.BODY, x=64.0, y=50.0), patch.object(p, "BOSSES", old_positions), \
+                patch.object(p, "SHAFT_X", 40.4), patch.object(p, "SHAFT_Z", 6.5), \
+                patch.object(p, "SERVO_CRADLE_X", (26.5, 62.0)):
             old_body = build.body()
             self.assertGreater(self.missing_annulus(old_body, 60., 4.), 15.2)
             self.assertGreater(self.missing_annulus(old_body, 4., 46.5), 2.8)
@@ -94,7 +99,7 @@ class CrankJointTests(unittest.TestCase):
     def test_clamped_joint_and_ordered_assembly_path(self):
         r = check_pin_joint(build.body(), build.keeper())
         self.assertGreaterEqual(r["thread_beyond_locknut_mm"], 0.8)
-        self.assertLessEqual(r["body_plus_crank_fastener_width_mm"], 54)
+        self.assertLessEqual(r["body_plus_crank_fastener_width_mm"], 55)
 
     def test_rear_horn_head_is_flush_and_clear_of_servo(self):
         self.assertLess(overlap(build.crank_screw(), viewer.horn()), 1e-6)

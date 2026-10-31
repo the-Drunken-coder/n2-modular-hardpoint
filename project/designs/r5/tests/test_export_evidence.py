@@ -13,6 +13,9 @@ class ViewerEvidenceTests(unittest.TestCase):
     def fixture(self):
         fine = dict(converged=True, max_utilization_at_proof=2.0, strength_ratio_at_proof=0.5,
                     h_mm=0.25, global_h_mm=0.5, dofs=60,
+                    required_refinement_mm=0.25,
+                    governing_element={"element_index": 0, "centroid_mm": [0.25, 0.25, 0.25],
+                                       "max_edge_mm": float(np.sqrt(2)), "min_edge_mm": 1.0},
                     local_refinement_centres_mm=[[0.1, 0.2, 0.3]], local_refinement_radius_mm=1.5,
                     disp_change_pct=1.0, utilization_change_pct=2.0,
                     raw_max_utilization_at_proof=3.0, equilibrium={"applied_force_N": [0, 0, -10]})
@@ -34,6 +37,7 @@ class ViewerEvidenceTests(unittest.TestCase):
         self.assertEqual(metadata["global_h_mm"], 0.5)
         self.assertEqual(metadata["h_mm"], 0.25)
         self.assertEqual(metadata["local_refinement_centres_mm"], [[0.1, 0.2, 0.3]])
+        self.assertEqual(metadata["governing_element"], summary["cases"]["keeper"]["fine"]["governing_element"])
         self.assertIsNone(metadata["working_load_rating_N"])
         self.assertEqual(field["excluded"], [False] * 4 + [True] * 4)
         self.assertEqual(max(field["fi"]) * 10, summary["cases"]["keeper"]["fine"]["max_utilization_at_proof"])

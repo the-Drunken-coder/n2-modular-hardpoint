@@ -12,14 +12,20 @@ P_DESIGN = MASS_KG * G_DESIGN * 9.80665      # 8.90 N
 P_PROOF = 2 * P_DESIGN                       # 17.81 N, safety factor 2
 
 # Envelope / body
-BODY = dict(x=65.0, y=51.0, z=20.0)          # retained Y span -0.4..51 including servo
+BODY = dict(x=72.0, y=53.5, z=20.0)          # retained Y span -0.6..53.5 including servo
 TOP_PLATE_T = 2.5                            # Z 17.5..20 away from the local relief
 YOKE_ROOF_T = 1.0                            # local relief ceiling Z 19; five 0.2 mm layers
 YOKE_LEFT_WALL = 3.5                         # closing-jam load path
 YOKE_RIGHT_WALL = 3.0                        # service release load path
 YOKE_TOP_WALL = 2.4                          # top bridge closes the actuator load path
-YOKE_RELIEF_X_MAX = 51.0
-BOSSES = [(4.0, 4.0), (61.5, 4.0), (4.0, 47.5), (61.5, 47.5)]  # full annuli clear servo/tip pockets
+YOKE_BRIDGE_EXTRA_Y = 3.0                    # upper bridge only, toward +Y; contact walls stay 5 mm
+YOKE_BRIDGE_MIN_BREADTH = 7.9                # inspected 7.9..8.1 mm upper-bridge breadth
+YOKE_BRIDGE_MAX_BREADTH = 8.1
+YOKE_BRIDGE_FILLET = 0.8                     # finite underside root at the +Y extension
+YOKE_SLOT_TOP_EXTRA = 0.8                    # finite tilted-pin height allowance
+YOKE_RELIEF_X_MAX = 58.0
+YOKE_RELIEF_Y_MAX = 48.3                     # includes the wider, rolled top bridge
+BOSSES = [(4.0, 4.0), (68.5, 4.0), (4.0, 50.0), (68.5, 50.0)]  # preserves the wide-cap insertion path
 BOSS_D = 7.0
 PILOT_M3 = 2.5                               # M3 self-tapping pilot
 PILOT_DEPTH = 10.0
@@ -28,14 +34,22 @@ PILOT_DEPTH = 10.0
 YK, ZK = 40.2, 8.0                           # keeper centreline; loaded yaw clears horn
 KEEPER_W = 5.0                               # Y and Z section
 SLIDE = 0.4                                  # total sliding clearance
-TUNNEL_X = (12.4, 28.4)
+TUNNEL_X = (12.4, 34.4)
+# Outward corner relief: a circle plus square neck, tangent at both joins.
+# The original guide planes remain; only 0.10 mm of each flat end is removed.
+GUIDE_RELIEF_RADIUS = 0.60
+GUIDE_RELIEF_INTRUSION = 0.10
+FIT_GUIDE_RELIEF_RADIUS_MIN = 0.60           # no smaller-radius notch inherits the FEA
+FIT_GUIDE_RELIEF_INTRUSION_MAX = 0.20        # measured loss at each flat end
+FIT_GUIDE_FLAT_MIN = 4.80                    # min aperture 5.20 minus two 0.20 losses
+FIT_GUIDE_RELIEF_EXTENT_MAX = 1.20           # max outward void extent from each plane
 TIP_LATCHED_X = 5.65                         # combined loaded-guide and pin/slot endpoint bound
 TIP_POCKET = 2.0                             # free space beyond the latched tip
 TIP_POCKET_HALF = 3.7                         # includes loaded pitch/yaw and clearance
 FIT_KEEPER_SECTION = (4.9, 5.1)               # each finished bar dimension
 YOKE_MIN_BREADTH = FIT_KEEPER_SECTION[0]      # conservative inspected load-bearing breadth
 FIT_SLIDE_TOTAL = (0.3, 0.5)                  # inspected finished guide clearance, both axes
-FIT_GUIDE_LENGTH_MIN = 15.8                   # measured effective full-section guide length
+FIT_GUIDE_LENGTH_MIN = 21.8                   # measured effective full-section guide length
 FIT_DATUM_ERROR = 0.1                        # each inspected guide/shaft datum, mm
 FIT_SURFACE_ERROR = 0.1                      # reserved per opposing non-contact surface
 FIT_AXIAL_ENVELOPE = 0.5                     # 0.25 slot play + 0.10 shaft + 0.10 end + 0.05 reserve
@@ -57,11 +71,12 @@ TAB_ROOT_EXTRA_X = 1.0                       # 6 mm root; 4 mm upper tab
 TAB_ROOT_TAPER_TOP_Z = HOLE_TOP_LOADED - HOLE_H - 0.5
 
 # Servo: TowerPro MG92B on its side, shaft along +Y.
-SHAFT_X, SHAFT_Z = 40.4, 6.5
+SHAFT_X, SHAFT_Z = 47.4, 6.3
+SERVO_CRADLE_X = (33.5, 69.0)                # follows the +7 mm servo shift
 SERVO_CASE = dict(l=22.8, w=12.2, h=31.0)    # receiving-inspect these
 SHAFT_FROM_END = 5.9
-SERVO_BOTTOM_Y = -0.4
-SPLINE_TOP_Y = 34.6                          # servo bottom to spline top 35 mm
+SERVO_BOTTOM_Y = -0.6
+SPLINE_TOP_Y = 34.4                          # servo bottom to spline top 35 mm
 EAR_Y = SERVO_BOTTOM_Y + 22.8
 EAR_SPAN = 32.5
 POCKET_GAP = 0.5
@@ -69,8 +84,8 @@ POCKET_GAP = 0.5
 # receiving-inspection envelopes, not vendor-certified CAD dimensions.
 SERVO_GLAND = dict(outstand=1.5, inside=0.1,
                    y=(SERVO_BOTTOM_Y + 2, SERVO_BOTTOM_Y + 6), z=(SHAFT_Z - 2.5, SHAFT_Z + 2.5))
-CABLE_CHANNEL = dict(x=(24.9, 35.1), y=(0.5, 6.5))
-CABLE_CONNECTOR = dict(x=(25.9, 33.9), y=(1.5, 5.5))  # 8 x 4 mm reserved pass-through
+CABLE_CHANNEL = dict(x=(31.9, 42.1), y=(0.5, 6.5))
+CABLE_CONNECTOR = dict(x=(32.9, 40.9), y=(1.5, 5.5))  # 8 x 4 mm reserved pass-through
 
 # Keeper lever: tab load at mid-tab, supports at tunnel mouth and back
 GUIDE_PATCH_LENGTH = 2.0
@@ -79,11 +94,12 @@ REACTION_RATIO = (GUIDE_PATCH_X[0] - sum(TAB_X) / 2) / (GUIDE_PATCH_X[1] - GUIDE
 
 # Crank (stock horn hole + M2 screw riding in a slot in the keeper)
 CRANK_R = 5.4
-YOKE_SLOT_FILLET = 0.8
+YOKE_SLOT_FILLET = 1.5                       # opening-load notch relief; no hand-section area credit
 PIN_D, PIN_SLOT = 4.0, 4.4                   # smooth metal sleeve, not screw threads
-CRANK_PIN = dict(thread_d=2.0, screw_l=16.0, head_d=3.8, head_h=1.2,
+CRANK_PIN = dict(thread_d=2.0, screw_l=20.0, head_d=3.8, head_h=1.2,
                  horn_hole_d=2.2, horn_arm_t=1.6,
-                 sleeve_l=10.0, sleeve_id=2.2, washer_d=5.0, washer_id=2.2,
+                 sleeve_l=14.0, horn_spacer_l=2.0, running_sleeve_l=12.0,
+                 sleeve_id=2.2, washer_d=5.0, washer_id=2.2,
                  washer_t=0.3, nut_af=4.0, nut_h=3.0)
 ASSEMBLY_ANGLE = 215.0                        # bare screw only; sleeve fitted at latch
 ASSEMBLY_ENTRY_H = 2.4                       # <4 mm sleeve: cannot escape when assembled
@@ -118,9 +134,14 @@ WORKING_FRACTION = 0.5                        # working torque = 50 % of stall
 # A part outside these bounds needs adjustment/rebuild and a new fit assessment.
 FIT_BOUNDS = dict(
     horn_r=(5.3, 5.5), servo_dx=(-0.1, 0.1),  # assembled sleeve-center radius
-    latch_error_deg=(-3.0, 3.0), release_error_deg=(0.0, 4.0),
+    latch_error_deg=(-3.0, 3.0), release_error_deg=(0.0, 2.0),
     keeper_length_error_mm=(-0.1, 0.1), tab_thickness_error_mm=(-0.1, 0.1),
-    guide_clearance_total_mm=(0.3, 0.5), guide_length_min_mm=15.8,
+    guide_clearance_total_mm=(0.3, 0.5), guide_length_min_mm=21.8,
+    guide_interval_x_mm=(TUNNEL_X[0]+FIT_DATUM_ERROR, TUNNEL_X[1]-FIT_DATUM_ERROR),
+    remaining_guide_length_min_mm=17.5,       # candidate proved over the full operating path
+    guide_relief_intrusion_max_mm=FIT_GUIDE_RELIEF_INTRUSION_MAX,
+    guide_relief_extent_max_mm=FIT_GUIDE_RELIEF_EXTENT_MAX,
+    guide_flat_width_min_mm=FIT_GUIDE_FLAT_MIN,
     keeper_width_mm=(4.9, 5.1), relative_guide_shaft_z_error_mm=0.2,
     pin_slot_clearance_total_mm=(0.3, 0.5),
     full_section_overlap_min_mm=0.5, spare_after_clearance_min_mm=1.0,

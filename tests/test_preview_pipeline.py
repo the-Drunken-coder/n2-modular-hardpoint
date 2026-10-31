@@ -36,7 +36,14 @@ class PreviewPipelineTests(unittest.TestCase):
             "for part in parts: (p/part['stl']).write_text('fixture')\n"
             "cases=[{'part':n,'case':'Z'} for n in ('body','keeper','adapter')]\n"
             "(p/'fea/index.json').write_text(json.dumps({'revision':'R5','cases':cases}))\n"
-            "for c in cases: (p/'fea'/f\"{c['part']}__Z.json\").write_text('{}')\n")
+            "for c in cases: (p/'fea'/f\"{c['part']}__Z.json\").write_text('{}')\n"
+            "reports={'coupled_forces.json':{'numerical_screen_passed':True},\n"
+            "'mechanics.json':{'numerical_checks_passed':True},\n"
+            "'yoke_strength.json':{'service_section_screen_pass':True,'prescribed_closing_jam_section_screen_pass':True},\n"
+            "'actuation_fea.json':{'numerical_screen_passed':True},\n"
+            "'body_actuation_fea.json':{'numerical_screen_passed':True},\n"
+            "'risks.json':{'gates':{'fixture':True}}}\n"
+            "for name,report in reports.items(): (p.parent/name).write_text(json.dumps(report))\n")
 
     def test_success_requires_new_complete_artifacts(self):
         (self.design / "out").mkdir()
@@ -69,6 +76,50 @@ class PreviewPipelineTests(unittest.TestCase):
         (self.root / "project/active_design.json").write_text(json.dumps({"id": "p14"}))
         with self.assertRaisesRegex(ValueError, "selected R5"):
             preview.build(self.root)
+
+    def test_missing_numerical_report_is_fatal(self):
+        preview.build(self.root)
+        for name in ("coupled_forces.json", "mechanics.json", "yoke_strength.json",
+                     "actuation_fea.json", "body_actuation_fea.json", "risks.json"):
+            path = self.design / "out" / name
+            original = path.read_text()
+            with self.subTest(report=name):
+                path.unlink()
+                with self.assertRaisesRegex(ValueError, "Missing active preview artifact"):
+                    preview.validate_assets(self.design)
+                path.write_text(original)
+
+    def test_failed_or_absent_numerical_gate_is_fatal(self):
+        preview.build(self.root)
+        cases = {
+            "coupled_forces.json": ("numerical_screen_passed",),
+            "mechanics.json": ("numerical_checks_passed",),
+            "yoke_strength.json": ("service_section_screen_pass",
+                                   "prescribed_closing_jam_section_screen_pass"),
+            "actuation_fea.json": ("numerical_screen_passed",),
+            "body_actuation_fea.json": ("numerical_screen_passed",),
+        }
+        for name, flags in cases.items():
+            path = self.design / "out" / name
+            original = json.loads(path.read_text())
+            for flag in flags:
+                for invalid in (None, False, 1, "true"):
+                    with self.subTest(report=name, flag=flag, value=invalid):
+                        changed = dict(original)
+                        if invalid is None:
+                            changed.pop(flag)
+                        else:
+                            changed[flag] = invalid
+                        path.write_text(json.dumps(changed))
+                        with self.assertRaisesRegex(ValueError, "Failed or missing numerical gate"):
+                            preview.validate_assets(self.design)
+            path.write_text(json.dumps(original))
+        path = self.design / "out/risks.json"
+        for gates in (None, {}, [], {"a": True, "b": False}, {"a": 1}):
+            with self.subTest(risk_gates=gates):
+                path.write_text(json.dumps({"gates": gates}))
+                with self.assertRaisesRegex(ValueError, "risks.json:gates"):
+                    preview.validate_assets(self.design)
 
 
 if __name__ == "__main__":
