@@ -23,7 +23,7 @@ jobs:
     timeout-minutes: 30
     env:
       TARGET: ${{ github.event_name == 'pull_request' && format('pr/{0}', github.event.pull_request.number) || '' }}
-      LABEL: ${{ github.event_name == 'pull_request' && format('PR #{0} ({1})', github.event.pull_request.number, github.event.pull_request.head.ref) || 'main' }}
+      LABEL: "${{ github.event_name == 'pull_request' && format('PR #{0} ({1})', github.event.pull_request.number, github.event.pull_request.head.ref) || 'main' }}"
       SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@v4
