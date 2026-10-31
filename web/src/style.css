@@ -10,7 +10,7 @@ html,body,#root{height:100%;margin:0;background:#111418;overflow:hidden;font-fam
 .body{flex:1;display:flex;min-height:0}
 .stage{flex:1;position:relative;min-width:0}
 .stage canvas{display:block}
-.side{width:320px;flex:none;overflow:auto;background:#1a1e24;border-left:1px solid #2a2f37}
+.side{width:350px;flex:none;overflow:auto;background:#1a1e24;border-left:1px solid #2a2f37}
 .side section{padding:12px 14px;border-bottom:1px solid #2a2f37;display:flex;flex-direction:column;gap:8px}
 h6{margin:0;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8f99a8}
 .muted{font-size:12px;color:#abb3bf;line-height:1.45}.muted b{color:#f6f7f9}.small{font-size:11px}
@@ -27,7 +27,7 @@ h6{margin:0;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#
 .parts{display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;font-size:12px;color:#e5e8eb}
 .parts label{display:flex;align-items:center;gap:6px;cursor:pointer}.parts label.off{opacity:.45}
 .tbl{width:100%;font-size:12px;border-collapse:collapse}
-.tbl td,.tbl th{padding:3px 4px;border-bottom:1px solid #2a2f37;white-space:pre}
+.tbl td,.tbl th{padding:3px 4px;border-bottom:1px solid #2a2f37;white-space:nowrap}.tbl td:first-child{white-space:normal}.tbl{font-size:11px}
 .tbl th{text-align:left;font-weight:500;color:#8f99a8}.tbl td.n{text-align:right;font-family:ui-monospace,monospace}
 .views{position:absolute;right:12px;top:10px}
 .legend{position:absolute;left:12px;top:10px;background:#1a1e24e6;padding:8px 10px;border-radius:6px;font-size:12px;color:#e5e8eb;max-width:340px}
