@@ -1,4 +1,4 @@
-"""Viewer assembly for R5: every part (printed, purchased, payload, wing), fine STLs,
+"""Viewer assembly for R5: every part (printed, purchased, payload), fine STLs,
 manifest with colours, explode vectors and release kinematics. Output: ../out/viewer (gitignored).
 
     python project/designs/r5/cad/build.py && python project/designs/r5/cad/viewer.py
@@ -108,18 +108,6 @@ def wing_screws():
     return s
 
 
-def wing():
-    z0 = p.BODY["z"]
-    s = box(-12, p.BODY["x"] + 12, -12, p.BODY["y"] + 12, z0, z0 + WING_T)
-    # Illustrate the host opening required by the gland-side cable route.
-    # This ghost panel is not a qualified host/backing design.
-    ch = p.CABLE_CHANNEL
-    s = s.cut(box(*ch["x"], *ch["y"], z0 - 1, z0 + WING_T + 1))
-    for bx, by in p.BOSSES:
-        s = s.cut(zcyl(bx, by, z0 - 1, z0 + WING_T + 1, 3.4))
-    return s
-
-
 def payload():
     a = p.ADAPTER
     z1 = a["z"][0]
@@ -153,7 +141,6 @@ PARTS = [  # id, builder, name, kind, colour, explode (mm at slider 1)
     ("horn_screw", horn_screw, "M2 horn centre retaining screw (supplied)", "purchased", "#dfe3e8", [0, 18, -26]),
     ("ear_screws", ear_screws, "Servo ear screws (2, supplied)", "purchased", "#abb3bf", [0, 2, -26]),
     ("wing_screws", wing_screws, "M3 self-tapping screws (4)", "purchased", "#abb3bf", [0, 0, 40]),
-    ("wing", wing, "Wing panel section (ghost)", "ghost", "#8abbff", [0, 0, 24]),
     ("payload", payload, "1 lb payload stand-in", "payload", "#29a634", [0, 0, -40]),
     ("payload_screws", adapter_screws, "Adapter-to-payload screws (4)", "purchased", "#abb3bf", [0, 0, -31]),
 ]

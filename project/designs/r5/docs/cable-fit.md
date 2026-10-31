@@ -12,7 +12,7 @@ gland, up through the opening, and into a matching opening in the host frame.
 No wire crosses the keeper, horn sweep or an ear-screw pilot.
 
 The CAD reserves an **8 × 4 mm connector** pass-through at X32.9–40.9 / Y1.5–5.5
-and at least 1 mm around that rectangle. The host/ghost-wing opening follows
+and at least 1 mm around that rectangle. The host wing opening must follow
 the same shifted channel. Measure the actual plug; if larger, revise the channel and its
 test rather than force or depin it. Inspect that the gland fits without contact,
 the lead is not pinched during insertion, and the wire bend is relaxed (at least
