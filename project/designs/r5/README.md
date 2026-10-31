@@ -1,13 +1,13 @@
 # R5 – simplified servo hardpoint
 
-3 printed parts, 0 captive nuts. Body envelope **64 × 48.5 × 20 mm**: a 2.5 mm top plate with a 1.5 mm roof over the relieved yoke sweep, a lightening window and short mounting bosses. The restored 20 mm height provides loaded-motion clearance within the original thickness limit. Regenerated part volumes and mass estimates are in `out/cad.json`; use those values for the current revision. All purchased parts with links or specs: [BOM.md](BOM.md).
+3 printed parts, 0 captive nuts, one external M2 locknut. Body envelope **65 × 51 × 20 mm**; with the servo overhang **65 × 51.4 × 20 mm**. The 20 mm height provides loaded-motion clearance within the original thickness limit; the wider rear boss spacing clears keeper insertion. The top plate is 2.5 mm, with a 1.0 mm local roof above the reinforced yoke. Regenerated volumes and mass estimates are in `out/cad.json`. Purchased parts: [BOM.md](BOM.md).
 
 Unpowered retention is **not** a requirement: losing servo power means losing the aircraft.
 
 ## Concept and load path
 A printed 5 × 5 mm keeper slides in a 5.4 × 5.4 tunnel in the body and passes through a 5.6 × 5.6 hole in a 4 mm tab on the payload adapter. Payload load goes tab → keeper top → tunnel mouth and back roof → body → 4 M3 self-tapping screws → wing.
 
-The drive is a scotch yoke. An M2 screw in the stock horn's outer hole (r = 5 mm) rides in a vertical slot in the keeper. Latched is 180° (dead centre, so payload load puts no torque on the servo). Released is 40° (140° swing). The keeper tip sits 2 mm deep in a pocket when latched.
+The drive is a scotch yoke. A smooth 4 mm metal sleeve, clamped to the stock horn by an M2 through-bolt and locknut, runs in a 4.4 mm vertical slot. Measure the clamped sleeve-center radius at **5.4±0.1 mm**. Latched is 180°; the accepted released endpoint is 40–45°. The 2 mm tip-pocket depth is free travel beyond the latched tip, not bearing overlap. See [assembly and joint details](ASSEMBLY.md).
 
 ## Build and check
 ```
@@ -53,11 +53,14 @@ checks pitch/yaw and free-play poses; it does not demonstrate loaded release.
 ## Assembly
 The servo lead uses the continuous gland-side opening; see [cable fit and routing](docs/cable-fit.md).
 
-1. Screw the servo into the cradle with its ear screws.
-2. Follow the [5 V interface and endpoint calibration procedure](electronics/README.md). The 180° latch angle is a geometric horn angle, not a universal servo command. Fit the horn at the calibrated latch pulse with the pin facing the keeper.
-3. Slide the keeper into the tunnel so that the pin enters the slot.
-4. Screw the body to the wing with 4 M3 self-tapping screws.
-5. Fit the payload, command latch and pull-test it every time. If the tab isn't seated, the keeper tip hits the tab face and the servo stalls instead of latching.
+Follow the [5 V interface and endpoint calibration procedure](electronics/README.md).
+Follow the ordered [assembly procedure](ASSEMBLY.md): prepare the horn and bare
+through-bolt, install its center screw before the keeper, use the verified
+215° bare-pin entry pose, insert the keeper, return to latch, then install the
+larger sleeve/washer/locknut. The 175° safe unloaded assembly span is a receiving
+gate, not an operational controller command or a vendor-guaranteed capability.
+Fit the payload, command latch and pull-test it every time. An unseated tab can
+block the keeper; follow the defined jam limits rather than forcing it.
 
 ## Sources
 - Servo: TowerPro MG92B, manufacturer 3.1 kgf·cm stall at 5.0 V, 13.8 g. https://towerpro.com.tw/product/mg92b/ . Adafruit 2307 labels that point 4.8 V but also specifies a 5.0 V operating minimum; this design uses the manufacturer's point. https://www.adafruit.com/product/2307
@@ -77,28 +80,38 @@ A latched-position microswitch is not fitted. The keeper is visible from the +Y 
 
 ## Viewer
 
-`viewer_build.sh` (run by the Pages preview) builds `out/viewer/`: all thirteen parts (printed parts, MG92B, stock horn, M2 crank pin, horn centre, ear, wing M3 and adapter-to-payload screws, payload stand-in, ghosted wing), explode vectors, the servo-crank release kinematics from `params.py`, and the FEA colormap from `analysis/fea.py` via `analysis/export_web.py`. Purchased parts are modelled from listing dimensions, not vendor CAD.
+`viewer_build.sh` builds `out/viewer/`: printed and purchased parts including the complete sleeve clamp stack, explode vectors, servo-crank kinematics and current FEA fields. Purchased parts are receiving-inspection reservations, not vendor-certified CAD.
 
-Fit note: the horn centre retaining screw (stock M2 pan head) is fitted. The keeper's horn-side face has a groove (head + 0.5 mm all round) so the head passes under the yoke through the whole 180->40 deg sweep; `cad/build.py` checks this at 29 angles.
+Fit note: the horn centre retaining screw is included. The servo is separated
+from the full-width keeper so the guide retains its complete bearing length.
+There is no keeper groove; inflated head/horn checks include loaded pitch/yaw
+and the permitted axial fit envelope.
 
 ### Dimensional acceptance and probability limits
 
-The keeper tip is extended by 0.5 mm to preserve full-section overlap across the
-declared dimensional bounds. Inspect the horn radius (5.0 ±0.1 mm), mounted shaft
+The keeper tip is at X5.65 mm to preserve full-section overlap across the
+combined dimensional and guide-pose bounds. Inspect the **assembled sleeve-center
+radius 5.4 ±0.1 mm**, including bolt/hole/sleeve eccentricity, mounted shaft
 X and printed pin-to-tip length (±0.1 mm), latch angle (180 ±3°), release angle
-(40–45°), and tab thickness (4.0 ±0.1 mm). The deterministic check includes the
+(40–44°), and tab thickness (4.0 ±0.1 mm). The deterministic check includes the
 entire ±0.4 mm socket float. Require measured guide clearance **0.3–0.5 mm total**
-and guide length **at least 15.8 mm**; use the separate loaded-pose CAD checks.
+and full-section guide length **at least 15.8 mm**, keeper section **4.9–5.1 mm**,
+and relative guide/shaft Z datum **within ±0.20 mm**. The horn groove is removed
+so the full guide section is available. Use the separate loaded-pose CAD checks.
 Inspect the sleeve/slot gap to **0.3–0.5 mm total**. The check includes its
 worst **±0.25 mm lost motion** with opposite pin contact faces at latch/release;
 it does not assume the pin remains centered in the slot.
 These are acceptance limits, not a claim that every print or stock horn meets
 them. Rework, reject or reassess parts outside them. The calibration record must
-also show the actual latched overlap and open clearance.
+also show at least **0.50 mm full-section overlap** and **1.50 mm actual open
+gap** under the declared loaded/float poses.
 
-The bounded kinematic model must retain at least 0.5 mm of full keeper section
+The combined guided endpoint model requires at least 0.5 mm of full keeper section
 beyond the tab (excluding the tip chamfer), 1.0 mm additional stroke after the
-0.5 mm open-clearance reserve, and positive pocket-floor clearance. It does not
-model binding, rocking, friction, wear, print defects, power behavior or actual
+0.5 mm open-clearance reserve, and positive pocket-floor clearance. The
+[continuous interval calculation](analysis/FIT_ENVELOPE.md) combines guide
+pitch/yaw, pin-height coupling, edge contact, rolled-section corner bounds and
+slot lost motion. It does not model binding, friction, wear, print defects,
+elastic deformation, power behavior or actual
 payload departure. Synthetic Monte Carlo sample counts supply no physical
 reliability claim, even when a sampled failure count is zero.

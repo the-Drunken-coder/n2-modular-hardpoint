@@ -16,7 +16,7 @@ def guide_angle(clearance=p.FIT_SLIDE_TOTAL[1]):
     lo, hi = 0.0, radians(10)
     for _ in range(60):
         a = (lo + hi) / 2
-        if p.FIT_GUIDE_LENGTH_MIN * tan(a) + p.KEEPER_W / cos(a) > p.KEEPER_W + clearance:
+        if p.FIT_GUIDE_LENGTH_MIN * tan(a) + p.FIT_KEEPER_SECTION[0] / cos(a) > p.FIT_KEEPER_SECTION[0] + clearance:
             hi = a
         else:
             lo = a
@@ -49,9 +49,9 @@ def check_loaded_clearance(body, keeper):
     angle = guide_angle()
     # Position at maximum tilt has taken up the sliding play; adding the full
     # free-play translation again would double count it. Datum error remains.
-    angles = (180, 160, 140, 120, 100, 90, 80, 60, 50, 45, 40)
+    angles = (180, 160, 140, 120, 100, 90, 80, 60, 50, 45, 44, 40)
     hs = p.HORN_SCREW
-    extra = p.MOTION_CLEARANCE + 2 * p.FIT_SURFACE_ERROR
+    extra = p.MOTION_CLEARANCE + 2 * p.FIT_SURFACE_ERROR + p.FIT_DATUM_ERROR
     screw = ycyl(p.SHAFT_X, p.SHAFT_Z, p.SPLINE_TOP_Y,
                   p.SPLINE_TOP_Y + hs["head_h"] + extra,
                   hs["head_d"] + 2 * extra)
@@ -61,16 +61,17 @@ def check_loaded_clearance(body, keeper):
     clearance_min = float("inf")
     poses = 0
     for alpha in angles:
-        # The inspected horn radius is 5.0 +/-0.1 mm; the calibrated release
-        # endpoint is 40..45 deg. Include both ends and the full nominal path.
+        # The inspected assembled sleeve-center radius is 5.4 +/-0.1 mm; the calibrated release
+        # endpoint is 40..44 deg. Include both ends and the full nominal path.
         withdrawal = p.keeper_x(alpha, p.CRANK_R_MAX)
         tilted = list(product((-angle, angle), (-angle, angle),
                               (-p.FIT_DATUM_ERROR, p.FIT_DATUM_ERROR),
                               (-p.FIT_DATUM_ERROR, p.FIT_DATUM_ERROR)))
         free = p.FIT_SLIDE_TOTAL[1] / 2 + p.FIT_DATUM_ERROR
         floating = [(0, 0, dy, dz) for dy, dz in product((-free, free), repeat=2)]
-        for pitch, yaw, dy, dz in tilted + floating:
-            moved = loaded_pose(keeper, withdrawal, pitch, yaw, dy, dz)
+        for (pitch, yaw, dy, dz), dx in product(tilted + floating,
+                                                (-p.FIT_AXIAL_ENVELOPE, p.FIT_AXIAL_ENVELOPE)):
+            moved = loaded_pose(keeper, withdrawal + dx, pitch, yaw, dy, dz)
             assert overlap(moved, obstacles) < 1e-6, ("loaded receiver contact", alpha, pitch, yaw, dy, dz)
             assert overlap(moved, screw) < 1e-6, ("loaded screw clearance", alpha, pitch, yaw, dy, dz)
             assert overlap(moved, horn) < 1e-6, ("loaded horn clearance", alpha, pitch, yaw, dy, dz)
@@ -81,6 +82,7 @@ def check_loaded_clearance(body, keeper):
     assert clearance_min >= p.MOTION_CLEARANCE, ("loaded roof clearance", clearance_min)
     return dict(poses=poses, inspected_guide_clearance_total_mm=list(p.FIT_SLIDE_TOTAL),
                 inspected_guide_length_min_mm=p.FIT_GUIDE_LENGTH_MIN,
-                pitch_yaw_bound_deg=angle, roof_clearance_after_surface_errors_mm=clearance_min,
+                pitch_yaw_bound_deg=angle, axial_position_allowance_mm=p.FIT_AXIAL_ENVELOPE,
+                roof_clearance_after_surface_errors_mm=clearance_min,
                 required_noncontact_clearance_mm=p.MOTION_CLEARANCE,
                 physical_loaded_release="PENDING: verify full path on printed assemblies")

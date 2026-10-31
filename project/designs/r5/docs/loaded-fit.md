@@ -9,13 +9,17 @@ Level-translation interference checks missed this additional contact.
 ## Geometry changes
 
 - Restore the receiver height from 18 to **20 mm**, inside the selected 15–20 mm
-  thickness limit. The local roof remains **1.5 mm thick**, at Z 18.5–20.
-- Shift the servo 1 mm toward −Y and the keeper datum 0.2 mm toward +Y. This
-  reserves real horn-face clearance under yaw, without widening the body.
-- Enlarge the tip pocket for permitted angular movement. Restrict the horn-head
-  groove to X ≥25 mm and extend it around the head's loaded-pose sweep, leaving
-  the cantilever and tunnel mouth at their full section.
-- Require a measured **5.0 ±0.1 mm** crank radius. A guessed larger stock-hole
+  thickness limit. The reinforced yoke requires a **1.0 mm local roof**, at Z 19–20.
+- Place the servo bottom at Y−0.4 and the spline face at Y34.6, with the keeper
+  datum at Y40.2. The 0.4 mm servo overhang makes the retained package width
+  51.4 mm, still within the selected credit-card footprint. The separated horn
+  and center head clear the keeper without a groove.
+- Keep the full 5×5 mm keeper section throughout the guide. A groove beginning
+  inside the guide would shorten one yaw-bearing span and invalidate the
+  15.8 mm effective-length inspection gate.
+- Enlarge the tip pocket for permitted angular movement. The 10 mm purchased
+  sleeve establishes running space without a loose screw or nut.
+- Require a measured **5.4 ±0.1 mm assembled sleeve-center** crank radius. A guessed larger stock-hole
   radius is not accepted. Inspect or prepare the hole as described in assembly.
 
 Mass is regenerated in `out/cad.json`; the extra roof height carries a small
@@ -30,23 +34,29 @@ outside them. Record actual measurements in the inspection form.
 | Feature | Acceptance |
 |---|---|
 | Total keeper/guide clearance, Y and Z | 0.30–0.50 mm after finishing |
+| Finished keeper Y and Z section | 4.90–5.10 mm |
 | Effective full-section guide length | ≥15.8 mm |
 | Guide/shaft datums relative to the drawing | ±0.10 mm |
 | Yoke and relief-roof surface location | ±0.10 mm each |
-| Actual horn crank radius | 4.90–5.10 mm |
-| Calibrated release angle | 40–45 degrees in the assembly coordinate frame |
+| Assembled sleeve-center crank radius | 5.30–5.50 mm |
+| Calibrated release angle | 40–44 degrees in the assembly coordinate frame |
 | Total pin-sleeve/slot clearance | 0.30–0.50 mm; include up to ±0.25 mm endpoint lost motion |
 | Non-contact yoke roof, horn and head gap through the path | ≥0.50 mm remaining after fit errors |
 
 `cad/clearance.py` computes the angular bound from
 `L tan(angle) + w/cos(angle) = w + clearance`. At 0.50 mm clearance and 15.8 mm
-effective length it is **1.80357 degrees**. The check includes both signs of
+effective length, using the minimum inspected 4.9 mm bar section, it is **1.80375 degrees**. The check includes both signs of
 pitch and yaw, ±0.10 mm datum offsets, and separate level free-play corner poses.
 Maximum tilt already consumes guide play; it is not added a second time as a
-full free-play translation. A further 0.10 mm on each opposing non-contact
-surface is reserved before accepting the 0.50 mm gap.
+full free-play translation. Each pose is also checked at ±0.50 mm axial
+position, reserving 0.25 mm pin/slot play, 0.10 mm shaft datum, 0.10 mm keeper-end
+location and 0.05 mm extra. This is conservative in addition to the maximum
+inspected crank radius. A further 0.10 mm on each opposing non-contact
+surface is reserved before accepting the 0.50 mm gap. The horn/head envelope
+also includes 0.10 mm for the shaft datum, separately from the guide offset.
+The washer check reserves both datum errors and both surface errors.
 
-The 220 rigid-pose checks cover eleven positions from latch through the release
+The 480 rigid-pose checks cover twelve positions from latch through the release
 endpoint. Intentional bearing contact is excluded only inside a documented
 guide reservation. The complete remaining body, tip pocket, conservative horn
 disk and enlarged center-screw envelope remain obstacles. Roof margin is checked
