@@ -17,7 +17,7 @@ def valid_calibration(c):
         return (750 <= lo < hi <= 2250 and lo <= latch <= hi and lo <= release <= hi
                 and latch != release and bool(c["servo_id"])
                 and c["geometry_revision"] == "R5"
-                and c["measured_open_clearance_mm"] >= 0.5
+                and c["measured_open_clearance_mm"] >= 1.5
                 and c["measured_full_section_overlap_mm"] >= 0.5
                 and c["signal_verified_5v"] is True and c["fit_bounds_inspected"] is True
                 and c["operator_accepted"] is True)

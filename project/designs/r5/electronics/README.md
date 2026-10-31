@@ -61,17 +61,27 @@ the cartridge mass and mechanical cost estimate.
 4. Index the stock horn so its crank pin faces the keeper at the selected latch
    pulse. **180° is the geometric crank orientation, not a universal PWM command
    or the servo's electrical center.** Adjust indexing/trim with the keeper
-   unloaded. Inspect the full motion for pin/slot/roof contact and binding.
-5. Measure actual fully latched engagement, pin radius and released clearance.
+   unloaded. Follow the ordered [sleeve-joint assembly](../ASSEMBLY.md), including
+   its assembly-only 215° bare-pin position. Verify at least 175° of useful free
+   servo travel for the 40–215° installation range; the nominal vendor travel
+   is not that measurement. The normal controller never commands the assembly
+   position. Inspect the full motion for pin/slot/roof contact and binding.
+5. Measure actual fully latched engagement, assembled sleeve-center radius and
+   released clearance under the declared loaded/float poses.
    Require at least **0.5 mm of full keeper section beyond the far tab face**
-   (exclude the tip chamfer), and **0.5 mm clear opening** in the assembled
-   endpoint. Apply the fit/tolerance and loaded-test procedure as separate gates.
+   (exclude the tip chamfer), and **1.5 mm minimum clear opening** at release:
+   0.5 mm clearance plus the selected 1.0 mm additional stroke reserve. Apply
+   the fit/tolerance and loaded-test procedure as separate gates.
 6. Enter the measured pulse limits and endpoints, servo identity and fit records
-   in `bench_config.py`. Check all `params.FIT_BOUNDS` limits, including horn radius,
+   in `bench_config.py`. Check all `params.FIT_BOUNDS` limits, including the
+   **assembled sleeve-center radius 5.4 ±0.1 mm** after clamping (including bolt,
+   horn-hole and sleeve eccentricity),
    shaft and keeper dimensions, angular endpoints (**latch 177–183°, release
-   40–45°**), guide fit and **0.3–0.5 mm total sleeve/slot clearance**. Measure
+   40–44°**), keeper section **4.9–5.1 mm**, guide fit, relative guide/shaft Z
+   datum **within ±0.20 mm**, and **0.3–0.5 mm total sleeve/slot clearance**. Measure
    endpoint fit against the actual driven pin contact faces, not a centered-pin
-   pose; the kinematic budget includes up to ±0.25 mm of yoke lost motion. Only after
+   pose; the [continuous guided-fit bound](../analysis/FIT_ENVELOPE.md) includes
+   up to ±0.25 mm of yoke lost motion, guide tilt and tip-corner projection. Only after
    inspecting the signal/fit set the three explicit acceptance booleans true.
    These are operator records; firmware does not measure
    position or certify the inspection. Recalibrate after servo, horn, linkage,

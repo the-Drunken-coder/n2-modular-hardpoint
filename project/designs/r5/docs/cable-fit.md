@@ -6,7 +6,7 @@ gland dimensions. These are inspection envelopes; confirm the purchased servo
 before printing a production batch.
 
 The lead exits the servo's **−X end**. A continuous **10.2 × 6 mm** opening at
-X 22.5–32.7 / Y 2–8 runs from the underside to the wing face. Feed the connector
+X 24.9–35.1 / Y 0.5–6.5 runs from the underside to the wing face. Feed the connector
 through this opening before seating the servo. Route the wires beside the
 gland, up through the opening, and into a matching opening in the host frame.
 No wire crosses the keeper, horn sweep or an ear-screw pilot.

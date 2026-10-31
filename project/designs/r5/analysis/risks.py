@@ -131,47 +131,56 @@ def monte_carlo():
 
 
 def bounded_fit(bounds=None):
-    """Exact endpoint/extremum check for the declared rigid kinematic model.
+    """Continuous guide-pose interval bound plus dimensional/angle extrema.
 
-    These are inspection limits. They do not cover friction, printed strength,
-    guide rocking, wear, power or departure. CAD loaded-pose checks are separate.
+    Sleeve contact constrains keeper X when the guide pitches/yaws. This
+    includes lost motion, edge contact and tip-corner projection; it does not
+    prove a contact-free path or physical payload departure.
     """
+    from fit_envelope import angular_candidates, guide_angle, tip_interval
     b = dict(p.FIT_BOUNDS if bounds is None else bounds)
     if not (0 < b["horn_r"][0] <= b["horn_r"][1]
             and -10 <= b["latch_error_deg"][0] <= 0 <= b["latch_error_deg"][1] <= 10
             and 0 < p.A_RELEASE + b["release_error_deg"][0]
             <= p.A_RELEASE + b["release_error_deg"][1] < 90):
         raise ValueError("bounds leave the monotone angular intervals supported by this check")
-    # cos(alpha) reaches its interior minimum at the 180-degree latch angle.
-    latch_errors = sorted(set((*b["latch_error_deg"], 0.0)))
     slot_lo, slot_hi = b["pin_slot_clearance_total_mm"]
     if not 0 <= slot_lo <= slot_hi:
         raise ValueError("pin/slot clearance bounds must be ordered and nonnegative")
+    if not (0 < b["keeper_width_mm"][0] <= b["keeper_width_mm"][1]
+            and b["relative_guide_shaft_z_error_mm"] >= 0):
+        raise ValueError("invalid inspected keeper width or relative Z datum")
+    tilt = guide_angle(b)
     half_play = slot_hi / 2
     rows = []
-    for radius, dx, el, er, dl, tab, dt in product(
-            b["horn_r"], b["servo_dx"], latch_errors, b["release_error_deg"],
+    for radius, dx, dl, tab, dt in product(
+            b["horn_r"], b["servo_dx"],
             b["keeper_length_error_mm"], (-p.SOCKET_GAP, p.SOCKET_GAP),
             b["tab_thickness_error_mm"]):
-        tip_l = p.SHAFT_X + dx + radius * np.cos(np.radians(p.A_LATCH + el)) - (L_PIN_TIP + dl)
-        tip_r = p.SHAFT_X + dx + radius * np.cos(np.radians(p.A_RELEASE + er)) - (L_PIN_TIP + dl)
-        tab_back = p.TAB_X[0] + tab
-        tab_front = p.TAB_X[1] + tab + dt
-        # Closing pushes the keeper toward +X relative to the pin centre;
-        # opening can leave it toward -X. Bound both opposite contact faces,
-        # and also the opposite latch face for pocket-floor clearance.
-        rows.append(dict(full_section_overlap_mm=tab_back - (tip_l + half_play) - b["tip_chamfer_mm"],
-                         spare_after_clearance_mm=(tip_r - half_play) - tab_front - b["open_clearance_reserve_mm"],
-                         tip_to_pocket_floor_mm=(tip_l - half_play) - (p.TIP_LATCHED_X - p.TIP_POCKET)))
+        latch = angular_candidates(p.A_LATCH+b["latch_error_deg"][0],
+            p.A_LATCH+b["latch_error_deg"][1], radius, p.SHAFT_Z, p.ZK, tilt)
+        release = angular_candidates(p.A_RELEASE+b["release_error_deg"][0],
+            p.A_RELEASE+b["release_error_deg"][1], radius, p.SHAFT_Z, p.ZK, tilt)
+        for al, ar in product(latch, release):
+            length = L_PIN_TIP+dl
+            _, full_tip_hi = tip_interval(p, b, tilt, radius, dx, al, length-b["tip_chamfer_mm"])
+            tip_lo, _ = tip_interval(p, b, tilt, radius, dx, al, length)
+            open_lo, _ = tip_interval(p, b, tilt, radius, dx, ar, length)
+            rows.append(dict(full_section_overlap_mm=p.TAB_X[0]+tab-full_tip_hi,
+                             spare_after_clearance_mm=open_lo-(p.TAB_X[1]+tab+dt)-b["open_clearance_reserve_mm"],
+                             tip_to_pocket_floor_mm=tip_lo-(p.TIP_LATCHED_X-p.TIP_POCKET)))
     minima = {key: float(min(row[key] for row in rows)) for key in rows[0]}
     ok = (minima["full_section_overlap_mm"] >= b["full_section_overlap_min_mm"]
           and minima["spare_after_clearance_mm"] >= b["spare_after_clearance_min_mm"]
           and minima["tip_to_pocket_floor_mm"] > 0)
     return dict(inspection_bounds=b, configurations_checked=len(rows), minima=minima,
+                continuous_pitch_yaw_abs_bound_deg=float(np.degrees(tilt)),
+                cross_section_corner_envelope_mm=b["keeper_width_mm"][1]+b["guide_clearance_total_mm"][1],
                 pin_slot_play_per_endpoint_mm=half_play,
                 rigid_kinematic_bounds_pass=bool(ok),
                 physical_inspection="PENDING: every built assembly must be measured against these limits",
-                excluded="loaded guide rocking, friction/binding, wear, deformation, voltage/current, and payload departure")
+                method="Conservative continuous guide-pose intervals with analytic crank-angle extrema; dimensional candidates are not a reliability sample",
+                excluded="contact-free path, friction/binding, wear, deformation, voltage/current, and payload departure")
 
 
 def dynamics(fea):

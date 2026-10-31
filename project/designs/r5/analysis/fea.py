@@ -17,11 +17,12 @@ from pathlib import Path
 
 import gmsh
 import numpy as np
-from skfem import (Basis, BilinearForm, ElementTetP2, ElementVector, FacetBasis,
-                   LinearForm, MeshTet, condense, solve)
+from skfem import Basis, BilinearForm, ElementTetP2, ElementVector, MeshTet
 from skfem.helpers import sym_grad, ddot
-import pypardiso
 from scipy.spatial import cKDTree
+
+from load_audit import check_resultants, horizontal_facets, resultants, support_equilibrium, surface_load
+from linear_solver import solve_spd
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
@@ -91,27 +92,33 @@ def run_case(case, h):
 
     K = a.assemble(ib)
     f = np.zeros(K.shape[0])
-    for sel, force in case["loads"]:
+    load_reports = []
+    for load in case["loads"]:
+        sel, force = load["select"], load["force"]
         facets = np.intersect1d(m.facets_satisfying(sel), m.boundary_facets())
-        assert len(facets) > 0, case["part"]
-        fb = FacetBasis(m, e, facets=facets)
-        area = LinearForm(lambda v, w: 1.0 + 0 * v[0]).assemble(FacetBasis(m, ElementTetP2(), facets=facets)).sum()
-        t = np.array(force) / area
-
-        @LinearForm
-        def lf(v, w):
-            return t[0] * v[0] + t[1] * v[1] + t[2] * v[2]
-        f += lf.assemble(fb)
+        plane_z = load.get("plane_z", load.get("application_point", (None, None, None))[2])
+        if plane_z is not None:
+            facets = horizontal_facets(m, facets, plane_z)
+        nodal, report = surface_load(m, facets, force, load.get("application_point"))
+        f += nodal
+        load_reports.append(report)
+    expected = tuple(np.sum([r[key] for r in load_reports], axis=0)
+                     for key in ("expected_force_N", "expected_moment_Nmm"))
+    check_resultants(resultants(ib, f), expected, f"{case['part']} total applied load")
+    if "source_resultant" in case:
+        check_resultants(resultants(ib, f), case["source_resultant"], f"{case['part']} source load")
     fixed = np.intersect1d(m.facets_satisfying(case["fixed"]), m.boundary_facets())
     assert len(fixed) > 0, case["part"]
     D = ib.get_dofs(fixed).all()
     free = np.setdiff1d(np.arange(K.shape[0]), D)
     Kff = K.tocsr()[free][:, free]
-    # direct sparse solve (MKL PARDISO): iterative AMG-CG stalled on the thin adapter plate
+    # Direct symmetric solve; retain the full matrix for independent residuals.
     x = np.zeros(K.shape[0])
-    x[free] = pypardiso.spsolve(Kff, f[free])
+    x[free] = solve_spd(Kff, f[free])
     rel_res = np.linalg.norm(f[free] - Kff @ x[free]) / np.linalg.norm(f[free])
     assert rel_res < 1e-6, f"{case['part']} h={h}: solver residual {rel_res:.2e}"
+    equilibrium = support_equilibrium(ib, K, x, f, D)
+    del Kff, K
     # stresses at quadrature points
     u = ib.interpolate(x)
     sig = np.einsum("ijkl,kl...->ij...", C, sym_grad(u))
@@ -126,10 +133,12 @@ def run_case(case, h):
     far = cKDTree(fixed_pts).query(qp)[0] > SUPPORT_EXCLUDE
     ps, sz = princ[far], s[far]
     res = {
-        "h_mm": h, "dofs": int(K.shape[0]),
+        "h_mm": h, "dofs": len(x),
         "max_disp_mm": float(np.linalg.norm(x.reshape(-1, 3), axis=1).max()),
         "load_point_disp_mm": float(f @ x / P),     # compliance-weighted, converges in energy norm
         "solver_rel_residual": float(rel_res),
+        "load_patches": load_reports,
+        "equilibrium": equilibrium,
         "peak_principal_at_supports_MPa": float(princ[:, -1].max()),
         "max_principal_MPa": float(ps[:, -1].max()),
         "min_principal_MPa": float(ps[:, 0].min()),
@@ -160,24 +169,32 @@ def near(v, a, tol=1e-3):
 h = p.KEEPER_W / 2
 X0, X1 = p.TUNNEL_X
 PATCH = 2.0                                      # support patch length at each tunnel end
-R1, R2 = P * (1 + p.REACTION_RATIO), P * p.REACTION_RATIO   # tunnel reactions on the keeper
+PATCH_X = (X0 + PATCH / 2, X1 - PATCH / 2)
+TAB_CENTRE = ((p.TAB_X[0] + p.TAB_X[1]) / 2, p.YK, p.HOLE_TOP_LOADED)
+# The distributed reaction patches act at their centres, not at the tunnel ends.
+# Preserve both force and moment of the payload load at the tab centre.
+PATCH_REACTION_RATIO = (PATCH_X[0] - TAB_CENTRE[0]) / (PATCH_X[1] - PATCH_X[0])
+R1, R2 = P * (1 + PATCH_REACTION_RATIO), P * PATCH_REACTION_RATIO
 CASES = {
     # keeper cantilevered from the tunnel mouth; tab bears on its top face
-    "keeper": dict(part="keeper", print_axis=1, sizes=(0.8, 0.6, 0.45),
+    "keeper": dict(part="keeper", print_axis=1, sizes=(0.8, 0.6, 0.45, 0.35),
                    fixed=lambda x: (near(x[2], p.ZK - h) & (x[0] > X0) & (x[0] < X0 + PATCH))
                    | (near(x[2], p.ZK + h) & (x[0] > X1 - PATCH) & (x[0] < X1)),
-                   loads=[(lambda x: near(x[2], p.ZK + h) & (x[0] > p.TAB_X[0]) & (x[0] < p.TAB_X[1]),
-                           (0, 0, -P))]),
+                   loads=[dict(select=lambda x: near(x[2], p.ZK + h) & (x[0] > p.TAB_X[0]) & (x[0] < p.TAB_X[1]),
+                               force=(0, 0, -P), application_point=TAB_CENTRE)]),
     # adapter held at the hole top (keeper contact); payload pulls the plate down
     "adapter": dict(part="adapter", print_axis=2, sizes=(0.8, 0.6, 0.45),
                     fixed=lambda x: near(x[2], p.HOLE_TOP_LOADED) & (np.abs(x[1] - p.YK) < p.HOLE_W / 2),
-                    loads=[(lambda x: near(x[2], p.ADAPTER["z"][0]), (0, 0, -P))]),
+                    loads=[dict(select=lambda x: near(x[2], p.ADAPTER["z"][0]), force=(0, 0, -P), plane_z=p.ADAPTER["z"][0])]),
     # body fixed at the four screw pilots; keeper reactions on the tunnel
     "body": dict(part="body", print_axis=2, sizes=(2.0, 1.4, 1.0),
                  fixed=lambda x: np.any([np.hypot(x[0] - bx, x[1] - by) < p.PILOT_M3 / 2 + 0.05
                                          for bx, by in p.BOSSES], axis=0) & (x[2] > p.BODY["z"] - p.PILOT_DEPTH),
-                 loads=[(lambda x: near(x[2], p.ZK - (p.KEEPER_W + p.SLIDE) / 2) & (x[0] > X0) & (x[0] < X0 + PATCH), (0, 0, -R1)),
-                        (lambda x: near(x[2], p.ZK + (p.KEEPER_W + p.SLIDE) / 2) & (x[0] > X1 - PATCH) & (x[0] < X1), (0, 0, R2))]),
+                 loads=[dict(select=lambda x: near(x[2], p.ZK - (p.KEEPER_W + p.SLIDE) / 2) & (x[0] > X0) & (x[0] < X0 + PATCH),
+                             force=(0, 0, -R1), application_point=(PATCH_X[0], p.YK, p.ZK - (p.KEEPER_W + p.SLIDE) / 2)),
+                        dict(select=lambda x: near(x[2], p.ZK + (p.KEEPER_W + p.SLIDE) / 2) & (x[0] > X1 - PATCH) & (x[0] < X1),
+                             force=(0, 0, R2), application_point=(PATCH_X[1], p.YK, p.ZK + (p.KEEPER_W + p.SLIDE) / 2))],
+                 source_resultant=(np.array([0.0, 0.0, -P]), np.cross(TAB_CENTRE, [0.0, 0.0, -P]))),
 }
 
 
