@@ -106,13 +106,26 @@
   },
   {
    "id": "pin_screw",
-   "name": "M2x10 crank pin screw",
+   "name": "M2x8 crank pin screw",
    "kind": "purchased",
    "color": "#abb3bf",
    "stl": "pin_screw.stl",
    "explode": [
     0,
     34,
+    -26
+   ],
+   "opacity": 1
+  },
+  {
+   "id": "horn_screw",
+   "name": "M2 horn centre retaining screw (supplied)",
+   "kind": "purchased",
+   "color": "#dfe3e8",
+   "stl": "horn_screw.stl",
+   "explode": [
+    0,
+    18,
     -26
    ],
    "opacity": 1
@@ -196,7 +209,8 @@
   "rotate": [
    "horn",
    "servo_spline",
-   "pin_screw"
+   "pin_screw",
+   "horn_screw"
   ],
   "slide": [
    "keeper"
