@@ -16,11 +16,12 @@ import numpy as np
 
 import fea
 from evidence import convergence, validate_cad_inputs
-from risks import drag
+from coupled_forces import study
 
 HERE = Path(__file__).resolve().parent
 p = fea.p
 OUT = HERE.parent / "out"
+MIN_LOCAL_REFINEMENT_MM = 0.25
 
 
 def service_opening_case():
@@ -28,14 +29,17 @@ def service_opening_case():
     fit = getattr(p, "FIT_BOUNDS", {})
     if not {"latch_error_deg", "horn_r"}.issubset(fit):
         raise ValueError("opening screen requires the inspected endpoint/radius envelope in FIT_BOUNDS")
-    errors = fit["latch_error_deg"]
-    radii = fit["horn_r"]
-    poses = [(a, r, p.SHAFT_Z + r*np.sin(np.radians(a)))
-             for a in (p.A_RELEASE, p.A_LATCH+errors[0], p.A_LATCH, p.A_LATCH+errors[1], 90.0)
-             for r in radii]
-    angle, radius, pin_z = min(poses, key=lambda row: row[2])
+    coupled = study(p, include_states=False)
+    if not coupled["finite_sliding_solution"]:
+        raise ValueError("opening FEA requires a finite coupled sliding-force envelope")
+    load_state = coupled["max_opening_force"]
+    angle = load_state["alpha_deg"]
+    radius = load_state["dimensional_candidate"]["radius_mm"]
+    pin_z = min(load_state["sleeve_application_point_mm"][2],
+                p.SHAFT_Z-fit["relative_guide_shaft_z_error_mm"])
     # The finite patch is an explicit pressure assumption, not Hertz contact.
-    # Place it by the +Y edge to screen the eccentric load created by guide yaw.
+    # The bridge widens toward +Y. Its opposite -Y wall edge gives the adverse
+    # eccentricity relative to that shifted bridge centroid.
     patch_height = p.PIN_D / 2
     slot_x = p.SHAFT_X - p.CRANK_R + p.PIN_SLOT/2
     ylo, yhi = p.YK-p.KEEPER_W/2, p.YK+p.KEEPER_W/2
@@ -45,17 +49,17 @@ def service_opening_case():
             raise ValueError("opening patch straddles the groove step; define its contact distribution explicitly")
         ylo = max(ylo, p.SPLINE_TOP_Y + p.HORN_SCREW["head_h"] + getattr(p, "HORN_GROOVE_Y_CLEAR", p.SCREW_CLEAR))
     patch_width = min(1.0, yhi-ylo)
-    ylo = yhi-patch_width
+    yhi = ylo+patch_width
     pin_point = np.array([slot_x, (ylo+yhi)/2, pin_z])
-    force_x = drag(p.MU, p.P_DESIGN)
-    pin_force = np.array([force_x, 0.0, p.MU*force_x])
-    tab_force = np.array([0.0, 0.0, -p.P_DESIGN])
+    pin_force = np.array(load_state["sleeve_force_N"])
+    tab_force = np.array([-p.MU*p.P_DESIGN, 0.0, -p.P_DESIGN])
     base = fea.CASES["keeper"]
-    tab_load = dict(base["loads"][0], force=tab_force)
-    slot_load = dict(select=lambda x: fea.near(x[0], slot_x) & (x[1] >= ylo) & (x[1] <= yhi)
+    tab_load = dict(base["loads"][0], force=tab_force, name="service tab load and drag")
+    slot_load = dict(name="opening sleeve -Y edge patch", select=lambda x: fea.near(x[0], slot_x) & (x[1] >= ylo) & (x[1] <= yhi)
                      & (np.abs(x[2]-pin_z) < patch_height/2),
-                     force=pin_force, application_point=pin_point, plane=(0, slot_x))
-    slot_top = p.SHAFT_Z+p.CRANK_R_MAX+p.PIN_SLOT/2+0.5
+                     force=pin_force, application_point=pin_point, plane=(0, slot_x),
+                     vertex_bands=((1, ylo, yhi),))
+    slot_top = p.SHAFT_Z+p.CRANK_R_MAX+p.PIN_SLOT/2+p.YOKE_SLOT_TOP_EXTRA
     corner_points = [(xx, yy, slot_top) for xx in (slot_x-p.PIN_SLOT, slot_x) for yy in (ylo, yhi)]
     resultants = (tab_force+pin_force,
                   np.cross(fea.TAB_CENTRE, tab_force) + np.cross(pin_point, pin_force))
@@ -65,8 +69,9 @@ def service_opening_case():
                       sleeve_application_point_mm=pin_point.tolist(), assumed_patch_height_mm=patch_height,
                       assumed_patch_width_mm=patch_width, sleeve_eccentricity_y_mm=pin_point[1]-p.YK,
                       angle_deg=angle, radius_mm=radius,
-                      basis="Lowest inspected pin pose; adverse upward slot friction; +Y edge patch; ideal fixed guide patches; nominal CAD sections",
-                      limitations="Assumed finite pressure patch; nominal face cannot reproduce the larger inspected-dimension hand eccentricity; no sliding/contact solution or arbitrary stall load; printed material and loaded release unqualified")
+                      coupled_force_state=load_state,
+                      basis="Coupled inspected-position opening-force envelope and minimum opening pin height; adverse -Y edge patch opposite the widened bridge; nominal CAD with ideal guide restraints",
+                      limitations="The force envelope is applied to the nominal component, with tab friction at its nominal patch; this is not the complete as-built contact state. Assumed finite pressure patch; nominal face cannot reproduce the larger inspected-dimension hand eccentricity; no sliding/contact solution or arbitrary stall load; printed material and loaded release unqualified")
     return case, definition
 
 
@@ -76,18 +81,32 @@ def at_reference_load(result):
 
 
 def main():
+    OUT.mkdir(parents=True, exist_ok=True)
+    analysis_id = uuid.uuid4().hex
+    pending = dict(schema_version=1, analysis_id=analysis_id, case="service_opening_keeper",
+                   numerical_screen_passed=False, status="VALIDATING OR UNRESOLVED")
+    (OUT/"actuation_fea.json").write_text(json.dumps(pending, indent=2))
+    (OUT/"actuation_fea.md").write_text(
+        f"# Service-opening keeper component screen: HOLD\n\n"
+        f"Analysis `{analysis_id}` is pending or unresolved. See `actuation_fea.json` for current progress.\n")
     validate_cad_inputs(HERE.parent, ("keeper",))
     case, definition = service_opening_case()
     files = [Path(__file__).resolve(), HERE/"fea.py", HERE/"load_audit.py", HERE/"linear_solver.py",
-             HERE/"evidence.py", HERE/"risks.py", HERE.parent/"params.py", OUT/"cad.json", OUT/"keeper.step"]
+             HERE/"evidence.py", HERE/"coupled_forces.py", HERE.parent/"params.py", OUT/"cad.json", OUT/"keeper.step"]
     identities = {str(path.relative_to(HERE.parent)): hashlib.sha256(path.read_bytes()).hexdigest() for path in files}
-    analysis_id = uuid.uuid4().hex
-    runs, peaks, stopped = [], [], None
+    runs, peaks, stopped, rejected = [], [], None, []
+    pending.update(source_sha256=identities, status="RUNNING OR UNRESOLVED", rejected_meshes=rejected)
+    (OUT/"actuation_fea.json").write_text(json.dumps(pending, indent=2))
     for h in case["sizes"]:
         print(f"Service-opening keeper: local h={h} mm", flush=True)
         gc.collect()
         try:
             result = fea.run_case(case, h, peaks, reference_load_N=p.P_DESIGN)
+        except fea.InvalidLoadPatch as exc:
+            rejected.append(dict(h_mm=h, reason=str(exc)))
+            print(f"Rejected load-patch mesh: {exc}", flush=True)
+            (OUT/"actuation_fea.json").write_text(json.dumps(pending, indent=2))
+            continue
         except fea.MeshBudgetExceeded as exc:
             if not runs:
                 raise
@@ -99,11 +118,17 @@ def main():
         del field
         peaks.append(result["governing_peak_mm"])
         if runs:
-            result.update(convergence(runs[-1], result))
+            result.update(convergence(runs[-1], result, MIN_LOCAL_REFINEMENT_MM))
+        # Coarse global meshes can share nearly the same curvature-controlled
+        # slot fillet mesh. Require the 0.35 and 0.25 mm local stages before the
+        # observed stability can qualify this marginal corner-stress screen.
+        result.setdefault("converged", False)
         runs.append(result)
         print(json.dumps(at_reference_load(result), indent=1), flush=True)
         if result.get("converged"):
             break
+    if not runs:
+        raise SystemExit("No admissible opening load-patch mesh; numerical screen remains unresolved")
     fine = runs[-1]
     fine.setdefault("converged", False)
     if stopped:
@@ -113,15 +138,19 @@ def main():
                    source_sha256=identities,
                    dependencies={name: version(name) for name in ("numpy", "scipy", "gmsh", "scikit-fem", "pypardiso")},
                    definition=definition, physical_tests_performed=False, numerical_screen_passed=passed,
-                   study=[at_reference_load(r) for r in runs], fine=at_reference_load(fine))
+                   rejected_meshes=rejected, study=[at_reference_load(r) for r in runs], fine=at_reference_load(fine))
     (OUT/"actuation_fea.json").write_text(json.dumps(summary, indent=2))
     status = "PASS" if passed else "HOLD"
+    pin_displacement = fine["load_patches"][1]["pressure_weighted_displacement_mm"]
     (OUT/"actuation_fea.md").write_text(
         f"# Service-opening keeper component screen: {status}\n\n"
         f"Payload force {p.P_DESIGN:.5f} N; sleeve force {definition['sleeve_force_N']} N. "
         f"Strength ratio at this service load: {fine['strength_ratio_at_proof']:.3f}. "
         f"Mesh changes: displacement {fine.get('disp_change_pct', float('nan')):.2f}%, "
         f"governing utilization {fine.get('utilization_change_pct', float('nan')):.2f}%; both must be <=5%.\n\n"
+        f"Local refinement must also reach {MIN_LOCAL_REFINEMENT_MM:g} mm; a stable coarse pair cannot stop the study.\n\n"
+        f"Pressure-weighted sleeve-patch displacement relative to the ideal guide restraints: {pin_displacement} mm. "
+        "This worst-stress pose does not give the release endpoint's travel loss; payload drag ceases after disengagement.\n\n"
         f"{definition['basis']}. {definition['limitations']}. "
         f"The prescribed sleeve patch is {definition['assumed_patch_height_mm']:g} mm high by "
         f"{definition['assumed_patch_width_mm']:g} mm wide, with centroid Y eccentricity "

@@ -15,6 +15,7 @@ def fixture():
     return dict(CALIBRATION, servo_id="TEST FIXTURE ONLY", latched_us=1100,
                 released_us=1900, measured_open_clearance_mm=1.6,
                 measured_full_section_overlap_mm=1.0,
+                measured_latched_angle_deg=180, measured_released_angle_deg=41,
                 signal_verified_5v=True, fit_bounds_inspected=True, operator_accepted=True)
 
 
@@ -70,8 +71,24 @@ class BenchControlTests(unittest.TestCase):
                         {"measured_open_clearance_mm": float("inf")},
                         {"measured_open_clearance_mm": True},
                         {"measured_open_clearance_mm": 1.49},
-                        {"measured_full_section_overlap_mm": 0.49}):
+                        {"measured_full_section_overlap_mm": 0.49},
+                        {"measured_released_angle_deg": 39.99},
+                        {"measured_released_angle_deg": 42.01},
+                        {"measured_released_angle_deg": 44},
+                        {"measured_released_angle_deg": True},
+                        {"measured_released_angle_deg": float("nan")},
+                        {"measured_latched_angle_deg": 176.99},
+                        {"measured_latched_angle_deg": 183.01}):
             self.assertFalse(valid_calibration(dict(fixture(), **changes)))
+
+    def test_measured_angle_endpoints_are_required_and_include_boundaries(self):
+        for latch in (177, 183):
+            for release in (40, 42):
+                self.assertTrue(valid_calibration(dict(fixture(),
+                    measured_latched_angle_deg=latch, measured_released_angle_deg=release)))
+        old = fixture()
+        del old["measured_released_angle_deg"]
+        self.assertFalse(valid_calibration(old))
 
     def test_subminimum_voltage_is_never_extrapolated_into_a_pass(self):
         for v in (4.4, 4.6, 4.8):

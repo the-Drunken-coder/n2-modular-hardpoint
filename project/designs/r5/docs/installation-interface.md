@@ -4,7 +4,7 @@ This record defines what the host integration must supply. It does not design th
 
 ## Mechanical interface
 
-Use the current STEP and `params.py`, in millimeters: X along keeper withdrawal, Y across, Z toward the host. The host plane is `BODY["z"]`; the adapter departs in −Z. The body is 65 × 51 × 20 mm; the servo overhang gives a retained envelope of 65 × 51.4 × 20 mm. Four nominal host bosses are at `(4,4)`, `(61.5,4)`, `(4,47.5)`, `(61.5,47.5)`, giving a 57.5 × 43.5 mm mounting pattern. Adapter holes are at `(1.5,34)`, `(17.5,34)`, `(1.5,45)`, `(17.5,45)`. Check generated geometry before making a mating part.
+Use the current STEP and `params.py`, in millimeters: X along keeper withdrawal, Y across, Z toward the host. The host plane is `BODY["z"]`; the adapter departs in −Z. The body is 72 × 53.5 × 20 mm; the servo overhang gives a retained envelope of 72 × 54.1 × 20 mm. Four nominal host bosses are at `(4,4)`, `(68.5,4)`, `(4,50)`, `(68.5,50)`, giving a 64.5 × 46 mm mounting pattern. Adapter holes are at `(1.5,34)`, `(17.5,34)`, `(1.5,45)`, `(17.5,45)`. Check generated geometry before making a mating part.
 
 Record the actual host/payload fastener type, pilot or thread dimensions, engagement, installation torque, edge distance, material, local stiffness and load spreading. A fixed screw-pilot surface in FEA is an idealization, not proof of real screw pull-out or wing-skin strength. Preserve fastener/tool/cable access and the full moving envelope.
 

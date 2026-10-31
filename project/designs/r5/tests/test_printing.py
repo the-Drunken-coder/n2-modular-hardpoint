@@ -35,14 +35,14 @@ class PrintOrientationTests(unittest.TestCase):
                 self.assertTrue(result.val().isValid())
                 self.assertAlmostEqual(result.val().Volume(), original.val().Volume(), places=6)
                 self.assertAlmostEqual(bed.zmin, 0, places=6)
-                # Keeper height on bed must be its original 5 mm Y breadth,
+                # Keeper height on bed is its full Y breadth, including the cap,
                 # while body and adapter retain their original Z print axes.
                 self.assertAlmostEqual(bed.zlen, source.ylen if name == "keeper" else source.zlen, places=6)
                 self.assertEqual(meta["print_axis_in_assembly"], 1 if name == "keeper" else 2)
                 if expected[name]:
                     self.assertEqual(tuple(round(x, 6) for x in (bed.xlen, bed.ylen, bed.zlen)), expected[name])
                 # A selected original-face point maps exactly to print Z=0.
-                face_z = {"body": source.zmax, "keeper": source.ymax, "adapter": source.zmin}[name]
+                face_z = {"body": source.zmax, "keeper": source.ymin, "adapter": source.zmin}[name]
                 point = [0, face_z, 0, 1] if name == "keeper" else [0, 0, face_z, 1]
                 mapped_z = sum(a*b for a,b in zip(meta["transform_assembly_to_print"][2], point))
                 self.assertAlmostEqual(mapped_z, 0, places=6)

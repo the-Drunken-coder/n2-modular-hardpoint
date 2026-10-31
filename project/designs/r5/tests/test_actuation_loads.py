@@ -12,22 +12,23 @@ import actuation_fea
 
 class ActuationLoadTests(unittest.TestCase):
     def test_opening_case_carries_both_the_tab_and_frictional_pin_moments(self):
-        fit = dict(latch_error_deg=(-3.0, 3.0),
-                   horn_r=(actuation_fea.p.CRANK_R-0.1, actuation_fea.p.CRANK_R+0.1))
+        fit = dict(actuation_fea.p.FIT_BOUNDS)
         with patch.object(actuation_fea.p, "HORN_GROOVE_ENABLED", False, create=True), \
-                patch.object(actuation_fea.p, "FIT_BOUNDS", fit, create=True):
+                patch.object(actuation_fea.p, "FIT_BOUNDS", fit, create=True), \
+                patch.object(actuation_fea.p, "YOKE_SLOT_TOP_EXTRA", 0.8, create=True):
             case, definition = actuation_fea.service_opening_case()
         force, moment = case["source_resultant"]
         pin_force = np.array(definition["sleeve_force_N"])
-        tab_force = np.array([0.0, 0.0, -actuation_fea.p.P_DESIGN])
+        tab_force = np.array([-actuation_fea.p.MU*actuation_fea.p.P_DESIGN, 0.0, -actuation_fea.p.P_DESIGN])
         point = np.array(definition["sleeve_application_point_mm"])
         np.testing.assert_allclose(force, pin_force+tab_force)
         np.testing.assert_allclose(moment, np.cross(point, pin_force)+np.cross(actuation_fea.fea.TAB_CENTRE, tab_force))
         self.assertGreater(pin_force[0], 0)
-        self.assertGreater(point[1], actuation_fea.p.YK)
+        self.assertLess(point[1], actuation_fea.p.YK)
         self.assertAlmostEqual(pin_force[2], actuation_fea.p.MU*pin_force[0])
         self.assertEqual(case["loads"][1]["plane"], (0, point[0]))
-        self.assertAlmostEqual(definition["angle_deg"], actuation_fea.p.A_LATCH+3)
+        self.assertAlmostEqual(definition["angle_deg"], 180.)
+        self.assertEqual(pin_force.tolist(), definition["coupled_force_state"]["sleeve_force_N"])
 
     def test_missing_inspection_envelope_is_not_substituted_with_a_nominal_pose(self):
         with patch.object(actuation_fea.p, "FIT_BOUNDS", {}, create=True):
