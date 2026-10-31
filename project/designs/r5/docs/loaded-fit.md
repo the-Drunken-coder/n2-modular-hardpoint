@@ -34,7 +34,8 @@ outside them. Record actual measurements in the inspection form.
 | Guide/shaft datums relative to the drawing | ±0.10 mm |
 | Yoke and relief-roof surface location | ±0.10 mm each |
 | Actual horn crank radius | 4.90–5.10 mm |
-| Calibrated release angle | 40–50 degrees in the assembly coordinate frame |
+| Calibrated release angle | 40–45 degrees in the assembly coordinate frame |
+| Total pin-sleeve/slot clearance | 0.30–0.50 mm; include up to ±0.25 mm endpoint lost motion |
 | Non-contact yoke roof, horn and head gap through the path | ≥0.50 mm remaining after fit errors |
 
 `cad/clearance.py` computes the angular bound from
@@ -45,7 +46,7 @@ Maximum tilt already consumes guide play; it is not added a second time as a
 full free-play translation. A further 0.10 mm on each opposing non-contact
 surface is reserved before accepting the 0.50 mm gap.
 
-The 200 rigid-pose checks cover ten positions from latch through the release
+The 220 rigid-pose checks cover eleven positions from latch through the release
 endpoint. Intentional bearing contact is excluded only inside a documented
 guide reservation. The complete remaining body, tip pocket, conservative horn
 disk and enlarged center-screw envelope remain obstacles. Roof margin is checked

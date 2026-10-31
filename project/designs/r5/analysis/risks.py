@@ -14,6 +14,7 @@ nonzero if a gate fails. Pure numpy and fast, so it runs in CI.
 """
 import json
 import sys
+from itertools import product
 from math import degrees, pi, radians, sin, sqrt
 from pathlib import Path
 
@@ -42,6 +43,7 @@ MC = dict(
     keeper_len_sd=0.1,          # normal, printed pin-to-tip length
     tab_float=(-p.SOCKET_GAP, p.SOCKET_GAP),   # uniform, tab position in its socket
     tab_t_sd=0.07,              # normal, printed tab thickness
+    pin_slot_clearance=(0.3, 0.5), # assumed total sleeve/slot gap, uniform
 )
 BACKLASH_DEG = 3.0              # MG92B output backlash plus position error at latch, assumed
 
@@ -101,9 +103,10 @@ def monte_carlo():
     dl = rng.normal(0, MC["keeper_len_sd"], n)
     tab = rng.uniform(*MC["tab_float"], n)
     tt = rng.normal(p.TAB_X[1] - p.TAB_X[0], MC["tab_t_sd"], n)
+    slot_half = rng.uniform(*MC["pin_slot_clearance"], n) / 2
     x_pin = lambda a: p.SHAFT_X + dx + r * np.cos(np.radians(a))
-    tip_l = x_pin(p.A_LATCH + e_l) - (L_PIN_TIP + dl)
-    tip_r = x_pin(p.A_RELEASE + e_r) - (L_PIN_TIP + dl)
+    tip_l = x_pin(p.A_LATCH + e_l) - (L_PIN_TIP + dl) + rng.uniform(-1, 1, n) * slot_half
+    tip_r = x_pin(p.A_RELEASE + e_r) - (L_PIN_TIP + dl) + rng.uniform(-1, 1, n) * slot_half
     tab_back = p.TAB_X[0] + tab
     tab_front = tab_back + tt
     floor = p.TIP_LATCHED_X - p.TIP_POCKET                       # tip pocket floor in the body
@@ -114,15 +117,61 @@ def monte_carlo():
     pct = lambda v: {k: float(np.percentile(v, q)) for k, q in (("p0.1", 0.1), ("p50", 50), ("p99.9", 99.9))}
     return dict(
         inputs=MC,
+        interpretation="Synthetic geometric samples under guessed distributions; not a measured reliability probability",
         engagement_mm=pct(engage), spare_travel_mm=pct(spare),
         tip_to_pocket_floor_mm=pct(tip_l - floor),
-        P_partial_engagement_lt_0=float((engage < 0).mean()),
-        P_engagement_below_half_keeper=float((engage < -p.KEEPER_W / 2).mean()),
-        P_tip_hits_pocket_floor=float((tip_l < floor).mean()),
-        P_spare_below_1mm=float((spare < 1.0).mean()),
-        P_no_release=float((tip_r < tab_front).mean()),
+        sample_fraction_partial_engagement=float((engage < 0).mean()),
+        sample_fraction_engagement_below_half_keeper=float((engage < -p.KEEPER_W / 2).mean()),
+        sample_fraction_tip_hits_pocket_floor=float((tip_l < floor).mean()),
+        sample_fraction_spare_below_1mm=float((spare < 1.0).mean()),
+        samples_with_no_geometric_release=int((tip_r < tab_front).sum()),
+        sample_fraction_no_geometric_release=float((tip_r < tab_front).mean()),
         min_pin_to_slot_top_mm=float((slot_top - pz_top).min()),
     )
+
+
+def bounded_fit(bounds=None):
+    """Exact endpoint/extremum check for the declared rigid kinematic model.
+
+    These are inspection limits. They do not cover friction, printed strength,
+    guide rocking, wear, power or departure. CAD loaded-pose checks are separate.
+    """
+    b = dict(p.FIT_BOUNDS if bounds is None else bounds)
+    if not (0 < b["horn_r"][0] <= b["horn_r"][1]
+            and -10 <= b["latch_error_deg"][0] <= 0 <= b["latch_error_deg"][1] <= 10
+            and 0 < p.A_RELEASE + b["release_error_deg"][0]
+            <= p.A_RELEASE + b["release_error_deg"][1] < 90):
+        raise ValueError("bounds leave the monotone angular intervals supported by this check")
+    # cos(alpha) reaches its interior minimum at the 180-degree latch angle.
+    latch_errors = sorted(set((*b["latch_error_deg"], 0.0)))
+    slot_lo, slot_hi = b["pin_slot_clearance_total_mm"]
+    if not 0 <= slot_lo <= slot_hi:
+        raise ValueError("pin/slot clearance bounds must be ordered and nonnegative")
+    half_play = slot_hi / 2
+    rows = []
+    for radius, dx, el, er, dl, tab, dt in product(
+            b["horn_r"], b["servo_dx"], latch_errors, b["release_error_deg"],
+            b["keeper_length_error_mm"], (-p.SOCKET_GAP, p.SOCKET_GAP),
+            b["tab_thickness_error_mm"]):
+        tip_l = p.SHAFT_X + dx + radius * np.cos(np.radians(p.A_LATCH + el)) - (L_PIN_TIP + dl)
+        tip_r = p.SHAFT_X + dx + radius * np.cos(np.radians(p.A_RELEASE + er)) - (L_PIN_TIP + dl)
+        tab_back = p.TAB_X[0] + tab
+        tab_front = p.TAB_X[1] + tab + dt
+        # Closing pushes the keeper toward +X relative to the pin centre;
+        # opening can leave it toward -X. Bound both opposite contact faces,
+        # and also the opposite latch face for pocket-floor clearance.
+        rows.append(dict(full_section_overlap_mm=tab_back - (tip_l + half_play) - b["tip_chamfer_mm"],
+                         spare_after_clearance_mm=(tip_r - half_play) - tab_front - b["open_clearance_reserve_mm"],
+                         tip_to_pocket_floor_mm=(tip_l - half_play) - (p.TIP_LATCHED_X - p.TIP_POCKET)))
+    minima = {key: float(min(row[key] for row in rows)) for key in rows[0]}
+    ok = (minima["full_section_overlap_mm"] >= b["full_section_overlap_min_mm"]
+          and minima["spare_after_clearance_mm"] >= b["spare_after_clearance_min_mm"]
+          and minima["tip_to_pocket_floor_mm"] > 0)
+    return dict(inspection_bounds=b, configurations_checked=len(rows), minima=minima,
+                pin_slot_play_per_endpoint_mm=half_play,
+                rigid_kinematic_bounds_pass=bool(ok),
+                physical_inspection="PENDING: every built assembly must be measured against these limits",
+                excluded="loaded guide rocking, friction/binding, wear, deformation, voltage/current, and payload departure")
 
 
 def dynamics(fea):
@@ -213,18 +262,14 @@ def main():
     OUT.mkdir(exist_ok=True)
     fea_path = OUT / "fea.json"
     fea = json.loads(fea_path.read_text()) if fea_path.exists() else None
-    r = dict(friction=friction_sweep(), derating=derating(), monte_carlo=monte_carlo(),
+    r = dict(friction=friction_sweep(), derating=derating(), monte_carlo=monte_carlo(), bounded_fit=bounded_fit(),
              dynamics=dynamics(fea), unseated_tab=unseated(), hand_stresses=hand_stresses())
     mc, fr, dy, un, hs = r["monte_carlo"], r["friction"], r["dynamics"], r["unseated_tab"], r["hand_stresses"]
     nominal = next(x for x in fr["rows"] if abs(x["mu"] - 0.35) < 1e-9)
     gates = {
         "assumed working margin >= 3 at mu 0.35, 5.0 V": nominal["margin_working"] >= 3,
         "unsupported voltage rows cannot claim a torque pass": all(d["margin_working"] is None for d in r["derating"] if d["volts"] < 5.0),
-        "P(no release) < 1e-4": mc["P_no_release"] < 1e-4,
-        "P(spare travel < 1 mm) < 1e-3": mc["P_spare_below_1mm"] < 1e-3,
-        "P(tip hits pocket floor) < 1e-4": mc["P_tip_hits_pocket_floor"] < 1e-4,
-        "P(partial engagement) < 1e-3": mc["P_partial_engagement_lt_0"] < 1e-3,
-        "pin clears slot top": mc["min_pin_to_slot_top_mm"] > 0,
+        "deterministic rigid kinematics within inspected bounds": r["bounded_fit"]["rigid_kinematic_bounds_pass"],
         "chamfer self-seats a 1 g payload": un["self_seats"],
         "back-drive torque < working / 10": dy["backdrive"]["ratio_working_torque"] > 10,
         "prescribed jam lower-root stress <= design allowable_Z": un["margin_root_vs_allowable_Z"] >= 1,
@@ -245,7 +290,8 @@ def main():
            "| V | stall kgf·cm | working margin |", "|---|---:|---:|"]
     md += [f"| {d['volts']} | {d['stall_kgfcm']:.2f} | {d['margin_working']:.2f} |" if d["supported_by_torque_points"]
            else f"| {d['volts']} | unsupported | NOT QUALIFIED |" for d in r["derating"]]
-    md += ["", "Monte Carlo (" + f"{MC['n']:,}" + " samples):", ""] + [f"- {k}: {v}" for k, v in mc.items() if k != "inputs"]
+    md += ["", "Deterministic fit within the stated inspection limits:", ""] + [f"- {k}: {v}" for k, v in r["bounded_fit"].items()]
+    md += ["", "Synthetic Monte Carlo sensitivity (" + f"{MC['n']:,}" + " guessed-input samples; not measured reliability):", ""] + [f"- {k}: {v}" for k, v in mc.items() if k != "inputs"]
     md += ["", "Dynamics:", ""] + [f"- {k}: {v}" for k, v in dy.items()]
     md += ["", "Unseated tab:", ""] + [f"- {k}: {v}" for k, v in un.items()]
     md += ["", "Hand stresses at 17.8 N:", ""] + [f"- {k}: {v:.2f}" for k, v in hs.items()]

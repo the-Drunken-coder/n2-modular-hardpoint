@@ -23,11 +23,11 @@ python analysis/risks.py       # friction, voltage, tolerance Monte Carlo, dynam
 ## Numbers (from the scripts)
 | Check | Value | Requirement |
 |---|---|---|
-| Keeper sliding fit | 0.4 total | 0.3–0.4 |
+| Keeper sliding fit | 0.4 total | 0.3–0.5 total, inspected |
 | Tab-in-socket gap | 0.4 per side | ≥0.3 |
-| Tab hole to keeper | 0.6 total; 0.3 per side when centered | ≥0.5 total |
+| Tab hole to keeper | 0.6 total (0.3 per side when centered; all vertical clearance below when loaded) | ≥0.5 total |
 | Servo pocket, horn and yoke gaps | ≥0.5 | ≥0.5 |
-| Spare travel beyond 0.5 mm | 2.83 mm (1.87 if the servo stops 15° short) | ≥1 |
+| Spare travel beyond 0.5 mm | 2.33 mm (1.37 if the servo stops 15° short, nominal centered geometry); deterministic check additionally includes pin/slot play | ≥1 |
 | Assumed working-torque margin, 5.0 V, μ 0.35 | 4.00× (8.0× on stall); 50% stall is an assumption | ≥3 |
 | FEA at 17.8 N, lowest margin | 26.2 (adapter, across layers) | ≥1 |
 
@@ -36,7 +36,7 @@ python analysis/risks.py       # friction, voltage, tolerance Monte Carlo, dynam
 |---|---|
 | Friction μ 0.2–0.6, yoke T = F·r(\|sin α\| + μ\|cos α\|) | margin 7.3× → 2.1×; falls to 3× at μ 0.45 |
 | Supply | Manufacturer operating range 5.0–6.6 V; 4.4/4.6/4.8 V are unsupported and cannot pass by extrapolation. Fixed nominal 5 V must be measured at the servo under load. |
-| Tolerance Monte Carlo, 200k (horn radius, stop error, print) | P(no release) 0, P(spare < 1 mm) 2e-5, P(partial engagement) 3.5e-5, tip never hits pocket floor |
+| Tolerance | Deterministic endpoints/extrema over the measured acceptance limits in `params.FIT_BOUNDS`. The separate 200k synthetic draws use guessed distributions and report sample fractions, not measured failure probabilities. |
 | Back-drive at dead centre, 3° backlash, 10 g | 1.65 N·mm, 92× below working torque |
 | Unseated tab | Integral lower-root buttresses are screened against the same 16 MPa across-layer allowable as the structure. This prescribed root-load case does not qualify upper hole contacts or arbitrary mis-seating; complete jam tests remain pending. |
 | Payload mode / rattle | ≈2 kHz on rigid wing; lifts off above 1 g peak, impact 34–68× proof at 2–5 g (undamped, reported only) |
@@ -80,3 +80,25 @@ A latched-position microswitch is not fitted. The keeper is visible from the +Y 
 `viewer_build.sh` (run by the Pages preview) builds `out/viewer/`: all thirteen parts (printed parts, MG92B, stock horn, M2 crank pin, horn centre, ear, wing M3 and adapter-to-payload screws, payload stand-in, ghosted wing), explode vectors, the servo-crank release kinematics from `params.py`, and the FEA colormap from `analysis/fea.py` via `analysis/export_web.py`. Purchased parts are modelled from listing dimensions, not vendor CAD.
 
 Fit note: the horn centre retaining screw (stock M2 pan head) is fitted. The keeper's horn-side face has a groove (head + 0.5 mm all round) so the head passes under the yoke through the whole 180->40 deg sweep; `cad/build.py` checks this at 29 angles.
+
+### Dimensional acceptance and probability limits
+
+The keeper tip is extended by 0.5 mm to preserve full-section overlap across the
+declared dimensional bounds. Inspect the horn radius (5.0 ±0.1 mm), mounted shaft
+X and printed pin-to-tip length (±0.1 mm), latch angle (180 ±3°), release angle
+(40–45°), and tab thickness (4.0 ±0.1 mm). The deterministic check includes the
+entire ±0.4 mm socket float. Require measured guide clearance **0.3–0.5 mm total**
+and guide length **at least 15.8 mm**; use the separate loaded-pose CAD checks.
+Inspect the sleeve/slot gap to **0.3–0.5 mm total**. The check includes its
+worst **±0.25 mm lost motion** with opposite pin contact faces at latch/release;
+it does not assume the pin remains centered in the slot.
+These are acceptance limits, not a claim that every print or stock horn meets
+them. Rework, reject or reassess parts outside them. The calibration record must
+also show the actual latched overlap and open clearance.
+
+The bounded kinematic model must retain at least 0.5 mm of full keeper section
+beyond the tab (excluding the tip chamfer), 1.0 mm additional stroke after the
+0.5 mm open-clearance reserve, and positive pocket-floor clearance. It does not
+model binding, rocking, friction, wear, print defects, power behavior or actual
+payload departure. Synthetic Monte Carlo sample counts supply no physical
+reliability claim, even when a sampled failure count is zero.

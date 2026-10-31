@@ -26,6 +26,7 @@ def results():
         spare_mm=travel - needed - 0.5, spare_15deg_short_mm=short - needed - 0.5,
         slide_total_mm=p.SLIDE, socket_gap_side_mm=p.SOCKET_GAP,
         hole_clearance_mm=(p.HOLE_W - p.KEEPER_W, p.HOLE_H - p.KEEPER_W),
+        hole_clearance_convention="total clearance; half per side only when centered, all below when loaded",
         servo_pocket_gap_mm=p.POCKET_GAP,
         drag_N=f_drag, torque_needed_Nmm=t_need,
         working_torque_Nmm=working, margin_working=working / t_need,

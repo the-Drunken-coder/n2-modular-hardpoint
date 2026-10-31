@@ -25,7 +25,7 @@ YK, ZK = 40.2, 8.0                           # keeper centreline; loaded yaw cle
 KEEPER_W = 5.0                               # Y and Z section
 SLIDE = 0.4                                  # total sliding clearance
 TUNNEL_X = (12.4, 28.4)
-TIP_LATCHED_X = 6.5                          # 1.5 mm past the tab: full engagement under tolerance
+TIP_LATCHED_X = 6.0                          # 0.5 mm extra overlap includes yoke lost motion
 TIP_POCKET = 2.0                             # free space beyond the latched tip
 TIP_POCKET_HALF = 3.7                         # includes loaded pitch/yaw and clearance
 FIT_SLIDE_TOTAL = (0.3, 0.5)                  # inspected finished guide clearance, both axes
@@ -35,7 +35,7 @@ FIT_SURFACE_ERROR = 0.1                      # reserved per opposing non-contact
 MOTION_CLEARANCE = 0.5                       # residual non-contact clearance, mm
 
 # Payload tab (on the adapter)
-TAB_X = (8.0, 12.0)                          # 4 mm thick (survives a stall on an unseated tab)
+TAB_X = (8.0, 12.0)                          # 4 mm upper tab; lower-root jam screen is separate
 TAB_W = 8.0                                  # Y
 TAB_TOP = 14.5
 HOLE_W, HOLE_H = 5.6, 5.6                    # keeper hole, 0.6 clearance (less rattle)
@@ -94,6 +94,18 @@ MU = 0.35
 SERVO_MIN_V, SERVO_MAX_V = 5.0, 6.6          # TowerPro MG92B operating range
 STALL_KGFCM_5V = 3.1                        # manufacturer point; do not extrapolate below 5 V
 WORKING_FRACTION = 0.5                        # working torque = 50 % of stall
+
+# Acceptance bounds to MEASURE, not a claim of printer/vendor accuracy.
+# A part outside these bounds needs adjustment/rebuild and a new fit assessment.
+FIT_BOUNDS = dict(
+    horn_r=(4.9, 5.1), servo_dx=(-0.1, 0.1),
+    latch_error_deg=(-3.0, 3.0), release_error_deg=(0.0, 5.0),
+    keeper_length_error_mm=(-0.1, 0.1), tab_thickness_error_mm=(-0.1, 0.1),
+    guide_clearance_total_mm=(0.3, 0.5), guide_length_min_mm=15.8,
+    pin_slot_clearance_total_mm=(0.3, 0.5),
+    full_section_overlap_min_mm=0.5, spare_after_clearance_min_mm=1.0,
+    open_clearance_reserve_mm=0.5, tip_chamfer_mm=0.5,
+)
 
 
 def keeper_x(alpha_deg, r=CRANK_R):

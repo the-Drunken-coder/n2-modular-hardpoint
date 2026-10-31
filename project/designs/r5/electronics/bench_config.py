@@ -21,5 +21,6 @@ CALIBRATION = {
     "measured_open_clearance_mm": None,
     "measured_full_section_overlap_mm": None,
     "signal_verified_5v": False,
+    "fit_bounds_inspected": False,
     "operator_accepted": False,
 }

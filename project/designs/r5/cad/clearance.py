@@ -49,7 +49,7 @@ def check_loaded_clearance(body, keeper):
     angle = guide_angle()
     # Position at maximum tilt has taken up the sliding play; adding the full
     # free-play translation again would double count it. Datum error remains.
-    angles = (180, 160, 140, 120, 100, 90, 80, 60, 50, 40)
+    angles = (180, 160, 140, 120, 100, 90, 80, 60, 50, 45, 40)
     hs = p.HORN_SCREW
     extra = p.MOTION_CLEARANCE + 2 * p.FIT_SURFACE_ERROR
     screw = ycyl(p.SHAFT_X, p.SHAFT_Z, p.SPLINE_TOP_Y,
@@ -62,7 +62,7 @@ def check_loaded_clearance(body, keeper):
     poses = 0
     for alpha in angles:
         # The inspected horn radius is 5.0 +/-0.1 mm; the calibrated release
-        # endpoint is 40..50 deg. Include both ends and the full nominal path.
+        # endpoint is 40..45 deg. Include both ends and the full nominal path.
         withdrawal = p.keeper_x(alpha, p.CRANK_R_MAX)
         tilted = list(product((-angle, angle), (-angle, angle),
                               (-p.FIT_DATUM_ERROR, p.FIT_DATUM_ERROR),
