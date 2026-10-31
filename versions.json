@@ -7,6 +7,13 @@
   "path": ""
  },
  {
+  "label": "PR #26 (fix/r5-bench-acceptance)",
+  "title": "Define complete-assembly proof, repeated loaded release and installation limits",
+  "sha": "58c4766472cde99a3980be193f66326780747538",
+  "built": "2026-10-31T05:23:47Z",
+  "path": "pr/26/"
+ },
+ {
   "label": "PR #25 (fix/r5-active-baseline)",
   "title": "Select R5 consistently across requirements, status, documentation and viewer",
   "sha": "cf32174b5cbec9efbc3f2ac1ffbc9b084db09fb3",
