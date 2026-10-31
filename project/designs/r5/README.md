@@ -7,7 +7,7 @@ Unpowered retention is **not** a requirement: losing servo power means losing th
 ## Concept and load path
 A printed 5 × 5 mm keeper slides in a 5.4 × 5.4 tunnel in the body and passes through a 5.6 × 5.6 hole in a 4 mm tab on the payload adapter. Payload load goes tab → keeper top → tunnel mouth and back roof → body → 4 M3 self-tapping screws → wing.
 
-The drive is a scotch yoke. A smooth 4 mm metal sleeve, clamped to the stock horn by an M2 through-bolt and locknut, runs in a 4.4 mm vertical slot. Measure the clamped sleeve-center radius at **5.4±0.1 mm**. Latched is 180°; the accepted released endpoint is 40–45°. The 2 mm tip-pocket depth is free travel beyond the latched tip, not bearing overlap. See [assembly and joint details](ASSEMBLY.md).
+The drive is a scotch yoke. A smooth 4 mm metal sleeve, clamped to the stock horn by an M2 through-bolt and locknut, runs in a 4.4 mm vertical slot. Measure the clamped sleeve-center radius at **5.4±0.1 mm**. Latched is 180°; the accepted released endpoint is 40–44°. The 2 mm tip-pocket depth is free travel beyond the latched tip, not bearing overlap. See [assembly and joint details](ASSEMBLY.md).
 
 ## Build and check
 ```
