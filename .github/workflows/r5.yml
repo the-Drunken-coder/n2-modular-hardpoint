@@ -1,0 +1,41 @@
+name: R5 design checks
+
+on:
+  pull_request:
+    paths: ['project/designs/r5/**', 'project/cad/requirements.txt', 'project/analysis/requirements.txt', '.github/workflows/r5.yml']
+  push:
+    branches: [main]
+    paths: ['project/designs/r5/**', 'project/cad/requirements.txt', 'project/analysis/requirements.txt']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  r5:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: project/designs/r5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+      - run: sudo apt-get update && sudo apt-get install -y libgl1 libglu1-mesa libxft2 libxrender1
+      - run: pip install -r ../../cad/requirements.txt -r ../../analysis/requirements.txt -r requirements.txt
+      - run: python cad/build.py
+      - run: python analysis/mechanics.py
+      - run: python analysis/fea.py
+      - run: python analysis/risks.py
+      - run: cat out/fea.md out/risks.md >> "$GITHUB_STEP_SUMMARY"
+        if: always()
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: r5-out-${{ github.run_id }}
+          path: project/designs/r5/out
+          retention-days: 30

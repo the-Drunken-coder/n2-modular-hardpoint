@@ -2,10 +2,12 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Button, ButtonGroup, Checkbox, HTMLSelect, Slider, Switch, Tag } from '@blueprintjs/core';
 import * as T from 'three';
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
+import { toCreasedNormals } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 const SITE_ROOT = import.meta.env.VITE_SITE_ROOT || './';
 const BUILD = { label: import.meta.env.VITE_BUILD_LABEL || 'local build', sha: (import.meta.env.VITE_BUILD_SHA || '').slice(0, 7) };
+const feaBase = d => (d?.p14 ? 'fea/' : `model/${d?.id}/fea/`);
 const short = id => id.replace(/^N2_/, '').replace(/_/g, ' ');
 const STROKE = 3, DROP = 22;            // keeper stroke (mm, manifest actuator), adapter travel shown
 const MOVERS = ['N2_keeper', 'N2_armature']; // pulled +X by the solenoid
@@ -62,10 +64,23 @@ function useScene(el) {
   return st.current;
 }
 
+function label(text) {
+  const cv = document.createElement('canvas'), x = cv.getContext('2d'); cv.width = 512; cv.height = 64;
+  x.fillStyle = 'rgba(17,20,24,0.85)'; x.fillRect(0, 0, 512, 64); x.fillStyle = '#fff'; x.font = 'bold 30px sans-serif'; x.textBaseline = 'middle'; x.fillText(text, 14, 32);
+  const sp = new T.Sprite(new T.SpriteMaterial({ map: new T.CanvasTexture(cv), depthTest: false, transparent: true, sizeAttenuation: false }));
+  sp.scale.set(0.24, 0.03, 1); sp.center.set(0, 0.5); sp.renderOrder = 11; return sp;
+}
+
+function lookAtPeak(s, d, off) {
+  const p = new T.Vector3(...d.peakV).add(off), n = new T.Vector3(...d.peakN);
+  const v = n.clone().add(new T.Vector3(0, 0, n.z > 0.7 ? 0 : 0.35)).normalize();
+  s.oc.target.copy(p); s.cam.position.copy(p).add(v.multiplyScalar(70)); s.oc.update(); s.dirty = true;
+}
+
 function setView(s, bounds, dir) {
   const c = new T.Vector3(...bounds.min).add(new T.Vector3(...bounds.max)).multiplyScalar(0.5);
   const d = new T.Vector3(...bounds.size).length() * 2.1;
-  const v = { iso: [0.75, -1, 0.65], front: [0, -1, 0.0001], top: [0.0001, -0.0001, 1], side: [1, 0, 0.0001] }[dir];
+  const v = { iso: s.isoDir || [0.75, -1, 0.65], front: [0, -1, 0.0001], top: [0.0001, -0.0001, 1], side: [1, 0, 0.0001] }[dir];
   s.oc.target.copy(c); s.cam.position.copy(c).add(new T.Vector3(...v).normalize().multiplyScalar(d)); s.oc.update();
 }
 
@@ -79,7 +94,10 @@ export default function App() {
   const [playing, setPlaying] = useState(false);
   const [hidden, setHidden] = useState({});
   const [group, setGroup] = useState('Z');
-  const [load, setLoad] = useState(17.8);
+  const [feaN, setFeaN] = useState(0);
+  const [focus, setFocus] = useState(new URLSearchParams(location.search).get('fade') !== '0');
+  const [autoScale, setAutoScale] = useState(new URLSearchParams(location.search).get('scale') !== 'abs');
+  const [load, setLoad] = useState(Number(new URLSearchParams(location.search).get('load') || 17.8));
   const [ghost, setGhost] = useState(true);
   const [designs, setDesigns] = useState([]), [design, setDesign] = useState(null), [versions, setVersions] = useState([]);
   const p14 = designs.find(d => d.id === design)?.p14;
@@ -96,7 +114,8 @@ export default function App() {
     for (const m of [...s.parts.values(), ...s.fea.values()]) { s.scene.remove(m); m.geometry.dispose(); }
     s.parts.clear(); s.fea.clear(); setHidden({}); setMan(null); setFea(null);
     fetch(`model/${design}/manifest.json`).then(r => r.json()).then(setMan);
-    if (designs.find(d => d.id === design)?.p14) fetch('fea/index.json').then(r => r.json()).then(setFea);
+    const dd = designs.find(d => d.id === design);
+    if (dd?.p14 || dd?.fea) fetch(`${feaBase(dd)}index.json`).then(r => r.json()).then(setFea);
   }, [design]);
 
   // load assembly STLs
@@ -105,22 +124,30 @@ export default function App() {
     const cur = man.id;
     man.parts.forEach(p => L.load(`model/${man.id}/${p.stl}`, g => {
       if (cur !== s.design) return;
-      g.computeVertexNormals();
-      const m = new T.Mesh(g, new T.MeshStandardMaterial({ color: p.color, metalness: 0.1, roughness: 0.6, side: T.DoubleSide }));
+      const gg = p14 ? (g.computeVertexNormals(), g) : toCreasedNormals(g, Math.PI / 7);
+      const metal = p.kind === 'purchased' && /screw|spline/.test(p.id);
+      const m = new T.Mesh(gg, new T.MeshStandardMaterial({ color: p.color, metalness: metal ? 0.6 : 0.1, roughness: metal ? 0.35 : 0.6, side: T.DoubleSide,
+        transparent: (p.opacity ?? 1) < 1, opacity: p.opacity ?? 1, depthWrite: (p.opacity ?? 1) >= 1 }));
       m.userData.p = p; s.parts.set(p.id, m); s.scene.add(m); s.dirty = true;
     }));
-    setView(s, man.bounds, 'iso');
+    s.isoDir = man.iso; setView(s, man.bounds, 'iso');
   }, [man]);
 
   // load FEA surfaces
   useEffect(() => {
     if (!fea) return;
-    fea.cases.forEach(c => fetch(`fea/${c.part}__${c.case}.json`).then(r => r.json()).then(d => {
+    const fb = feaBase(designs.find(d => d.id === design));
+    fea.cases.forEach(c => fetch(`${fb}${c.part}__${c.case}.json`).then(r => r.json()).then(d => {
       const g = new T.BufferGeometry();
       g.setAttribute('position', new T.Float32BufferAttribute(d.pos, 3)); g.setIndex(d.idx); g.computeVertexNormals();
       g.setAttribute('color', new T.Float32BufferAttribute(new Float32Array(d.pos.length), 3));
       const m = new T.Mesh(g, new T.MeshStandardMaterial({ vertexColors: true, metalness: 0, roughness: 0.75, side: T.DoubleSide }));
-      m.userData = { d, part: c.part }; m.visible = false; s.fea.set(`${c.part}__${c.case}`, m); s.scene.add(m); s.dirty = true;
+      let pi = 0; for (let i = 1; i < d.fi.length; i++) if (d.fi[i] > d.fi[pi]) pi = i;
+      const nrm = g.attributes.normal, ctr = new T.Vector3(); g.computeBoundingBox(); g.boundingBox.getCenter(ctr);
+      const pv = new T.Vector3().fromBufferAttribute(g.attributes.position, pi), pn = new T.Vector3().fromBufferAttribute(nrm, pi);
+      if (pn.dot(pv.clone().sub(ctr)) < 0) pn.negate(); // DoubleSide: orient outward
+      d.peakV = pv.toArray(); d.peakN = pn.normalize().toArray(); d.fiMax = d.fi[pi];
+      m.userData = { d, part: c.part }; m.visible = false; s.fea.set(`${c.part}__${c.case}`, m); s.scene.add(m); s.dirty = true; setFeaN(n => n + 1);
     }));
   }, [fea]);
 
@@ -131,10 +158,23 @@ export default function App() {
     raf = requestAnimationFrame(f); return () => cancelAnimationFrame(raf);
   }, [playing]);
 
-  const shown = mode === 'fea' && p14 && fea ? GROUPS[group].parts : {};
+  const groups = fea?.groups || GROUPS, hasFea = !!fea;
+  const shown = mode === 'fea' && fea && groups[group] ? groups[group].parts : {};
+  const mo = man?.motion, ease = x => x * x * (3 - 2 * x);
+  const alpha = mo ? mo.a_latch + (mo.a_release - mo.a_latch) * ease(Math.min(phase, 1)) : 0;
+  const kx = mo ? mo.r * (Math.cos(alpha * Math.PI / 180) - Math.cos(mo.a_latch * Math.PI / 180)) : 0;
+  const loadMax = fea?.cases ? Math.max(60, Math.ceil(Math.min(...fea.cases.map(c => c.fail_N)) * 1.2)) : 60;
   const k = fea ? 31 / fea.z_tds_MPa : 1;
+  const uMax = Math.max(1e-9, ...[...s.fea.values()].filter(m => shown[m.userData.part] && !hidden[m.userData.part]).map(m => (m.userData.d.fiMax || 0) * load * k));
+  const scale = autoScale ? uMax : 1;
   const rows = fea ? Object.entries(shown).map(([p, c]) => fea.cases.find(x => x.part === p && x.case === c)).filter(Boolean) : [];
   const gov = rows.reduce((a, b) => (!a || b.fail_N < a.fail_N ? b : a), null);
+
+  useEffect(() => { // ?peak=1: frame the governing peak once its surface is loaded
+    if (!gov || mode !== 'fea' || new URLSearchParams(location.search).get('peak') !== '1' || s.peaked) return;
+    const m = s.fea.get(`${gov.part}__${gov.case}`); if (!m?.userData.d.peakV) return;
+    s.peaked = true; s.tick?.(); lookAtPeak(s, m.userData.d, m.position);
+  }, [feaN, gov, mode]);
 
   // per-frame placement + colouring
   s.tick = () => {
@@ -144,6 +184,15 @@ export default function App() {
     const place = (m, id) => {
       const p = man.parts.find(q => q.id === id); const e = p?.explode || [0, 0, 0];
       let x = e[0] * explode, y = e[1] * explode, z = e[2] * explode;
+      if (mo) {
+        if (mo.slide.includes(id)) x += kx;
+        if (mo.drop.includes(id)) z -= mo.drop_mm * drop;
+        if (mo.rotate.includes(id)) { // rotate about the servo axis (Y); +alpha turns X toward Z
+          const th = -(alpha - mo.a_latch) * Math.PI / 180, [px, , pz] = mo.pivot, c = Math.cos(th), sn = Math.sin(th);
+          m.rotation.set(0, th, 0); x += px - (px * c + pz * sn); z += pz - (-px * sn + pz * c);
+        } else m.rotation.set(0, 0, 0);
+        m.position.set(x, y, z); return;
+      }
       if (MOVERS.includes(id)) x += STROKE * retract;
       if (id === 'N2_return_spring') { m.scale.x = 1 - 0.35 * retract; } // compressed by the armature collar
       if (id === 'N2_adapter') z += DROP * drop;
@@ -153,21 +202,24 @@ export default function App() {
       place(m, id);
       const inFea = mode === 'fea' && shown[id];
       m.visible = !hidden[id] && !inFea && (mode === 'model' || ghost);
-      m.material.transparent = mode === 'fea'; m.material.opacity = mode === 'fea' ? 0.12 : 1; m.material.depthWrite = mode !== 'fea';
+      const op = m.userData.p?.opacity ?? 1;
+      m.material.transparent = mode === 'fea' || op < 1; m.material.opacity = mode === 'fea' ? 0.12 * op : op; m.material.depthWrite = mode !== 'fea' && op >= 1;
     }
     s.markers.clear();
     for (const [key, m] of s.fea) {
       const on = shown[m.userData.part] && key === `${m.userData.part}__${shown[m.userData.part]}` && !hidden[m.userData.part];
       m.visible = !!on; if (!on) continue; place(m, m.userData.part);
-      const ck = `${load}|${k}`;
+      const ck = `${load}|${k}|${scale}`;
       if (m.userData.ck !== ck) {
         const col = m.geometry.attributes.color, c = new T.Color(), fi = m.userData.d.fi;
-        for (let i = 0; i < fi.length; i++) { cmap(fi[i] * load * k, c); col.setXYZ(i, c.r, c.g, c.b); }
+        for (let i = 0; i < fi.length; i++) { cmap(fi[i] * load * k / scale, c); col.setXYZ(i, c.r, c.g, c.b); }
         col.needsUpdate = true; m.userData.ck = ck;
       }
-      const d = m.userData.d, isGov = gov && d.part === gov.part;
+      const d = m.userData.d, isGov = gov && d.part === gov.part, fade = focus && gov && !isGov;
+      m.material.transparent = fade; m.material.opacity = fade ? 0.12 : 1; m.material.depthWrite = !fade;
       const mk = new T.Mesh(new T.SphereGeometry(isGov ? 0.9 : 0.6, 20, 14), new T.MeshBasicMaterial({ color: isGov ? 0xffffff : 0xabb3bf, depthTest: false, transparent: true, opacity: 0.95 }));
-      mk.position.set(...d.peak_mm).add(m.position); mk.renderOrder = 10; s.markers.add(mk);
+      mk.position.set(...(d.peakV || d.peak_mm)).add(m.position);
+      if (isGov) { const lb = label(`PEAK ${short(d.part)}: ${(d.fiMax * load * k).toFixed(2)} of limit`); lb.position.copy(mk.position).add(new T.Vector3(...(d.peakN || [0, 0, 1])).multiplyScalar(4)); s.markers.add(lb); } mk.renderOrder = 10; s.markers.add(mk);
       if (isGov) { const ring = new T.Mesh(new T.TorusGeometry(1.6, 0.18, 8, 32), mk.material); ring.position.copy(mk.position); ring.quaternion.copy(s.cam.quaternion); ring.renderOrder = 10; s.markers.add(ring); }
     }
   };
@@ -186,7 +238,7 @@ export default function App() {
         {designs.length > 1 && <HTMLSelect fill value={design || ''} onChange={e => setDesign(e.target.value)} options={designs.map(d => ({ value: d.id, label: d.label }))} />}
         <div className="status">
           <b>N2 hardpoint · {p14 ? fea?.revision || '' : man?.revision || ''}</b><br />
-          {!p14 && man && <>CI-built CAD preview. Exploded view and parts only; FEA and release animation are P14-only for now.</>}
+          {!p14 && man && <>{man.parts.length} parts from CI-built CAD (cad/viewer.py){mo ? ', release driven by the servo crank kinematics.' : '.'}</>}
           {status && <>
             Straight-pull stress screen <b>{status.fail_N.toFixed(2)} N</b> ({short(status.part)} governs). Dividing by SF 2 gives {status.rating_sf2_N.toFixed(2)} N for comparison only.<br />
             <b>No working-load rating assigned.</b> No printed or loaded-release tests recorded.<br />
@@ -195,25 +247,27 @@ export default function App() {
         </div>
         <ButtonGroup fill>
           <Button intent={mode === 'model' ? 'primary' : 'none'} icon="cube" text="Model" onClick={() => setMode('model')} />
-          <Button intent={mode === 'fea' ? 'primary' : 'none'} icon="heat-grid" text="FEA" disabled={!p14} onClick={() => setMode('fea')} />
+          <Button intent={mode === 'fea' ? 'primary' : 'none'} icon="heat-grid" text="FEA" disabled={!hasFea} onClick={() => setMode('fea')} />
         </ButtonGroup>
 
         <h6>Explode</h6>
         <Slider min={0} max={1} stepSize={0.01} labelRenderer={false} value={explode} onChange={setExplode} />
 
-        {p14 && <><h6>Release sequence</h6>
+        {(p14 || mo) && <><h6>Release sequence</h6>
         <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
           <Button small icon={playing ? 'pause' : 'play'} onClick={() => setPlaying(!playing)} />
           <Button small icon="reset" onClick={() => { setPlaying(false); setPhase(0); }} />
           <div style={{ flex: 1, paddingTop: 4 }}><Slider min={0} max={2} stepSize={0.01} labelRenderer={false} value={phase} onChange={v => { setPlaying(false); setPhase(v); }} /></div>
         </div>
-        <div className="status">{phase < 0.02 ? 'Latched: keeper crosses the adapter lug.' : phase <= 1 ? `Solenoid pulls keeper +X ${(STROKE * phase * phase * (3 - 2 * phase)).toFixed(1)} / ${STROKE} mm.` : 'Keeper open; illustrated adapter travel is +Z. Actual clearance requires an external departure force.'} This is a prescribed motion illustration, not a tested release.</div></>}
+        <div className="status">{mo ? (phase < 0.02 ? `Latched: servo ${mo.a_latch}°, keeper through the adapter tab.`
+          : phase <= 1 ? `Servo ${alpha.toFixed(0)}° → ${mo.a_release}°: pin drives the keeper +X ${kx.toFixed(1)} / ${(mo.r * (Math.cos(mo.a_release * Math.PI / 180) - Math.cos(mo.a_latch * Math.PI / 180))).toFixed(1)} mm.`
+          : 'Keeper clear of the tab; adapter and payload drop by gravity.') + ' Kinematics from params.py, not a tested release.' : phase < 0.02 ? 'Latched: keeper crosses the adapter lug.' : phase <= 1 ? `Solenoid pulls keeper +X ${(STROKE * phase * phase * (3 - 2 * phase)).toFixed(1)} / ${STROKE} mm.` : 'Keeper open; illustrated adapter travel is +Z. Actual clearance requires an external departure force.'} {!mo && 'This is a prescribed motion illustration, not a tested release.'}</div></>}
 
         {mode === 'fea' && fea && <>
           <h6>Load case</h6>
-          <HTMLSelect fill value={group} onChange={e => setGroup(e.target.value)} options={Object.entries(GROUPS).map(([v, g]) => ({ value: v, label: g.label }))} />
+          <HTMLSelect fill value={group} onChange={e => setGroup(e.target.value)} options={Object.entries(groups).map(([v, g]) => ({ value: v, label: g.label }))} />
           <h6>Applied load: {load.toFixed(1)} N</h6>
-          <Slider min={1} max={60} stepSize={0.1} labelRenderer={false} value={load} onChange={setLoad} />
+          <Slider min={1} max={loadMax} stepSize={0.1} labelRenderer={false} value={load} onChange={setLoad} />
           <div className="row" style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
             <Button small text={`Design ${fea.design_N} N`} onClick={() => setLoad(fea.design_N)} />
             <Button small text={`Bench target ${fea.required_fail_N} N`} onClick={() => setLoad(fea.required_fail_N)} />
@@ -222,6 +276,9 @@ export default function App() {
             {rows.map(r => <tr key={r.part}><td>{gov === r && '● '}{short(r.part)}</td><td className="n">{r.fail_N} N</td><td className="n">{(r.fail_N / load).toFixed(2)}×</td></tr>)}
           </tbody></table>
           <Switch checked={ghost} label="Ghost other parts" onChange={() => setGhost(!ghost)} />
+          <Switch checked={autoScale} label="Scale colours to peak at this load" onChange={() => setAutoScale(!autoScale)} />
+          <Switch checked={focus} label="Fade parts other than the governing one" onChange={() => setFocus(!focus)} />
+          <Button small icon="locate" text="Look at peak" disabled={!gov} onClick={() => { setFocus(true); const m = s.fea.get(`${gov.part}__${gov.case}`); if (m?.userData.d.peakV) lookAtPeak(s, m.userData.d, m.position); }} />
           <div className="status">{fea.material.toUpperCase()}, {fea.note}</div>
         </>}
 
@@ -240,10 +297,10 @@ export default function App() {
           {['iso', 'front', 'side', 'top'].map(v => <Button key={v} small text={v} onClick={() => setView(s, man.bounds, v)} />)}
         </ButtonGroup>}
         {mode === 'fea' && fea && <div className="legend">
-          Screen utilisation at {load.toFixed(1)} N (1.0 = assumed stress limit)
+          Screen utilisation at {load.toFixed(1)} N {autoScale ? `(colours scaled to peak ${uMax.toFixed(2)}; 1.0 = assumed stress limit)` : '(1.0 = assumed stress limit)'}
           <div className="bar" style={{ background: GRAD }} />
-          <div className="ticks"><span>0</span><span>0.5</span><span>1.0</span><span style={{ color: '#d91ad9' }}>&gt;1</span></div>
-          {gov && <div style={{ marginTop: 4 }}>○ governing peak: {short(gov.part)} at ({gov.peak_mm.join(', ')}) mm</div>}
+          <div className="ticks"><span>0</span><span>{(0.5 * scale).toFixed(2)}</span><span>{scale.toFixed(2)}</span>{!autoScale && <span style={{ color: '#d91ad9' }}>&gt;1</span>}</div>
+          {gov && <div style={{ marginTop: 4 }}>○ governing peak: {short(gov.part)} {(() => { const d = s.fea.get(`${gov.part}__${gov.case}`)?.userData.d; return d?.peakV ? `at (${d.peakV.map(v => v.toFixed(1)).join(', ')}) mm, ${(d.fiMax * load * k).toFixed(3)} of limit` : ''; })()}</div>}
         </div>}
         <div className="hint">Drag: orbit · scroll: zoom to cursor · right-drag: pan · double-click: orbit around point</div>
       </div>

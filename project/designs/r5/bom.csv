@@ -1,0 +1,12 @@
+item,qty,part,notes
+1,1,Body (printed PAHT-CF),print wing face down
+2,1,Keeper 5x5 bar (printed PAHT-CF),print on its side
+3,1,Payload adapter with tab (printed PAHT-CF),print flat; 4 countersunk holes
+4,1,TowerPro MG92B servo,https://www.adafruit.com/product/2307; stock single-arm horn
+5,1,M2x8 pan head screw A2,crank pin; threads into horn outer hole
+6,4,M3x12 pan head self-tapping screw for plastic,wing into body bosses (3 mm skin)
+7,1,Servo extension lead 30 cm JR,https://www.adafruit.com/product/972
+8,1,M2x4 pan head horn centre screw,supplied with servo; runs under keeper groove
+9,2,Servo ear screws,supplied with servo
+10,4,M3x10 countersunk self-tapping screw for plastic,adapter to payload
+11,25 g,PAHT-CF filament 1.75 mm,https://us.store.bambulab.com/products/paht-cf
