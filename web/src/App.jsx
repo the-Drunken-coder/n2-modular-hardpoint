@@ -8,6 +8,25 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 const SITE_ROOT = import.meta.env.VITE_SITE_ROOT || './';
 const BUILD = { label: import.meta.env.VITE_BUILD_LABEL || 'local build', sha: (import.meta.env.VITE_BUILD_SHA || '').slice(0, 7) };
 const feaBase = d => (d?.p14 ? 'fea/' : `model/${d?.id}/fea/`);
+const Q = new URLSearchParams(location.search);
+const THIS_PATH = (location.pathname.match(/\/(pr\/\d+\/)/) || [])[1] || '';   // '' = main
+const verPath = c => (!c || c === 'main' ? '' : c.replace(/^\/+|\/+$/g, '') + '/');
+const DIFF = { added: '#32a467', removed: '#e76a6e', changed: '#f0b726', moved: '#4c90f0', same: '#738091' };
+// same triangle count and bbox size, different position -> moved; otherwise changed
+const shapeKey = sg => { const v = sg.split(','); return [v[0], ...[0, 1, 2].map(k => (v[4 + k] - v[1 + k]).toFixed(2))].join(','); };
+// geometry signature: triangle count + bbox + centroid, rounded to 0.01 mm
+function sig(g) {
+  const a = g.attributes.position, n = a.count; g.computeBoundingBox(); const b = g.boundingBox;
+  let cx = 0, cy = 0, cz = 0; for (let i = 0; i < n; i++) { cx += a.getX(i); cy += a.getY(i); cz += a.getZ(i); }
+  const r = v => (Math.round(v * 100) / 100).toFixed(2);
+  return [n / 3, ...b.min.toArray(), ...b.max.toArray(), cx / n, cy / n, cz / n].map((v, i) => (i ? r(v) : v)).join(',');
+}
+function motionOf(man, phase) {
+  const mo = man?.motion, ease = x => x * x * (3 - 2 * x);
+  const alpha = mo ? mo.a_latch + (mo.a_release - mo.a_latch) * ease(Math.min(phase, 1)) : 0;
+  const kx = mo ? mo.r * (Math.cos(alpha * Math.PI / 180) - Math.cos(mo.a_latch * Math.PI / 180)) : 0;
+  return { mo, alpha, kx };
+}
 const short = id => id.replace(/^N2_/, '').replace(/_/g, ' ');
 const STROKE = 3, DROP = 22;            // keeper stroke (mm, manifest actuator), adapter travel shown
 const MOVERS = ['N2_keeper', 'N2_armature']; // pulled +X by the solenoid
@@ -34,7 +53,7 @@ function useScene(el) {
     const d = new T.DirectionalLight(0xffffff, 1.6); d.position.set(60, -40, 90); scene.add(d);
     const d2 = new T.DirectionalLight(0xffffff, 0.6); d2.position.set(-50, 60, -30); scene.add(d2);
     const cam = new T.PerspectiveCamera(35, 1, 0.1, 3000); cam.up.set(0, 0, 1);
-    st.current = { scene, cam, parts: new Map(), fea: new Map(), markers: new T.Group() };
+    st.current = { scene, cam, parts: new Map(), cparts: new Map(), fea: new Map(), markers: new T.Group() };
     scene.add(st.current.markers);
   }
   useEffect(() => {
@@ -101,6 +120,14 @@ export default function App() {
   const [ghost, setGhost] = useState(true);
   const [designs, setDesigns] = useState([]), [design, setDesign] = useState(null), [versions, setVersions] = useState([]);
   const p14 = designs.find(d => d.id === design)?.p14;
+  // compare mode: other version loaded from its published gh-pages path (main root or pr/<n>/)
+  const [cmp, setCmp] = useState(Q.get('compare') ? verPath(Q.get('compare')) : null);
+  const [cmpMan, setCmpMan] = useState(null), [cmpFea, setCmpFea] = useState(null), [cmpErr, setCmpErr] = useState('');
+  const [cmpView, setCmpView] = useState(Q.get('view') === 'side' ? 'side' : 'overlay');
+  const [diffCol, setDiffCol] = useState(Q.get('diffcolors') !== '0'), [onlyChanged, setOnlyChanged] = useState(false);
+  const [nLoaded, setNLoaded] = useState(0);
+  const otherIsBase = THIS_PATH !== '';                 // on a PR build the other version is the baseline
+  const cmpBase = cmp === null ? null : SITE_ROOT + cmp;
 
   useEffect(() => {
     fetch('model/designs.json').then(r => r.json()).then(ds => {
@@ -112,7 +139,8 @@ export default function App() {
   useEffect(() => {
     if (!design) return;
     for (const m of [...s.parts.values(), ...s.fea.values()]) { s.scene.remove(m); m.geometry.dispose(); }
-    s.parts.clear(); s.fea.clear(); setHidden({}); setMan(null); setFea(null);
+    for (const m of s.cparts.values()) { s.scene.remove(m); m.geometry.dispose(); }
+    s.parts.clear(); s.fea.clear(); s.cparts.clear(); setHidden({}); setMan(null); setFea(null); setCmpMan(null); setCmpFea(null); setCmpErr('');
     fetch(`model/${design}/manifest.json`).then(r => r.json()).then(setMan);
     const dd = designs.find(d => d.id === design);
     if (dd?.p14 || dd?.fea) fetch(`${feaBase(dd)}index.json`).then(r => r.json()).then(setFea);
@@ -128,10 +156,58 @@ export default function App() {
       const metal = p.kind === 'purchased' && /screw|spline/.test(p.id);
       const m = new T.Mesh(gg, new T.MeshStandardMaterial({ color: p.color, metalness: metal ? 0.6 : 0.1, roughness: metal ? 0.35 : 0.6, side: T.DoubleSide,
         transparent: (p.opacity ?? 1) < 1, opacity: p.opacity ?? 1, depthWrite: (p.opacity ?? 1) >= 1 }));
-      m.userData.p = p; s.parts.set(p.id, m); s.scene.add(m); s.dirty = true;
+      m.userData.p = p; m.userData.sig = sig(g); s.parts.set(p.id, m); s.scene.add(m); s.dirty = true; setNLoaded(n => n + 1);
     }));
     s.isoDir = man.iso; setView(s, man.bounds, 'iso');
   }, [man]);
+
+  // compare: fetch the other version's manifest, FEA index and STLs
+  useEffect(() => {
+    for (const m of s.cparts.values()) { s.scene.remove(m); m.geometry.dispose(); }
+    s.cparts.clear(); setCmpMan(null); setCmpFea(null); setCmpErr('');
+    const u = new URL(location.href);
+    if (cmp === null) u.searchParams.delete('compare'); else u.searchParams.set('compare', cmp ? cmp.replace(/\/$/, '') : 'main');
+    history.replaceState(null, '', u);
+    if (cmp === null || !design) return;
+    const dd = designs.find(d => d.id === design), base = `${cmpBase}model/${design}/`, tag = `${cmp}|${design}`; s.ctag = tag;
+    fetch(`${base}manifest.json`, { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(cm => {
+      if (s.ctag !== tag) return; setCmpMan(cm); const L = new STLLoader();
+      cm.parts.forEach(p => L.load(`${base}${p.stl}`, g => {
+        if (s.ctag !== tag) return;
+        const gg = dd?.p14 ? (g.computeVertexNormals(), g) : toCreasedNormals(g, Math.PI / 7);
+        const m = new T.Mesh(gg, new T.MeshStandardMaterial({ color: p.color, metalness: 0.1, roughness: 0.6, side: T.DoubleSide }));
+        m.userData = { p, sig: sig(g), other: true }; s.cparts.set(p.id, m); s.scene.add(m); setNLoaded(n => n + 1);
+      }));
+    }).catch(e => s.ctag === tag && setCmpErr(`No ${design} model at ${cmp || 'main'} (${e.message})`));
+    const fb = dd?.p14 ? `${cmpBase}fea/` : `${base}fea/`;
+    if (dd?.p14 || dd?.fea) fetch(`${fb}index.json`, { cache: 'no-store' }).then(r => r.json()).then(f => s.ctag === tag && setCmpFea(f)).catch(() => {});
+  }, [cmp, design, designs]);
+
+  // per-part diff: baseline (A) vs proposed (B)
+  const A = otherIsBase ? s.cparts : s.parts, B = otherIsBase ? s.parts : s.cparts;
+  const diff = useMemo(() => {
+    if (cmp === null || !cmpMan || !man) return null;
+    const ids = [...new Set([...(otherIsBase ? cmpMan : man).parts.map(p => p.id), ...(otherIsBase ? man : cmpMan).parts.map(p => p.id)])];
+    const out = {};
+    for (const id of ids) {
+      const a = A.get(id), b = B.get(id), inA = (otherIsBase ? cmpMan : man).parts.some(p => p.id === id), inB = (otherIsBase ? man : cmpMan).parts.some(p => p.id === id);
+      out[id] = !inA ? 'added' : !inB ? 'removed' : !a || !b ? 'loading' : a.userData.sig === b.userData.sig ? 'same' : shapeKey(a.userData.sig) === shapeKey(b.userData.sig) ? 'moved' : 'changed';
+      if (out[id] === 'changed' || out[id] === 'moved') { const [sa, sb] = [a, b].map(m => m.geometry.boundingBox.getSize(new T.Vector3()));
+        out[id + '#d'] = `${sa.toArray().map(v => v.toFixed(1)).join('×')} → ${sb.toArray().map(v => v.toFixed(1)).join('×')} mm, tris ${a.userData.sig.split(',')[0]}→${b.userData.sig.split(',')[0]}`; }
+    }
+    return out;
+  }, [cmp, cmpMan, man, nLoaded]);
+  // side by side: baseline on the screen-left of the default iso view, proposed on the right
+  const lr = (man?.iso || [0.75, -1])[1] > 0 ? 1 : -1;
+  const sideDx = man && cmpMan ? Math.max(man.bounds.size[0], cmpMan.bounds.size[0]) * 1.35 * (otherIsBase ? lr : -lr) : 0;
+  const frame = (dir = 'iso') => {
+    if (!man) return;
+    if (!(cmp !== null && cmpView === 'side' && cmpMan)) return setView(s, man.bounds, dir);
+    const o = sideDx, mn = [...man.bounds.min], mx = [...man.bounds.max];
+    mn[0] = Math.min(mn[0], mn[0] + o); mx[0] = Math.max(mx[0], mx[0] + o);
+    setView(s, { min: mn, max: mx, size: mx.map((v, i) => v - mn[i]) }, dir);
+  };
+  useEffect(() => { frame(); }, [cmpView, !!cmpMan]);
 
   // load FEA surfaces
   useEffect(() => {
@@ -181,8 +257,9 @@ export default function App() {
     if (!man) return;
     const ease = x => x * x * (3 - 2 * x), ph = phase;
     const retract = ease(Math.min(ph, 1)), drop = ease(Math.max(0, Math.min(ph - 1, 1)));
-    const place = (m, id) => {
-      const p = man.parts.find(q => q.id === id); const e = p?.explode || [0, 0, 0];
+    const place = (m, id, M = man, mot = { mo, alpha, kx }, dx = 0) => {
+      const { mo, alpha, kx } = mot;
+      const p = M.parts.find(q => q.id === id); const e = p?.explode || [0, 0, 0];
       let x = e[0] * explode, y = e[1] * explode, z = e[2] * explode;
       if (mo) {
         if (mo.slide.includes(id)) x += kx;
@@ -191,12 +268,24 @@ export default function App() {
           const th = -(alpha - mo.a_latch) * Math.PI / 180, [px, , pz] = mo.pivot, c = Math.cos(th), sn = Math.sin(th);
           m.rotation.set(0, th, 0); x += px - (px * c + pz * sn); z += pz - (-px * sn + pz * c);
         } else m.rotation.set(0, 0, 0);
-        m.position.set(x, y, z); return;
+        m.position.set(x + dx, y, z); return;
       }
       if (MOVERS.includes(id)) x += STROKE * retract;
       if (id === 'N2_return_spring') { m.scale.x = 1 - 0.35 * retract; } // compressed by the armature collar
       if (id === 'N2_adapter') z += DROP * drop;
-      m.position.set(x, y, z);
+      m.position.set(x + dx, y, z);
+    };
+    const cmpOn = cmp !== null && diff && mode === 'model', side = cmpView === 'side';
+    const paint = (m, id, isBase) => { // diff colouring; returns visibility
+      const st = diff[id], op = m.userData.p?.opacity ?? 1, mat = m.material;
+      if (!m.userData.c0) m.userData.c0 = mat.color.clone();
+      if (onlyChanged && st === 'same') return false;
+      const col = diffCol ? (st === 'same' ? DIFF.same : isBase ? (st === 'removed' || st === 'changed' || st === 'moved' ? DIFF.removed : DIFF.same) : DIFF[st] || DIFF.same) : null;
+      col ? mat.color.set(col) : mat.color.copy(m.userData.c0);
+      // overlay: baseline drawn as a translucent ghost; unchanged proposed parts dimmed so changes stand out
+      const o = !side && isBase ? (st === 'same' ? 0 : 0.28) : !side && diffCol && st === 'same' ? 0.3 : op;
+      mat.transparent = o < 1; mat.opacity = o; mat.depthWrite = o >= 1; mat.wireframe = !side && isBase && st === 'changed';
+      return o > 0;
     };
     for (const [id, m] of s.parts) {
       place(m, id);
@@ -204,8 +293,19 @@ export default function App() {
       m.visible = !hidden[id] && !inFea && (mode === 'model' || ghost);
       const op = m.userData.p?.opacity ?? 1;
       m.material.transparent = mode === 'fea' || op < 1; m.material.opacity = mode === 'fea' ? 0.12 * op : op; m.material.depthWrite = mode !== 'fea' && op >= 1;
+      if (cmpOn) { m.visible = m.visible && paint(m, id, !otherIsBase); m.material.wireframe = m.material.wireframe && m.visible; }
+      else if (m.userData.c0) { m.material.color.copy(m.userData.c0); m.material.wireframe = false; }
+    }
+    if (cmpMan) {
+      const mot = motionOf(cmpMan, ph), dx = side ? sideDx : 0;
+      for (const [id, m] of s.cparts) {
+        place(m, id, cmpMan, mot, dx); m.visible = !!cmpOn && !hidden[id] && paint(m, id, otherIsBase);
+      }
     }
     s.markers.clear();
+    if (cmp !== null && cmpMan && mode === 'model' && side) for (const [t, dx] of [[`BASELINE: ${baseLabel}`, otherIsBase ? sideDx : 0], [`PROPOSED: ${propLabel}`, otherIsBase ? 0 : sideDx]]) {
+      const lb = label(t); lb.position.set(man.bounds.min[0] + dx, man.bounds.min[1], man.bounds.max[2] + 14); s.markers.add(lb);
+    }
     for (const [key, m] of s.fea) {
       const on = shown[m.userData.part] && key === `${m.userData.part}__${shown[m.userData.part]}` && !hidden[m.userData.part];
       m.visible = !!on; if (!on) continue; place(m, m.userData.part);
@@ -224,7 +324,24 @@ export default function App() {
     }
   };
 
-  const ids = man?.parts.map(p => p.id) || [];
+  const ids = [...new Set([...(man?.parts.map(p => p.id) || []), ...(cmp !== null && cmpMan ? cmpMan.parts.map(p => p.id) : [])])];
+  const pcol = id => (man.parts.find(p => p.id === id) || cmpMan.parts.find(p => p.id === id)).color;
+  const verLabel = path => (versions.find(v => v.path === path)?.label || (path ? path.replace(/\/$/, '') : 'main'));
+  const thisLabel = verLabel(THIS_PATH), otherLabel = cmp === null ? '' : verLabel(cmp);
+  const baseLabel = otherIsBase ? otherLabel : thisLabel, propLabel = otherIsBase ? thisLabel : otherLabel;
+  const minFail = f => f?.cases?.filter(c => c.in_scope !== false && c.case === 'Z').reduce((a, b) => (!a || b.fail_N < a.fail_N ? b : a), null);
+  const feaRows = (() => { const [fa, fb] = otherIsBase ? [cmpFea, fea] : [fea, cmpFea]; if (!fa && !fb) return [];
+    const r = [], ga = minFail(fa), gb = minFail(fb);
+    if (ga || gb) r.push(['Straight-pull screen (min)', ga ? `${ga.fail_N} N (${short(ga.part)})` : '–', gb ? `${gb.fail_N} N (${short(gb.part)})` : '–', ga && gb ? gb.fail_N - ga.fail_N : null]);
+    const parts = [...new Set([...(fa?.cases || []), ...(fb?.cases || [])].filter(c => c.case === 'Z').map(c => c.part))];
+    for (const p of parts) { const a = fa?.cases.find(c => c.part === p && c.case === 'Z'), b = fb?.cases.find(c => c.part === p && c.case === 'Z');
+      r.push([`  ${short(p)} Z`, a ? `${a.fail_N} N` : '–', b ? `${b.fail_N} N` : '–', a && b ? b.fail_N - a.fail_N : null]); }
+    for (const k of ['design_N', 'required_fail_N', 'material']) if ((fa?.[k] ?? '') !== (fb?.[k] ?? '')) r.push([k, fa?.[k] ?? '–', fb?.[k] ?? '–', null]);
+    return r; })();
+  const motRows = (() => { const [ma, mb] = otherIsBase ? [cmpMan, man] : [man, cmpMan]; if (!ma || !mb) return [];
+    const flat = m => ({ parts: m.parts.length, ...Object.fromEntries(Object.entries(m.motion || {}).filter(([, v]) => typeof v === 'number')), ...Object.fromEntries((m.bounds?.size || []).map((v, i) => ['envelope ' + 'XYZ'[i], +v.toFixed(1)])) });
+    const a = flat(ma), b = flat(mb); return Object.keys({ ...a, ...b }).map(k => [k, a[k] ?? '–', b[k] ?? '–', typeof a[k] === 'number' && typeof b[k] === 'number' ? +(b[k] - a[k]).toFixed(3) : null]); })();
+  const nChanged = diff ? Object.entries(diff).filter(([k, v]) => !k.includes('#') && v !== 'same' && v !== 'loading').length : 0;
   const status = fea && (() => { const z = fea.cases.filter(c => c.in_scope && c.case === 'Z'); const g = z.reduce((a, b) => (b.fail_N < a.fail_N ? b : a)); return g; })();
 
   return (
@@ -249,6 +366,32 @@ export default function App() {
           <Button intent={mode === 'model' ? 'primary' : 'none'} icon="cube" text="Model" onClick={() => setMode('model')} />
           <Button intent={mode === 'fea' ? 'primary' : 'none'} icon="heat-grid" text="FEA" disabled={!hasFea} onClick={() => setMode('fea')} />
         </ButtonGroup>
+
+        <h6>Compare</h6>
+        <HTMLSelect fill value={cmp === null ? '__off' : cmp} onChange={e => setCmp(e.target.value === '__off' ? null : e.target.value)}
+          options={[{ value: '__off', label: 'Off (this version only)' }, ...(versions.length ? versions : [{ path: '', label: 'main' }]).filter(v => v.path !== THIS_PATH)
+            .map(v => ({ value: v.path, label: `${otherIsBase ? 'Baseline' : 'Proposed'}: ${v.label}${v.title ? ` — ${v.title}` : ''}` }))]} />
+        {cmp !== null && <>
+          <div className="status">Baseline <Tag minimal>{baseLabel}</Tag> → proposed <Tag minimal intent="warning">{propLabel}</Tag>
+            {cmpErr && <><br /><span style={{ color: DIFF.removed }}>{cmpErr}</span></>}
+            {diff && <><br /><b>{nChanged}</b> of {Object.keys(diff).filter(k => !k.includes('#')).length} parts differ (by part name; geometry compared by triangle count, bounding box and centroid).</>}</div>
+          <ButtonGroup fill>
+            <Button small intent={cmpView === 'overlay' ? 'primary' : 'none'} text="Overlay" onClick={() => setCmpView('overlay')} />
+            <Button small intent={cmpView === 'side' ? 'primary' : 'none'} text="Side by side" onClick={() => setCmpView('side')} />
+          </ButtonGroup>
+          <Switch checked={diffCol} label="Colour by change" onChange={() => setDiffCol(!diffCol)} />
+          <Switch checked={onlyChanged} label="Hide unchanged parts" onChange={() => setOnlyChanged(!onlyChanged)} />
+          <div className="status">{Object.entries(DIFF).map(([k, c]) => <span key={k} style={{ marginRight: 8 }}><span className="swatch" style={{ background: c }} />{k}</span>)}<br />
+            {cmpView === 'overlay' ? 'Overlay: baseline drawn as a red ghost (wireframe where changed).' : 'Side by side: baseline left, proposed right; one camera.'}</div>
+          {diff && <table className="fea"><thead><tr><th>Part</th><th>Change</th></tr></thead><tbody>
+            {Object.entries(diff).filter(([k, v]) => !k.includes('#') && v !== 'same').map(([k, v]) => <tr key={k} title={diff[k + '#d'] || ''}><td>{short(k)}</td><td style={{ color: DIFF[v] }}>{v}{diff[k + '#d'] && <div style={{ color: '#abb3bf', fontSize: 10 }}>{diff[k + '#d']}</div>}</td></tr>)}
+          </tbody></table>}
+          {[...feaRows, ...motRows.filter(r => r[1] !== r[2])].length > 0 && <table className="fea"><thead><tr><th>Key value</th><th>Base</th><th>Prop.</th><th>Δ</th></tr></thead><tbody>
+            {[...feaRows, ...motRows.filter(r => r[1] !== r[2])].map(([k, a, b, d]) => <tr key={k}><td>{k}</td><td className="n">{String(a)}</td><td className="n">{String(b)}</td>
+              <td className="n" style={{ color: d > 0 ? DIFF.added : d < 0 ? DIFF.removed : undefined }}>{d === null ? '' : (d > 0 ? '+' : '') + (+d.toFixed(2))}</td></tr>)}
+          </tbody></table>}
+          {mode === 'fea' && <div className="status">Compare overlay is shown in Model mode; FEA shows this version.</div>}
+        </>}
 
         <h6>Explode</h6>
         <Slider min={0} max={1} stepSize={0.01} labelRenderer={false} value={explode} onChange={setExplode} />
@@ -285,7 +428,7 @@ export default function App() {
         <h6>Parts</h6>
         <div className="parts">
           {ids.map(id => <Checkbox key={id} checked={!hidden[id]} onChange={() => setHidden(h => ({ ...h, [id]: !h[id] }))}
-            labelElement={<span><span className="swatch" style={{ background: man.parts.find(p => p.id === id).color }} />{short(id)}</span>} />)}
+            labelElement={<span><span className="swatch" style={{ background: diff && diffCol ? DIFF[diff[id]] || DIFF.same : pcol(id) }} />{short(id)}</span>} />)}
         </div>
         <div style={{ display: 'flex', gap: 4 }}>
           <Button small text="All" onClick={() => setHidden({})} />
@@ -294,7 +437,7 @@ export default function App() {
       </div>
       <div className="stage" ref={el}>
         {man && <ButtonGroup className="views" minimal>
-          {['iso', 'front', 'side', 'top'].map(v => <Button key={v} small text={v} onClick={() => setView(s, man.bounds, v)} />)}
+          {['iso', 'front', 'side', 'top'].map(v => <Button key={v} small text={v} onClick={() => frame(v)} />)}
         </ButtonGroup>}
         {mode === 'fea' && fea && <div className="legend">
           Screen utilisation at {load.toFixed(1)} N {autoScale ? `(colours scaled to peak ${uMax.toFixed(2)}; 1.0 = assumed stress limit)` : '(1.0 = assumed stress limit)'}
