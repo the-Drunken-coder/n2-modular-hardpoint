@@ -5,12 +5,5 @@
   "sha": "1c8ddb56e255e607811296f48d10db7c47aa0aa1",
   "built": "2026-10-31T02:42:25Z",
   "path": ""
- },
- {
-  "label": "PR #28 (viewer-compare)",
-  "title": "Viewer: compare a PR against main (overlay / side by side, highlighted changes)",
-  "sha": "69c09487e644f812a12b058240a844e0b77c6f99",
-  "built": "2026-10-31T10:28:00Z",
-  "path": "pr/28/"
  }
 ]
